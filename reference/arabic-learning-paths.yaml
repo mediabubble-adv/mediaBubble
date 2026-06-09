@@ -1,0 +1,1129 @@
+# Arabic Language & Cultural Competencies — MediaBubble Learning Paths
+# Version: 2.0
+# Taxonomy reference: reference/arabic-competency-taxonomy.md
+# Proficiency scale: 1=Novice, 2=Elementary, 3=Intermediate, 4=Advanced, 5=Distinguished
+
+metadata:
+  proficiencyScale:
+    1: "Novice — can identify/recognize basic concepts"
+    2: "Elementary — can perform with guidance"
+    3: "Intermediate — can perform independently on standard material"
+    4: "Advanced — can handle complex material, analyze/critique"
+    5: "Distinguished — can teach, create original work, lead"
+  defaultGateLevel: 2
+  defaultCompletionLevel: 3
+
+# =============================================================================
+# TRACK DEFINITIONS
+# =============================================================================
+# Each track is a themed learning pathway through the taxonomy.
+# Nodes within a track list: the taxonomy node ID, the minimum level required
+# to pass, and the provenance/gate that unlocks this node.
+# =============================================================================
+
+tracks:
+
+  # ---------------------------------------------------------------------------
+  # Track A — Foundational Arabic Linguistics (the core sciences of language)
+  # ---------------------------------------------------------------------------
+  - id: A
+    name: "Foundational Arabic Linguistics"
+    nameAr: "العلوم العربية الأساسية"
+    description: >
+      The four pillars of the Arabic linguistic tradition — phonetics,
+      morphology, syntax, and rhetoric — plus prosody. This track is the
+      gateway to virtually every other branch. All other tracks depend on
+      at least some level of A.
+    color: "#1a73e8"
+    icon: "linguistics"
+    tracksUnlocked: [B, C, D, E, F, G, H, I, J, K, L, M, N, O]
+
+    nodes:
+      - id: "8.5"
+        sequence: 1
+        description: "ʿIlm al-Ṣawtiyyāt — Phonetics & Phonology"
+        requiredLevel: 3
+        prerequisites: []
+        unlockNotes: "No prerequisites — the universal entry point"
+
+      - id: "8.2"
+        sequence: 2
+        description: "ʿIlm al-Ṣarf — Morphology (root-pattern system, verb forms)"
+        requiredLevel: 3
+        prerequisites: ["8.5@2"]
+        unlockNotes: "Weak roots (mithāl, ajwaf, nāqiṣ) are the hardest gate — budget extra time"
+
+      - id: "8.1"
+        sequence: 3
+        description: "ʿIlm al-Naḥw — Syntax & Grammar (Iʿrāb, ʿĀmil theory)"
+        requiredLevel: 3
+        prerequisites: ["8.5@2", "8.2@1"]
+        unlockNotes: "Dependency parsing (Iʿrāb) is the critical skill — gates access to Quran, fiqh, literature, translation"
+
+      - id: "8.3"
+        sequence: 4
+        description: "ʿIlm al-Balāgha — Rhetoric (Maʿānī + Bayān + Badīʿ)"
+        requiredLevel: 3
+        prerequisites: ["8.1@2", "8.2@1"]
+        unlockNotes: "Overlap with exegesis (tafsīr) and literary criticism — the bridge skill"
+
+      - id: "8.4"
+        sequence: 5
+        description: "ʿIlm al-ʿArūḍ — Prosody & Rhyme"
+        requiredLevel: 2
+        prerequisites: ["8.1@1", "8.2@1", "8.5@1"]
+        unlockNotes: "Optional for most paths; required for classical poetry and computational scansion"
+
+  # ---------------------------------------------------------------------------
+  # Track B — Dialectal Arabic
+  # ---------------------------------------------------------------------------
+  - id: B
+    name: "Dialectal Arabic"
+    nameAr: "اللهجات العربية"
+    description: >
+      Acquire proficiency in one or more spoken Arabic varieties.
+      Begins with sociolinguistic awareness and diglossia management,
+      then deepens into a chosen dialect.
+    color: "#e8711a"
+    icon: "dialect"
+    tracksUnlocked: [G, I, H]
+
+    nodes:
+      - id: "1.9"
+        sequence: 1
+        description: "Sociolinguistics & Dialectology"
+        requiredLevel: 2
+        prerequisites: ["8.5@2"]
+        unlockNotes: "Diglossia theory (Ferguson) is the conceptual foundation"
+
+      - id: "1.1"
+        sequence: 2
+        description: "Egyptian / Masrī"
+        requiredLevel: 3
+        prerequisites: ["1.9@1", "8.5@1"]
+        unlockNotes: "High media exposure — spoken by ~100M; most accessible for learners"
+
+      - id: "1.4"
+        sequence: 2
+        description: "Levantine / Shāmī"
+        requiredLevel: 3
+        prerequisites: ["1.9@1", "8.5@1"]
+        unlockNotes: "Strong diaspora presence; key for Palestinian/Lebanese/Jordanian content"
+
+      - id: "1.2"
+        sequence: 2
+        description: "Saudi / KSA"
+        requiredLevel: 3
+        prerequisites: ["1.9@1", "8.5@1"]
+        unlockNotes: "Includes Najdī, Ḥijāzī, Eastern Province varieties"
+
+      - id: "1.3"
+        sequence: 2
+        description: "Emirati / Emārātī"
+        requiredLevel: 3
+        prerequisites: ["1.9@1", "8.5@1"]
+
+      - id: "1.5"
+        sequence: 2
+        description: "Maghrebi / Darija"
+        requiredLevel: 3
+        prerequisites: ["1.9@1", "8.5@1"]
+
+      - id: "1.6"
+        sequence: 2
+        description: "Iraqi / Mesopotamian"
+        requiredLevel: 3
+        prerequisites: ["1.9@1", "8.5@1"]
+
+      - id: "1.7"
+        sequence: 2
+        description: "Sudanese"
+        requiredLevel: 3
+        prerequisites: ["1.9@1", "8.5@1"]
+
+      - id: "1.8"
+        sequence: 3
+        description: "Other Varieties (Yemeni, Omani, Bahraini, Hassāniyya, etc.)"
+        requiredLevel: 2
+        prerequisites: ["1.9@1", "8.5@1"]
+
+      - id: "1.10"
+        sequence: 4
+        description: "Cross-Dialectal Competencies"
+        requiredLevel: 3
+        prerequisites: ["1.1@2", "1.4@2", "1.9@2"]
+        unlockNotes: "Capstone — passive comprehension across 3+ varieties, register switching"
+
+  # ---------------------------------------------------------------------------
+  # Track C — Lexicography & Semantics
+  # ---------------------------------------------------------------------------
+  - id: C
+    name: "Lexicography & Semantics"
+    nameAr: "المعاجم وعلم الدلالة"
+    description: >
+      Deep knowledge of Arabic dictionaries, etymology (ishtiqāq),
+      semantic nuance (al-furūq al-lughawiyya), and corpus methods.
+    color: "#34a853"
+    icon: "lexicon"
+    tracksUnlocked: [D, J, M]
+
+    nodes:
+      - id: "3.4"
+        sequence: 1
+        description: "Lexicographical Methods"
+        requiredLevel: 2
+        prerequisites: ["8.1@2"]
+        unlockNotes: "Learn how Arabic dictionaries are organized (root-based, phonetic, modern)"
+
+      - id: "3.1"
+        sequence: 2
+        description: "Lexical Definitions"
+        requiredLevel: 2
+        prerequisites: ["3.4@1", "8.1@1", "8.2@1"]
+        unlockNotes: "Navigate Lisān al-ʿArab, Tāj al-ʿArūs, al-Wasīṭ, specialized dictionaries"
+
+      - id: "3.2"
+        sequence: 3
+        description: "Etymology (Ishtiqāq)"
+        requiredLevel: 3
+        prerequisites: ["3.1@1", "8.2@2"]
+        unlockNotes: "Three types: ṣaghīr (derivational), kabīr (permutational), akbar (semantic field)"
+
+      - id: "3.3"
+        sequence: 4
+        description: "Semantic Nuances (al-Furūq al-Lughawiyya)"
+        requiredLevel: 3
+        prerequisites: ["3.2@1", "8.3@1", "8.1@2"]
+        unlockNotes: "The art of near-synonym discrimination — essential for Quranic study and translation"
+
+      - id: "3.5"
+        sequence: 5
+        description: "Corpus Linguistics"
+        requiredLevel: 3
+        prerequisites: ["3.4@1", "11.1@1"]
+        unlockNotes: "Computational bridge — frequency lists, concordances, Arabic corpora"
+
+  # ---------------------------------------------------------------------------
+  # Track D — Quranic Studies
+  # ---------------------------------------------------------------------------
+  - id: D
+    name: "Quranic Studies"
+    nameAr: "الدراسات القرآنية"
+    description: >
+      From phonetics through Tajwīd to advanced Tafsīr and ʿUlūm
+      al-Qurʾān. Foundational for Islamic sciences, translation,
+      and cultural literacy.
+    color: "#1b5e20"
+    icon: "quran"
+    tracksUnlocked: [E, G, K]
+
+    nodes:
+      - id: "2.1.2"
+        sequence: 1
+        description: "Reading & Deciphering Proficiency"
+        requiredLevel: 1
+        prerequisites: ["8.1@1", "8.5@1"]
+        unlockNotes: "Learn to read unvoweled Quranic text fluently"
+
+      - id: "2.1.1"
+        sequence: 2
+        description: "Tajwīd (Recitation Rules)"
+        requiredLevel: 3
+        prerequisites: ["2.1.2@1", "8.5@2"]
+        unlockNotes: "Makhārij, ṣifāt, aḥkām — mastery of articulation points"
+
+      - id: "2.1.3"
+        sequence: 3
+        description: "ʿUlūm al-Qurʾān (Quranic Sciences)"
+        requiredLevel: 3
+        prerequisites: ["2.1.2@2", "8.1@1"]
+        unlockNotes: "Asbāb al-nuzūl, nāsikh wa-mansūkh, Makkī/Madanī, iʿjāz"
+
+      - id: "2.2"
+        sequence: 4
+        description: "Tafsīr (Exegesis)"
+        requiredLevel: 3
+        prerequisites: ["2.1.3@2", "8.3@2", "3.2@1"]
+        unlockNotes: "Bi-al-maʾthūr (Ṭabarī, Ibn Kathīr) then bi-al-raʾy (Zamakhsharī, Rāzī)"
+
+      - id: "2.2.2"
+        sequence: 5
+        description: "Contemporary Tafsīr Approaches"
+        requiredLevel: 3
+        prerequisites: ["2.2@2"]
+        unlockNotes: "Thematic, maqāṣid-oriented, scientific, feminist hermeneutics"
+
+  # ---------------------------------------------------------------------------
+  # Track E — Islamic Sciences
+  # ---------------------------------------------------------------------------
+  - id: E
+    name: "Islamic Sciences"
+    nameAr: "العلوم الإسلامية"
+    description: >
+      The post-Quranic Islamic disciplines: Hadith, Fiqh & Usul,
+      Kalam, Tasawwuf, and Falsafa. Builds on Quranic foundations.
+    color: "#2e7d32"
+    icon: "islamic"
+    tracksUnlocked: [O, K]
+
+    nodes:
+      - id: "2.3.1"
+        sequence: 1
+        description: "Sīra (Prophetic Biography)"
+        requiredLevel: 2
+        prerequisites: ["6.1@1"]
+        unlockNotes: "Pre-Islamic context → Makkan → Madīnan periods"
+
+      - id: "2.3.3"
+        sequence: 2
+        description: "Caliphal & Dynastic Eras"
+        requiredLevel: 2
+        prerequisites: ["2.3.1@1"]
+        unlockNotes: "Rāshidūn → Umayyad → ʿAbbāsid → Andalusī → Mamlūk → Ottoman"
+
+      - id: "2.4"
+        sequence: 3
+        description: "ʿUlūm al-Ḥadīth (Hadith Sciences)"
+        requiredLevel: 3
+        prerequisites: ["2.1.2@2", "2.3.1@2", "8.1@2"]
+        unlockNotes: "Muṣṭalaḥ, jarḥ wa-taʿdīl, kutub al-sitta, asānīd — heavy but rewarding"
+
+      - id: "2.5.1"
+        sequence: 4
+        description: "Uṣūl al-Fiqh (Legal Theory)"
+        requiredLevel: 3
+        prerequisites: ["2.4@2", "2.1.3@2"]
+        unlockNotes: "Qurʾān → Sunna → Ijmāʿ → Qiyās → secondary sources"
+
+      - id: "2.5.2"
+        sequence: 5
+        description: "Fiqh al-Madhāhib (School Jurisprudence)"
+        requiredLevel: 3
+        prerequisites: ["2.5.1@2"]
+        unlockNotes: "Ḥanafī, Mālikī, Shāfiʿī, Ḥanbalī, Jaʿfarī, Ibāḍī"
+
+      - id: "2.6"
+        sequence: 6
+        description: "ʿIlm al-Kalām (Theology)"
+        requiredLevel: 3
+        prerequisites: ["2.4@1", "2.1.3@1", "2.8@1"]
+        unlockNotes: "Ashʿarī, Māturīdī, Muʿtazilī debates on qadar, khalq al-Qurʾān, ruʾyat Allāh"
+
+      - id: "2.7"
+        sequence: 7
+        description: "al-Taṣawwuf (Sufism)"
+        requiredLevel: 3
+        prerequisites: ["2.1.3@1", "2.8@1", "8.3@1"]
+        unlockNotes: "Ibn ʿArabī, al-Ghazālī, Junayd, ṭuruq, waḥdat al-wujūd"
+
+      - id: "2.8"
+        sequence: 8
+        description: "al-Falsafa al-ʿArabiyya (Arabic Philosophy)"
+        requiredLevel: 3
+        prerequisites: ["6.3@2", "8.1@2"]
+        unlockNotes: "Mashshāʾiyya → Ishrāqiyya → contemporary. Standalone branch — can be taken earlier"
+
+  # ---------------------------------------------------------------------------
+  # Track F — Arabic Literature
+  # ---------------------------------------------------------------------------
+  - id: F
+    name: "Arabic Literature"
+    nameAr: "الأدب العربي"
+    description: >
+      From pre-Islamic odes to the contemporary novel. Covers
+      classical poetry and prose, modern genres, folk traditions,
+      and literary criticism.
+    color: "#c62828"
+    icon: "literature"
+    tracksUnlocked: [G, I]
+
+    nodes:
+      - id: "9.1"
+        sequence: 1
+        description: "Classical Poetry"
+        requiredLevel: 3
+        prerequisites: ["8.3@1", "8.4@1", "6.3@1"]
+        unlockNotes: "Jāhilī → Umayyad → ʿAbbāsid → Andalusī. Memorize al-Muʿallaqāt selections"
+
+      - id: "9.2"
+        sequence: 2
+        description: "Classical Prose"
+        requiredLevel: 3
+        prerequisites: ["8.1@2", "8.3@1", "6.3@1"]
+        unlockNotes: "Adab encyclopedias, Maqāmāt, Rihla, popular epics, 1001 Nights"
+
+      - id: "9.3"
+        sequence: 3
+        description: "Modern & Contemporary Literature"
+        requiredLevel: 3
+        prerequisites: ["9.1@1", "9.2@1", "6.5@1"]
+        unlockNotes: "Nahḍa → Mahjar → modern novel → resistance lit → women's writing"
+
+      - id: "9.3.3"
+        sequence: 4
+        description: "Modern Poetry (Free Verse & Prose Poetry)"
+        requiredLevel: 3
+        prerequisites: ["9.3@1", "8.4@1"]
+
+      - id: "9.3.4"
+        sequence: 5
+        description: "The Novel (al-Riwāya)"
+        requiredLevel: 3
+        prerequisites: ["9.3@1"]
+        unlockNotes: "Maḥfūẓ → Ṭayyib Ṣāliḥ → Kanafānī → Khūrī → women novelists"
+
+      - id: "9.3.7"
+        sequence: 6
+        description: "Literary Criticism (al-Naqd al-Adabī)"
+        requiredLevel: 3
+        prerequisites: ["9.1@2", "9.3@2", "8.3@2"]
+
+      - id: "9.4"
+        sequence: 7
+        description: "Folk & Oral Traditions"
+        requiredLevel: 2
+        prerequisites: ["9.1@1", "1.1@1", "1.4@1"]
+        unlockNotes: "Sīra shaʿbiyya, Mawwāl, Zajal, Nabati poetry, proverbs"
+
+  # ---------------------------------------------------------------------------
+  # Track G — Translation & Interpretation
+  # ---------------------------------------------------------------------------
+  - id: G
+    name: "Translation & Interpretation"
+    nameAr: "الترجمة والتحرير الفوري"
+    description: >
+      From translation theory and specialized domains through literary
+      and audiovisual translation to conference interpreting and
+      localization technology.
+    color: "#6a1b9a"
+    icon: "translation"
+    tracksUnlocked: [J]
+
+    nodes:
+      - id: "10.1"
+        sequence: 1
+        description: "Translation Theory (Arabic-specific)"
+        requiredLevel: 3
+        prerequisites: ["8.1@2", "8.3@2", "3.3@1"]
+        unlockNotes: "Bayt al-Ḥikma heritage, equivalence, domestication/foreignization, ideology"
+
+      - id: "10.3"
+        sequence: 2
+        description: "Specialized Translation"
+        requiredLevel: 3
+        prerequisites: ["10.1@1", "3.1@1"]
+        unlockNotes: "Choose one or more: legal, medical, financial, technical, media"
+
+      - id: "10.4"
+        sequence: 3
+        description: "Literary Translation"
+        requiredLevel: 4
+        prerequisites: ["10.1@2", "9.1@1", "9.2@1", "9.3@1"]
+        unlockNotes: "Highest difficulty — requires literature background"
+
+      - id: "10.5"
+        sequence: 4
+        description: "Audiovisual Translation"
+        requiredLevel: 3
+        prerequisites: ["10.1@1", "1.10@1", "8.3@1"]
+        unlockNotes: "Subtitling, dubbing, accessibility — heavy dialectal component"
+
+      - id: "10.2"
+        sequence: 5
+        description: "Conference & Diplomatic Interpreting"
+        requiredLevel: 4
+        prerequisites: ["10.1@2", "1.10@2", "8.3@2"]
+
+      - id: "10.6"
+        sequence: 6
+        description: "Qurʾānic & Religious Translation"
+        requiredLevel: 4
+        prerequisites: ["10.1@2", "2.1@2", "2.2@1"]
+        unlockNotes: "Untranslatability debates, major English Quran translations"
+
+      - id: "10.7"
+        sequence: 7
+        description: "Localization & Technology"
+        requiredLevel: 3
+        prerequisites: ["10.1@1", "11.5@1", "11.1@1"]
+        unlockNotes: "RTL, CAT tools, MT post-editing, game localization"
+
+      - id: "10.8"
+        sequence: 8
+        description: "Ethics & Professional Practice"
+        requiredLevel: 2
+        prerequisites: ["10.2@1", "10.5@1"]
+        unlockNotes: "Codes of conduct, conflict zones, court ethics, censorship"
+
+  # ---------------------------------------------------------------------------
+  # Track H — Teaching Arabic (TAFL)
+  # ---------------------------------------------------------------------------
+  - id: H
+    name: "Teaching Arabic as a Foreign Language (TAFL)"
+    nameAr: "تعليم العربية للناطقين بغيرها"
+    description: >
+      The pedagogical track — acquisition theory, curriculum design,
+      proficiency assessment, heritage learners, classroom technology,
+      and teacher training.
+    color: "#f57c00"
+    icon: "teaching"
+    tracksUnlocked: []
+
+    nodes:
+      - id: "12.1"
+        sequence: 1
+        description: "Pedagogical Foundations"
+        requiredLevel: 3
+        prerequisites: ["8.1@2", "8.2@1", "8.5@1"]
+        unlockNotes: "SLA theory for Arabic, diglossia challenge, contrastive analysis"
+
+      - id: "12.2"
+        sequence: 2
+        description: "Curricula & Materials"
+        requiredLevel: 3
+        prerequisites: ["12.1@2"]
+        unlockNotes: "Al-Kitāb, Bayna Yadayk, CEFR/ACTFL alignment, ASP"
+
+      - id: "12.3"
+        sequence: 3
+        description: "Assessment & Proficiency"
+        requiredLevel: 3
+        prerequisites: ["12.1@1", "12.2@1"]
+        unlockNotes: "ACTFL OPI, CEFR, ALPT, computer-adaptive testing for Arabic"
+
+      - id: "12.4"
+        sequence: 4
+        description: "Heritage Learners"
+        requiredLevel: 3
+        prerequisites: ["12.1@1", "1.9@1", "6.8@1"]
+        unlockNotes: "Diaspora profiles, curriculum design for heritage, language maintenance"
+
+      - id: "12.5"
+        sequence: 5
+        description: "Classroom Methods & Technology"
+        requiredLevel: 2
+        prerequisites: ["12.1@1", "12.2@1"]
+        unlockNotes: "CLT, TBLT, Arabic EdTech apps, study abroad programs"
+
+      - id: "12.6"
+        sequence: 6
+        description: "Teacher Training"
+        requiredLevel: 4
+        prerequisites: ["12.1@3", "12.2@2", "12.3@2", "12.5@2"]
+        unlockNotes: "Capstone — certification, native/non-native dynamics, reflective practice"
+
+  # ---------------------------------------------------------------------------
+  # Track I — Media & Journalism
+  # ---------------------------------------------------------------------------
+  - id: I
+    name: "Media & Journalism"
+    nameAr: "الإعلام والصحافة"
+    description: >
+      The Arab media landscape: press history, satellite broadcasting,
+      news discourse analysis, digital/social media, journalism
+      practice, and advertising.
+    color: "#00838f"
+    icon: "media"
+    tracksUnlocked: []
+
+    nodes:
+      - id: "14.3"
+        sequence: 1
+        description: "Arabic News Language & Discourse"
+        requiredLevel: 3
+        prerequisites: ["8.1@2", "8.3@2"]
+        unlockNotes: "Headline conventions, broadcast Arabic register, framing analysis"
+
+      - id: "14.1"
+        sequence: 2
+        description: "Arab Press History"
+        requiredLevel: 2
+        prerequisites: ["6.4@1", "6.5@1"]
+
+      - id: "14.2"
+        sequence: 3
+        description: "Pan-Arab Satellite Media"
+        requiredLevel: 2
+        prerequisites: ["14.1@1", "6.6@1"]
+        unlockNotes: "Al Jazeera effect, Al Arabiya, state-owned channels, soft power"
+
+      - id: "14.4"
+        sequence: 4
+        description: "Digital & Social Media"
+        requiredLevel: 3
+        prerequisites: ["14.3@1", "6.7@1"]
+        unlockNotes: "Hashtag activism, Arabizi, disinformation, platform moderation"
+
+      - id: "14.5"
+        sequence: 5
+        description: "Television & Radio"
+        requiredLevel: 2
+        prerequisites: ["14.2@1"]
+        unlockNotes: "Ramadan musalsalāt, religious broadcasting, talk shows, podcasting"
+
+      - id: "14.6"
+        sequence: 6
+        description: "Journalism Training & Practice"
+        requiredLevel: 3
+        prerequisites: ["14.3@1", "14.4@1", "14.5@1"]
+        unlockNotes: "Conflict reporting, investigative journalism, data journalism, ethics"
+
+      - id: "14.7"
+        sequence: 7
+        description: "Arab Advertising & Public Relations"
+        requiredLevel: 2
+        prerequisites: ["14.2@1", "14.3@1", "4.6@1"]
+        unlockNotes: "Ramadan campaigns, nation branding, government communication"
+
+  # ---------------------------------------------------------------------------
+  # Track J — Digital & Computational Arabic
+  # ---------------------------------------------------------------------------
+  - id: J
+    name: "Digital & Computational Arabic"
+    nameAr: "اللغة العربية الرقمية والحاسوبية"
+    description: >
+      The intersection of Arabic linguistics with NLP, speech
+      technology, OCR, Unicode typography, information retrieval,
+      and LLMs.
+    color: "#1565c0"
+    icon: "digital"
+    tracksUnlocked: []
+
+    nodes:
+      - id: "11.5"
+        sequence: 1
+        description: "Arabic Typography & Unicode"
+        requiredLevel: 2
+        prerequisites: ["5.3@1", "5.2@1"]
+        unlockNotes: "Unicode block, BiDi algorithm, OpenType shaping, font design"
+
+      - id: "11.2"
+        sequence: 2
+        description: "Arabic Corpora & Resources"
+        requiredLevel: 2
+        prerequisites: ["3.5@1", "13.5@1"]
+        unlockNotes: "OpenITI, Shamela, arabicorpus, treebanks, WordNet"
+
+      - id: "11.1"
+        sequence: 3
+        description: "Arabic Natural Language Processing"
+        requiredLevel: 3
+        prerequisites: ["8.2@2", "8.1@1", "11.2@1"]
+        unlockNotes: "Tokenization, morphological analysis, POS tagging, parsing, NER, sentiment"
+
+      - id: "11.3"
+        sequence: 4
+        description: "Arabic Speech Technology"
+        requiredLevel: 3
+        prerequisites: ["8.5@2", "11.1@2"]
+        unlockNotes: "ASR, TTS, speaker ID, diacritization — hardest sub-field"
+
+      - id: "11.4"
+        sequence: 5
+        description: "Arabic Script & OCR"
+        requiredLevel: 3
+        prerequisites: ["5.3@1", "8.5@1", "11.5@1"]
+        unlockNotes: "Historical document digitization, handwriting recognition"
+
+      - id: "11.6"
+        sequence: 6
+        description: "Arabic Information Retrieval"
+        requiredLevel: 3
+        prerequisites: ["11.1@1", "8.2@1"]
+        unlockNotes: "Stemming, search relevance, spell-checking, cross-lingual IR"
+
+      - id: "11.7"
+        sequence: 7
+        description: "Arabic LLMs & Generative AI"
+        requiredLevel: 3
+        prerequisites: ["11.1@3", "11.2@2", "11.6@1"]
+        unlockNotes: "AraBERT, Jais, CamelBERT, prompt engineering, dialectal fine-tuning"
+
+      - id: "11.8"
+        sequence: 8
+        description: "Arabic Input & Interaction"
+        requiredLevel: 2
+        prerequisites: ["11.5@1", "11.3@1"]
+        unlockNotes: "Keyboard layouts, Arabizi, voice assistants, accessibility tech"
+
+  # ---------------------------------------------------------------------------
+  # Track K — Cultural & Religious Literacy
+  # ---------------------------------------------------------------------------
+  - id: K
+    name: "Cultural & Religious Literacy"
+    nameAr: "الثقافة الدينية والمدنية"
+    description: >
+      Holidays, observances, minority communities, social etiquette,
+      and folk traditions across the Arab world.
+    color: "#8d6e63"
+    icon: "culture"
+    tracksUnlocked: []
+
+    nodes:
+      - id: "4.1"
+        sequence: 1
+        description: "Islamic Holidays & Observances"
+        requiredLevel: 2
+        prerequisites: ["2.1.2@1", "2.3.1@1"]
+        unlockNotes: "Ramadan, ʿĪds, Mawlid, ʿĀshūrāʾ, sacred nights"
+
+      - id: "4.2"
+        sequence: 2
+        description: "Christian Holidays in Arab Context"
+        requiredLevel: 2
+        prerequisites: ["4.5.1@1"]
+        unlockNotes: "Coptic/Eastern/Western calendars, local traditions"
+
+      - id: "4.3"
+        sequence: 3
+        description: "Holiday Periods (ʿAṭāl al-Aʿyād)"
+        requiredLevel: 2
+        prerequisites: ["4.1@1", "4.2@1"]
+        unlockNotes: "Official calendars, social etiquette, media schedules, retail culture, diaspora"
+
+      - id: "4.4"
+        sequence: 4
+        description: "National & Folk Traditions"
+        requiredLevel: 2
+        prerequisites: ["6.5@1"]
+        unlockNotes: "National days, folk dance, dress, hospitality, lifecycle rituals"
+
+      - id: "4.5"
+        sequence: 5
+        description: "Minority Religious & Ethnic Communities"
+        requiredLevel: 2
+        prerequisites: ["4.1@1", "6.5@1"]
+        unlockNotes: "Arab Christians, Druze, ʿAlawī, Yazīdī, Mandaean, Jewish heritage"
+
+      - id: "4.6"
+        sequence: 6
+        description: "Cultural Etiquette & Social Codes"
+        requiredLevel: 2
+        prerequisites: ["4.4@1"]
+        unlockNotes: "Honor/shame, hospitality, gift-giving, ʿurf, gender norms"
+
+  # ---------------------------------------------------------------------------
+  # Track L — Aesthetics & Visual Arts
+  # ---------------------------------------------------------------------------
+  - id: L
+    name: "Aesthetics & Visual Arts"
+    nameAr: "الجماليات والفنون البصرية"
+    description: >
+      The visual culture of the Arab world: traditional and
+      contemporary art, design, calligraphy, and performing arts.
+    color: "#ad1457"
+    icon: "arts"
+    tracksUnlocked: [J]
+
+    nodes:
+      - id: "5.1"
+        sequence: 1
+        description: "Arabic Art"
+        requiredLevel: 2
+        prerequisites: []
+        unlockNotes: "Geometric patterns, arabesque, illumination, woodwork, ceramics — no linguistics prereqs"
+
+      - id: "5.3"
+        sequence: 2
+        description: "Arabic Calligraphy"
+        requiredLevel: 3
+        prerequisites: ["5.1@1", "8.5@1"]
+        unlockNotes: "10 script families. Naskh and Ruqʿa are the practical entry points"
+
+      - id: "5.2"
+        sequence: 3
+        description: "Arabic Design"
+        requiredLevel: 3
+        prerequisites: ["5.1@1", "5.3@1"]
+        unlockNotes: "Typography, RTL UI/UX, spatial design, architectural elements"
+
+      - id: "5.4"
+        sequence: 4
+        description: "Music & Performing Arts"
+        requiredLevel: 2
+        prerequisites: ["4.4@1"]
+        unlockNotes: "Maqām theory, classical forms, instruments, cinema, theatre, dance"
+
+  # ---------------------------------------------------------------------------
+  # Track M — Manuscripts & Critical Editing
+  # ---------------------------------------------------------------------------
+  - id: M
+    name: "Manuscripts & Critical Editing"
+    nameAr: "المخطوطات والتحقيق"
+    description: >
+      The scholarly tradition of editing and publishing Arabic
+      manuscripts: codicology, paleography, textual criticism,
+      bibliography, and digital humanities.
+    color: "#4e342e"
+    icon: "manuscript"
+    tracksUnlocked: [J]
+
+    nodes:
+      - id: "13.3"
+        sequence: 1
+        description: "Arabic Paleography"
+        requiredLevel: 3
+        prerequisites: ["5.3@1", "8.5@1", "6.1@1"]
+        unlockNotes: "Letter-form evolution, regional script families, dating undated manuscripts"
+
+      - id: "13.2"
+        sequence: 2
+        description: "Arabic Codicology"
+        requiredLevel: 2
+        prerequisites: ["13.3@1"]
+        unlockNotes: "Paper, binding, collation, provenance, waqf notes"
+
+      - id: "13.1"
+        sequence: 3
+        description: "Textual Criticism & Edition Methodology (Taḥqīq)"
+        requiredLevel: 3
+        prerequisites: ["8.1@2", "8.2@1", "9.2@1"]
+        unlockNotes: "Recension, apparatus criticus, edition types — the core skill"
+
+      - id: "13.4"
+        sequence: 4
+        description: "Bibliographic Tradition (al-Fihris)"
+        requiredLevel: 2
+        prerequisites: ["13.1@1", "13.3@1"]
+        unlockNotes: "Ibn al-Nadīm, Ḥājjī Khalīfa, Brockelmann, Sezgin"
+
+      - id: "13.5"
+        sequence: 5
+        description: "Digital Humanities"
+        requiredLevel: 3
+        prerequisites: ["13.1@1", "13.4@1", "11.1@1", "11.2@1"]
+        unlockNotes: "OpenITI, digitization, IIIF, computational paleography"
+
+      - id: "13.6"
+        sequence: 6
+        description: "Archival & Preservation"
+        requiredLevel: 2
+        prerequisites: ["13.2@1", "13.4@1"]
+        unlockNotes: "Ottoman archives, documentary heritage, conservation"
+
+  # ---------------------------------------------------------------------------
+  # Track N — Historical Context
+  # ---------------------------------------------------------------------------
+  - id: N
+    name: "Historical Context"
+    nameAr: "السياق التاريخي للوطن العربي"
+    description: >
+      The political and social history of the Arab world from
+      pre-Islamic Arabia through the present day, including
+      diaspora and migration.
+    color: "#3e2723"
+    icon: "history"
+    tracksUnlocked: [E, F, I, K]
+
+    nodes:
+      - id: "6.1"
+        sequence: 1
+        description: "Pre-Islamic Arabia"
+        requiredLevel: 2
+        prerequisites: []
+        unlockNotes: "Ancient kingdoms, epigraphy, Jāhilī poetry — no linguistics prereqs"
+
+      - id: "6.2"
+        sequence: 2
+        description: "Rise of Islam & Early Conquests"
+        requiredLevel: 2
+        prerequisites: ["6.1@1"]
+
+      - id: "6.3"
+        sequence: 3
+        description: "The Islamic Golden Age"
+        requiredLevel: 2
+        prerequisites: ["6.2@1"]
+        unlockNotes: "Bayt al-Ḥikma, translation movement, Arabic as scientific language"
+
+      - id: "6.4"
+        sequence: 4
+        description: "The Ottoman Era & Nahḍa"
+        requiredLevel: 2
+        prerequisites: ["6.3@1"]
+
+      - id: "6.5"
+        sequence: 5
+        description: "Colonial & Post-Colonial Period"
+        requiredLevel: 3
+        prerequisites: ["6.4@1"]
+        unlockNotes: "Sykes-Picot, mandates, Arab nationalism, Arab Spring, Gulf states"
+
+      - id: "6.6"
+        sequence: 6
+        description: "Pan-Arab Institutions & Identity"
+        requiredLevel: 2
+        prerequisites: ["6.5@1"]
+
+      - id: "6.7"
+        sequence: 7
+        description: "Contemporary Arab Society"
+        requiredLevel: 2
+        prerequisites: ["6.5@1", "6.6@1"]
+
+      - id: "6.8"
+        sequence: 8
+        description: "Diaspora & Migration"
+        requiredLevel: 2
+        prerequisites: ["6.5@1"]
+        unlockNotes: "Mahjar, labour migration, forced displacement, hybrid identity"
+
+  # ---------------------------------------------------------------------------
+  # Track O — Esoteric Sciences
+  # ---------------------------------------------------------------------------
+  - id: O
+    name: "Esoteric & Occult Sciences"
+    nameAr: "علوم الأسرار والحروف"
+    description: >
+      The esoteric tradition: letter mysticism (ʿIlm al-Ḥurūf)
+      and numerology (ʿIlm al-Arqām), including abjad calculation,
+      talismanic constructions, and Jafr.
+    color: "#37474f"
+    icon: "esoteric"
+    tracksUnlocked: []
+
+    nodes:
+      - id: "7.1"
+        sequence: 1
+        description: "ʿIlm al-Ḥurūf (Science of Letters)"
+        requiredLevel: 3
+        prerequisites: ["8.2@1", "8.5@1", "5.3@1"]
+        unlockNotes: "Abjad systems, letter divisions, taṣrīf al-ḥurūf, ḥurūfī metaphysics"
+
+      - id: "7.2"
+        sequence: 2
+        description: "ʿIlm al-Arqām (Science of Numbers)"
+        requiredLevel: 2
+        prerequisites: ["7.1@1", "8.2@1"]
+        unlockNotes: "Chronograms, sacred numbers, al-Zāʾira, Jafr, talismanic numerology"
+
+# =============================================================================
+# CROSS-TRACK DEPENDENCY MAP
+# =============================================================================
+# Shows which tracks feed which, and what key skills they contribute.
+# =============================================================================
+
+crossTrackDependencies:
+  - from: A
+    to: B
+    reason: "Phonetics (8.5) required for dialect perception and production"
+    gateLevel: 2
+
+  - from: A
+    to: C
+    reason: "Syntax (8.1) and morphology (8.2) required for lexicography"
+    gateLevel: 2
+
+  - from: A
+    to: D
+    reason: "Phonetics (8.5) for makhārij; syntax (8.1) for parsing Quranic Arabic"
+    gateLevel: 2
+
+  - from: A
+    to: E
+    reason: "Syntax (8.1), morphology (8.2), and rhetoric (8.3) for hadith, fiqh, kalam"
+    gateLevel: 2
+
+  - from: A
+    to: F
+    reason: "Rhetoric (8.3) and prosody (8.4) for literary analysis"
+    gateLevel: 2
+
+  - from: A
+    to: G
+    reason: "Syntax, rhetoric, and semantics for translation competence"
+    gateLevel: 2
+
+  - from: A
+    to: H
+    reason: "Linguistic foundations for pedagogical grammar"
+    gateLevel: 2
+
+  - from: A
+    to: I
+    reason: "Rhetoric (8.3) for news discourse analysis"
+    gateLevel: 2
+
+  - from: A
+    to: J
+    reason: "Morphology (8.2) and syntax (8.1) for computational linguistics"
+    gateLevel: 2
+
+  - from: A
+    to: L
+    reason: "Phonetics (8.5) for letter recognition in calligraphy"
+    gateLevel: 1
+
+  - from: A
+    to: M
+    reason: "Grammar (8.1, 8.2) for editing classical texts"
+    gateLevel: 2
+
+  - from: B
+    to: G
+    reason: "Cross-dialectal competence (1.10) for interpreting and AVT"
+    gateLevel: 2
+
+  - from: B
+    to: H
+    reason: "Dialectological awareness for diglossia pedagogy"
+    gateLevel: 2
+
+  - from: B
+    to: I
+    reason: "Dialect awareness for broadcast Arabic and social media"
+    gateLevel: 1
+
+  - from: C
+    to: D
+    reason: "Etymology (3.2) and semantics (3.3) for tafsīr"
+    gateLevel: 2
+
+  - from: C
+    to: J
+    reason: "Corpus linguistics (3.5) for computational resources"
+    gateLevel: 2
+
+  - from: C
+    to: M
+    reason: "Lexicographical methods for manuscript cataloguing"
+    gateLevel: 1
+
+  - from: D
+    to: E
+    reason: "Quranic sciences are prerequisite for hadith, fiqh, kalam"
+    gateLevel: 2
+
+  - from: D
+    to: G
+    reason: "Quranic proficiency for religious translation (10.6)"
+    gateLevel: 2
+
+  - from: D
+    to: K
+    reason: "Knowledge of Quranic foundations for cultural observances"
+    gateLevel: 1
+
+  - from: F
+    to: G
+    reason: "Literature foundation for literary translation (10.4)"
+    gateLevel: 2
+
+  - from: F
+    to: I
+    reason: "Literary analysis skills for media discourse"
+    gateLevel: 1
+
+  - from: N
+    to: E
+    reason: "Historical context for sīra and Islamic history"
+    gateLevel: 1
+
+  - from: N
+    to: F
+    reason: "Historical periods map to literary eras"
+    gateLevel: 1
+
+  - from: N
+    to: I
+    reason: "Colonial/post-colonial history for press and media"
+    gateLevel: 1
+
+  - from: N
+    to: K
+    reason: "Historical context for minority communities and traditions"
+    gateLevel: 1
+
+  - from: J
+    to: G
+    reason: "MT, CAT tools, localization for translation technology"
+    gateLevel: 1
+
+  - from: J
+    to: H
+    reason: "Arabic EdTech, speech tech for classroom methods"
+    gateLevel: 1
+
+  - from: J
+    to: M
+    reason: "Digital tools for manuscript analysis and corpus building"
+    gateLevel: 2
+
+  - from: L
+    to: J
+    reason: "Calligraphy knowledge for OCR and font design"
+    gateLevel: 1
+
+  - from: L
+    to: M
+    reason: "Paleography builds on calligraphy script knowledge"
+    gateLevel: 2
+
+  - from: E
+    to: O
+    reason: "Sufi metaphysics (2.7) feeds hurufi symbolism"
+    gateLevel: 2
+
+# =============================================================================
+# RECOMMENDED SEQUENCES (SUGGESTED TRACK ORDERINGS)
+# =============================================================================
+# For different user personas, which track order optimizes the learning curve.
+# =============================================================================
+
+recommendedSequences:
+
+  - persona: "General Learner"
+    description: "Wants broad Arabic cultural and linguistic literacy"
+    order: [A, N, K, L, F, B, I]
+    notes: "Start with core linguistics + history; then culture, then literature/dialect"
+
+  - persona: "Academic Researcher"
+    description: "Focus on classical texts, manuscripts, and deep linguistic analysis"
+    order: [A, N, C, D, F, M, E, O]
+    notes: "Prioritize grammar, lexicography, then manuscripts and Islamic sciences"
+
+  - persona: "Translator / Interpreter"
+    description: "Professional translation between Arabic and other languages"
+    order: [A, B, C, F, G, D, J]
+    notes: "Linguistic foundations first, then dialect + literature, then translation track"
+
+  - persona: "Media Professional"
+    description: "Journalist, broadcaster, or media analyst covering the Arab world"
+    order: [A, N, B, I, K, F]
+    notes: "History + dialect for context; media as main track"
+
+  - persona: "Language Teacher (TAFL)"
+    description: "Teaching Arabic as a foreign language"
+    order: [A, B, H, C, J]
+    notes: "Master the language itself, then pedagogy, then assessment tech"
+
+  - persona: "Digital / Computational Linguist"
+    description: "Building Arabic NLP systems, speech tech, or AI models"
+    order: [A, J, C, B, M]
+    notes: "Deep linguistics first; computational Arabic is the main track"
+
+  - persona: "Cultural / Heritage Professional"
+    description: "Museum curator, archivist, cultural heritage specialist"
+    order: [N, K, L, M, F]
+    notes: "History + culture → arts → manuscripts → literature"
+
+  - persona: "Religious / Islamic Studies Scholar"
+    description: "Academic or institutional study of Islam"
+    order: [D, E, A, N, C, O]
+    notes: "Quran first, then Islamic sciences; pick up linguistics alongside"
+
+# =============================================================================
+# PLATFORM RECOMMENDATION LOGIC
+# =============================================================================
+# Rules for MediaBubble's skill-mapping engine.
+# =============================================================================
+
+recommendationLogic:
+  trackUnlockRule: "Track is unlocked when all source tracks in tracksUnlocked have minimum level 2 in their capstone node"
+  nodeUnlockRule: "Node is unlocked when ALL prerequisite nodes reach the required level"
+  concurrencyRule: "Nodes within a single track can be taken in parallel if they share no prerequisite chain — e.g., 1.1/1.4/1.2 (dialects) are parallel"
+  placementTestMapping:
+    "8.5@3 + 8.2@2 + 8.1@2": "Start at Track C (Lexicography) or Track D (Quran)"
+    "8.5@2 + 8.2@1": "Start at Track A sequence position 3 (Nahw)"
+    "8.1@3 + 8.3@2 + 9.1@2": "Place into Track F (Literature) directly"
+    "1.1@3 or 1.4@3": "Place into Track B at sequence position 4 (Cross-Dialectal)"

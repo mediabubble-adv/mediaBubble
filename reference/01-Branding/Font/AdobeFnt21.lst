@@ -1,0 +1,162 @@
+%!Adobe-FontList 1.20
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Blinker-Black
+FamilyName:Blinker
+StyleName:Black
+FullName:Blinker Black
+MenuName:Blinker Black
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:X:\mediaBubble\Rebranding\Ai\Font\Blinker-Black.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:79332
+FileModTime:1561316400
+WeightClass:900
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,Blinker Black
+NameArray:0,Win,16,Blinker
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Blinker-Bold
+FamilyName:Blinker
+StyleName:Bold
+FullName:Blinker Bold
+MenuName:Blinker
+StyleBits:2
+WritingScript:Roman
+OutlineFileName:X:\mediaBubble\Rebranding\Ai\Font\Blinker-Bold.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:74312
+FileModTime:1561316400
+WeightClass:700
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,Blinker
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Blinker-ExtraBold
+FamilyName:Blinker
+StyleName:ExtraBold
+FullName:Blinker ExtraBold
+MenuName:Blinker ExtraBold
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:X:\mediaBubble\Rebranding\Ai\Font\Blinker-ExtraBold.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:80988
+FileModTime:1561316400
+WeightClass:800
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,Blinker ExtraBold
+NameArray:0,Win,16,Blinker
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Blinker-ExtraLight
+FamilyName:Blinker
+StyleName:ExtraLight
+FullName:Blinker ExtraLight
+MenuName:Blinker ExtraLight
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:X:\mediaBubble\Rebranding\Ai\Font\Blinker-Light.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:74388
+FileModTime:1561316400
+WeightClass:300
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,Blinker ExtraLight
+NameArray:0,Win,16,Blinker
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Blinker-Regular
+FamilyName:Blinker
+StyleName:Regular
+FullName:Blinker
+MenuName:Blinker
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:X:\mediaBubble\Rebranding\Ai\Font\Blinker-Regular.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:73000
+FileModTime:1561316400
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,Blinker
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Blinker-SemiBold
+FamilyName:Blinker
+StyleName:SemiBold
+FullName:Blinker SemiBold
+MenuName:Blinker SemiBold
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:X:\mediaBubble\Rebranding\Ai\Font\Blinker-SemiBold.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:80044
+FileModTime:1561316400
+WeightClass:600
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,Blinker SemiBold
+NameArray:0,Win,16,Blinker
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Blinker-Thin
+FamilyName:Blinker
+StyleName:Thin
+FullName:Blinker Thin
+MenuName:Blinker Thin
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:X:\mediaBubble\Rebranding\Ai\Font\Blinker-Thin.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:71548
+FileModTime:1561316400
+WeightClass:100
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,Blinker Thin
+NameArray:0,Win,16,Blinker
+%EndFont
+

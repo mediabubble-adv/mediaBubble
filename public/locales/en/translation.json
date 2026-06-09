@@ -1,0 +1,441 @@
+{
+  "common": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "contact": "Contact",
+    "getAudit": "Get Your Free Audit",
+    "learnMore": "Learn More",
+    "viewCaseStudies": "View Case Studies",
+    "viewWork": "View Our Work",
+    "getStarted": "Get Started",
+    "sendMessage": "Send Message",
+    "readMore": "Read More",
+    "seeAll": "See All",
+    "backToTop": "Back to Top",
+    "loading": "Loading…",
+    "required": "Required",
+    "optional": "Optional",
+    "actions": {
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "save": "Save",
+      "edit": "Edit",
+      "delete": "Delete",
+      "close": "Close",
+      "next": "Next",
+      "back": "Back",
+      "explore": "Explore"
+    },
+    "labels": {
+      "new": "New",
+      "featured": "Featured",
+      "popular": "Popular",
+      "recommended": "Recommended"
+    },
+    "stats": {
+      "clientGrowth": "35% average client growth in 12 months",
+      "clientRetention": "92% client retention rate",
+      "projectsDelivered": "500+ successful projects delivered",
+      "yearsExperience": "10+ years in Hurghada market",
+      "teamSize": "22+ dedicated professionals",
+      "clientsServed": "200+ brands served"
+    }
+  },
+
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "contact": "Contact",
+    "getAudit": "Get Free Audit",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "skipToContent": "Skip to content",
+    "logoAlt": "MediaBubble — Hurghada Marketing Agency"
+  },
+
+  "hero": {
+    "home": {
+      "kicker": "Hurghada’s #1 Marketing Agency",
+      "title": "We Turn Local Businesses Into Market Leaders",
+      "subtitle": "From strategy to execution — we help Hurghada’s best businesses grow faster, rank higher, and convert better.",
+      "description": "MediaBubble is a full-service marketing agency based in Hurghada, Egypt. Since 2015, we’ve helped 200+ brands grow through SEO, branding, web development, and paid advertising — measuring outcomes, not just outputs.",
+      "proof1": "35% average client growth in 12 months",
+      "proof2": "92% client retention rate",
+      "proof3": "500+ successful projects delivered",
+      "cta": "Get Your Free Strategy Audit",
+      "ctaSecondary": "View Case Studies",
+      "imageAlt": "MediaBubble team working on a campaign strategy"
+    }
+  },
+
+  "about": {
+    "hero": {
+      "kicker": "About MediaBubble",
+      "title": "We Don’t Just Think Outside the Box — We Redefine It.",
+      "subtitle": "A full-service marketing and advertising agency based in Hurghada, Egypt. Founded in 2015, built on results."
+    },
+    "story": {
+      "heading": "Our Story",
+      "body": "MediaBubble was founded in Hurghada in 2015 with one goal: help local businesses compete and win. What started as a small creative studio has grown into a team of 22+ strategists, designers, developers, and media specialists — all focused on one thing: your growth.",
+      "body2": "We believe great marketing isn’t magic — it’s strategy, craft, and relentless measurement. Every campaign we run is tied to a metric that matters to your business."
+    },
+    "values": {
+      "heading": "What Drives Us",
+      "creative": {
+        "name": "Creative",
+        "def": "Ideas with a point of view. Not decoration, not trend-following — work that earns attention because it earns trust."
+      },
+      "strategic": {
+        "name": "Strategic",
+        "def": "Every decision traces back to a goal. We align visual choices, copy, and media to what you’re actually trying to achieve."
+      },
+      "dataDriven": {
+        "name": "Data-Driven",
+        "def": "Numbers inform, not decide. We read performance data, test hypotheses, and improve — creative judgment stays in the loop."
+      }
+    },
+    "team": {
+      "heading": "The Team Behind Your Growth",
+      "subheading": "22+ specialists across strategy, design, development, and media.",
+      "cta": "Meet the Team"
+    },
+    "stats": {
+      "heading": "By the Numbers",
+      "founded": { "label": "Founded", "value": "2015" },
+      "team": { "label": "Team", "value": "22+" },
+      "clients": { "label": "Clients Served", "value": "200+" },
+      "projects": { "label": "Projects Delivered", "value": "500+" },
+      "retention": { "label": "Client Retention", "value": "92%" }
+    }
+  },
+
+  "services": {
+    "hero": {
+      "kicker": "What We Do",
+      "title": "Everything Your Business Needs to Grow Online",
+      "subtitle": "From SEO to branding, paid ads to web development — we cover every channel that moves the needle."
+    },
+    "seo": {
+      "title": "Rank Higher, Get More Customers",
+      "subtitle": "SEO & Organic Growth",
+      "description": "We help Hurghada businesses rank on the first page of Google — where your customers are already searching. Our SEO strategies combine technical optimization, local search, and content that converts.",
+      "features": [
+        "Local SEO for Hurghada & Red Sea Governorate",
+        "Technical SEO audit & fixes",
+        "Content strategy & creation",
+        "Monthly performance reporting"
+      ],
+      "cta": "Explore SEO Services"
+    },
+    "ppc": {
+      "title": "Reach Customers Ready to Buy",
+      "subtitle": "Paid Advertising (PPC)",
+      "description": "Stop wasting budget on clicks that don’t convert. Our paid advertising team runs Google Ads, Meta Ads, and display campaigns that target the right people at exactly the right moment.",
+      "features": [
+        "Google Search & Shopping Ads",
+        "Meta (Facebook & Instagram) Ads",
+        "Retargeting campaigns",
+        "Weekly budget optimization"
+      ],
+      "cta": "Explore PPC Services"
+    },
+    "social": {
+      "title": "Build a Community That Converts",
+      "subtitle": "Social Media Marketing",
+      "description": "We manage your social presence so you can focus on running your business. From content creation to community management, we build audiences that become customers.",
+      "features": [
+        "Instagram, Facebook & TikTok management",
+        "Content creation & scheduling",
+        "Community management & engagement",
+        "Monthly analytics & strategy review"
+      ],
+      "cta": "Explore Social Media Services"
+    },
+    "branding": {
+      "title": "Look Like the Market Leader You Are",
+      "subtitle": "Branding & Design",
+      "description": "Your brand is your first impression and your lasting reputation. We build brand identities that reflect your values, connect with your audience, and stand out in a crowded market.",
+      "features": [
+        "Logo design & brand identity",
+        "Brand guidelines & style systems",
+        "Print collateral & packaging",
+        "Corporate event materials"
+      ],
+      "cta": "Explore Branding Services"
+    },
+    "web": {
+      "title": "A Website That Works as Hard as You Do",
+      "subtitle": "Web Development",
+      "description": "Your website should be your best salesperson — available 24/7, fast, and built to convert visitors into customers. We design and develop websites that look great and perform even better.",
+      "features": [
+        "Custom website design & development",
+        "Landing page optimization",
+        "E-commerce solutions",
+        "Speed & performance optimization"
+      ],
+      "cta": "Explore Web Services"
+    },
+    "content": {
+      "title": "Content That Ranks and Converts",
+      "subtitle": "Content Marketing",
+      "description": "Great content doesn’t just fill a blog — it attracts organic traffic, builds authority, and nurtures prospects into buyers. We create content that serves your business goals, not just your word count.",
+      "features": [
+        "Blog & article writing",
+        "Video script & production support",
+        "Email newsletter content",
+        "Social media copywriting"
+      ],
+      "cta": "Explore Content Services"
+    },
+    "events": {
+      "title": "Make Every Event Unforgettable",
+      "subtitle": "Events & Activations",
+      "description": "From corporate launches to experiential activations, we handle the strategy, creative, and logistics that make your event a success — and make sure people talk about it long after.",
+      "features": [
+        "Event strategy & concept",
+        "Brand activation design",
+        "On-site coordination",
+        "Post-event content & coverage"
+      ],
+      "cta": "Explore Events Services"
+    },
+    "cta": {
+      "heading": "Not Sure Where to Start?",
+      "body": "Book a free 30-minute strategy call. We’ll review your current marketing, identify the biggest opportunities, and tell you exactly where to focus first.",
+      "primary": "Get Your Free Strategy Audit",
+      "secondary": "View Case Studies"
+    }
+  },
+
+  "portfolio": {
+    "hero": {
+      "kicker": "Our Work",
+      "title": "Results We’re Proud Of",
+      "subtitle": "200+ brands. 500+ projects. One focus: measurable growth."
+    },
+    "filters": {
+      "all": "All Work",
+      "seo": "SEO",
+      "ppc": "Paid Ads",
+      "branding": "Branding",
+      "web": "Web",
+      "social": "Social Media",
+      "content": "Content"
+    },
+    "caseStudy": {
+      "challenge": "The Challenge",
+      "solution": "Our Solution",
+      "results": "The Results",
+      "services": "Services Used",
+      "duration": "Project Duration",
+      "industry": "Industry",
+      "viewFullStudy": "View Full Case Study",
+      "nextProject": "Next Project",
+      "prevProject": "Previous Project"
+    },
+    "empty": {
+      "heading": "No projects in this category yet.",
+      "body": "Check back soon — we’re always adding new work."
+    },
+    "cta": {
+      "heading": "Want Results Like These?",
+      "body": "Let’s talk about what’s possible for your business.",
+      "primary": "Start a Conversation"
+    }
+  },
+
+  "blog": {
+    "hero": {
+      "kicker": "The MediaBubble Blog",
+      "title": "Marketing Insights for Hurghada Businesses",
+      "subtitle": "Practical strategies, local case studies, and expert advice — no fluff."
+    },
+    "categories": {
+      "all": "All Posts",
+      "seo": "SEO",
+      "ppc": "Paid Ads",
+      "social": "Social Media",
+      "branding": "Branding",
+      "web": "Web & Tech",
+      "strategy": "Strategy",
+      "caseStudies": "Case Studies"
+    },
+    "post": {
+      "readTime": "{{count}} min read",
+      "publishedOn": "Published {{date}}",
+      "by": "By",
+      "tags": "Tags",
+      "sharePost": "Share this post",
+      "relatedPosts": "Related Posts"
+    },
+    "newsletter": {
+      "heading": "Get Marketing Insights in Your Inbox",
+      "body": "Monthly tips, local case studies, and strategy breakdowns — straight to your inbox. No spam, ever.",
+      "placeholder": "Your email address",
+      "cta": "Subscribe Free",
+      "successMessage": "You’re in! Check your inbox for a confirmation.",
+      "privacyNote": "We respect your privacy. Unsubscribe anytime."
+    },
+    "empty": {
+      "heading": "No posts in this category yet.",
+      "body": "Check back soon — we publish new content every week."
+    }
+  },
+
+  "contact": {
+    "hero": {
+      "kicker": "Get in Touch",
+      "title": "Let’s Talk About Your Growth",
+      "subtitle": "Tell us about your business. We’ll come back to you within one business day with a clear plan."
+    },
+    "form": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email address",
+      "phone": "Phone number",
+      "company": "Company / Business name",
+      "service": "Service you’re interested in",
+      "budget": "Monthly marketing budget",
+      "message": "Tell us about your project",
+      "submit": "Send Message",
+      "submitting": "Sending…",
+      "successHeading": "Message received!",
+      "successBody": "Thanks for reaching out. We’ll be in touch within one business day.",
+      "errorHeading": "Something went wrong.",
+      "errorBody": "Please try again or email us directly at hello@mediabubble.com",
+      "required": "This field is required.",
+      "invalidEmail": "Please enter a valid email address.",
+      "messagePlaceholder": "The more detail you share, the better advice we can give…"
+    },
+    "info": {
+      "heading": "Other Ways to Reach Us",
+      "email": "hello@mediabubble.com",
+      "phone": "+20 123 456 7890",
+      "address": "Hurghada, Red Sea Governorate, Egypt",
+      "hours": "Sunday – Thursday, 9 AM – 6 PM (EET)",
+      "responseTime": "We typically respond within 4 business hours."
+    },
+    "serviceOptions": [
+      "SEO & Organic Growth",
+      "Paid Advertising (PPC)",
+      "Social Media Marketing",
+      "Branding & Design",
+      "Web Development",
+      "Content Marketing",
+      "Events & Activations",
+      "Full-Service Partnership",
+      "Other / Not Sure Yet"
+    ],
+    "budgetOptions": [
+      "Under $500/month",
+      "$500 – $1,000/month",
+      "$1,000 – $3,000/month",
+      "$3,000 – $5,000/month",
+      "$5,000+/month",
+      "Project-based (one-time)"
+    ]
+  },
+
+  "footer": {
+    "company": {
+      "tagline": "Strategic creative that fills rooms and grows brands.",
+      "description": "MediaBubble is a full-service marketing and advertising agency based in Hurghada, Egypt. We’ve been helping businesses grow since 2015."
+    },
+    "services": {
+      "heading": "Services",
+      "seo": "SEO & Organic Growth",
+      "ppc": "Paid Advertising",
+      "social": "Social Media Marketing",
+      "branding": "Branding & Design",
+      "web": "Web Development",
+      "content": "Content Marketing",
+      "events": "Events & Activations"
+    },
+    "resources": {
+      "heading": "Resources",
+      "blog": "Blog",
+      "caseStudies": "Case Studies",
+      "freeAudit": "Free Marketing Audit",
+      "brandGuidelines": "Brand Guidelines"
+    },
+    "legal": {
+      "heading": "Legal",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy"
+    },
+    "social": {
+      "heading": "Follow Us",
+      "facebook": "Follow on Facebook",
+      "instagram": "Follow on Instagram",
+      "linkedin": "Connect on LinkedIn",
+      "tiktok": "Follow on TikTok"
+    },
+    "copyright": "© {{year}} MediaBubble. All rights reserved.",
+    "madeIn": "Made with ☀️ in Hurghada, Egypt."
+  },
+
+  "seo": {
+    "home": {
+      "title": "MediaBubble — Hurghada’s #1 Marketing Agency",
+      "description": "Full-service marketing agency in Hurghada, Egypt. SEO, paid ads, branding, and web development. 200+ clients. 10+ years. Measurable results."
+    },
+    "about": {
+      "title": "About MediaBubble | Hurghada Marketing Agency Since 2015",
+      "description": "Meet the team behind Hurghada’s top marketing agency. 22+ professionals dedicated to strategy, design, and measurable growth since 2015."
+    },
+    "services": {
+      "title": "Marketing Services | MediaBubble Hurghada",
+      "description": "SEO, PPC, social media, branding, web development, and content marketing services for businesses in Hurghada and across Egypt."
+    },
+    "portfolio": {
+      "title": "Our Work & Case Studies | MediaBubble",
+      "description": "Browse 500+ projects across SEO, branding, web, and paid advertising. Real results for real Hurghada businesses."
+    },
+    "blog": {
+      "title": "Marketing Blog | MediaBubble",
+      "description": "Marketing insights, local case studies, and expert strategy advice for Egyptian businesses. Updated weekly."
+    },
+    "contact": {
+      "title": "Contact MediaBubble | Start Your Growth",
+      "description": "Ready to grow? Contact MediaBubble today. Free strategy audit for new clients. Based in Hurghada, serving businesses across Egypt."
+    }
+  },
+
+  "errors": {
+    "404": {
+      "title": "Page Not Found",
+      "heading": "Oops — this page doesn’t exist.",
+      "body": "The page you’re looking for may have moved or been removed. Let’s get you back on track.",
+      "cta": "Back to Home"
+    },
+    "500": {
+      "title": "Server Error",
+      "heading": "Something went wrong on our end.",
+      "body": "We’re aware of the issue and working to fix it. Please try again in a few minutes.",
+      "cta": "Try Again"
+    },
+    "form": {
+      "required": "This field is required.",
+      "email": "Please enter a valid email address.",
+      "phone": "Please enter a valid phone number.",
+      "minLength": "Must be at least {{count}} characters.",
+      "maxLength": "Must be no more than {{count}} characters.",
+      "generic": "Something went wrong. Please try again."
+    }
+  },
+
+  "cta": {
+    "primary": "Get Your Free Strategy Audit",
+    "secondary": "View Case Studies",
+    "contact": "Start a Conversation",
+    "consultation": "Book a Free Consultation",
+    "audit": "Get My Free Audit"
+  }
+}
