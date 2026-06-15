@@ -11,8 +11,15 @@ const DEV_SW_CLEANUP_SCRIPT = `(function(){try{var RELOAD_KEY='mb-dev-sw-reloade
 
 const LANG_INIT_SCRIPT = `(function(){try{var k='mediabubble-language';var l=document.cookie.match('(^|;)\\\\s*' + k + '\\\\s*=\\\\s*([^;]+)')?.pop() || localStorage.getItem(k);if(!l){var n=navigator.language||'en';l=n.indexOf('ar')===0?'ar':'en';}var d=l.indexOf('ar')===0?'rtl':'ltr';var g=d==='rtl'?'ar':'en';document.documentElement.setAttribute('lang',g);document.documentElement.setAttribute('dir',d);document.documentElement.setAttribute('data-dir',d);}catch(e){}})();`;
 
+const THEME_HASH = `'sha256-AngVWd5WLE28t6pDbMdyzyprEeDnIw6V5DYMSdkAQHI='`;
+const DEV_SW_HASH = `'sha256-CDP56ARqNqN20roY8OaThPwxsNHLLc9hLvUP0kRd8tQ='`;
+const LANG_HASH = `'sha256-s8gtWKaqPslWqKjox+ESaWQUDPMOC3gGL7HepLkekWg='`;
+
 module.exports = {
   THEME_INIT_SCRIPT,
+  THEME_HASH,
   DEV_SW_CLEANUP_SCRIPT,
+  DEV_SW_HASH,
   LANG_INIT_SCRIPT,
+  LANG_HASH,
 };

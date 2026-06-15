@@ -5,14 +5,11 @@ const {
   ANALYTICS_CONNECT_HOSTS,
 } = require('./security-headers.cjs')
 
-const crypto = require('crypto')
-const { THEME_INIT_SCRIPT, DEV_SW_CLEANUP_SCRIPT, LANG_INIT_SCRIPT } = require('./src/inline-scripts.cjs')
-
-const sha256 = (str) => crypto.createHash('sha256').update(str).digest('base64')
-
-const THEME_HASH = `'sha256-${sha256(THEME_INIT_SCRIPT)}'`
-const DEV_SW_HASH = `'sha256-${sha256(DEV_SW_CLEANUP_SCRIPT)}'`
-const LANG_HASH = `'sha256-${sha256(LANG_INIT_SCRIPT)}'`
+const {
+  THEME_HASH,
+  DEV_SW_HASH,
+  LANG_HASH,
+} = require('./src/inline-scripts.cjs')
 
 /**
  * @param {string|null|undefined} nonce

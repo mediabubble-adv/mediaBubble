@@ -57,50 +57,47 @@ The monorepo is built for **parallel market delivery**: Egypt (`web-eg`) ships f
 ## Architecture
 
 ```mermaid
-%%{init: {"theme":"base","themeVariables":{"fontFamily":"Inter, system-ui, sans-serif","lineColor":"#358DCC","primaryTextColor":"#072A6B","primaryColor":"#E8F3FC","primaryBorderColor":"#358DCC","secondaryColor":"#FFF9E0","tertiaryColor":"#F5F8FC"}}}%%
-flowchart TB
-  subgraph apps [Applications]
-    EG["web-eg · mediabubble.co"]
-    AE["web-ae · mediabubble.ae"]
-    BR["brand · brand.mediabubble.co"]
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Poppins, Inter, system-ui, sans-serif","fontSize":"13px","lineColor":"#072A6B","primaryTextColor":"#072A6B","primaryBorderColor":"#358DCC","clusterBkg":"#FAFAFA","clusterBorder":"#E8E8E8","titleColor":"#072A6B","edgeLabelBackground":"#FFFFFF"},"flowchart":{"curve":"linear","nodeSpacing":44,"rankSpacing":52,"padding":14,"diagramPadding":10}}}%%
+flowchart LR
+  subgraph apps ["Applications"]
+    direction LR
+    EG["web-eg<br/>mediabubble.co"]
+    AE["web-ae<br/>mediabubble.ae"]
+    BR["brand<br/>brand.mediabubble.co"]
   end
 
-  subgraph packages [Shared packages]
+  subgraph packages ["Shared packages"]
+    direction LR
     DS["@mediabubble/design-system"]
     SH["@mediabubble/shared"]
     CP["content-pipeline"]
   end
 
-  subgraph integrations [Integrations]
+  subgraph integrations ["Integrations"]
+    direction LR
     HS["HubSpot CRM"]
     RS["Resend email"]
     GA["Google Analytics 4"]
   end
 
-  EG --> DS
-  EG --> SH
-  AE --> DS
-  AE --> SH
-  BR --> DS
-  BR --> SH
-  CP -.-> AE
-  SH --> HS
-  SH --> RS
-  SH --> GA
+  EG & AE & BR --> DS
+  EG & AE & BR --> SH
+  CP -.->|UAE localize| AE
+  SH --> HS & RS & GA
 
-  classDef app fill:#072A6B,stroke:#358DCC,color:#FFFFFF,stroke-width:2px
-  classDef pkg fill:#358DCC,stroke:#072A6B,color:#FFFFFF,stroke-width:2px
-  classDef pipe fill:#E8F3FC,stroke:#358DCC,color:#072A6B,stroke-width:2px
-  classDef integration fill:#FFDE11,stroke:#072A6B,color:#072A6B,stroke-width:2px
+  classDef app fill:#072A6B,stroke:#358DCC,color:#FFFFFF,stroke-width:1.5px
+  classDef pkg fill:#358DCC,stroke:#072A6B,color:#FFFFFF,stroke-width:1.5px
+  classDef pipe fill:#FFFFFF,stroke:#358DCC,color:#072A6B,stroke-width:1.5px
+  classDef integration fill:#FFC107,stroke:#072A6B,color:#072A6B,stroke-width:1.5px
 
   class EG,AE,BR app
   class DS,SH pkg
   class CP pipe
   class HS,RS,GA integration
 
-  style apps fill:#F5F8FC,stroke:#358DCC,stroke-width:2px,color:#072A6B
-  style packages fill:#E8F3FC,stroke:#358DCC,stroke-width:2px,color:#072A6B
-  style integrations fill:#FFF9E0,stroke:#FFDE11,stroke-width:2px,color:#072A6B
+  style apps fill:#FAFAFA,stroke:#E8E8E8,stroke-width:1px,color:#072A6B
+  style packages fill:#F5F8FC,stroke:#358DCC,stroke-width:1px,color:#072A6B
+  style integrations fill:#FFFBEB,stroke:#FFC107,stroke-width:1px,color:#072A6B
 ```
 
 **Client vs server imports:** In `'use client'` files, import hooks and browser utilities from `@mediabubble/shared/client` (not the root barrel). Server Components and API routes use `@mediabubble/shared/server` or package subpaths to avoid pulling server-only code into the client bundle.

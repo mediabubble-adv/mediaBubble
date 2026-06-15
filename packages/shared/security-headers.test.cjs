@@ -49,3 +49,23 @@ describe('security headers', () => {
     )
   })
 })
+
+describe('inline script hashes', () => {
+  it('precalculated hashes match actual script SHA-256 hashes', () => {
+    const crypto = require('crypto')
+    const {
+      THEME_INIT_SCRIPT,
+      THEME_HASH,
+      DEV_SW_CLEANUP_SCRIPT,
+      DEV_SW_HASH,
+      LANG_INIT_SCRIPT,
+      LANG_HASH,
+    } = require('./src/inline-scripts.cjs')
+
+    const sha256 = (str) => `sha256-${crypto.createHash('sha256').update(str).digest('base64')}`
+
+    expect(THEME_HASH).toBe(`'${sha256(THEME_INIT_SCRIPT)}'`)
+    expect(DEV_SW_HASH).toBe(`'${sha256(DEV_SW_CLEANUP_SCRIPT)}'`)
+    expect(LANG_HASH).toBe(`'${sha256(LANG_INIT_SCRIPT)}'`)
+  })
+})
