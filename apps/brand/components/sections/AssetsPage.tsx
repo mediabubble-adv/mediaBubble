@@ -47,33 +47,33 @@ export function AssetsPage() {
       <section className="mb-10">
         <div className="flex items-center gap-2.5 mb-4">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2196F3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M12 2L2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-          <h2 className="text-[13px] font-semibold text-brand.dark-blue">Logo Files</h2>
+          <h2 className="text-[13px] font-semibold text-brand-dark-blue">Logo Files</h2>
         </div>
-        <div className="bg-white rounded-xl border border-brand.whisper-border divide-y divide-[#E8E8E8]">
+        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border divide-y divide-brand-whisper-border">
           {logoFiles.map((file) => (
             <div key={file.name} className="flex items-center gap-4 px-5 py-3.5 transition-all hover:bg-black/[0.015]">
-              <div className="w-10 h-10 rounded-xl bg-brand.light-border flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-brand-light-border flex items-center justify-center shrink-0">
                 <img src="/assets/logo.svg" alt="" className="w-6 h-6" />
               </div>
               <div className="flex-1 min-w-0">
-                <code className="text-[12px] font-mono font-semibold text-brand.charcoal">{file.name}</code>
-                <p className="text-[11px] text-brand.muted-steel mt-0.5">{file.use}</p>
+                <code className="text-[12px] font-mono font-semibold text-brand-charcoal">{file.name}</code>
+                <p className="text-[11px] text-brand-muted-steel mt-0.5">{file.use}</p>
               </div>
               <div className="hidden sm:flex items-center gap-3 shrink-0">
-                <span className="text-[10px] font-mono bg-brand.light-border text-brand.secondary px-2 py-0.5 rounded">{file.format}</span>
-                <span className="text-[10px] text-[#9E9E9E]">{file.size}</span>
-                <span className="text-[10px] text-[#9E9E9E]">{file.bg} bg</span>
+                <span className="text-[10px] font-mono bg-brand-light-border text-brand-secondary px-2 py-0.5 rounded">{file.format}</span>
+                <span className="text-[10px] text-brand-text-muted">{file.size}</span>
+                <span className="text-[10px] text-brand-text-muted">{file.bg} bg</span>
               </div>
               {file.action ? (
                 <a
                   href={file.action}
                   download
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-semibold text-brand.blue bg-brand.blue/08 hover:bg-brand.blue/15 active:scale-[0.97] transition-all shrink-0"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-semibold text-brand-blue bg-brand-blue/08 hover:bg-brand-blue/15 active:scale-[0.97] transition-all shrink-0"
                 >
                   <Download size={12} /> {t('Download', 'Download')}
                 </a>
               ) : (
-                <span className="text-[10px] font-mono text-brand.muted-steel px-3 py-1.5 shrink-0">
+                <span className="text-[10px] font-mono text-brand-muted-steel px-3 py-1.5 shrink-0">
                   {t(
                     'Not exported yet. Request this file from the design team.',
                     'Not exported yet. Request this file from the design team.',
@@ -88,24 +88,24 @@ export function AssetsPage() {
       {/* Color tokens */}
       <section className="mb-8">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-[13px] font-semibold text-brand.dark-blue">Brand Colors</h2>
-          <span className="text-[10px] font-mono text-brand.muted-steel">Click to copy HEX</span>
+          <h2 className="text-[13px] font-semibold text-brand-dark-blue">Brand Colors</h2>
+          <span className="text-[10px] font-mono text-brand-muted-steel">Click to copy HEX</span>
         </div>
-        <div className="bg-white rounded-xl border border-brand.whisper-border divide-y divide-[#E8E8E8]">
+        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border divide-y divide-brand-whisper-border">
           {colorTokens.map((t) => (
             <button
               key={t.token}
               onClick={() => copy(t.hex, t.token)}
               className="w-full flex items-center gap-4 px-5 py-3 transition-all hover:bg-black/[0.015] text-start group active:bg-black/[0.03]"
             >
-              <div className="w-9 h-9 rounded-xl border border-brand.whisper-border shrink-0 group-hover:scale-105 transition-transform" style={{ backgroundColor: t.hex }} />
-              <code className="text-[11px] font-mono text-brand.blue w-44 shrink-0">{t.token}</code>
-              <span className="text-[13px] font-mono font-semibold text-brand.charcoal w-20 shrink-0">{t.hex}</span>
-              <span className="text-[11px] font-mono text-[#9E9E9E] hidden sm:block">rgb({t.rgb})</span>
+              <div className="w-9 h-9 rounded-xl border border-brand-whisper-border shrink-0 group-hover:scale-105 transition-transform" style={{ backgroundColor: t.hex }} />
+              <code className="text-[11px] font-mono text-brand-blue w-44 shrink-0">{t.token}</code>
+              <span className="text-[13px] font-mono font-semibold text-brand-charcoal w-20 shrink-0">{t.hex}</span>
+              <span className="text-[11px] font-mono text-brand-text-muted hidden sm:block">rgb({t.rgb})</span>
               <span className="ml-auto shrink-0">
                 {copiedId === t.token
                   ? <Check size={13} className="text-green-600" />
-                  : <Copy size={13} className="text-brand.muted-steel group-hover:text-[#9E9E9E] transition-colors" />
+                  : <Copy size={13} className="text-brand-muted-steel group-hover:text-brand-text-muted transition-colors" />
                 }
               </span>
             </button>
@@ -116,26 +116,26 @@ export function AssetsPage() {
       {/* Font references */}
       <section className="mb-16">
         <div className="mb-4">
-          <h2 className="text-[13px] font-semibold text-brand.dark-blue">Font References</h2>
+          <h2 className="text-[13px] font-semibold text-brand-dark-blue">Font References</h2>
         </div>
-        <div className="bg-white rounded-xl border border-brand.whisper-border divide-y divide-[#E8E8E8]">
+        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border divide-y divide-brand-whisper-border">
           {fontStack.map((f) => (
             <div key={f.name} className="flex items-center gap-5 px-5 py-4 transition-all hover:bg-black/[0.015]">
-              <div className="w-10 h-10 rounded-xl bg-brand.navy flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-brand-navy flex items-center justify-center shrink-0">
                 <span className="text-white font-bold text-[13px]" style={{ fontFamily: f.name }}>Aa</span>
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-[13px] font-semibold text-brand.charcoal">{f.name}</p>
-                <p className="text-[11px] text-brand.muted-steel">{f.role} · {f.weights}</p>
+                <p className="text-[13px] font-semibold text-brand-charcoal">{f.name}</p>
+                <p className="text-[11px] text-brand-muted-steel">{f.role} · {f.weights}</p>
               </div>
-              <code className="text-[10px] font-mono text-[#9E9E9E] hidden sm:block w-32 shrink-0">{f.var}</code>
+              <code className="text-[10px] font-mono text-brand-text-muted hidden sm:block w-32 shrink-0">{f.var}</code>
               <div className="flex items-center gap-2 shrink-0">
-                <span className="text-[10px] font-mono bg-brand.light-border text-brand.secondary px-2 py-0.5 rounded">{f.source}</span>
+                <span className="text-[10px] font-mono bg-brand-light-border text-brand-secondary px-2 py-0.5 rounded">{f.source}</span>
                 <button
                   onClick={() => copy(`font-family: '${f.name}', sans-serif;`, `font-${f.name}`)}
-                  className="p-1.5 rounded-lg hover:bg-brand.light-border transition-colors"
+                  className="p-1.5 rounded-lg hover:bg-brand-light-border transition-colors"
                 >
-                  {copiedId === `font-${f.name}` ? <Check size={13} className="text-green-600" /> : <Copy size={13} className="text-[#9E9E9E]" />}
+                  {copiedId === `font-${f.name}` ? <Check size={13} className="text-green-600" /> : <Copy size={13} className="text-brand-text-muted" />}
                 </button>
               </div>
             </div>

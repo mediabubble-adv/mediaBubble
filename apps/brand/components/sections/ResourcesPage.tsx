@@ -99,37 +99,37 @@ export function ResourcesPage() {
 
       <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-[#FFC107]/10 border border-[#FFC107]/20 mb-8">
         <Info size={14} className="text-[#92610B] shrink-0" />
-        <p className="text-[12px] text-[#666666] leading-relaxed">
-          These are reference snippets — not the original design files. For the actual brand files (logo SVGs, font files, templates), see the <strong className="font-semibold text-[#333333]">Asset Library</strong> page.
+        <p className="text-[12px] text-brand-text-secondary leading-relaxed">
+          These are reference snippets — not the original design files. For the actual brand files (logo SVGs, font files, templates), see the <strong className="font-semibold text-brand-text">Asset Library</strong> page.
         </p>
       </div>
 
       {resources.map((group) => (
         <section key={group.group} className={group.group === 'Checklists' ? 'mb-16' : group.group === 'Typography' ? 'mb-8' : 'mb-10'}>
           <div className="mb-4">
-            <h2 className="text-[13px] font-semibold text-brand.dark-blue">{group.group}</h2>
+            <h2 className="text-[13px] font-semibold text-brand-dark-blue">{group.group}</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {group.items.map((item) => (
-              <div key={item.label} className="bg-white rounded-xl border border-[#E8E8E8] overflow-hidden transition-all duration-150 flex flex-col">
+              <div key={item.label} className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border overflow-hidden transition-all duration-150 flex flex-col">
                 <div className="p-5 pb-0">
-                  <h3 className="font-display text-sm font-semibold text-brand.dark-blue mb-1">{item.label}</h3>
-                  <p className="text-[12px] text-[#666666] leading-snug mb-4">{item.desc}</p>
+                  <h3 className="font-display text-sm font-semibold text-brand-dark-blue mb-1">{item.label}</h3>
+                  <p className="text-[12px] text-brand-text-secondary leading-snug mb-4">{item.desc}</p>
                 </div>
-                <div className="mx-5 px-3 py-3 rounded-lg bg-[#F9F9F9] border border-[#E8E8E8] font-mono text-[10px] text-[#666666] leading-relaxed overflow-hidden max-h-[120px] relative mb-4">
+                <div className="mx-5 px-3 py-3 rounded-lg bg-[#F9F9F9] border border-brand-whisper-border dark:border-brand-light-border font-mono text-[10px] text-brand-text-secondary leading-relaxed overflow-hidden max-h-[120px] relative mb-4">
                   <pre className="truncate whitespace-pre-wrap line-clamp-6">{item.preview}</pre>
                   <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-[#F9F9F9] to-transparent pointer-events-none" />
                 </div>
                 <div className="mt-auto px-5 pb-5 flex items-center gap-2">
                   <button
                     onClick={() => copy(item.preview, `copy-${item.label}`)}
-                    className="flex items-center justify-center gap-1.5 flex-1 px-3 py-2 rounded-lg text-[11px] font-semibold text-white bg-brand.dark-blue hover:bg-[#1250A0] active:scale-[0.97] transition-all"
+                    className="flex items-center justify-center gap-1.5 flex-1 px-3 py-2 rounded-lg text-[11px] font-semibold text-white bg-brand-dark-blue hover:bg-[#1250A0] active:scale-[0.97] transition-all"
                   >
                     {copiedId === `copy-${item.label}` ? <><Check size={13} /> Copied</> : <><Copy size={13} /> Copy</>}
                   </button>
                   <button
                     onClick={() => download(item.preview, item.filename, `dl-${item.label}`)}
-                    className="flex items-center justify-center gap-1.5 flex-1 px-3 py-2 rounded-lg text-[11px] font-semibold text-brand.dark-blue bg-[#E8F0FE] hover:bg-[#D0E0FC] active:scale-[0.97] transition-all"
+                    className="flex items-center justify-center gap-1.5 flex-1 px-3 py-2 rounded-lg text-[11px] font-semibold text-brand-dark-blue bg-[#E8F0FE] hover:bg-[#D0E0FC] active:scale-[0.97] transition-all"
                   >
                     {downloadedId === `dl-${item.label}` ? <><Check size={13} /> Saved</> : <><Download size={13} /> Download</>}
                   </button>

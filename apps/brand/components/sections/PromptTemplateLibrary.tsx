@@ -182,17 +182,17 @@ export const PromptTemplateLibrary = ({ onPromptGenerated }: PromptTemplateLibra
   const renderTemplateCard = (template: PromptTemplate) => {
     const IconComponent = template.icon
     return (
-      <div key={template.id} className="bg-[#FFFFFF] border border-[#E8E8E8] rounded-xl p-6 animate-fade-in-up">
+      <div key={template.id} className="bg-[#FFFFFF] border border-brand-whisper-border dark:border-brand-light-border rounded-xl p-6 animate-fade-in-up">
         <div className="flex items-start gap-4 mb-4">
           <div className="w-10 h-10 rounded-lg bg-[#2196F3]/[0.1] flex items-center justify-center flex-shrink-0">
             <IconComponent size={20} className="text-[#2196F3]" />
           </div>
           <div className="flex-1">
-            <h3 className="text-[16px] font-bold text-[#333333] mb-1">{template.name}</h3>
-            <p className="text-[13px] text-[#9E9E9E] mb-3">{template.description}</p>
+            <h3 className="text-[16px] font-bold text-brand-text mb-1">{template.name}</h3>
+            <p className="text-[13px] text-brand-text-muted mb-3">{template.description}</p>
             <div className="flex flex-wrap gap-1">
               {template.tags.map((tag) => (
-                <span key={tag} className="px-2 py-0.5 bg-[#F5F5F5] text-[#9E9E9E] text-[10px] rounded-full">
+                <span key={tag} className="px-2 py-0.5 bg-brand-canvas dark:bg-white/[0.04] text-brand-text-muted text-[10px] rounded-full">
                   {tag}
                 </span>
               ))}
@@ -202,21 +202,21 @@ export const PromptTemplateLibrary = ({ onPromptGenerated }: PromptTemplateLibra
 
         <div className="mb-4">
           <div className="flex items-center gap-2 mb-2">
-            <Eye size={14} className="text-[#9E9E9E]" />
-            <span className="text-[11px] font-medium text-[#9E9E9E]">Use cases:</span>
+            <Eye size={14} className="text-brand-text-muted" />
+            <span className="text-[11px] font-medium text-brand-text-muted">Use cases:</span>
           </div>
           <div className="flex flex-wrap gap-1.5">
             {template.examples.map((example, idx) => (
-              <span key={idx} className="px-2 py-1 bg-[#FAFAFA] border border-[#E8E8E8] text-[#333333] text-[10px] rounded">
+              <span key={idx} className="px-2 py-1 bg-brand-canvas border border-brand-whisper-border dark:border-brand-light-border text-brand-text text-[10px] rounded">
                 {example}
               </span>
             ))}
           </div>
         </div>
 
-        <div className="bg-[#FAFAFA] border border-[#E8E8E8] rounded-lg p-4 mb-4">
-          <h4 className="text-[12px] font-semibold text-[#333333] mb-2">Prompt Template:</h4>
-          <div className="font-mono text-[11px] text-[#333333] whitespace-pre-wrap">
+        <div className="bg-brand-canvas border border-brand-whisper-border dark:border-brand-light-border rounded-lg p-4 mb-4">
+          <h4 className="text-[12px] font-semibold text-brand-text mb-2">Prompt Template:</h4>
+          <div className="font-mono text-[11px] text-brand-text whitespace-pre-wrap">
             {template.prompt}
           </div>
         </div>
@@ -236,7 +236,7 @@ export const PromptTemplateLibrary = ({ onPromptGenerated }: PromptTemplateLibra
     <div className="space-y-6">
       {/* Category Filter */}
       <div>
-        <h3 className="text-[16px] font-bold text-[#333333] mb-4">Template Categories</h3>
+        <h3 className="text-[16px] font-bold text-brand-text mb-4">Template Categories</h3>
         <div className="flex flex-wrap gap-2">
           {categories.map((category) => (
             <button
@@ -244,8 +244,8 @@ export const PromptTemplateLibrary = ({ onPromptGenerated }: PromptTemplateLibra
               onClick={() => setSelectedCategory(category.id)}
               className={`px-4 py-2 rounded-lg text-[13px] font-medium transition-all duration-200 ${
                 selectedCategory === category.id
-                  ? 'bg-[#FFC107]/[0.1] text-[#333333] shadow-[inset_0_0_0_1px_rgba(255,193,7,0.12)]'
-                  : 'bg-[#F5F5F5] text-[#9E9E9E] hover:bg-[#E8E8E8] hover:text-[#333333]'
+                  ? 'bg-[#FFC107]/[0.1] text-brand-text shadow-[inset_0_0_0_1px_rgba(255,193,7,0.12)]'
+                  : 'bg-brand-canvas dark:bg-white/[0.04] text-brand-text-muted hover:bg-[#E8E8E8] hover:text-brand-text'
               }`}
             >
               {category.label} ({category.count})
@@ -262,11 +262,11 @@ export const PromptTemplateLibrary = ({ onPromptGenerated }: PromptTemplateLibra
       {/* Empty State */}
       {filteredTemplates.length === 0 && (
         <div className="text-center py-12">
-          <div className="w-16 h-16 bg-[#F5F5F5] rounded-full flex items-center justify-center mx-auto mb-4">
-            <Layers size={24} className="text-[#9E9E9E]" />
+          <div className="w-16 h-16 bg-brand-canvas dark:bg-white/[0.04] rounded-full flex items-center justify-center mx-auto mb-4">
+            <Layers size={24} className="text-brand-text-muted" />
           </div>
-          <h3 className="text-[16px] font-semibold text-[#333333] mb-2">No templates found</h3>
-          <p className="text-[14px] text-[#9E9E9E]">Try selecting a different category or check back later for more templates.</p>
+          <h3 className="text-[16px] font-semibold text-brand-text mb-2">No templates found</h3>
+          <p className="text-[14px] text-brand-text-muted">Try selecting a different category or check back later for more templates.</p>
         </div>
       )}
     </div>

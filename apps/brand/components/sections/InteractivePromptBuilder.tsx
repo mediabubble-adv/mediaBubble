@@ -160,6 +160,8 @@ Brand Profile Constraints:
     if (assetConfig && brandConfig) {
       generatePrompt()
     }
+    // Regenerate only when config objects change, not when generatePrompt identity changes.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [assetConfig, brandConfig])
 
   const copyToClipboard = () => {
@@ -180,7 +182,7 @@ Brand Profile Constraints:
 
   const AssetTypeSelector = () => (
     <div>
-      <h4 className="text-[13px] font-semibold text-[#333333] mb-3">Asset Type</h4>
+      <h4 className="text-[13px] font-semibold text-brand-text mb-3">Asset Type</h4>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
         {assetTypes.map((type) => {
           const IconComponent = type.icon
@@ -192,12 +194,12 @@ Brand Profile Constraints:
               className={`p-3 rounded-lg border-2 transition-all text-start ${
                 isSelected
                   ? 'border-[#FFC107] bg-[#FFC107]/[0.05] shadow-[0_2px_8px_rgba(255,193,7,0.1)]'
-                  : 'border-[#E8E8E8] hover:border-[#2196F3] hover:bg-[#F5F5F5]'
+                  : 'border-brand-whisper-border dark:border-brand-light-border hover:border-[#2196F3] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
               }`}
             >
               <div className="flex items-center gap-2">
-                <IconComponent size={16} className={isSelected ? 'text-[#FFC107]' : 'text-[#9E9E9E]'} />
-                <span className="text-[12px] font-medium text-[#333333]">{type.label}</span>
+                <IconComponent size={16} className={isSelected ? 'text-[#FFC107]' : 'text-brand-text-muted'} />
+                <span className="text-[12px] font-medium text-brand-text">{type.label}</span>
               </div>
             </button>
           )
@@ -209,7 +211,7 @@ Brand Profile Constraints:
   const BrandControls = () => (
     <div className="space-y-4">
       <div>
-        <h4 className="text-[13px] font-semibold text-[#333333] mb-3">Primary Color</h4>
+        <h4 className="text-[13px] font-semibold text-brand-text mb-3">Primary Color</h4>
         <div className="grid grid-cols-3 gap-2">
           {colors.map((color) => (
             <button
@@ -218,17 +220,17 @@ Brand Profile Constraints:
               className={`p-3 rounded-lg border-2 transition-all text-start ${
                 brandConfig.primaryColor === color.value
                   ? 'border-[#FFC107] shadow-[0_2px_8px_rgba(255,193,7,0.1)]'
-                  : 'border-[#E8E8E8] hover:border-[#2196F3]'
+                  : 'border-brand-whisper-border dark:border-brand-light-border hover:border-[#2196F3]'
               }`}
             >
               <div className="flex items-center gap-2">
                 <div 
-                  className="w-4 h-4 rounded-full border border-[#E8E8E8]" 
+                  className="w-4 h-4 rounded-full border border-brand-whisper-border dark:border-brand-light-border" 
                   style={{ backgroundColor: color.hex }}
                 />
                 <div>
-                  <div className="text-[11px] font-medium text-[#333333]">{color.label}</div>
-                  <div className="text-[10px] text-[#9E9E9E]">{color.role}</div>
+                  <div className="text-[11px] font-medium text-brand-text">{color.label}</div>
+                  <div className="text-[10px] text-brand-text-muted">{color.role}</div>
                 </div>
               </div>
             </button>
@@ -237,7 +239,7 @@ Brand Profile Constraints:
       </div>
 
       <div>
-        <h4 className="text-[13px] font-semibold text-[#333333] mb-3">Typography Style</h4>
+        <h4 className="text-[13px] font-semibold text-brand-text mb-3">Typography Style</h4>
         <div className="grid grid-cols-3 gap-2">
           {['modern', 'classic', 'minimal'].map((style) => (
             <button
@@ -246,11 +248,11 @@ Brand Profile Constraints:
               className={`p-3 rounded-lg border-2 transition-all text-start ${
                 brandConfig.typographyStyle === style
                   ? 'border-[#FFC107] bg-[#FFC107]/[0.05]'
-                  : 'border-[#E8E8E8] hover:border-[#2196F3] hover:bg-[#F5F5F5]'
+                  : 'border-brand-whisper-border dark:border-brand-light-border hover:border-[#2196F3] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
               }`}
             >
-              <div className="text-[11px] font-medium text-[#333333] capitalize">{style}</div>
-              <div className="text-[10px] text-[#9E9E9E] mt-1">
+              <div className="text-[11px] font-medium text-brand-text capitalize">{style}</div>
+              <div className="text-[10px] text-brand-text-muted mt-1">
                 {style === 'modern' && 'Poppins Bold + Inter'}
                 {style === 'classic' && 'Poppins SemiBold'}
                 {style === 'minimal' && 'Inter only'}
@@ -261,7 +263,7 @@ Brand Profile Constraints:
       </div>
 
       <div>
-        <h4 className="text-[13px] font-semibold text-[#333333] mb-3">Layout Style</h4>
+        <h4 className="text-[13px] font-semibold text-brand-text mb-3">Layout Style</h4>
         <div className="grid grid-cols-3 gap-2">
           {['asymmetric', 'centered', 'grid'].map((style) => (
             <button
@@ -270,11 +272,11 @@ Brand Profile Constraints:
               className={`p-3 rounded-lg border-2 transition-all text-start ${
                 brandConfig.layoutStyle === style
                   ? 'border-[#FFC107] bg-[#FFC107]/[0.05]'
-                  : 'border-[#E8E8E8] hover:border-[#2196F3] hover:bg-[#F5F5F5]'
+                  : 'border-brand-whisper-border dark:border-brand-light-border hover:border-[#2196F3] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
               }`}
             >
-              <div className="text-[11px] font-medium text-[#333333] capitalize">{style}</div>
-              <div className="text-[10px] text-[#9E9E9E] mt-1">
+              <div className="text-[11px] font-medium text-brand-text capitalize">{style}</div>
+              <div className="text-[10px] text-brand-text-muted mt-1">
                 {style === 'asymmetric' && 'Offset layouts'}
                 {style === 'centered' && 'Symmetrical'}
                 {style === 'grid' && 'Structured'}
@@ -289,7 +291,7 @@ Brand Profile Constraints:
   const SizeDensityControls = () => (
     <div className="space-y-4">
       <div>
-        <h4 className="text-[13px] font-semibold text-[#333333] mb-3">Size & Orientation</h4>
+        <h4 className="text-[13px] font-semibold text-brand-text mb-3">Size & Orientation</h4>
         <div className="grid grid-cols-2 gap-3">
           {['small', 'medium', 'large'].map((size) => (
             <button
@@ -298,17 +300,17 @@ Brand Profile Constraints:
               className={`p-2 rounded-lg border-2 transition-all text-center ${
                 assetConfig.size === size
                   ? 'border-[#FFC107] bg-[#FFC107]/[0.05]'
-                  : 'border-[#E8E8E8] hover:border-[#2196F3] hover:bg-[#F5F5F5]'
+                  : 'border-brand-whisper-border dark:border-brand-light-border hover:border-[#2196F3] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
               }`}
             >
-              <div className="text-[11px] font-medium text-[#333333] capitalize">{size}</div>
+              <div className="text-[11px] font-medium text-brand-text capitalize">{size}</div>
             </button>
           ))}
         </div>
       </div>
 
       <div>
-        <h4 className="text-[13px] font-semibold text-[#333333] mb-3">Orientation</h4>
+        <h4 className="text-[13px] font-semibold text-brand-text mb-3">Orientation</h4>
         <div className="grid grid-cols-3 gap-2">
           {['portrait', 'landscape', 'square'].map((orientation) => (
             <button
@@ -317,17 +319,17 @@ Brand Profile Constraints:
               className={`p-2 rounded-lg border-2 transition-all text-center ${
                 assetConfig.orientation === orientation
                   ? 'border-[#FFC107] bg-[#FFC107]/[0.05]'
-                  : 'border-[#E8E8E8] hover:border-[#2196F3] hover:bg-[#F5F5F5]'
+                  : 'border-brand-whisper-border dark:border-brand-light-border hover:border-[#2196F3] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
               }`}
             >
-              <div className="text-[11px] font-medium text-[#333333] capitalize">{orientation}</div>
+              <div className="text-[11px] font-medium text-brand-text capitalize">{orientation}</div>
             </button>
           ))}
         </div>
       </div>
 
       <div>
-        <h4 className="text-[13px] font-semibold text-[#333333] mb-3">Content Density</h4>
+        <h4 className="text-[13px] font-semibold text-brand-text mb-3">Content Density</h4>
         <div className="grid grid-cols-3 gap-2">
           {['low', 'medium', 'high'].map((density) => (
             <button
@@ -336,10 +338,10 @@ Brand Profile Constraints:
               className={`p-2 rounded-lg border-2 transition-all text-center ${
                 assetConfig.density === density
                   ? 'border-[#FFC107] bg-[#FFC107]/[0.05]'
-                  : 'border-[#E8E8E8] hover:border-[#2196F3] hover:bg-[#F5F5F5]'
+                  : 'border-brand-whisper-border dark:border-brand-light-border hover:border-[#2196F3] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
               }`}
             >
-              <div className="text-[11px] font-medium text-[#333333] capitalize">{density}</div>
+              <div className="text-[11px] font-medium text-brand-text capitalize">{density}</div>
             </button>
           ))}
         </div>
@@ -362,9 +364,9 @@ Brand Profile Constraints:
 
       {/* Generated Prompt */}
       {generatedPrompt && (
-        <div className="bg-[#FFFFFF] border border-[#E8E8E8] rounded-xl p-6">
+        <div className="bg-[#FFFFFF] border border-brand-whisper-border dark:border-brand-light-border rounded-xl p-6">
           <div className="flex items-start justify-between mb-4">
-            <h3 className="text-[16px] font-bold text-[#333333]">Generated Prompt</h3>
+            <h3 className="text-[16px] font-bold text-brand-text">Generated Prompt</h3>
             <div className="flex gap-2">
               <button
                 onClick={copyToClipboard}
@@ -375,27 +377,27 @@ Brand Profile Constraints:
               </button>
               <button
                 onClick={downloadPrompt}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#F5F5F5] text-[#333333] text-[12px] font-medium hover:bg-[#E8E8E8] transition-colors"
+                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-brand-canvas dark:bg-white/[0.04] text-brand-text text-[12px] font-medium hover:bg-[#E8E8E8] transition-colors"
               >
                 <Download size={14} />
                 Download
               </button>
             </div>
           </div>
-          <div className="bg-[#FAFAFA] border border-[#E8E8E8] rounded-lg p-4 font-mono text-[12px] text-[#333333] whitespace-pre-wrap max-h-96 overflow-y-auto">
+          <div className="bg-brand-canvas border border-brand-whisper-border dark:border-brand-light-border rounded-lg p-4 font-mono text-[12px] text-brand-text whitespace-pre-wrap max-h-96 overflow-y-auto">
             {generatedPrompt}
           </div>
         </div>
       )}
 
       {/* Custom Prompt Area */}
-      <div className="bg-[#FAFAFA] border border-[#E8E8E8] rounded-xl p-6">
-        <h3 className="text-[16px] font-bold text-[#333333] mb-4">Custom Prompt Override</h3>
+      <div className="bg-brand-canvas border border-brand-whisper-border dark:border-brand-light-border rounded-xl p-6">
+        <h3 className="text-[16px] font-bold text-brand-text mb-4">Custom Prompt Override</h3>
         <textarea
           value={customPrompt}
           onChange={(e) => setCustomPrompt(e.target.value)}
           placeholder="Enter your custom prompt here. Brand profile constraints will still be applied..."
-          className="w-full h-32 p-3 border border-[#E8E8E8] rounded-lg font-mono text-[12px] text-[#333333] resize-none focus:outline-none focus:border-[#2196F3]"
+          className="w-full h-32 p-3 border border-brand-whisper-border dark:border-brand-light-border rounded-lg font-mono text-[12px] text-brand-text resize-none focus:outline-none focus:border-[#2196F3]"
         />
         <div className="flex gap-3 mt-3">
           <button
@@ -403,13 +405,13 @@ Brand Profile Constraints:
               const finalPrompt = customPrompt || generatedPrompt
               onPromptGenerated(finalPrompt)
             }}
-            className="px-4 py-2 rounded-lg bg-[#FFC107] text-[#333333] text-[13px] font-medium hover:bg-[#FFB300] transition-colors"
+            className="px-4 py-2 rounded-lg bg-[#FFC107] text-brand-text text-[13px] font-medium hover:bg-[#FFB300] transition-colors"
           >
             Use Custom Prompt
           </button>
           <button
             onClick={() => setCustomPrompt('')}
-            className="px-4 py-2 rounded-lg bg-[#F5F5F5] text-[#9E9E9E] text-[13px] font-medium hover:bg-[#E8E8E8] transition-colors"
+            className="px-4 py-2 rounded-lg bg-brand-canvas dark:bg-white/[0.04] text-brand-text-muted text-[13px] font-medium hover:bg-[#E8E8E8] transition-colors"
           >
             Clear
           </button>

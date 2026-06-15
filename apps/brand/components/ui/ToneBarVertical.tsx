@@ -18,7 +18,7 @@ export function ToneBarVertical({ tones, mainHex, onCopy, copiedId, onColorSelec
           >
             {isMain && (
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className={`w-1.5 h-1.5 rounded-full ${['#FFC107', '#FFF8E1', '#FFECB3', '#E3F2FD', '#BBDEFB', '#E8EAF6', '#C5CAE9', '#FFFFFF', '#FAFAFA', '#F5F5F5'].includes(tone) ? 'bg-black/30' : 'bg-white/60'}`} />
+                <div className={`w-1.5 h-1.5 rounded-full ${['#FFC107', '#FFF8E1', '#FFECB3', '#E3F2FD', '#BBDEFB', '#E8EAF6', '#C5CAE9', '#FFFFFF', '#FAFAFA', '#F5F5F5'].includes(tone) ? 'bg-black/30' : 'bg-brand-surface/60'}`} />
               </div>
             )}
             {copiedId === `tone-${mainHex}-${i}` && (

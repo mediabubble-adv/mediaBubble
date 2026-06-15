@@ -72,7 +72,7 @@ export function IconographyPage() {
       {/* System card */}
       <section className="mb-10">
         <div className="mb-4">
-          <h2 className="text-[13px] font-semibold text-brand.dark-blue">{t('Icon System', 'Icon System')}</h2>
+          <h2 className="text-[13px] font-semibold text-brand-dark-blue">{t('Icon System', 'Icon System')}</h2>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#E8E8E8] rounded-xl overflow-hidden">
           {[
@@ -81,9 +81,9 @@ export function IconographyPage() {
             { label: t('Stroke weight', 'Stroke weight'), value: t('1.5px', '1.5px') },
             { label: t('Style', 'Style'), value: t('Outline, rounded caps', 'Outline, rounded caps') },
           ].map((spec) => (
-            <div key={spec.label} className="bg-white px-5 py-4">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#9E9E9E]">{spec.label}</p>
-              <p className="text-[14px] font-semibold text-brand.dark-blue mt-1">{spec.value}</p>
+            <div key={spec.label} className="bg-brand-surface px-5 py-4">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-brand-text-muted">{spec.label}</p>
+              <p className="text-[14px] font-semibold text-brand-dark-blue mt-1">{spec.value}</p>
             </div>
           ))}
         </div>
@@ -92,20 +92,20 @@ export function IconographyPage() {
       {/* Size scale */}
       <section className="mb-8">
         <div className="mb-4">
-          <h2 className="text-[13px] font-semibold text-brand.dark-blue">{t('Size Scale', 'Size Scale')}</h2>
+          <h2 className="text-[13px] font-semibold text-brand-dark-blue">{t('Size Scale', 'Size Scale')}</h2>
         </div>
-        <div className="bg-white rounded-xl border border-[#E8E8E8] divide-y divide-[#E8E8E8]">
+        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border divide-y divide-brand-whisper-border">
           {sizeSteps.map((step) => (
             <div key={step.px} className="flex items-center gap-5 px-6 py-4 transition-all hover:bg-black/[0.015]">
               <div className="w-14 flex items-center justify-center shrink-0">
                 <Settings size={step.px} strokeWidth={1.5} className="text-[#2196F3]" />
               </div>
               <div className="w-20 shrink-0">
-                <p className="text-[13px] font-semibold text-[#333333]">{step.px}px</p>
-                <p className="text-[10px] font-mono text-[#9E9E9E]">{step.label}</p>
+                <p className="text-[13px] font-semibold text-brand-text">{step.px}px</p>
+                <p className="text-[10px] font-mono text-brand-text-muted">{step.label}</p>
               </div>
-              <p className="flex-1 text-sm text-[#666666]">{step.use}</p>
-              <code className="text-[10px] font-mono text-[#9E9E9E] hidden sm:block">size={`{${step.px}}`} strokeWidth={'{1.5}'}</code>
+              <p className="flex-1 text-sm text-brand-text-secondary">{step.use}</p>
+              <code className="text-[10px] font-mono text-brand-text-muted hidden sm:block">size={`{${step.px}}`} strokeWidth={'{1.5}'}</code>
             </div>
           ))}
         </div>
@@ -115,13 +115,13 @@ export function IconographyPage() {
       <section className="mb-10">
         <div className="flex items-center gap-2.5 mb-4">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2196F3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="7.5" cy="7.5" r="1.5" fill="#2196F3"/><circle cx="16.5" cy="7.5" r="1.5" fill="#2196F3"/><circle cx="7.5" cy="16.5" r="1.5" fill="#2196F3"/><circle cx="16.5" cy="16.5" r="1.5" fill="#2196F3"/></svg>
-          <h2 className="text-[13px] font-semibold text-brand.dark-blue">{t('Icon Categories', 'Icon Categories')}</h2>
+          <h2 className="text-[13px] font-semibold text-brand-dark-blue">{t('Icon Categories', 'Icon Categories')}</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {iconCategories.map((cat) => (
             <div
               key={cat.name}
-              className="bg-white rounded-xl border border-[#E8E8E8] overflow-hidden transition-colors duration-150 hover:bg-[#FAFAFA]"
+              className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border overflow-hidden transition-colors duration-150 hover:bg-black/[0.02] dark:hover:bg-white/[0.04]"
               style={{ borderTopColor: cat.color, borderTopWidth: '3px' }}
             >
               <div className="px-5 py-3.5 border-b border-[#F5F5F5]">
@@ -130,10 +130,10 @@ export function IconographyPage() {
               <div className="p-5 grid grid-cols-6 gap-3">
                 {cat.icons.map(({ name, Icon }) => (
                   <div key={name} className="flex flex-col items-center gap-1.5 group cursor-default">
-                    <div className="w-10 h-10 rounded-lg bg-[#F5F5F5] group-hover:bg-[#E3F2FD] flex items-center justify-center transition-colors duration-150">
-                      <Icon size={18} strokeWidth={1.5} className="text-[#666666] group-hover:text-[#2196F3] transition-colors" />
+                    <div className="w-10 h-10 rounded-lg bg-brand-canvas dark:bg-white/[0.04] group-hover:bg-[#E3F2FD] flex items-center justify-center transition-colors duration-150">
+                      <Icon size={18} strokeWidth={1.5} className="text-brand-text-secondary group-hover:text-[#2196F3] transition-colors" />
                     </div>
-                    <span className="text-[10px] font-mono text-[#9E9E9E] text-center leading-tight">{name}</span>
+                    <span className="text-[10px] font-mono text-brand-text-muted text-center leading-tight">{name}</span>
                   </div>
                 ))}
               </div>
@@ -144,11 +144,11 @@ export function IconographyPage() {
 
       {/* Color rules do/don't */}
       <section className="mb-8">
-        <div className="bg-[#EBF5FB] rounded-lg px-4 py-2.5 mb-5">
-          <h2 className="text-[13px] font-semibold text-brand.dark-blue">{t('Color Rules', 'Color Rules')}</h2>
+        <div className="bg-brand-info-bg dark:bg-brand-navy/30 rounded-lg px-4 py-2.5 mb-5">
+          <h2 className="text-[13px] font-semibold text-brand-dark-blue">{t('Color Rules', 'Color Rules')}</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#E8E8E8] rounded-xl overflow-hidden">
-          <div className="bg-[#FAFAFA] px-5 py-4">
+          <div className="bg-brand-canvas px-5 py-4">
             <div className="flex items-center gap-1.5 mb-3">
               <div className="w-[18px] h-[18px] rounded-full bg-[#FEE2E2] flex items-center justify-center shrink-0">
                 <X size={9} className="text-[#DC2626]" strokeWidth={3} />
@@ -156,18 +156,18 @@ export function IconographyPage() {
               <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#DC2626]/60">{t('Avoid', 'Avoid')}</span>
             </div>
             <div className="flex items-center gap-4 flex-wrap">
-              <div className="flex items-center gap-2 text-[11px] text-brand.muted-steel">
+              <div className="flex items-center gap-2 text-[11px] text-brand-muted-steel">
                 <Star size={18} strokeWidth={1.5} style={{ color: '#FF00FF' }} /> {t('Arbitrary color', 'Arbitrary color')}
               </div>
-              <div className="flex items-center gap-2 text-[11px] text-brand.muted-steel">
+              <div className="flex items-center gap-2 text-[11px] text-brand-muted-steel">
                 <Bell size={18} strokeWidth={1.5} style={{ color: '#FF6600' }} /> {t('Decoration-only tint', 'Decoration-only tint')}
               </div>
-              <div className="flex items-center gap-2 text-[11px] text-brand.muted-steel">
+              <div className="flex items-center gap-2 text-[11px] text-brand-muted-steel">
                 <Settings size={18} strokeWidth={3} className="text-[#333]" /> {t('Wrong stroke weight', 'Wrong stroke weight')}
               </div>
             </div>
           </div>
-          <div className="bg-white px-5 py-4">
+          <div className="bg-brand-surface px-5 py-4">
             <div className="flex items-center gap-1.5 mb-3">
               <div className="w-[18px] h-[18px] rounded-full bg-[#DCFCE7] flex items-center justify-center shrink-0">
                 <Check size={9} className="text-[#16A34A]" strokeWidth={3} />
@@ -175,14 +175,14 @@ export function IconographyPage() {
               <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#16A34A]/60">{t('Correct', 'Correct')}</span>
             </div>
             <div className="flex items-center gap-4 flex-wrap">
-              <div className="flex items-center gap-2 text-[11px] text-[#333333]">
+              <div className="flex items-center gap-2 text-[11px] text-brand-text">
                 <Star size={18} strokeWidth={1.5} className="text-[#FFC107]" /> {t('Accent = yellow', 'Accent = yellow')}
               </div>
-              <div className="flex items-center gap-2 text-[11px] text-[#333333]">
+              <div className="flex items-center gap-2 text-[11px] text-brand-text">
                 <Bell size={18} strokeWidth={1.5} className="text-[#2196F3]" /> {t('Active = blue', 'Active = blue')}
               </div>
-              <div className="flex items-center gap-2 text-[11px] text-[#333333]">
-                <Settings size={18} strokeWidth={1.5} className="text-[#9E9E9E]" /> {t('Muted = steel', 'Muted = steel')}
+              <div className="flex items-center gap-2 text-[11px] text-brand-text">
+                <Settings size={18} strokeWidth={1.5} className="text-brand-text-muted" /> {t('Muted = steel', 'Muted = steel')}
               </div>
             </div>
           </div>
@@ -192,7 +192,7 @@ export function IconographyPage() {
       {/* Usage rules */}
       <section className="mb-16">
         <div className="mb-4">
-          <h2 className="text-[13px] font-semibold text-brand.dark-blue">{t('Usage Rules', 'Usage Rules')}</h2>
+          <h2 className="text-[13px] font-semibold text-brand-dark-blue">{t('Usage Rules', 'Usage Rules')}</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
@@ -203,9 +203,9 @@ export function IconographyPage() {
             { rule: t('No library mixing', 'No library mixing'), detail: t('Do not combine Lucide with Heroicons, FontAwesome, or Feather. Different optical weights break consistency.', 'Do not combine Lucide with Heroicons, FontAwesome, or Feather. Different optical weights break consistency.') },
             { rule: t('Minimum contrast', 'Minimum contrast'), detail: t('Icons on color backgrounds need 3:1 minimum. Muted steel (#9E9E9E) is for supporting context only, not primary icons.', 'Icons on color backgrounds need 3:1 minimum. Muted steel (#9E9E9E) is for supporting context only, not primary icons.') },
           ].map((r) => (
-            <div key={r.rule} className="bg-[#F4F6F9] rounded-xl p-5">
-              <p className="text-[13px] font-semibold text-brand.dark-blue mb-2">{r.rule}</p>
-              <p className="text-sm text-[#666666] leading-relaxed">{r.detail}</p>
+            <div key={r.rule} className="bg-brand-canvas dark:bg-white/[0.04] rounded-xl p-5">
+              <p className="text-[13px] font-semibold text-brand-dark-blue mb-2">{r.rule}</p>
+              <p className="text-sm text-brand-text-secondary leading-relaxed">{r.detail}</p>
             </div>
           ))}
         </div>

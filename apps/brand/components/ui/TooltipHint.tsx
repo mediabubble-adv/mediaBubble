@@ -10,7 +10,7 @@ export function TooltipHint({ text, side = 'top' }: { text: string; side?: 'top'
   }
   return (
     <span className="relative group inline-flex items-center shrink-0">
-      <Info size={12} className="text-[#9E9E9E] hover:text-[#666666] cursor-help transition-colors" />
+      <Info size={12} className="text-brand-text-muted hover:text-brand-text-secondary cursor-help transition-colors" />
       <span className={`absolute ${sideClasses[side]} px-2 py-1.5 rounded-lg bg-[#0D0F12] text-white text-[10px] leading-tight whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none z-[var(--z-tooltip)] shadow-lg max-w-[200px]`}>
         {text}
       </span>

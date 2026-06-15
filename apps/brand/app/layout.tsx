@@ -1,29 +1,12 @@
 import type { Metadata } from 'next'
-import { Inter, Poppins, JetBrains_Mono, Cairo } from 'next/font/google'
-import { resolveMarketSiteConfig } from '@mediabubble/shared/server'
+import { getCspNonce, resolveMarketSiteConfig, THEME_INIT_SCRIPT } from '@mediabubble/shared/server'
 import { I18nProvider } from '@/lib/i18n/provider'
 import { I18nErrorBoundary } from '@/components/I18nErrorBoundary'
+import { AppProviders } from '@/components/providers/AppProviders'
+import { rootFontClassName } from '@/lib/fonts'
 import './globals.css'
 
 const site = resolveMarketSiteConfig('brand')
-
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '600', '700', '900'],
-  variable: '--font-poppins',
-})
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500'],
-  variable: '--font-mono',
-})
-const cairo = Cairo({
-  subsets: ['arabic', 'latin'],
-  weight: ['400', '600', '700', '800', '900'],
-  display: 'swap',
-  variable: '--font-cairo',
-})
 
 export const metadata: Metadata = {
   title: {
@@ -47,15 +30,19 @@ export const viewport = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const nonce = getCspNonce()
+
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${poppins.variable} ${jetbrainsMono.variable} ${cairo.variable}`}
-    >
-      <body className="font-sans antialiased bg-brand-canvas text-brand-charcoal">
-        <I18nErrorBoundary>
-          <I18nProvider>{children}</I18nProvider>
-        </I18nErrorBoundary>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script nonce={nonce} dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+      </head>
+      <body className={`${rootFontClassName} font-sans antialiased bg-brand-canvas text-brand-text`}>
+        <AppProviders>
+          <I18nErrorBoundary>
+            <I18nProvider>{children}</I18nProvider>
+          </I18nErrorBoundary>
+        </AppProviders>
       </body>
     </html>
   )

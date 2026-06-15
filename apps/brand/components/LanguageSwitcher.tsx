@@ -49,15 +49,15 @@ const BASE_CLASSES = [
 const VARIANT_CLASSES: Record<LanguageSwitcherVariant, string> = {
   ghost: [
     'border border-transparent',
-    'text-brand-secondary',
-    'hover:text-brand-charcoal hover:bg-black/[0.05]',
-    'active:bg-black/[0.08]',
+    'text-brand-secondary dark:text-brand-text-muted',
+    'hover:text-brand-charcoal dark:hover:text-brand-off-white hover:bg-black/[0.05] dark:hover:bg-white/[0.06]',
+    'active:bg-black/[0.08] dark:active:bg-white/[0.08]',
   ].join(' '),
   outline: [
-    'border border-brand-whisper-border',
-    'text-brand-secondary bg-transparent',
-    'hover:text-brand-charcoal hover:bg-brand-canvas hover:border-brand-input-border',
-    'active:bg-black/[0.04]',
+    'border border-brand-whisper-border dark:border-brand-light-border',
+    'text-brand-secondary dark:text-brand-text-muted bg-transparent',
+    'hover:text-brand-charcoal dark:hover:text-brand-off-white hover:bg-brand-canvas dark:hover:bg-white/[0.04] hover:border-brand-input-border',
+    'active:bg-black/[0.04] dark:active:bg-white/[0.06]',
   ].join(' '),
 }
 

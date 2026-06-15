@@ -56,13 +56,13 @@ export function RealWorldExamplesPage() {
       {studies.map((study, i) => (
         <section key={study.title} className={`${i < studies.length - 1 ? 'mb-12' : 'mb-16'}`}>
           <div className="mb-4">
-            <h2 className="text-[13px] font-semibold text-brand.dark-blue">{study.title}</h2>
-            <p className="text-[11px] text-brand.muted-steel mt-0.5">{study.subtitle}</p>
+            <h2 className="text-[13px] font-semibold text-brand-dark-blue">{study.title}</h2>
+            <p className="text-[11px] text-brand-muted-steel mt-0.5">{study.subtitle}</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
             {/* Before */}
-            <div className="bg-white rounded-xl border border-[#E8E8E8] overflow-hidden">
+            <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border overflow-hidden">
               <div className="bg-red-50 px-5 py-2 border-b border-red-100">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-[#DC2626]" />
@@ -71,23 +71,23 @@ export function RealWorldExamplesPage() {
               </div>
               <div className="p-5">
                 {i === 0 && (
-                  <div className="relative rounded-lg overflow-hidden mb-4 min-h-[120px] bg-[#F9FAFB] border border-[#E8E8E8]">
+                  <div className="relative rounded-lg overflow-hidden mb-4 min-h-[120px] bg-[#F9FAFB] border border-brand-whisper-border dark:border-brand-light-border">
                     <img src="/assets/Real-Photos/real-printing-outdoor-01.jpeg" alt="" className="w-full h-full object-cover absolute inset-0 opacity-20" />
                     <div className="relative p-4 flex items-center justify-center min-h-[120px]">
-                      <p className="text-[13px] text-brand.muted-steel text-center italic leading-relaxed">{study.before}</p>
+                      <p className="text-[13px] text-brand-muted-steel text-center italic leading-relaxed">{study.before}</p>
                     </div>
                   </div>
                 )}
                 {i !== 0 && (
-                  <div className="bg-[#F9FAFB] rounded-lg border border-[#E8E8E8] p-4 mb-4 min-h-[80px] flex items-center justify-center">
-                    <p className="text-[13px] text-brand.muted-steel text-center italic leading-relaxed">{study.before}</p>
+                  <div className="bg-[#F9FAFB] rounded-lg border border-brand-whisper-border dark:border-brand-light-border p-4 mb-4 min-h-[80px] flex items-center justify-center">
+                    <p className="text-[13px] text-brand-muted-steel text-center italic leading-relaxed">{study.before}</p>
                   </div>
                 )}
                 <div>
                   <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#DC2626] mb-2">{t("Problems")}</p>
                   <ul className="space-y-1.5">
                     {study.before.split('. ').filter(s => s.trim()).slice(0, 3).map((point) => (
-                      <li key={point} className="flex items-start gap-2 text-[12px] text-[#666666] leading-relaxed">
+                      <li key={point} className="flex items-start gap-2 text-[12px] text-brand-text-secondary leading-relaxed">
                         <span className="w-1 h-1 rounded-full bg-[#DC2626] shrink-0 mt-1.5" />
                         {point.replace(/\.$/, '')}
                       </li>
@@ -98,7 +98,7 @@ export function RealWorldExamplesPage() {
             </div>
 
             {/* After */}
-            <div className="bg-white rounded-xl border border-[#E8E8E8] overflow-hidden">
+            <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border overflow-hidden">
               <div className="bg-green-50 px-5 py-2 border-b border-green-100">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-[#16A34A]" />
@@ -107,23 +107,23 @@ export function RealWorldExamplesPage() {
               </div>
               <div className="p-5">
                 {i === 2 && (
-                  <div className="relative rounded-lg overflow-hidden mb-4 min-h-[120px] bg-[#F9FAFB] border border-[#E8E8E8]">
+                  <div className="relative rounded-lg overflow-hidden mb-4 min-h-[120px] bg-[#F9FAFB] border border-brand-whisper-border dark:border-brand-light-border">
                     <img src="/assets/Real-Photos/IMG-20250706-WA0040.jpg" alt="" className="w-full h-full object-cover absolute inset-0 opacity-20" />
                     <div className="relative p-4 flex items-center justify-center min-h-[120px]">
-                      <p className="text-[13px] text-[#333333] leading-relaxed">{study.after}</p>
+                      <p className="text-[13px] text-brand-text leading-relaxed">{study.after}</p>
                     </div>
                   </div>
                 )}
                 {i !== 2 && (
                   <div className="bg-[#F0F9F6] rounded-lg border border-[#B8E6D3] p-4 mb-4 min-h-[80px] flex items-center justify-center">
-                    <p className="text-[13px] text-[#333333] leading-relaxed">{study.after}</p>
+                    <p className="text-[13px] text-brand-text leading-relaxed">{study.after}</p>
                   </div>
                 )}
                 <div>
                   <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#16A34A] mb-2">{t("Improvements")}</p>
                   <ul className="space-y-1.5">
                     {study.improvements.map((imp) => (
-                      <li key={imp} className="flex items-start gap-2 text-[12px] text-[#666666] leading-relaxed">
+                      <li key={imp} className="flex items-start gap-2 text-[12px] text-brand-text-secondary leading-relaxed">
                         <span className="w-1 h-1 rounded-full bg-[#16A34A] shrink-0 mt-1.5" />
                         {imp}
                       </li>
@@ -135,14 +135,14 @@ export function RealWorldExamplesPage() {
           </div>
 
           {/* Tokens used */}
-          <div className="flex items-center gap-3 px-4 py-2.5 bg-[#F4F6F9] rounded-lg">
-            <span className="text-[10px] font-mono font-semibold text-[#9E9E9E] shrink-0">{t("Design tokens")}</span>
+          <div className="flex items-center gap-3 px-4 py-2.5 bg-brand-canvas dark:bg-white/[0.04] rounded-lg">
+            <span className="text-[10px] font-mono font-semibold text-brand-text-muted shrink-0">{t("Design tokens")}</span>
             <div className="flex flex-wrap gap-2">
               {study.tokens.map((token) => (
                 <span
                   key={token}
                   className={`px-2 py-0.5 rounded-md text-[10px] font-mono font-semibold ${
-                    token.startsWith('#') ? 'bg-white ring-1 ring-black/[0.06] text-[#666666]' : 'bg-[#E0E7FF] text-[#4338CA]'
+                    token.startsWith('#') ? 'bg-brand-surface ring-1 ring-black/[0.06] text-brand-text-secondary' : 'bg-[#E0E7FF] text-[#4338CA]'
                   }`}
                 >
                   {token}

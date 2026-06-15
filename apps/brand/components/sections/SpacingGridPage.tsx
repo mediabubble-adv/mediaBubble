@@ -42,13 +42,13 @@ export function SpacingGridPage() {
 
       <section className="mb-10">
         <div className="mb-4">
-          <h2 className="text-[13px] font-semibold text-brand.dark-blue">{t('Spacing Scale')}</h2>
+          <h2 className="text-[13px] font-semibold text-brand-dark-blue">{t('Spacing Scale')}</h2>
         </div>
-        <div className="bg-white rounded-xl border border-[#E8E8E8] overflow-hidden">
+        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border overflow-hidden">
           {spacingScale.map((step, i) => (
             <div
               key={step.token}
-              className={`flex items-center gap-4 px-5 py-3 transition-all hover:bg-black/[0.015] ${i < spacingScale.length - 1 ? 'border-b border-[#E8E8E8]' : ''}`}
+              className={`flex items-center gap-4 px-5 py-3 transition-all hover:bg-black/[0.015] ${i < spacingScale.length - 1 ? 'border-b border-brand-whisper-border dark:border-brand-light-border' : ''}`}
             >
               <div className="w-28 shrink-0 flex items-center">
                 <div className="flex items-center gap-0.5 w-full">
@@ -62,14 +62,14 @@ export function SpacingGridPage() {
                 </div>
               </div>
               <div className="w-24 shrink-0">
-                <p className="text-[12px] font-semibold text-[#333333]">{step.px}</p>
-                <p className="text-[10px] font-mono text-[#9E9E9E]">{step.rem}</p>
+                <p className="text-[12px] font-semibold text-brand-text">{step.px}</p>
+                <p className="text-[10px] font-mono text-brand-text-muted">{step.rem}</p>
               </div>
               <code className="text-[11px] font-mono text-[#2196F3] w-28 shrink-0 hidden sm:block">{step.token}</code>
               <div className="flex-1 min-w-0 hidden md:block">
-                <p className="text-[12px] text-[#666666] leading-snug">{step.use}</p>
+                <p className="text-[12px] text-brand-text-secondary leading-snug">{step.use}</p>
               </div>
-              <code className="text-[10px] font-mono text-[#9E9E9E] shrink-0 hidden lg:block">{step.tailwind}</code>
+              <code className="text-[10px] font-mono text-brand-text-muted shrink-0 hidden lg:block">{step.tailwind}</code>
             </div>
           ))}
         </div>
@@ -78,26 +78,26 @@ export function SpacingGridPage() {
       <section className="mb-10">
         <div className="flex items-center gap-2.5 mb-4">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2196F3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-          <h2 className="text-[13px] font-semibold text-brand.dark-blue">{t('Grid Patterns')}</h2>
+          <h2 className="text-[13px] font-semibold text-brand-dark-blue">{t('Grid Patterns')}</h2>
         </div>
         <div className="space-y-4">
           {gridPatterns.map((pattern, pi) => {
             const palette = [
-              { cell: 'bg-[#E3F2FD] border-[#BBDEFB]', gapCell: 'bg-[#EBF5FB]', topBar: 'bg-[#2196F3]' },
+              { cell: 'bg-[#E3F2FD] border-brand-whisper-border dark:border-brand-light-border', gapCell: 'bg-brand-info-bg dark:bg-brand-navy/30', topBar: 'bg-[#2196F3]' },
               { cell: 'bg-[#FFF8E1] border-[#FFE082]', gapCell: 'bg-[#FFFDE7]', topBar: 'bg-[#FFC107]' },
               { cell: 'bg-[#E8F5E9] border-[#A5D6A7]', gapCell: 'bg-[#F1F8E9]', topBar: 'bg-[#4CAF50]' },
               { cell: 'bg-[#F3E5F5] border-[#CE93D8]', gapCell: 'bg-[#FBEFFA]', topBar: 'bg-[#9C27B0]' },
             ]
             const p = palette[pi % palette.length]
             return (
-            <div key={pattern.name} className="bg-white rounded-xl border border-[#E8E8E8] overflow-hidden transition-all duration-150 hover:shadow-[0_4px_12px_rgba(0,0,0,0.06)]">
+            <div key={pattern.name} className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border overflow-hidden transition-all duration-150 hover:shadow-[0_4px_12px_rgba(0,0,0,0.06)]">
               <div className={`h-1 ${p.topBar}`} />
               <div className="flex items-start justify-between px-5 py-3.5 border-b border-[#F5F5F5]">
                 <div>
-                  <p className="text-[13px] font-semibold text-brand.dark-blue">{pattern.name}</p>
-                  <p className="text-[12px] text-brand.muted-steel mt-0.5">{pattern.use}</p>
+                  <p className="text-[13px] font-semibold text-brand-dark-blue">{pattern.name}</p>
+                  <p className="text-[12px] text-brand-muted-steel mt-0.5">{pattern.use}</p>
                 </div>
-                <code className="text-[10px] font-mono text-[#9E9E9E] text-end shrink-0 ms-4 leading-relaxed">
+                <code className="text-[10px] font-mono text-brand-text-muted text-end shrink-0 ms-4 leading-relaxed">
                   {pattern.autoFit ? 'repeat(auto-fit,\nminmax(280px, 1fr))' : `${pattern.cols}\n${pattern.gap}`}
                 </code>
               </div>
@@ -123,14 +123,14 @@ export function SpacingGridPage() {
 
       <section className="mb-16">
         <div className="mb-4">
-          <h2 className="text-[13px] font-semibold text-brand.dark-blue">{t('Layout Dimensions')}</h2>
+          <h2 className="text-[13px] font-semibold text-brand-dark-blue">{t('Layout Dimensions')}</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {containerRules.map((r) => (
-            <div key={r.rule} className="bg-[#F4F6F9] rounded-xl px-4 py-3.5 transition-all hover:bg-[#EEF1F6]">
-              <p className="text-[13px] font-semibold text-brand.dark-blue">{r.rule}</p>
-              <code className="text-[11px] font-mono text-[#333333] font-semibold">{r.value}</code>
-              <p className="text-[11px] text-brand.muted-steel mt-1 leading-snug">{r.note}</p>
+            <div key={r.rule} className="bg-brand-canvas dark:bg-white/[0.04] rounded-xl px-4 py-3.5 transition-all hover:bg-[#EEF1F6]">
+              <p className="text-[13px] font-semibold text-brand-dark-blue">{r.rule}</p>
+              <code className="text-[11px] font-mono text-brand-text font-semibold">{r.value}</code>
+              <p className="text-[11px] text-brand-muted-steel mt-1 leading-snug">{r.note}</p>
             </div>
           ))}
         </div>
