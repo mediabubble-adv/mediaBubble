@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="apps/web-eg/public/assets/Logo/logo-favicon.svg" alt="MediaBubble logo" width="88" height="88" />
+<img src="apps/web-eg/public/assets/Logo/logo-favicon.svg" alt="mediaBubble logo" width="88" height="88" />
 
 # MediaBubble
 
