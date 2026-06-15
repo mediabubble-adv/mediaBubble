@@ -4,7 +4,7 @@ export const EXPERIMENTS = {
     variants: ['control', 'urgency'] as const,
     weights: [0.5, 0.5] as const,
   },
-  blogSearchPlaceholder: {
+  insightsSearchPlaceholder: {
     id: 'blog-search-placeholder-v1',
     variants: ['default', 'action'] as const,
     weights: [0.5, 0.5] as const,

@@ -57,8 +57,8 @@ const MEGA_MENU_COLUMNS = [
     labelKey: 'nav.mega.resources.label',
     icon: BookOpen,
     items: [
-      { labelKey: 'nav.mega.resources.cases.label',   descKey: 'nav.mega.resources.cases.desc',   href: '/portfolio', icon: FolderOpen  },
-      { labelKey: 'nav.mega.resources.blog.label',    descKey: 'nav.mega.resources.blog.desc',    href: '/blog',      icon: Rss         },
+      { labelKey: 'nav.mega.resources.cases.label',   descKey: 'nav.mega.resources.cases.desc',   href: '/case-studies', icon: FolderOpen  },
+      { labelKey: 'nav.mega.resources.blog.label',    descKey: 'nav.mega.resources.blog.desc',    href: '/insights',      icon: Rss         },
       { labelKey: 'nav.mega.resources.pricing.label', descKey: 'nav.mega.resources.pricing.desc', href: '/contact',   icon: DollarSign  },
     ],
   },
@@ -67,8 +67,8 @@ const MEGA_MENU_COLUMNS = [
 const NAV_LINKS = [
   { key: 'nav.about',     href: '/about' },
   { key: 'nav.services',  href: '/services',  hasMega: true },
-  { key: 'nav.portfolio', href: '/portfolio' },
-  { key: 'nav.blog',      href: '/blog' },
+  { key: 'nav.portfolio', href: '/case-studies' },
+  { key: 'nav.blog',      href: '/insights' },
   { key: 'nav.contact',   href: '/contact' },
 ] as const
 

@@ -35,25 +35,25 @@ export {
   trackNewsletterSubmitted,
   trackNewsletterShown,
   trackNewsletterDismissed,
-  trackBlogSearch,
+  trackInsightsSearch,
   trackFloatingCtaClicked,
   trackGitModalOpened,
   trackGitModalCtaClicked,
   trackServiceViewed,
 } from './ga4-events'
 export {
-  searchBlogPosts,
-  toBlogSearchSummary,
-  type BlogSearchResult,
-  type BlogSearchablePost,
-} from './blog/search'
+  searchInsightsPosts,
+  toInsightSearchSummary,
+  type InsightSearchResult,
+  type InsightSearchablePost,
+} from './insights/search'
 export {
   resolveMarketSiteConfig,
   getMarketPortalUrl,
   type Market,
   type MarketSiteDefaults,
 } from './site-config'
-export { buildBlogPostJsonLd, buildCaseStudyJsonLd, serializeJsonLd, type BlogPostJsonLdInput, type CaseStudyJsonLdInput } from './seo/json-ld'
+export { buildInsightPostJsonLd, buildCaseStudyJsonLd, serializeJsonLd, type InsightPostJsonLdInput, type CaseStudyJsonLdInput } from './seo/json-ld'
 export { isOfficeOpen } from './office-hours'
 export { useOfficeOpen } from './hooks/use-office-open'
 export { FooterSocialLinks } from './components/FooterSocialLinks'

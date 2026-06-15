@@ -65,7 +65,7 @@ export const eventsServiceConfig: ServicePageConfig = {
     description:
       'A new waterfront venue in Dubai needed buzz beyond invitations. We produced a preview for press and creators, ran geo-targeted Meta ads, and live-posted through the night — reservations hit capacity within two days.',
     company: 'Azure Marina Lounge',
-    href: '/portfolio',
+    href: '/case-studies',
     quote:
       'They handled creative, vendors, and the social coverage on opening night. Our team could focus on guests — not logistics.',
     author: 'Omar Fathy',

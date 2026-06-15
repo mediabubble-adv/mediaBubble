@@ -29,7 +29,7 @@ export function ServicesPageContent() {
             { label: t('hero.services.cta', 'Book a Free Strategy Call'), href: '/contact' },
             {
               label: t('hero.services.ctaSecondary', 'View Our Work'),
-              href: '/portfolio',
+              href: '/case-studies',
               variant: 'secondary',
             },
           ]}

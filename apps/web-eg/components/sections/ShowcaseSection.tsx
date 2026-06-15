@@ -88,7 +88,7 @@ export function ShowcaseSection() {
           {visible.map((project, index) => (
             <Link
               key={project.id}
-              href={`/portfolio/${project.id}`}
+              href={`/case-studies/${project.id}`}
               className="group relative flex flex-col bg-brand-surface rounded-2xl border border-brand-whisper-border overflow-hidden hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] hover:-translate-y-[4px] transition-all duration-300 focus-visible:ring-2 focus-visible:ring-brand-blue outline-none"
             >
               <div className="h-1 w-full" style={{ backgroundColor: project.accent }} aria-hidden="true" />
@@ -173,7 +173,7 @@ export function ShowcaseSection() {
 
         <div className="mt-10 sm:mt-14">
           <Link
-            href="/portfolio"
+            href="/case-studies"
             className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-[15px] font-semibold bg-brand-navy text-white hover:bg-[#0a3a8a] active:scale-[0.97] transition-all duration-150 shadow-lg shadow-brand-navy/20 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-yellow/50"
           >
             {t('showcase.cta.viewAll', 'View all')}

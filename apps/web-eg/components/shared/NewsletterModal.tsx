@@ -17,7 +17,7 @@ import {
 const SCROLL_TRIGGER_RATIO = 0.45
 
 function isNewsletterEligiblePath(pathname: string): boolean {
-  if (pathname.startsWith('/blog/') && pathname.length > '/blog/'.length) return true
+  if (pathname.startsWith('/insights/') && pathname.length > '/insights/'.length) return true
   if (pathname === '/services' || pathname.startsWith('/services/')) return true
   return false
 }

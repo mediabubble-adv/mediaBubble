@@ -1,4 +1,4 @@
-export type { BlogPost } from '@/lib/data/blog-posts'
+export type { InsightPost } from '@/lib/data/insights-posts'
 export type { CaseStudy } from '@/lib/data/case-studies'
 export type { ServiceData } from '@/lib/services-data'
 

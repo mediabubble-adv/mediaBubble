@@ -33,7 +33,7 @@ export function CtaSection() {
               <ArrowRight size={16} />
             </Link>
             <Link
-              href="/portfolio"
+              href="/case-studies"
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-[15px] font-semibold border-2 border-brand-navy/30 text-brand-navy hover:bg-brand-navy/[0.08] active:scale-[0.97] transition-all duration-150 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-navy/25"
             >
               {t('cta.secondary', 'View case studies')}

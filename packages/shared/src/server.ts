@@ -9,13 +9,13 @@ export {
   type Market,
   type MarketSiteDefaults,
 } from './site-config'
-export { buildMarketJsonLd, serializeJsonLd, buildBlogPostJsonLd, buildCaseStudyJsonLd } from './seo/json-ld'
+export { buildMarketJsonLd, serializeJsonLd, buildInsightPostJsonLd, buildCaseStudyJsonLd } from './seo/json-ld'
 export { getAlternates } from './seo/alternates'
 export type {
   MarketJsonLdGraph,
   SchemaLocalBusiness,
   SchemaWebSite,
-  BlogPostJsonLdInput,
+  InsightPostJsonLdInput,
   CaseStudyJsonLdInput,
 } from './seo/json-ld'
 export { THEME_INIT_SCRIPT } from './theme/theme-utils'
@@ -24,7 +24,7 @@ import inlineScripts from './inline-scripts.cjs'
 export const LANG_INIT_SCRIPT = inlineScripts.LANG_INIT_SCRIPT as string
 export { ISR_REVALIDATE_SECONDS } from './performance/isr'
 export { checkRateLimit, getClientIp } from './rate-limit'
-export { searchBlogPosts, toBlogSearchSummary, type BlogSearchResult, type BlogSearchablePost } from './blog/search'
+export { searchInsightsPosts, toInsightSearchSummary, type InsightSearchResult, type InsightSearchablePost } from './insights/search'
 export {
   upsertContact,
   syncContactToHubSpot,

@@ -191,7 +191,7 @@ export function buildMarketJsonLd(
           '@type': 'SearchAction',
           target: {
             '@type': 'EntryPoint',
-            urlTemplate: `${siteUrl}/blog?q={search_term_string}`,
+            urlTemplate: `${siteUrl}/insights?q={search_term_string}`,
           },
           'query-input': 'required name=search_term_string',
         },
@@ -207,7 +207,7 @@ export function serializeJsonLd(data: any): string {
     .replace(/&/g, '\\u0026')
 }
 
-export interface BlogPostJsonLdInput {
+export interface InsightPostJsonLdInput {
   slug: string
   title: string
   description: string
@@ -216,7 +216,7 @@ export interface BlogPostJsonLdInput {
   authorName?: string
 }
 
-export function buildBlogPostJsonLd(post: BlogPostJsonLdInput, siteUrl: string) {
+export function buildInsightPostJsonLd(post: InsightPostJsonLdInput, siteUrl: string) {
   const cleanSlug = post.slug.startsWith('/') ? post.slug : `/${post.slug}`
   const fullUrl = `${siteUrl}${cleanSlug}`
   const cleanImg = post.imageUrl && !post.imageUrl.startsWith('http')

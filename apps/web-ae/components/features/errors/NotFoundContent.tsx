@@ -11,8 +11,8 @@ export function NotFoundContent() {
   const quickLinks = [
     { label: t('nav.services', 'Services'), href: '/services' },
     { label: t('nav.about', 'About Us'), href: '/about' },
-    { label: t('nav.portfolio', 'Portfolio'), href: '/portfolio' },
-    { label: t('nav.blog', 'Blog'), href: '/blog' },
+    { label: t('nav.portfolio', 'Portfolio'), href: '/case-studies' },
+    { label: t('nav.blog', 'Blog'), href: '/insights' },
   ]
 
   return (

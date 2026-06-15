@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="apps/web-eg/public/assets/Logo/logo-favicon.svg" alt="MediaBubble logo" width="88" height="88" />
+<img src="apps/web-eg/public/assets/Logo/logo-favicon.svg" alt="mediaBubble logo" width="88" height="88" />
 
 # MediaBubble
 
@@ -57,38 +57,52 @@ The monorepo is built for **parallel market delivery**: Egypt (`web-eg`) ships f
 ## Architecture
 
 ```mermaid
-flowchart TB
-  subgraph apps [Applications]
-    EG["web-eg · mediabubble.co"]
-    AE["web-ae · mediabubble.ae"]
-    BR["brand · brand.mediabubble.co"]
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Poppins, Inter, system-ui, sans-serif","fontSize":"13px","lineColor":"#072A6B","primaryTextColor":"#072A6B","primaryBorderColor":"#358DCC","clusterBkg":"#FAFAFA","clusterBorder":"#E8E8E8","titleColor":"#072A6B","edgeLabelBackground":"#FFFFFF"},"flowchart":{"curve":"linear","nodeSpacing":44,"rankSpacing":52,"padding":14,"diagramPadding":10}}}%%
+flowchart LR
+  subgraph apps ["Applications"]
+    direction LR
+    EG["web-eg<br/>mediabubble.co"]
+    AE["web-ae<br/>mediabubble.ae"]
+    BR["brand<br/>brand.mediabubble.co"]
   end
 
-  subgraph packages [Shared packages]
+  subgraph packages ["Shared packages"]
+    direction LR
     DS["@mediabubble/design-system"]
     SH["@mediabubble/shared"]
     CP["content-pipeline"]
   end
 
-  subgraph integrations [Integrations]
+  subgraph integrations ["Integrations"]
+    direction LR
     HS["HubSpot CRM"]
     RS["Resend email"]
     GA["Google Analytics 4"]
   end
 
-  EG --> DS
-  EG --> SH
-  AE --> DS
-  AE --> SH
-  BR --> DS
-  BR --> SH
-  CP -.-> AE
-  SH --> HS
-  SH --> RS
-  SH --> GA
+  EG & AE & BR --> DS
+  EG & AE & BR --> SH
+  CP -.->|UAE localize| AE
+  SH --> HS & RS & GA
+
+  classDef app fill:#072A6B,stroke:#358DCC,color:#FFFFFF,stroke-width:1.5px
+  classDef pkg fill:#358DCC,stroke:#072A6B,color:#FFFFFF,stroke-width:1.5px
+  classDef pipe fill:#FFFFFF,stroke:#358DCC,color:#072A6B,stroke-width:1.5px
+  classDef integration fill:#FFC107,stroke:#072A6B,color:#072A6B,stroke-width:1.5px
+
+  class EG,AE,BR app
+  class DS,SH pkg
+  class CP pipe
+  class HS,RS,GA integration
+
+  style apps fill:#FAFAFA,stroke:#E8E8E8,stroke-width:1px,color:#072A6B
+  style packages fill:#F5F8FC,stroke:#358DCC,stroke-width:1px,color:#072A6B
+  style integrations fill:#FFFBEB,stroke:#FFC107,stroke-width:1px,color:#072A6B
 ```
 
 **Client vs server imports:** In `'use client'` files, import hooks and browser utilities from `@mediabubble/shared/client` (not the root barrel). Server Components and API routes use `@mediabubble/shared/server` or package subpaths to avoid pulling server-only code into the client bundle.
+
+**CSP middleware:** Each app’s `middleware.ts` imports `createCspMiddleware` from `@mediabubble/shared/csp-middleware` (implementation in `packages/shared/csp-middleware.cjs`). Keep `export const config.matcher` as an **inlined literal** in each middleware file—Next.js cannot statically analyze imported matcher constants.
 
 ---
 
@@ -198,13 +212,22 @@ Shared UI primitives and Tailwind preset. Built with Rollup (`nx build design-sy
 
 ### `@mediabubble/shared`
 
-Cross-app utilities:
+Cross-app utilities. Prefer **subpath imports** (not the root barrel in client code):
 
-- Environment validation and market site config
-- HubSpot and Resend API helpers
-- i18n factory (`useI18n()` from client subpath)
-- CSP / security header helpers (wired in each app's `middleware.ts`)
-- Theme provider (`mediabubble-theme` storage key, class-based dark mode)
+| Subpath | Use for |
+|---------|---------|
+| `@mediabubble/shared/client` | `useI18n()`, theme provider, browser hooks, GA4 helpers |
+| `@mediabubble/shared/server` | Server Components, API routes, env validation |
+| `@mediabubble/shared/csp-middleware` | Next.js `middleware.ts` — nonce CSP (`createCspMiddleware`) |
+| `@mediabubble/shared/hubspot-client` | HubSpot CRM API |
+| `@mediabubble/shared/resend-client` | Resend transactional email |
+| `@mediabubble/shared/ui/marketing-kicker` | Marketing kicker CSS classes |
+
+Also includes rate limiting, GA4 event helpers, and `security-headers.cjs` wired from each app’s `next.config.js`.
+
+**TypeScript:** `tsconfig.base.json` defines shared path aliases. Each app `tsconfig.json` redeclares `paths`—when adding a new `@mediabubble/shared/*` subpath, mirror it in `apps/web-eg`, `apps/web-ae`, and `apps/brand` (see `csp-middleware`).
+
+See [packages/shared/README.md](./packages/shared/README.md) for usage examples.
 
 ### `content-pipeline`
 
@@ -273,6 +296,8 @@ Avoid running production builds while a dev server is active on the same app.
 
 ## Quality & CI
 
+**Repository:** [github.com/mediabubble-adv/mediaBubble](https://github.com/mediabubble-adv/mediaBubble) (private). The README uses a **static** [shields.io CI badge](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)—GitHub’s workflow status badge returns 404 on private repos. CI can also be triggered manually via `workflow_dispatch` in [`.github/workflows/ci.yml`](./.github/workflows/ci.yml).
+
 On push/PR to `master`, GitHub Actions runs:
 
 1. `npm ci`
@@ -282,6 +307,11 @@ On push/PR to `master`, GitHub Actions runs:
 5. `npm run test`
 
 Pre-commit: Husky + lint-staged (ESLint + related Jest tests on staged TS/TSX).
+
+### README on GitHub
+
+- Brand icon: `apps/web-eg/public/assets/Logo/logo-favicon.svg`
+- Mermaid node labels containing `@` must be double-quoted (e.g. `DS["@mediabubble/design-system"]`)
 
 ---
 

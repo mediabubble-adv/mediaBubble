@@ -24,7 +24,7 @@ const DEFAULT_PROPS: HeroSectionProps = {
   description: 'We help businesses grow through data-driven marketing.',
   ctaButtons: {
     primary:   { label: 'Free audit',   href: '/contact' },
-    secondary: { label: 'View case studies', href: '/portfolio' },
+    secondary: { label: 'View case studies', href: '/case-studies' },
   },
 }
 
@@ -67,7 +67,7 @@ describe('HeroSection — rendering', () => {
 
   it('secondary CTA links to the correct href', () => {
     renderHero()
-    expect(screen.getByRole('link', { name: /View case studies/i })).toHaveAttribute('href', '/portfolio')
+    expect(screen.getByRole('link', { name: /View case studies/i })).toHaveAttribute('href', '/case-studies')
   })
 
   it('does not render a secondary CTA when omitted', () => {

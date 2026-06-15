@@ -75,7 +75,7 @@ export const contentServiceConfig: ServicePageConfig = {
     description:
       'A boutique Hurghada hotel had thin blog content and no internal linking. We rebuilt pillar pages, published bilingual guides, and synced posts to email — organic enquiries from content rose 214% year-on-year.',
     company: 'Coral Bay Resort',
-    href: '/portfolio',
+    href: '/case-studies',
     quote:
       'Content used to be an afterthought. Now our guides rank and the front desk recognises guests who say they read our blog first.',
     author: 'Nadia El-Sayed',

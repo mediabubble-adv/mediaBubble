@@ -149,7 +149,7 @@ export const seoServiceConfig: ServicePageConfig = {
     description:
       'Red Sea Divers was invisible on Google. After a full technical overhaul, local keyword strategy, and monthly content, they now own the first page for 40+ dive-related searches in Hurghada.',
     company: 'Red Sea Divers',
-    href: '/portfolio',
+    href: '/case-studies',
     quote:
       'Within 3 months we were getting more enquiries from Google than all our social media combined. The ROI is undeniable.',
     author: 'Ahmed Hassan',

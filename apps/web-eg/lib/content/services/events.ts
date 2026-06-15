@@ -65,7 +65,7 @@ export const eventsServiceConfig: ServicePageConfig = {
     description:
       'A new beach club opening in Hurghada needed buzz beyond flyers. We produced a sunset preview for press and creators, ran geo-targeted Meta ads, and live-posted through the night — reservations hit capacity within two days.',
     company: 'Azure Beach Club',
-    href: '/portfolio',
+    href: '/case-studies',
     quote:
       'They handled creative, vendors, and the social storm on opening night. Our team could focus on guests — not logistics.',
     author: 'Omar Fathy',

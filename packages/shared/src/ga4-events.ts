@@ -91,7 +91,7 @@ export function trackExperimentConversion(
   })
 }
 
-export function trackBlogSearch(query: string, resultCount: number): void {
+export function trackInsightsSearch(query: string, resultCount: number): void {
   trackEvent(GA4_EVENTS.BLOG_SEARCH, {
     query_length: query.trim().length,
     result_count: resultCount,
