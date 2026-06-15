@@ -1,0 +1,31 @@
+---
+description: Route Masri/Arabic marketing content work through the project Arabic skill pipeline in .cursor/skills (symlinked from .claude/skills).
+alwaysApply: false
+---
+
+# Arabic content skills (Cursor)
+
+Canonical skill source: `.claude/skills/`. Cursor discovery path: `.cursor/skills/` (symlinks). Re-sync after adding skills:
+
+```bash
+bash scripts/sync-cursor-arabic-skills.sh
+```
+
+## Content creation pipeline
+
+| Step | Skill | Use when |
+|------|-------|----------|
+| Orchestrate | `arabic-project-manager`, `arabic-agent-orchestration` | Multi-step briefs, handoffs, quality gates |
+| Strategy | `arabic-content-strategist` | Pillars, calendars, campaign structure |
+| Culture | `arabic-cultural-advisor` | Egyptian audience fit, sensitivities, tone |
+| Write | `arabic-creator` | Masri copy from a structured brief |
+| Dialect | `arabic-masri` | Natural Egyptian phrasing checks |
+| SEO | `arabic-seo-optimizer` | Keywords, on-page Arabic SEO |
+| Audit | `arabic-qa` | **Required before publish** — language, register, brand voice |
+
+## Rules
+
+1. Read the matching skill's `SKILL.md` before generating or editing Arabic marketing copy.
+2. Default market dialect for Egypt sites (`web-eg`): **Masri**. Use `arabic-msa` only for formal/official register.
+3. Generated copy must pass `arabic-qa` before treating it as publish-ready.
+4. RTL/UI implementation: `arabic-typography`, `arabic-application-engineer` — not the creator skills.

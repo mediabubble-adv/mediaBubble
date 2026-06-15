@@ -1,15 +1,28 @@
 {
-  "name": "mediabubble-brand-guidelines",
+  "name": "@mediabubble/workspace",
   "version": "1.0.0",
-  "description": "MediaBubble Brand Guidelines - Interactive documentation with Next.js and shadcn/ui",
+  "description": "MediaBubble Nx monorepo — Egypt marketing, UAE clone, brand guidelines",
   "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "preview": "next start -p 3000",
-    "lint": "next lint",
-    "typecheck": "tsc --noEmit",
+    "dev": "nx run web-eg:dev",
+    "dev:eg": "nx run web-eg:dev",
+    "dev:ae": "nx run web-ae:dev",
+    "dev:ae:clean": "lsof -ti :3001 | xargs kill -9 2>/dev/null || true; rm -rf apps/web-ae/.next node_modules/.cache/webpack/apps/web-ae && find apps/web-ae/public -maxdepth 1 -type f \\( -name 'sw.js' -o -name 'workbox-*.js' -o -name 'swe-worker-*.js' -o -name 'fallback-*.js' \\) -delete && nx run web-ae:dev",
+    "dev:eg:clean": "lsof -ti :3000 | xargs kill -9 2>/dev/null || true; rm -rf apps/web-eg/.next node_modules/.cache/webpack/apps/web-eg && find apps/web-eg/public -maxdepth 1 -type f \\( -name 'sw.js' -o -name 'workbox-*.js' -o -name 'swe-worker-*.js' -o -name 'fallback-*.js' \\) -delete && nx run web-eg:dev",
+    "dev:brand": "nx run brand:dev",
+    "build": "nx run-many -t build",
+    "start": "nx run web-eg:start",
+    "lint": "nx run-many -t lint --exclude=@mediabubble/design-system",
+    "typecheck": "nx run-many -t typecheck",
+    "test": "jest --config jest.config.cjs",
+    "test:security": "jest --config jest.config.cjs packages/shared/security-headers.test.cjs",
+    "check:i18n": "node scripts/check-i18n-parity.mjs",
+    "prepare": "husky",
+    "graph": "nx graph",
     "format": "prettier --write ."
   },
   "dependencies": {
@@ -22,16 +35,50 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^17.0.8",
+    "react-icons": "^5.6.0",
     "tailwindcss-animate": "^1.0.7",
     "tailwindcss-rtl": "^0.9.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.29.7",
+    "@babel/preset-react": "^7.29.7",
+    "@babel/preset-typescript": "^7.29.7",
+    "@ducanh2912/next-pwa": "^10.2.9",
+    "@nx/eslint": "^22.7.5",
+    "@nx/eslint-plugin": "^22.7.5",
+    "@nx/js": "^22.7.5",
+    "@nx/next": "22.7.5",
+    "@nx/react": "^22.7.5",
+    "@nx/rollup": "^22.7.5",
+    "@nx/workspace": "^22.7.5",
+    "@rollup/plugin-url": "^8.0.2",
+    "@svgr/rollup": "^8.1.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/jest": "^30.0.0",
     "@types/node": "^20.10.4",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "autoprefixer": "^10.4.16",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.0.0",
+    "husky": "^9.1.7",
+    "jest": "^30.4.2",
+    "jest-environment-jsdom": "^30.4.1",
+    "lint-staged": "^17.0.7",
+    "nx": "22.7.5",
     "postcss": "^8.4.32",
+    "rollup": "^4.59.0",
     "tailwindcss": "^3.3.6",
+    "ts-jest": "^29.4.11",
+    "tsx": "^4.22.4",
     "typescript": "^5.3.3"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix --max-warnings=0",
+      "jest --bail --findRelatedTests --passWithNoTests --config jest.config.cjs"
+    ]
   }
 }

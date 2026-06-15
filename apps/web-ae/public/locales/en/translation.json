@@ -1,0 +1,654 @@
+{
+  "common": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "contact": "Contact",
+    "getAudit": "Free audit",
+    "learnMore": "View service",
+    "viewCaseStudies": "View case studies",
+    "viewWork": "View Our Work",
+    "getStarted": "Book a free call",
+    "sendMessage": "Send message",
+    "readMore": "Read article",
+    "seeAll": "See All",
+    "backToTop": "Back to Top",
+    "loading": "Loading…",
+    "required": "Required",
+    "optional": "Optional",
+    "actions": {
+      "submit": "Send message",
+      "cancel": "Cancel",
+      "save": "Save",
+      "edit": "Edit",
+      "delete": "Delete",
+      "close": "Close",
+      "next": "Next",
+      "back": "Back",
+      "explore": "Explore"
+    },
+    "labels": {
+      "new": "New",
+      "featured": "Featured",
+      "popular": "Popular",
+      "recommended": "Recommended"
+    },
+    "stats": {
+      "clientGrowth": "35% average client growth in 12 months",
+      "clientRetention": "92% client retention rate",
+      "projectsDelivered": "500+ successful projects delivered",
+      "yearsExperience": "10+ years in the UAE market",
+      "teamSize": "22+ dedicated professionals",
+      "clientsServed": "200+ brands served"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "contact": "Contact",
+    "getAudit": "Free audit",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "skipToContent": "Skip to content",
+    "logoAlt": "MediaBubble, UAE marketing agency"
+  },
+  "hero": {
+    "home": {
+      "kicker": "UAE's trusted marketing agency",
+      "title": "UAE's growth partner for hospitality, retail, and tourism brands",
+      "subtitle": "From strategy to execution, we help UAE businesses grow faster, rank higher, and convert better.",
+      "description": "Strategy, creative, paid media, and web from one team, with measurable growth for brands across the UAE.",
+      "proof1": "35% average client growth in 12 months",
+      "proof2": "92% client retention rate",
+      "proof3": "500+ successful projects delivered",
+      "cta": "Free audit",
+      "ctaUrgency": "Book a call",
+      "ctaSecondary": "View case studies",
+      "imageAlt": "MediaBubble team working on a campaign strategy"
+    },
+    "dropdown": {
+      "toggle": "View services",
+      "seo": "SEO & Organic Growth",
+      "ppc": "Paid Advertising",
+      "social": "Social Media Marketing",
+      "branding": "Branding & Design",
+      "web": "Web Development"
+    }
+  },
+  "features": {
+    "kicker": "Why MediaBubble",
+    "title": "Marketing for brands that need growth, not more posts",
+    "intro": "Strategy, creative, and performance in one team for hospitality, retail, and tourism brands across the UAE.",
+    "strategy": {
+      "title": "Strategy-first execution",
+      "description": "Every campaign starts with clear goals, audience insight, and a roadmap you can measure."
+    },
+    "fullService": {
+      "title": "Full-service under one roof",
+      "description": "SEO, paid media, branding, web, and content: coordinated by one team that knows your market."
+    },
+    "results": {
+      "title": "Results you can report on",
+      "description": "Transparent reporting, realistic KPIs, and optimizations tied to revenue, not vanity metrics."
+    },
+    "trust": {
+      "title": "Regional expertise, global standards",
+      "description": "UAE market knowledge with production quality that stands up to international brands."
+    }
+  },
+  "clients": {
+    "heading": "Trusted by hospitality and retail brands across the UAE"
+  },
+  "about": {
+    "hero": {
+      "kicker": "About MediaBubble",
+      "title": "Marketing built for UAE businesses",
+      "subtitle": "Full-service agency helping local brands grow with clear strategy and measurable results."
+    },
+    "story": {
+      "heading": "Our Story",
+      "body": "MediaBubble started in Dubai in 2015 with one goal: give UAE businesses marketing quality on par with Cairo and Dubai, without agency overhead. Today we work with hotels, restaurants, real estate, healthcare, and retail across the UAE and the Gulf.",
+      "body2": "We stay small on purpose. Every client gets a dedicated team, direct access to decision-makers, and reporting you can act on."
+    },
+    "values": {
+      "heading": "What Drives Us",
+      "creative": {
+        "name": "Creative",
+        "def": "Work that earns attention because it is clear, on-brand, and built to convert."
+      },
+      "strategic": {
+        "name": "Strategic",
+        "def": "Every decision ties to a goal. We align creative, copy, and media to what you need to achieve."
+      },
+      "dataDriven": {
+        "name": "Data-Driven",
+        "def": "We set targets before we spend. Campaigns tie to revenue, leads, or bookings you can track."
+      }
+    },
+    "team": {
+      "heading": "The Team Behind Your Growth",
+      "subheading": "22+ specialists across strategy, design, development, and media.",
+      "cta": "Meet the Team"
+    },
+    "stats": {
+      "heading": "By the Numbers",
+      "founded": {
+        "label": "Founded",
+        "value": "2015"
+      },
+      "team": {
+        "label": "Team",
+        "value": "22+"
+      },
+      "clients": {
+        "label": "Clients Served",
+        "value": "200+"
+      },
+      "projects": {
+        "label": "Projects Delivered",
+        "value": "500+"
+      },
+      "retention": {
+        "label": "Client Retention",
+        "value": "92%"
+      }
+    }
+  },
+  "services": {
+    "hero": {
+      "kicker": "What We Do",
+      "title": "SEO, web, ads, and content from one UAE team",
+      "subtitle": "Pick a channel or bundle them. One plan, one report, no handoffs between vendors."
+    },
+    "seo": {
+      "title": "First-page visibility on Google",
+      "subtitle": "SEO & Organic Growth",
+      "description": "Local and technical SEO for Dubai and the UAE: the searches your customers already run.",
+      "features": [
+        "Local SEO for Dubai & the UAE",
+        "Technical SEO audit & fixes",
+        "Content strategy & creation",
+        "Monthly performance reporting"
+      ],
+      "cta": "Explore SEO Services"
+    },
+    "ppc": {
+      "title": "Paid campaigns aimed at ready buyers",
+      "subtitle": "Paid Advertising (PPC)",
+      "description": "Google and Meta ads with weekly budget checks. Spend goes to clicks that book, call, or buy.",
+      "features": [
+        "Google Search & Shopping Ads",
+        "Meta (Facebook & Instagram) Ads",
+        "Retargeting campaigns",
+        "Weekly budget optimization"
+      ],
+      "cta": "Explore PPC Services"
+    },
+    "social": {
+      "title": "Social channels that feed your pipeline",
+      "subtitle": "Social Media Marketing",
+      "description": "Content, scheduling, and community management so your team can run the business.",
+      "features": [
+        "Instagram, Facebook & TikTok management",
+        "Content creation & scheduling",
+        "Community management & engagement",
+        "Monthly analytics & strategy review"
+      ],
+      "cta": "Explore Social Media Services"
+    },
+    "branding": {
+      "title": "Brand identity built for your market",
+      "subtitle": "Branding & Design",
+      "description": "Logos, guidelines, and collateral tuned for UAE audiences and bilingual touchpoints.",
+      "features": [
+        "Logo design & brand identity",
+        "Brand guidelines & style systems",
+        "Print collateral & packaging",
+        "Corporate event materials"
+      ],
+      "cta": "Explore Branding Services"
+    },
+    "web": {
+      "title": "Websites tuned for speed and conversions",
+      "subtitle": "Web Development",
+      "description": "Mobile-first builds with clear paths to book, call, or request a quote.",
+      "features": [
+        "Custom website design & development",
+        "Landing page optimization",
+        "E-commerce solutions",
+        "Speed & performance optimization"
+      ],
+      "cta": "Explore Web Services"
+    },
+    "content": {
+      "title": "Content that ranks and supports sales",
+      "subtitle": "Content Marketing",
+      "description": "Articles, email, and social copy that bring qualified traffic and keep prospects warm.",
+      "features": [
+        "Blog & article writing",
+        "Video script & production support",
+        "Email newsletter content",
+        "Social media copywriting"
+      ],
+      "cta": "Explore Content Services"
+    },
+    "events": {
+      "title": "Events and activations with clear ROI",
+      "subtitle": "Events & Activations",
+      "description": "Launches, venue fills, and on-site coverage with reporting you can share with leadership.",
+      "features": [
+        "Event strategy & concept",
+        "Brand activation design",
+        "On-site coordination",
+        "Post-event content & coverage"
+      ],
+      "cta": "Explore Events Services"
+    },
+    "cta": {
+      "heading": "Need help choosing a service?",
+      "body": "Book a 30-minute call. We listen to your goal and point you to the right channel and next steps.",
+      "primary": "Free audit",
+      "secondary": "View case studies"
+    }
+  },
+  "process": {
+    "heading": {
+      "kicker": "How we work",
+      "title": "Four steps from brief to results",
+      "subtitle": "Discovery, strategy, build, and launch. Each step has a clear deliverable and owner."
+    },
+    "step1": {
+      "number": "01",
+      "title": "Discovery",
+      "description": "We audit your market, competitors, and current marketing. You get a written brief with priorities and quick wins."
+    },
+    "step2": {
+      "number": "02",
+      "title": "Strategy",
+      "description": "We define goals, channels, budget, and KPIs. You approve the plan before we build anything."
+    },
+    "step3": {
+      "number": "03",
+      "title": "Build",
+      "description": "Design, content, ads, and development run in parallel with weekly check-ins and shared timelines."
+    },
+    "step4": {
+      "number": "04",
+      "title": "Launch and grow",
+      "description": "We go live, track performance, and optimize monthly. You get reports you can use in board meetings."
+    },
+    "footer": {
+      "tagline": "Ready to start? Book your free strategy audit."
+    }
+  },
+  "showcase": {
+    "heading": {
+      "kicker": "Selected work",
+      "title": "Recent client results",
+      "subtitle": "Six UAE businesses. Real metrics from live campaigns."
+    },
+    "nav": {
+      "label": "Browse case studies",
+      "prev": "Previous case studies",
+      "next": "Next case studies"
+    },
+    "project1": {
+      "tag": "SEO + Paid Advertising",
+      "poeticTitle": "Coral Bay Resort",
+      "description": "SEO and paid search for a 4-star hotel chain. Direct bookings up 68% in six months.",
+      "metric": "68% increase in direct bookings"
+    },
+    "project2": {
+      "tag": "SEO & Content Marketing",
+      "poeticTitle": "Gulf Divers Dubai",
+      "description": "Local SEO and content marketing. Organic traffic up 340% in eight months.",
+      "metric": "340% organic traffic growth"
+    },
+    "project3": {
+      "tag": "Branding & Web Development",
+      "poeticTitle": "Aqua Sports UAE",
+      "description": "Brand refresh and new website. Lead volume doubled in the first quarter.",
+      "metric": "2× lead volume in first quarter"
+    },
+    "project4": {
+      "tag": "Social Media Marketing",
+      "poeticTitle": "Desert Rose Hotel",
+      "description": "From sporadic posts to a consistent content calendar that built community and drove room enquiries.",
+      "metric": "4.8× engagement rate vs. industry average"
+    },
+    "project5": {
+      "tag": "Events & Activations",
+      "poeticTitle": "Marina View Residences",
+      "description": "A 48-hour property launch with precision Meta targeting and a purpose-built landing page.",
+      "metric": "300 qualified leads and 4.2× ROAS in 48 hours"
+    },
+    "project6": {
+      "tag": "Web Development + SEO",
+      "poeticTitle": "Marina Rentals",
+      "description": "Full Next.js rebuild with structured data and Core Web Vitals optimisation.",
+      "metric": "94 Lighthouse score and 42% more organic conversions"
+    },
+    "cta": {
+      "explore": "Learn more",
+      "viewAll": "View all"
+    }
+  },
+  "portfolio": {
+    "hero": {
+      "kicker": "Our Work",
+      "title": "Results We’re Proud Of",
+      "subtitle": "200+ brands. 500+ projects. One focus: measurable growth."
+    },
+    "filters": {
+      "all": "All Work",
+      "seo": "SEO",
+      "ppc": "Paid Ads",
+      "branding": "Branding",
+      "web": "Web",
+      "social": "Social Media",
+      "content": "Content"
+    },
+    "caseStudy": {
+      "challenge": "The Challenge",
+      "solution": "Our Solution",
+      "results": "The Results",
+      "services": "Services Used",
+      "duration": "Project Duration",
+      "industry": "Industry",
+      "viewFullStudy": "View Full Case Study",
+      "nextProject": "Next Project",
+      "prevProject": "Previous Project"
+    },
+    "empty": {
+      "heading": "No projects in this category yet.",
+      "body": "We are preparing new case studies. Check back soon or contact us to discuss your project."
+    },
+    "cta": {
+      "heading": "Want Results Like These?",
+      "body": "Let’s talk about what’s possible for your business.",
+      "primary": "Free audit"
+    }
+  },
+  "blog": {
+    "hero": {
+      "kicker": "The MediaBubble Blog",
+      "title": "Marketing Insights for UAE Businesses",
+      "subtitle": "Practical marketing advice for UAE and Gulf businesses. No fluff."
+    },
+    "categories": {
+      "all": "All Posts",
+      "seo": "SEO",
+      "ppc": "Paid Ads",
+      "social": "Social Media",
+      "branding": "Branding",
+      "web": "Web & Tech",
+      "strategy": "Strategy",
+      "caseStudies": "Case Studies"
+    },
+    "post": {
+      "readTime": "{{count}} min read",
+      "publishedOn": "Published {{date}}",
+      "by": "By",
+      "tags": "Tags",
+      "sharePost": "Share this post",
+      "relatedPosts": "Related Posts"
+    },
+    "newsletter": {
+      "heading": "Get Marketing Insights in Your Inbox",
+      "body": "Monthly tips, local case studies, and strategy breakdowns in your inbox. No spam.",
+      "placeholder": "Your email address",
+      "cta": "Subscribe Free",
+      "successMessage": "You’re in! Check your inbox for a confirmation.",
+      "privacyNote": "We respect your privacy. Unsubscribe anytime."
+    },
+    "empty": {
+      "heading": "No posts in this category yet.",
+      "body": "Check back soon. We publish new content every week."
+    }
+  },
+  "contact": {
+    "hero": {
+      "kicker": "Get in Touch",
+      "title": "Let’s Talk About Your Growth",
+      "subtitle": "Tell us about your business. We will review your marketing and reply within one business day."
+    },
+    "form": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email address",
+      "phone": "Phone number",
+      "company": "Company / Business name",
+      "service": "Service you’re interested in",
+      "budget": "Monthly marketing budget",
+      "message": "Tell us about your project",
+      "submit": "Send message",
+      "submitting": "Sending…",
+      "successHeading": "We'll be in touch soon",
+      "successBody": "Thanks for reaching out. We typically respond within one business day.",
+      "errorHeading": "Something went wrong",
+      "errorBody": "We couldn't send your message. Try again or email us directly.",
+      "required": "Please fill in this field",
+      "invalidEmail": "Enter a valid email address",
+      "messagePlaceholder": "Tell us about your business and goals",
+      "sending": "Sending…",
+      "optional": "optional",
+      "firstNamePlaceholder": "First name",
+      "lastNamePlaceholder": "Last name",
+      "emailPlaceholder": "you@yourbusiness.com",
+      "phonePlaceholder": "+971 5x xxx xxxx",
+      "serviceLabel": "What can we help with?",
+      "servicePlaceholder": "Select a service",
+      "error": {
+        "required": "Please fill in this field",
+        "email": "Enter a valid email address"
+      }
+    },
+    "info": {
+      "heading": "Reach Us",
+      "officeHeading": "Our Office",
+      "email": "hello@mediabubble.ae",
+      "phone": "+971 50 123 4567",
+      "address": "Dubai, UAE",
+      "hours": "Sunday to Thursday, 9 AM to 6 PM (GST)",
+      "officeOpen": "Office open now",
+      "officeClosed": "Office closed",
+      "responseTime": "We typically respond within 4 business hours.",
+      "kicker": "Let's talk",
+      "title": "Free audit",
+      "subtitle": "Tell us about your business. We will review your current marketing and reply with a prioritised plan. Free, no commitment.",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone",
+      "addressLabel": "Office",
+      "hoursLabel": "Hours"
+    },
+    "serviceOptions": [
+      "SEO & Organic Growth",
+      "Paid Advertising (PPC)",
+      "Social Media Marketing",
+      "Branding & Design",
+      "Web Development",
+      "Content Marketing",
+      "Events & Activations",
+      "Full-Service Partnership",
+      "Other / Not Sure Yet"
+    ],
+    "budgetOptions": [
+      "Under $500/month",
+      "$500 to $1,000/month",
+      "$1,000 to $3,000/month",
+      "$3,000 to $5,000/month",
+      "$5,000+/month",
+      "Project-based (one-time)"
+    ],
+    "error": {
+      "title": "Something went wrong",
+      "body": "We couldn't send your message. Try again or email us directly.",
+      "retry": "Try again"
+    },
+    "success": {
+      "title": "We'll be in touch soon",
+      "body": "Thanks for reaching out. We typically respond within one business day."
+    }
+  },
+  "footer": {
+    "company": {
+      "tagline": "UAE marketing agency. SEO, branding, web, and ads with results you can measure.",
+      "description": "MediaBubble is a full-service marketing and advertising agency based in Dubai, UAE. We’ve been helping businesses grow since 2015."
+    },
+    "services": {
+      "heading": "Services",
+      "seo": "SEO & Organic Growth",
+      "ppc": "Paid Advertising",
+      "social": "Social Media Marketing",
+      "branding": "Branding & Design",
+      "web": "Web Development",
+      "content": "Content Marketing",
+      "events": "Events & Activations"
+    },
+    "resources": {
+      "heading": "Resources",
+      "blog": "Blog",
+      "caseStudies": "Case Studies",
+      "freeAudit": "Free Marketing Audit",
+      "brandGuidelines": "Brand Guidelines"
+    },
+    "legal": {
+      "heading": "Legal",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy"
+    },
+    "social": {
+      "heading": "Follow Us",
+      "github": "View on GitHub",
+      "facebook": "Follow on Facebook",
+      "instagram": "Follow on Instagram",
+      "linkedin": "Connect on LinkedIn",
+      "tiktok": "Follow on TikTok"
+    },
+    "copyright": "© {{year}} MediaBubble. All rights reserved.",
+    "regions": {
+      "heading": "MediaBubble regional sites",
+      "egypt": "Egypt",
+      "uae": "UAE"
+    }
+  },
+  "seo": {
+    "home": {
+      "title": "MediaBubble | UAE Marketing Agency",
+      "description": "Full-service marketing agency in Dubai, UAE. SEO, branding, web development, and paid advertising for UAE businesses."
+    },
+    "about": {
+      "title": "About MediaBubble | UAE Marketing Agency Since 2015",
+      "description": "Meet the MediaBubble team. UAE marketing experts helping UAE businesses grow since 2015."
+    },
+    "services": {
+      "title": "Marketing Services | MediaBubble UAE",
+      "description": "SEO, PPC, social media, branding, web development, and content marketing services for businesses in Dubai and across the UAE."
+    },
+    "portfolio": {
+      "title": "Our Work & Case Studies | MediaBubble",
+      "description": "Browse 500+ projects across SEO, branding, web, and paid advertising. Real results for real UAE businesses."
+    },
+    "blog": {
+      "title": "Marketing Blog | MediaBubble",
+      "description": "Marketing insights, local case studies, and expert strategy advice for UAE businesses. Updated weekly."
+    },
+    "contact": {
+      "title": "Contact MediaBubble | Start Your Growth",
+      "description": "Ready to grow? Contact MediaBubble today. Free strategy audit for new clients. Based in Dubai, serving businesses across the UAE."
+    }
+  },
+  "service": {
+    "hero": {
+      "ctaPrimary": "Free audit",
+      "ctaSecondary": "See case studies"
+    }
+  },
+  "serviceCta": {
+    "kicker": "Ready for a free audit?",
+    "title": "Let's plan your {{service}} strategy",
+    "bullet1": "No long contracts",
+    "bullet2": "Free strategy session",
+    "bullet3": "Clear reporting",
+    "cta": "Free audit"
+  },
+  "floatingCta": {
+    "label": "Free audit",
+    "ariaLabel": "Free audit — contact us"
+  },
+  "offline": {
+    "kicker": "You're offline",
+    "title": "Connection unavailable",
+    "body": "This page isn't cached yet. Check your connection and try again — recently visited pages may still be available.",
+    "cta": "Back to homepage"
+  },
+  "legal": {
+    "backHome": "Home",
+    "lastUpdated": "Last updated:",
+    "questions": "Questions? Email us at"
+  },
+  "errors": {
+    "404": {
+      "kicker": "404",
+      "title": "Page Not Found",
+      "heading": "Page Not Found",
+      "body": "The page you were looking for does not exist or may have moved. Let's get you back on track.",
+      "cta": "Go to Homepage",
+      "contactCta": "Contact Us",
+      "quickLinks": "Quick links"
+    },
+    "500": {
+      "kicker": "Error",
+      "title": "Server Error",
+      "heading": "Something went wrong",
+      "body": "An unexpected error occurred. You can try again or return to the homepage.",
+      "cta": "Try again",
+      "homeCta": "Go to Homepage"
+    },
+    "form": {
+      "required": "Please fill in this field",
+      "email": "Enter a valid email address",
+      "phone": "Please enter a valid phone number.",
+      "minLength": "Must be at least {{count}} characters.",
+      "maxLength": "Must be no more than {{count}} characters.",
+      "generic": "Something went wrong. Please try again."
+    }
+  },
+  "testimonials": {
+    "heading": {
+      "kicker": "Client Stories",
+      "title": "What clients report after year one",
+      "subtitle": "Hospitality, retail, and tourism brands we work with across Dubai and the UAE."
+    }
+  },
+  "cta": {
+    "primary": "Free audit",
+    "secondary": "View case studies",
+    "contact": "Start a conversation",
+    "consultation": "Free audit",
+    "audit": "Free audit",
+    "short": {
+      "primary": "Free audit",
+      "secondary": "Book a call"
+    },
+    "section": {
+      "kicker": "Ready to talk?",
+      "title": "Book your free strategy audit",
+      "body": "Tell us where you are today. In 30 minutes we review your marketing and return with three priorities you can act on this quarter."
+    }
+  },
+  "cookieConsent": {
+    "title": "We use cookies",
+    "body": "We use cookies to improve your experience, analyze traffic, and remember your language preference.",
+    "learnMore": "Cookie policy",
+    "accept": "Accept",
+    "decline": "Decline",
+    "close": "Close"
+  }
+}

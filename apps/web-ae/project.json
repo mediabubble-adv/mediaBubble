@@ -1,0 +1,17 @@
+{
+  "name": "web-ae",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/web-ae",
+  "projectType": "application",
+  "tags": ["type:app", "scope:app"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "dev": {
+      "options": {
+        "port": 3001
+      }
+    }
+  }
+}

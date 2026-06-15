@@ -1,0 +1,38 @@
+'use client'
+
+import { useI18n } from '@/lib/i18n/provider'
+import { PageHero } from '@/components/sections/PageHero'
+import { PortfolioGrid } from '@/components/features/portfolio/PortfolioGrid'
+import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
+import { CtaSection } from '@/components/sections/CtaSection'
+import { MainLayout } from '@/components/layout/MainLayout'
+
+export function PortfolioPageContent() {
+  const { t } = useI18n()
+
+  return (
+    <MainLayout>
+        <PageHero
+          breadcrumbs={[
+            { label: t('nav.home', 'Home'), href: '/' },
+            { label: t('hero.portfolio.kicker', 'Portfolio') },
+          ]}
+          kicker={t('hero.portfolio.kicker', 'Case Studies')}
+          title={t('hero.portfolio.title', 'Work That Speaks for Itself')}
+          subtitle={t(
+            'hero.portfolio.description',
+            "We measure success in outcomes, not outputs. Every case study here shows the problem, the strategy, and the result, in numbers.",
+          )}
+          ctas={[{ label: t('hero.portfolio.cta', 'Start Your Project'), href: '/contact' }]}
+          proofPoints={[
+            t('hero.portfolio.proof1', '500+ projects delivered since 2015'),
+            t('hero.portfolio.proof2', 'Clients across tourism, hospitality, real estate, and retail'),
+            t('hero.portfolio.proof3', 'Average 35% growth in client revenue within 12 months'),
+          ]}
+        />
+        <PortfolioGrid />
+        <TestimonialsSection />
+        <CtaSection />
+    </MainLayout>
+  )
+}

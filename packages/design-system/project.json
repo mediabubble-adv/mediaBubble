@@ -1,0 +1,38 @@
+{
+  "name": "design-system",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/design-system/src",
+  "projectType": "library",
+  "tags": ["type:design-system", "scope:design-system"],
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "packages/design-system/dist",
+        "tsConfig": "packages/design-system/tsconfig.lib.json",
+        "project": "packages/design-system/package.json",
+        "entryFile": "packages/design-system/src/index.ts",
+        "external": ["react", "react-dom", "react/jsx-runtime", "lucide-react"],
+        "rollupConfig": "packages/design-system/rollup.config.cjs",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "packages/design-system/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc -p packages/design-system/tsconfig.lib.json --noEmit"
+      }
+    }
+  }
+}

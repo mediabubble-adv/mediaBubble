@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "name": "MediaBubble Arabic Content Platform",
+  "description": "MediaBubble brand guidelines site with full Arabic language and cultural competency taxonomy",
+  "agents": {
+    "enabled": true,
+    "skillsPath": ".opencode/skills",
+    "agentsPath": ".opencode/agents"
+  },
+  "rules": [
+    ".opencode/rules/*.md",
+    "~/.config/opencode/rules/*.md"
+  ]
+}

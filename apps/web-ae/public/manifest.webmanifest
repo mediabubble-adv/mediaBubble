@@ -1,0 +1,24 @@
+{
+  "name": "MediaBubble UAE",
+  "short_name": "MediaBubble",
+  "description": "Full-service marketing agency in Dubai, UAE — SEO, ads, branding, web, and social.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#0D3A7D",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/Logo/logo-favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/Logo/mediaBubble_icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

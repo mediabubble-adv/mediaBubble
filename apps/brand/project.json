@@ -1,0 +1,17 @@
+{
+  "name": "brand",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/brand",
+  "projectType": "application",
+  "tags": ["type:app", "scope:app"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "dev": {
+      "options": {
+        "port": 3002
+      }
+    }
+  }
+}

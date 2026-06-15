@@ -1,0 +1,41 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@mediabubble/design-system": ["packages/design-system/src/index.ts"],
+      "@mediabubble/design-system/tailwind-preset": [
+        "packages/design-system/src/tailwind-preset.ts"
+      ],
+      "@mediabubble/shared": ["packages/shared/src/index.ts"],
+      "@mediabubble/shared/client": ["packages/shared/src/client.ts"],
+      "@mediabubble/shared/server": ["packages/shared/src/server.ts"],
+      "@mediabubble/shared/ui/marketing-kicker": [
+        "packages/shared/src/ui/marketing-kicker.ts"
+      ],
+      "@mediabubble/content-pipeline": ["packages/content-pipeline/src/index.ts"]
+    },
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "allowJs": true
+  },
+  "exclude": ["node_modules", "tmp"]
+}

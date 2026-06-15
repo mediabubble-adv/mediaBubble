@@ -1,0 +1,245 @@
+FILE: wp-content/themes/vault-child/functions.php
+
+ADD THIS CODE TO YOUR EXISTING functions.php FILE:
+
+========================================
+STEP 1: Copy the design-tokens.css file to:
+wp-content/themes/vault-child/css/design-tokens.css
+
+STEP 2: Add this code to functions.php:
+========================================
+
+<?php
+/**
+ * MediaBubble Design Tokens Integration
+ * Enqueues design tokens CSS with proper priority
+ *
+ * This ensures design tokens load BEFORE other stylesheets
+ * so they can override Elementor defaults
+ */
+
+// Hook into wp_enqueue_scripts to enqueue design tokens
+add_action('wp_enqueue_scripts', 'mediabubble_enqueue_design_tokens', 5);
+
+function mediabubble_enqueue_design_tokens() {
+    // Enqueue design tokens CSS FIRST (priority 5 = before other stylesheets)
+    wp_enqueue_style(
+        'mediabubble-design-tokens',
+        get_stylesheet_directory_uri() . '/css/design-tokens.css',
+        array(),
+        '1.0.0',
+        'all'
+    );
+
+    // If you have other child theme styles, enqueue them AFTER tokens
+    wp_enqueue_style(
+        'vault-child',
+        get_stylesheet_directory_uri() . '/style.css',
+        array('mediabubble-design-tokens'), // Make sure design-tokens loads first
+        wp_get_theme()->get('Version')
+    );
+}
+
+// Also enqueue for Elementor editor preview
+add_action('elementor/frontend/after_enqueue_styles', function() {
+    wp_enqueue_style(
+        'mediabubble-design-tokens-editor',
+        get_stylesheet_directory_uri() . '/css/design-tokens.css',
+        array(),
+        '1.0.0',
+        'all'
+    );
+});
+
+// Add design tokens to Elementor's custom CSS panel
+add_action('elementor/editor/before_enqueue_scripts', function() {
+    wp_enqueue_style(
+        'mediabubble-design-tokens-editor-before',
+        get_stylesheet_directory_uri() . '/css/design-tokens.css',
+        array(),
+        '1.0.0',
+        'all'
+    );
+});
+
+========================================
+STEP 3: Verify in WordPress Admin
+========================================
+
+1. Go to: Dashboard → Appearance → Customize
+2. Go to: Additional CSS
+3. Paste this to test (optional):
+
+body {
+    --color-text-primary: #1a1a1a;
+    color: var(--color-text-primary);
+}
+
+4. Publish and check that text color is correct
+
+========================================
+STEP 4: Update Elementor Global Settings
+========================================
+
+CRITICAL: Update Elementor color palette so designers use brand colors
+
+Steps:
+1. Dashboard → Elementor → Settings
+2. Find "Colors" section
+3. Set these colors in the palette:
+
+   Color 1: Primary Yellow
+   Value: #FFC107
+
+   Color 2: Primary Blue
+   Value: #2196F3
+
+   Color 3: Dark Blue
+   Value: #0D3A7D
+
+   Color 4: Text Dark
+   Value: #1a1a1a
+
+   Color 5: Background Light
+   Value: #F5F5F5
+
+4. Remove all other colors (force designers to use palette)
+5. Save
+
+========================================
+STEP 5: Test on Homepage
+========================================
+
+IMMEDIATE TASKS (start with these):
+
+1. FIX HERO BACKGROUND
+   - Go to: Pages → Home (edit with Elementor)
+   - Find hero section
+   - Add CSS class: "section-dark"
+   - Remove any white background color
+   - Set background-color: var(--color-dark-blue)
+   - Make sure text is white
+   - Save
+
+2. FIX CTA BUTTONS
+   - Find "Get in Touch" buttons
+   - Change button color to Color 1 (Primary Yellow #FFC107)
+   - Set button height to 44px minimum
+   - Save and check on mobile
+
+3. TEST IN BROWSER
+   - Open homepage in Chrome
+   - Check hero background is dark blue
+   - Check buttons are bright yellow
+   - Hover over buttons (should feel like hover states work)
+   - Check on mobile (should be responsive)
+
+========================================
+STEP 6: Apply to Other Pages
+========================================
+
+Once homepage looks good:
+
+1. Services page
+   - Add py-xl padding to service cards section
+   - Make sure card shadows are consistent
+   - Update button colors to brand yellow
+
+2. About page
+   - Apply section padding (py-3xl)
+   - Update button colors
+
+3. Contact page
+   - Form styling
+   - CTA buttons
+
+========================================
+QUICK REFERENCE: CSS CLASSES TO USE
+========================================
+
+SPACING:
+- .py-lg = 32px padding top/bottom
+- .py-xl = 48px padding top/bottom
+- .py-2xl = 64px padding top/bottom
+- .py-3xl = 80px padding top/bottom
+- .px-lg = 32px padding left/right
+- .mb-md = 24px margin bottom
+- .mt-lg = 32px margin top
+
+BUTTONS:
+- .btn = base button style
+- .btn-primary = bright yellow button (USE THIS)
+- .btn-secondary = blue outline button
+- .btn-text = text-only button
+- .btn-sm = small button (36px)
+- .btn-md = medium button (44px) - DEFAULT
+- .btn-lg = large button (52px)
+
+TEXT:
+- .text-h1 = 48px heading
+- .text-h2 = 36px heading
+- .text-h3 = 28px heading
+- .text-h4 = 24px heading
+- .text-body = 16px body text
+- .text-primary = dark gray text color
+- .text-inverse = white text color
+
+BACKGROUNDS:
+- .section = standard section padding (top/bottom)
+- .section-dark = dark blue background + white text
+- .section-light = light gray background
+- .bg-brand-yellow = yellow background
+- .bg-brand-blue = blue background
+- .bg-dark = dark blue background
+
+CARDS:
+- .card = white card with shadow
+- .card-header = card header section
+- .card-body = card body section
+- .card-footer = card footer section
+
+========================================
+TROUBLESHOOTING
+========================================
+
+Q: Buttons still don't look yellow?
+A: Check that:
+   1. design-tokens.css is enqueued (check page source)
+   2. functions.php changes were saved
+   3. WordPress cache is cleared (if using cache plugin)
+   4. No inline Elementor styles override CSS variables
+
+Q: Spacing doesn't look right?
+A: Check that:
+   1. You're using the class names correctly (.py-xl not .padding-xl)
+   2. No Elementor custom padding is set (remove it)
+   3. Classes are applied to the correct element (section, not column)
+
+Q: Changes not showing?
+A:
+   1. Clear browser cache (Cmd+Shift+R or Ctrl+Shift+R)
+   2. Go to Elementor → Settings → Cache and clear
+   3. If using WP Super Cache: Clear cache
+   4. Re-save the page in Elementor
+
+========================================
+NEXT STEPS
+========================================
+
+Once Phase 1 is done (2 weeks):
+1. Create Elementor component templates (buttons, cards)
+2. Migrate remaining pages
+3. Document team workflow
+4. Plan Phase 2 (design tokens finalization)
+5. Plan Phase 3 (React migration)
+
+========================================
+SUPPORT
+========================================
+
+Need help? Check:
+- design-tokens.css file (all variables defined here)
+- Brand_Consistency_Implementation_Guide.md (step-by-step)
+- MediaBubble_Brand_Consistency_Audit.md (full context)
+
+All three files are in your MediaBubble folder.

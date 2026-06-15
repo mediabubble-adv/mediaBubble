@@ -1,0 +1,7 @@
+{
+  "$schema": "https://raw.githubusercontent.com/opencode-ai/opencode/main/schema.json",
+  "skills": {
+    "autoDiscover": true,
+    "directories": [".opencode/skills"]
+  }
+}

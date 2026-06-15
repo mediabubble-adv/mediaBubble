@@ -1,0 +1,15 @@
+{
+  "name": "content-pipeline",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/content-pipeline/src",
+  "projectType": "library",
+  "tags": ["type:pipeline", "scope:shared"],
+  "targets": {
+    "localize": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsx packages/content-pipeline/src/localize-for-uae.ts"
+      }
+    }
+  }
+}
