@@ -57,21 +57,21 @@ The monorepo is built for **parallel market delivery**: Egypt (`web-eg`) ships f
 ```mermaid
 flowchart TB
   subgraph apps [Applications]
-    EG[web-eg<br/>mediabubble.co]
-    AE[web-ae<br/>mediabubble.ae]
-    BR[brand<br/>brand.mediabubble.co]
+    EG["web-eg · mediabubble.co"]
+    AE["web-ae · mediabubble.ae"]
+    BR["brand · brand.mediabubble.co"]
   end
 
   subgraph packages [Shared packages]
-    DS[@mediabubble/design-system]
-    SH[@mediabubble/shared]
-    CP[content-pipeline]
+    DS["@mediabubble/design-system"]
+    SH["@mediabubble/shared"]
+    CP["content-pipeline"]
   end
 
   subgraph integrations [Integrations]
-    HS[HubSpot CRM]
-    RS[Resend email]
-    GA[Google Analytics 4]
+    HS["HubSpot CRM"]
+    RS["Resend email"]
+    GA["Google Analytics 4"]
   end
 
   EG --> DS
