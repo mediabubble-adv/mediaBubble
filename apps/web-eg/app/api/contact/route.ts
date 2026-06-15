@@ -62,22 +62,16 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Failed to send message. Please try again.' }, { status: 500 })
   }
 
-  syncContactToHubSpot({
-    email: body.email,
-    firstName: body.firstName,
-    lastName: body.lastName,
-    phone: body.phone,
-    service: body.service,
-  }).catch((err) => console.error('[Contact] HubSpot sync error:', err))
-
-  if (process.env.NODE_ENV === 'development') {
-    console.log('[Contact form submission]', {
-      name: `${firstName} ${lastName}`,
-      email,
-      phone: body.phone ?? '—',
-      service: body.service ?? '—',
-      message,
+  try {
+    await syncContactToHubSpot({
+      email: body.email,
+      firstName: body.firstName,
+      lastName: body.lastName,
+      phone: body.phone,
+      service: body.service,
     })
+  } catch (err) {
+    console.error('[Contact] HubSpot sync error:', err)
   }
 
   return NextResponse.json({ success: true }, { status: 200 })

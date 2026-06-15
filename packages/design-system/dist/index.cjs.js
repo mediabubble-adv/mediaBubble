@@ -93,7 +93,7 @@ function Button(_a) {
     className: ['inline-flex items-center justify-center font-semibold whitespace-nowrap', 'transition-all duration-150 active:scale-[0.97]', 'focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-yellow/50', 'disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none', buttonVariantClasses[variant], buttonSizeClasses[size], className].join(' '),
     ...rest,
     children: [loading && /*#__PURE__*/jsxRuntime.jsxs("svg", {
-      className: "animate-spin -ml-0.5 h-4 w-4",
+      className: "animate-spin -ms-0.5 h-4 w-4",
       xmlns: "http://www.w3.org/2000/svg",
       fill: "none",
       viewBox: "0 0 24 24",

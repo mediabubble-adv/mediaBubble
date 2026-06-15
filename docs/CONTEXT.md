@@ -2,8 +2,8 @@
 
 **Purpose:** Single handoff document for AI assistants, collaborators, and future sessions.  
 **Owner:** Yasser Dorgham (yasser.dorgham@gmail.com)  
-**Last updated:** June 11, 2026  
-**Repo:** `mediabubble-brand-guidelines` (Nx monorepo — `web-eg`, `web-ae`, `brand` apps + shared packages)
+**Last updated:** June 15, 2026  
+**Repo:** [mediabubble-adv/mediaBubble](https://github.com/mediabubble-adv/mediaBubble) (private GitHub) — Nx monorepo: `web-eg`, `web-ae`, `brand` apps + shared packages
 
 > **How to use with other AI tools:** Upload or paste this file first. Then add `docs/website/README.md` for website work, `docs/getting-started/START_HERE.md` for OpenCode agents, or `docs/developing/Brand-Guidelines/BRAND_GUIDELINES_V2.0.md` for brand rules.
 
@@ -44,8 +44,9 @@ MediaBubble is a **full-service marketing agency in Hurghada, Egypt** (est. 2015
 - **Content data:** 5 service detail pages (`seo`, `ppc`, `social`, `branding`, `web`), 6 blog posts, 6 case studies — in `apps/web-eg/lib/data/` and `apps/web-eg/lib/services-data.ts`
 - **API routes:** `/api/contact` (Resend email + HubSpot upsert), `/api/hubspot` (newsletter)
 - **SEO:** `sitemap.ts`, `robots.ts`, per-page metadata, JSON-LD LocalBusiness schema, OG images
-- **CI:** `.github/workflows/ci.yml`
-- **Docs organization:** All planning moved under `docs/` (root kept clean)
+- **CI:** `.github/workflows/ci.yml` (push/PR to `master`, `workflow_dispatch`); private-repo README uses static shields.io badge
+- **Docs organization:** All planning moved under `docs/`; root `README.md` is the canonical onboarding guide (badges, architecture, env, packages, i18n, Vercel, CI)
+- **CSP middleware:** `createCspMiddleware` from `@mediabubble/shared/csp-middleware` in each app `middleware.ts`; path alias in `tsconfig.base.json` + per-app `tsconfig.json`
 
 ### Partially done
 
@@ -55,7 +56,7 @@ MediaBubble is a **full-service marketing agency in Hurghada, Egypt** (est. 2015
 - **Mega-menu / cursor effects:** `InteractiveCursor` started; full mega-menu per `docs/website/MENU_AND_CURSOR_EFFECTS.md` not complete
 - **GitModal:** Component exists; page-triggered, not global
 - **Accessibility / WCAG AA:** Claimed in brand docs; formal audit not completed
-- **Tests:** `.test.tsx` / `.stories.tsx` files exist; no Vitest/Jest/Storybook in `package.json`
+- **Tests:** Jest + Testing Library in root `package.json`; Husky lint-staged runs related tests on staged TS/TSX; Storybook not configured
 
 ### Planned but not built
 
@@ -82,7 +83,8 @@ MediaBubble is a **full-service marketing agency in Hurghada, Egypt** (est. 2015
 
 ```
 mediabubble Main/
-├── README.md                 # Monorepo quick start
+├── README.md                 # Canonical monorepo guide (onboarding, architecture, CI, packages)
+├── AGENTS.md                 # Cursor/agent workspace memory (preferences + facts)
 ├── package.json              # @mediabubble/workspace (npm workspaces + Nx scripts)
 ├── nx.json, tsconfig.base.json, .eslintrc.json
 ├── .env.example              # GA4, Resend, HubSpot (shared across apps)
@@ -142,18 +144,28 @@ Re-sync UAE structure after Egypt changes: `npx tsx scripts/clone-eg-to-ae.ts` t
 | Package | Path | Exports |
 |---------|------|---------|
 | `@mediabubble/design-system` | `packages/design-system` | Button, Card, MasterSwatch, SectionHeader, `mbPreset` |
-| `@mediabubble/shared` | `packages/shared` | env, rate-limit, ga4-events, hubspot/resend clients, i18n factory |
+| `@mediabubble/shared` | `packages/shared` | `client`, `server`, `csp-middleware`, hubspot/resend clients, env, rate-limit, ga4-events, i18n factory, `security-headers.cjs` |
 | `@mediabubble/content-pipeline` | `packages/content-pipeline` | `localizeForUAE`, `nx run content-pipeline:localize` |
 
 **Module boundary:** packages must not import from `apps/*` (enforced in `.eslintrc.json`).
 
-### 4.4 Brand app (`apps/brand`)
+### 4.4 Middleware & security (all Next apps)
+
+Each app (`web-eg`, `web-ae`, `brand`) has `middleware.ts` that:
+
+1. Imports `createCspMiddleware` from `@mediabubble/shared/csp-middleware` (not a relative path into `packages/`).
+2. Inlines `export const config = { matcher: [...] }` — matcher arrays cannot be imported from `.cjs` helpers (Next.js static analysis).
+3. Pairs with `security-headers.cjs` in `next.config.js` for production CSP headers.
+
+**TypeScript:** Apps override `compilerOptions.paths` in their own `tsconfig.json`. Any `@mediabubble/shared/*` alias from `tsconfig.base.json` must be repeated there (e.g. `csp-middleware` → `../../packages/shared/csp-middleware.cjs`).
+
+### 4.5 Brand app (`apps/brand`)
 
 - Entry: `app/page.tsx` → `BrandGuidelinesApp`
 - Brand-only: `components/sections/`, `skill-tree/`, `constants.ts`, `lib/data/arabic-taxonomy.ts`
 - Shared UI from `@mediabubble/design-system`; brand UI (`ColorFamilyCard`, etc.) stays in `apps/brand/components/ui/`
 
-### 4.5 Environment variables (`.env.example`)
+### 4.6 Environment variables (`.env.example`)
 
 | Variable | Purpose |
 |----------|---------|

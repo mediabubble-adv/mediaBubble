@@ -162,7 +162,7 @@ The `npm run typecheck` command executes `nx run-many -t typecheck`, but because
   If color configurations change in the system, this will fail.
 * **Fix:** Move the relative luminance checker (`relativeLuminance`) from the brand guidelines app into the design system and use it programmatically.
 
-### 4.4 Nx Module Boundary Violations in Middleware
+### 4.4 Nx Module Boundary Violations in Middleware — **Resolved (Jun 2026)**
 * **Files:** `apps/brand/middleware.ts`, `apps/web-ae/middleware.ts`, and `apps/web-eg/middleware.ts`
 * **Issue:** Direct relative import of `packages/shared/csp-middleware.cjs` violates the Nx lint rule `@nx/enforce-module-boundaries`. Crossing package boundaries using relative paths breaks workspace modularity boundaries.
 * **Fix:** Add a path mapping to `tsconfig.base.json` for `@mediabubble/shared/csp-middleware` and update the middleware files to import from the path alias:
@@ -175,7 +175,7 @@ The `npm run typecheck` command executes `nx run-many -t typecheck`, but because
   import { createCspMiddleware } from '@mediabubble/shared/csp-middleware'
   ```
 
----
+> **Status:** Implemented — see `packages/shared/README.md` and root `README.md` (Packages / CSP middleware).
 
 ## 5. SEO / i18n / RTL Findings
 

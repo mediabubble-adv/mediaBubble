@@ -3,6 +3,7 @@ import { resolveMarketSiteConfig } from '@mediabubble/shared/server'
 import { CASE_STUDIES } from '@/lib/data/case-studies'
 import { BLOG_POSTS } from '@/lib/data/blog-posts'
 import { getRegistrySlugs } from '@/lib/content/services'
+import { SERVICE_SLUGS } from '@/lib/services-data'
 
 const site = resolveMarketSiteConfig('ae')
 const BASE = site.siteUrl
@@ -22,7 +23,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/cookies`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
   ]
 
-  const serviceRoutes: MetadataRoute.Sitemap = getRegistrySlugs().map((slug) => ({
+  const allServiceSlugs = Array.from(new Set([...SERVICE_SLUGS, ...getRegistrySlugs()]))
+  const serviceRoutes: MetadataRoute.Sitemap = allServiceSlugs.map((slug) => ({
     url: `${BASE}/services/${slug}`,
     lastModified: now,
     changeFrequency: 'monthly',

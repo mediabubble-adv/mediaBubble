@@ -17,6 +17,7 @@
     "./ga4-events": "./src/ga4-events.ts",
     "./hubspot-client": "./src/hubspot-client.ts",
     "./resend-client": "./src/resend-client.ts",
+    "./csp-middleware": "./csp-middleware.cjs",
     "./ui/marketing-kicker": "./src/ui/marketing-kicker.ts",
     "./package.json": "./package.json"
   }

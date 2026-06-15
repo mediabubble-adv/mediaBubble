@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useState, useRef, useEffect } from 'react'
 import { Menu, X, ChevronsLeft, ChevronsRight, Search } from 'lucide-react'
 import { brand, sections } from './constants'
@@ -38,8 +39,10 @@ export const BrandGuidelinesApp = () => {
   useEffect(() => {
     const onMouseMove = (e: MouseEvent) => {
       if (!isDragging.current) return
+      const isRtl = document.documentElement.dir === 'rtl'
       const delta = e.clientX - dragStartX.current
-      setSidebarWidth(Math.min(360, Math.max(180, dragStartWidth.current + delta)))
+      const next = isRtl ? dragStartWidth.current - delta : dragStartWidth.current + delta
+      setSidebarWidth(Math.min(360, Math.max(180, next)))
     }
     const onMouseUp = () => { isDragging.current = false }
     document.addEventListener('mousemove', onMouseMove)
@@ -154,7 +157,7 @@ export const BrandGuidelinesApp = () => {
         aria-label={t('Brand guidelines navigation')}
       >
         <div className="flex items-center border-b border-white/[0.06] shrink-0 h-[46px] px-3 gap-2.5 overflow-hidden">
-          <img src="/assets/logo.svg" alt="MediaBubble" className="w-8 h-8 shrink-0" />
+          <Image src="/assets/logo.svg" alt="MediaBubble" width={32} height={32} className="w-8 h-8 shrink-0" />
           {!sidebarCollapsed && (
             <div className="min-w-0 flex-1">
               <p className="text-[12px] font-bold text-white truncate leading-tight">{brand.name}</p>
@@ -197,7 +200,7 @@ export const BrandGuidelinesApp = () => {
       `}>
         <div className="flex items-center justify-between border-b border-white/[0.06] h-[46px] px-3 shrink-0">
           <div className="flex items-center gap-2.5">
-            <img src="/assets/logo.svg" alt="MediaBubble" className="w-8 h-8 shrink-0" />
+            <Image src="/assets/logo.svg" alt="MediaBubble" width={32} height={32} className="w-8 h-8 shrink-0" />
             <p className="text-[12px] font-bold text-white">{brand.name}</p>
           </div>
           <button onClick={() => setMobileMenuOpen(false)} className="p-1.5 text-white/40 hover:text-white rounded-lg transition-colors">

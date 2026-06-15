@@ -3,6 +3,7 @@ import { I18nLayoutWrapper } from './I18nLayoutWrapper'
 
 jest.mock('@/lib/i18n/provider', () => ({
   I18nProvider: ({ children }: { children: React.ReactNode }) => <div data-testid="i18n-provider">{children}</div>,
+  useI18n: () => ({ t: (key: string, fallback: string) => fallback }),
 }))
 
 jest.mock('./CookieConsent', () => ({

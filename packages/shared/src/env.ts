@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
 const envSchema = z.object({
-  RESEND_API_KEY: z.string().min(1, 'RESEND_API_KEY is required'),
+  RESEND_API_KEY: z.string().optional(),
   HUBSPOT_API_KEY: z.string().optional(),
   CONTACT_EMAIL: z.string().email().optional(),
   NEXT_PUBLIC_SITE_URL: z.string().url().optional(),
@@ -17,7 +17,7 @@ export type Env = z.infer<typeof envSchema> & {
 
 function readRawEnv() {
   return {
-    RESEND_API_KEY: process.env['RESEND_API_KEY'] ?? '',
+    RESEND_API_KEY: process.env['RESEND_API_KEY'],
     HUBSPOT_API_KEY: process.env['HUBSPOT_API_KEY'],
     CONTACT_EMAIL: process.env['CONTACT_EMAIL'],
     NEXT_PUBLIC_SITE_URL: process.env['NEXT_PUBLIC_SITE_URL'],

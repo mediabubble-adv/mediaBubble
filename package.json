@@ -78,7 +78,7 @@
   "lint-staged": {
     "*.{ts,tsx}": [
       "eslint --fix --max-warnings=0",
-      "jest --bail --findRelatedTests --passWithNoTests --config jest.config.cjs"
+      "jest --findRelatedTests --passWithNoTests --config jest.config.cjs"
     ]
   }
 }

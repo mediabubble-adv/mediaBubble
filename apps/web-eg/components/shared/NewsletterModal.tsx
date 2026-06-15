@@ -21,14 +21,18 @@ function isNewsletterEligiblePath(pathname: string): boolean {
   return false
 }
 
+function getLocalDateString(): string {
+  return new Date().toLocaleDateString('en-CA')
+}
+
 function hasShownToday(): boolean {
   const stored = getTypedStorageItem(STORAGE_KEYS.newsletterShownDate)
   if (!stored) return false
-  return stored === new Date().toISOString().slice(0, 10)
+  return stored === getLocalDateString()
 }
 
 function markShownToday(): void {
-  setTypedStorageItem(STORAGE_KEYS.newsletterShownDate, new Date().toISOString().slice(0, 10))
+  setTypedStorageItem(STORAGE_KEYS.newsletterShownDate, getLocalDateString())
 }
 
 // ─── Component ───────────────────────────────────────────────────────────────

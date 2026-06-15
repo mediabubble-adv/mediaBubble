@@ -8,6 +8,12 @@
     "lint": {
       "executor": "@nx/eslint:lint"
     },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc -p apps/web-ae/tsconfig.json --noEmit"
+      }
+    },
     "dev": {
       "options": {
         "port": 3001

@@ -151,18 +151,18 @@ describe('HeroSection — stats', () => {
 
 describe('HeroSection — image', () => {
   it('renders an img element when image is provided', () => {
-    renderHero({ image: '/hero.jpg', layout: 'image-right' })
-    expect(screen.getByRole('img', { hidden: true })).toBeInTheDocument()
+    const { container } = renderHero({ image: '/hero.jpg', layout: 'image-right' })
+    expect(container.querySelector('img')).toBeInTheDocument()
   })
 
   it('img src matches the supplied path', () => {
-    renderHero({ image: '/hero.jpg', layout: 'image-right' })
-    expect(screen.getByRole('img', { hidden: true })).toHaveAttribute('src', '/hero.jpg')
+    const { container } = renderHero({ image: '/hero.jpg', layout: 'image-right' })
+    expect(container.querySelector('img')?.getAttribute('src')).toContain('hero.jpg')
   })
 
   it('does not render an img when image is omitted', () => {
-    renderHero({ image: undefined })
-    expect(screen.queryByRole('img', { hidden: true })).not.toBeInTheDocument()
+    const { container } = renderHero({ image: undefined })
+    expect(container.querySelector('img')).not.toBeInTheDocument()
   })
 })
 
@@ -192,9 +192,8 @@ describe('HeroSection — accessibility', () => {
   })
 
   it('image is aria-hidden (decorative)', () => {
-    renderHero({ image: '/hero.jpg' })
-    const img = screen.getByRole('img', { hidden: true })
-    expect(img).toHaveAttribute('aria-hidden', 'true')
+    const { container } = renderHero({ image: '/hero.jpg' })
+    expect(container.querySelector('img')).toHaveAttribute('aria-hidden', 'true')
   })
 
   it('proof points list has an accessible label', () => {

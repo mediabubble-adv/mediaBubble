@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="apps/web-eg/public/assets/Logo/logo-favicon.svg" alt="MediaBubble logo" width="88" height="88" />
+
 # MediaBubble
 
 **Bilingual marketing platform for a full-service agency — Egypt, UAE, and brand guidelines in one Nx monorepo.**
@@ -87,6 +89,8 @@ flowchart TB
 ```
 
 **Client vs server imports:** In `'use client'` files, import hooks and browser utilities from `@mediabubble/shared/client` (not the root barrel). Server Components and API routes use `@mediabubble/shared/server` or package subpaths to avoid pulling server-only code into the client bundle.
+
+**CSP middleware:** Each app’s `middleware.ts` imports `createCspMiddleware` from `@mediabubble/shared/csp-middleware` (implementation in `packages/shared/csp-middleware.cjs`). Keep `export const config.matcher` as an **inlined literal** in each middleware file—Next.js cannot statically analyze imported matcher constants.
 
 ---
 
@@ -196,13 +200,22 @@ Shared UI primitives and Tailwind preset. Built with Rollup (`nx build design-sy
 
 ### `@mediabubble/shared`
 
-Cross-app utilities:
+Cross-app utilities. Prefer **subpath imports** (not the root barrel in client code):
 
-- Environment validation and market site config
-- HubSpot and Resend API helpers
-- i18n factory (`useI18n()` from client subpath)
-- CSP / security header helpers (wired in each app's `middleware.ts`)
-- Theme provider (`mediabubble-theme` storage key, class-based dark mode)
+| Subpath | Use for |
+|---------|---------|
+| `@mediabubble/shared/client` | `useI18n()`, theme provider, browser hooks, GA4 helpers |
+| `@mediabubble/shared/server` | Server Components, API routes, env validation |
+| `@mediabubble/shared/csp-middleware` | Next.js `middleware.ts` — nonce CSP (`createCspMiddleware`) |
+| `@mediabubble/shared/hubspot-client` | HubSpot CRM API |
+| `@mediabubble/shared/resend-client` | Resend transactional email |
+| `@mediabubble/shared/ui/marketing-kicker` | Marketing kicker CSS classes |
+
+Also includes rate limiting, GA4 event helpers, and `security-headers.cjs` wired from each app’s `next.config.js`.
+
+**TypeScript:** `tsconfig.base.json` defines shared path aliases. Each app `tsconfig.json` redeclares `paths`—when adding a new `@mediabubble/shared/*` subpath, mirror it in `apps/web-eg`, `apps/web-ae`, and `apps/brand` (see `csp-middleware`).
+
+See [packages/shared/README.md](./packages/shared/README.md) for usage examples.
 
 ### `content-pipeline`
 
@@ -271,6 +284,8 @@ Avoid running production builds while a dev server is active on the same app.
 
 ## Quality & CI
 
+**Repository:** [github.com/mediabubble-adv/mediaBubble](https://github.com/mediabubble-adv/mediaBubble) (private). The README uses a **static** [shields.io CI badge](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)—GitHub’s workflow status badge returns 404 on private repos. CI can also be triggered manually via `workflow_dispatch` in [`.github/workflows/ci.yml`](./.github/workflows/ci.yml).
+
 On push/PR to `master`, GitHub Actions runs:
 
 1. `npm ci`
@@ -280,6 +295,11 @@ On push/PR to `master`, GitHub Actions runs:
 5. `npm run test`
 
 Pre-commit: Husky + lint-staged (ESLint + related Jest tests on staged TS/TSX).
+
+### README on GitHub
+
+- Brand icon: `apps/web-eg/public/assets/Logo/logo-favicon.svg`
+- Mermaid node labels containing `@` must be double-quoted (e.g. `DS["@mediabubble/design-system"]`)
 
 ---
 

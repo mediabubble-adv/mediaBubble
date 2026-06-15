@@ -18,7 +18,10 @@
       "@mediabubble/design-system/tailwind-preset": [
         "../../packages/design-system/src/tailwind-preset.ts"
       ],
-      "@mediabubble/shared": ["../../packages/shared/src/index.ts"]
+      "@mediabubble/shared": ["../../packages/shared/src/index.ts"],
+      "@mediabubble/shared/csp-middleware": [
+        "../../packages/shared/csp-middleware.cjs"
+      ]
     }
   },
   "include": [

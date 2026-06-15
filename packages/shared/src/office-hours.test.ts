@@ -1,4 +1,3 @@
-import { describe, expect, it } from 'vitest'
 import { isOfficeOpen } from './office-hours'
 
 describe('isOfficeOpen', () => {

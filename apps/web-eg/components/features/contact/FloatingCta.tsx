@@ -72,7 +72,7 @@ export function FloatingCta({ hidden = false }: FloatingCtaProps) {
       data-ripple=""
       className={[
         // Base
-        'fixed bottom-6 right-6 z-[200]',
+        'fixed bottom-6 end-6 z-[200]',
         'flex items-center gap-2.5',
         'bg-brand-yellow text-brand-navy',
         'font-semibold text-[14px]',

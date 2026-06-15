@@ -318,8 +318,10 @@ Today: `lib/services-data.ts` (457 lines) **+** `lib/content/services/*` registr
 ### RQ-3 — `services-data.ts` factory **[O]** (Medium, subset of RQ-1/RQ-2)
 If a full pipeline collapse is deferred, at minimum replace the verbatim 457-line-per-app file with `createServiceData(market: 'eg' | 'ae')` in `packages/shared`, market overrides in a small JSON.
 
-### RQ-4 — Resolve Nx module-boundary violations in middleware **[A]** (Low)
+### RQ-4 — Resolve Nx module-boundary violations in middleware **[A]** (Low) — **Resolved (Jun 2026)**
 `apps/*/middleware.ts` import `packages/shared/csp-middleware.cjs` via **relative path**, violating `@nx/enforce-module-boundaries`. Add a `tsconfig.base.json` path alias `@mediabubble/shared/csp-middleware` and import through it.
+
+> **Status:** Fixed — apps import `@mediabubble/shared/csp-middleware`; alias in `tsconfig.base.json`, per-app `tsconfig.json`, and `packages/shared/package.json` export + `csp-middleware.d.ts`.
 
 ### RQ-5 — Unify duplicated hooks & hardcoded logic **[A]** (Low)
 - `usePrefersReducedMotion` is defined/imported in both `LogoMarquee.tsx` and `TestimonialsSection.tsx` → keep one copy in `@mediabubble/shared/client`.

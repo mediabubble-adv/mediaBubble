@@ -1,4 +1,4 @@
-import { createCspMiddleware } from '../../packages/shared/csp-middleware.cjs'
+import { createCspMiddleware } from '@mediabubble/shared/csp-middleware'
 
 export const middleware = createCspMiddleware({ analytics: false })
 

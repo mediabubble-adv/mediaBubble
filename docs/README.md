@@ -1,6 +1,8 @@
 # MediaBubble Documentation
 
-All planning, strategy, brand, and execution docs live here. The repository root stays app-only (`app/`, `components/`, `lib/`, config files).
+Planning, strategy, brand, and execution docs live here. Application code lives in `apps/` and `packages/` at the repository root.
+
+**Onboarding:** Start with the root **[README.md](../README.md)** (install, dev scripts, architecture, env vars, CI). Then use this index for deeper planning docs.
 
 ## Master context (AI handoff)
 
@@ -10,6 +12,7 @@ All planning, strategy, brand, and execution docs live here. The repository root
 
 | Doc | Purpose |
 |-----|---------|
+| [../README.md](../README.md) | **Monorepo onboarding** — apps, packages, scripts, CI, deployment |
 | [CONTEXT.md](./CONTEXT.md) | **Full repo context** — structure, progress, plans |
 | [website/README.md](./website/README.md) | **Website transformation** — audit, phase 1, service pages (Jun 2026) |
 | [getting-started/START_HERE.md](./getting-started/START_HERE.md) | OpenCode agent consolidation execution |
