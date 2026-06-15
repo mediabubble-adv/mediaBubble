@@ -4,9 +4,11 @@ import { marketingKickerClassName } from '@mediabubble/shared/ui/marketing-kicke
 import { useRef, useState } from 'react'
 import { ArrowRight, Mail, Phone, MapPin, Clock } from 'lucide-react'
 import { useI18n } from '@/lib/i18n/provider'
-import { trackFormCompleted, trackFormStarted } from '@mediabubble/shared/client'
+import { resolveMarketSiteConfig, trackFormCompleted, trackFormStarted } from '@mediabubble/shared/client'
 import { Button, Input } from '@mediabubble/design-system'
 import { Container } from '@/components/layout/Container'
+
+const site = resolveMarketSiteConfig('ae')
 
 const SERVICES_OPTIONS = [
   { key: 'contact.form.service.seo',      fallback: 'SEO & Organic Growth' },
@@ -82,7 +84,17 @@ export function ContactSection() {
   async function handleSubmit(ev: React.FormEvent) {
     ev.preventDefault()
     const e = validate()
-    if (Object.keys(e).length) { setErrors(e); return }
+    if (Object.keys(e).length) {
+      setErrors(e)
+      const firstErrorField = (['firstName', 'lastName', 'email', 'message'] as const).find(field => e[field])
+      if (firstErrorField) {
+        const el = document.getElementById(firstErrorField)
+        if (el) {
+          el.focus()
+        }
+      }
+      return
+    }
     setState('submitting')
     try {
       const res = await fetch('/api/contact', {
@@ -138,10 +150,10 @@ export function ContactSection() {
                     {t('contact.info.emailLabel', 'Email')}
                   </p>
                   <a
-                    href={`mailto:${t('contact.info.email', 'hello@mediabubble.ae')}`}
+                    href={`mailto:${site.email}`}
                     className="text-[14px] text-brand-navy dark:text-brand-off-white hover:text-brand-blue transition-colors"
                   >
-                    {t('contact.info.email', 'hello@mediabubble.ae')}
+                    {t('contact.info.email', site.email)}
                   </a>
                 </div>
               </li>
@@ -155,10 +167,11 @@ export function ContactSection() {
                     {t('contact.info.phoneLabel', 'Phone')}
                   </p>
                   <a
-                    href={`tel:${t('contact.info.phone', '+20123456789')}`}
-                    className="text-[14px] text-brand-navy dark:text-brand-off-white hover:text-brand-blue transition-colors"
+                    href={`tel:${site.phone}`}
+                    dir="ltr"
+                    className="text-[14px] text-brand-navy dark:text-brand-off-white hover:text-brand-blue transition-colors tabular-nums [unicode-bidi:isolate]"
                   >
-                    {t('contact.info.phone', '+20 123 456 7890')}
+                    {t('contact.info.phone', site.phone)}
                   </a>
                 </div>
               </li>
@@ -172,7 +185,7 @@ export function ContactSection() {
                     {t('contact.info.addressLabel', 'Office')}
                   </p>
                   <p className="text-[14px] text-brand-navy dark:text-brand-off-white">
-                    {t('contact.info.address', 'Dubai, UAE')}
+                    {t('contact.info.address', `${site.locality}, UAE`)}
                   </p>
                 </div>
               </li>
@@ -232,6 +245,44 @@ export function ContactSection() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} noValidate className="space-y-4">
+                  {Object.keys(errors).length > 0 && (
+                    <div
+                      role="alert"
+                      className="p-4 rounded-xl bg-brand-error/10 border border-brand-error/20 text-brand-error text-[14px]"
+                    >
+                      <p className="font-semibold mb-2">{t('contact.form.errorSummary.title', 'Please correct the following errors:')}</p>
+                      <ul className="list-disc list-inside space-y-1">
+                        {errors.firstName && (
+                          <li>
+                            <a href="#firstName" className="underline hover:opacity-85">
+                              {t('contact.form.firstName', 'First name')}: {errors.firstName}
+                            </a>
+                          </li>
+                        )}
+                        {errors.lastName && (
+                          <li>
+                            <a href="#lastName" className="underline hover:opacity-85">
+                              {t('contact.form.lastName', 'Last name')}: {errors.lastName}
+                            </a>
+                          </li>
+                        )}
+                        {errors.email && (
+                          <li>
+                            <a href="#email" className="underline hover:opacity-85">
+                              {t('contact.form.email', 'Email address')}: {errors.email}
+                            </a>
+                          </li>
+                        )}
+                        {errors.message && (
+                          <li>
+                            <a href="#message" className="underline hover:opacity-85">
+                              {t('contact.form.message', 'Message')}: {errors.message}
+                            </a>
+                          </li>
+                        )}
+                      </ul>
+                    </div>
+                  )}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <Input
                       id="firstName"

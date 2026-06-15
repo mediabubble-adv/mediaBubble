@@ -55,7 +55,33 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "skipToContent": "Skip to content",
-    "logoAlt": "MediaBubble, UAE marketing agency"
+    "logoAlt": "MediaBubble, UAE marketing agency",
+    "mega": {
+      "web": {
+        "label": "Web Solutions",
+        "webDev": { "label": "Web Development",   "desc": "Custom sites built for performance" },
+        "seo":    { "label": "SEO & Growth",        "desc": "Organic traffic that compounds" },
+        "ecom":   { "label": "E-Commerce",          "desc": "Stores that convert browsers to buyers" }
+      },
+      "marketing": {
+        "label": "Digital Marketing",
+        "social":  { "label": "Social Media",       "desc": "Build community, drive engagement" },
+        "content": { "label": "Content Marketing",  "desc": "Content that ranks and resonates" },
+        "email":   { "label": "Email Campaigns",    "desc": "Sequences that nurture and sell" }
+      },
+      "branding": {
+        "label": "Branding & Design",
+        "strategy": { "label": "Brand Strategy",    "desc": "Positioning and messaging that sticks" },
+        "logo":     { "label": "Logo & Identity",   "desc": "Visual identity across every surface" },
+        "paid":     { "label": "Paid Advertising",  "desc": "ROI-driven ad creative and management" }
+      },
+      "resources": {
+        "label": "Resources",
+        "cases":   { "label": "Case Studies",       "desc": "Real results from real clients" },
+        "blog":    { "label": "Blog",               "desc": "Insights from our marketing team" },
+        "pricing": { "label": "Pricing",            "desc": "Transparent, no-surprises pricing" }
+      }
+    }
   },
   "hero": {
     "home": {
@@ -107,8 +133,13 @@
   "about": {
     "hero": {
       "kicker": "About MediaBubble",
-      "title": "Marketing built for UAE businesses",
-      "subtitle": "Full-service agency helping local brands grow with clear strategy and measurable results."
+      "title": "UAE-Focused. Results-Driven. Since 2015.",
+      "subtitle": "We help UAE businesses grow with marketing that respects local culture and global standards. From Dubai to Abu Dhabi and the Northern Emirates, we combine strategy, creative, and performance under one accountable team.",
+      "cta": "Work With Us",
+      "ctaSecondary": "See Our Results",
+      "proof1": "Serving UAE businesses since 2015",
+      "proof2": "22+ full-time marketing professionals",
+      "proof3": "Clients in hospitality, retail, real estate, and professional services"
     },
     "story": {
       "heading": "Our Story",
@@ -117,6 +148,21 @@
     },
     "values": {
       "heading": "What Drives Us",
+      "kicker": "How We Work",
+      "title": "The Principles Behind Every Campaign",
+      "subtitle": "We've refined our approach over ten years of working with businesses across the UAE and the Gulf. These three principles drive every decision we make.",
+      "results": {
+        "title": "Results First",
+        "desc": "Every campaign starts with a specific, measurable target agreed in writing before we spend a dirham. If we are off-track at week six, you hear it from us first, not from a dashboard."
+      },
+      "partnership": {
+        "title": "A Dedicated Team, Not a Ticketing System",
+        "desc": "Every client has a named account manager reachable by phone during working hours. We attend your launches, respond same-day, and flag problems before you notice them."
+      },
+      "reporting": {
+        "title": "Radical Transparency",
+        "desc": "You get a live performance dashboard from day one, a plain-English monthly report, and direct read-access to your ad accounts. No locked logins. No mystery numbers."
+      },
       "creative": {
         "name": "Creative",
         "def": "Work that earns attention because it is clear, on-brand, and built to convert."
@@ -404,7 +450,12 @@
       "placeholder": "Your email address",
       "cta": "Subscribe Free",
       "successMessage": "You’re in! Check your inbox for a confirmation.",
-      "privacyNote": "We respect your privacy. Unsubscribe anytime."
+      "privacyNote": "We respect your privacy. Unsubscribe anytime.",
+      "title": "Get marketing insights in your inbox",
+      "description": "Practical guides for tourism and hospitality brands in the UAE — no fluff, no spam.",
+      "success": "Thanks — you're subscribed.",
+      "subscribing": "Subscribing…",
+      "subscribe": "Subscribe"
     },
     "empty": {
       "heading": "No posts in this category yet.",
@@ -650,5 +701,15 @@
     "accept": "Accept",
     "decline": "Decline",
     "close": "Close"
+  },
+  "newsletter": {
+    "title": "Join Our Newsletter",
+    "description": "Monthly tips and local case studies in your inbox. No spam. Unsubscribe anytime.",
+    "success": "Check your email!",
+    "placeholder": "you@example.com",
+    "sending": "Sending…",
+    "cta": "Get Insights",
+    "closeLabel": "Close newsletter sign-up",
+    "emailLabel": "Email address"
   }
 }

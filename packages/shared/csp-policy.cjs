@@ -5,15 +5,33 @@ const {
   ANALYTICS_CONNECT_HOSTS,
 } = require('./security-headers.cjs')
 
+const crypto = require('crypto')
+const { THEME_INIT_SCRIPT, DEV_SW_CLEANUP_SCRIPT, LANG_INIT_SCRIPT } = require('./src/inline-scripts.cjs')
+
+const sha256 = (str) => crypto.createHash('sha256').update(str).digest('base64')
+
+const THEME_HASH = `'sha256-${sha256(THEME_INIT_SCRIPT)}'`
+const DEV_SW_HASH = `'sha256-${sha256(DEV_SW_CLEANUP_SCRIPT)}'`
+const LANG_HASH = `'sha256-${sha256(LANG_INIT_SCRIPT)}'`
+
 /**
- * @param {string} nonce
+ * @param {string|null|undefined} nonce
  * @param {{ analytics?: boolean; dev?: boolean }} [options]
  * @returns {string}
  */
 function buildContentSecurityPolicyWithNonce(nonce, options = {}) {
   const { analytics = false, dev = process.env.NODE_ENV === 'development' } = options
 
-  const scriptParts = ["'self'", `'nonce-${nonce}'`, "'strict-dynamic'"]
+  const scriptParts = ["'self'"]
+  if (nonce) {
+    scriptParts.push(`'nonce-${nonce}'`, "'strict-dynamic'")
+  } else {
+    // Whitelist inline script hashes for static pages
+    scriptParts.push(THEME_HASH, LANG_HASH)
+    if (dev) {
+      scriptParts.push(DEV_SW_HASH)
+    }
+  }
   if (analytics) scriptParts.push('https://www.googletagmanager.com')
   if (dev) scriptParts.push("'unsafe-eval'")
 

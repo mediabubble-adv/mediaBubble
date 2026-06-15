@@ -57,6 +57,7 @@ The monorepo is built for **parallel market delivery**: Egypt (`web-eg`) ships f
 ## Architecture
 
 ```mermaid
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Inter, system-ui, sans-serif","lineColor":"#358DCC","primaryTextColor":"#072A6B","primaryColor":"#E8F3FC","primaryBorderColor":"#358DCC","secondaryColor":"#FFF9E0","tertiaryColor":"#F5F8FC"}}}%%
 flowchart TB
   subgraph apps [Applications]
     EG["web-eg · mediabubble.co"]
@@ -86,6 +87,20 @@ flowchart TB
   SH --> HS
   SH --> RS
   SH --> GA
+
+  classDef app fill:#072A6B,stroke:#358DCC,color:#FFFFFF,stroke-width:2px
+  classDef pkg fill:#358DCC,stroke:#072A6B,color:#FFFFFF,stroke-width:2px
+  classDef pipe fill:#E8F3FC,stroke:#358DCC,color:#072A6B,stroke-width:2px
+  classDef integration fill:#FFDE11,stroke:#072A6B,color:#072A6B,stroke-width:2px
+
+  class EG,AE,BR app
+  class DS,SH pkg
+  class CP pipe
+  class HS,RS,GA integration
+
+  style apps fill:#F5F8FC,stroke:#358DCC,stroke-width:2px,color:#072A6B
+  style packages fill:#E8F3FC,stroke:#358DCC,stroke-width:2px,color:#072A6B
+  style integrations fill:#FFF9E0,stroke:#FFDE11,stroke-width:2px,color:#072A6B
 ```
 
 **Client vs server imports:** In `'use client'` files, import hooks and browser utilities from `@mediabubble/shared/client` (not the root barrel). Server Components and API routes use `@mediabubble/shared/server` or package subpaths to avoid pulling server-only code into the client bundle.

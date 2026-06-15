@@ -11,6 +11,14 @@ describe('csp middleware', () => {
     expect(csp).toContain('https://www.googletagmanager.com')
   })
 
+  it('includes script hashes when no nonce is provided', () => {
+    const csp = buildContentSecurityPolicyWithNonce(null, { analytics: true })
+    expect(csp).not.toContain('nonce-')
+    expect(csp).not.toContain('strict-dynamic')
+    expect(csp).toContain("sha256-AngVWd5WLE28t6pDbMdyzyprEeDnIw6V5DYMSdkAQHI=")
+    expect(csp).toContain("sha256-s8gtWKaqPslWqKjox+ESaWQUDPMOC3gGL7HepLkekWg=")
+  })
+
   it('allows unsafe-eval in development for Next.js HMR', () => {
     const prev = process.env.NODE_ENV
     process.env.NODE_ENV = 'development'

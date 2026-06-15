@@ -55,15 +55,29 @@ export function I18nProvider({
 }: I18nProviderProps) {
   const [locale, setLocaleState] = useState<Locale>(defaultLocale)
 
+  const normalizeStoredLocale = useCallback(
+    (saved: string): Locale => {
+      if (dictionaries[saved]) return saved
+      if (saved === 'ar-masri' && dictionaries['ar']) return 'ar'
+      if (saved === 'ar' && dictionaries['ar-masri']) return 'ar-masri'
+      return defaultLocale
+    },
+    [dictionaries, defaultLocale],
+  )
+
   useEffect(() => {
     const saved =
       storageKey === STORAGE_KEYS.language
         ? getTypedStorageItem(STORAGE_KEYS.language)
         : getLocalStorageItem(storageKey)
-    if (saved && dictionaries[saved]) {
-      setLocaleState(saved)
+    if (saved) {
+      const normalized = normalizeStoredLocale(saved)
+      setLocaleState(normalized)
+      if (storageKey === STORAGE_KEYS.language) {
+        document.cookie = `${STORAGE_KEYS.language}=${normalized}; path=/; max-age=31536000; SameSite=Lax`
+      }
     }
-  }, [dictionaries, storageKey])
+  }, [storageKey, normalizeStoredLocale])
 
   const applyDocumentLocale = useCallback(
     (l: Locale) => {
@@ -77,15 +91,17 @@ export function I18nProvider({
 
   const setLocale = useCallback(
     (l: Locale) => {
-      setLocaleState(l)
+      const normalized = normalizeStoredLocale(l)
+      setLocaleState(normalized)
       if (storageKey === STORAGE_KEYS.language) {
-        setTypedStorageItem(STORAGE_KEYS.language, l)
+        setTypedStorageItem(STORAGE_KEYS.language, normalized)
+        document.cookie = `${STORAGE_KEYS.language}=${normalized}; path=/; max-age=31536000; SameSite=Lax`
       } else {
-        setLocalStorageItem(storageKey, l)
+        setLocalStorageItem(storageKey, normalized)
       }
-      applyDocumentLocale(l)
+      applyDocumentLocale(normalized)
     },
-    [applyDocumentLocale, storageKey],
+    [applyDocumentLocale, storageKey, normalizeStoredLocale],
   )
 
   const t = useCallback(

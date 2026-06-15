@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { ISR_REVALIDATE_SECONDS } from '@mediabubble/shared/server'
+import { ISR_REVALIDATE_SECONDS, getAlternates, buildBlogPostJsonLd, serializeJsonLd, resolveMarketSiteConfig } from '@mediabubble/shared/server'
 import { BLOG_POSTS, getBlogPostBySlug } from '@/lib/data/blog-posts'
 import { BlogPostContent } from './content'
 
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title:       post.title,
     description: post.excerpt,
-    alternates:  { canonical: `/blog/${slug}` },
+    alternates:  getAlternates(`/blog/${slug}`, 'ae'),
     openGraph: {
       title:       `${post.title} | MediaBubble`,
       description: post.excerpt,
@@ -41,5 +41,24 @@ export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params
   const post = getBlogPostBySlug(slug)
   if (!post) notFound()
-  return <BlogPostContent post={post} />
+
+  const site = resolveMarketSiteConfig('ae')
+  const jsonLd = buildBlogPostJsonLd({
+    slug: `/blog/${slug}`,
+    title: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    imageUrl: post.image,
+    authorName: 'MediaBubble',
+  }, site.siteUrl)
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
+      />
+      <BlogPostContent post={post} />
+    </>
+  )
 }

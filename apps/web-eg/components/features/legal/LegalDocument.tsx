@@ -14,7 +14,7 @@ interface Props {
 
 export function LegalDocument({ document }: Props) {
   const { locale } = useI18n()
-  const content = locale === 'ar' ? document.ar : document.en
+  const content = locale.startsWith('ar') ? document.ar : document.en
 
   return (
     <LegalLayout

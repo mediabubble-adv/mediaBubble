@@ -1,5 +1,6 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import { useI18n } from '@/lib/i18n/provider'
 import {
   EXPERIMENTS,
@@ -9,13 +10,15 @@ import {
 } from '@mediabubble/shared/client'
 import { HeroSection } from '@/components/sections/HeroSection'
 import { FeaturesSection } from '@/components/sections/FeaturesSection'
-import { ServicesSection } from '@/components/sections/ServicesSection'
-import { ShowcaseSection } from '@/components/sections/ShowcaseSection'
-import { CtaSection } from '@/components/sections/CtaSection'
-import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
-import { ClientLogosSection } from '@/components/sections/ClientLogosSection'
-import { WhyUsStrip } from '@/components/sections/WhyUsStrip'
 import { MainLayout } from '@/components/layout/MainLayout'
+
+// Below-the-fold sections — lazy-loaded to reduce initial bundle
+const ServicesSection     = dynamic(() => import('@/components/sections/ServicesSection').then(m => ({ default: m.ServicesSection })))
+const ShowcaseSection     = dynamic(() => import('@/components/sections/ShowcaseSection').then(m => ({ default: m.ShowcaseSection })))
+const ClientLogosSection  = dynamic(() => import('@/components/sections/ClientLogosSection').then(m => ({ default: m.ClientLogosSection })))
+const WhyUsStrip          = dynamic(() => import('@/components/sections/WhyUsStrip').then(m => ({ default: m.WhyUsStrip })))
+const TestimonialsSection = dynamic(() => import('@/components/sections/TestimonialsSection').then(m => ({ default: m.TestimonialsSection })))
+const CtaSection          = dynamic(() => import('@/components/sections/CtaSection').then(m => ({ default: m.CtaSection })))
 
 export function HomePageContent() {
   const { t } = useI18n()

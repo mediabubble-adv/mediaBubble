@@ -53,6 +53,7 @@ export {
   type Market,
   type MarketSiteDefaults,
 } from './site-config'
+export { buildBlogPostJsonLd, buildCaseStudyJsonLd, serializeJsonLd, type BlogPostJsonLdInput, type CaseStudyJsonLdInput } from './seo/json-ld'
 export { isOfficeOpen } from './office-hours'
 export { useOfficeOpen } from './hooks/use-office-open'
 export { FooterSocialLinks } from './components/FooterSocialLinks'

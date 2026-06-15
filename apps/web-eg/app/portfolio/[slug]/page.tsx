@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { ISR_REVALIDATE_SECONDS } from '@mediabubble/shared/server'
+import { ISR_REVALIDATE_SECONDS, getAlternates, buildCaseStudyJsonLd, serializeJsonLd, resolveMarketSiteConfig } from '@mediabubble/shared/server'
 import { CASE_STUDIES, getCaseStudyBySlug } from '@/lib/data/case-studies'
 import { CaseStudyContent } from './content'
 
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title:       cs.title,
     description: cs.desc,
-    alternates:  { canonical: `/portfolio/${slug}` },
+    alternates:  getAlternates(`/portfolio/${slug}`, 'eg'),
     openGraph: {
       title:       `${cs.title} | MediaBubble`,
       description: cs.metric,
@@ -34,5 +34,25 @@ export default async function CaseStudyPage({ params }: Props) {
   const { slug } = await params
   const cs = getCaseStudyBySlug(slug)
   if (!cs) notFound()
-  return <CaseStudyContent cs={cs} />
+
+  const site = resolveMarketSiteConfig('eg')
+  const jsonLd = buildCaseStudyJsonLd({
+    slug: `/portfolio/${slug}`,
+    title: cs.title,
+    description: cs.desc,
+    clientName: cs.client,
+    imageUrl: cs.heroImage,
+    duration: cs.duration,
+    technologies: cs.technologies,
+  }, site.siteUrl)
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
+      />
+      <CaseStudyContent cs={cs} />
+    </>
+  )
 }

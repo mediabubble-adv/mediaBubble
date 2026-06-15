@@ -24,42 +24,42 @@ import { Container } from './Container'
 const MEGA_MENU_COLUMNS = [
   {
     id: 'web',
-    label: 'Web Solutions',
+    labelKey: 'nav.mega.web.label',
     icon: Globe,
     items: [
-      { label: 'Web Development',     href: '/services/web',           icon: Code2,        desc: 'Custom sites built for performance' },
-      { label: 'SEO & Growth',        href: '/services/seo',           icon: Search,       desc: 'Organic traffic that compounds' },
-      { label: 'E-Commerce',          href: '/services/web',           icon: ShoppingCart, desc: 'Stores that convert browsers to buyers' },
+      { labelKey: 'nav.mega.web.webDev.label', descKey: 'nav.mega.web.webDev.desc', href: '/services/web',    icon: Code2        },
+      { labelKey: 'nav.mega.web.seo.label',    descKey: 'nav.mega.web.seo.desc',    href: '/services/seo',    icon: Search       },
+      { labelKey: 'nav.mega.web.ecom.label',   descKey: 'nav.mega.web.ecom.desc',   href: '/services/web',    icon: ShoppingCart },
     ],
   },
   {
     id: 'marketing',
-    label: 'Digital Marketing',
+    labelKey: 'nav.mega.marketing.label',
     icon: BarChart2,
     items: [
-      { label: 'Social Media',        href: '/services/social',        icon: Share2,       desc: 'Build community, drive engagement' },
-      { label: 'Content Marketing',   href: '/services/social',        icon: FileText,     desc: 'Content that ranks and resonates' },
-      { label: 'Email Campaigns',     href: '/contact',                icon: Mail,         desc: 'Sequences that nurture and sell' },
+      { labelKey: 'nav.mega.marketing.social.label',  descKey: 'nav.mega.marketing.social.desc',  href: '/services/social', icon: Share2   },
+      { labelKey: 'nav.mega.marketing.content.label', descKey: 'nav.mega.marketing.content.desc', href: '/services/social', icon: FileText },
+      { labelKey: 'nav.mega.marketing.email.label',   descKey: 'nav.mega.marketing.email.desc',   href: '/contact',         icon: Mail     },
     ],
   },
   {
     id: 'branding',
-    label: 'Branding & Design',
+    labelKey: 'nav.mega.branding.label',
     icon: Palette,
     items: [
-      { label: 'Brand Strategy',      href: '/services/branding',      icon: Award,        desc: 'Positioning and messaging that sticks' },
-      { label: 'Logo & Identity',     href: '/services/branding',      icon: Brush,        desc: 'Visual identity across every surface' },
-      { label: 'Paid Advertising',    href: '/services/ppc',           icon: ImageIcon,    desc: 'ROI-driven ad creative and management' },
+      { labelKey: 'nav.mega.branding.strategy.label', descKey: 'nav.mega.branding.strategy.desc', href: '/services/branding', icon: Award    },
+      { labelKey: 'nav.mega.branding.logo.label',     descKey: 'nav.mega.branding.logo.desc',     href: '/services/branding', icon: Brush    },
+      { labelKey: 'nav.mega.branding.paid.label',     descKey: 'nav.mega.branding.paid.desc',     href: '/services/ppc',      icon: ImageIcon },
     ],
   },
   {
     id: 'resources',
-    label: 'Resources',
+    labelKey: 'nav.mega.resources.label',
     icon: BookOpen,
     items: [
-      { label: 'Case Studies',        href: '/portfolio',              icon: FolderOpen,   desc: 'Real results from real clients' },
-      { label: 'Blog',                href: '/blog',                   icon: Rss,          desc: 'Insights from our marketing team' },
-      { label: 'Pricing',             href: '/contact',                icon: DollarSign,   desc: 'Transparent, no-surprises pricing' },
+      { labelKey: 'nav.mega.resources.cases.label',   descKey: 'nav.mega.resources.cases.desc',   href: '/portfolio', icon: FolderOpen  },
+      { labelKey: 'nav.mega.resources.blog.label',    descKey: 'nav.mega.resources.blog.desc',    href: '/blog',      icon: Rss         },
+      { labelKey: 'nav.mega.resources.pricing.label', descKey: 'nav.mega.resources.pricing.desc', href: '/contact',   icon: DollarSign  },
     ],
   },
 ] as const
@@ -129,9 +129,10 @@ interface MegaMenuProps {
   visible: boolean
   scrolled: boolean
   onClose: () => void
+  t: (key: string, fallback?: string) => string
 }
 
-function MegaMenu({ visible, scrolled, onClose }: MegaMenuProps) {
+function MegaMenu({ visible, scrolled, onClose, t }: MegaMenuProps) {
   return (
     <div
       role="region"
@@ -173,7 +174,7 @@ function MegaMenu({ visible, scrolled, onClose }: MegaMenuProps) {
                   className={scrolled ? 'text-brand-navy dark:text-brand-yellow' : 'text-brand-yellow'}
                 />
                 <span className={`text-[11px] font-semibold uppercase tracking-widest ${scrolled ? 'text-brand-navy dark:text-brand-yellow' : 'text-brand-yellow'}`}>
-                  {col.label}
+                  {t(col.labelKey)}
                 </span>
               </div>
 
@@ -182,7 +183,7 @@ function MegaMenu({ visible, scrolled, onClose }: MegaMenuProps) {
                 {col.items.map(item => {
                   const ItemIcon = item.icon
                   return (
-                    <li key={item.href + item.label}>
+                    <li key={item.href + item.labelKey}>
                       <Link
                         href={item.href}
                         onClick={onClose}
@@ -207,12 +208,12 @@ function MegaMenu({ visible, scrolled, onClose }: MegaMenuProps) {
                               ? 'text-brand-charcoal dark:text-brand-off-white group-hover:text-brand-navy dark:group-hover:text-brand-yellow'
                               : 'text-white/90 group-hover:text-white'
                           }`}>
-                            {item.label}
+                            {t(item.labelKey)}
                           </span>
                           <span className={`block text-[11px] leading-snug ${
                             scrolled ? 'text-brand-secondary dark:text-brand-text-muted' : 'text-white/45'
                           }`}>
-                            {item.desc}
+                            {t(item.descKey)}
                           </span>
                         </span>
                       </Link>
@@ -233,9 +234,10 @@ function MegaMenu({ visible, scrolled, onClose }: MegaMenuProps) {
 interface MobileAccordionSectionProps {
   col: (typeof MEGA_MENU_COLUMNS)[number]
   onClose: () => void
+  t: (key: string, fallback?: string) => string
 }
 
-function MobileAccordionSection({ col, onClose }: MobileAccordionSectionProps) {
+function MobileAccordionSection({ col, onClose, t }: MobileAccordionSectionProps) {
   const [expanded, setExpanded] = useState(false)
   const ColIcon = col.icon
 
@@ -250,7 +252,7 @@ function MobileAccordionSection({ col, onClose }: MobileAccordionSectionProps) {
           <span className="w-7 h-7 flex items-center justify-center rounded-lg bg-brand-navy/[0.06] dark:bg-white/[0.08]">
             <ColIcon size={14} className="text-brand-navy dark:text-brand-off-white" />
           </span>
-          {col.label}
+          {t(col.labelKey)}
         </span>
         <ChevronRight
           size={15}
@@ -263,14 +265,14 @@ function MobileAccordionSection({ col, onClose }: MobileAccordionSectionProps) {
           {col.items.map(item => {
             const ItemIcon = item.icon
             return (
-              <li key={item.href + item.label}>
+              <li key={item.href + item.labelKey}>
                 <Link
                   href={item.href}
                   onClick={onClose}
                   className="flex items-center gap-2.5 px-2 py-2.5 rounded-lg text-[13px] text-brand-secondary dark:text-brand-text-muted hover:text-brand-navy dark:hover:text-brand-off-white hover:bg-brand-light-border dark:hover:bg-white/[0.06] transition-colors"
                 >
                   <ItemIcon size={13} className="text-brand-navy/50 dark:text-brand-off-white/50 flex-shrink-0" />
-                  {item.label}
+                  {t(item.labelKey)}
                 </Link>
               </li>
             )
@@ -546,6 +548,7 @@ export function SiteNav({ topSurface = 'dark' }: SiteNavProps) {
                         visible={megaOpen}
                         scrolled={isFloating}
                         onClose={() => setMegaOpen(false)}
+                        t={t}
                       />
                     </div>
                   )
@@ -614,6 +617,7 @@ export function SiteNav({ topSurface = 'dark' }: SiteNavProps) {
         ref={drawerRef}
         id="mobile-nav-drawer"
         dir={dir}
+        role="dialog"
         aria-label="Mobile navigation"
         aria-modal="true"
         className={`fixed inset-y-0 end-0 z-[var(--z-modal)] w-[min(80vw,300px)] bg-brand-surface lg:hidden flex flex-col shadow-2xl transition-transform duration-250 ease-out ${
@@ -694,7 +698,7 @@ export function SiteNav({ topSurface = 'dark' }: SiteNavProps) {
               </p>
               <ul className="space-y-0.5">
                 {MEGA_MENU_COLUMNS.map(col => (
-                  <MobileAccordionSection key={col.id} col={col} onClose={closeMobile} />
+                  <MobileAccordionSection key={col.id} col={col} onClose={closeMobile} t={t} />
                 ))}
               </ul>
             </li>

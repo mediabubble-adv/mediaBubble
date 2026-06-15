@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
+import { getAlternates } from '@mediabubble/shared/server'
 import { LegalDocument } from '@/components/features/legal/LegalDocument'
 import { cookiePolicy } from '@/lib/content/legal/cookies'
 
 export const metadata: Metadata = {
   title: 'Cookie Policy',
   description: 'How MediaBubble uses cookies and how you can control them.',
-  alternates: { canonical: '/cookies' },
+  alternates: getAlternates('/cookies', 'eg'),
   openGraph: { title: 'Cookie Policy | MediaBubble', url: '/cookies' },
 }
 

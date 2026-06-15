@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { usePathname } from 'next/navigation'
 import { X, Mail, Loader2, CheckCircle2 } from 'lucide-react'
+import { useI18n } from '@/lib/i18n/provider'
 import {
   trackNewsletterShown,
   trackNewsletterSubmitted,
@@ -37,6 +38,7 @@ function markShownToday(): void {
 
 // ─── Component ───────────────────────────────────────────────────────────────
 export function NewsletterModal() {
+  const { t, dir } = useI18n()
   const pathname = usePathname()
   const eligible = isNewsletterEligiblePath(pathname)
   const [visible, setVisible] = useState(false)
@@ -165,7 +167,7 @@ export function NewsletterModal() {
         aria-labelledby="newsletter-modal-title"
         className="fixed inset-0 z-[400] flex items-center justify-center p-4 pointer-events-none"
       >
-        <div className="relative bg-brand-surface border border-brand-whisper-border rounded-2xl shadow-2xl dark:shadow-black/40 w-full max-w-[400px] pointer-events-auto animate-scale-in overflow-hidden">
+        <div dir={dir} className="relative bg-brand-surface border border-brand-whisper-border rounded-2xl shadow-2xl dark:shadow-black/40 w-full max-w-[400px] pointer-events-auto animate-scale-in overflow-hidden">
 
           {/* Brand accent bar */}
           <div className="h-1.5 w-full bg-brand-yellow" />
@@ -174,8 +176,8 @@ export function NewsletterModal() {
           <button
             ref={closeButtonRef}
             onClick={close}
-            aria-label="Close newsletter sign-up"
-            className="absolute top-4 right-4 p-1.5 rounded-lg text-brand-charcoal/40 hover:text-brand-charcoal hover:bg-brand-canvas dark:text-brand-text-muted dark:hover:text-brand-off-white dark:hover:bg-white/10 transition-colors"
+            aria-label={t('newsletter.closeLabel', 'Close newsletter sign-up')}
+            className="absolute top-4 right-4 rtl:left-4 rtl:right-auto p-1.5 rounded-lg text-brand-charcoal/40 hover:text-brand-charcoal hover:bg-brand-canvas dark:text-brand-text-muted dark:hover:text-brand-off-white dark:hover:bg-white/10 transition-colors"
           >
             <X size={18} />
           </button>
@@ -190,28 +192,28 @@ export function NewsletterModal() {
               id="newsletter-modal-title"
               className="font-display text-[1.35rem] font-bold text-brand-navy dark:text-brand-off-white leading-tight mb-1.5"
             >
-              Join Our Newsletter
+              {t('newsletter.title', 'Join Our Newsletter')}
             </h2>
             <p className="text-[14px] text-brand-secondary dark:text-brand-text-muted mb-6">
-              Monthly tips and local case studies in your inbox. No spam. Unsubscribe anytime.
+              {t('newsletter.description', 'Monthly tips and local case studies in your inbox. No spam. Unsubscribe anytime.')}
             </p>
 
             {status === 'success' ? (
               <div className="flex items-center gap-3 py-4 text-brand-success">
                 <CheckCircle2 size={22} />
-                <span className="font-semibold text-[15px]">Check your email!</span>
+                <span className="font-semibold text-[15px]">{t('newsletter.success', 'Check your email!')}</span>
               </div>
             ) : (
               <form onSubmit={handleSubmit} noValidate>
                 <label htmlFor="newsletter-email" className="sr-only">
-                  Email address
+                  {t('newsletter.emailLabel', 'Email address')}
                 </label>
                 <input
                   ref={firstInputRef}
                   id="newsletter-email"
                   type="email"
                   autoComplete="email"
-                  placeholder="you@example.com"
+                  placeholder={t('newsletter.placeholder', 'you@example.com')}
                   required
                   value={email}
                   onChange={e => setEmail(e.target.value)}
@@ -234,10 +236,10 @@ export function NewsletterModal() {
                   {status === 'submitting' ? (
                     <>
                       <Loader2 size={16} className="animate-spin" />
-                      Sending…
+                      {t('newsletter.sending', 'Sending…')}
                     </>
                   ) : (
-                    'Get Insights'
+                    t('newsletter.cta', 'Get Insights')
                   )}
                 </button>
               </form>

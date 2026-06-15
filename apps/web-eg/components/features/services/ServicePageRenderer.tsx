@@ -6,7 +6,7 @@ import { trackServiceViewed } from '@mediabubble/shared/client'
 import type { ServicePageConfig, ServiceSectionId } from '@/lib/content/services/types'
 import { ServiceHeroSection } from './sections/ServiceHeroSection'
 import { ProblemsSection } from './sections/ProblemsSection'
-import { ProcessSection } from './sections/ProcessSection'
+import { ProcessSection } from '@/components/sections/ProcessSection'
 import { FeaturesSection } from './sections/FeaturesSection'
 import { CaseStudySection } from './sections/CaseStudySection'
 import { FaqSection } from './sections/FaqSection'
@@ -40,7 +40,7 @@ function renderSection(config: ServicePageConfig, sectionId: ServiceSectionId) {
     case 'problems':
       return config.problems ? <ProblemsSection key={sectionId} problems={config.problems} /> : null
     case 'process':
-      return config.process ? <ProcessSection key={sectionId} process={config.process} /> : null
+      return config.process ? <ProcessSection key={sectionId} /> : null
     case 'rankingTimeline':
       return config.rankingTimeline ? (
         <RankingTimelineSection key={sectionId} data={config.rankingTimeline} />

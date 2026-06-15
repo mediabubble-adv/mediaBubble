@@ -200,9 +200,99 @@ export function buildMarketJsonLd(
   }
 }
 
-export function serializeJsonLd(graph: MarketJsonLdGraph): string {
-  return JSON.stringify(graph)
+export function serializeJsonLd(data: any): string {
+  return JSON.stringify(data)
     .replace(/</g, '\\u003c')
     .replace(/>/g, '\\u003e')
     .replace(/&/g, '\\u0026')
+}
+
+export interface BlogPostJsonLdInput {
+  slug: string
+  title: string
+  description: string
+  datePublished: string
+  imageUrl?: string
+  authorName?: string
+}
+
+export function buildBlogPostJsonLd(post: BlogPostJsonLdInput, siteUrl: string) {
+  const cleanSlug = post.slug.startsWith('/') ? post.slug : `/${post.slug}`
+  const fullUrl = `${siteUrl}${cleanSlug}`
+  const cleanImg = post.imageUrl && !post.imageUrl.startsWith('http')
+    ? `${siteUrl}${post.imageUrl.startsWith('/') ? '' : '/'}${post.imageUrl}`
+    : post.imageUrl
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    'mainEntityOfPage': {
+      '@type': 'WebPage',
+      '@id': fullUrl,
+    },
+    'headline': post.title,
+    'description': post.description,
+    'datePublished': post.datePublished,
+    'image': cleanImg || undefined,
+    'author': {
+      '@type': 'Organization',
+      'name': post.authorName ?? 'MediaBubble',
+      'url': siteUrl,
+    },
+    'publisher': {
+      '@type': 'Organization',
+      'name': 'MediaBubble',
+      'logo': {
+        '@type': 'ImageObject',
+        'url': `${siteUrl}/assets/Logo/logo-favicon.svg`,
+      },
+    },
+  }
+}
+
+export interface CaseStudyJsonLdInput {
+  slug: string
+  title: string
+  description: string
+  clientName: string
+  imageUrl?: string
+  duration?: string
+  technologies?: string[]
+}
+
+export function buildCaseStudyJsonLd(cs: CaseStudyJsonLdInput, siteUrl: string) {
+  const cleanSlug = cs.slug.startsWith('/') ? cs.slug : `/${cs.slug}`
+  const fullUrl = `${siteUrl}${cleanSlug}`
+  const cleanImg = cs.imageUrl && !cs.imageUrl.startsWith('http')
+    ? `${siteUrl}${cs.imageUrl.startsWith('/') ? '' : '/'}${cs.imageUrl}`
+    : cs.imageUrl
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    'mainEntityOfPage': {
+      '@type': 'WebPage',
+      '@id': fullUrl,
+    },
+    'name': cs.title,
+    'headline': cs.title,
+    'description': cs.description,
+    'image': cleanImg || undefined,
+    'creator': {
+      '@type': 'Organization',
+      'name': 'MediaBubble',
+      'url': siteUrl,
+    },
+    'provider': {
+      '@type': 'Organization',
+      'name': 'MediaBubble',
+      'url': siteUrl,
+    },
+    'customer': {
+      '@type': 'Organization',
+      'name': cs.clientName,
+    },
+    'genre': 'Case Study',
+    'about': cs.technologies ? cs.technologies.map(t => ({ '@type': 'Thing', 'name': t })) : undefined,
+  }
 }

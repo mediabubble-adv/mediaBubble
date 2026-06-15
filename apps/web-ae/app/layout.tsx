@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
-import { headers } from 'next/headers'
 import {
   resolveMarketSiteConfig,
   buildMarketJsonLd,
   serializeJsonLd,
   THEME_INIT_SCRIPT,
   DEV_SW_CLEANUP_SCRIPT,
+  LANG_INIT_SCRIPT,
+  getAlternates,
 } from '@mediabubble/shared/server'
 import { AppProviders } from '@/components/providers/AppProviders'
 import { rootFontClassName } from '@/lib/fonts'
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
   },
   description: site.description,
   metadataBase: new URL(site.siteUrl),
+  alternates: getAlternates('/', 'ae'),
   icons: {
     icon: [
       { url: '/assets/Logo/logo-favicon.svg', type: 'image/svg+xml' },
@@ -50,9 +52,6 @@ export const viewport = {
   initialScale: 1,
 }
 
-/** Per-request nonce from middleware requires dynamic rendering. */
-export const dynamic = 'force-dynamic'
-
 const jsonLd = buildMarketJsonLd(site, {
   slogan: "UAE's Leading Marketing Agency",
   businessDescription:
@@ -75,16 +74,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const nonce = headers().get('x-nonce') ?? undefined
-
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: LANG_INIT_SCRIPT }} />
         {process.env.NODE_ENV === 'development' && (
           <script dangerouslySetInnerHTML={{ __html: DEV_SW_CLEANUP_SCRIPT }} />
         )}
         <script
-          nonce={nonce}
           dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }}
         />
         <script

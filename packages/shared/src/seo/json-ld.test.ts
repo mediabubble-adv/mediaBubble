@@ -1,4 +1,4 @@
-import { resolveMarketSiteConfig, buildMarketJsonLd, serializeJsonLd } from '../index'
+import { resolveMarketSiteConfig, buildMarketJsonLd, serializeJsonLd, buildBlogPostJsonLd, buildCaseStudyJsonLd } from '../index'
 
 describe('buildMarketJsonLd', () => {
   const site = resolveMarketSiteConfig('eg')
@@ -32,5 +32,48 @@ describe('buildMarketJsonLd', () => {
     expect(serialized).not.toContain('<script>')
     expect(serialized).toContain('\\u003c')
     expect(serialized).toContain('\\u0026')
+  })
+})
+
+describe('buildBlogPostJsonLd', () => {
+  const siteUrl = 'https://mediabubble.co'
+
+  it('builds a correct BlogPosting schema', () => {
+    const ld = buildBlogPostJsonLd({
+      slug: 'seo-tips',
+      title: 'SEO Tips',
+      description: 'Useful SEO tips',
+      datePublished: '2026-06-15',
+      imageUrl: '/assets/blog-img.jpg',
+    }, siteUrl)
+
+    expect(ld['@context']).toBe('https://schema.org')
+    expect(ld['@type']).toBe('BlogPosting')
+    expect(ld.headline).toBe('SEO Tips')
+    expect(ld.mainEntityOfPage['@id']).toBe('https://mediabubble.co/seo-tips')
+    expect(ld.image).toBe('https://mediabubble.co/assets/blog-img.jpg')
+    expect(ld.author.name).toBe('MediaBubble')
+  })
+})
+
+describe('buildCaseStudyJsonLd', () => {
+  const siteUrl = 'https://mediabubble.co'
+
+  it('builds a correct CreativeWork schema for case studies', () => {
+    const ld = buildCaseStudyJsonLd({
+      slug: '/portfolio/coral-bay',
+      title: 'Coral Bay Case Study',
+      description: 'Case study details',
+      clientName: 'Coral Bay',
+      technologies: ['SEO', 'Next.js'],
+    }, siteUrl)
+
+    expect(ld['@context']).toBe('https://schema.org')
+    expect(ld['@type']).toBe('CreativeWork')
+    expect(ld.name).toBe('Coral Bay Case Study')
+    expect(ld.customer.name).toBe('Coral Bay')
+    expect(ld.genre).toBe('Case Study')
+    expect(ld.about).toHaveLength(2)
+    expect(ld.about[0].name).toBe('SEO')
   })
 })

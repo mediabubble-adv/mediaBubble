@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { marketingKickerClassName } from '@mediabubble/shared/ui/marketing-kicker'
 import { usePrefersReducedMotion } from '@mediabubble/shared/client'
 import { useI18n } from '@/lib/i18n/provider'
@@ -36,9 +37,11 @@ function TestimonialCard({ item, dir = 'ltr' }: { item: TestimonialItem; dir?: '
       {/* Photo / Avatar — overlapping top */}
       <div className="relative -mt-20 mx-auto mb-3">
         {item.photo ? (
-          <img
+          <Image
             src={item.photo}
             alt={t(item.authorKey, item.authorFallback)}
+            width={80}
+            height={80}
             className="w-20 h-20 rounded-full object-cover border-4 border-brand-surface shadow-md bg-brand-surface"
             loading="lazy"
           />

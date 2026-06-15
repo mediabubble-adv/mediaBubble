@@ -9,13 +9,11 @@ const { buildContentSecurityPolicyWithNonce } = require('./csp-policy.cjs')
  */
 function createCspMiddleware(options = {}) {
   return function cspMiddleware(request) {
-    const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
-    const csp = buildContentSecurityPolicyWithNonce(nonce, options)
+    const csp = buildContentSecurityPolicyWithNonce(null, options)
       .replace(/\s{2,}/g, ' ')
       .trim()
 
     const requestHeaders = new Headers(request.headers)
-    requestHeaders.set('x-nonce', nonce)
     requestHeaders.set('Content-Security-Policy', csp)
 
     const response = NextResponse.next({
