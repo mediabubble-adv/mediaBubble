@@ -368,7 +368,7 @@ See [docs/CONTEXT.md](./docs/CONTEXT.md) §2 for estimated completion percentage
 
 ## Contact
 
-**Yasser Dorgham** — [yasser.dorgham@gmail.com](mailto:yasser.dorgham@gmail.com)
+**Yasser Dorgham** — [yasser@mediabubble.co](mailto:yasser.dorgham@gmail.com)
 
 **Agency** — [mediabubble.co](https://mediabubble.co) · Hurghada, Egypt
 
