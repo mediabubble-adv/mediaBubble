@@ -4,7 +4,7 @@
 
 **Bilingual marketing platform for a full-service agency — Egypt, UAE, and brand guidelines in one Nx monorepo.**
 
-[![CI](https://github.com/mediabubble-adv/mediaBubble/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/mediabubble-adv/mediaBubble/actions/workflows/ci.yml)
+[![CI](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)](https://github.com/mediabubble-adv/mediaBubble/actions/workflows/ci.yml)
 [![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js&logoColor=white)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
