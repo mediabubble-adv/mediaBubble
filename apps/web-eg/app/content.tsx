@@ -39,7 +39,7 @@ export function HomePageContent() {
           )}
           ctaButtons={{
             primary:   { label: primaryCtaLabel, href: '/contact' },
-            secondary: { label: t('hero.home.ctaSecondary', 'View case studies'),   href: '/portfolio' },
+            secondary: { label: t('hero.home.ctaSecondary', 'View case studies'),   href: '/case-studies' },
           }}
           onPrimaryCtaClick={() =>
             trackExperimentConversion(

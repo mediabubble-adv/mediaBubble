@@ -1,4 +1,4 @@
-import { resolveMarketSiteConfig, buildMarketJsonLd, serializeJsonLd, buildBlogPostJsonLd, buildCaseStudyJsonLd } from '../index'
+import { resolveMarketSiteConfig, buildMarketJsonLd, serializeJsonLd, buildInsightPostJsonLd, buildCaseStudyJsonLd } from '../index'
 
 describe('buildMarketJsonLd', () => {
   const site = resolveMarketSiteConfig('eg')
@@ -35,23 +35,23 @@ describe('buildMarketJsonLd', () => {
   })
 })
 
-describe('buildBlogPostJsonLd', () => {
+describe('buildInsightPostJsonLd', () => {
   const siteUrl = 'https://mediabubble.co'
 
   it('builds a correct BlogPosting schema', () => {
-    const ld = buildBlogPostJsonLd({
+    const ld = buildInsightPostJsonLd({
       slug: 'seo-tips',
       title: 'SEO Tips',
       description: 'Useful SEO tips',
       datePublished: '2026-06-15',
-      imageUrl: '/assets/blog-img.jpg',
+      imageUrl: '/assets/insights-img.jpg',
     }, siteUrl)
 
     expect(ld['@context']).toBe('https://schema.org')
     expect(ld['@type']).toBe('BlogPosting')
     expect(ld.headline).toBe('SEO Tips')
     expect(ld.mainEntityOfPage['@id']).toBe('https://mediabubble.co/seo-tips')
-    expect(ld.image).toBe('https://mediabubble.co/assets/blog-img.jpg')
+    expect(ld.image).toBe('https://mediabubble.co/assets/insights-img.jpg')
     expect(ld.author.name).toBe('MediaBubble')
   })
 })
@@ -61,7 +61,7 @@ describe('buildCaseStudyJsonLd', () => {
 
   it('builds a correct CreativeWork schema for case studies', () => {
     const ld = buildCaseStudyJsonLd({
-      slug: '/portfolio/coral-bay',
+      slug: '/case-studies/coral-bay',
       title: 'Coral Bay Case Study',
       description: 'Case study details',
       clientName: 'Coral Bay',

@@ -79,7 +79,7 @@ export const SERVICES: Record<string, ServiceData> = {
       description:
         'Gulf Divers Dubai was invisible on Google. After a full technical overhaul, local keyword strategy, and monthly content, they now own the first page for 40+ dive-related searches in Dubai.',
       company: 'Gulf Divers Dubai',
-      href: '/portfolio',
+      href: '/case-studies',
       quote:
         'Within 3 months we were getting more enquiries from Google than all our social media combined. The ROI is undeniable.',
       author: 'Ahmed Hassan',
@@ -164,7 +164,7 @@ export const SERVICES: Record<string, ServiceData> = {
       description:
         'Aqua Sports UAE was spending 8,000 AED/month on Meta Ads with minimal bookings. After restructuring campaigns, building retargeting audiences, and refreshing creative, they hit 4.8× ROAS within 60 days.',
       company: 'Aqua Sports UAE',
-      href: '/portfolio',
+      href: '/case-studies',
       quote:
         'We were about to give up on Meta Ads entirely. MediaBubble turned the account around in two months. Our cost per booking dropped by half.',
       author: 'Sara Khalil',
@@ -249,7 +249,7 @@ export const SERVICES: Record<string, ServiceData> = {
       description:
         'Desert Rose Hotel had 1,200 Instagram followers with near-zero engagement. A consistent visual identity, Reels strategy, and community management drove 287% engagement growth and a 40% increase in direct booking enquiries.',
       company: 'Desert Rose Hotel',
-      href: '/portfolio',
+      href: '/case-studies',
       quote:
         'Our Instagram now looks like a proper hotel brand. Guests tell us they booked because of our social — that never happened before.',
       author: 'Mona Farid',
@@ -334,7 +334,7 @@ export const SERVICES: Record<string, ServiceData> = {
       description:
         'Marina View Residences had an outdated identity that undersold their luxury product. After a full rebrand — new logo, photography guidelines, and brand voice — they repositioned as premium and raised rates accordingly.',
       company: 'Marina View Residences',
-      href: '/portfolio',
+      href: '/case-studies',
       quote:
         'We were afraid a rebrand would confuse our regulars. Instead, it attracted exactly the higher-value guests we\'d been trying to reach.',
       author: 'Tarek Mansour',
@@ -419,7 +419,7 @@ export const SERVICES: Record<string, ServiceData> = {
       description:
         'Marina Rentals\' old site took 8 seconds to load on mobile. We rebuilt it in Next.js, restructured the property listing UX, and added live booking widgets. Enquiries nearly tripled in the first month.',
       company: 'Marina Rentals',
-      href: '/portfolio',
+      href: '/case-studies',
       quote:
         'The old site embarrassed me. The new one I\'m genuinely proud to hand out the URL. And the bookings prove it works.',
       author: 'Karim Youssef',

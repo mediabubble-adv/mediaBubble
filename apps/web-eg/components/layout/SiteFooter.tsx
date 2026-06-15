@@ -18,8 +18,8 @@ const FOOTER_SERVICES = [
 ] as const
 
 const FOOTER_RESOURCES = [
-  { key: 'footer.resources.blog',           href: '/blog',     fallback: 'Blog' },
-  { key: 'footer.resources.caseStudies',    href: '/portfolio',fallback: 'Case Studies' },
+  { key: 'footer.resources.blog',           href: '/insights',     fallback: 'Blog' },
+  { key: 'footer.resources.caseStudies',    href: '/case-studies',fallback: 'Case Studies' },
   { key: 'footer.resources.freeAudit',      href: '/contact',  fallback: 'Free Marketing Audit' },
   { key: 'footer.resources.brandGuidelines',href: '/brand',    fallback: 'Brand Guidelines' },
 ] as const

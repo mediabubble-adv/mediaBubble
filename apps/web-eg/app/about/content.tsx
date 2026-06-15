@@ -30,7 +30,7 @@ export function AboutPageContent() {
             { label: t('about.hero.cta', 'Work With Us'), href: '/contact' },
             {
               label: t('about.hero.ctaSecondary', 'See Our Results'),
-              href: '/portfolio',
+              href: '/case-studies',
               variant: 'secondary',
             },
           ]}

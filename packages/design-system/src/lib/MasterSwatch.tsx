@@ -13,7 +13,7 @@ export function MasterSwatch({ selectedColor, onCopy, copiedId, onColorSelect }:
   const btnText = isLight ? 'text-black/50' : 'text-white/75'
 
   return (
-    <div className="bg-white rounded-xl border border-[#E8E8E8] shadow-[0_2px_6px_rgba(0,0,0,0.07)] overflow-hidden mb-8">
+    <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border shadow-[0_2px_6px_rgba(0,0,0,0.07)] dark:shadow-black/20 overflow-hidden mb-8">
       <div
         className="h-56 sm:h-64 relative flex items-center justify-center transition-colors duration-300"
         style={{ backgroundColor: selectedColor }}

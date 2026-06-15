@@ -75,7 +75,7 @@ export const contentServiceConfig: ServicePageConfig = {
     description:
       'A Dubai hospitality group had thin blog content and weak internal linking. We rebuilt pillar pages, published bilingual guides, and synced posts to email — organic enquiries from content rose 214% year-on-year.',
     company: 'Palm Vista Hotels',
-    href: '/portfolio',
+    href: '/case-studies',
     quote:
       'Content used to be an afterthought. Now our guides rank and sales recognises leads who discovered us through the blog.',
     author: 'Nadia El-Sayed',

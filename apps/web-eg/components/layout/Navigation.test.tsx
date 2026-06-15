@@ -11,7 +11,7 @@ describe('Navigation', () => {
       <Navigation
         items={[
           { label: 'About', href: '/about' },
-          { label: 'Blog', href: '/blog' },
+          { label: 'Blog', href: '/insights' },
         ]}
       />,
     )

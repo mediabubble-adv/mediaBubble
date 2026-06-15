@@ -1,14 +1,14 @@
-import { portfolioAsset } from './portfolio-paths'
+import { caseStudyAsset } from './case-studies-paths'
 
-export interface PortfolioImage {
+export interface CaseStudyImage {
   src: string
   alt: string
   caption?: string
 }
 
 export interface BeforeAfterPair {
-  before: PortfolioImage
-  after: PortfolioImage
+  before: CaseStudyImage
+  after: CaseStudyImage
   label?: string
 }
 
@@ -27,7 +27,7 @@ export interface CaseStudy {
   bg: string
   heroImage?: string
   heroImageAlt?: string
-  gallery?: PortfolioImage[]
+  gallery?: CaseStudyImage[]
   beforeAfter?: BeforeAfterPair
   client: string
   duration: string
@@ -49,17 +49,17 @@ export const CASE_STUDIES: CaseStudy[] = [
     metric: '68% increase in direct bookings within 6 months',
     accent: '#2196F3',
     bg: '#EBF5FB',
-    heroImage: portfolioAsset('coral-bay', 'hero'),
+    heroImage: caseStudyAsset('coral-bay', 'hero'),
     heroImageAlt: 'Coral Bay Resort pool and sea view at sunset, Hurghada',
     gallery: [
-      { src: portfolioAsset('coral-bay', 'gallery-1'), alt: 'Resort exterior with palm trees and Red Sea coastline', caption: 'Brand positioning refresh across booking touchpoints' },
-      { src: portfolioAsset('coral-bay', 'gallery-2'), alt: 'Guests relaxing by the resort pool', caption: 'Paid campaigns aligned to high-intent seasonal demand' },
-      { src: portfolioAsset('coral-bay', 'gallery-3'), alt: 'Aerial view of beachfront resort property', caption: 'Direct booking landing page with OTA price-match messaging' },
+      { src: caseStudyAsset('coral-bay', 'gallery-1'), alt: 'Resort exterior with palm trees and Red Sea coastline', caption: 'Brand positioning refresh across booking touchpoints' },
+      { src: caseStudyAsset('coral-bay', 'gallery-2'), alt: 'Guests relaxing by the resort pool', caption: 'Paid campaigns aligned to high-intent seasonal demand' },
+      { src: caseStudyAsset('coral-bay', 'gallery-3'), alt: 'Aerial view of beachfront resort property', caption: 'Direct booking landing page with OTA price-match messaging' },
     ],
     beforeAfter: {
       label: 'Booking funnel before and after our engagement',
-      before: { src: portfolioAsset('coral-bay', 'before'), alt: 'Generic hotel room before repositioning and direct-booking focus' },
-      after: { src: portfolioAsset('coral-bay', 'after'), alt: 'Premium resort experience after brand and conversion overhaul' },
+      before: { src: caseStudyAsset('coral-bay', 'before'), alt: 'Generic hotel room before repositioning and direct-booking focus' },
+      after: { src: caseStudyAsset('coral-bay', 'after'), alt: 'Premium resort experience after brand and conversion overhaul' },
     },
     client: 'Coral Bay Resort',
     duration: '6 months',
@@ -96,17 +96,17 @@ export const CASE_STUDIES: CaseStudy[] = [
     metric: '340% organic traffic growth in 12 months',
     accent: '#072A6B',
     bg: '#EEF2F9',
-    heroImage: portfolioAsset('red-sea-divers', 'hero'),
+    heroImage: caseStudyAsset('red-sea-divers', 'hero'),
     heroImageAlt: 'Scuba diver exploring coral reef in the Red Sea, Hurghada',
     gallery: [
-      { src: portfolioAsset('red-sea-divers', 'gallery-1'), alt: 'Underwater diving scene with vibrant coral', caption: 'Long-form guide hub targeting informational diving queries' },
-      { src: portfolioAsset('red-sea-divers', 'gallery-2'), alt: 'Rough sea surface before content-led visibility push', caption: 'Pre-engagement: minimal organic footprint' },
-      { src: portfolioAsset('red-sea-divers', 'gallery-3'), alt: 'Dive boat on calm Red Sea waters', caption: 'Local SEO and review strategy for Hurghada map pack' },
+      { src: caseStudyAsset('red-sea-divers', 'gallery-1'), alt: 'Underwater diving scene with vibrant coral', caption: 'Long-form guide hub targeting informational diving queries' },
+      { src: caseStudyAsset('red-sea-divers', 'gallery-2'), alt: 'Rough sea surface before content-led visibility push', caption: 'Pre-engagement: minimal organic footprint' },
+      { src: caseStudyAsset('red-sea-divers', 'gallery-3'), alt: 'Dive boat on calm Red Sea waters', caption: 'Local SEO and review strategy for Hurghada map pack' },
     ],
     beforeAfter: {
       label: 'Organic visibility transformation',
-      before: { src: portfolioAsset('red-sea-divers', 'before'), alt: 'Choppy Red Sea conditions symbolising weak search presence' },
-      after: { src: portfolioAsset('red-sea-divers', 'after'), alt: 'Clear underwater visibility after SEO and content programme' },
+      before: { src: caseStudyAsset('red-sea-divers', 'before'), alt: 'Choppy Red Sea conditions symbolising weak search presence' },
+      after: { src: caseStudyAsset('red-sea-divers', 'after'), alt: 'Clear underwater visibility after SEO and content programme' },
     },
     client: 'Red Sea Divers',
     duration: '12 months',
@@ -143,17 +143,17 @@ export const CASE_STUDIES: CaseStudy[] = [
     metric: '2× lead volume in the first quarter post-launch',
     accent: '#1565C0',
     bg: '#E8EEF7',
-    heroImage: portfolioAsset('aqua-sports', 'hero'),
+    heroImage: caseStudyAsset('aqua-sports', 'hero'),
     heroImageAlt: 'Watersports action shot with kite and wakeboard on Red Sea',
     gallery: [
-      { src: portfolioAsset('aqua-sports', 'gallery-1'), alt: 'Branded watersports website hero on mobile and desktop', caption: 'Next.js site with service-specific enquiry flows' },
-      { src: portfolioAsset('aqua-sports', 'gallery-2'), alt: 'Legacy watersports collateral before rebrand', caption: 'Inconsistent identity across print and digital' },
-      { src: portfolioAsset('aqua-sports', 'gallery-3'), alt: 'Team delivering watersports experience on the beach', caption: 'HubSpot CRM with WhatsApp instant response' },
+      { src: caseStudyAsset('aqua-sports', 'gallery-1'), alt: 'Branded watersports website hero on mobile and desktop', caption: 'Next.js site with service-specific enquiry flows' },
+      { src: caseStudyAsset('aqua-sports', 'gallery-2'), alt: 'Legacy watersports collateral before rebrand', caption: 'Inconsistent identity across print and digital' },
+      { src: caseStudyAsset('aqua-sports', 'gallery-3'), alt: 'Team delivering watersports experience on the beach', caption: 'HubSpot CRM with WhatsApp instant response' },
     ],
     beforeAfter: {
       label: 'Brand and digital presence',
-      before: { src: portfolioAsset('aqua-sports', 'before'), alt: 'Outdated watersports branding before redesign' },
-      after: { src: portfolioAsset('aqua-sports', 'after'), alt: 'Modern Aqua Sports brand identity and web experience' },
+      before: { src: caseStudyAsset('aqua-sports', 'before'), alt: 'Outdated watersports branding before redesign' },
+      after: { src: caseStudyAsset('aqua-sports', 'after'), alt: 'Modern Aqua Sports brand identity and web experience' },
     },
     client: 'Aqua Sports Egypt',
     duration: '3 months',
@@ -190,17 +190,17 @@ export const CASE_STUDIES: CaseStudy[] = [
     metric: '4.8× engagement rate vs. industry average',
     accent: '#FFC107',
     bg: '#FFFBEA',
-    heroImage: portfolioAsset('desert-rose', 'hero'),
+    heroImage: caseStudyAsset('desert-rose', 'hero'),
     heroImageAlt: 'Desert Rose Hotel exterior with pool and palm garden',
     gallery: [
-      { src: portfolioAsset('desert-rose', 'gallery-1'), alt: 'Luxury hotel pool area at golden hour', caption: 'On-site photography replacing stock imagery' },
-      { src: portfolioAsset('desert-rose', 'gallery-2'), alt: 'Hotel room interior with neutral decor', caption: 'Before: generic room shots in feed' },
-      { src: portfolioAsset('desert-rose', 'gallery-3'), alt: 'Minimal hotel bedroom before content refresh', caption: 'Content audit baseline' },
+      { src: caseStudyAsset('desert-rose', 'gallery-1'), alt: 'Luxury hotel pool area at golden hour', caption: 'On-site photography replacing stock imagery' },
+      { src: caseStudyAsset('desert-rose', 'gallery-2'), alt: 'Hotel room interior with neutral decor', caption: 'Before: generic room shots in feed' },
+      { src: caseStudyAsset('desert-rose', 'gallery-3'), alt: 'Minimal hotel bedroom before content refresh', caption: 'Content audit baseline' },
     ],
     beforeAfter: {
       label: 'Social content quality shift',
-      before: { src: portfolioAsset('desert-rose', 'before'), alt: 'Plain hotel room photo used in old social posts' },
-      after: { src: portfolioAsset('desert-rose', 'after'), alt: 'Polished resort imagery after content production' },
+      before: { src: caseStudyAsset('desert-rose', 'before'), alt: 'Plain hotel room photo used in old social posts' },
+      after: { src: caseStudyAsset('desert-rose', 'after'), alt: 'Polished resort imagery after content production' },
     },
     client: 'Desert Rose Hotel',
     duration: '8 months',
@@ -238,17 +238,17 @@ export const CASE_STUDIES: CaseStudy[] = [
     metric: '300 qualified leads and 4.2× ROAS in 48 hours',
     accent: '#2196F3',
     bg: '#EBF5FB',
-    heroImage: portfolioAsset('marina-view', 'hero'),
+    heroImage: caseStudyAsset('marina-view', 'hero'),
     heroImageAlt: 'Modern marina-view residential tower at dusk',
     gallery: [
-      { src: portfolioAsset('marina-view', 'gallery-1'), alt: 'High-rise marina residences exterior', caption: 'Launch landing page with virtual tour gate' },
-      { src: portfolioAsset('marina-view', 'gallery-2'), alt: 'Property development site before launch campaign', caption: 'Pre-launch: construction-phase awareness' },
-      { src: portfolioAsset('marina-view', 'gallery-3'), alt: 'Luxury apartment interior with sea view', caption: 'Show-unit photography for Meta ad creative' },
+      { src: caseStudyAsset('marina-view', 'gallery-1'), alt: 'High-rise marina residences exterior', caption: 'Launch landing page with virtual tour gate' },
+      { src: caseStudyAsset('marina-view', 'gallery-2'), alt: 'Property development site before launch campaign', caption: 'Pre-launch: construction-phase awareness' },
+      { src: caseStudyAsset('marina-view', 'gallery-3'), alt: 'Luxury apartment interior with sea view', caption: 'Show-unit photography for Meta ad creative' },
     ],
     beforeAfter: {
       label: 'Launch campaign impact',
-      before: { src: portfolioAsset('marina-view', 'before'), alt: 'Residential development under construction' },
-      after: { src: portfolioAsset('marina-view', 'after'), alt: 'Completed Marina View tower after launch' },
+      before: { src: caseStudyAsset('marina-view', 'before'), alt: 'Residential development under construction' },
+      after: { src: caseStudyAsset('marina-view', 'after'), alt: 'Completed Marina View tower after launch' },
     },
     client: 'Marina View Residences',
     duration: '48-hour launch + 2-week nurture',
@@ -285,17 +285,17 @@ export const CASE_STUDIES: CaseStudy[] = [
     metric: '94 Lighthouse score and 42% more organic conversions',
     accent: '#072A6B',
     bg: '#EEF2F9',
-    heroImage: portfolioAsset('hurghada-rentals', 'hero'),
+    heroImage: caseStudyAsset('hurghada-rentals', 'hero'),
     heroImageAlt: 'Modern furnished apartment living room in Hurghada',
     gallery: [
-      { src: portfolioAsset('hurghada-rentals', 'gallery-1'), alt: 'Dated apartment listing page before rebuild', caption: 'Legacy PHP site: 8.2s load time' },
-      { src: portfolioAsset('hurghada-rentals', 'gallery-2'), alt: 'Bright modern apartment after redesign', caption: 'Next.js rebuild with WebP image pipeline' },
-      { src: portfolioAsset('hurghada-rentals', 'gallery-3'), alt: 'Spacious rental property interior with natural light', caption: 'Structured data for 2,000+ listings' },
+      { src: caseStudyAsset('hurghada-rentals', 'gallery-1'), alt: 'Dated apartment listing page before rebuild', caption: 'Legacy PHP site: 8.2s load time' },
+      { src: caseStudyAsset('hurghada-rentals', 'gallery-2'), alt: 'Bright modern apartment after redesign', caption: 'Next.js rebuild with WebP image pipeline' },
+      { src: caseStudyAsset('hurghada-rentals', 'gallery-3'), alt: 'Spacious rental property interior with natural light', caption: 'Structured data for 2,000+ listings' },
     ],
     beforeAfter: {
       label: 'Site performance and presentation',
-      before: { src: portfolioAsset('hurghada-rentals', 'before'), alt: 'Cluttered apartment interior representing slow legacy site' },
-      after: { src: portfolioAsset('hurghada-rentals', 'after'), alt: 'Clean modern rental listing after Next.js rebuild' },
+      before: { src: caseStudyAsset('hurghada-rentals', 'before'), alt: 'Cluttered apartment interior representing slow legacy site' },
+      after: { src: caseStudyAsset('hurghada-rentals', 'after'), alt: 'Clean modern rental listing after Next.js rebuild' },
     },
     client: 'Hurghada Rentals',
     duration: '4 months',

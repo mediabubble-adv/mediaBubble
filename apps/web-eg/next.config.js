@@ -24,6 +24,13 @@ const nextConfig = {
 }
 
 nextConfig.headers = async () => buildNextHeaders()
+nextConfig.redirects = async () => [
+  // SEO: preserve old URLs after blog→insights / portfolio→case-studies rename
+  { source: '/blog', destination: '/insights', permanent: true },
+  { source: '/blog/:path*', destination: '/insights/:path*', permanent: true },
+  { source: '/portfolio', destination: '/case-studies', permanent: true },
+  { source: '/portfolio/:path*', destination: '/case-studies/:path*', permanent: true },
+]
 nextConfig.webpack = (config, context) => patchWebpackForDev(config, context)
 
 const plugins = [withNx, withBundleAnalyzer]

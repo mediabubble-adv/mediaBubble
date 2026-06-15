@@ -149,7 +149,7 @@ export const seoServiceConfig: ServicePageConfig = {
     description:
       'A Dubai Marina wellness studio was buried on page three. After technical fixes, local keyword targeting, and bilingual content, they now rank on page one for 35+ fitness and spa searches in Dubai.',
     company: 'Marina Wellness Studio',
-    href: '/portfolio',
+    href: '/case-studies',
     quote:
       'Our Google enquiries doubled before we spent a dirham more on ads. The monthly reports make it easy to see what is working.',
     author: 'Layla Al Mansoori',

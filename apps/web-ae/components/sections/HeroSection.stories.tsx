@@ -65,7 +65,7 @@ const STATS = [
 
 const CTA_BUTTONS = {
   primary:   { label: 'Get your free strategy audit', href: '/contact' },
-  secondary: { label: 'View case studies',            href: '/portfolio' },
+  secondary: { label: 'View case studies',            href: '/case-studies' },
 }
 
 const HERO_DESCRIPTION =

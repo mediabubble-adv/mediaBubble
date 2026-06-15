@@ -3,8 +3,8 @@
     "home": "Home",
     "about": "About",
     "services": "Services",
-    "portfolio": "Portfolio",
-    "blog": "Blog",
+    "portfolio": "Case Studies",
+    "blog": "Insights",
     "contact": "Contact",
     "getAudit": "Free audit",
     "learnMore": "View service",
@@ -48,8 +48,8 @@
     "home": "Home",
     "about": "About Us",
     "services": "Services",
-    "portfolio": "Portfolio",
-    "blog": "Blog",
+    "portfolio": "Case Studies",
+    "blog": "Insights",
     "contact": "Contact",
     "getAudit": "Free audit",
     "openMenu": "Open menu",
@@ -78,7 +78,7 @@
       "resources": {
         "label": "Resources",
         "cases":   { "label": "Case Studies",       "desc": "Real results from real clients" },
-        "blog":    { "label": "Blog",               "desc": "Insights from our marketing team" },
+        "blog":    { "label": "Insights",               "desc": "Insights from our marketing team" },
         "pricing": { "label": "Pricing",            "desc": "Transparent, no-surprises pricing" }
       }
     }
@@ -422,7 +422,7 @@
   },
   "blog": {
     "hero": {
-      "kicker": "The MediaBubble Blog",
+      "kicker": "MediaBubble Insights",
       "title": "Marketing Insights for UAE Businesses",
       "subtitle": "Practical marketing advice for UAE and Gulf businesses. No fluff."
     },
@@ -563,7 +563,7 @@
     },
     "resources": {
       "heading": "Resources",
-      "blog": "Blog",
+      "blog": "Insights",
       "caseStudies": "Case Studies",
       "freeAudit": "Free Marketing Audit",
       "brandGuidelines": "Brand Guidelines"
@@ -607,7 +607,7 @@
       "description": "Browse 500+ projects across SEO, branding, web, and paid advertising. Real results for real UAE businesses."
     },
     "blog": {
-      "title": "Marketing Blog | MediaBubble",
+      "title": "Marketing Insights | MediaBubble",
       "description": "Marketing insights, local case studies, and expert strategy advice for UAE businesses. Updated weekly."
     },
     "contact": {

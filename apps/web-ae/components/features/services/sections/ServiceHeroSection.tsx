@@ -31,7 +31,7 @@ export function ServiceHeroSection({
         },
         {
           label: t('service.hero.ctaSecondary', 'See case studies'),
-          href: `/portfolio#${label}`,
+          href: `/case-studies#${label}`,
           variant: 'secondary',
         },
       ]}

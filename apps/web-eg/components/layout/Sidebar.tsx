@@ -245,8 +245,8 @@ const defaultNavItems: NavItem[] = [
   {
     id: 'portfolio',
     label: 'Portfolio',
-    icon: <PortfolioIcon />,
-    href: '/portfolio',
+    icon: <CaseStudiesIcon />,
+    href: '/case-studies',
   },
   {
     id: 'team',
@@ -278,7 +278,7 @@ function AnalyticsIcon() {
   )
 }
 
-function PortfolioIcon() {
+function CaseStudiesIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <path d="M20 7h-12V4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2z" />
