@@ -22,7 +22,7 @@ export function CollateralPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-5">
           {/* Front */}
           <div>
-            <p className="text-[11px] font-semibold text-[#9E9E9E] uppercase tracking-[0.12em] mb-3 ms-1">{t('collateral.front', 'Front')}</p>
+            <p className="text-[11px] font-semibold text-brand-text-muted uppercase tracking-[0.12em] mb-3 ms-1">{t('collateral.front', 'Front')}</p>
             <div className="flex justify-center">
               <div
                 className="relative bg-[#072A6B] rounded-xl overflow-hidden shadow-[0_12px_40px_rgba(7,42,107,0.35)]"
@@ -48,10 +48,10 @@ export function CollateralPage() {
           </div>
           {/* Back */}
           <div>
-            <p className="text-[11px] font-semibold text-[#9E9E9E] uppercase tracking-[0.12em] mb-3 ms-1">{t('collateral.back', 'Back')}</p>
+            <p className="text-[11px] font-semibold text-brand-text-muted uppercase tracking-[0.12em] mb-3 ms-1">{t('collateral.back', 'Back')}</p>
             <div className="flex justify-center">
               <div
-                className="relative bg-white rounded-xl overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-[#E8E8E8]"
+                className="relative bg-brand-surface rounded-xl overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-brand-whisper-border dark:border-brand-light-border"
                 style={{ width: '340px', height: '215px' }}
               >
                 <div className="absolute top-0 inset-x-0 h-1 bg-[#FFC107]" />
@@ -67,7 +67,7 @@ export function CollateralPage() {
                     ].map((c) => (
                       <div key={c.label} className="flex items-baseline gap-3">
                         <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#2196F3] w-14 shrink-0">{c.label}</span>
-                        <span className="text-[11px] text-[#333333] font-sans">{c.value}</span>
+                        <span className="text-[11px] text-brand-text font-sans">{c.value}</span>
                       </div>
                     ))}
                   </div>
@@ -76,9 +76,9 @@ export function CollateralPage() {
             </div>
           </div>
         </div>
-        <div className="bg-white rounded-xl border border-[#E8E8E8] overflow-hidden">
+        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border overflow-hidden">
           <div className="h-[3px] bg-[#072A6B]" />
-          <div className="divide-y divide-[#E8E8E8]">
+          <div className="divide-y divide-brand-whisper-border">
           {[
             { spec: t('collateral.spec.dimensions', 'Dimensions'), value: '85 × 54 mm', note: t('collateral.spec.dimensionsNote', 'Standard international size. Print at 90 × 55 mm with 2.5mm bleed') },
             { spec: t('collateral.spec.front', 'Front'), value: '#072A6B background', note: t('collateral.spec.frontNote', 'Logo white (filter: invert). Name in Poppins Bold 14pt, title in Inter 10pt') },
@@ -88,8 +88,8 @@ export function CollateralPage() {
             <div key={row.spec} className="flex items-start gap-5 px-5 py-3.5 transition-all hover:bg-[#072A6B]/[0.02]">
               <code className="text-[11px] font-mono text-[#2196F3] shrink-0 w-24 mt-0.5">{row.spec}</code>
               <div>
-                <p className="text-[12px] font-semibold text-[#333333]">{row.value}</p>
-                <p className="text-[11px] text-brand.muted-steel mt-0.5 leading-snug">{row.note}</p>
+                <p className="text-[12px] font-semibold text-brand-text">{row.value}</p>
+                <p className="text-[11px] text-brand-muted-steel mt-0.5 leading-snug">{row.note}</p>
               </div>
             </div>
           ))}
@@ -107,7 +107,7 @@ export function CollateralPage() {
         </div>
         <div className="flex justify-center mb-5 overflow-x-auto pb-2">
           <div
-            className="relative bg-white rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.1)] border border-[#E8E8E8] shrink-0"
+            className="relative bg-brand-surface rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.1)] border border-brand-whisper-border dark:border-brand-light-border shrink-0"
             style={{ width: '560px', height: '280px' }}
           >
             {/* Flap */}
@@ -123,29 +123,29 @@ export function CollateralPage() {
                 <img src="/assets/logo.svg" alt="MediaBubble" className="w-6 h-6" />
                 <div>
                   <p className="text-[11px] font-bold text-[#072A6B] font-display">MediaBubble</p>
-                  <p className="text-[10px] text-[#9E9E9E] font-sans">Hurghada, Red Sea, Egypt</p>
+                  <p className="text-[10px] text-brand-text-muted font-sans">Hurghada, Red Sea, Egypt</p>
                 </div>
               </div>
             </div>
             {/* Address window */}
             <div
-              className="absolute rounded border border-[#E8E8E8] bg-[#F9FAFB]"
+              className="absolute rounded border border-brand-whisper-border dark:border-brand-light-border bg-[#F9FAFB]"
               style={{ bottom: '44px', left: '44px', width: '170px', height: '70px', padding: '10px 14px' }}
             >
-              <p className="text-[10px] text-[#666666] font-sans leading-relaxed">Recipient Name<br />Street Address, Floor 3<br />Cairo, 11511, Egypt</p>
+              <p className="text-[10px] text-brand-text-secondary font-sans leading-relaxed">Recipient Name<br />Street Address, Floor 3<br />Cairo, 11511, Egypt</p>
             </div>
             {/* Stamp */}
             <div
-              className="absolute rounded border-2 border-dashed border-[#E8E8E8] flex items-center justify-center"
+              className="absolute rounded border-2 border-dashed border-brand-whisper-border dark:border-brand-light-border flex items-center justify-center"
               style={{ bottom: '44px', insetInlineEnd: '44px', width: '52px', height: '70px' }}
             >
-              <p className="text-[10px] text-brand.muted-steel text-center leading-tight font-sans">Postage<br />stamp</p>
+              <p className="text-[10px] text-brand-muted-steel text-center leading-tight font-sans">Postage<br />stamp</p>
             </div>
           </div>
         </div>
-        <div className="bg-white rounded-xl border border-[#E8E8E8] overflow-hidden">
+        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border overflow-hidden">
           <div className="h-[3px] bg-[#FFC107]" />
-          <div className="divide-y divide-[#E8E8E8]">
+          <div className="divide-y divide-brand-whisper-border">
           {[
             { spec: 'Size', value: 'DL — 220 × 110 mm', note: 'Standard international business envelope; fits A4 folded in thirds' },
             { spec: 'Flap', value: '#072A6B diagonal', note: 'Brand color on first contact; folds down to seal' },
@@ -155,8 +155,8 @@ export function CollateralPage() {
             <div key={row.spec} className="flex items-start gap-5 px-5 py-3.5 transition-all hover:bg-[#FFC107]/[0.03]">
               <code className="text-[11px] font-mono text-[#2196F3] shrink-0 w-24 mt-0.5">{row.spec}</code>
               <div>
-                <p className="text-[12px] font-semibold text-[#333333]">{row.value}</p>
-                <p className="text-[11px] text-brand.muted-steel mt-0.5 leading-snug">{row.note}</p>
+                <p className="text-[12px] font-semibold text-brand-text">{row.value}</p>
+                <p className="text-[11px] text-brand-muted-steel mt-0.5 leading-snug">{row.note}</p>
               </div>
             </div>
           ))}
@@ -174,7 +174,7 @@ export function CollateralPage() {
         </div>
         <div className="flex justify-center mb-5 overflow-x-auto pb-2">
           <div
-            className="relative bg-white rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-[#E8E8E8] shrink-0"
+            className="relative bg-brand-surface rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-brand-whisper-border dark:border-brand-light-border shrink-0"
             style={{ width: '360px', height: '510px' }}
           >
             {/* Header */}
@@ -201,7 +201,7 @@ export function CollateralPage() {
               {[100, 92, 96, 85, 100, 0, 88, 95, 79, 100, 93, 0, 70].map((w, i) => (
                 w === 0
                   ? <div key={i} className="mb-3" />
-                  : <div key={i} className="h-1.5 bg-[#F0F0F0] rounded-sm mb-2" style={{ width: `${w}%` }} />
+                  : <div key={i} className="h-1.5 bg-brand-canvas dark:bg-white/[0.06] rounded-sm mb-2" style={{ width: `${w}%` }} />
               ))}
               {/* Signature */}
               <div className="mt-6">
@@ -221,9 +221,9 @@ export function CollateralPage() {
             </div>
           </div>
         </div>
-        <div className="bg-white rounded-xl border border-[#E8E8E8] overflow-hidden">
+        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border overflow-hidden">
           <div className="h-[3px] bg-[#072A6B]" />
-          <div className="divide-y divide-[#E8E8E8]">
+          <div className="divide-y divide-brand-whisper-border">
           {[
             { spec: 'Size', value: 'A4 — 210 × 297 mm', note: 'Also works at US Letter (215.9 × 279.4 mm) with minor margin adjustment' },
             { spec: 'Header', value: '#072A6B full-width band', note: 'Logo left, URL right. 4px yellow sub-bar separates header from body' },
@@ -234,8 +234,8 @@ export function CollateralPage() {
             <div key={row.spec} className="flex items-start gap-5 px-5 py-3.5 transition-all hover:bg-[#072A6B]/[0.02]">
               <code className="text-[11px] font-mono text-[#2196F3] shrink-0 w-24 mt-0.5">{row.spec}</code>
               <div>
-                <p className="text-[12px] font-semibold text-[#333333]">{row.value}</p>
-                <p className="text-[11px] text-brand.muted-steel mt-0.5 leading-snug">{row.note}</p>
+                <p className="text-[12px] font-semibold text-brand-text">{row.value}</p>
+                <p className="text-[11px] text-brand-muted-steel mt-0.5 leading-snug">{row.note}</p>
               </div>
             </div>
           ))}

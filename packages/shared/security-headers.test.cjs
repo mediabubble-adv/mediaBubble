@@ -5,6 +5,23 @@ const {
 } = require('./security-headers.cjs')
 
 describe('csp middleware', () => {
+  const { buildMiddlewareCsp, generateCspNonce } = require('./csp-nonce-utils.cjs')
+
+  it('buildMiddlewareCsp includes nonce and strict-dynamic in script-src', () => {
+    const { nonce, csp } = buildMiddlewareCsp({ analytics: true })
+    expect(nonce).toBeTruthy()
+    expect(csp).toContain(`'nonce-${nonce}'`)
+    expect(csp).toContain("'strict-dynamic'")
+    expect(csp).toContain('https://www.googletagmanager.com')
+  })
+
+  it('generateCspNonce returns unique base64 values', () => {
+    const a = generateCspNonce()
+    const b = generateCspNonce()
+    expect(a).not.toBe(b)
+    expect(a.length).toBeGreaterThan(10)
+  })
+
   it('includes nonce and strict-dynamic in script-src', () => {
     const csp = buildContentSecurityPolicyWithNonce('test-nonce', { analytics: true })
     expect(csp).toContain("script-src 'self' 'nonce-test-nonce' 'strict-dynamic'")

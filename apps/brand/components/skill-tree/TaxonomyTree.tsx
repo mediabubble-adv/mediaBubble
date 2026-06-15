@@ -102,7 +102,7 @@ export function TaxonomyTree({ completedIds, onToggle }: TaxonomyTreeProps) {
             value={inputValue}
             onChange={e => setInputValue(e.target.value)}
             placeholder="Search skills across all branches..."
-            className="w-full ps-9 pe-8 py-2.5 text-[13px] border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-300 transition-all bg-white"
+            className="w-full ps-9 pe-8 py-2.5 text-[13px] border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-300 transition-all bg-brand-surface"
           />
           {inputValue && (
             <button onClick={() => setInputValue('')} className="absolute end-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors">
@@ -112,7 +112,7 @@ export function TaxonomyTree({ completedIds, onToggle }: TaxonomyTreeProps) {
         </div>
 
         <div
-          className="bg-white border border-gray-100 rounded-xl overflow-hidden animate-fade-in-up"
+          className="bg-brand-surface border border-gray-100 rounded-xl overflow-hidden animate-fade-in-up"
           style={{ animationDelay: '0.06s' }}
         >
           <div className="max-h-[70vh] overflow-y-auto py-2 px-1 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-gray-200 [&::-webkit-scrollbar-thumb]:rounded-full">

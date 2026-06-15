@@ -4,6 +4,14 @@ export interface CspMiddlewareOptions {
   analytics?: boolean
 }
 
+export const CSP_NONCE_HEADER: 'x-nonce'
+
+export function generateCspNonce(): string
+
+export function buildMiddlewareCsp(
+  options?: CspMiddlewareOptions
+): { nonce: string; csp: string }
+
 export function createCspMiddleware(
   options?: CspMiddlewareOptions
 ): (request: NextRequest) => NextResponse

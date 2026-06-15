@@ -162,15 +162,15 @@ export const UseCaseExamples = ({ onPromptGenerated }: UseCaseExamplesProps) => 
   const renderComparison = (example: UseCaseExample) => (
     <div key={example.id} className="space-y-6">
       {/* Scenario */}
-      <div className="bg-[#FFFFFF] border border-[#E8E8E8] rounded-xl p-6">
+      <div className="bg-[#FFFFFF] border border-brand-whisper-border dark:border-brand-light-border rounded-xl p-6">
         <div className="flex items-start gap-3">
-          <div className="w-8 h-8 rounded-lg bg-[#F5F5F5] flex items-center justify-center flex-shrink-0">
-            <Layout size={16} className="text-[#9E9E9E]" />
+          <div className="w-8 h-8 rounded-lg bg-brand-canvas dark:bg-white/[0.04] flex items-center justify-center flex-shrink-0">
+            <Layout size={16} className="text-brand-text-muted" />
           </div>
           <div>
-            <h3 className="text-[14px] font-semibold text-[#333333] mb-1">{example.title}</h3>
-            <p className="text-[12px] text-[#9E9E9E]">{example.scenario}</p>
-            <span className="inline-block mt-2 px-2 py-1 bg-[#F5F5F5] text-[#9E9E9E] text-[10px] rounded-full">
+            <h3 className="text-[14px] font-semibold text-brand-text mb-1">{example.title}</h3>
+            <p className="text-[12px] text-brand-text-muted">{example.scenario}</p>
+            <span className="inline-block mt-2 px-2 py-1 bg-brand-canvas dark:bg-white/[0.04] text-brand-text-muted text-[10px] rounded-full">
               {example.category}
             </span>
           </div>
@@ -183,11 +183,11 @@ export const UseCaseExamples = ({ onPromptGenerated }: UseCaseExamplesProps) => 
           <AlertCircle size={18} className="text-[#DC2626] mt-0.5 flex-shrink-0" />
           <div>
             <h3 className="text-[14px] font-semibold text-[#DC2626] mb-2">❌ Generic Prompt (Poor Results)</h3>
-            <p className="text-[11px] text-[#9E9E9E] mb-3">This prompt lacks specific brand guidelines and produces inconsistent results:</p>
+            <p className="text-[11px] text-brand-text-muted mb-3">This prompt lacks specific brand guidelines and produces inconsistent results:</p>
           </div>
         </div>
         <div className="bg-[#FFFFFF] border border-[#FECACA] rounded-lg p-4 mb-4">
-          <div className="font-mono text-[11px] text-[#333333] whitespace-pre-wrap">
+          <div className="font-mono text-[11px] text-brand-text whitespace-pre-wrap">
             {example.badPrompt}
           </div>
         </div>
@@ -206,11 +206,11 @@ export const UseCaseExamples = ({ onPromptGenerated }: UseCaseExamplesProps) => 
           <CheckCircle size={18} className="text-[#16A34A] mt-0.5 flex-shrink-0" />
           <div>
             <h3 className="text-[14px] font-semibold text-[#16A34A] mb-2">✅ MediaBubble Brand Prompt (Consistent Results)</h3>
-            <p className="text-[11px] text-[#9E9E9E] mb-3">This prompt incorporates Brand profile for on-brand, consistent outputs:</p>
+            <p className="text-[11px] text-brand-text-muted mb-3">This prompt incorporates Brand profile for on-brand, consistent outputs:</p>
           </div>
         </div>
         <div className="bg-[#FFFFFF] border border-[#86EFAC] rounded-lg p-4 mb-4">
-          <div className="font-mono text-[11px] text-[#333333] whitespace-pre-wrap">
+          <div className="font-mono text-[11px] text-brand-text whitespace-pre-wrap">
             {example.goodPrompt}
           </div>
         </div>
@@ -224,16 +224,16 @@ export const UseCaseExamples = ({ onPromptGenerated }: UseCaseExamplesProps) => 
       </div>
 
       {/* Explanation */}
-      <div className="bg-[#FFFFFF] border border-[#E8E8E8] rounded-xl p-6">
-        <h3 className="text-[14px] font-semibold text-[#333333] mb-3">Why This Works Better</h3>
-        <p className="text-[12px] text-[#9E9E9E] mb-4">{example.explanation}</p>
+      <div className="bg-[#FFFFFF] border border-brand-whisper-border dark:border-brand-light-border rounded-xl p-6">
+        <h3 className="text-[14px] font-semibold text-brand-text mb-3">Why This Works Better</h3>
+        <p className="text-[12px] text-brand-text-muted mb-4">{example.explanation}</p>
         
-        <h4 className="text-[12px] font-semibold text-[#333333] mb-2">Key Improvements:</h4>
+        <h4 className="text-[12px] font-semibold text-brand-text mb-2">Key Improvements:</h4>
         <ul className="space-y-2">
           {example.keyImprovements.map((improvement, idx) => (
             <li key={idx} className="flex items-start gap-2">
               <CheckCircle size={12} className="text-[#16A34A] mt-0.5 flex-shrink-0" />
-              <span className="text-[11px] text-[#9E9E9E]">{improvement}</span>
+              <span className="text-[11px] text-brand-text-muted">{improvement}</span>
             </li>
           ))}
         </ul>
@@ -245,7 +245,7 @@ export const UseCaseExamples = ({ onPromptGenerated }: UseCaseExamplesProps) => 
     <div className="space-y-6">
       {/* Example Selector */}
       <div>
-        <h3 className="text-[16px] font-bold text-[#333333] mb-4">Use Case Examples</h3>
+        <h3 className="text-[16px] font-bold text-brand-text mb-4">Use Case Examples</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {examples.map((example) => {
             const IconComponent = example.category === 'Web Design' ? Layout : 
@@ -259,19 +259,19 @@ export const UseCaseExamples = ({ onPromptGenerated }: UseCaseExamplesProps) => 
                 className={`p-4 rounded-xl border-2 transition-all text-start ${
                   isSelected
                     ? 'border-[#FFC107] bg-[#FFC107]/[0.05] shadow-[0_2px_8px_rgba(255,193,7,0.1)]'
-                    : 'border-[#E8E8E8] hover:border-[#2196F3] hover:bg-[#F5F5F5]'
+                    : 'border-brand-whisper-border dark:border-brand-light-border hover:border-[#2196F3] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
                 }`}
               >
                 <div className="flex items-start gap-3">
                   <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                    isSelected ? 'bg-[#FFC107]/[0.2]' : 'bg-[#F5F5F5]'
+                    isSelected ? 'bg-[#FFC107]/[0.2]' : 'bg-brand-canvas dark:bg-white/[0.04]'
                   }`}>
-                    <IconComponent size={16} className={isSelected ? 'text-[#FFC107]' : 'text-[#9E9E9E]'} />
+                    <IconComponent size={16} className={isSelected ? 'text-[#FFC107]' : 'text-brand-text-muted'} />
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-[13px] font-semibold text-[#333333] mb-1">{example.title}</h4>
-                    <p className="text-[11px] text-[#9E9E9E]">{example.scenario}</p>
-                    <span className="inline-block mt-2 px-2 py-1 bg-[#F5F5F5] text-[#9E9E9E] text-[10px] rounded-full">
+                    <h4 className="text-[13px] font-semibold text-brand-text mb-1">{example.title}</h4>
+                    <p className="text-[11px] text-brand-text-muted">{example.scenario}</p>
+                    <span className="inline-block mt-2 px-2 py-1 bg-brand-canvas dark:bg-white/[0.04] text-brand-text-muted text-[10px] rounded-full">
                       {example.category}
                     </span>
                   </div>

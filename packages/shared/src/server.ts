@@ -18,6 +18,7 @@ export type {
   InsightPostJsonLdInput,
   CaseStudyJsonLdInput,
 } from './seo/json-ld'
+export { CSP_NONCE_HEADER, getCspNonce } from './csp-nonce'
 export { THEME_INIT_SCRIPT } from './theme/theme-utils'
 export { DEV_SW_CLEANUP_SCRIPT } from './pwa/dev-sw-cleanup'
 import inlineScripts from './inline-scripts.cjs'

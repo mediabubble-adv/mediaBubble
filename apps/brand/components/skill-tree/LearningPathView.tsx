@@ -46,7 +46,7 @@ function TrackCard({ track, allTracks, index }: { track: Track; allTracks: Track
 
   return (
     <div
-      className="bg-white border border-gray-100 rounded-xl overflow-hidden transition-all duration-200 hover:shadow-sm hover:border-gray-200 animate-fade-in-up-stagger"
+      className="bg-brand-surface border border-gray-100 rounded-xl overflow-hidden transition-all duration-200 hover:shadow-sm hover:border-gray-200 animate-fade-in-up-stagger"
       style={{ animationDelay: `${index * 0.04}s` }}
     >
       <button

@@ -253,6 +253,8 @@ export const PromptValidator = ({ prompt }: PromptValidatorProps) => {
     } else {
       setValidation(null)
     }
+    // Debounced analysis is keyed on prompt text only.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [prompt])
 
   const getScoreColor = (score: number) => {
@@ -286,7 +288,7 @@ export const PromptValidator = ({ prompt }: PromptValidatorProps) => {
             <h4 className={`text-[12px] font-semibold ${color} mb-1`}>
               {issue.type.charAt(0).toUpperCase() + issue.type.slice(1)} {issue.severity.toUpperCase()}
             </h4>
-            <p className="text-[11px] text-[#9E9E9E] mb-2">{issue.message}</p>
+            <p className="text-[11px] text-brand-text-muted mb-2">{issue.message}</p>
             <p className="text-[10px] text-[#6B7280]">💡 {issue.suggestion}</p>
           </div>
         </div>
@@ -297,11 +299,11 @@ export const PromptValidator = ({ prompt }: PromptValidatorProps) => {
   if (!prompt.trim()) {
     return (
       <div className="text-center py-12">
-        <div className="w-16 h-16 bg-[#F5F5F5] rounded-full flex items-center justify-center mx-auto mb-4">
-          <Eye size={24} className="text-[#9E9E9E]" />
+        <div className="w-16 h-16 bg-brand-canvas dark:bg-white/[0.04] rounded-full flex items-center justify-center mx-auto mb-4">
+          <Eye size={24} className="text-brand-text-muted" />
         </div>
-        <h3 className="text-[16px] font-semibold text-[#333333] mb-2">Enter a prompt to validate</h3>
-        <p className="text-[14px] text-[#9E9E9E]">Paste your prompt above to analyze it for MediaBubble brand compliance.</p>
+        <h3 className="text-[16px] font-semibold text-brand-text mb-2">Enter a prompt to validate</h3>
+        <p className="text-[14px] text-brand-text-muted">Paste your prompt above to analyze it for MediaBubble brand compliance.</p>
       </div>
     )
   }
@@ -309,11 +311,11 @@ export const PromptValidator = ({ prompt }: PromptValidatorProps) => {
   if (isAnalyzing) {
     return (
       <div className="text-center py-12">
-        <div className="w-16 h-16 bg-[#F5F5F5] rounded-full flex items-center justify-center mx-auto mb-4">
+        <div className="w-16 h-16 bg-brand-canvas dark:bg-white/[0.04] rounded-full flex items-center justify-center mx-auto mb-4">
           <div className="w-8 h-8 border-2 border-[#2196F3] border-t-transparent rounded-full animate-spin"></div>
         </div>
-        <h3 className="text-[16px] font-semibold text-[#333333] mb-2">Analyzing prompt...</h3>
-        <p className="text-[14px] text-[#9E9E9E]">Checking for MediaBubble brand compliance and providing recommendations.</p>
+        <h3 className="text-[16px] font-semibold text-brand-text mb-2">Analyzing prompt...</h3>
+        <p className="text-[14px] text-brand-text-muted">Checking for MediaBubble brand compliance and providing recommendations.</p>
       </div>
     )
   }
@@ -326,8 +328,8 @@ export const PromptValidator = ({ prompt }: PromptValidatorProps) => {
       <div className={`bg-[#FFFFFF] border-2 rounded-xl p-6 ${getScoreBg(validation.score)}`}>
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-[16px] font-bold text-[#333333] mb-1">Brand Compliance Score</h3>
-            <p className="text-[12px] text-[#9E9E9E]">
+            <h3 className="text-[16px] font-bold text-brand-text mb-1">Brand Compliance Score</h3>
+            <p className="text-[12px] text-brand-text-muted">
               How well this prompt follows MediaBubble brand guidelines
             </p>
           </div>
@@ -345,7 +347,7 @@ export const PromptValidator = ({ prompt }: PromptValidatorProps) => {
       {/* Issues */}
       {validation.issues.length > 0 && (
         <div>
-          <h3 className="text-[14px] font-bold text-[#333333] mb-4 flex items-center gap-2">
+          <h3 className="text-[14px] font-bold text-brand-text mb-4 flex items-center gap-2">
             <AlertCircle size={16} className="text-[#DC2626]" />
             Issues Found ({validation.issues.length})
           </h3>
@@ -358,7 +360,7 @@ export const PromptValidator = ({ prompt }: PromptValidatorProps) => {
       {/* Strengths */}
       {validation.strengths.length > 0 && (
         <div>
-          <h3 className="text-[14px] font-bold text-[#333333] mb-4 flex items-center gap-2">
+          <h3 className="text-[14px] font-bold text-brand-text mb-4 flex items-center gap-2">
             <CheckCircle size={16} className="text-[#16A34A]" />
             Brand Strengths ({validation.strengths.length})
           </h3>
@@ -366,7 +368,7 @@ export const PromptValidator = ({ prompt }: PromptValidatorProps) => {
             {validation.strengths.map((strength, idx) => (
               <div key={idx} className="flex items-start gap-2 p-3 bg-[#F0FDF4] border border-[#86EFAC] rounded-lg">
                 <CheckCircle size={12} className="text-[#16A34A] mt-0.5 flex-shrink-0" />
-                <span className="text-[11px] text-[#333333]">{strength}</span>
+                <span className="text-[11px] text-brand-text">{strength}</span>
               </div>
             ))}
           </div>
@@ -376,7 +378,7 @@ export const PromptValidator = ({ prompt }: PromptValidatorProps) => {
       {/* Suggestions */}
       {validation.suggestions.length > 0 && (
         <div>
-          <h3 className="text-[14px] font-bold text-[#333333] mb-4 flex items-center gap-2">
+          <h3 className="text-[14px] font-bold text-brand-text mb-4 flex items-center gap-2">
             <Info size={16} className="text-[#2196F3]" />
             Improvement Suggestions
           </h3>
@@ -384,7 +386,7 @@ export const PromptValidator = ({ prompt }: PromptValidatorProps) => {
             {validation.suggestions.map((suggestion, idx) => (
               <div key={idx} className="flex items-start gap-2 p-3 bg-[#EFF6FF] border border-[#BFDBFE] rounded-lg">
                 <Info size={12} className="text-[#2196F3] mt-0.5 flex-shrink-0" />
-                <span className="text-[11px] text-[#333333]">{suggestion}</span>
+                <span className="text-[11px] text-brand-text">{suggestion}</span>
               </div>
             ))}
           </div>
@@ -392,32 +394,32 @@ export const PromptValidator = ({ prompt }: PromptValidatorProps) => {
       )}
 
       {/* Compliance Summary */}
-      <div className="bg-[#FAFAFA] border border-[#E8E8E8] rounded-xl p-6">
-        <h3 className="text-[14px] font-bold text-[#333333] mb-3">Brand Compliance Summary</h3>
+      <div className="bg-brand-canvas border border-brand-whisper-border dark:border-brand-light-border rounded-xl p-6">
+        <h3 className="text-[14px] font-bold text-brand-text mb-3">Brand Compliance Summary</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="text-center">
             <div className="text-2xl font-bold text-[#16A34A]">
               {validation.issues.filter(i => i.severity === 'error').length === 0 ? '✓' : '✗'}
             </div>
-            <div className="text-[10px] text-[#9E9E9E]">Critical Issues</div>
+            <div className="text-[10px] text-brand-text-muted">Critical Issues</div>
           </div>
           <div className="text-center">
             <div className="text-2xl font-bold text-[#CA8A04]">
               {validation.issues.filter(i => i.severity === 'warning').length}
             </div>
-            <div className="text-[10px] text-[#9E9E9E]">Warnings</div>
+            <div className="text-[10px] text-brand-text-muted">Warnings</div>
           </div>
           <div className="text-center">
             <div className="text-2xl font-bold text-[#2196F3]">
               {validation.strengths.length}
             </div>
-            <div className="text-[10px] text-[#9E9E9E]">Strengths</div>
+            <div className="text-[10px] text-brand-text-muted">Strengths</div>
           </div>
           <div className="text-center">
             <div className="text-2xl font-bold text-[#6B7280]">
               {validation.compliance.toUpperCase()}
             </div>
-            <div className="text-[10px] text-[#9E9E9E]">Overall</div>
+            <div className="text-[10px] text-brand-text-muted">Overall</div>
           </div>
         </div>
       </div>

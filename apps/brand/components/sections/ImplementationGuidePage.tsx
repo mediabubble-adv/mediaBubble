@@ -33,17 +33,17 @@ export function ImplementationGuidePage() {
       <section className="mb-10">
         <div className="flex items-center gap-2.5 mb-4">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2196F3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
-          <h2 className="text-[13px] font-semibold text-brand.dark-blue">Quick Start</h2>
+          <h2 className="text-[13px] font-semibold text-brand-dark-blue">Quick Start</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 stagger-grid">
           {quickStarts.map((qs) => (
-            <div key={qs.step} className="bg-white rounded-xl border border-[#E8E8E8] p-5 pt-[18px]">
+            <div key={qs.step} className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border p-5 pt-[18px]">
               <span className="text-[10px] font-mono text-[#2196F3] font-semibold mb-2 block">{qs.step}</span>
-              <h3 className="font-display text-sm font-bold text-[#333333] mb-2">{qs.title}</h3>
-              <pre className="bg-[#F4F6F9] rounded-lg p-3 mb-3 overflow-x-auto">
-                <code className="text-[11px] font-mono text-[#333333] leading-relaxed whitespace-pre">{qs.code}</code>
+              <h3 className="font-display text-sm font-bold text-brand-text mb-2">{qs.title}</h3>
+              <pre className="bg-brand-canvas dark:bg-white/[0.04] rounded-lg p-3 mb-3 overflow-x-auto">
+                <code className="text-[11px] font-mono text-brand-text leading-relaxed whitespace-pre">{qs.code}</code>
               </pre>
-              <p className="text-[12px] text-[#666666] leading-relaxed">{qs.desc}</p>
+              <p className="text-[12px] text-brand-text-secondary leading-relaxed">{qs.desc}</p>
             </div>
           ))}
         </div>
@@ -53,13 +53,13 @@ export function ImplementationGuidePage() {
       <section className="mb-8">
         <div className="flex items-center gap-2.5 mb-4">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2196F3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M4 4h16v16H4z"/><path d="m9 9 6-6"/><path d="m9 15 6 6"/></svg>
-          <h2 className="text-[13px] font-semibold text-brand.dark-blue">Tailwind Configuration</h2>
+          <h2 className="text-[13px] font-semibold text-brand-dark-blue">Tailwind Configuration</h2>
         </div>
-        <div className="bg-white rounded-xl border border-[#E8E8E8]">
+        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border">
           <div className="p-5 sm:p-6 border-b border-[#F0F0F0]">
-            <p className="text-[13px] text-brand.muted-steel mb-4">Map brand values to your Tailwind config so every utility class uses the right color and font:</p>
-            <pre className="bg-[#F4F6F9] rounded-lg p-4 overflow-x-auto">
-              <code className="text-[11px] font-mono text-[#333333] leading-relaxed whitespace-pre">{`// tailwind.config.ts
+            <p className="text-[13px] text-brand-muted-steel mb-4">Map brand values to your Tailwind config so every utility class uses the right color and font:</p>
+            <pre className="bg-brand-canvas dark:bg-white/[0.04] rounded-lg p-4 overflow-x-auto">
+              <code className="text-[11px] font-mono text-brand-text leading-relaxed whitespace-pre">{`// tailwind.config.ts
 fontFamily: {
   display: ['var(--font-display)'],
   sans: ['var(--font-sans)'],
@@ -74,12 +74,12 @@ colors: {
 }`}</code>
             </pre>
           </div>
-          <div className="divide-y divide-[#F0F0F0]">
+          <div className="divide-y divide-brand-whisper-border dark:divide-brand-light-border">
             {tailwindTokens.map((t) => (
               <div key={t.token} className="flex items-start gap-4 px-5 sm:px-6 py-3.5">
                 <code className="text-[11px] font-mono text-[#2196F3] w-28 shrink-0 mt-0.5">{t.token}</code>
-                <p className="text-[12px] font-semibold text-[#333333] w-28 shrink-0">{t.value}</p>
-                <p className="text-[12px] text-brand.muted-steel">{t.use}</p>
+                <p className="text-[12px] font-semibold text-brand-text w-28 shrink-0">{t.value}</p>
+                <p className="text-[12px] text-brand-muted-steel">{t.use}</p>
               </div>
             ))}
           </div>
@@ -89,19 +89,19 @@ colors: {
       {/* Color Tokens */}
       <section className="mb-8">
         <div className="mb-4">
-          <h2 className="text-[13px] font-semibold text-brand.dark-blue">Color Reference</h2>
+          <h2 className="text-[13px] font-semibold text-brand-dark-blue">Color Reference</h2>
         </div>
-        <div className="bg-white rounded-xl border border-[#E8E8E8]">
+        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border">
           <div className="p-5 sm:p-6 border-b border-[#F0F0F0]">
-            <p className="text-[13px] text-brand.muted-steel">Use CSS variables if you need to change colors at runtime. Use Tailwind classes if you want utility helpers. Pick one per project and stay consistent.</p>
+            <p className="text-[13px] text-brand-muted-steel">Use CSS variables if you need to change colors at runtime. Use Tailwind classes if you want utility helpers. Pick one per project and stay consistent.</p>
           </div>
-          <div className="divide-y divide-[#F0F0F0]">
+          <div className="divide-y divide-brand-whisper-border dark:divide-brand-light-border">
             {colorTokens.map((c) => (
               <div key={c.token} className="flex items-center gap-4 px-5 sm:px-6 py-3.5 table-row-hover">
                 <div className="w-8 h-8 rounded-lg shrink-0 ring-1 ring-inset ring-black/[0.06]" style={{ backgroundColor: c.hex }} />
-                <code className="text-[11px] font-mono text-[#333333] w-44 shrink-0">{c.token}</code>
-                <code className="text-[11px] font-mono text-[#9E9E9E] w-20 shrink-0">{c.hex}</code>
-                <p className="text-[12px] text-brand.muted-steel">{c.use}</p>
+                <code className="text-[11px] font-mono text-brand-text w-44 shrink-0">{c.token}</code>
+                <code className="text-[11px] font-mono text-brand-text-muted w-20 shrink-0">{c.hex}</code>
+                <p className="text-[12px] text-brand-muted-steel">{c.use}</p>
               </div>
             ))}
           </div>
@@ -112,9 +112,9 @@ colors: {
       <section className="mb-16">
         <div className="flex items-center gap-2.5 mb-4">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2196F3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <h2 className="text-[13px] font-semibold text-brand.dark-blue">Accessibility Checklist</h2>
+          <h2 className="text-[13px] font-semibold text-brand-dark-blue">Accessibility Checklist</h2>
         </div>
-        <div className="bg-white rounded-xl border border-[#E8E8E8] divide-y divide-[#F0F0F0]">
+        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border divide-y divide-brand-whisper-border dark:divide-brand-light-border">
           {[
             { check: 'Color contrast', detail: 'Body text 4.5:1 minimum. Large text 3:1 minimum. Test every foreground/background pair.', done: true },
             { check: 'Focus indicators', detail: 'Every interactive element needs a visible focus ring. Use :focus-visible for keyboard-only outlines.', done: true },
@@ -125,12 +125,12 @@ colors: {
             { check: 'Screen reader testing', detail: 'Test with VoiceOver (macOS) and NVDA (Windows). Ensure dynamic content is announced.', done: false },
           ].map((item) => (
             <div key={item.check} className="flex items-start gap-4 px-5 sm:px-6 py-4 table-row-hover">
-              <div className={`w-5 h-5 rounded-md shrink-0 mt-0.5 flex items-center justify-center ${item.done ? 'bg-green-100 text-green-700' : 'bg-[#F4F6F9] text-brand.muted-steel'}`}>
+              <div className={`w-5 h-5 rounded-md shrink-0 mt-0.5 flex items-center justify-center ${item.done ? 'bg-green-100 text-green-700' : 'bg-brand-canvas dark:bg-white/[0.04] text-brand-muted-steel'}`}>
                 {item.done ? <Check size={12} /> : <span className="text-[10px] font-semibold">-</span>}
               </div>
               <div className="flex-1">
-                <p className={`text-[13px] font-semibold ${item.done ? 'text-[#333333]' : 'text-[#666666]'}`}>{item.check}</p>
-                <p className="text-[12px] text-brand.muted-steel mt-0.5 leading-snug">{item.detail}</p>
+                <p className={`text-[13px] font-semibold ${item.done ? 'text-brand-text' : 'text-brand-text-secondary'}`}>{item.check}</p>
+                <p className="text-[12px] text-brand-muted-steel mt-0.5 leading-snug">{item.detail}</p>
               </div>
             </div>
           ))}
@@ -144,7 +144,7 @@ colors: {
             <span className="text-[#FFC107] text-sm font-bold">!</span>
           </div>
           <div>
-            <p className="text-sm font-semibold text-[#333333] mb-2">Implementation Notes</p>
+            <p className="text-sm font-semibold text-brand-text mb-2">Implementation Notes</p>
             <ul className="space-y-2">
               {[
                 'Use the Components page as the definitive reference — every button, input, and card variant is documented with working code.',
@@ -152,7 +152,7 @@ colors: {
                 'Test every UI against WCAG 2.1 AA before shipping. Use the Contrast Checker on the Color Palette page for quick verification.',
                 'Keep font loading in layout.tsx. Do not load fonts in individual components — it causes layout shift and duplicate requests.',
               ].map((note) => (
-                <li key={note} className="flex items-start gap-2 text-[13px] text-[#666666] leading-relaxed">
+                <li key={note} className="flex items-start gap-2 text-[13px] text-brand-text-secondary leading-relaxed">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#FFC107] shrink-0 mt-2" />
                   {note}
                 </li>

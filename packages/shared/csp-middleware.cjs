@@ -2,6 +2,11 @@
 
 const { NextResponse } = require('next/server')
 const { buildContentSecurityPolicyWithNonce } = require('./csp-policy.cjs')
+const {
+  CSP_NONCE_HEADER,
+  buildMiddlewareCsp,
+  generateCspNonce,
+} = require('./csp-nonce-utils.cjs')
 
 /**
  * @param {{ analytics?: boolean }} [options]
@@ -9,12 +14,11 @@ const { buildContentSecurityPolicyWithNonce } = require('./csp-policy.cjs')
  */
 function createCspMiddleware(options = {}) {
   return function cspMiddleware(request) {
-    const csp = buildContentSecurityPolicyWithNonce(null, options)
-      .replace(/\s{2,}/g, ' ')
-      .trim()
+    const { nonce, csp } = buildMiddlewareCsp(options)
 
     const requestHeaders = new Headers(request.headers)
     requestHeaders.set('Content-Security-Policy', csp)
+    requestHeaders.set(CSP_NONCE_HEADER, nonce)
 
     const response = NextResponse.next({
       request: { headers: requestHeaders },
@@ -38,7 +42,10 @@ const DEFAULT_MIDDLEWARE_MATCHER = [
 ]
 
 module.exports = {
+  CSP_NONCE_HEADER,
   buildContentSecurityPolicyWithNonce,
+  buildMiddlewareCsp,
   createCspMiddleware,
   DEFAULT_MIDDLEWARE_MATCHER,
+  generateCspNonce,
 }

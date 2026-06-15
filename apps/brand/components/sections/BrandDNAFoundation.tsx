@@ -136,14 +136,14 @@ Create all visual assets following these MediaBubble brand guidelines for consis
   return (
     <div className="space-y-8">
       {/* Introduction */}
-      <div className="bg-[#FFFFFF] border border-[#E8E8E8] rounded-xl p-6">
+      <div className="bg-[#FFFFFF] border border-brand-whisper-border dark:border-brand-light-border rounded-xl p-6">
         <div className="flex items-start gap-4">
           <div className="w-10 h-10 rounded-lg bg-[#2196F3]/[0.1] flex items-center justify-center flex-shrink-0">
-            <Info size={20} className="text-brand.blue" />
+            <Info size={20} className="text-brand-blue" />
           </div>
           <div>
-            <h2 className="text-[20px] font-bold text-brand.charcoal mb-2">MediaBubble Brand Profile Foundation</h2>
-            <p className="text-[14px] text-[#9E9E9E] leading-relaxed">
+            <h2 className="text-[20px] font-bold text-brand-charcoal mb-2">MediaBubble Brand Profile Foundation</h2>
+            <p className="text-[14px] text-brand-text-muted leading-relaxed">
               The Brand Profile represents the core visual and design principles that define MediaBubble&apos;s identity. 
               When creating prompts for generative AI tools, incorporating these elements ensures all generated 
               assets maintain brand consistency and professional quality.
@@ -154,7 +154,7 @@ Create all visual assets following these MediaBubble brand guidelines for consis
 
       {/* Brand Elements Selection */}
       <div>
-        <h3 className="text-[16px] font-bold text-brand.charcoal mb-4">Select Brand Elements to Include</h3>
+        <h3 className="text-[16px] font-bold text-brand-charcoal mb-4">Select Brand Elements to Include</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {elements.map((element) => {
             const IconComponent = element.icon
@@ -166,22 +166,22 @@ Create all visual assets following these MediaBubble brand guidelines for consis
                 className={`p-4 rounded-xl border-2 transition-all duration-200 text-start ${
                   isSelected
                     ? 'border-[#FFC107] bg-[#FFC107]/[0.05] shadow-[0_2px_8px_rgba(255,193,7,0.1)]'
-                    : 'border-[#E8E8E8] hover:border-[#2196F3] hover:bg-[#F5F5F5]'
+                    : 'border-brand-whisper-border dark:border-brand-light-border hover:border-[#2196F3] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
                 }`}
               >
                 <div className="flex items-start gap-3">
                   <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                    isSelected ? 'bg-[#FFC107]/[0.2]' : 'bg-[#F5F5F5]'
+                    isSelected ? 'bg-[#FFC107]/[0.2]' : 'bg-brand-canvas dark:bg-white/[0.04]'
                   }`}>
-                    <IconComponent size={16} className={isSelected ? 'text-brand.yellow' : 'text-[#9E9E9E]'} />
+                    <IconComponent size={16} className={isSelected ? 'text-brand-yellow' : 'text-brand-text-muted'} />
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-[14px] font-semibold text-brand.charcoal mb-1">{element.title}</h4>
-                    <p className="text-[12px] text-[#9E9E9E] mb-2">{element.description}</p>
-                    <ul className="text-[11px] text-[#9E9E9E] space-y-0.5">
+                    <h4 className="text-[14px] font-semibold text-brand-charcoal mb-1">{element.title}</h4>
+                    <p className="text-[12px] text-brand-text-muted mb-2">{element.description}</p>
+                    <ul className="text-[11px] text-brand-text-muted space-y-0.5">
                       {element.details.slice(0, 3).map((detail, idx) => (
                         <li key={idx} className="flex items-start gap-1">
-                          <CheckCircle size={10} className="text-brand.blue mt-0.5 flex-shrink-0" />
+                          <CheckCircle size={10} className="text-brand-blue mt-0.5 flex-shrink-0" />
                           {detail}
                         </li>
                       ))}
@@ -195,16 +195,16 @@ Create all visual assets following these MediaBubble brand guidelines for consis
       </div>
 
       {/* Brand Constraints */}
-      <div className="bg-[#FAFAFA] border border-[#E8E8E8] rounded-xl p-6">
+      <div className="bg-brand-canvas border border-brand-whisper-border dark:border-brand-light-border rounded-xl p-6">
         <div className="flex items-start gap-3 mb-4">
           <AlertCircle size={18} className="text-[#DC2626] mt-0.5 flex-shrink-0" />
           <div>
-            <h3 className="text-[16px] font-bold text-brand.charcoal mb-2">Brand Constraints & Anti-Patterns</h3>
-            <p className="text-[12px] text-[#9E9E9E] mb-3">These elements are strictly forbidden in MediaBubble designs:</p>
+            <h3 className="text-[16px] font-bold text-brand-charcoal mb-2">Brand Constraints & Anti-Patterns</h3>
+            <p className="text-[12px] text-brand-text-muted mb-3">These elements are strictly forbidden in MediaBubble designs:</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="bg-[#FFFFFF] rounded-lg p-3">
-                <h4 className="text-[12px] font-semibold text-brand.charcoal mb-2">❌ Forbidden Elements</h4>
-                <ul className="text-[11px] text-[#9E9E9E] space-y-1">
+                <h4 className="text-[12px] font-semibold text-brand-charcoal mb-2">❌ Forbidden Elements</h4>
+                <ul className="text-[11px] text-brand-text-muted space-y-1">
                   <li>• Emojis anywhere</li>
                   <li>• Pure black (#000000)</li>
                   <li>• Nested cards</li>
@@ -213,8 +213,8 @@ Create all visual assets following these MediaBubble brand guidelines for consis
                 </ul>
               </div>
               <div className="bg-[#FFFFFF] rounded-lg p-3">
-                <h4 className="text-[12px] font-semibold text-brand.charcoal mb-2">✅ Required Standards</h4>
-                <ul className="text-[11px] text-[#9E9E9E] space-y-1">
+                <h4 className="text-[12px] font-semibold text-brand-charcoal mb-2">✅ Required Standards</h4>
+                <ul className="text-[11px] text-brand-text-muted space-y-1">
                   <li>• WCAG 2.1 AA compliance</li>
                   <li>• 8px spacing grid</li>
                   <li>• CSS Grid layouts</li>
@@ -231,7 +231,7 @@ Create all visual assets following these MediaBubble brand guidelines for consis
       <div className="flex justify-end">
         <button
           onClick={generateBrandPrompt}
-          className="px-6 py-3 rounded-lg bg-[#FFC107] text-brand.charcoal text-[14px] font-semibold hover:bg-[#FFB300] transition-colors flex items-center gap-2 shadow-[0_4px_12px_rgba(255,193,7,0.2)]"
+          className="px-6 py-3 rounded-lg bg-[#FFC107] text-brand-charcoal text-[14px] font-semibold hover:bg-[#FFB300] transition-colors flex items-center gap-2 shadow-[0_4px_12px_rgba(255,193,7,0.2)]"
         >
           <CheckCircle size={16} />
           Generate Complete Brand Profile Prompt

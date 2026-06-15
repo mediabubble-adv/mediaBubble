@@ -135,24 +135,24 @@ export function VoiceTonePage() {
       <section className="mb-10">
         <div className="flex items-center gap-2.5 mb-4">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2196F3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-          <h2 className="text-[13px] font-semibold text-brand.dark-blue">{t('Voice Registers')}</h2>
+          <h2 className="text-[13px] font-semibold text-brand-dark-blue">{t('Voice Registers')}</h2>
         </div>
         <div className="space-y-6">
           {registers.map((reg) => (
-            <div key={reg.name} className="bg-white rounded-xl border border-[#E8E8E8] overflow-hidden transition-all duration-150">
+            <div key={reg.name} className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border overflow-hidden transition-all duration-150">
               <div className="h-1" style={{ backgroundColor: reg.color }} />
               <div className="p-6">
                 <div className="flex flex-wrap items-baseline gap-3 mb-4">
-                  <h3 className="font-display text-lg font-bold text-[#333333]">{t(reg.name)}</h3>
-                  <span className="text-[12px] font-medium px-3 py-1 rounded-full bg-[#F5F5F5] text-[#666666]">{t(reg.tone)}</span>
+                  <h3 className="font-display text-lg font-bold text-brand-text">{t(reg.name)}</h3>
+                  <span className="text-[12px] font-medium px-3 py-1 rounded-full bg-brand-canvas dark:bg-white/[0.04] text-brand-text-secondary">{t(reg.tone)}</span>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-5">
                   <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#9E9E9E] mb-2">{t('Used In')}</p>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-brand-text-muted mb-2">{t('Used In')}</p>
                     <ul className="space-y-1.5">
                       {reg.uses.map((u) => (
-                        <li key={u} className="flex items-start gap-2 text-sm text-[#666666]">
+                        <li key={u} className="flex items-start gap-2 text-sm text-brand-text-secondary">
                           <span className="w-1.5 h-1.5 rounded-full shrink-0 mt-[6px]" style={{ backgroundColor: reg.color }} />
                           {t(u)}
                         </li>
@@ -160,10 +160,10 @@ export function VoiceTonePage() {
                     </ul>
                   </div>
                   <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#9E9E9E] mb-2">{t('Characteristics')}</p>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-brand-text-muted mb-2">{t('Characteristics')}</p>
                     <ul className="space-y-1.5">
                       {reg.traits.map((tr) => (
-                        <li key={tr} className="flex items-start gap-2 text-sm text-[#666666]">
+                        <li key={tr} className="flex items-start gap-2 text-sm text-brand-text-secondary">
                           <span className="w-1.5 h-1.5 rounded-full shrink-0 mt-[6px]" style={{ backgroundColor: reg.color }} />
                           {t(tr)}
                         </li>
@@ -172,9 +172,9 @@ export function VoiceTonePage() {
                   </div>
                 </div>
 
-                <div className="bg-[#F9F9F9] rounded-lg border border-[#E8E8E8] p-4 mb-4">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#9E9E9E] mb-2">{t('Example')}</p>
-                  <p className="text-sm text-[#333333] italic leading-relaxed">{t(reg.example)}</p>
+                <div className="bg-[#F9F9F9] rounded-lg border border-brand-whisper-border dark:border-brand-light-border p-4 mb-4">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-brand-text-muted mb-2">{t('Example')}</p>
+                  <p className="text-sm text-brand-text italic leading-relaxed">{t(reg.example)}</p>
                 </div>
 
                 <div className="flex flex-wrap gap-2">
@@ -200,10 +200,10 @@ export function VoiceTonePage() {
 
       {/* Tone by Context Matrix */}
       <section className="mb-10">
-        <div className="bg-[#EBF5FB] rounded-lg px-4 py-2.5 mb-5">
-          <h2 className="text-[13px] font-semibold text-brand.dark-blue">{t('Tone by Content Type')}</h2>
+        <div className="bg-brand-info-bg dark:bg-brand-navy/30 rounded-lg px-4 py-2.5 mb-5">
+          <h2 className="text-[13px] font-semibold text-brand-dark-blue">{t('Tone by Content Type')}</h2>
         </div>
-        <div className="bg-white rounded-xl border border-[#E8E8E8] overflow-hidden">
+        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border overflow-hidden">
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-[#0D0F12] text-white">
@@ -212,11 +212,11 @@ export function VoiceTonePage() {
                 <th className="text-start px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.08em]">{t('Tone Adjustment')}</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#E8E8E8]">
+            <tbody className="divide-y divide-brand-whisper-border">
               {toneMatrix.map((row) => (
                 <tr key={row.type} className="hover:bg-[#F9F9F9] transition-colors">
-                  <td className="px-5 py-3.5 text-[13px] font-medium text-[#333333]">{t(row.type)}</td>
-                  <td className="px-5 py-3.5 text-[13px] text-[#666666]">
+                  <td className="px-5 py-3.5 text-[13px] font-medium text-brand-text">{t(row.type)}</td>
+                  <td className="px-5 py-3.5 text-[13px] text-brand-text-secondary">
                     <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-medium ${
                       row.register === 'Brand & Website'
                         ? 'bg-[#FFF8E1] text-[#92610B]'
@@ -225,7 +225,7 @@ export function VoiceTonePage() {
                       {t(row.register)}
                     </span>
                   </td>
-                  <td className="px-5 py-3.5 text-[13px] text-[#666666]">{t(row.adjustment)}</td>
+                  <td className="px-5 py-3.5 text-[13px] text-brand-text-secondary">{t(row.adjustment)}</td>
                 </tr>
               ))}
             </tbody>
@@ -237,18 +237,18 @@ export function VoiceTonePage() {
       <section className="mb-10">
         <div className="flex items-center gap-2.5 mb-4">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFC107" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          <h2 className="text-[13px] font-semibold text-brand.dark-blue">{t('Call-to-Action Standards')}</h2>
+          <h2 className="text-[13px] font-semibold text-brand-dark-blue">{t('Call-to-Action Standards')}</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {ctaLevels.map((cta) => (
-            <div key={cta.level} className="bg-white rounded-xl border border-[#E8E8E8] p-5">
+            <div key={cta.level} className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border p-5">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: cta.color }} />
-                <h3 className="text-[13px] font-bold text-[#333333]">{t(cta.level)}</h3>
+                <h3 className="text-[13px] font-bold text-brand-text">{t(cta.level)}</h3>
               </div>
-              <p className="text-sm font-medium text-[#666666] mb-1">{t(cta.label)}</p>
-              <p className="text-[11px] text-[#9E9E9E]">{t(cta.usage)}</p>
-              <p className="text-[12px] text-brand.muted-steel mt-1.5">{t(cta.desc)}</p>
+              <p className="text-sm font-medium text-brand-text-secondary mb-1">{t(cta.label)}</p>
+              <p className="text-[11px] text-brand-text-muted">{t(cta.usage)}</p>
+              <p className="text-[12px] text-brand-muted-steel mt-1.5">{t(cta.desc)}</p>
             </div>
           ))}
         </div>
@@ -258,17 +258,17 @@ export function VoiceTonePage() {
       <section className="mb-8">
         <div className="flex items-center gap-2.5 mb-4">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2196F3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
-          <h2 className="text-[13px] font-semibold text-brand.dark-blue">{t('Prohibited Phrases')}</h2>
+          <h2 className="text-[13px] font-semibold text-brand-dark-blue">{t('Prohibited Phrases')}</h2>
           <span className="text-[10px] font-mono text-[#DC2626]/60">{t('Never use')}</span>
         </div>
-        <div className="bg-white rounded-xl border border-[#E8E8E8] overflow-hidden divide-y divide-[#E8E8E8]">
+        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border overflow-hidden divide-y divide-brand-whisper-border">
           {prohibited.map((item) => (
             <div
               key={item.word}
               className="flex items-start gap-5 px-5 py-3.5 transition-all duration-150 hover:bg-red-50/[0.3]"
             >
               <code className="text-[11px] font-mono font-semibold text-[#DC2626] bg-[#FEF2F2] px-2 py-1 rounded-md shrink-0 mt-0.5 whitespace-nowrap">{t(item.word)}</code>
-              <p className="text-sm text-[#666666] leading-relaxed">{t(item.why)}</p>
+              <p className="text-sm text-brand-text-secondary leading-relaxed">{t(item.why)}</p>
             </div>
           ))}
         </div>

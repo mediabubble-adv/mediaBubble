@@ -6,6 +6,12 @@
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "extends": ["next/core-web-vitals"],
       "rules": {}
+    },
+    {
+      "files": ["components/sections/**/*.{ts,tsx}"],
+      "rules": {
+        "@next/next/no-img-element": "off"
+      }
     }
   ]
 }

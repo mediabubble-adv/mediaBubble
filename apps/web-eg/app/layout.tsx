@@ -7,6 +7,7 @@ import {
   DEV_SW_CLEANUP_SCRIPT,
   LANG_INIT_SCRIPT,
   getAlternates,
+  getCspNonce,
 } from '@mediabubble/shared/server'
 import { AppProviders } from '@/components/providers/AppProviders'
 import { rootFontClassName } from '@/lib/fonts'
@@ -75,14 +76,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const nonce = getCspNonce()
+
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: LANG_INIT_SCRIPT }} />
+        <script nonce={nonce} dangerouslySetInnerHTML={{ __html: LANG_INIT_SCRIPT }} />
         {process.env.NODE_ENV === 'development' && (
-          <script dangerouslySetInnerHTML={{ __html: DEV_SW_CLEANUP_SCRIPT }} />
+          <script nonce={nonce} dangerouslySetInnerHTML={{ __html: DEV_SW_CLEANUP_SCRIPT }} />
         )}
         <script
+          nonce={nonce}
           dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }}
         />
         <script

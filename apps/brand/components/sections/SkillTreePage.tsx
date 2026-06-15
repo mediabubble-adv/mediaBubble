@@ -117,7 +117,7 @@ export function SkillTreePage({ onNavigate }: { onNavigate?: (id: string) => voi
                 {menuOpen && (
                   <>
                     <div className="fixed inset-0 z-10" onClick={() => setMenuOpen(false)} />
-                    <div className="absolute end-0 top-full mt-1 z-20 bg-white border border-gray-100 rounded-lg shadow-lg overflow-hidden min-w-[160px]">
+                    <div className="absolute end-0 top-full mt-1 z-20 bg-brand-surface border border-gray-100 rounded-lg shadow-lg overflow-hidden min-w-[160px]">
                       <button
                         onClick={() => { downloadBlob(exportAsJSON(true), 'arabic-taxonomy.json', 'application/json'); setMenuOpen(false) }}
                         className="w-full text-start px-3 py-2 text-[11px] text-gray-700 hover:bg-gray-50 transition-colors"
