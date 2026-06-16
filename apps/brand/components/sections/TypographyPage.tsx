@@ -95,7 +95,7 @@ export function TypographyPage() {
             {fonts.map((font) => (
               <div
                 key={font.name}
-                className="group bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border/40 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-out overflow-hidden flex flex-col"
+                className="group bg-brand-surface rounded-xl border border-brand-whisper-border shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-out overflow-hidden flex flex-col"
               >
                 <div className="p-5 pb-0">
                   <div className="flex items-start justify-between mb-3">
@@ -106,7 +106,7 @@ export function TypographyPage() {
                       </div>
                       <p className="text-[11px] text-brand-text-muted font-medium mt-1.5">{font.role}</p>
                     </div>
-                    <span className="text-[10px] font-mono text-brand-text-muted bg-brand-canvas dark:bg-white/[0.04] px-2 py-1 rounded-md border border-brand-whisper-border/20 dark:border-brand-light-border/10">{font.cssVar}</span>
+                    <span className="text-[10px] font-mono text-brand-text-muted bg-brand-canvas dark:bg-white/[0.04] px-2 py-1 rounded-md border border-brand-whisper-border">{font.cssVar}</span>
                   </div>
 
                   <div className={`relative py-6 px-3 rounded-lg mb-4 ${font.name === 'JetBrains Mono' ? 'bg-[#0D0F12]' : 'bg-brand-canvas dark:bg-white/[0.04]'}`}>
@@ -131,7 +131,7 @@ export function TypographyPage() {
                     {font.weights.map((w) => (
                       <span
                         key={w.weight}
-                        className="px-2 py-1 rounded-md text-[10px] font-mono transition-all duration-200 bg-brand-canvas dark:bg-white/[0.04] text-brand-text-secondary group-hover:bg-brand-blue/10 group-hover:text-brand-blue border border-brand-whisper-border/20 dark:border-brand-light-border/10"
+                        className="px-2 py-1 rounded-md text-[10px] font-mono transition-all duration-200 bg-brand-canvas dark:bg-white/[0.04] text-brand-text-secondary group-hover:bg-brand-blue/10 group-hover:text-brand-blue border border-brand-whisper-border"
                       >
                         {w.label} {w.weight}
                       </span>
@@ -158,13 +158,13 @@ export function TypographyPage() {
         {/* Type Scale */}
         <section className="mb-14">
           <BrandSectionHeading icon={Layers} title={t('Type Scale')} />
-          <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border/40 shadow-sm overflow-hidden">
+          <div className="bg-brand-surface rounded-xl border border-brand-whisper-border shadow-sm overflow-hidden">
             {scaleSteps.map((step, i) => (
               <div
                 key={step.token}
                 className={`flex items-center gap-5 px-6 py-[18px] transition-colors duration-150 hover:bg-black/[0.015] dark:hover:bg-white/[0.02] active:bg-black/[0.03] ${
-                  i < scaleSteps.length - 1 ? 'border-b border-brand-whisper-border dark:border-brand-light-border/20' : ''
-                } ${i === 4 ? 'border-t-2 border-t-brand-whisper-border dark:border-t-brand-light-border/40' : ''}`}
+                  i < scaleSteps.length - 1 ? 'border-b border-brand-whisper-border' : ''
+                } ${i === 4 ? 'border-t-2 border-t-brand-whisper-border' : ''}`}
               >
                 <div className="w-28 shrink-0 flex items-center gap-3">
                   <span className={`w-2 h-2 rounded-full shrink-0 ${
@@ -190,7 +190,7 @@ export function TypographyPage() {
                 <div className="w-[140px] shrink-0 text-end hidden lg:block">
                   <button
                     onClick={() => copyScale(step.cls.replace('sm:', ''), step.token)}
-                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[10px] font-mono text-brand-text-muted hover:text-brand-text hover:bg-brand-canvas dark:hover:bg-white/[0.04] border border-brand-whisper-border dark:border-brand-light-border/20 active:scale-95 transition-all shadow-sm bg-brand-surface dark:bg-transparent"
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[10px] font-mono text-brand-text-muted hover:text-brand-text hover:bg-brand-canvas dark:hover:bg-white/[0.04] border border-brand-whisper-border active:scale-95 transition-all shadow-sm bg-brand-surface dark:bg-transparent"
                   >
                     {copiedScale === step.token ? (
                       <><Check size={10} className="text-brand-success" /> {t('copied')}</>
@@ -237,15 +237,15 @@ export function TypographyPage() {
                 to: 'Inter 400',
               },
             ].map((pair) => (
-              <div key={pair.context} className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border/40 shadow-sm hover:shadow-md transition-all duration-300 ease-out p-5">
+              <div key={pair.context} className="bg-brand-surface rounded-xl border border-brand-whisper-border shadow-sm hover:shadow-md transition-all duration-300 ease-out p-5">
                 <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-brand-blue mb-3">{pair.context}</p>
                 <p className={pair.headingCls}>{pair.heading}</p>
                 <div className="w-8 h-[2px] bg-brand-yellow rounded-full my-3" />
                 <p className={pair.bodyCls}>{pair.body}</p>
-                <div className="flex items-center gap-2 mt-4 pt-3 border-t border-brand-whisper-border dark:border-brand-light-border/40">
-                  <span className="text-[10px] font-mono bg-brand-canvas dark:bg-white/[0.04] px-1.5 py-0.5 rounded text-brand-text-secondary border border-brand-whisper-border/20 dark:border-brand-light-border/10">{pair.from}</span>
+                <div className="flex items-center gap-2 mt-4 pt-3 border-t border-brand-whisper-border">
+                  <span className="text-[10px] font-mono bg-brand-canvas dark:bg-white/[0.04] px-1.5 py-0.5 rounded text-brand-text-secondary border border-brand-whisper-border">{pair.from}</span>
                   <ArrowRight size={10} className="text-brand-muted-steel" />
-                  <span className="text-[10px] font-mono bg-brand-canvas dark:bg-white/[0.04] px-1.5 py-0.5 rounded text-brand-text-secondary border border-brand-whisper-border/20 dark:border-brand-light-border/10">{pair.to}</span>
+                  <span className="text-[10px] font-mono bg-brand-canvas dark:bg-white/[0.04] px-1.5 py-0.5 rounded text-brand-text-secondary border border-brand-whisper-border">{pair.to}</span>
                 </div>
               </div>
             ))}
@@ -262,7 +262,7 @@ export function TypographyPage() {
               { label: t('Responsive sizing'), detail: t('Headlines fluid, body fixed'), note: t('Headlines scale between breakpoints using CSS clamp(). Body text stays at 14px minimum.') },
               { label: t('Letter Spacing'), detail: t('Display: -2% \u00B7 Body: 0%'), note: t('Tighten for headlines, reset for body clarity') },
             ].map((item) => (
-              <div key={item.label} className="bg-brand-canvas dark:bg-white/[0.02] border border-brand-whisper-border/40 dark:border-brand-light-border/10 rounded-xl p-5 transition-all duration-300 hover:bg-brand-blue/[0.04] dark:hover:bg-white/[0.06] hover:shadow-sm">
+              <div key={item.label} className="bg-brand-canvas dark:bg-white/[0.02] border border-brand-whisper-border rounded-xl p-5 transition-all duration-300 hover:bg-brand-blue/[0.04] dark:hover:bg-white/[0.06] hover:shadow-sm">
                 <p className="text-[12px] font-semibold text-brand-navy dark:text-brand-blue mb-1">{item.label}</p>
                 <p className="text-[22px] font-display font-bold text-brand-text dark:text-brand-off-white tracking-tight">{item.detail}</p>
                 <p className="text-[11px] text-brand-muted-steel mt-2 leading-snug">{item.note}</p>
@@ -283,7 +283,7 @@ export function TypographyPage() {
               { rule: t('Emphasis'), detail: t('Bold or italic within the same family. Never mix families just to add visual interest.') },
               { rule: t('Pairing Rule'), detail: t('Poppins for display moments. Inter for reading. JetBrains Mono for code and data only.') },
             ].map((r) => (
-              <div key={r.rule} className="bg-brand-canvas dark:bg-white/[0.02] border border-brand-whisper-border/40 dark:border-brand-light-border/10 rounded-xl p-5 transition-all duration-300 hover:bg-brand-blue/[0.04] dark:hover:bg-white/[0.06] hover:shadow-sm">
+              <div key={r.rule} className="bg-brand-canvas dark:bg-white/[0.02] border border-brand-whisper-border rounded-xl p-5 transition-all duration-300 hover:bg-brand-blue/[0.04] dark:hover:bg-white/[0.06] hover:shadow-sm">
                 <p className="text-[13px] font-semibold text-brand-navy dark:text-brand-blue mb-2">{r.rule}</p>
                 <p className="text-sm text-brand-text-secondary leading-relaxed">{r.detail}</p>
               </div>

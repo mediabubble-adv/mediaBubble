@@ -31,19 +31,19 @@ export function ResourcesPage() {
         {
           label: 'CSS Variables',
           desc: 'Full brand color set as CSS variables. Paste into your project root.',
-          preview: '/* MediaBubble Brand Colors */\n:root {\n  --color-brand-blue: #2196F3;\n  --color-brand-yellow: #FFC107;\n  --color-dark-blue: #1565C0;\n  --color-accent-gold: #E8B506;\n  --color-deep-charcoal: #0D0F12;\n  --color-sidebar: #072A6B;\n  --color-white: #FFFFFF;\n  --neutral-50: #F5F5F5;\n  --neutral-100: #E8E8E8;\n  --neutral-200: #D0D0D0;\n  --neutral-400: #9E9E9E;\n  --neutral-500: #888888;\n  --neutral-600: #666666;\n  --neutral-700: #555555;\n  --neutral-900: #333333;\n  --neutral-950: #0D0F12;\n}',
+          preview: '/* MediaBubble Brand Colors */\n:root {\n  --color-brand-blue: #2196F3;\n  --color-brand-yellow: #FFC107;\n  --color-dark-blue: #1565C0;\n  --color-accent-gold: #1AD191;\n  --color-deep-charcoal: #0D0F12;\n  --color-sidebar: #072A6B;\n  --color-white: #FFFFFF;\n  --neutral-50: #F5F5F5;\n  --neutral-100: #E8E8E8;\n  --neutral-200: #D0D0D0;\n  --neutral-400: #9E9E9E;\n  --neutral-500: #888888;\n  --neutral-600: #666666;\n  --neutral-700: #555555;\n  --neutral-900: #333333;\n  --neutral-950: #0D0F12;\n}',
           filename: 'media-bubble-colors.css',
         },
         {
           label: 'Tailwind Config',
           desc: 'Add MediaBubble brand values to your tailwind.config so they work in utility classes.',
-          preview: '// tailwind.config.js\nexport default {\n  theme: {\n    extend: {\n      colors: {\n        brand: {\n          blue: \'#2196F3\',\n          \'dark-blue\': \'#1565C0\',\n          yellow: \'#FFC107\',\n          \'accent-gold\': \'#E8B506\',\n        },\n        charcoal: {\n          deep: \'#0D0F12\',\n          sidebar: \'#072A6B\',\n        },\n        neutral: {\n          50: \'#F5F5F5\',\n          100: \'#E8E8E8\',\n          400: \'#9E9E9E\',\n          900: \'#333333\',\n        },\n      },\n    },\n  },\n}',
+          preview: '// tailwind.config.js\nexport default {\n  theme: {\n    extend: {\n      colors: {\n        brand: {\n          blue: \'#2196F3\',\n          \'dark-blue\': \'#1565C0\',\n          yellow: \'#FFC107\',\n          \'accent-gold\': \'#1AD191\',\n        },\n        charcoal: {\n          deep: \'#0D0F12\',\n          sidebar: \'#072A6B\',\n        },\n        neutral: {\n          50: \'#F5F5F5\',\n          100: \'#E8E8E8\',\n          400: \'#9E9E9E\',\n          900: \'#333333\',\n        },\n      },\n    },\n  },\n}',
           filename: 'media-bubble-tailwind.js',
         },
         {
           label: 'Color JSON',
           desc: 'Structured color data in JSON format, ready for design tools, CMS configuration, or automation scripts.',
-          preview: '{\n  "palette": {\n    "brand": {\n      "blue": "#2196F3",\n      "darkBlue": "#1565C0",\n      "yellow": "#FFC107",\n      "accentGold": "#E8B506"\n    },\n    "charcoal": {\n      "deep": "#0D0F12",\n      "sidebar": "#072A6B"\n    },\n    "neutral": {\n      "50": "#F5F5F5",\n      "100": "#E8E8E8",\n      "400": "#9E9E9E",\n      "900": "#333333"\n    }\n  }\n}',
+          preview: '{\n  "palette": {\n    "brand": {\n      "blue": "#2196F3",\n      "darkBlue": "#1565C0",\n      "yellow": "#FFC107",\n      "accentGold": "#1AD191"\n    },\n    "charcoal": {\n      "deep": "#0D0F12",\n      "sidebar": "#072A6B"\n    },\n    "neutral": {\n      "50": "#F5F5F5",\n      "100": "#E8E8E8",\n      "400": "#9E9E9E",\n      "900": "#333333"\n    }\n  }\n}',
           filename: 'media-bubble-palette.json',
         },
       ],
@@ -111,12 +111,12 @@ export function ResourcesPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {group.items.map((item) => (
-              <div key={item.label} className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border overflow-hidden transition-all duration-150 flex flex-col">
+              <div key={item.label} className="bg-brand-surface rounded-xl border border-brand-whisper-border overflow-hidden transition-all duration-150 flex flex-col">
                 <div className="p-5 pb-0">
                   <h3 className="font-display text-sm font-semibold text-brand-dark-blue mb-1">{item.label}</h3>
                   <p className="text-[12px] text-brand-text-secondary leading-snug mb-4">{item.desc}</p>
                 </div>
-                <div className="mx-5 px-3 py-3 rounded-lg bg-[#F9F9F9] border border-brand-whisper-border dark:border-brand-light-border font-mono text-[10px] text-brand-text-secondary leading-relaxed overflow-hidden max-h-[120px] relative mb-4">
+                <div className="mx-5 px-3 py-3 rounded-lg bg-[#F9F9F9] border border-brand-whisper-border font-mono text-[10px] text-brand-text-secondary leading-relaxed overflow-hidden max-h-[120px] relative mb-4">
                   <pre className="truncate whitespace-pre-wrap line-clamp-6">{item.preview}</pre>
                   <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-[#F9F9F9] to-transparent pointer-events-none" />
                 </div>

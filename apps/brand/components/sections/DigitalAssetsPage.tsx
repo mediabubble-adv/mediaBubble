@@ -61,14 +61,14 @@ export function DigitalAssetsPage() {
       <section className="mb-10">
         <div className="flex items-center gap-2.5 mb-4">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2196F3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          <h2 className="text-[13px] font-semibold text-brand-dark-blue">Avatar</h2>
+          <h2 className="text-[13px] font-semibold text-brand-text">Avatar</h2>
           <span className="ml-auto text-[10px] font-mono text-brand-text-muted">400 × 400 px recommended</span>
         </div>
         <div className="grid grid-cols-3 md:grid-cols-6 gap-4 mb-5">
           {avatarVariants.map((v) => (
             <div key={v.label} className="flex flex-col items-center gap-2">
               <div
-                className={`w-16 h-16 ${v.shape} flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.12)] border border-brand-whisper-border dark:border-brand-light-border`}
+                className={`w-16 h-16 ${v.shape} flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.12)] border border-brand-whisper-border`}
                 style={{ backgroundColor: v.bg }}
               >
                 <img src="/assets/logo.svg" alt="MediaBubble" className="w-10 h-10" style={{ filter: v.filter }} />
@@ -77,7 +77,7 @@ export function DigitalAssetsPage() {
             </div>
           ))}
         </div>
-        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border p-5">
+        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border p-5">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {[
               { platform: 'LinkedIn', spec: '400 × 400 px · Circle crop · White bg', note: 'Keep content inside the inner 70% of the circle' },
@@ -85,9 +85,9 @@ export function DigitalAssetsPage() {
               { platform: 'Instagram', spec: '400 × 400 px · Circle crop · White bg', note: 'Avoid logo elements in outer 15%' },
             ].map((row) => (
               <div key={row.platform}>
-                <p className="text-[13px] font-semibold text-brand-dark-blue mb-1">{row.platform}</p>
+                <p className="text-[13px] font-semibold text-brand-text mb-1">{row.platform}</p>
                 <p className="text-[11px] font-mono text-brand-text-secondary mb-1">{row.spec}</p>
-                <p className="text-[11px] text-brand-muted-steel leading-snug">{row.note}</p>
+                <p className="text-[11px] text-brand-text-muted leading-snug">{row.note}</p>
               </div>
             ))}
           </div>
@@ -98,21 +98,21 @@ export function DigitalAssetsPage() {
       <section className="mb-8">
         <div className="flex items-center gap-2.5 mb-4">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2196F3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
-          <h2 className="text-[13px] font-semibold text-brand-dark-blue">Favicon</h2>
+          <h2 className="text-[13px] font-semibold text-brand-text">Favicon</h2>
         </div>
         {/* Browser tab mockup */}
-        <div className="bg-[#E8E8E8] rounded-xl p-4 mb-5 overflow-x-auto">
+        <div className="bg-brand-whisper-border rounded-xl p-4 mb-5 overflow-x-auto">
           <div className="flex items-end gap-0.5 min-w-max mb-0">
-            <div className="bg-brand-surface rounded-t-lg pt-2 pb-2 px-4 flex items-center gap-2 border-t border-l border-r border-[#D0D0D0] min-w-[160px]">
+            <div className="bg-brand-surface rounded-t-lg pt-2 pb-2 px-4 flex items-center gap-2 border-t border-l border-r border-brand-whisper-border min-w-[160px]">
               <img src="/assets/logo.svg" alt="" style={{ width: '16px', height: '16px' }} />
               <span className="text-[11px] text-brand-text truncate max-w-[100px]">MediaBubble</span>
             </div>
-            <div className="bg-[#EEEEEE] rounded-t-lg pt-2 pb-2 px-4 flex items-center gap-2 min-w-[130px]">
-              <div className="w-4 h-4 rounded-sm bg-[#D0D0D0]" />
+            <div className="bg-brand-canvas dark:bg-[#1C1E24] rounded-t-lg pt-2 pb-2 px-4 flex items-center gap-2 min-w-[130px]">
+              <div className="w-4 h-4 rounded-sm bg-brand-whisper-border" />
               <span className="text-[11px] text-brand-text-muted truncate">New Tab</span>
             </div>
           </div>
-          <div className="bg-brand-surface rounded-b-xl rounded-tr-xl border border-[#D0D0D0] p-4 flex items-center gap-3">
+          <div className="bg-brand-surface rounded-b-xl rounded-tr-xl border border-brand-whisper-border p-4 flex items-center gap-3">
             <div className="flex items-center gap-1.5">
               <div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
               <div className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
@@ -125,11 +125,11 @@ export function DigitalAssetsPage() {
           </div>
         </div>
         {/* Size grid */}
-        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border divide-y divide-brand-whisper-border">
+        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border divide-y divide-brand-whisper-border">
           {faviconSizes.map((f) => {
-            const szCls = f.size <= 32 ? 'bg-[#9E9E9E]/20 text-brand-text-secondary' : f.size <= 48 ? 'bg-[#2196F3]/10 text-brand-dark-blue' : 'bg-brand-dark-blue/10 text-[#072A6B]'
+            const szCls = f.size <= 32 ? 'bg-brand-canvas text-brand-text-secondary border border-brand-whisper-border' : f.size <= 48 ? 'bg-[#2196F3]/10 text-[#2196F3]' : 'bg-[#FFC107]/10 text-[#FFC107]'
             return (
-            <div key={f.size} className="flex items-center gap-5 px-5 py-3.5 transition-all hover:bg-black/[0.015]">
+            <div key={f.size} className="flex items-center gap-5 px-5 py-3.5 transition-all hover:bg-black/[0.015] dark:hover:bg-white/[0.02]">
               <div className="w-16 flex items-center justify-center shrink-0">
                 <img
                   src="/assets/logo.svg"
@@ -141,7 +141,7 @@ export function DigitalAssetsPage() {
                 <div className="flex items-center gap-3">
                   <p className="text-[13px] font-semibold text-brand-text">{f.size}px</p>
                   <span className={`text-[10px] font-mono font-semibold px-2 py-0.5 rounded-md ${szCls}`}>image</span>
-                  <span className="text-[11px] text-brand-muted-steel">{f.label}</span>
+                  <span className="text-[11px] text-brand-text-muted">{f.label}</span>
                 </div>
                 <code className="text-[10px] font-mono text-brand-text-muted">{f.note}</code>
               </div>
@@ -153,11 +153,11 @@ export function DigitalAssetsPage() {
       {/* Email signature */}
       <section className="mb-16">
         <div className="mb-4">
-          <h2 className="text-[13px] font-semibold text-brand-dark-blue">Email Signature</h2>
+          <h2 className="text-[13px] font-semibold text-brand-text font-display">Email Signature</h2>
         </div>
-        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border overflow-hidden mb-4">
+        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border overflow-hidden mb-4">
           {/* Preview */}
-          <div className="px-6 py-8 border-b border-[#F5F5F5]">
+          <div className="px-6 py-8 border-b border-brand-whisper-border bg-white">
             <table style={{ fontFamily: 'Arial, sans-serif', fontSize: '13px', lineHeight: 1.5, color: '#333333', borderCollapse: 'collapse' }}>
               <tbody>
                 <tr>
@@ -187,7 +187,7 @@ export function DigitalAssetsPage() {
           <div className="flex items-center justify-between px-5 py-3 bg-brand-canvas">
             <div className="flex items-center gap-2">
               <AtSign size={13} className="text-brand-text-muted" />
-              <p className="text-[11px] text-brand-muted-steel">HTML table · works in Gmail, Outlook, Apple Mail</p>
+              <p className="text-[11px] text-brand-text-muted">HTML table · works in Gmail, Outlook, Apple Mail</p>
             </div>
             <button
               onClick={() => {
@@ -201,18 +201,18 @@ export function DigitalAssetsPage() {
             </button>
           </div>
         </div>
-        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border divide-y divide-brand-whisper-border">
+        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border divide-y divide-brand-whisper-border">
           {[
             { spec: 'Layout', value: 'HTML <table>', note: 'Table layout for maximum email client compatibility (Outlook, Gmail, Apple Mail)' },
             { spec: 'Divider', value: '2px solid #2196F3', note: 'Vertical separator between logo and name/contact block' },
             { spec: 'Footer gradient bar', value: '#2196F3 → #072A6B', note: 'Bottom accent line mirrors the letterhead footer treatment' },
             { spec: 'Image hosting', value: 'Absolute URL required', note: 'Host the logo on a CDN or static domain' },
           ].map((row) => (
-            <div key={row.spec} className="flex items-start gap-5 px-5 py-3 transition-all hover:bg-black/[0.015]">
+            <div key={row.spec} className="flex items-start gap-5 px-5 py-3 transition-all hover:bg-black/[0.015] dark:hover:bg-white/[0.02]">
               <code className="text-[11px] font-mono text-[#2196F3] shrink-0 w-24 mt-0.5">{row.spec}</code>
               <div>
                 <p className="text-[12px] font-semibold text-brand-text">{row.value}</p>
-                <p className="text-[11px] text-brand-muted-steel mt-0.5 leading-snug">{row.note}</p>
+                <p className="text-[11px] text-brand-text-muted mt-0.5 leading-snug">{row.note}</p>
               </div>
             </div>
           ))}

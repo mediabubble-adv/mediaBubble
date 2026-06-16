@@ -52,14 +52,14 @@ export const InteractivePromptBuilder = ({ onPromptGenerated }: InteractivePromp
   const colors = [
     { value: 'yellow', label: 'Brand Yellow', hex: '#FFC107', role: 'Primary CTAs' },
     { value: 'blue', label: 'Brand Blue', hex: '#2196F3', role: 'Secondary Actions' },
-    { value: 'gold', label: 'Accent Gold', hex: '#E8B506', role: 'Premium Highlights' },
+    { value: 'gold', label: 'Mint', hex: '#1AD191', role: 'Premium Highlights' },
   ]
 
   const generatePrompt = () => {
     const colorMap: Record<string, string> = {
       yellow: '#FFC107',
       blue: '#2196F3',
-      gold: '#E8B506'
+      gold: '#1AD191'
     }
 
     const sizeMap: Record<string, string> = {
@@ -194,7 +194,7 @@ Brand Profile Constraints:
               className={`p-3 rounded-lg border-2 transition-all text-start ${
                 isSelected
                   ? 'border-[#FFC107] bg-[#FFC107]/[0.05] shadow-[0_2px_8px_rgba(255,193,7,0.1)]'
-                  : 'border-brand-whisper-border dark:border-brand-light-border hover:border-[#2196F3] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
+                  : 'border-brand-whisper-border hover:border-[#2196F3] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
               }`}
             >
               <div className="flex items-center gap-2">
@@ -220,12 +220,12 @@ Brand Profile Constraints:
               className={`p-3 rounded-lg border-2 transition-all text-start ${
                 brandConfig.primaryColor === color.value
                   ? 'border-[#FFC107] shadow-[0_2px_8px_rgba(255,193,7,0.1)]'
-                  : 'border-brand-whisper-border dark:border-brand-light-border hover:border-[#2196F3]'
+                  : 'border-brand-whisper-border hover:border-[#2196F3]'
               }`}
             >
               <div className="flex items-center gap-2">
                 <div 
-                  className="w-4 h-4 rounded-full border border-brand-whisper-border dark:border-brand-light-border" 
+                  className="w-4 h-4 rounded-full border border-brand-whisper-border" 
                   style={{ backgroundColor: color.hex }}
                 />
                 <div>
@@ -248,7 +248,7 @@ Brand Profile Constraints:
               className={`p-3 rounded-lg border-2 transition-all text-start ${
                 brandConfig.typographyStyle === style
                   ? 'border-[#FFC107] bg-[#FFC107]/[0.05]'
-                  : 'border-brand-whisper-border dark:border-brand-light-border hover:border-[#2196F3] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
+                  : 'border-brand-whisper-border hover:border-[#2196F3] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
               }`}
             >
               <div className="text-[11px] font-medium text-brand-text capitalize">{style}</div>
@@ -272,7 +272,7 @@ Brand Profile Constraints:
               className={`p-3 rounded-lg border-2 transition-all text-start ${
                 brandConfig.layoutStyle === style
                   ? 'border-[#FFC107] bg-[#FFC107]/[0.05]'
-                  : 'border-brand-whisper-border dark:border-brand-light-border hover:border-[#2196F3] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
+                  : 'border-brand-whisper-border hover:border-[#2196F3] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
               }`}
             >
               <div className="text-[11px] font-medium text-brand-text capitalize">{style}</div>
@@ -300,7 +300,7 @@ Brand Profile Constraints:
               className={`p-2 rounded-lg border-2 transition-all text-center ${
                 assetConfig.size === size
                   ? 'border-[#FFC107] bg-[#FFC107]/[0.05]'
-                  : 'border-brand-whisper-border dark:border-brand-light-border hover:border-[#2196F3] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
+                  : 'border-brand-whisper-border hover:border-[#2196F3] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
               }`}
             >
               <div className="text-[11px] font-medium text-brand-text capitalize">{size}</div>
@@ -319,7 +319,7 @@ Brand Profile Constraints:
               className={`p-2 rounded-lg border-2 transition-all text-center ${
                 assetConfig.orientation === orientation
                   ? 'border-[#FFC107] bg-[#FFC107]/[0.05]'
-                  : 'border-brand-whisper-border dark:border-brand-light-border hover:border-[#2196F3] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
+                  : 'border-brand-whisper-border hover:border-[#2196F3] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
               }`}
             >
               <div className="text-[11px] font-medium text-brand-text capitalize">{orientation}</div>
@@ -338,7 +338,7 @@ Brand Profile Constraints:
               className={`p-2 rounded-lg border-2 transition-all text-center ${
                 assetConfig.density === density
                   ? 'border-[#FFC107] bg-[#FFC107]/[0.05]'
-                  : 'border-brand-whisper-border dark:border-brand-light-border hover:border-[#2196F3] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
+                  : 'border-brand-whisper-border hover:border-[#2196F3] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
               }`}
             >
               <div className="text-[11px] font-medium text-brand-text capitalize">{density}</div>
@@ -364,7 +364,7 @@ Brand Profile Constraints:
 
       {/* Generated Prompt */}
       {generatedPrompt && (
-        <div className="bg-[#FFFFFF] border border-brand-whisper-border dark:border-brand-light-border rounded-xl p-6">
+        <div className="bg-brand-surface border border-brand-whisper-border rounded-xl p-6">
           <div className="flex items-start justify-between mb-4">
             <h3 className="text-[16px] font-bold text-brand-text">Generated Prompt</h3>
             <div className="flex gap-2">
@@ -384,20 +384,20 @@ Brand Profile Constraints:
               </button>
             </div>
           </div>
-          <div className="bg-brand-canvas border border-brand-whisper-border dark:border-brand-light-border rounded-lg p-4 font-mono text-[12px] text-brand-text whitespace-pre-wrap max-h-96 overflow-y-auto">
+          <div className="bg-brand-canvas border border-brand-whisper-border rounded-lg p-4 font-mono text-[12px] text-brand-text whitespace-pre-wrap max-h-96 overflow-y-auto">
             {generatedPrompt}
           </div>
         </div>
       )}
 
       {/* Custom Prompt Area */}
-      <div className="bg-brand-canvas border border-brand-whisper-border dark:border-brand-light-border rounded-xl p-6">
+      <div className="bg-brand-canvas border border-brand-whisper-border rounded-xl p-6">
         <h3 className="text-[16px] font-bold text-brand-text mb-4">Custom Prompt Override</h3>
         <textarea
           value={customPrompt}
           onChange={(e) => setCustomPrompt(e.target.value)}
           placeholder="Enter your custom prompt here. Brand profile constraints will still be applied..."
-          className="w-full h-32 p-3 border border-brand-whisper-border dark:border-brand-light-border rounded-lg font-mono text-[12px] text-brand-text resize-none focus:outline-none focus:border-[#2196F3]"
+          className="w-full h-32 p-3 border border-brand-whisper-border rounded-lg font-mono text-[12px] text-brand-text resize-none focus:outline-none focus:border-[#2196F3]"
         />
         <div className="flex gap-3 mt-3">
           <button

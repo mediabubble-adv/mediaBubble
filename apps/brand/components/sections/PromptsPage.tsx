@@ -63,7 +63,7 @@ export const PromptsPage = () => {
       <div className="px-6 lg:px-10 py-8 lg:py-12 max-w-[1400px] mx-auto space-y-8">
       {/* Generated Prompt Display */}
       {generatedPrompt && (
-        <div className="bg-brand-canvas border border-brand-whisper-border dark:border-brand-light-border rounded-xl p-6 animate-fade-in-up">
+        <div className="bg-brand-canvas border border-brand-whisper-border rounded-xl p-6 animate-fade-in-up">
           <div className="flex items-start justify-between mb-4">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-[#2196F3]/[0.1] flex items-center justify-center">
@@ -96,14 +96,14 @@ export const PromptsPage = () => {
               )}
             </button>
           </div>
-          <div className="bg-[#FFFFFF] border border-brand-whisper-border dark:border-brand-light-border rounded-lg p-4 font-mono text-[12px] text-brand-text whitespace-pre-wrap">
+          <div className="bg-brand-surface border border-brand-whisper-border rounded-lg p-4 font-mono text-[12px] text-brand-text whitespace-pre-wrap">
             {generatedPrompt}
           </div>
         </div>
       )}
 
       {/* Tabs */}
-      <div className="flex items-center gap-1 bg-[#FFFFFF] border border-brand-whisper-border dark:border-brand-light-border rounded-xl p-1">
+      <div className="flex items-center gap-1 bg-brand-surface border border-brand-whisper-border rounded-xl p-1">
         {tabs.map((tab) => {
           const IconComponent = tab.icon
           const isActive = activeTab === tab.id

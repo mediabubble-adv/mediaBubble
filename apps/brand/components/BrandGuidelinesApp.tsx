@@ -103,7 +103,7 @@ export const BrandGuidelinesApp = () => {
   const showNavTooltips = sidebarCollapsed
 
   const sidebarShell =
-    'bg-[#0B1220] border-e border-white/[0.08] shadow-[inset_-1px_0_0_rgba(255,255,255,0.04)]'
+    'bg-[#0D0F12] border-e border-[#1F2128] shadow-[inset_-1px_0_0_rgba(255,255,255,0.02)]'
 
   const SidebarNav = ({ mobile = false }: { mobile?: boolean }) => (
     <nav className="flex-1 overflow-y-auto overflow-x-hidden px-2 py-3">
@@ -122,7 +122,7 @@ export const BrandGuidelinesApp = () => {
               </p>
             )}
             {collapsed && groupIndex > 0 && (
-              <div className="mx-2 mb-2 border-t border-white/[0.06]" aria-hidden />
+              <div className="mx-2 mb-2 border-t border-[#1F2128]" aria-hidden />
             )}
             <div className="space-y-1">
               {groupLinks.map((link) => {
@@ -177,12 +177,12 @@ export const BrandGuidelinesApp = () => {
 
       {/* Desktop sidebar */}
       <aside
-        className={`hidden md:flex flex-col shrink-0 relative sticky top-0 h-screen transition-[width] duration-200 ease-out z-30 ${sidebarShell}`}
+        className={`hidden md:flex flex-col shrink-0 relative sticky top-0 h-screen transition-[width] duration-200 ease-out z-40 ${sidebarShell}`}
         style={{ width: `${effectiveWidth}px` }}
         role="navigation"
         aria-label={t('Brand guidelines navigation')}
       >
-        <div className="flex items-center border-b border-white/[0.08] shrink-0 h-[52px] px-3 gap-3 overflow-hidden">
+        <div className="flex items-center border-b border-[#1F2128] shrink-0 h-[52px] px-3 gap-3 overflow-hidden">
           <Image src="/assets/logo.svg" alt="MediaBubble" width={32} height={32} className="w-8 h-8 shrink-0" />
           {!sidebarCollapsed && (
             <div className="min-w-0 flex-1">
@@ -192,7 +192,7 @@ export const BrandGuidelinesApp = () => {
           )}
         </div>
         <SidebarNav />
-        <div className="p-2.5 border-t border-white/[0.08] shrink-0">
+        <div className="p-2.5 border-t border-[#1F2128] shrink-0">
           <SidebarTooltip
             label={sidebarCollapsed ? t('Expand sidebar', 'Expand sidebar') : t('Collapse')}
             show={sidebarCollapsed}
@@ -230,11 +230,11 @@ export const BrandGuidelinesApp = () => {
 
       {/* Mobile overlay sidebar */}
       <aside className={`
-        fixed md:hidden inset-y-0 start-0 z-30 w-[240px] ${sidebarShell} flex flex-col
+        fixed md:hidden inset-y-0 ${isRtl ? 'right-0' : 'left-0'} z-30 w-[240px] ${sidebarShell} flex flex-col
         transition-transform duration-200 ease-out
-        ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}
+        ${mobileMenuOpen ? 'translate-x-0 pointer-events-auto' : `${isRtl ? 'translate-x-full' : '-translate-x-full'} pointer-events-none`}
       `}>
-        <div className="flex items-center justify-between border-b border-white/[0.08] h-[52px] px-3.5 shrink-0">
+        <div className="flex items-center justify-between border-b border-[#1F2128] h-[52px] px-3.5 shrink-0">
           <div className="flex items-center gap-2.5">
             <Image src="/assets/logo.svg" alt="MediaBubble" width={32} height={32} className="w-8 h-8 shrink-0" />
             <p className="text-[12px] font-bold text-white">{brand.name}</p>
@@ -252,7 +252,7 @@ export const BrandGuidelinesApp = () => {
       />
 
       <div className="flex-1 flex flex-col min-h-screen min-w-0">
-        <header role="banner" className="sticky top-0 z-10 bg-brand-surface border-b border-brand-whisper-border dark:border-brand-light-border h-[46px] flex items-center gap-3 px-4 shrink-0">
+        <header role="banner" className="sticky top-0 z-10 bg-brand-surface border-b border-brand-whisper-border h-[46px] flex items-center gap-3 px-4 shrink-0">
           <button
             onClick={() => setMobileMenuOpen(true)}
             className="md:hidden p-1.5 text-brand-charcoal dark:text-brand-off-white hover:bg-black/[0.06] dark:hover:bg-white/[0.06] rounded-lg transition-all"
@@ -310,7 +310,7 @@ export const BrandGuidelinesApp = () => {
               )}
             </div>
             {searchFocused && searchQuery.trim() && (
-              <div className="absolute end-0 top-full mt-1.5 w-52 bg-brand-surface border border-brand-whisper-border dark:border-brand-light-border rounded-xl shadow-[0_8px_24px_rgba(0,0,0,0.12)] dark:shadow-black/40 overflow-hidden z-50 animate-scale-in">
+              <div className="absolute end-0 top-full mt-1.5 w-52 bg-brand-surface border border-brand-whisper-border rounded-xl shadow-[0_8px_24px_rgba(0,0,0,0.12)] dark:shadow-black/40 overflow-hidden z-50 animate-scale-in">
                 {filteredSections.length > 0 ? filteredSections.map(section => {
                   const IconComponent = section.icon
                   return (

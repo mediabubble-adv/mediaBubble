@@ -38,9 +38,10 @@ export function PageHero({ kicker, title, titleHighlight, description, showLogo 
   }
 
   return (
-    <div className="bg-[#072A6B] relative">
-      <div className="absolute inset-x-0 top-0 h-1 bg-[#FFC107]" />
-      <div className="px-10 sm:px-16 lg:ps-20 lg:pe-[60px] py-16 sm:py-24 max-w-[1400px] mx-auto">
+    <div className="bg-gradient-to-br from-[#0D0F12] via-[#07080A] to-[#040506] relative overflow-hidden border-b border-white/[0.08]">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(33,150,243,0.15))_0%,_transparent_65%] pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-1 bg-[#FFC107] opacity-80" />
+      <div className="px-10 sm:px-16 lg:ps-20 lg:pe-[60px] py-16 sm:py-24 max-w-[1400px] mx-auto relative z-10">
         <div className="flex items-start gap-10">
           {showLogo && (
             <img src="/assets/logo.svg" alt="MediaBubble" className="w-28 h-28 sm:w-36 sm:h-36 shrink-0" />

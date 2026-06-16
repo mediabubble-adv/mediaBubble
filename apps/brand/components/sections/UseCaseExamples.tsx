@@ -162,7 +162,7 @@ export const UseCaseExamples = ({ onPromptGenerated }: UseCaseExamplesProps) => 
   const renderComparison = (example: UseCaseExample) => (
     <div key={example.id} className="space-y-6">
       {/* Scenario */}
-      <div className="bg-[#FFFFFF] border border-brand-whisper-border dark:border-brand-light-border rounded-xl p-6">
+      <div className="bg-brand-surface border border-brand-whisper-border rounded-xl p-6">
         <div className="flex items-start gap-3">
           <div className="w-8 h-8 rounded-lg bg-brand-canvas dark:bg-white/[0.04] flex items-center justify-center flex-shrink-0">
             <Layout size={16} className="text-brand-text-muted" />
@@ -178,22 +178,22 @@ export const UseCaseExamples = ({ onPromptGenerated }: UseCaseExamplesProps) => 
       </div>
 
       {/* Bad Prompt */}
-      <div className="bg-[#FEF2F2] border border-[#FECACA] rounded-xl p-6">
+      <div className="bg-[#FEF2F2] dark:bg-red-950/20 border border-[#FECACA] dark:border-red-500/20 rounded-xl p-6">
         <div className="flex items-start gap-3 mb-4">
-          <AlertCircle size={18} className="text-[#DC2626] mt-0.5 flex-shrink-0" />
+          <AlertCircle size={18} className="text-[#DC2626] dark:text-red-400 mt-0.5 flex-shrink-0" />
           <div>
-            <h3 className="text-[14px] font-semibold text-[#DC2626] mb-2">❌ Generic Prompt (Poor Results)</h3>
+            <h3 className="text-[14px] font-semibold text-[#DC2626] dark:text-red-400 mb-2">❌ Generic Prompt (Poor Results)</h3>
             <p className="text-[11px] text-brand-text-muted mb-3">This prompt lacks specific brand guidelines and produces inconsistent results:</p>
           </div>
         </div>
-        <div className="bg-[#FFFFFF] border border-[#FECACA] rounded-lg p-4 mb-4">
+        <div className="bg-brand-surface border border-brand-whisper-border rounded-lg p-4 mb-4">
           <div className="font-mono text-[11px] text-brand-text whitespace-pre-wrap">
             {example.badPrompt}
           </div>
         </div>
         <button
           onClick={() => copyToClipboard(example.badPrompt)}
-          className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-[#FECACA] text-[#DC2626] text-[12px] font-medium hover:bg-[#FCA5A5] transition-colors"
+          className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-[#FECACA] dark:bg-red-950/40 text-[#DC2626] dark:text-red-400 text-[12px] font-medium hover:bg-[#FCA5A5] dark:hover:bg-red-900/40 transition-colors border border-[#FECACA] dark:border-red-500/30"
         >
           <Copy size={14} />
           Copy Generic Prompt
@@ -201,22 +201,22 @@ export const UseCaseExamples = ({ onPromptGenerated }: UseCaseExamplesProps) => 
       </div>
 
       {/* Good Prompt */}
-      <div className="bg-[#F0FDF4] border border-[#86EFAC] rounded-xl p-6">
+      <div className="bg-[#F0FDF4] dark:bg-emerald-950/20 border border-[#86EFAC] dark:border-emerald-500/20 rounded-xl p-6">
         <div className="flex items-start gap-3 mb-4">
-          <CheckCircle size={18} className="text-[#16A34A] mt-0.5 flex-shrink-0" />
+          <CheckCircle size={18} className="text-[#16A34A] dark:text-emerald-400 mt-0.5 flex-shrink-0" />
           <div>
-            <h3 className="text-[14px] font-semibold text-[#16A34A] mb-2">✅ MediaBubble Brand Prompt (Consistent Results)</h3>
+            <h3 className="text-[14px] font-semibold text-[#16A34A] dark:text-emerald-400 mb-2">✅ MediaBubble Brand Prompt (Consistent Results)</h3>
             <p className="text-[11px] text-brand-text-muted mb-3">This prompt incorporates Brand profile for on-brand, consistent outputs:</p>
           </div>
         </div>
-        <div className="bg-[#FFFFFF] border border-[#86EFAC] rounded-lg p-4 mb-4">
+        <div className="bg-brand-surface border border-brand-whisper-border rounded-lg p-4 mb-4">
           <div className="font-mono text-[11px] text-brand-text whitespace-pre-wrap">
             {example.goodPrompt}
           </div>
         </div>
         <button
           onClick={() => copyToClipboard(example.goodPrompt)}
-          className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-[#86EFAC] text-[#16A34A] text-[12px] font-medium hover:bg:#4ADE80 transition-colors"
+          className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-[#86EFAC] dark:bg-emerald-950/40 text-[#16A34A] dark:text-emerald-400 text-[12px] font-medium hover:bg-[#4ADE80] dark:hover:bg-emerald-900/40 transition-colors border border-[#86EFAC] dark:border-emerald-500/30"
         >
           <Copy size={14} />
           Copy Brand Prompt
@@ -224,7 +224,7 @@ export const UseCaseExamples = ({ onPromptGenerated }: UseCaseExamplesProps) => 
       </div>
 
       {/* Explanation */}
-      <div className="bg-[#FFFFFF] border border-brand-whisper-border dark:border-brand-light-border rounded-xl p-6">
+      <div className="bg-brand-surface border border-brand-whisper-border rounded-xl p-6">
         <h3 className="text-[14px] font-semibold text-brand-text mb-3">Why This Works Better</h3>
         <p className="text-[12px] text-brand-text-muted mb-4">{example.explanation}</p>
         
@@ -259,7 +259,7 @@ export const UseCaseExamples = ({ onPromptGenerated }: UseCaseExamplesProps) => 
                 className={`p-4 rounded-xl border-2 transition-all text-start ${
                   isSelected
                     ? 'border-[#FFC107] bg-[#FFC107]/[0.05] shadow-[0_2px_8px_rgba(255,193,7,0.1)]'
-                    : 'border-brand-whisper-border dark:border-brand-light-border hover:border-[#2196F3] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
+                    : 'border-brand-whisper-border hover:border-[#2196F3] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
                 }`}
               >
                 <div className="flex items-start gap-3">
