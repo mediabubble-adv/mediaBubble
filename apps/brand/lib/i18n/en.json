@@ -242,7 +242,7 @@
   "Scale below 24px": "Scale below 24px",
   "colors.hero.kicker": "Color Palette",
   "colors.hero.title": "Color Palette",
-  "colors.hero.description": "Blue is the primary color, it drives navigation, actions, and information hierarchy. Yellow is the accent: reserved, purposeful, and used once per view. Click any swatch to preview it.",
+  "colors.hero.description": "Blue is the primary color, it drives navigation, actions, and information hierarchy. Yellow is the accent: reserved, purposeful, and used once per view. Click any swatch to copy its hex.",
   "colors.colorFamilies": "Color Families",
   "colors.neutralScale": "Neutral Scale",
   "colors.copy": "Copy",

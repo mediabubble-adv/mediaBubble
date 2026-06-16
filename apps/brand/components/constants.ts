@@ -38,6 +38,14 @@ export const colorFamilies = [
     cssVar: '--color-brand-yellow',
   },
   {
+    name: 'Accent Gold',
+    role: 'Strategic accent for high-end elements, highlights, and secondary gradients',
+    hex: '#E8B506',
+    tones: ['#FFFBEB', '#FEF3C7', '#FDE68A', '#FCD34D', '#E8B506', '#CA8A04', '#A16207', '#854D0E'],
+    usage: 'Sophisticated brand accent. Used for gradient pairings with Yellow, high-value highlights, and hover elevations.',
+    cssVar: '--color-accent-gold',
+  },
+  {
     name: 'Deep Charcoal',
     role: 'Sidebar backgrounds, dark sections, high-contrast surfaces',
     hex: '#0D0F12',
@@ -58,8 +66,7 @@ export const neutralScale = [
 ]
 
 export const sections = [
-  { id: 'overview', label: 'Overview', icon: Layout, group: 'Brand' },
-  { id: 'getting-started', label: 'Getting Started', icon: BookOpen, group: 'Brand' },
+  { id: 'overview', label: 'Getting Started', icon: BookOpen, group: 'Brand' },
   { id: 'logo', label: 'Logo', icon: Layers, group: 'Identity' },
   { id: 'colors', label: 'Color Palette', icon: Palette, group: 'Identity' },
   { id: 'typography', label: 'Typography', icon: Type, group: 'Identity' },
