@@ -442,103 +442,114 @@ export function OverviewBody({ onNavigate }: { onNavigate: (id: string) => void 
       {/* Brand pillars */}
       <section className="mb-14">
         <BrandSectionHeading icon={Shapes} title={t('overview.pillars.heading', 'Brand Pillars')} />
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 stagger-grid">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-grid">
           {[
-            { nameKey: 'creative', name: t('pillars.creative.name', 'Creative'), def: t('pillars.creative.def', 'Ideas with a point of view. Not decoration, not trend-following — work that earns attention because it earns trust.'), color: 'from-brand-yellow to-accent-gold', icon: '/assets/elements/icon-star-01.png' },
-            { nameKey: 'strategic', name: t('pillars.strategic.name', 'Strategic'), def: t('pillars.strategic.def', 'Every decision traces back to a goal. We align visual choices, copy, and media to what the client is actually trying to achieve.'), color: 'from-brand-blue to-brand-navy', icon: '/assets/elements/icon-star-02.png' },
-            { nameKey: 'dataDriven', name: t('pillars.dataDriven.name', 'Data-Driven'), def: t('pillars.dataDriven.def', 'Numbers inform, not decide. We read performance data, test hypotheses, and improve — creative judgment stays in the loop, not out of it.'), color: 'from-brand-navy dark:from-brand-blue to-brand-blue dark:to-brand-navy', icon: '/assets/elements/icon-star-02.png' },
-          ].map((p) => (
-            <div key={p.nameKey} className={`${brandDocCardShell} overflow-hidden border border-brand-whisper-border dark:border-brand-light-border/40 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 ease-out`}>
-              <div className={`h-1 bg-gradient-to-r ${p.color}`} />
-              <div className="p-5">
-                <div className="flex items-center gap-2 mb-2">
-                  <img src={p.icon} alt="" className="w-5 h-5" />
-                  <p className="font-display text-base font-semibold text-brand-dark-blue dark:text-brand-off-white">{p.name}</p>
+            { nameKey: 'creative', name: t('pillars.creative.name', 'Creative'), def: t('pillars.creative.def', 'Ideas with a point of view. Not decoration, not trend-following — work that earns attention because it earns trust.'), color: 'from-brand-yellow to-accent-gold', icon: Shapes },
+            { nameKey: 'strategic', name: t('pillars.strategic.name', 'Strategic'), def: t('pillars.strategic.def', 'Every decision traces back to a goal. We align visual choices, copy, and media to what the client is actually trying to achieve.'), color: 'from-brand-blue to-brand-navy', icon: Zap },
+            { nameKey: 'dataDriven', name: t('pillars.dataDriven.name', 'Data-Driven'), def: t('pillars.dataDriven.def', 'Numbers inform, not decide. We read performance data, test hypotheses, and improve — creative judgment stays in the loop, not out of it.'), color: 'from-brand-navy dark:from-brand-blue to-brand-blue dark:to-brand-navy', icon: Monitor },
+          ].map((p) => {
+            const PillarIcon = p.icon
+            return (
+              <div key={p.nameKey} className={`${brandDocCardShell} overflow-hidden border border-brand-whisper-border dark:border-brand-light-border/40 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 ease-out h-full flex flex-col`}>
+                <div className={`h-1 bg-gradient-to-r ${p.color}`} />
+                <div className="p-5 flex-1 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="w-8 h-8 rounded-lg bg-brand-blue/10 flex items-center justify-center text-brand-blue shrink-0">
+                        <PillarIcon size={16} />
+                      </div>
+                      <p className="font-display text-base font-semibold text-brand-dark-blue dark:text-brand-off-white">{p.name}</p>
+                    </div>
+                    <p className="text-sm text-brand-text-secondary leading-relaxed">{p.def}</p>
+                  </div>
                 </div>
-                <p className="text-sm text-brand-text-secondary leading-relaxed">{p.def}</p>
+              </div>
+            )
+          })}
+        </div>
+      </section>
+
+      {/* Visual System & Service Portfolio (Unified Height Grid) */}
+      <section className="mb-14 grid grid-cols-1 lg:grid-cols-12 gap-6">
+        {/* Left: Visual System Snapshot */}
+        <div className="lg:col-span-7 flex flex-col">
+          <div className="bg-brand-surface border border-brand-whisper-border dark:border-brand-light-border/40 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col justify-between">
+            <div>
+              <BrandSectionHeading icon={Monitor} title={t('overview.visualSystem.heading', 'Visual System at a Glance')} className="mb-5" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* Colors Card */}
+                <div className="bg-brand-canvas dark:bg-[#0b1220]/50 rounded-xl border border-brand-whisper-border/30 dark:border-brand-light-border/5 p-5 flex flex-col justify-between">
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-brand-text-muted mb-3">{t('overview.visualSystem.colors', 'Colors')}</p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {['#2196F3', '#1565C0', '#FFC107', '#E8B506', '#0D0F12', '#FAFAFA'].map((c) => (
+                        <div key={c} className="w-7 h-7 rounded-lg border border-brand-whisper-border dark:border-brand-light-border/20 shadow-sm transition-transform hover:scale-105" style={{ backgroundColor: c }} title={c} />
+                      ))}
+                    </div>
+                  </div>
+                  <button onClick={() => onNavigate('colors')} className="text-[11px] font-semibold text-brand-blue hover:underline flex items-center gap-1 self-start mt-2">
+                    {t('overview.visualSystem.viewPalette', 'View palette')} <ArrowRight size={12} />
+                  </button>
+                </div>
+
+                {/* Typography Card */}
+                <div className="bg-brand-canvas dark:bg-[#0b1220]/50 rounded-xl border border-brand-whisper-border/30 dark:border-brand-light-border/5 p-5 flex flex-col justify-between">
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-brand-text-muted mb-3">{t('overview.visualSystem.typography', 'Typography')}</p>
+                    <p className="font-display text-lg font-bold text-brand-dark-blue dark:text-brand-off-white leading-tight mb-1">Poppins</p>
+                    <p className="font-sans text-xs text-brand-text-secondary leading-snug mb-4">{t('overview.visualSystem.bodyFont', 'Inter for body copy, Cairo for Arabic layouts')}</p>
+                  </div>
+                  <button onClick={() => onNavigate('typography')} className="text-[11px] font-semibold text-brand-blue hover:underline flex items-center gap-1 self-start mt-2">
+                    {t('overview.visualSystem.viewFonts', 'View fonts')} <ArrowRight size={12} />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Right: Service Portfolio */}
+        <div className="lg:col-span-5 flex flex-col">
+          <div className="bg-brand-surface border border-brand-whisper-border dark:border-brand-light-border/40 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col justify-between">
+            <div>
+              <BrandSectionHeading icon={Palette} title={t('overview.services.heading', 'Service Areas')} className="mb-5" />
+              <div className="flex flex-col justify-between bg-brand-canvas dark:bg-[#0b1220]/50 rounded-xl border border-brand-whisper-border/30 dark:border-brand-light-border/5 overflow-hidden">
+                <div className="flex flex-col divide-y divide-brand-whisper-border/50 dark:divide-brand-light-border/5">
+                  {brand.services.map((service, idx) => (
+                    <div key={service.name} className="flex items-start gap-3 px-4 py-3.5 hover:bg-brand-blue/[0.02] dark:hover:bg-white/[0.02] transition-colors group">
+                      <div className="w-6 h-6 rounded-lg bg-brand-yellow/10 flex items-center justify-center shrink-0 mt-0.5 text-brand-yellow">
+                        <ArrowRight size={11} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+                      </div>
+                      <div>
+                        <p className="text-[12.5px] font-semibold text-brand-text leading-tight">{t(`services.${idx}.name`, service.name)}</p>
+                        <p className="text-[11.5px] text-brand-text-secondary leading-snug mt-1">{t(`services.${idx}.desc`, service.desc)}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Library (Unified 4-column Grid) */}
+      <section className="mb-8">
+        <BrandSectionHeading icon={HelpCircle} title={t('commonQuestions', 'Frequently Asked Questions')} className="mb-5" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 stagger-grid">
+          {[
+            { q: t('faq1q', 'Can I use the brand colors outside the defined palette?'), a: t('faq1a', 'No. Use only the colors defined in the palette. If a color is missing, request an addition — do not invent your own.') },
+            { q: t('faq2q', 'Which font do I use for Arabic content?'), a: t('faq2a', 'Cairo. It pairs with Inter for mixed-direction layouts.') },
+            { q: t('faq3q', 'Can I modify the logo mark?'), a: t('faq3a', 'No. Use only the approved variants shown in the Logo section. Do not rotate, recolor, or add effects.') },
+            { q: t('faq4q', 'Where do I find downloadable assets?'), a: t('faq4a', 'The Asset Library has logos, color tokens, and font references — all ready to copy or download.') }
+          ].map((item, i) => (
+            <div key={i} className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border/40 p-5 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 ease-out h-full flex flex-col justify-between">
+              <div>
+                <p className="text-[13px] font-bold text-brand-text mb-3 leading-snug">{item.q}</p>
+                <p className="text-[12px] text-brand-text-secondary leading-relaxed">{item.a}</p>
               </div>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* Visual system snapshot & Common Questions (Side by Side) */}
-      <section className="mb-14 grid grid-cols-1 lg:grid-cols-2 gap-5">
-        <div>
-          <BrandSectionHeading icon={Monitor} title={t('overview.visualSystem.heading', 'Visual System at a Glance')} />
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {/* Colors */}
-            <div className={`${brandDocCardShell} p-5 border border-brand-whisper-border dark:border-brand-light-border/40 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-out`}>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-brand-text-muted mb-3">{t('overview.visualSystem.colors', 'Colors')}</p>
-              <div className="flex gap-2 mb-4">
-                {['#2196F3', '#1565C0', '#FFC107', '#072A6B', '#333333', '#FAFAFA'].map((c) => (
-                  <div key={c} className="w-7 h-7 rounded-lg border border-brand-whisper-border dark:border-brand-light-border/20 shadow-sm" style={{ backgroundColor: c }} title={c} />
-                ))}
-              </div>
-              <button onClick={() => onNavigate('colors')} className="text-[11px] font-semibold text-brand-blue hover:underline flex items-center gap-1">
-                {t('overview.visualSystem.viewPalette', 'View palette')} <ArrowRight size={12} />
-              </button>
-            </div>
-            {/* Typography */}
-            <div className={`${brandDocCardShell} p-5 border border-brand-whisper-border dark:border-brand-light-border/40 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-out`}>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-brand-text-muted mb-3">{t('overview.visualSystem.typography', 'Typography')}</p>
-              <p className="font-display text-lg font-bold text-brand-dark-blue dark:text-brand-off-white leading-tight mb-1">Poppins</p>
-              <p className="font-sans text-xs text-brand-text-secondary leading-snug mb-4">{t('overview.visualSystem.bodyFont', 'Inter for body copy')}</p>
-              <button onClick={() => onNavigate('typography')} className="text-[11px] font-semibold text-brand-blue hover:underline flex items-center gap-1">
-                {t('overview.visualSystem.viewFonts', 'View fonts')} <ArrowRight size={12} />
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <BrandSectionHeading icon={HelpCircle} title={t('commonQuestions', 'Common Questions')} />
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[
-              { q: t('faq1q', 'Can I use the brand colors outside the defined palette?'), a: t('faq1a', 'No. Use only the colors defined in the palette. If a color is missing, request an addition — do not invent your own.') },
-              { q: t('faq2q', 'Which font do I use for Arabic content?'), a: t('faq2a', 'Cairo. It pairs with Inter for mixed-direction layouts.') },
-            ].map((item, i) => (
-              <div key={i} className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border/40 p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-out h-[106px] overflow-hidden">
-                <p className="text-[12px] font-bold text-brand-text truncate mb-1">{item.q}</p>
-                <p className="text-[11px] text-brand-text-secondary leading-relaxed line-clamp-2">{item.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQs expanded & Service Areas */}
-      <section className="mb-8 grid grid-cols-1 lg:grid-cols-3 gap-5">
-        <div className="lg:col-span-2">
-          <BrandSectionHeading icon={MessageSquare} title={t('extendedFaqs', 'FAQ Library')} />
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[
-              { q: t('faq3q', 'Can I modify the logo mark?'), a: t('faq3a', 'No. Use only the approved variants shown in the Logo section. Do not rotate, recolor, or add effects.') },
-              { q: t('faq4q', 'Where do I find downloadable assets?'), a: t('faq4a', 'The Asset Library has logos, color tokens, and font references — all ready to copy or download.') }
-            ].map((item, i) => (
-              <div key={i} className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border/40 p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-out">
-                <p className="text-sm font-bold text-brand-text mb-2">{item.q}</p>
-                <p className="text-sm text-brand-text-secondary leading-relaxed text-wrap pretty">{item.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <BrandSectionHeading icon={Palette} title={t('overview.services.heading', 'Service Areas')} />
-          <div className="relative flex flex-col bg-brand-surface border border-brand-whisper-border dark:border-brand-light-border/40 rounded-xl overflow-hidden shadow-sm divide-y divide-brand-whisper-border dark:divide-brand-light-border/20">
-            {brand.services.map((service, idx) => (
-              <div key={service.name} className="flex items-start gap-3 px-4 py-3 hover:bg-brand-blue/[0.02] dark:hover:bg-white/[0.02] transition-colors group">
-                <div className="w-7 h-7 rounded-lg bg-brand-yellow/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <ArrowRight size={12} className="text-brand-yellow transition-transform duration-200 group-hover:translate-x-0.5" />
-                </div>
-                <div>
-                  <p className="text-[12.5px] font-semibold text-brand-text">{t(`services.${idx}.name`, service.name)}</p>
-                  <p className="text-[11.5px] text-brand-text-secondary leading-snug mt-0.5">{t(`services.${idx}.desc`, service.desc)}</p>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
     </BrandPageContent>
