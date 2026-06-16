@@ -2,7 +2,7 @@ import type { LucideIcon } from 'lucide-react'
 import type { ReactNode } from 'react'
 
 const cardShell =
-  'rounded-xl border border-brand-whisper-border dark:border-brand-light-border bg-brand-surface'
+  'rounded-xl border border-brand-whisper-border bg-brand-surface'
 
 const rowHover =
   'transition-colors hover:bg-black/[0.02] dark:hover:bg-white/[0.04] active:bg-black/[0.04] dark:active:bg-white/[0.06]'
@@ -89,7 +89,7 @@ export function BrandInfoBand({
       className={[
         'rounded-lg px-4 py-2.5 mb-5',
         'bg-brand-info-bg dark:bg-brand-navy/30',
-        'border border-brand-whisper-border dark:border-brand-light-border',
+        'border border-brand-whisper-border',
         className,
       ]
         .filter(Boolean)

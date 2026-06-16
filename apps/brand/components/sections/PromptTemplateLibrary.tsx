@@ -182,7 +182,7 @@ export const PromptTemplateLibrary = ({ onPromptGenerated }: PromptTemplateLibra
   const renderTemplateCard = (template: PromptTemplate) => {
     const IconComponent = template.icon
     return (
-      <div key={template.id} className="bg-[#FFFFFF] border border-brand-whisper-border dark:border-brand-light-border rounded-xl p-6 animate-fade-in-up">
+      <div key={template.id} className="bg-brand-surface border border-brand-whisper-border rounded-xl p-6 animate-fade-in-up">
         <div className="flex items-start gap-4 mb-4">
           <div className="w-10 h-10 rounded-lg bg-[#2196F3]/[0.1] flex items-center justify-center flex-shrink-0">
             <IconComponent size={20} className="text-[#2196F3]" />
@@ -207,14 +207,14 @@ export const PromptTemplateLibrary = ({ onPromptGenerated }: PromptTemplateLibra
           </div>
           <div className="flex flex-wrap gap-1.5">
             {template.examples.map((example, idx) => (
-              <span key={idx} className="px-2 py-1 bg-brand-canvas border border-brand-whisper-border dark:border-brand-light-border text-brand-text text-[10px] rounded">
+              <span key={idx} className="px-2 py-1 bg-brand-canvas border border-brand-whisper-border text-brand-text text-[10px] rounded">
                 {example}
               </span>
             ))}
           </div>
         </div>
 
-        <div className="bg-brand-canvas border border-brand-whisper-border dark:border-brand-light-border rounded-lg p-4 mb-4">
+        <div className="bg-brand-canvas border border-brand-whisper-border rounded-lg p-4 mb-4">
           <h4 className="text-[12px] font-semibold text-brand-text mb-2">Prompt Template:</h4>
           <div className="font-mono text-[11px] text-brand-text whitespace-pre-wrap">
             {template.prompt}

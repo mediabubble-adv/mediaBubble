@@ -1,7 +1,7 @@
 import { Layout, BookOpen, Layers, Palette, Type, Shapes, MessageSquare, Square, Grid3X3, Bookmark, FileText, Monitor, Zap, Download, Package, Wand2, TreePine } from 'lucide-react'
 
 export const brand = {
-  name: 'MediaBubble',
+  name: 'mediaBubble',
   tagline: 'Strategic creative that fills rooms and grows brands.',
   description: 'MediaBubble is a marketing and advertising agency based in Hurghada, Egypt. Since 2015, a team of 22+ strategists, designers, and developers has helped brands grow through SEO, branding, web, and paid ads. We measure outcomes, not outputs.',
   services: [
@@ -38,12 +38,12 @@ export const colorFamilies = [
     cssVar: '--color-brand-yellow',
   },
   {
-    name: 'Accent Gold',
-    role: 'Strategic accent for high-end elements, highlights, and secondary gradients',
-    hex: '#E8B506',
-    tones: ['#FFFBEB', '#FEF3C7', '#FDE68A', '#FCD34D', '#E8B506', '#CA8A04', '#A16207', '#854D0E'],
-    usage: 'Sophisticated brand accent. Used for gradient pairings with Yellow, high-value highlights, and hover elevations.',
-    cssVar: '--color-accent-gold',
+    name: 'Mint',
+    role: 'Vibrant accent — premium highlights, success states, and elevated hover details',
+    hex: '#1AD191',
+    tones: ['#F0FDF9', '#CCFBEF', '#99F6E0', '#5EEAD4', '#2DD4BF', '#1AD191', '#0D9067', '#065F46'],
+    usage: 'Mint accent for secondary gradients, high-value highlights, and action state elevations.',
+    cssVar: '--color-accent-mint',
   },
   {
     name: 'Deep Charcoal',
@@ -76,7 +76,6 @@ export const sections = [
   { id: 'spacing', label: 'Spacing & Grid', icon: Grid3X3, group: 'System' },
   { id: 'collateral', label: 'Collateral', icon: FileText, group: 'Application' },
   { id: 'digital', label: 'Digital Assets', icon: Monitor, group: 'Application' },
-  { id: 'real-world-examples', label: 'Case Studies', icon: Zap, group: 'Application' },
   { id: 'assets', label: 'Asset Library', icon: Package, group: 'Application' },
   { id: 'prompts', label: 'Brand AI Prompts', icon: Wand2, group: 'Application' },
 ]

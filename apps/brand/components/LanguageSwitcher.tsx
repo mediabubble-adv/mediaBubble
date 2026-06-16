@@ -54,7 +54,7 @@ const VARIANT_CLASSES: Record<LanguageSwitcherVariant, string> = {
     'active:bg-black/[0.08] dark:active:bg-white/[0.08]',
   ].join(' '),
   outline: [
-    'border border-brand-whisper-border dark:border-brand-light-border',
+    'border border-brand-whisper-border',
     'text-brand-secondary dark:text-brand-text-muted bg-transparent',
     'hover:text-brand-charcoal dark:hover:text-brand-off-white hover:bg-brand-canvas dark:hover:bg-white/[0.04] hover:border-brand-input-border',
     'active:bg-black/[0.04] dark:active:bg-white/[0.06]',

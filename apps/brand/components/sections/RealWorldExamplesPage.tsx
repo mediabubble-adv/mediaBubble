@@ -62,7 +62,7 @@ export function RealWorldExamplesPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
             {/* Before */}
-            <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border overflow-hidden">
+            <div className="bg-brand-surface rounded-xl border border-brand-whisper-border overflow-hidden">
               <div className="bg-red-50 px-5 py-2 border-b border-red-100">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-[#DC2626]" />
@@ -71,7 +71,7 @@ export function RealWorldExamplesPage() {
               </div>
               <div className="p-5">
                 {i === 0 && (
-                  <div className="relative rounded-lg overflow-hidden mb-4 min-h-[120px] bg-[#F9FAFB] border border-brand-whisper-border dark:border-brand-light-border">
+                  <div className="relative rounded-lg overflow-hidden mb-4 min-h-[120px] bg-[#F9FAFB] border border-brand-whisper-border">
                     <img src="/assets/Real-Photos/real-printing-outdoor-01.jpeg" alt="" className="w-full h-full object-cover absolute inset-0 opacity-20" />
                     <div className="relative p-4 flex items-center justify-center min-h-[120px]">
                       <p className="text-[13px] text-brand-muted-steel text-center italic leading-relaxed">{study.before}</p>
@@ -79,7 +79,7 @@ export function RealWorldExamplesPage() {
                   </div>
                 )}
                 {i !== 0 && (
-                  <div className="bg-[#F9FAFB] rounded-lg border border-brand-whisper-border dark:border-brand-light-border p-4 mb-4 min-h-[80px] flex items-center justify-center">
+                  <div className="bg-[#F9FAFB] rounded-lg border border-brand-whisper-border p-4 mb-4 min-h-[80px] flex items-center justify-center">
                     <p className="text-[13px] text-brand-muted-steel text-center italic leading-relaxed">{study.before}</p>
                   </div>
                 )}
@@ -98,7 +98,7 @@ export function RealWorldExamplesPage() {
             </div>
 
             {/* After */}
-            <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border overflow-hidden">
+            <div className="bg-brand-surface rounded-xl border border-brand-whisper-border overflow-hidden">
               <div className="bg-green-50 px-5 py-2 border-b border-green-100">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-[#16A34A]" />
@@ -107,7 +107,7 @@ export function RealWorldExamplesPage() {
               </div>
               <div className="p-5">
                 {i === 2 && (
-                  <div className="relative rounded-lg overflow-hidden mb-4 min-h-[120px] bg-[#F9FAFB] border border-brand-whisper-border dark:border-brand-light-border">
+                  <div className="relative rounded-lg overflow-hidden mb-4 min-h-[120px] bg-[#F9FAFB] border border-brand-whisper-border">
                     <img src="/assets/Real-Photos/IMG-20250706-WA0040.jpg" alt="" className="w-full h-full object-cover absolute inset-0 opacity-20" />
                     <div className="relative p-4 flex items-center justify-center min-h-[120px]">
                       <p className="text-[13px] text-brand-text leading-relaxed">{study.after}</p>

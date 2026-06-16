@@ -260,25 +260,25 @@ export const PromptValidator = ({ prompt }: PromptValidatorProps) => {
   const getScoreColor = (score: number) => {
     if (score >= 90) return 'text-[#16A34A]'
     if (score >= 75) return 'text-[#2196F3]'
-    if (score >= 60) return 'text-[#CA8A04]'
+    if (score >= 60) return 'text-[#1AD191]'
     return 'text-[#DC2626]'
   }
 
   const getScoreBg = (score: number) => {
     if (score >= 90) return 'bg-[#16A34A]/[0.1] border-[#16A34A]'
     if (score >= 75) return 'bg-[#2196F3]/[0.1] border-[#2196F3]'
-    if (score >= 60) return 'bg-[#CA8A04]/[0.1] border-[#CA8A04]'
+    if (score >= 60) return 'bg-[#1AD191]/[0.1] border-[#1AD191]'
     return 'bg-[#DC2626]/[0.1] border-[#DC2626]'
   }
 
   const renderIssue = (issue: ValidationIssue) => {
     const IconComponent = issue.severity === 'error' ? AlertCircle : 
                          issue.severity === 'warning' ? AlertCircle : Info
-    const color = issue.severity === 'error' ? 'text-[#DC2626]' : 
-                  issue.severity === 'warning' ? 'text-[#CA8A04]' : 'text-[#2196F3]'
-    const bg = issue.severity === 'error' ? 'bg-[#FEF2F2] border-[#FECACA]' :
-               issue.severity === 'warning' ? 'bg-[#FFFBEB] border-[#FED7AA]' :
-               'bg-[#EFF6FF] border-[#BFDBFE]'
+    const color = issue.severity === 'error' ? 'text-[#DC2626] dark:text-red-400' : 
+                  issue.severity === 'warning' ? 'text-[#1AD191] dark:text-amber-400' : 'text-[#2196F3] dark:text-blue-400'
+    const bg = issue.severity === 'error' ? 'bg-[#FEF2F2] border-[#FECACA] dark:bg-red-950/20 dark:border-red-500/20' :
+               issue.severity === 'warning' ? 'bg-[#FFFBEB] border-[#FED7AA] dark:bg-amber-950/20 dark:border-amber-500/20' :
+               'bg-[#EFF6FF] border-[#BFDBFE] dark:bg-blue-950/20 dark:border-blue-500/20'
 
     return (
       <div key={issue.message} className={`p-4 rounded-lg border ${bg}`}>
@@ -289,7 +289,7 @@ export const PromptValidator = ({ prompt }: PromptValidatorProps) => {
               {issue.type.charAt(0).toUpperCase() + issue.type.slice(1)} {issue.severity.toUpperCase()}
             </h4>
             <p className="text-[11px] text-brand-text-muted mb-2">{issue.message}</p>
-            <p className="text-[10px] text-[#6B7280]">💡 {issue.suggestion}</p>
+            <p className="text-[10px] text-[#6B7280] dark:text-gray-400">💡 {issue.suggestion}</p>
           </div>
         </div>
       </div>
@@ -325,7 +325,7 @@ export const PromptValidator = ({ prompt }: PromptValidatorProps) => {
   return (
     <div className="space-y-6">
       {/* Score Overview */}
-      <div className={`bg-[#FFFFFF] border-2 rounded-xl p-6 ${getScoreBg(validation.score)}`}>
+      <div className={`bg-brand-surface border-2 rounded-xl p-6 ${getScoreBg(validation.score)}`}>
         <div className="flex items-center justify-between">
           <div>
             <h3 className="text-[16px] font-bold text-brand-text mb-1">Brand Compliance Score</h3>
@@ -366,7 +366,7 @@ export const PromptValidator = ({ prompt }: PromptValidatorProps) => {
           </h3>
           <div className="space-y-2">
             {validation.strengths.map((strength, idx) => (
-              <div key={idx} className="flex items-start gap-2 p-3 bg-[#F0FDF4] border border-[#86EFAC] rounded-lg">
+              <div key={idx} className="flex items-start gap-2 p-3 bg-[#F0FDF4] dark:bg-emerald-950/20 border border-[#86EFAC] dark:border-emerald-500/20 rounded-lg">
                 <CheckCircle size={12} className="text-[#16A34A] mt-0.5 flex-shrink-0" />
                 <span className="text-[11px] text-brand-text">{strength}</span>
               </div>
@@ -384,7 +384,7 @@ export const PromptValidator = ({ prompt }: PromptValidatorProps) => {
           </h3>
           <div className="space-y-2">
             {validation.suggestions.map((suggestion, idx) => (
-              <div key={idx} className="flex items-start gap-2 p-3 bg-[#EFF6FF] border border-[#BFDBFE] rounded-lg">
+              <div key={idx} className="flex items-start gap-2 p-3 bg-[#EFF6FF] dark:bg-blue-950/20 border border-[#BFDBFE] dark:border-blue-500/20 rounded-lg">
                 <Info size={12} className="text-[#2196F3] mt-0.5 flex-shrink-0" />
                 <span className="text-[11px] text-brand-text">{suggestion}</span>
               </div>
@@ -394,7 +394,7 @@ export const PromptValidator = ({ prompt }: PromptValidatorProps) => {
       )}
 
       {/* Compliance Summary */}
-      <div className="bg-brand-canvas border border-brand-whisper-border dark:border-brand-light-border rounded-xl p-6">
+      <div className="bg-brand-canvas border border-brand-whisper-border rounded-xl p-6">
         <h3 className="text-[14px] font-bold text-brand-text mb-3">Brand Compliance Summary</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="text-center">
@@ -404,7 +404,7 @@ export const PromptValidator = ({ prompt }: PromptValidatorProps) => {
             <div className="text-[10px] text-brand-text-muted">Critical Issues</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-[#CA8A04]">
+            <div className="text-2xl font-bold text-[#1AD191]">
               {validation.issues.filter(i => i.severity === 'warning').length}
             </div>
             <div className="text-[10px] text-brand-text-muted">Warnings</div>

@@ -74,7 +74,7 @@ export function IconographyPage() {
         <div className="mb-4">
           <h2 className="text-[13px] font-semibold text-brand-dark-blue">{t('Icon System', 'Icon System')}</h2>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#E8E8E8] rounded-xl overflow-hidden">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-brand-whisper-border rounded-xl overflow-hidden">
           {[
             { label: t('Library', 'Library'), value: t('Lucide React', 'Lucide React') },
             { label: t('Default size', 'Default size'), value: t('24px', '24px') },
@@ -83,7 +83,7 @@ export function IconographyPage() {
           ].map((spec) => (
             <div key={spec.label} className="bg-brand-surface px-5 py-4">
               <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-brand-text-muted">{spec.label}</p>
-              <p className="text-[14px] font-semibold text-brand-dark-blue mt-1">{spec.value}</p>
+              <p className="text-[14px] font-semibold text-brand-text mt-1">{spec.value}</p>
             </div>
           ))}
         </div>
@@ -94,9 +94,9 @@ export function IconographyPage() {
         <div className="mb-4">
           <h2 className="text-[13px] font-semibold text-brand-dark-blue">{t('Size Scale', 'Size Scale')}</h2>
         </div>
-        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border divide-y divide-brand-whisper-border">
+        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border divide-y divide-brand-whisper-border">
           {sizeSteps.map((step) => (
-            <div key={step.px} className="flex items-center gap-5 px-6 py-4 transition-all hover:bg-black/[0.015]">
+            <div key={step.px} className="flex items-center gap-5 px-6 py-4 transition-all hover:bg-black/[0.015] dark:hover:bg-white/[0.02]">
               <div className="w-14 flex items-center justify-center shrink-0">
                 <Settings size={step.px} strokeWidth={1.5} className="text-[#2196F3]" />
               </div>
@@ -121,10 +121,10 @@ export function IconographyPage() {
           {iconCategories.map((cat) => (
             <div
               key={cat.name}
-              className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border overflow-hidden transition-colors duration-150 hover:bg-black/[0.02] dark:hover:bg-white/[0.04]"
+              className="bg-brand-surface rounded-xl border border-brand-whisper-border overflow-hidden transition-colors duration-150 hover:bg-black/[0.02] dark:hover:bg-white/[0.04]"
               style={{ borderTopColor: cat.color, borderTopWidth: '3px' }}
             >
-              <div className="px-5 py-3.5 border-b border-[#F5F5F5]">
+              <div className="px-5 py-3.5 border-b border-brand-whisper-border">
                 <p className="text-[13px] font-semibold" style={{ color: cat.color }}>{cat.name}</p>
               </div>
               <div className="p-5 grid grid-cols-6 gap-3">
@@ -147,7 +147,7 @@ export function IconographyPage() {
         <div className="bg-brand-info-bg dark:bg-brand-navy/30 rounded-lg px-4 py-2.5 mb-5">
           <h2 className="text-[13px] font-semibold text-brand-dark-blue">{t('Color Rules', 'Color Rules')}</h2>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#E8E8E8] rounded-xl overflow-hidden">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-brand-whisper-border rounded-xl overflow-hidden">
           <div className="bg-brand-canvas px-5 py-4">
             <div className="flex items-center gap-1.5 mb-3">
               <div className="w-[18px] h-[18px] rounded-full bg-[#FEE2E2] flex items-center justify-center shrink-0">

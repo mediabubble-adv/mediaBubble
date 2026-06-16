@@ -58,15 +58,15 @@
   }
 
   .dark {
-    --brand-canvas: #0b1220;
-    --brand-surface: #111827;
+    --brand-canvas: #0D0F12;
+    --brand-surface: #121418;
     --brand-off-white: #e5e7eb;
     --brand-text: #e5e7eb;
-    --brand-text-secondary: #94a3b8;
-    --brand-text-muted: #94a3b8;
-    --brand-whisper-border: rgba(255, 255, 255, 0.08);
-    --brand-light-border: rgba(255, 255, 255, 0.06);
-    --brand-input-border: rgba(255, 255, 255, 0.12);
+    --brand-text-secondary: #9E9E9E;
+    --brand-text-muted: #9E9E9E;
+    --brand-whisper-border: #1F2128;
+    --brand-light-border: #121418;
+    --brand-input-border: #2A2D35;
   }
 
   .dark body {

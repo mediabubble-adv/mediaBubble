@@ -37,7 +37,7 @@ export function ImplementationGuidePage() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 stagger-grid">
           {quickStarts.map((qs) => (
-            <div key={qs.step} className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border p-5 pt-[18px]">
+            <div key={qs.step} className="bg-brand-surface rounded-xl border border-brand-whisper-border p-5 pt-[18px]">
               <span className="text-[10px] font-mono text-[#2196F3] font-semibold mb-2 block">{qs.step}</span>
               <h3 className="font-display text-sm font-bold text-brand-text mb-2">{qs.title}</h3>
               <pre className="bg-brand-canvas dark:bg-white/[0.04] rounded-lg p-3 mb-3 overflow-x-auto">
@@ -55,7 +55,7 @@ export function ImplementationGuidePage() {
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2196F3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M4 4h16v16H4z"/><path d="m9 9 6-6"/><path d="m9 15 6 6"/></svg>
           <h2 className="text-[13px] font-semibold text-brand-dark-blue">Tailwind Configuration</h2>
         </div>
-        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border">
+        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border">
           <div className="p-5 sm:p-6 border-b border-[#F0F0F0]">
             <p className="text-[13px] text-brand-muted-steel mb-4">Map brand values to your Tailwind config so every utility class uses the right color and font:</p>
             <pre className="bg-brand-canvas dark:bg-white/[0.04] rounded-lg p-4 overflow-x-auto">
@@ -74,7 +74,7 @@ colors: {
 }`}</code>
             </pre>
           </div>
-          <div className="divide-y divide-brand-whisper-border dark:divide-brand-light-border">
+          <div className="divide-y divide-brand-whisper-border">
             {tailwindTokens.map((t) => (
               <div key={t.token} className="flex items-start gap-4 px-5 sm:px-6 py-3.5">
                 <code className="text-[11px] font-mono text-[#2196F3] w-28 shrink-0 mt-0.5">{t.token}</code>
@@ -91,11 +91,11 @@ colors: {
         <div className="mb-4">
           <h2 className="text-[13px] font-semibold text-brand-dark-blue">Color Reference</h2>
         </div>
-        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border">
+        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border">
           <div className="p-5 sm:p-6 border-b border-[#F0F0F0]">
             <p className="text-[13px] text-brand-muted-steel">Use CSS variables if you need to change colors at runtime. Use Tailwind classes if you want utility helpers. Pick one per project and stay consistent.</p>
           </div>
-          <div className="divide-y divide-brand-whisper-border dark:divide-brand-light-border">
+          <div className="divide-y divide-brand-whisper-border">
             {colorTokens.map((c) => (
               <div key={c.token} className="flex items-center gap-4 px-5 sm:px-6 py-3.5 table-row-hover">
                 <div className="w-8 h-8 rounded-lg shrink-0 ring-1 ring-inset ring-black/[0.06]" style={{ backgroundColor: c.hex }} />
@@ -114,7 +114,7 @@ colors: {
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2196F3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           <h2 className="text-[13px] font-semibold text-brand-dark-blue">Accessibility Checklist</h2>
         </div>
-        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border divide-y divide-brand-whisper-border dark:divide-brand-light-border">
+        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border divide-y divide-brand-whisper-border">
           {[
             { check: 'Color contrast', detail: 'Body text 4.5:1 minimum. Large text 3:1 minimum. Test every foreground/background pair.', done: true },
             { check: 'Focus indicators', detail: 'Every interactive element needs a visible focus ring. Use :focus-visible for keyboard-only outlines.', done: true },

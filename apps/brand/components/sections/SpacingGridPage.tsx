@@ -44,11 +44,11 @@ export function SpacingGridPage() {
         <div className="mb-4">
           <h2 className="text-[13px] font-semibold text-brand-dark-blue">{t('Spacing Scale')}</h2>
         </div>
-        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border overflow-hidden">
+        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border overflow-hidden">
           {spacingScale.map((step, i) => (
             <div
               key={step.token}
-              className={`flex items-center gap-4 px-5 py-3 transition-all hover:bg-black/[0.015] ${i < spacingScale.length - 1 ? 'border-b border-brand-whisper-border dark:border-brand-light-border' : ''}`}
+              className={`flex items-center gap-4 px-5 py-3 transition-all hover:bg-black/[0.015] dark:hover:bg-white/[0.02] ${i < spacingScale.length - 1 ? 'border-b border-brand-whisper-border' : ''}`}
             >
               <div className="w-28 shrink-0 flex items-center">
                 <div className="flex items-center gap-0.5 w-full">
@@ -83,19 +83,19 @@ export function SpacingGridPage() {
         <div className="space-y-4">
           {gridPatterns.map((pattern, pi) => {
             const palette = [
-              { cell: 'bg-[#E3F2FD] border-brand-whisper-border dark:border-brand-light-border', gapCell: 'bg-brand-info-bg dark:bg-brand-navy/30', topBar: 'bg-[#2196F3]' },
-              { cell: 'bg-[#FFF8E1] border-[#FFE082]', gapCell: 'bg-[#FFFDE7]', topBar: 'bg-[#FFC107]' },
-              { cell: 'bg-[#E8F5E9] border-[#A5D6A7]', gapCell: 'bg-[#F1F8E9]', topBar: 'bg-[#4CAF50]' },
-              { cell: 'bg-[#F3E5F5] border-[#CE93D8]', gapCell: 'bg-[#FBEFFA]', topBar: 'bg-[#9C27B0]' },
+              { cell: 'bg-[#E3F2FD] dark:bg-blue-950/20 border border-brand-whisper-border', gapCell: 'bg-brand-info-bg dark:bg-[#1C1E24]', topBar: 'bg-[#2196F3]' },
+              { cell: 'bg-[#FFF8E1] dark:bg-amber-950/20 border border-brand-whisper-border', gapCell: 'bg-[#FFFDE7] dark:bg-brand-canvas', topBar: 'bg-[#FFC107]' },
+              { cell: 'bg-[#E8F5E9] dark:bg-green-950/20 border border-brand-whisper-border', gapCell: 'bg-[#F1F8E9] dark:bg-brand-canvas', topBar: 'bg-[#4CAF50]' },
+              { cell: 'bg-[#F3E5F5] dark:bg-purple-950/20 border border-brand-whisper-border', gapCell: 'bg-[#FBEFFA] dark:bg-brand-canvas', topBar: 'bg-[#9C27B0]' },
             ]
             const p = palette[pi % palette.length]
             return (
-            <div key={pattern.name} className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border overflow-hidden transition-all duration-150 hover:shadow-[0_4px_12px_rgba(0,0,0,0.06)]">
+            <div key={pattern.name} className="bg-brand-surface rounded-xl border border-brand-whisper-border overflow-hidden transition-all duration-150 hover:shadow-[0_4px_12px_rgba(0,0,0,0.06)]">
               <div className={`h-1 ${p.topBar}`} />
-              <div className="flex items-start justify-between px-5 py-3.5 border-b border-[#F5F5F5]">
+              <div className="flex items-start justify-between px-5 py-3.5 border-b border-brand-whisper-border">
                 <div>
-                  <p className="text-[13px] font-semibold text-brand-dark-blue">{pattern.name}</p>
-                  <p className="text-[12px] text-brand-muted-steel mt-0.5">{pattern.use}</p>
+                  <p className="text-[13px] font-semibold text-brand-text">{pattern.name}</p>
+                  <p className="text-[12px] text-brand-text-muted mt-0.5">{pattern.use}</p>
                 </div>
                 <code className="text-[10px] font-mono text-brand-text-muted text-end shrink-0 ms-4 leading-relaxed">
                   {pattern.autoFit ? 'repeat(auto-fit,\nminmax(280px, 1fr))' : `${pattern.cols}\n${pattern.gap}`}
@@ -109,7 +109,7 @@ export function SpacingGridPage() {
                     ))}
                   </div>
                 ) : (
-                  <div className={`grid ${pattern.cols} ${pattern.gap} ${pattern.gap === 'gap-px' ? 'bg-[#E8E8E8] rounded-lg overflow-hidden' : ''}`}>
+                  <div className={`grid ${pattern.cols} ${pattern.gap} ${pattern.gap === 'gap-px' ? 'bg-brand-whisper-border rounded-lg overflow-hidden' : ''}`}>
                     {Array.from({ length: pattern.items }).map((_, i) => (
                       <div key={i} className={`h-10 rounded-lg ${pattern.gap === 'gap-px' ? `${p.gapCell} rounded-none` : p.cell}`} />
                     ))}
@@ -127,10 +127,10 @@ export function SpacingGridPage() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {containerRules.map((r) => (
-            <div key={r.rule} className="bg-brand-canvas dark:bg-white/[0.04] rounded-xl px-4 py-3.5 transition-all hover:bg-[#EEF1F6]">
-              <p className="text-[13px] font-semibold text-brand-dark-blue">{r.rule}</p>
+            <div key={r.rule} className="bg-brand-canvas dark:bg-white/[0.04] rounded-xl px-4 py-3.5 transition-all hover:bg-[#EEF1F6] dark:hover:bg-white/[0.08]">
+              <p className="text-[13px] font-semibold text-brand-text">{r.rule}</p>
               <code className="text-[11px] font-mono text-brand-text font-semibold">{r.value}</code>
-              <p className="text-[11px] text-brand-muted-steel mt-1 leading-snug">{r.note}</p>
+              <p className="text-[11px] text-brand-text-muted mt-1 leading-snug">{r.note}</p>
             </div>
           ))}
         </div>

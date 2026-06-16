@@ -44,10 +44,10 @@ export function LogoPage() {
       <section className="mb-10">
         <div className="flex items-center gap-2.5 mb-4">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2196F3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M12 2L2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-          <h2 className="text-[13px] font-semibold text-brand-dark-blue">{t('Primary Mark')}</h2>
+          <h2 className="text-[13px] font-semibold text-brand-text">{t('Primary Mark')}</h2>
         </div>
-        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border overflow-hidden">
-          <div className="bg-brand-canvas flex flex-col items-center justify-center py-20 gap-8">
+        <div className="bg-brand-surface rounded-xl border border-brand-whisper-border overflow-hidden">
+          <div className="bg-brand-canvas dark:bg-[#121418] flex flex-col items-center justify-center py-20 gap-8">
             <img src="/assets/Logo/mediaBubble_logo_vertical_full_color.svg" alt="MediaBubble logo" className="w-40 h-40" />
             <div className="flex items-center gap-6">
               <img src="/assets/logo.svg" alt="" className="w-20 h-20" />
@@ -56,9 +56,9 @@ export function LogoPage() {
               <img src="/assets/logo.svg" alt="" className="w-6 h-6" />
             </div>
           </div>
-          <div className="border-t border-brand-whisper-border dark:border-brand-light-border px-6 py-5 grid grid-cols-2 sm:grid-cols-4 gap-6">
+          <div className="border-t border-brand-whisper-border px-6 py-5 grid grid-cols-2 sm:grid-cols-4 gap-6">
             {[
-              { label: t('Viewport'), value: '90 × 90', color: '#333333' },
+              { label: t('Viewport'), value: '90 × 90', color: '#888888' },
               { label: t('Primary blue'), value: '#358DCC', color: '#2196F3' },
               { label: t('Accent yellow'), value: '#FFDE11', color: '#FFC107' },
               { label: t('Min height'), value: '24px', color: '#1565C0' },
@@ -75,19 +75,19 @@ export function LogoPage() {
       {/* Background variants */}
       <section className="mb-10">
         <div className="mb-4">
-          <h2 className="text-[13px] font-semibold text-brand-dark-blue">{t('Background Variants')}</h2>
+          <h2 className="text-[13px] font-semibold text-brand-text">{t('Background Variants')}</h2>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {bgVariants.map((v) => (
-            <div key={v.label} className="rounded-xl overflow-hidden border border-brand-whisper-border dark:border-brand-light-border transition-colors hover:bg-black/[0.02]">
+            <div key={v.label} className="rounded-xl overflow-hidden border border-brand-whisper-border transition-colors hover:bg-black/[0.02]">
               <div className="flex items-center justify-center py-8" style={{ backgroundColor: v.bg }}>
                 <img src="/assets/logo.svg" alt="MediaBubble" className="w-12 h-12" style={{ filter: v.filter }} />
               </div>
-              <div className="bg-brand-surface px-3 py-2.5 border-t border-brand-whisper-border dark:border-brand-light-border">
+              <div className="bg-brand-surface px-3 py-2.5 border-t border-brand-whisper-border">
                 <p className="text-[11px] font-semibold text-brand-text leading-tight">{v.label}</p>
                 <div className="flex items-center justify-between mt-1">
                   <div className="flex items-center gap-1">
-                    <span className="w-2 h-2 rounded-full border border-brand-whisper-border dark:border-brand-light-border" style={{ backgroundColor: v.bg }} />
+                    <span className="w-2 h-2 rounded-full border border-brand-whisper-border" style={{ backgroundColor: v.bg }} />
                     <p className="text-[9px] font-mono text-brand-text-muted">{v.bgLabel}</p>
                   </div>
                   {!v.preferred && (
@@ -103,33 +103,57 @@ export function LogoPage() {
       {/* Clear space & sizing */}
       <section className="mb-8">
         <div className="mb-4">
-          <h2 className="text-[13px] font-semibold text-brand-dark-blue">{t('Clear Space & Sizing')}</h2>
+          <h2 className="text-[13px] font-semibold text-brand-text">{t('Clear Space & Sizing')}</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border p-8 flex flex-col items-center justify-center gap-3">
+          <div className="bg-[#07080A] bg-[radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:16px_16px] border border-white/[0.08] rounded-xl p-8 flex flex-col items-center justify-center gap-3 min-h-[260px] shadow-inner relative">
             <div className="relative">
-              <div className="border-2 border-dashed border-[#2196F3]/25 rounded-lg p-8 relative">
-                <img src="/assets/logo.svg" alt="MediaBubble" className="w-20 h-20 relative z-10" />
-                <div className="absolute -top-1 start-1/2 -translate-x-1/2 -translate-y-3">
-                  <div className="flex items-center gap-1">
-                    <div className="h-px w-6 bg-[#2196F3]/40" />
-                    <span className="text-[10px] font-mono text-[#2196F3]/60 whitespace-nowrap">{t('½× logo width')}</span>
-                    <div className="h-px w-6 bg-[#2196F3]/40" />
-                  </div>
+              {/* Outer boundary representing the clear space box */}
+              <div className="border-2 border-dashed border-brand-blue/40 bg-brand-blue/[0.03] rounded-lg p-8 relative">
+                <img src="/assets/logo.svg" alt="MediaBubble" className="w-20 h-20 relative z-10 brightness-0 invert" />
+                
+                {/* Top alignment guideline */}
+                <div className="absolute -top-1 start-1/2 -translate-x-1/2 -translate-y-3 flex items-center gap-1 z-20">
+                  <div className="h-px w-6 bg-brand-blue/50" />
+                  <span className="text-[9px] font-mono font-bold text-brand-blue whitespace-nowrap bg-[#07080A] px-1">½X</span>
+                  <div className="h-px w-6 bg-brand-blue/50" />
+                </div>
+
+                {/* Bottom alignment guideline */}
+                <div className="absolute -bottom-1 start-1/2 -translate-x-1/2 translate-y-3 flex items-center gap-1 z-20">
+                  <div className="h-px w-6 bg-brand-blue/50" />
+                  <span className="text-[9px] font-mono font-bold text-brand-blue whitespace-nowrap bg-[#07080A] px-1">½X</span>
+                  <div className="h-px w-6 bg-brand-blue/50" />
+                </div>
+
+                {/* Left alignment guideline */}
+                <div className="absolute -left-1 top-1/2 -translate-y-1/2 -translate-x-3 flex flex-col items-center gap-1 z-20">
+                  <div className="w-px h-6 bg-brand-blue/50" />
+                  <span className="text-[9px] font-mono font-bold text-brand-blue whitespace-nowrap bg-[#07080A] py-0.5">½X</span>
+                  <div className="w-px h-6 bg-brand-blue/50" />
+                </div>
+
+                {/* Right alignment guideline */}
+                <div className="absolute -right-1 top-1/2 -translate-y-1/2 translate-x-3 flex flex-col items-center gap-1 z-20">
+                  <div className="w-px h-6 bg-brand-blue/50" />
+                  <span className="text-[9px] font-mono font-bold text-brand-blue whitespace-nowrap bg-[#07080A] py-0.5">½X</span>
+                  <div className="w-px h-6 bg-brand-blue/50" />
                 </div>
               </div>
             </div>
-            <p className="text-[11px] text-brand-muted-steel text-center max-w-[22ch] leading-relaxed">{t('Maintain clear space equal to half the logo width on all sides')}</p>
+            <p className="text-[11px] text-brand-blue/80 font-mono text-center max-w-[28ch] leading-relaxed relative z-10 mt-2">
+              {t('Maintain clear space equal to half the logo width (½X) on all sides')}
+            </p>
           </div>
-          <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border divide-y divide-brand-whisper-border">
+          <div className="bg-brand-surface rounded-xl border border-brand-whisper-border divide-y divide-brand-whisper-border">
             {[
-              { size: '24px', use: t('Favicon, micro UI'), w: 'w-6', h: 'h-6', szCls: 'bg-[#9E9E9E]/20 text-brand-text-secondary' },
-              { size: '32px', use: t('Compact header, app icon'), w: 'w-8', h: 'h-8', szCls: 'bg-[#2196F3]/10 text-brand-dark-blue' },
-              { size: '48px', use: t('Desktop sidebar, email'), w: 'w-12', h: 'h-12', szCls: 'bg-[#2196F3]/15 text-brand-dark-blue' },
-              { size: '72px', use: t('Marketing materials'), w: 'w-[72px]', h: 'h-[72px]', szCls: 'bg-brand-dark-blue/10 text-[#072A6B]' },
-              { size: '120px+', use: t('Presentations, print'), w: 'w-[72px]', h: 'h-[72px]', szCls: 'bg-[#072A6B]/10 text-[#072A6B]' },
+              { size: '24px', use: t('Favicon, micro UI'), w: 'w-6', h: 'h-6', szCls: 'bg-brand-canvas text-brand-text-secondary border border-brand-whisper-border' },
+              { size: '32px', use: t('Compact header, app icon'), w: 'w-8', h: 'h-8', szCls: 'bg-[#2196F3]/10 text-[#2196F3]' },
+              { size: '48px', use: t('Desktop sidebar, email'), w: 'w-12', h: 'h-12', szCls: 'bg-[#2196F3]/10 text-[#2196F3]' },
+              { size: '72px', use: t('Marketing materials'), w: 'w-[72px]', h: 'h-[72px]', szCls: 'bg-[#FFC107]/10 text-[#FFC107]' },
+              { size: '120px+', use: t('Presentations, print'), w: 'w-[72px]', h: 'h-[72px]', szCls: 'bg-[#FFC107]/10 text-[#FFC107]' },
             ].map((s) => (
-              <div key={s.size} className="flex items-center gap-5 px-5 py-3 transition-all hover:bg-black/[0.015]">
+              <div key={s.size} className="flex items-center gap-5 px-5 py-3 transition-all hover:bg-black/[0.015] dark:hover:bg-white/[0.02]">
                 <div className="w-20 flex items-center justify-center shrink-0">
                   <img src="/assets/logo.svg" alt="" className={`${s.w} ${s.h}`} />
                 </div>
@@ -138,7 +162,7 @@ export function LogoPage() {
                     <p className="text-[13px] font-semibold text-brand-text">{s.size}</p>
                     <span className={`text-[10px] font-mono font-semibold px-2 py-0.5 rounded-md ${s.szCls}`}>{t('size', 'Min. size')}</span>
                   </div>
-                  <p className="text-[11px] text-brand-muted-steel mt-0.5">{s.use}</p>
+                  <p className="text-[11px] text-brand-text-muted mt-0.5">{s.use}</p>
                 </div>
               </div>
             ))}
@@ -149,13 +173,13 @@ export function LogoPage() {
       {/* Don'ts */}
       <section className="mb-16">
         <div className="mb-4">
-          <h2 className="text-[13px] font-semibold text-brand-dark-blue">{t('Incorrect Usage')}</h2>
+          <h2 className="text-[13px] font-semibold text-brand-text">{t('Incorrect Usage')}</h2>
           <span className="text-[10px] font-mono text-[#DC2626]/60">{t('Never do this — see approved variants above')}</span>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {donts.map((item, i) => (
-            <div key={i} className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border overflow-hidden transition-colors hover:bg-black/[0.02]">
-              <div className="bg-[#FEF2F2] flex items-center justify-center h-28 relative">
+            <div key={i} className="bg-brand-surface rounded-xl border border-brand-whisper-border overflow-hidden transition-colors hover:bg-black/[0.02]">
+              <div className="bg-red-500/[0.03] dark:bg-red-950/10 flex items-center justify-center h-28 relative border-b border-brand-whisper-border">
                 {item.demo}
                 <div className="absolute top-2 end-2 w-5 h-5 rounded-full bg-[#DC2626] flex items-center justify-center shadow-sm">
                   <X size={9} className="text-white" strokeWidth={3} />
