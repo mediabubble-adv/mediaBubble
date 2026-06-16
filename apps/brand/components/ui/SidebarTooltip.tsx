@@ -48,7 +48,7 @@ export function SidebarTooltip({ label, show, rtl = false, children }: SidebarTo
             left: coords.left,
             transform: rtl ? 'translate(-100%, -50%)' : 'translateY(-50%)',
           }}
-          className="pointer-events-none z-[var(--z-tooltip)] whitespace-nowrap rounded-md border border-white/10 bg-[#0D0F12] px-2.5 py-1.5 text-[11px] font-medium text-white shadow-[0_6px_20px_rgba(0,0,0,0.4)]"
+          className="pointer-events-none z-[9999] whitespace-nowrap rounded-md border border-white/10 bg-[#0D0F12] px-2.5 py-1.5 text-[11px] font-medium text-white shadow-[0_6px_20px_rgba(0,0,0,0.4)]"
         >
           {label}
         </span>

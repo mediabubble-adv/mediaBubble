@@ -177,7 +177,7 @@ export const BrandGuidelinesApp = () => {
 
       {/* Desktop sidebar */}
       <aside
-        className={`hidden md:flex flex-col shrink-0 relative sticky top-0 h-screen transition-[width] duration-200 ease-out ${sidebarShell}`}
+        className={`hidden md:flex flex-col shrink-0 relative sticky top-0 h-screen transition-[width] duration-200 ease-out z-30 ${sidebarShell}`}
         style={{ width: `${effectiveWidth}px` }}
         role="navigation"
         aria-label={t('Brand guidelines navigation')}
@@ -335,29 +335,9 @@ export const BrandGuidelinesApp = () => {
         </div>
         </header>
         <main id="main-content" role="main" aria-label={t('Main content')} className="flex-1 overflow-y-auto">
-          {activeTab === 'overview' ? (
-            <div>
-              <PageHero
-                kicker={t('Brand Guidelines')}
-                title={t(brand.tagline)}
-                description={t(brand.description)}
-                showLogo
-                stats={[
-                  { label: t('Founded'), value: '2015' },
-                  { label: t('Team'), value: '22+ people' },
-                  { label: t('Services'), value: '20+ disciplines' },
-                  { label: t('Clients'), value: '200+ brands' },
-                ]}
-              />
-              <div className="px-6 lg:px-10 py-8 lg:py-12 max-w-[1400px] mx-auto animate-fade-in-up">
-                <OverviewBody onNavigate={setActiveTab} />
-              </div>
-            </div>
-          ) : (
-            <div key={activeTab} className="animate-fade-in-up">
-              {renderContent()}
-            </div>
-          )}
+          <div key={activeTab} className="animate-fade-in-up">
+            {renderContent()}
+          </div>
         </main>
       </div>
     </div>

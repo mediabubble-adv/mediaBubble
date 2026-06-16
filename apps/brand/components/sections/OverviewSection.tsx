@@ -241,22 +241,46 @@ export function OverviewBody({ onNavigate }: { onNavigate: (id: string) => void 
                   ))}
                 </div>
                 
-                <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border/10 p-4 min-h-[110px] flex flex-col justify-between">
+                <div className="bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border/10 p-4 min-h-[140px] flex flex-col justify-between">
                   <div>
                     {activeFont === 'poppins' && (
-                      <p className="font-display text-lg sm:text-xl font-extrabold text-brand-navy dark:text-brand-blue tracking-tight leading-snug">
-                        Strategic creative that grows brands.
-                      </p>
+                      <div className="flex flex-col gap-3">
+                        <p className="font-display text-lg sm:text-xl font-extrabold text-brand-navy dark:text-brand-blue tracking-tight leading-snug">
+                          Strategic creative that grows brands.
+                        </p>
+                        <div className="grid grid-cols-2 gap-2 text-[10px] font-mono text-brand-text-secondary bg-brand-canvas dark:bg-black/20 p-2 rounded border border-brand-whisper-border/50 dark:border-brand-light-border/5">
+                          <div>Family: Poppins (EN)</div>
+                          <div>Class: font-display</div>
+                          <div>Weight: 800 (Extra Bold)</div>
+                          <div>Usage: Headings &amp; Hero</div>
+                        </div>
+                      </div>
                     )}
                     {activeFont === 'inter' && (
-                      <p className="font-sans text-sm text-brand-text-secondary leading-relaxed">
-                        MediaBubble is a marketing and advertising agency based in Hurghada, Egypt. Since 2015, we measure outcomes, not outputs.
-                      </p>
+                      <div className="flex flex-col gap-3">
+                        <p className="font-sans text-xs sm:text-sm text-brand-text-secondary leading-relaxed">
+                          MediaBubble is a marketing and advertising agency based in Hurghada, Egypt. Since 2015, we measure outcomes, not outputs.
+                        </p>
+                        <div className="grid grid-cols-2 gap-2 text-[10px] font-mono text-brand-text-secondary bg-brand-canvas dark:bg-black/20 p-2 rounded border border-brand-whisper-border/50 dark:border-brand-light-border/5">
+                          <div>Family: Inter (EN)</div>
+                          <div>Class: font-sans</div>
+                          <div>Weight: 400 (Regular)</div>
+                          <div>Usage: Body &amp; Interface</div>
+                        </div>
+                      </div>
                     )}
                     {activeFont === 'cairo' && (
-                      <p className="font-cairo text-base font-bold text-brand-navy dark:text-brand-blue text-right leading-relaxed" dir="rtl">
-                        إبداع استراتيجي يملأ القاعات وينمي العلامات التجارية.
-                      </p>
+                      <div className="flex flex-col gap-3">
+                        <p className="font-cairo text-sm sm:text-base font-bold text-brand-navy dark:text-brand-blue text-right leading-relaxed" dir="rtl">
+                          إبداع استراتيجي يملأ القاعات وينمي العلامات التجارية.
+                        </p>
+                        <div className="grid grid-cols-2 gap-2 text-[10px] font-mono text-brand-text-secondary bg-brand-canvas dark:bg-black/20 p-2 rounded border border-brand-whisper-border/50 dark:border-brand-light-border/5" dir="ltr">
+                          <div>Family: Cairo (AR)</div>
+                          <div>Class: font-cairo</div>
+                          <div>Weight: 700 (Bold)</div>
+                          <div>Usage: Arabic Copy</div>
+                        </div>
+                      </div>
                     )}
                   </div>
                   
@@ -276,9 +300,11 @@ export function OverviewBody({ onNavigate }: { onNavigate: (id: string) => void 
 
             {activeStep === 2 && (
               <div className="flex flex-col gap-4">
-                <div className="flex flex-wrap items-center gap-3">
+                <div className="flex flex-wrap items-center justify-center gap-4 bg-brand-surface border border-brand-whisper-border dark:border-brand-light-border/10 p-6 rounded-xl relative overflow-hidden shadow-sm">
+                  <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#2196F3 1px, transparent 0)', backgroundSize: '12px 12px' }} />
+                  
                   <button 
-                    className="px-4 py-2 rounded-lg bg-brand-yellow hover:bg-brand-yellow/90 text-brand-navy font-semibold text-xs shadow-sm hover:-translate-y-0.5 transition-all"
+                    className="relative z-10 px-4 py-2 rounded-lg bg-brand-yellow hover:bg-brand-yellow/90 text-brand-navy font-semibold text-xs shadow-sm hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all"
                     onClick={() => {
                       navigator.clipboard.writeText('<button className="px-4 py-2 bg-brand-yellow hover:bg-brand-yellow/90 text-brand-navy font-semibold rounded-lg shadow-sm transition-all">Primary Button</button>')
                       setCopiedCode(true)
@@ -288,7 +314,7 @@ export function OverviewBody({ onNavigate }: { onNavigate: (id: string) => void 
                     Primary CTA
                   </button>
                   <button 
-                    className="px-4 py-2 rounded-lg bg-brand-navy dark:bg-brand-blue text-white font-semibold text-xs shadow-sm hover:-translate-y-0.5 transition-all"
+                    className="relative z-10 px-4 py-2 rounded-lg bg-brand-navy dark:bg-brand-blue text-white font-semibold text-xs shadow-sm hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all"
                     onClick={() => {
                       navigator.clipboard.writeText('<button className="px-4 py-2 bg-brand-navy dark:bg-brand-blue text-white font-semibold rounded-lg shadow-sm transition-all">Secondary Button</button>')
                       setCopiedCode(true)
@@ -298,7 +324,7 @@ export function OverviewBody({ onNavigate }: { onNavigate: (id: string) => void 
                     Secondary CTA
                   </button>
                   <button 
-                    className="px-4 py-2 rounded-lg border border-brand-whisper-border dark:border-brand-light-border/40 hover:bg-brand-blue/[0.04] dark:hover:bg-white/[0.04] text-brand-text font-semibold text-xs hover:-translate-y-0.5 transition-all"
+                    className="relative z-10 px-4 py-2 rounded-lg border border-brand-whisper-border dark:border-brand-light-border/40 hover:bg-brand-blue/[0.04] dark:hover:bg-white/[0.04] text-brand-text font-semibold text-xs hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] transition-all"
                     onClick={() => {
                       navigator.clipboard.writeText('<button className="px-4 py-2 border border-brand-whisper-border dark:border-brand-light-border/40 hover:bg-brand-blue/[0.04] text-brand-text font-semibold rounded-lg transition-all">Outline Button</button>')
                       setCopiedCode(true)
@@ -309,7 +335,7 @@ export function OverviewBody({ onNavigate }: { onNavigate: (id: string) => void 
                   </button>
                 </div>
                 
-                <div className="relative bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border/10 p-4 flex flex-col gap-2 min-h-[90px] justify-between overflow-hidden">
+                <div className="relative bg-brand-surface rounded-xl border border-brand-whisper-border dark:border-brand-light-border/10 p-4 flex flex-col gap-2 min-h-[90px] justify-between overflow-hidden shadow-sm">
                   {copiedCode && (
                     <div className="absolute inset-0 bg-black/85 backdrop-blur-[1px] flex flex-col items-center justify-center text-center p-1 rounded-xl animate-fade-in">
                       <Check className="text-brand-yellow mb-1" size={18} />
@@ -363,9 +389,9 @@ export function OverviewBody({ onNavigate }: { onNavigate: (id: string) => void 
               <button
                 key={card.id}
                 onClick={() => onNavigate(card.id)}
-                className={`${brandDocCardShell} p-4 text-start transition-all duration-300 ease-out hover:shadow-md hover:-translate-y-0.5 active:scale-[0.97] border border-brand-whisper-border dark:border-brand-light-border/40 group`}
+                className={`${brandDocCardShell} p-4 text-start transition-all duration-300 ease-out hover:shadow-md hover:-translate-y-1 active:scale-[0.97] border border-brand-whisper-border dark:border-brand-light-border/40 group`}
               >
-                <div className={`w-9 h-9 rounded-lg flex items-center justify-center mb-3 transition-colors ${card.color}`}>
+                <div className={`w-9 h-9 rounded-lg flex items-center justify-center mb-3 transition-all duration-300 group-hover:scale-110 ${card.color}`}>
                   <IconComp size={18} strokeWidth={1.5} />
                 </div>
                 <p className="text-[13px] font-semibold text-brand-text leading-tight mb-1 group-hover:text-brand-blue transition-colors">{card.label}</p>
@@ -418,12 +444,12 @@ export function OverviewBody({ onNavigate }: { onNavigate: (id: string) => void 
         <BrandSectionHeading icon={Shapes} title={t('overview.pillars.heading', 'Brand Pillars')} />
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 stagger-grid">
           {[
-            { nameKey: 'creative', name: t('pillars.creative.name', 'Creative'), def: t('pillars.creative.def', 'Ideas with a point of view. Not decoration, not trend-following — work that earns attention because it earns trust.'), color: 'bg-brand-yellow', icon: '/assets/elements/icon-star-01.png' },
-            { nameKey: 'strategic', name: t('pillars.strategic.name', 'Strategic'), def: t('pillars.strategic.def', 'Every decision traces back to a goal. We align visual choices, copy, and media to what the client is actually trying to achieve.'), color: 'bg-brand-blue', icon: '/assets/elements/icon-star-02.png' },
-            { nameKey: 'dataDriven', name: t('pillars.dataDriven.name', 'Data-Driven'), def: t('pillars.dataDriven.def', 'Numbers inform, not decide. We read performance data, test hypotheses, and improve — creative judgment stays in the loop, not out of it.'), color: 'bg-brand-navy dark:bg-brand-blue', icon: '/assets/elements/icon-star-02.png' },
+            { nameKey: 'creative', name: t('pillars.creative.name', 'Creative'), def: t('pillars.creative.def', 'Ideas with a point of view. Not decoration, not trend-following — work that earns attention because it earns trust.'), color: 'from-brand-yellow to-accent-gold', icon: '/assets/elements/icon-star-01.png' },
+            { nameKey: 'strategic', name: t('pillars.strategic.name', 'Strategic'), def: t('pillars.strategic.def', 'Every decision traces back to a goal. We align visual choices, copy, and media to what the client is actually trying to achieve.'), color: 'from-brand-blue to-brand-navy', icon: '/assets/elements/icon-star-02.png' },
+            { nameKey: 'dataDriven', name: t('pillars.dataDriven.name', 'Data-Driven'), def: t('pillars.dataDriven.def', 'Numbers inform, not decide. We read performance data, test hypotheses, and improve — creative judgment stays in the loop, not out of it.'), color: 'from-brand-navy dark:from-brand-blue to-brand-blue dark:to-brand-navy', icon: '/assets/elements/icon-star-02.png' },
           ].map((p) => (
-            <div key={p.nameKey} className={`${brandDocCardShell} overflow-hidden border border-brand-whisper-border dark:border-brand-light-border/40 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-out`}>
-              <div className={`h-1 ${p.color}`} />
+            <div key={p.nameKey} className={`${brandDocCardShell} overflow-hidden border border-brand-whisper-border dark:border-brand-light-border/40 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 ease-out`}>
+              <div className={`h-1 bg-gradient-to-r ${p.color}`} />
               <div className="p-5">
                 <div className="flex items-center gap-2 mb-2">
                   <img src={p.icon} alt="" className="w-5 h-5" />
@@ -502,9 +528,9 @@ export function OverviewBody({ onNavigate }: { onNavigate: (id: string) => void 
           <BrandSectionHeading icon={Palette} title={t('overview.services.heading', 'Service Areas')} />
           <div className="relative flex flex-col bg-brand-surface border border-brand-whisper-border dark:border-brand-light-border/40 rounded-xl overflow-hidden shadow-sm divide-y divide-brand-whisper-border dark:divide-brand-light-border/20">
             {brand.services.map((service, idx) => (
-              <div key={service.name} className="flex items-start gap-3 px-4 py-3 hover:bg-black/[0.01] dark:hover:bg-white/[0.02] transition-colors">
+              <div key={service.name} className="flex items-start gap-3 px-4 py-3 hover:bg-brand-blue/[0.02] dark:hover:bg-white/[0.02] transition-colors group">
                 <div className="w-7 h-7 rounded-lg bg-brand-yellow/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <ArrowRight size={12} className="text-brand-yellow" />
+                  <ArrowRight size={12} className="text-brand-yellow transition-transform duration-200 group-hover:translate-x-0.5" />
                 </div>
                 <div>
                   <p className="text-[12.5px] font-semibold text-brand-text">{t(`services.${idx}.name`, service.name)}</p>
