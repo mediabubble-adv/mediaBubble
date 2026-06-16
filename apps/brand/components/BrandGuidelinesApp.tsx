@@ -11,7 +11,6 @@ import { SidebarTooltip } from './ui/SidebarTooltip'
 
 import { OverviewSection, OverviewBody } from './sections/OverviewSection'
 import { PageHero } from './sections/PageHero'
-import { GettingStartedPage } from './sections/GettingStartedPage'
 import { LogoPage } from './sections/LogoPage'
 import { ColorsPage } from './sections/ColorsPage'
 import { TypographyPage } from './sections/TypographyPage'
@@ -81,7 +80,6 @@ export const BrandGuidelinesApp = () => {
 
   const renderContent = () => {
     switch (activeTab) {
-      case 'getting-started': return <GettingStartedPage onNavigate={setActiveTab} />
       case 'logo': return <LogoPage />
       case 'colors': return <ColorsPage onCopy={copyToClipboard} copiedId={copiedId} />
       case 'typography': return <TypographyPage />

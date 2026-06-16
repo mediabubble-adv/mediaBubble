@@ -2,11 +2,5 @@
   "buildCommand": "next build",
   "outputDirectory": ".next",
   "devCommand": "next dev",
-  "framework": "nextjs",
-  "env": {
-    "NEXT_PUBLIC_SITE_URL": {
-      "description": "The production URL for the site",
-      "required": false
-    }
-  }
+  "framework": "nextjs"
 }
