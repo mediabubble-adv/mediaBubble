@@ -13,6 +13,13 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "preview"],
       "port": 3000
+    },
+    {
+      "name": "Brand Dev Server",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev:brand"],
+      "port": 3002,
+      "autoPort": false
     }
   ]
 }
