@@ -85,6 +85,11 @@
     "@next/eslint-plugin-next": {
       "glob": "10.5.0"
     },
-    "js-yaml": "4.2.0"
+    "js-yaml": "4.2.0",
+    "http-proxy-middleware": "3.0.7",
+    "webpack-dev-server": {
+      "http-proxy-middleware": "2.0.9"
+    },
+    "tmp": "0.2.7"
   }
 }
