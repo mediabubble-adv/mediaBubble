@@ -81,7 +81,7 @@ export const PromptsPage = () => {
             </div>
             <button
               onClick={copyPromptToClipboard}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#2196F3] text-white text-[12px] font-medium hover:bg-[#1976D2] transition-colors"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#2196F3] text-white text-[12px] font-bold hover:bg-[#1565C0] active:scale-95 transition-all duration-150"
             >
               {copied ? (
                 <>
@@ -111,10 +111,10 @@ export const PromptsPage = () => {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-[13px] font-medium transition-all duration-200 ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-[13px] font-bold transition-all duration-150 active:scale-95 ${
                 isActive
-                  ? 'bg-[#FFC107]/[0.1] text-brand-text shadow-[inset_0_0_0_1px_rgba(255,193,7,0.12)]'
-                  : 'text-brand-text-muted hover:text-brand-text hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
+                  ? 'bg-[#FFC107]/[0.12] text-brand-text shadow-[inset_0_0_0_1px_rgba(255,193,7,0.2)]'
+                  : 'text-brand-text-muted hover:text-brand-text hover:bg-black/[0.02] dark:hover:bg-white/[0.06]'
               }`}
             >
               <IconComponent size={14} />

@@ -14,23 +14,23 @@ export function RealWorldExamplesPage() {
       improvements: [
         t('Replaced Arial with Inter font family'),
         t('Added 2px #2196F3 divider between logo and contact block'),
-        t('Applied #2196F3 → #072A6B gradient footer bar'),
+        t('Applied #2196F3 → #1565C0 gradient footer bar'),
         t('Used #333333 for body text, #666666 for labels'),
       ],
-      tokens: ['Inter', '#2196F3', '#072A6B', '#333333'],
+      tokens: ['Inter', '#2196F3', '#1565C0', '#333333'],
     },
     {
       title: t('Social Media Template'),
       subtitle: t('Matching look and feel on every social platform'),
       before: t('Each platform had its own color treatment. Instagram used a warm filter, LinkedIn used a blue gradient, Twitter had no consistent treatment. The brand appeared fragmented.'),
-      after: t('A unified template system across all social platforms. Brand Yellow used for the accent bar at the bottom, brand blue for the headline text, and a consistent #072A6B top section. Logo locked to the top-left.'),
+      after: t('A unified template system across all social platforms. Brand Yellow used for the accent bar at the bottom, brand blue for the headline text, and a consistent #1565C0 top section. Logo locked to the top-left.'),
       improvements: [
-        t('Unified top banner color to #072A6B across all platforms'),
+        t('Unified top banner color to #1565C0 across all platforms'),
         t('Added consistent #FFC107 accent bar at base'),
         t('Standardized headline in Poppins Bold, body in Inter'),
         t('Locked logo position — top-left on every asset'),
       ],
-      tokens: ['#072A6B', '#FFC107', '#2196F3', 'Poppins', 'Inter'],
+      tokens: ['#1565C0', '#FFC107', '#2196F3', 'Poppins', 'Inter'],
     },
     {
       title: t('Presentation Template'),
@@ -41,9 +41,9 @@ export function RealWorldExamplesPage() {
         t('Applied Poppins Bold for all slide titles at consistent size'),
         t('Introduced Inter for body copy across all slides'),
         t('Added #FFC107 accent line as section divider on title slides'),
-        t('Deep blue (#072A6B) footer bar on every slide template'),
+        t('Deep blue (#1565C0) footer bar on every slide template'),
       ],
-      tokens: ['Poppins', 'Inter', '#FFC107', '#072A6B'],
+      tokens: ['Poppins', 'Inter', '#FFC107', '#1565C0'],
     },
   ]
 

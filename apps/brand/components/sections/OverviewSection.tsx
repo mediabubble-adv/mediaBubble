@@ -34,7 +34,7 @@ export function OverviewBody({ onNavigate }: { onNavigate: (id: string) => void 
 
   const [activeStep, setActiveStep] = useState(0)
   const [copiedColor, setCopiedColor] = useState<string | null>(null)
-  const [activeFont, setActiveFont] = useState<'poppins' | 'inter' | 'cairo'>('poppins')
+  const [activeFont, setActiveFont] = useState<'poppins' | 'inter' | 'arabic'>('poppins')
   const [copiedCode, setCopiedCode] = useState<string | null>(null)
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
 
@@ -179,17 +179,19 @@ export function OverviewBody({ onNavigate }: { onNavigate: (id: string) => void 
           </div>
 
           {/* Right Side: Showcase Preview Canvas */}
-          <div className="flex-[2] bg-brand-canvas dark:bg-[#090d16] p-6 sm:p-8 flex flex-col justify-center min-h-[300px]">
+          <div className={`flex-[2] bg-brand-canvas dark:bg-[#090d16] flex flex-col justify-stretch min-h-[360px] lg:min-h-full ${
+            activeStep === 0 ? 'p-0' : 'p-6 sm:p-8'
+          }`}>
             
             {/* PANEL 01: COLOR INTERACTIVES */}
             {activeStep === 0 && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+              <div className="flex flex-col lg:flex-row h-full min-h-[360px] lg:min-h-full w-full gap-0 items-stretch">
                 {[
                   { name: 'Brand Blue', hex: '#2196F3', token: 'colors.brand-blue', usage: 'Primary Links & Focus states', isDark: true },
                   { name: 'Dark Blue', hex: '#1565C0', token: 'colors.dark-blue', usage: 'Headings & Container backdrops', isDark: true },
-                  { name: 'Yellow', hex: '#FFC107', token: 'colors.brand-yellow', usage: 'Primary CTA Highlights', isDark: false },
+                  { name: 'Brand Yellow', hex: '#FFC107', token: 'colors.brand-yellow', usage: 'Primary CTA Highlights', isDark: false },
                   { name: 'Mint', hex: '#1AD191', token: 'colors.accent-gold', usage: 'Secondary Premium Details', isDark: false },
-                  { name: 'Charcoal', hex: '#0D0F12', token: 'colors.deep-charcoal', usage: 'Obsidian Canvas Fills', isDark: true },
+                  { name: 'Deep Charcoal', hex: '#0D0F12', token: 'colors.deep-charcoal', usage: 'Obsidian Canvas Fills', isDark: true },
                 ].map((c) => (
                   <button
                     key={c.hex}
@@ -198,7 +200,7 @@ export function OverviewBody({ onNavigate }: { onNavigate: (id: string) => void 
                       setCopiedColor(c.hex)
                       setTimeout(() => setCopiedColor(null), 2000)
                     }}
-                    className="relative aspect-square rounded-xl p-4 flex flex-col justify-between text-start border border-brand-whisper-border transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] group shadow-sm overflow-hidden"
+                    className="relative flex-1 flex flex-col justify-between text-start p-5 sm:p-6 transition-all duration-300 hover:flex-[1.3] active:scale-[0.98] group overflow-hidden focus:outline-none"
                     style={{ backgroundColor: c.hex }}
                   >
                     {copiedColor === c.hex && (
@@ -230,7 +232,7 @@ export function OverviewBody({ onNavigate }: { onNavigate: (id: string) => void 
                   {[
                     { id: 'poppins', label: 'Poppins (Display Heading)' },
                     { id: 'inter', label: 'Inter (Body Text)' },
-                    { id: 'cairo', label: 'Cairo (Arabic System)' },
+                    { id: 'arabic', label: 'Cairo (Arabic System)' },
                   ].map((f) => (
                     <button
                       key={f.id}
@@ -247,14 +249,20 @@ export function OverviewBody({ onNavigate }: { onNavigate: (id: string) => void 
                 </div>
                 
                 {/* Visual Spec Box */}
-                <div className="bg-brand-surface rounded-xl border border-brand-whisper-border p-5 min-h-[160px] flex flex-col justify-between shadow-sm">
+                <div className="bg-brand-surface rounded-xl border border-brand-whisper-border p-6 sm:p-8 min-h-[220px] flex flex-col justify-between shadow-sm">
                   <div>
                     {activeFont === 'poppins' && (
-                      <div className="flex flex-col gap-4 animate-fade-in">
-                        <p className="font-display text-2xl font-bold text-brand-text tracking-tight leading-snug">
-                          Strategic creative that grows brands.
-                        </p>
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-[10px] font-mono text-brand-text-secondary bg-brand-canvas dark:bg-black/20 p-3 rounded-lg border border-brand-whisper-border">
+                      <div className="flex flex-col gap-5 animate-fade-in">
+                        <div className="space-y-2">
+                          <span className="text-[10px] uppercase tracking-[0.18em] font-bold text-brand-blue block">Kicker Eyebrow</span>
+                          <h4 className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-text tracking-tight leading-tight">
+                            We build digital platforms that drive actual business growth.
+                          </h4>
+                          <p className="text-[13px] text-brand-text-secondary leading-relaxed max-w-[65ch]">
+                            Poppins is our display typeface. Optimized for high impact at display weights with tight letter tracking for editorial boldness.
+                          </p>
+                        </div>
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-[11px] font-mono text-brand-text-secondary bg-brand-canvas dark:bg-black/20 p-4 rounded-lg border border-brand-whisper-border">
                           <div>Family: Poppins (EN)</div>
                           <div>Class: font-display</div>
                           <div>Weight: 700 (Bold)</div>
@@ -263,26 +271,36 @@ export function OverviewBody({ onNavigate }: { onNavigate: (id: string) => void 
                       </div>
                     )}
                     {activeFont === 'inter' && (
-                      <div className="flex flex-col gap-4 animate-fade-in">
-                        <p className="font-sans text-sm text-brand-text-secondary leading-relaxed">
-                          MediaBubble is a marketing and advertising agency based in Hurghada, Egypt. Since 2015, we measure business outcomes, not just campaign outputs.
-                        </p>
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-[10px] font-mono text-brand-text-secondary bg-brand-canvas dark:bg-black/20 p-3 rounded-lg border border-brand-whisper-border">
+                      <div className="flex flex-col gap-5 animate-fade-in">
+                        <div className="space-y-3">
+                          <h4 className="font-sans text-lg font-bold text-brand-text">
+                            Clear readability at any text scale or screen resolution.
+                          </h4>
+                          <p className="font-sans text-sm sm:text-base text-brand-text-secondary leading-relaxed max-w-[68ch]">
+                            Inter handles our body prose, technical specs, dashboard labels, and UI metadata. Optimized for reading comfort, clear spacing, and high legibility.
+                          </p>
+                        </div>
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-[11px] font-mono text-brand-text-secondary bg-brand-canvas dark:bg-black/20 p-4 rounded-lg border border-brand-whisper-border">
                           <div>Family: Inter (EN)</div>
                           <div>Class: font-sans</div>
                           <div>Weight: 400 (Regular)</div>
-                          <div>Line-height: 1.6</div>
+                          <div>Line-height: 1.65</div>
                         </div>
                       </div>
                     )}
-                    {activeFont === 'cairo' && (
-                      <div className="flex flex-col gap-4 animate-fade-in" dir="rtl">
-                        <p className="font-cairo text-lg font-bold text-brand-blue leading-relaxed text-right">
-                          إبداع استراتيجي يملأ القاعات وينمي العلامات التجارية.
-                        </p>
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-[10px] font-mono text-brand-text-secondary bg-brand-canvas dark:bg-black/20 p-3 rounded-lg border border-brand-whisper-border text-left" dir="ltr">
+                    {activeFont === 'arabic' && (
+                      <div className="flex flex-col gap-5 animate-fade-in" dir="rtl">
+                        <div className="space-y-3 text-right">
+                          <h4 className="font-arabic text-xl sm:text-2xl lg:text-3xl font-extrabold text-brand-blue leading-relaxed">
+                            نقوم بتصميم منصات رقمية إبداعية تحقق نتائج ملموسة.
+                          </h4>
+                          <p className="font-arabic text-sm sm:text-base text-brand-text-secondary leading-relaxed max-w-[68ch]">
+                            خط كيرو (Cairo) هو الخط الأساسي للمحتوى العربي. نستخدمه للعناوين الكبيرة والنصوص والواجهات ثنائية اللغة لضمان تجربة تصفح مثالية وانسيابية.
+                          </p>
+                        </div>
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-[11px] font-mono text-brand-text-secondary bg-brand-canvas dark:bg-black/20 p-4 rounded-lg border border-brand-whisper-border text-left" dir="ltr">
                           <div>Family: Cairo (AR)</div>
-                          <div>Class: font-cairo</div>
+                          <div>Class: font-arabic</div>
                           <div>Weight: 700 (Bold)</div>
                           <div>Dir: rtl</div>
                         </div>
@@ -290,7 +308,7 @@ export function OverviewBody({ onNavigate }: { onNavigate: (id: string) => void 
                     )}
                   </div>
                   
-                  <div className="mt-4 pt-3 border-t border-brand-whisper-border flex items-center justify-between text-[10px] font-mono text-brand-text-muted">
+                  <div className="mt-6 pt-4 border-t border-brand-whisper-border flex items-center justify-between text-[11px] font-mono text-brand-text-muted">
                     <span>Active Class: font-{activeFont}</span>
                     <span className="uppercase font-bold text-[#FFC107]">{activeFont} System</span>
                   </div>
@@ -300,49 +318,49 @@ export function OverviewBody({ onNavigate }: { onNavigate: (id: string) => void 
 
             {/* PANEL 03: INTERACTIVE COMPONENTS CANVAS */}
             {activeStep === 2 && (
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-5">
                 {/* Dotted Blueprint Canvas */}
-                <div className="bg-[#07080A] bg-[radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:16px_16px] border border-white/[0.08] p-8 rounded-xl flex flex-wrap items-center justify-center gap-5 relative overflow-hidden shadow-inner">
+                <div className="bg-[#07080A] bg-[radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:16px_16px] border border-white/[0.08] p-10 sm:p-12 rounded-xl flex flex-wrap items-center justify-center gap-6 relative overflow-hidden shadow-inner">
                   
                   <button 
-                    className="relative z-10 px-4 py-2.5 rounded-lg bg-[#FFC107] hover:bg-[#FFC107]/90 text-[#0D0F12] font-bold text-xs shadow-sm hover:-translate-y-0.5 active:translate-y-0 transition-all font-sans"
-                    onClick={() => copyText('<button className="px-4 py-2.5 bg-brand-yellow hover:bg-brand-yellow/90 text-brand-navy font-bold rounded-lg transition-all text-xs">Primary CTA</button>', 'primary')}
+                    className="relative z-10 px-6 py-3.5 rounded-lg bg-[#FFC107] hover:bg-[#FFC107]/90 text-[#0D0F12] font-black text-xs sm:text-sm shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all font-sans"
+                    onClick={() => copyText('<button className="px-6 py-3.5 bg-brand-yellow hover:bg-brand-yellow/90 text-brand-navy font-bold rounded-lg transition-all text-sm">Primary CTA</button>', 'primary')}
                   >
                     Primary Button
                   </button>
                   
                   <button 
-                    className="relative z-10 px-4 py-2.5 rounded-lg bg-[#1565C0] hover:bg-[#1565C0]/90 text-white font-bold text-xs shadow-sm hover:-translate-y-0.5 active:translate-y-0 transition-all font-sans"
-                    onClick={() => copyText('<button className="px-4 py-2.5 bg-brand-navy dark:bg-brand-blue text-white font-bold rounded-lg transition-all text-xs">Secondary CTA</button>', 'secondary')}
+                    className="relative z-10 px-6 py-3.5 rounded-lg bg-[#1565C0] hover:bg-[#1565C0]/90 text-white font-black text-xs sm:text-sm shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all font-sans"
+                    onClick={() => copyText('<button className="px-6 py-3.5 bg-brand-navy dark:bg-brand-blue text-white font-bold rounded-lg transition-all text-sm">Secondary CTA</button>', 'secondary')}
                   >
                     Secondary Button
                   </button>
                   
                   <button 
-                    className="relative z-10 px-4 py-2.5 rounded-lg border border-white/20 hover:bg-white/5 text-white font-bold text-xs hover:-translate-y-0.5 active:translate-y-0 transition-all font-sans"
-                    onClick={() => copyText('<button className="px-4 py-2.5 border border-brand-whisper-border hover:bg-brand-blue/[0.04] text-brand-text font-bold rounded-lg transition-all text-xs">Outline CTA</button>', 'outline')}
+                    className="relative z-10 px-6 py-3.5 rounded-lg border border-white/20 hover:bg-white/5 text-white font-black text-xs sm:text-sm hover:-translate-y-0.5 active:translate-y-0 transition-all font-sans"
+                    onClick={() => copyText('<button className="px-6 py-3.5 border border-brand-whisper-border hover:bg-brand-blue/[0.04] text-brand-text font-bold rounded-lg transition-all text-sm">Outline CTA</button>', 'outline')}
                   >
                     Outline Button
                   </button>
                 </div>
                 
                 {/* JSX Code Showcase */}
-                <div className="relative bg-brand-surface rounded-xl border border-brand-whisper-border p-4 flex flex-col gap-2 shadow-sm min-h-[90px] justify-between">
+                <div className="relative bg-brand-surface rounded-xl border border-brand-whisper-border p-5 sm:p-6 flex flex-col gap-3 shadow-sm min-h-[110px] justify-between">
                   {copiedCode && (
                     <div className="absolute inset-0 bg-black/90 backdrop-blur-[1px] flex flex-col items-center justify-center text-center p-2 rounded-xl animate-fade-in z-25">
                       <Check className="text-[#FFC107] mb-1" size={16} />
-                      <span className="text-[10px] font-bold text-white uppercase tracking-wider">{copiedCode.toUpperCase()} JSX Code Copied!</span>
+                      <span className="text-[11px] font-bold text-white uppercase tracking-wider">{copiedCode.toUpperCase()} JSX Code Copied!</span>
                     </div>
                   )}
                   <div className="flex items-center justify-between">
-                    <p className="text-[11px] font-semibold text-brand-text-muted">{t('clickBtnToCopyCode', 'Click any button component to copy its React JSX code:')}</p>
-                    <Code size={12} className="text-brand-text-muted" />
+                    <p className="text-[12px] font-bold text-brand-text-muted">{t('clickBtnToCopyCode', 'Click any button component to copy its React JSX code:')}</p>
+                    <Code size={13} className="text-brand-text-muted" />
                   </div>
-                  <div className="bg-brand-canvas dark:bg-[#05080e] p-2.5 rounded-lg border border-brand-whisper-border">
-                    <code className="text-[10.5px] font-mono text-brand-blue leading-snug break-all block">
-                      {copiedCode === 'primary' && '<button className="px-4 py-2.5 bg-[#FFC107] text-[#0D0F12] font-bold rounded-lg">Primary</button>'}
-                      {copiedCode === 'secondary' && '<button className="px-4 py-2.5 bg-[#1565C0] text-white font-bold rounded-lg">Secondary</button>'}
-                      {copiedCode === 'outline' && '<button className="px-4 py-2.5 border border-white/20 text-white font-bold rounded-lg">Outline</button>'}
+                  <div className="bg-brand-canvas dark:bg-[#05080e] p-3 rounded-lg border border-brand-whisper-border">
+                    <code className="text-[11.5px] font-mono text-brand-blue leading-snug break-all block">
+                      {copiedCode === 'primary' && '<button className="px-6 py-3.5 bg-[#FFC107] text-[#0D0F12] font-bold rounded-lg">Primary</button>'}
+                      {copiedCode === 'secondary' && '<button className="px-6 py-3.5 bg-[#1565C0] text-white font-bold rounded-lg">Secondary</button>'}
+                      {copiedCode === 'outline' && '<button className="px-6 py-3.5 border border-white/20 text-white font-bold rounded-lg">Outline</button>'}
                       {!copiedCode && '<button className="bg-brand-yellow hover:bg-brand-yellow/90 text-brand-navy ... />'}
                     </code>
                   </div>
@@ -352,32 +370,54 @@ export function OverviewBody({ onNavigate }: { onNavigate: (id: string) => void 
 
             {/* PANEL 04: VOICE COMPARISON */}
             {activeStep === 3 && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 h-full items-stretch">
                 {/* Do Card */}
-                <div className="bg-emerald-500/5 dark:bg-emerald-500/10 border border-emerald-500/20 dark:border-emerald-500/30 rounded-xl p-5 flex flex-col gap-2.5 shadow-sm transition-all hover:scale-[1.01]">
+                <div className="bg-emerald-500/5 dark:bg-emerald-500/10 border border-emerald-500/20 dark:border-emerald-500/30 rounded-xl p-6 sm:p-8 flex flex-col justify-between gap-5 shadow-sm transition-all hover:scale-[1.01]">
                   <div className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400">
-                    <Check size={14} className="stroke-[3]" />
-                    <span className="text-[10px] font-bold uppercase tracking-wider">{t('voiceDo', 'DO: Strategic Allied Voice')}</span>
+                    <Check size={15} className="stroke-[3]" />
+                    <span className="text-[11px] font-bold uppercase tracking-wider">{t('voiceDo', 'DO: Outcomes & Actions')}</span>
                   </div>
-                  <p className="text-xs text-brand-text leading-relaxed font-semibold">
-                    &quot;We audit your current SEO profile, optimize target keywords, and build clean landing pages to drive direct leads.&quot;
-                  </p>
-                  <p className="text-[9.5px] text-emerald-600/70 dark:text-emerald-400/70 italic">
-                    Reason: Outcomes-driven, concrete verbs, no empty metrics.
+                  <div className="space-y-3.5">
+                    <div className="space-y-1">
+                      <span className="text-[9px] uppercase tracking-wider text-brand-text-muted font-bold block">Marketing Headline</span>
+                      <p className="text-sm sm:text-[14.5px] text-brand-text leading-relaxed font-semibold text-start">
+                        &quot;Hurghada&apos;s outcome-driven marketing agency. We build pages that capture direct leads.&quot;
+                      </p>
+                    </div>
+                    <div className="space-y-1 text-start">
+                      <span className="text-[9px] uppercase tracking-wider text-brand-text-muted font-bold block">UI CTA Button</span>
+                      <p className="text-sm sm:text-[14.5px] text-brand-text leading-relaxed font-semibold">
+                        &quot;Download Vector Asset Package&quot;
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-[10.5px] text-emerald-600 dark:text-emerald-400 italic border-t border-emerald-500/10 pt-2.5 text-start">
+                    Reason: Outcomes-focused, concrete action verbs, no marketing fluff.
                   </p>
                 </div>
                 
                 {/* Don't Card */}
-                <div className="bg-rose-500/5 dark:bg-rose-500/10 border border-rose-500/20 dark:border-rose-500/30 rounded-xl p-5 flex flex-col gap-2.5 shadow-sm transition-all hover:scale-[1.01]">
+                <div className="bg-rose-500/5 dark:bg-rose-500/10 border border-rose-500/20 dark:border-rose-500/30 rounded-xl p-6 sm:p-8 flex flex-col justify-between gap-5 shadow-sm transition-all hover:scale-[1.01]">
                   <div className="flex items-center gap-1.5 text-rose-600 dark:text-rose-400">
-                    <X size={14} className="stroke-[3]" />
-                    <span className="text-[10px] font-bold uppercase tracking-wider">{t('voiceDont', 'DON\'T: AI-Slop Buzzwords')}</span>
+                    <X size={15} className="stroke-[3]" />
+                    <span className="text-[11px] font-bold uppercase tracking-wider">{t('voiceDont', 'DON\'T: Buzzwords & AI Slop')}</span>
                   </div>
-                  <p className="text-xs text-brand-text-secondary leading-relaxed">
-                    &quot;We deliver synergy-based full-service marketing capabilities to maximize visual paradigm alignments.&quot;
-                  </p>
-                  <p className="text-[9.5px] text-rose-600/70 dark:text-rose-400/70 italic">
-                    Reason: Heavy buzzword count, flat meaning.
+                  <div className="space-y-3.5">
+                    <div className="space-y-1 text-start">
+                      <span className="text-[9px] uppercase tracking-wider text-brand-text-muted font-bold block">Marketing Headline</span>
+                      <p className="text-sm sm:text-[14.5px] text-brand-text-secondary leading-relaxed">
+                        &quot;Next-generation full-service marketing capabilities to maximize paradigm alignments.&quot;
+                      </p>
+                    </div>
+                    <div className="space-y-1 text-start">
+                      <span className="text-[9px] uppercase tracking-wider text-brand-text-muted font-bold block">UI CTA Button</span>
+                      <p className="text-sm sm:text-[14.5px] text-brand-text-secondary leading-relaxed">
+                        &quot;Leverage our systems to unlock success&quot;
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-[10.5px] text-rose-600 dark:text-rose-400 italic border-t border-rose-500/10 pt-2.5 text-start">
+                    Reason: Heavy buzzword count, vague verbs, lacks physical meaning.
                   </p>
                 </div>
               </div>

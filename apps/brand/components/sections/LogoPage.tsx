@@ -8,7 +8,7 @@ export function LogoPage() {
 
   const bgVariants = [
     { bg: '#FFFFFF', bgLabel: t('White'), filter: 'none', label: t('Full Color'), preferred: true },
-    { bg: '#072A6B', bgLabel: t('Deep Blue'), filter: 'brightness(0) invert(1)', label: t('White on dark'), preferred: true },
+    { bg: '#1565C0', bgLabel: t('Deep Blue'), filter: 'brightness(0) invert(1)', label: t('White on dark'), preferred: true },
     { bg: '#FAFAFA', bgLabel: t('Canvas'), filter: 'none', label: t('On Canvas White (#FAFAFA)'), preferred: true },
     { bg: '#FFC107', bgLabel: t('Brand Yellow'), filter: 'none', label: t('On Yellow'), preferred: false },
     { bg: '#333333', bgLabel: t('Charcoal'), filter: 'brightness(0) invert(1)', label: t('White on Charcoal (#333)'), preferred: true },
@@ -59,8 +59,8 @@ export function LogoPage() {
           <div className="border-t border-brand-whisper-border px-6 py-5 grid grid-cols-2 sm:grid-cols-4 gap-6">
             {[
               { label: t('Viewport'), value: '90 × 90', color: '#888888' },
-              { label: t('Primary blue'), value: '#358DCC', color: '#2196F3' },
-              { label: t('Accent yellow'), value: '#FFDE11', color: '#FFC107' },
+              { label: t('Primary blue'), value: '#2196F3', color: '#2196F3' },
+              { label: t('Accent yellow'), value: '#FFC107', color: '#FFC107' },
               { label: t('Min height'), value: '24px', color: '#1565C0' },
             ].map((spec) => (
               <div key={spec.label}>

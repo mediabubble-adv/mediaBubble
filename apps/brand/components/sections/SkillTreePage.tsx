@@ -70,7 +70,7 @@ export function SkillTreePage({ onNavigate }: { onNavigate?: (id: string) => voi
         onNavigate={onNavigate}
       />
 
-      <div className="border-b border-gray-100">
+      <div className="border-b border-brand-whisper-border">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="flex gap-1 overflow-x-auto scrollbar-none">
             {tabs.map(tab => {
@@ -81,35 +81,35 @@ export function SkillTreePage({ onNavigate }: { onNavigate?: (id: string) => voi
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
                   className={`
-                    flex items-center gap-2 px-4 py-3 text-[12px] font-medium border-b-2 transition-all shrink-0
+                    flex items-center gap-2 px-4 py-3 text-[12px] font-medium border-b-2 transition-all shrink-0 active:scale-95
                     ${isActive
-                      ? 'border-[#FFC107] text-gray-900'
-                      : 'border-transparent text-gray-400 hover:text-gray-600 hover:border-gray-200'
+                      ? 'border-brand-yellow text-brand-text'
+                      : 'border-transparent text-brand-text-muted hover:text-brand-text-secondary hover:border-brand-whisper-border'
                     }
                   `}
                 >
                   <Icon size={14} />
                   {tab.label}
-                  <span className="text-[10px] text-gray-400 font-normal hidden sm:inline">{tab.labelAr}</span>
+                  <span className="text-[10px] text-brand-text-muted font-normal hidden sm:inline">{tab.labelAr}</span>
                 </button>
               )
             })}
 
             <div className="ms-auto flex items-center gap-2">
-              <div className="hidden sm:flex items-center gap-2 text-[10px] text-gray-400">
-                <div className="w-20 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+              <div className="hidden sm:flex items-center gap-2 text-[10px] text-brand-text-muted">
+                <div className="w-20 h-1.5 bg-brand-canvas dark:bg-white/[0.06] rounded-full overflow-hidden border border-brand-whisper-border">
                   <div
-                    className="h-full bg-green-500 rounded-full transition-all duration-300"
-                    style={{ width: `${percent}%` }}
+                    className="h-full rounded-full transition-all duration-500"
+                    style={{ width: `${percent}%`, backgroundColor: '#1AD191' }}
                   />
                 </div>
-                <span className="tabular-nums">{completed}/{totalLeaves}</span>
+                <span className="tabular-nums font-mono">{completed}/{totalLeaves}</span>
               </div>
 
               <div className="relative">
                 <button
                   onClick={() => setMenuOpen(!menuOpen)}
-                  className="p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-all"
+                  className="p-1.5 text-brand-text-muted hover:text-brand-text hover:bg-brand-canvas dark:hover:bg-white/[0.04] rounded-lg transition-all active:scale-95"
                   title="Export"
                 >
                   <Download size={14} />
@@ -117,23 +117,23 @@ export function SkillTreePage({ onNavigate }: { onNavigate?: (id: string) => voi
                 {menuOpen && (
                   <>
                     <div className="fixed inset-0 z-10" onClick={() => setMenuOpen(false)} />
-                    <div className="absolute end-0 top-full mt-1 z-20 bg-brand-surface border border-gray-100 rounded-lg shadow-lg overflow-hidden min-w-[160px]">
+                    <div className="absolute end-0 top-full mt-1 z-20 bg-brand-surface border border-brand-whisper-border rounded-xl shadow-lg overflow-hidden min-w-[160px]">
                       <button
                         onClick={() => { downloadBlob(exportAsJSON(true), 'arabic-taxonomy.json', 'application/json'); setMenuOpen(false) }}
-                        className="w-full text-start px-3 py-2 text-[11px] text-gray-700 hover:bg-gray-50 transition-colors"
+                        className="w-full text-start px-4 py-2.5 text-[11px] text-brand-text-secondary hover:bg-brand-canvas dark:hover:bg-white/[0.04] hover:text-brand-text transition-colors"
                       >
                         Export as JSON
                       </button>
                       <button
                         onClick={() => { downloadBlob(exportAsMarkdown(), 'arabic-taxonomy.md', 'text/markdown'); setMenuOpen(false) }}
-                        className="w-full text-start px-3 py-2 text-[11px] text-gray-700 hover:bg-gray-50 transition-colors"
+                        className="w-full text-start px-4 py-2.5 text-[11px] text-brand-text-secondary hover:bg-brand-canvas dark:hover:bg-white/[0.04] hover:text-brand-text transition-colors"
                       >
                         Export as Markdown
                       </button>
-                      <div className="border-t border-gray-50" />
+                      <div className="border-t border-brand-whisper-border" />
                       <button
                         onClick={() => { reset(); setMenuOpen(false) }}
-                        className="w-full text-start px-3 py-2 text-[11px] text-red-600 hover:bg-red-50 transition-colors flex items-center gap-2"
+                        className="w-full text-start px-4 py-2.5 text-[11px] text-red-500 hover:bg-red-50 dark:hover:bg-red-500/[0.06] transition-colors flex items-center gap-2"
                       >
                         <RotateCcw size={11} />
                         Reset progress
@@ -158,10 +158,10 @@ export function SkillTreePage({ onNavigate }: { onNavigate?: (id: string) => voi
           {activeTab === 'paths' && <LearningPathView />}
           {activeTab === 'stats' && <SkillTreeStats completedIds={completedIds} />}
           {activeTab === 'about' && (
-            <div className="max-w-3xl space-y-6">
+            <div className="max-w-3xl space-y-8">
               <div className="animate-fade-in-up">
-                <h3 className="text-base font-semibold text-gray-900 mb-2">About This Skill Map</h3>
-                <p className="text-[12px] leading-relaxed text-gray-600">
+                <h3 className="font-display text-base font-bold text-brand-text mb-2">About This Skill Map</h3>
+                <p className="text-[13px] leading-relaxed text-brand-text-secondary">
                   This Arabic language and cultural competency taxonomy was designed as a comprehensive framework
                   for MediaBubble&apos;s internal skill tracking, learning path planning, and proficiency assessment.
                   It covers 14 top-level branches spanning dialectal variations, religious and classical studies,
@@ -172,26 +172,34 @@ export function SkillTreePage({ onNavigate }: { onNavigate?: (id: string) => voi
               </div>
 
               <div className="animate-fade-in-up" style={{ animationDelay: '0.05s' }}>
-                <h3 className="text-base font-semibold text-gray-900 mb-2">Proficiency Scale</h3>
-                <div className="space-y-2">
+                <h3 className="font-display text-base font-bold text-brand-text mb-3">Proficiency Scale</h3>
+                <div className="bg-brand-surface border border-brand-whisper-border rounded-xl overflow-hidden divide-y divide-brand-whisper-border">
                   {[
-                    { level: 'L1 — Novice', desc: 'Can recognize and recall basic concepts with guidance.' },
-                    { level: 'L2 — Intermediate', desc: 'Can apply concepts in familiar contexts with some independence.' },
-                    { level: 'L3 — Advanced', desc: 'Can analyze, compare, and apply concepts across varied contexts.' },
-                    { level: 'L4 — Superior', desc: 'Can evaluate, synthesize, and teach concepts to others.' },
-                    { level: 'L5 — Distinguished', desc: 'Can create new knowledge, critique existing frameworks, and lead in the domain.' },
+                    { level: 'L1 — Novice', desc: 'Can recognize and recall basic concepts with guidance.', color: '#2196F3' },
+                    { level: 'L2 — Intermediate', desc: 'Can apply concepts in familiar contexts with some independence.', color: '#1565C0' },
+                    { level: 'L3 — Advanced', desc: 'Can analyze, compare, and apply concepts across varied contexts.', color: '#FFC107' },
+                    { level: 'L4 — Superior', desc: 'Can evaluate, synthesize, and teach concepts to others.', color: '#1AD191' },
+                    { level: 'L5 — Distinguished', desc: 'Can create new knowledge, critique existing frameworks, and lead in the domain.', color: '#0D0F12' },
                   ].map((s, i) => (
-                    <div key={s.level} className="flex items-start gap-3 animate-fade-in-up-stagger" style={{ animationDelay: `${i * 0.04}s` }}>
-                      <span className="text-[11px] font-semibold text-gray-900 w-32 shrink-0">{s.level}</span>
-                      <span className="text-[11px] text-gray-600">{s.desc}</span>
+                    <div key={s.level} className="flex items-start gap-4 px-5 py-3.5 animate-fade-in-up-stagger" style={{ animationDelay: `${i * 0.04}s` }}>
+                      <span
+                        className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-md shrink-0 mt-0.5 text-white"
+                        style={{ backgroundColor: s.color }}
+                      >
+                        {s.level.split(' — ')[0]}
+                      </span>
+                      <div>
+                        <span className="text-[12px] font-semibold text-brand-text block">{s.level.split(' — ')[1]}</span>
+                        <span className="text-[12px] text-brand-text-secondary">{s.desc}</span>
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
 
               <div className="animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-                <h3 className="text-base font-semibold text-gray-900 mb-2">Learning Path Model</h3>
-                <p className="text-[12px] leading-relaxed text-gray-600">
+                <h3 className="font-display text-base font-bold text-brand-text mb-2">Learning Path Model</h3>
+                <p className="text-[13px] leading-relaxed text-brand-text-secondary">
                   The 15 learning tracks (A–O) form a dependency tree with prerequisites.
                   Track A (Foundational Linguistics) is the universal gateway. Persona-based sequences
                   recommend optimal track ordering for different learner goals. Each track node specifies
@@ -199,9 +207,9 @@ export function SkillTreePage({ onNavigate }: { onNavigate?: (id: string) => voi
                 </p>
               </div>
 
-              <div className="animate-fade-in-up" style={{ animationDelay: '0.15s' }}>
-                <h3 className="text-base font-semibold text-gray-900 mb-2">Sources &amp; Methodology</h3>
-                <p className="text-[12px] leading-relaxed text-gray-600">
+              <div className="animate-fade-in-up bg-brand-canvas dark:bg-white/[0.02] border border-brand-whisper-border rounded-xl p-5" style={{ animationDelay: '0.15s' }}>
+                <h3 className="font-display text-sm font-bold text-brand-text mb-2">Sources & Methodology</h3>
+                <p className="text-[13px] leading-relaxed text-brand-text-secondary">
                   The taxonomy was constructed by cross-referencing ACTFL Arabic proficiency guidelines,
                   CEFR Arabic descriptors, the American Association of Teachers of Arabic (AATA) standards,
                   classical Arabic pedagogical curricula (al-Ajurrūmiyya, Alfiyya Ibn Mālik), modern

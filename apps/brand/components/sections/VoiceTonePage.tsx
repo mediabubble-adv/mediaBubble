@@ -116,14 +116,14 @@ export function VoiceTonePage() {
     },
     {
       level: 'Tertiary CTA',
-      color: '#9E9E9E',
+      color: '#1AD191',
       label: 'Discover more \u2022 Read the full post',
-      usage: 'Inline text link \u2022 Within content body',
+      usage: 'Mint accent text link \u2022 Within content body',
       desc: 'Used inline within content blocks for contextual linking. Always describe destination.',
       component: (
         <button 
           onClick={() => copyCtaText('See how we helped Magnific People', 'cta-tertiary')}
-          className="text-xs font-bold text-[#2196F3] hover:underline flex items-center gap-1 mx-auto transition-all"
+          className="text-xs font-bold text-[#1AD191] hover:underline flex items-center gap-1 mx-auto transition-all"
         >
           See how we helped Magnific People <ArrowRight size={11} />
         </button>
@@ -342,7 +342,7 @@ export function VoiceTonePage() {
                 </div>
 
                 <div className="bg-brand-surface rounded-xl border border-brand-whisper-border p-6 shadow-sm">
-                  <p className={`text-base font-bold text-brand-text leading-relaxed ${activeSandboxTab === 'masri' || activeSandboxTab === 'khaliji' ? 'text-right font-cairo' : 'font-sans'}`}>
+                  <p className={`text-base font-bold text-brand-text leading-relaxed ${activeSandboxTab === 'masri' || activeSandboxTab === 'khaliji' ? 'text-right font-arabic' : 'font-sans'}`}>
                     {sandboxDrafts[activeSandboxTab].text}
                   </p>
                 </div>

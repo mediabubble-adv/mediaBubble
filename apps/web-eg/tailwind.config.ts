@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss'
-import { mbPreset } from '../../packages/design-system/src/tailwind-preset'
+import { mbPreset } from '@mediabubble/design-system/tailwind-preset'
 
 const config: Config = {
   presets: [mbPreset as Config],

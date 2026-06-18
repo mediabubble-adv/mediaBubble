@@ -289,7 +289,7 @@ export const PromptValidator = ({ prompt }: PromptValidatorProps) => {
               {issue.type.charAt(0).toUpperCase() + issue.type.slice(1)} {issue.severity.toUpperCase()}
             </h4>
             <p className="text-[11px] text-brand-text-muted mb-2">{issue.message}</p>
-            <p className="text-[10px] text-[#6B7280] dark:text-gray-400">💡 {issue.suggestion}</p>
+            <p className="text-[10px] text-[#6B7280] dark:text-gray-400">Suggestion: {issue.suggestion}</p>
           </div>
         </div>
       </div>
@@ -398,8 +398,8 @@ export const PromptValidator = ({ prompt }: PromptValidatorProps) => {
         <h3 className="text-[14px] font-bold text-brand-text mb-3">Brand Compliance Summary</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="text-center">
-            <div className="text-2xl font-bold text-[#16A34A]">
-              {validation.issues.filter(i => i.severity === 'error').length === 0 ? '✓' : '✗'}
+            <div className="text-2xl font-bold text-[#16A34A] font-mono">
+              {validation.issues.filter(i => i.severity === 'error').length}
             </div>
             <div className="text-[10px] text-brand-text-muted">Critical Issues</div>
           </div>

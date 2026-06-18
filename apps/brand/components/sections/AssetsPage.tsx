@@ -25,9 +25,8 @@ export function AssetsPage() {
     { token: '--color-brand-blue', hex: '#2196F3', rgb: '33 150 243' },
     { token: '--color-dark-blue', hex: '#1565C0', rgb: '21 101 192' },
     { token: '--color-brand-yellow', hex: '#FFC107', rgb: '255 193 7' },
-    { token: '--color-deep-blue', hex: '#072A6B', rgb: '7 42 107' },
-    { token: '--color-charcoal', hex: '#333333', rgb: '51 51 51' },
-    { token: '--color-canvas', hex: '#FAFAFA', rgb: '250 250 250' },
+    { token: '--color-accent-mint', hex: '#1AD191', rgb: '26 209 145' },
+    { token: '--color-deep-charcoal', hex: '#0D0F12', rgb: '13 15 18' },
   ]
 
   const fontStack = [
@@ -68,7 +67,7 @@ export function AssetsPage() {
                 <a
                   href={file.action}
                   download
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-semibold text-brand-blue bg-brand-blue/08 hover:bg-brand-blue/15 active:scale-[0.97] transition-all shrink-0"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-bold text-[#2196F3] bg-[#2196F3]/[0.08] hover:bg-[#2196F3]/[0.15] active:scale-95 transition-all shrink-0"
                 >
                   <Download size={12} /> {t('Download', 'Download')}
                 </a>

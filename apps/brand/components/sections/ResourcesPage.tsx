@@ -31,19 +31,19 @@ export function ResourcesPage() {
         {
           label: 'CSS Variables',
           desc: 'Full brand color set as CSS variables. Paste into your project root.',
-          preview: '/* MediaBubble Brand Colors */\n:root {\n  --color-brand-blue: #2196F3;\n  --color-brand-yellow: #FFC107;\n  --color-dark-blue: #1565C0;\n  --color-accent-gold: #1AD191;\n  --color-deep-charcoal: #0D0F12;\n  --color-sidebar: #072A6B;\n  --color-white: #FFFFFF;\n  --neutral-50: #F5F5F5;\n  --neutral-100: #E8E8E8;\n  --neutral-200: #D0D0D0;\n  --neutral-400: #9E9E9E;\n  --neutral-500: #888888;\n  --neutral-600: #666666;\n  --neutral-700: #555555;\n  --neutral-900: #333333;\n  --neutral-950: #0D0F12;\n}',
+          preview: '/* MediaBubble Brand Colors */\n:root {\n  --color-brand-blue: #2196F3;\n  --color-brand-yellow: #FFC107;\n  --color-dark-blue: #1565C0;\n  --color-accent-gold: #1AD191;\n  --color-deep-charcoal: #0D0F12;\n  --color-sidebar: #1565C0;\n  --color-white: #FFFFFF;\n  --neutral-50: #F5F5F5;\n  --neutral-100: #E8E8E8;\n  --neutral-200: #D0D0D0;\n  --neutral-400: #9E9E9E;\n  --neutral-500: #888888;\n  --neutral-600: #666666;\n  --neutral-700: #555555;\n  --neutral-900: #333333;\n  --neutral-950: #0D0F12;\n}',
           filename: 'media-bubble-colors.css',
         },
         {
           label: 'Tailwind Config',
           desc: 'Add MediaBubble brand values to your tailwind.config so they work in utility classes.',
-          preview: '// tailwind.config.js\nexport default {\n  theme: {\n    extend: {\n      colors: {\n        brand: {\n          blue: \'#2196F3\',\n          \'dark-blue\': \'#1565C0\',\n          yellow: \'#FFC107\',\n          \'accent-gold\': \'#1AD191\',\n        },\n        charcoal: {\n          deep: \'#0D0F12\',\n          sidebar: \'#072A6B\',\n        },\n        neutral: {\n          50: \'#F5F5F5\',\n          100: \'#E8E8E8\',\n          400: \'#9E9E9E\',\n          900: \'#333333\',\n        },\n      },\n    },\n  },\n}',
+          preview: '// tailwind.config.js\nexport default {\n  theme: {\n    extend: {\n      colors: {\n        brand: {\n          blue: \'#2196F3\',\n          \'dark-blue\': \'#1565C0\',\n          yellow: \'#FFC107\',\n          \'accent-gold\': \'#1AD191\',\n        },\n        charcoal: {\n          deep: \'#0D0F12\',\n          sidebar: \'#1565C0\',\n        },\n        neutral: {\n          50: \'#F5F5F5\',\n          100: \'#E8E8E8\',\n          400: \'#9E9E9E\',\n          900: \'#333333\',\n        },\n      },\n    },\n  },\n}',
           filename: 'media-bubble-tailwind.js',
         },
         {
           label: 'Color JSON',
           desc: 'Structured color data in JSON format, ready for design tools, CMS configuration, or automation scripts.',
-          preview: '{\n  "palette": {\n    "brand": {\n      "blue": "#2196F3",\n      "darkBlue": "#1565C0",\n      "yellow": "#FFC107",\n      "accentGold": "#1AD191"\n    },\n    "charcoal": {\n      "deep": "#0D0F12",\n      "sidebar": "#072A6B"\n    },\n    "neutral": {\n      "50": "#F5F5F5",\n      "100": "#E8E8E8",\n      "400": "#9E9E9E",\n      "900": "#333333"\n    }\n  }\n}',
+          preview: '{\n  "palette": {\n    "brand": {\n      "blue": "#2196F3",\n      "darkBlue": "#1565C0",\n      "yellow": "#FFC107",\n      "accentGold": "#1AD191"\n    },\n    "charcoal": {\n      "deep": "#0D0F12",\n      "sidebar": "#1565C0"\n    },\n    "neutral": {\n      "50": "#F5F5F5",\n      "100": "#E8E8E8",\n      "400": "#9E9E9E",\n      "900": "#333333"\n    }\n  }\n}',
           filename: 'media-bubble-palette.json',
         },
       ],
@@ -123,13 +123,13 @@ export function ResourcesPage() {
                 <div className="mt-auto px-5 pb-5 flex items-center gap-2">
                   <button
                     onClick={() => copy(item.preview, `copy-${item.label}`)}
-                    className="flex items-center justify-center gap-1.5 flex-1 px-3 py-2 rounded-lg text-[11px] font-semibold text-white bg-brand-dark-blue hover:bg-[#1250A0] active:scale-[0.97] transition-all"
+                    className="flex items-center justify-center gap-1.5 flex-1 px-3 py-2 rounded-lg text-[11px] font-bold text-white bg-[#1565C0] hover:bg-[#1565C0]/90 active:scale-95 transition-all"
                   >
                     {copiedId === `copy-${item.label}` ? <><Check size={13} /> Copied</> : <><Copy size={13} /> Copy</>}
                   </button>
                   <button
                     onClick={() => download(item.preview, item.filename, `dl-${item.label}`)}
-                    className="flex items-center justify-center gap-1.5 flex-1 px-3 py-2 rounded-lg text-[11px] font-semibold text-brand-dark-blue bg-[#E8F0FE] hover:bg-[#D0E0FC] active:scale-[0.97] transition-all"
+                    className="flex items-center justify-center gap-1.5 flex-1 px-3 py-2 rounded-lg text-[11px] font-bold text-[#1565C0] bg-[#1565C0]/[0.08] hover:bg-[#1565C0]/[0.15] active:scale-95 transition-all"
                   >
                     {downloadedId === `dl-${item.label}` ? <><Check size={13} /> Saved</> : <><Download size={13} /> Download</>}
                   </button>

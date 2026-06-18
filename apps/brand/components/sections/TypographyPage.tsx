@@ -85,7 +85,7 @@ export function TypographyPage() {
 
   return (
     <div>
-      <PageHero icon={Type} kicker={t('Typography')} title={t('Typography')} titleHighlight={t('Typography')} description={t('Three families, one system. Poppins leads, Inter reads, JetBrains Mono codes. Every size and weight serves a role, not a decoration.')} />
+      <PageHero icon={Type} kicker={t('Typography')} title={t('Type System')} titleHighlight={t('Type')} description={t('Three families, one system. Poppins leads, Inter reads, JetBrains Mono codes. Every size and weight serves a role, not a decoration.')} />
 
       <BrandPageContent>
         {/* Font families */}
@@ -167,13 +167,17 @@ export function TypographyPage() {
                 } ${i === 4 ? 'border-t-2 border-t-brand-whisper-border' : ''}`}
               >
                 <div className="w-28 shrink-0 flex items-center gap-3">
-                  <span className={`w-2 h-2 rounded-full shrink-0 ${
-                    step.familyClass === 'font-display' 
-                      ? 'bg-brand-blue' 
-                      : step.familyClass === 'font-mono' 
-                        ? 'bg-brand-yellow' 
-                        : 'bg-brand-muted-steel'
-                  }`} />
+                  <span
+                    className="w-2 h-2 rounded-full shrink-0"
+                    style={{
+                      backgroundColor:
+                        step.familyClass === 'font-display'
+                          ? '#2196F3'
+                          : step.familyClass === 'font-mono'
+                          ? '#FFC107'
+                          : '#1AD191',
+                    }}
+                  />
                   <div>
                     <p className="text-[11px] font-semibold text-brand-text leading-tight">{step.token}</p>
                     <p className="text-[10px] font-mono text-brand-text-muted mt-px">{step.size}</p>

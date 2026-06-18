@@ -1,5 +1,5 @@
 import React from 'react'
-import { Home, Search, Menu, ChevronRight, ArrowRight, Settings, Plus, Edit3, Trash2, Download, Copy, Send, Check, X, AlertCircle, Bell, Star, Heart, User, Mail, Bookmark, Package, Filter, Layers, Shapes } from 'lucide-react'
+import { Home, Search, Menu, ChevronRight, ArrowRight, Settings, Plus, Edit3, Trash2, Download, Copy, Send, Check, X, AlertCircle, Bell, Star, Heart, User, Mail, Bookmark, Package, Filter, Layers, Shapes, TrendingUp, BarChart2, PieChart, Activity, Award, Zap } from 'lucide-react'
 import { PageHero } from './PageHero'
 import { useI18n } from '@/lib/i18n/provider'
 
@@ -53,6 +53,18 @@ export function IconographyPage() {
         { name: 'Package', Icon: Package },
         { name: 'Filter', Icon: Filter },
         { name: 'Layers', Icon: Layers },
+      ],
+    },
+    {
+      name: t('Analytics & Elevate', 'Analytics & Elevate'),
+      color: '#1AD191',
+      icons: [
+        { name: 'TrendingUp', Icon: TrendingUp },
+        { name: 'BarChart2', Icon: BarChart2 },
+        { name: 'PieChart', Icon: PieChart },
+        { name: 'Activity', Icon: Activity },
+        { name: 'Award', Icon: Award },
+        { name: 'Zap', Icon: Zap },
       ],
     },
   ]
@@ -130,8 +142,20 @@ export function IconographyPage() {
               <div className="p-5 grid grid-cols-6 gap-3">
                 {cat.icons.map(({ name, Icon }) => (
                   <div key={name} className="flex flex-col items-center gap-1.5 group cursor-default">
-                    <div className="w-10 h-10 rounded-lg bg-brand-canvas dark:bg-white/[0.04] group-hover:bg-[#E3F2FD] flex items-center justify-center transition-colors duration-150">
-                      <Icon size={18} strokeWidth={1.5} className="text-brand-text-secondary group-hover:text-[#2196F3] transition-colors" />
+                    <div 
+                      className="w-10 h-10 rounded-lg bg-brand-canvas dark:bg-white/[0.04] flex items-center justify-center transition-all duration-150"
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = `${cat.color}18`
+                        const svg = e.currentTarget.querySelector('svg')
+                        if (svg) svg.style.color = cat.color
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = ''
+                        const svg = e.currentTarget.querySelector('svg')
+                        if (svg) svg.style.color = ''
+                      }}
+                    >
+                      <Icon size={18} strokeWidth={1.5} className="text-brand-text-secondary transition-colors" />
                     </div>
                     <span className="text-[10px] font-mono text-brand-text-muted text-center leading-tight">{name}</span>
                   </div>

@@ -12,12 +12,12 @@ export const BrandDNAFoundation = ({ onPromptGenerated }: BrandDNAFoundationProp
 
   const brandDNA = {
     colors: {
-      primary: '#FFC107',
-      secondary: '#2196F3',
-      dark: '#1565C0',
-      text: '#333333',
-      background: '#FAFAFA',
-      accent: '#1AD191'
+      blue: '#2196F3',
+      darkBlue: '#1565C0',
+      yellow: '#FFC107',
+      mint: '#1AD191',
+      charcoal: '#0D0F12',
+      text: '#333333'
     },
     typography: {
       display: 'Poppins Bold 700-900',
@@ -54,8 +54,8 @@ export const BrandDNAFoundation = ({ onPromptGenerated }: BrandDNAFoundationProp
     const prompt = `MediaBubble Brand Profile Guidelines:
 
 Visual Style: ${brandDNA.layout.style}
-Color Palette: Primary accent ${brandDNA.colors.primary}, secondary ${brandDNA.colors.secondary}, dark ${brandDNA.colors.dark}, text ${brandDNA.colors.text}
-Typography: ${brandDNA.typography.display} for headlines, ${brandDNA.typography.body} for body text
+Color Palette: Brand Blue (${brandDNA.colors.blue}), Dark Blue (${brandDNA.colors.darkBlue}), Brand Yellow (${brandDNA.colors.yellow}), Mint (${brandDNA.colors.mint}), and Deep Charcoal (${brandDNA.colors.charcoal})
+Typography: ${brandDNA.typography.display} for headlines, ${brandDNA.typography.body} for body text, Cairo for Arabic typography
 Layout: ${brandDNA.layout.spacing} base grid, ${brandDNA.layout.composition}
 
 Component Standards:
@@ -85,11 +85,11 @@ Create all visual assets following these MediaBubble brand guidelines for consis
       description: 'Strategic use of Brand Yellow and Brand Blue with strict contrast guidelines',
       icon: Palette,
       details: [
-        'Brand Yellow (#FFC107) - Primary CTAs and highlights',
-        'Brand Blue (#2196F3) - Secondary actions and navigation',
-        'Charcoal (#333333) - Body text and headings',
-        'Canvas White (#FAFAFA) - Page backgrounds',
-        'Maximum 1 accent color per view'
+        'Brand Blue (#2196F3) - Primary navigation and interactive items',
+        'Dark Blue (#1565C0) - Secondary action and sidebar containers',
+        'Brand Yellow (#FFC107) - Primary CTAs and active states',
+        'Mint (#1AD191) - High-value accents and highlights',
+        'Deep Charcoal (#0D0F12) - Main dark panels'
       ]
     },
     {
@@ -203,9 +203,9 @@ Create all visual assets following these MediaBubble brand guidelines for consis
             <p className="text-[12px] text-brand-text-muted mb-3">These elements are strictly forbidden in MediaBubble designs:</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="bg-brand-surface border border-brand-whisper-border rounded-lg p-3">
-                <h4 className="text-[12px] font-semibold text-brand-text mb-2">❌ Forbidden Elements</h4>
+                <h4 className="text-[12px] font-semibold text-[#DC2626] mb-2">Forbidden Elements</h4>
                 <ul className="text-[11px] text-brand-text-muted space-y-1">
-                  <li>• Emojis anywhere</li>
+                  <li>• Emojis in code and copy</li>
                   <li>• Pure black (#000000)</li>
                   <li>• Nested cards</li>
                   <li>• 3-column equal grids</li>
@@ -213,7 +213,7 @@ Create all visual assets following these MediaBubble brand guidelines for consis
                 </ul>
               </div>
               <div className="bg-brand-surface border border-brand-whisper-border rounded-lg p-3">
-                <h4 className="text-[12px] font-semibold text-brand-text mb-2">✅ Required Standards</h4>
+                <h4 className="text-[12px] font-semibold text-emerald-500 mb-2">Required Standards</h4>
                 <ul className="text-[11px] text-brand-text-muted space-y-1">
                   <li>• WCAG 2.1 AA compliance</li>
                   <li>• 8px spacing grid</li>
@@ -231,7 +231,7 @@ Create all visual assets following these MediaBubble brand guidelines for consis
       <div className="flex justify-end">
         <button
           onClick={generateBrandPrompt}
-          className="px-6 py-3 rounded-lg bg-[#FFC107] text-brand-charcoal text-[14px] font-semibold hover:bg-[#FFB300] transition-colors flex items-center gap-2 shadow-[0_4px_12px_rgba(255,193,7,0.2)]"
+          className="px-6 py-3 rounded-lg bg-[#FFC107] text-[#0D0F12] text-[14px] font-bold hover:bg-[#FFB300] transition-all duration-150 active:scale-95 flex items-center gap-2 shadow-[0_4px_12px_rgba(255,193,7,0.2)]"
         >
           <CheckCircle size={16} />
           Generate Complete Brand Profile Prompt
