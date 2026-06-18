@@ -1,7 +1,6 @@
 import { ImageResponse } from 'next/og'
 import { CASE_STUDIES, getCaseStudyBySlug } from '@/lib/data/case-studies'
 
-export const runtime = 'edge'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 

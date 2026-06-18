@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { ISR_REVALIDATE_SECONDS, getAlternates, buildCaseStudyJsonLd, serializeJsonLd, resolveMarketSiteConfig } from '@mediabubble/shared/server'
+import { getAlternates, buildCaseStudyJsonLd, serializeJsonLd, resolveMarketSiteConfig } from '@mediabubble/shared/server'
 import { CASE_STUDIES, getCaseStudyBySlug } from '@/lib/data/case-studies'
 import { CaseStudyContent } from './content'
 
-export const revalidate = ISR_REVALIDATE_SECONDS.portfolio
+export const revalidate = 3600
 
 interface Props {
   params: Promise<{ slug: string }>

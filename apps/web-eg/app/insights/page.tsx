@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import { ISR_REVALIDATE_SECONDS, getAlternates } from '@mediabubble/shared/server'
+import { getAlternates } from '@mediabubble/shared/server'
 import { InsightsPageContent } from './content'
 
-export const revalidate = ISR_REVALIDATE_SECONDS.listing
+export const revalidate = 1800
 
 export const metadata: Metadata = {
   title: 'Marketing Blog',

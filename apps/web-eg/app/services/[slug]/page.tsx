@@ -1,11 +1,10 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import { ISR_REVALIDATE_SECONDS } from '@mediabubble/shared/server'
 import { getService, SERVICE_SLUGS } from '@/lib/services-data'
 import { getRegistrySlugs, getServicePageConfig } from '@/lib/content/services'
 import { ServicePageContent } from './content'
 
-export const revalidate = ISR_REVALIDATE_SECONDS.services
+export const revalidate = 86_400
 
 interface Props {
   params: Promise<{ slug: string }>

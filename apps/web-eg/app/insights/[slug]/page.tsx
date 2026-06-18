@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { ISR_REVALIDATE_SECONDS, getAlternates, buildInsightPostJsonLd, serializeJsonLd, resolveMarketSiteConfig } from '@mediabubble/shared/server'
+import { getAlternates, buildInsightPostJsonLd, serializeJsonLd, resolveMarketSiteConfig } from '@mediabubble/shared/server'
 import { INSIGHTS_POSTS, getInsightPostBySlug } from '@/lib/data/insights-posts'
 import { InsightPostContent } from './content'
 
-export const revalidate = ISR_REVALIDATE_SECONDS.blog
+export const revalidate = 3600
 
 interface Props {
   params: Promise<{ slug: string }>
