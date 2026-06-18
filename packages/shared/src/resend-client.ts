@@ -9,8 +9,31 @@ export interface ContactEmailPayload {
   message: string
 }
 
+const MAX_EMAIL_LENGTH = 254
+
+function containsWhitespace(str: string): boolean {
+  for (let i = 0; i < str.length; i++) {
+    if (str.charCodeAt(i) <= 32) return true
+  }
+  return false
+}
+
+/** Linear-time check for contact-form emails (avoids ReDoS-prone regex). */
 export function isValidEmail(email: string): boolean {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+  if (!email || email.length > MAX_EMAIL_LENGTH) return false
+
+  const at = email.indexOf('@')
+  if (at <= 0 || at !== email.lastIndexOf('@')) return false
+
+  const local = email.slice(0, at)
+  const domain = email.slice(at + 1)
+  if (!local || !domain) return false
+  if (containsWhitespace(local) || containsWhitespace(domain)) return false
+
+  const dot = domain.lastIndexOf('.')
+  if (dot <= 0 || dot === domain.length - 1) return false
+
+  return true
 }
 
 function escapeHtml(str: string): string {
