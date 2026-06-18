@@ -257,7 +257,7 @@ export function CollateralPage() {
                   style={{
                     borderInlineStart: '220px solid transparent',
                     borderInlineEnd: '220px solid transparent',
-                    borderTop: '70px solid #0D0F12',
+                    borderTop: '72px solid #0D0F12',
                   }}
                 />
 
@@ -265,7 +265,7 @@ export function CollateralPage() {
                 <div className="absolute bottom-0 inset-x-0 h-1.5 bg-[#FFC107]" />
 
                 {/* Return address */}
-                <div className="absolute top-[85px] start-7">
+                <div className="absolute top-[88px] start-8">
                   <div className="flex items-center gap-2 text-start text-[#0D0F12]">
                     <img src="/assets/logo.svg" alt="MediaBubble" className="w-5 h-5" />
                     <div>
@@ -278,7 +278,7 @@ export function CollateralPage() {
                 {/* Address window */}
                 <div
                   className="absolute rounded border border-brand-whisper-border bg-[#F9FAFB] text-start"
-                  style={{ bottom: '30px', left: '30px', width: '130px', height: '52px', padding: '8px 10px' }}
+                  style={{ bottom: '32px', left: '32px', width: '128px', height: '48px', padding: '8px 8px' }}
                 >
                   <p className="text-[8px] text-brand-text-secondary font-sans leading-tight">
                     Recipient Name<br />
@@ -290,7 +290,7 @@ export function CollateralPage() {
                 {/* Stamp block */}
                 <div
                   className="absolute rounded border border-dashed border-brand-whisper-border flex items-center justify-center"
-                  style={{ bottom: '30px', insetInlineEnd: '30px', width: '40px', height: '52px' }}
+                  style={{ bottom: '32px', insetInlineEnd: '32px', width: '40px', height: '48px' }}
                 >
                   <p className="text-[8px] text-brand-muted-steel text-center leading-none font-sans font-semibold">
                     Postage<br />Stamp

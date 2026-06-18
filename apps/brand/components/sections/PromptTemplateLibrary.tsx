@@ -223,7 +223,7 @@ export const PromptTemplateLibrary = ({ onPromptGenerated }: PromptTemplateLibra
 
         <button
           onClick={() => copyToClipboard(template.prompt, template.name)}
-          className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-[#2196F3] text-white text-[13px] font-medium hover:bg-[#1976D2] transition-colors"
+          className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#2196F3] text-white text-[13px] font-bold hover:bg-[#1565C0] transition-all duration-150 active:scale-95"
         >
           <Copy size={14} />
           Use This Template
@@ -242,10 +242,10 @@ export const PromptTemplateLibrary = ({ onPromptGenerated }: PromptTemplateLibra
             <button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={`px-4 py-2 rounded-lg text-[13px] font-medium transition-all duration-200 ${
+              className={`px-4 py-2 rounded-lg text-[13px] font-bold transition-all duration-150 active:scale-95 ${
                 selectedCategory === category.id
-                  ? 'bg-[#FFC107]/[0.1] text-brand-text shadow-[inset_0_0_0_1px_rgba(255,193,7,0.12)]'
-                  : 'bg-brand-canvas dark:bg-white/[0.04] text-brand-text-muted hover:bg-[#E8E8E8] hover:text-brand-text'
+                  ? 'bg-[#FFC107]/[0.12] text-brand-text shadow-[inset_0_0_0_1px_rgba(255,193,7,0.2)]'
+                  : 'bg-brand-canvas dark:bg-white/[0.04] text-brand-text-muted hover:bg-black/[0.02] dark:hover:bg-white/[0.08] hover:text-brand-text'
               }`}
             >
               {category.label} ({category.count})

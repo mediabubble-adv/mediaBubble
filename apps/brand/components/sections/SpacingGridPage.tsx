@@ -83,10 +83,10 @@ export function SpacingGridPage() {
         <div className="space-y-4">
           {gridPatterns.map((pattern, pi) => {
             const palette = [
-              { cell: 'bg-[#E3F2FD] dark:bg-blue-950/20 border border-brand-whisper-border', gapCell: 'bg-brand-info-bg dark:bg-[#1C1E24]', topBar: 'bg-[#2196F3]' },
-              { cell: 'bg-[#FFF8E1] dark:bg-amber-950/20 border border-brand-whisper-border', gapCell: 'bg-[#FFFDE7] dark:bg-brand-canvas', topBar: 'bg-[#FFC107]' },
-              { cell: 'bg-[#E8F5E9] dark:bg-green-950/20 border border-brand-whisper-border', gapCell: 'bg-[#F1F8E9] dark:bg-brand-canvas', topBar: 'bg-[#4CAF50]' },
-              { cell: 'bg-[#F3E5F5] dark:bg-purple-950/20 border border-brand-whisper-border', gapCell: 'bg-[#FBEFFA] dark:bg-brand-canvas', topBar: 'bg-[#9C27B0]' },
+              { cell: 'bg-[#2196F3]/10 dark:bg-[#2196F3]/20 border border-brand-whisper-border', gapCell: 'bg-brand-canvas dark:bg-[#1C1E24]', topBar: 'bg-[#2196F3]' },
+              { cell: 'bg-[#FFC107]/10 dark:bg-[#FFC107]/20 border border-brand-whisper-border', gapCell: 'bg-brand-canvas', topBar: 'bg-[#FFC107]' },
+              { cell: 'bg-[#1AD191]/10 dark:bg-[#1AD191]/20 border border-brand-whisper-border', gapCell: 'bg-brand-canvas', topBar: 'bg-[#1AD191]' },
+              { cell: 'bg-[#1565C0]/10 dark:bg-[#1565C0]/20 border border-brand-whisper-border', gapCell: 'bg-brand-canvas', topBar: 'bg-[#1565C0]' },
             ]
             const p = palette[pi % palette.length]
             return (

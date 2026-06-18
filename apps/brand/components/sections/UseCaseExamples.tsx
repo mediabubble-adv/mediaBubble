@@ -182,7 +182,7 @@ export const UseCaseExamples = ({ onPromptGenerated }: UseCaseExamplesProps) => 
         <div className="flex items-start gap-3 mb-4">
           <AlertCircle size={18} className="text-[#DC2626] dark:text-red-400 mt-0.5 flex-shrink-0" />
           <div>
-            <h3 className="text-[14px] font-semibold text-[#DC2626] dark:text-red-400 mb-2">❌ Generic Prompt (Poor Results)</h3>
+            <h3 className="text-[14px] font-semibold text-[#DC2626] dark:text-red-400 mb-2">Generic Prompt (Poor Results)</h3>
             <p className="text-[11px] text-brand-text-muted mb-3">This prompt lacks specific brand guidelines and produces inconsistent results:</p>
           </div>
         </div>
@@ -193,7 +193,7 @@ export const UseCaseExamples = ({ onPromptGenerated }: UseCaseExamplesProps) => 
         </div>
         <button
           onClick={() => copyToClipboard(example.badPrompt)}
-          className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-[#FECACA] dark:bg-red-950/40 text-[#DC2626] dark:text-red-400 text-[12px] font-medium hover:bg-[#FCA5A5] dark:hover:bg-red-900/40 transition-colors border border-[#FECACA] dark:border-red-500/30"
+          className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#FECACA] dark:bg-red-950/40 text-[#DC2626] dark:text-red-400 text-[12px] font-bold hover:bg-[#FCA5A5] dark:hover:bg-red-900/40 transition-all duration-150 active:scale-95 border border-[#FECACA] dark:border-red-500/30"
         >
           <Copy size={14} />
           Copy Generic Prompt
@@ -205,7 +205,7 @@ export const UseCaseExamples = ({ onPromptGenerated }: UseCaseExamplesProps) => 
         <div className="flex items-start gap-3 mb-4">
           <CheckCircle size={18} className="text-[#16A34A] dark:text-emerald-400 mt-0.5 flex-shrink-0" />
           <div>
-            <h3 className="text-[14px] font-semibold text-[#16A34A] dark:text-emerald-400 mb-2">✅ MediaBubble Brand Prompt (Consistent Results)</h3>
+            <h3 className="text-[14px] font-semibold text-[#16A34A] dark:text-emerald-400 mb-2">MediaBubble Brand Prompt (Consistent Results)</h3>
             <p className="text-[11px] text-brand-text-muted mb-3">This prompt incorporates Brand profile for on-brand, consistent outputs:</p>
           </div>
         </div>
@@ -216,7 +216,7 @@ export const UseCaseExamples = ({ onPromptGenerated }: UseCaseExamplesProps) => 
         </div>
         <button
           onClick={() => copyToClipboard(example.goodPrompt)}
-          className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-[#86EFAC] dark:bg-emerald-950/40 text-[#16A34A] dark:text-emerald-400 text-[12px] font-medium hover:bg-[#4ADE80] dark:hover:bg-emerald-900/40 transition-colors border border-[#86EFAC] dark:border-emerald-500/30"
+          className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#86EFAC] dark:bg-emerald-950/40 text-[#16A34A] dark:text-emerald-400 text-[12px] font-bold hover:bg-[#4ADE80] dark:hover:bg-emerald-900/40 transition-all duration-150 active:scale-95 border border-[#86EFAC] dark:border-emerald-500/30"
         >
           <Copy size={14} />
           Copy Brand Prompt
@@ -256,10 +256,10 @@ export const UseCaseExamples = ({ onPromptGenerated }: UseCaseExamplesProps) => 
               <button
                 key={example.id}
                 onClick={() => setSelectedExample(example.id)}
-                className={`p-4 rounded-xl border-2 transition-all text-start ${
+                className={`p-4 rounded-xl border transition-all text-start duration-150 active:scale-95 ${
                   isSelected
                     ? 'border-[#FFC107] bg-[#FFC107]/[0.05] shadow-[0_2px_8px_rgba(255,193,7,0.1)]'
-                    : 'border-brand-whisper-border hover:border-[#2196F3] hover:bg-black/[0.02] dark:hover:bg-white/[0.04]'
+                    : 'border-brand-whisper-border hover:border-[#2196F3] hover:bg-black/[0.02] dark:hover:bg-white/[0.04] bg-brand-surface'
                 }`}
               >
                 <div className="flex items-start gap-3">
