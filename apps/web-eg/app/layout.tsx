@@ -71,12 +71,12 @@ const jsonLd = buildMarketJsonLd(site, {
   },
 })
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const nonce = getCspNonce()
+  const nonce = await getCspNonce()
 
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>

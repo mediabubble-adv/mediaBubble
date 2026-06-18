@@ -3,6 +3,6 @@
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
-    "@next/bundle-analyzer": "^16.2.9"
+    "@next/bundle-analyzer": "14.2.35"
   }
 }
