@@ -1,26 +1,3 @@
-// launcher.mediabubble.co — Prisma schema
-//
-// Baseline strategy (Phase 1, no live database provisioned yet):
-//
-//   1. The COMPLETE PostgreSQL schema is the source of truth and lives,
-//      verbatim, in prisma/migrations/0001_init/migration.sql (a copy of the
-//      canonical LAUNCHER_DATABASE_SCHEMA.sql). It includes all tables,
-//      indexes, views, functions, triggers, and seed data.
-//
-//   2. Once a database exists, reproduce it exactly with:
-//        DATABASE_URL=... npx prisma migrate deploy
-//      Then baseline the migration history if needed:
-//        npx prisma migrate resolve --applied 0001_init
-//
-//   3. Generate the typed Prisma models by introspecting the live DB
-//      (per the Phase 1 plan: "generate from database, don't write by hand"):
-//        npx prisma db pull        # populates the models below
-//        npx prisma generate       # emits the typed client
-//
-// Until step 3 runs, this file intentionally declares only the datasource and
-// generator. Hand-authoring 30+ models here would risk drifting from the
-// canonical SQL — introspection keeps them in lockstep.
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -28,4 +5,677 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model activity_logs {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id     String   @db.Uuid
+  action      String   @db.VarChar(100)
+  entity_type String   @db.VarChar(100)
+  entity_id   String   @db.Uuid
+  details     Json?
+  created_at  DateTime @default(now()) @db.Timestamp(6)
+  users       users    @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([created_at], map: "idx_activity_logs_created_at")
+  @@index([entity_type, entity_id], map: "idx_activity_logs_entity")
+  @@index([user_id], map: "idx_activity_logs_user_id")
+}
+
+model ai_configurations {
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name          String   @db.VarChar(255)
+  provider      String?  @db.VarChar(50)
+  model         String?  @db.VarChar(100)
+  temperature   Decimal? @db.Decimal(3, 2)
+  max_tokens    Int?
+  system_prompt String?
+  created_by    String   @db.Uuid
+  is_public     Boolean? @default(false)
+  created_at    DateTime @default(now()) @db.Timestamp(6)
+  users         users    @relation(fields: [created_by], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([created_by], map: "idx_ai_configurations_created_by")
+}
+
+model ai_outputs {
+  id          String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  request_id  String      @db.Uuid
+  title       String?     @db.VarChar(255)
+  content     String?
+  tags        String[]
+  starred     Boolean?    @default(false)
+  user_id     String      @db.Uuid
+  created_at  DateTime    @default(now()) @db.Timestamp(6)
+  ai_requests ai_requests @relation(fields: [request_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users       users       @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([request_id], map: "idx_ai_outputs_request_id")
+  @@index([user_id], map: "idx_ai_outputs_user_id")
+}
+
+model ai_requests {
+  id            String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id       String       @db.Uuid
+  ai_provider   String?      @db.VarChar(50)
+  request_type  String?      @db.VarChar(50)
+  input_text    String?
+  output_text   String?
+  tokens_used   Int?
+  cost          Decimal?     @db.Decimal(10, 6)
+  status        String?      @default("Processing") @db.VarChar(50)
+  error_message String?
+  created_at    DateTime     @default(now()) @db.Timestamp(6)
+  ai_outputs    ai_outputs[]
+  users         users        @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([created_at], map: "idx_ai_requests_created_at")
+  @@index([user_id], map: "idx_ai_requests_user_id")
+}
+
+model api_keys {
+  id           String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id      String    @db.Uuid
+  key_hash     String    @unique @db.VarChar(255)
+  name         String?   @db.VarChar(255)
+  permissions  String[]  @default([])
+  last_used_at DateTime? @db.Timestamp(6)
+  expires_at   DateTime? @db.Timestamp(6)
+  created_at   DateTime  @default(now()) @db.Timestamp(6)
+  revoked_at   DateTime? @db.Timestamp(6)
+  users        users     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([user_id], map: "idx_api_keys_user_id")
+}
+
+model audit_logs {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id     String   @db.Uuid
+  entity_type String   @db.VarChar(255)
+  entity_id   String   @db.Uuid
+  action      String   @db.VarChar(50)
+  old_values  Json?
+  new_values  Json?
+  ip_address  String?  @db.Inet
+  user_agent  String?
+  created_at  DateTime @default(now()) @db.Timestamp(6)
+  users       users    @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([created_at], map: "idx_audit_logs_created_at")
+  @@index([entity_type, entity_id], map: "idx_audit_logs_entity")
+  @@index([user_id], map: "idx_audit_logs_user_id")
+}
+
+model availability {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id    String   @db.Uuid
+  date       DateTime @db.Date
+  start_time DateTime @db.Time(6)
+  end_time   DateTime @db.Time(6)
+  status     String?  @default("Available") @db.VarChar(50)
+  created_at DateTime @default(now()) @db.Timestamp(6)
+  users      users    @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([date], map: "idx_availability_date")
+  @@index([user_id], map: "idx_availability_user_id")
+}
+
+model capacity {
+  id                  String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id             String    @db.Uuid
+  week_start          DateTime  @db.Date
+  allocated_hours     Decimal?  @db.Decimal(8, 2)
+  scheduled_hours     Decimal?  @db.Decimal(8, 2)
+  utilization_percent Decimal?  @db.Decimal(5, 2)
+  calculated_at       DateTime? @default(now()) @db.Timestamp(6)
+  users               users     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([user_id], map: "idx_capacity_user_id")
+  @@index([week_start], map: "idx_capacity_week_start")
+}
+
+model channels {
+  id                    String                  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name                  String                  @db.VarChar(255)
+  description           String?
+  type                  String?                 @default("Public") @db.VarChar(50)
+  created_by            String                  @db.Uuid
+  members               String[]                @db.Uuid
+  created_at            DateTime                @default(now()) @db.Timestamp(6)
+  archived_at           DateTime?               @db.Timestamp(6)
+  users                 users                   @relation(fields: [created_by], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  message_notifications message_notifications[]
+  messages              messages[]
+
+  @@index([created_by], map: "idx_channels_created_by")
+  @@index([type], map: "idx_channels_type")
+}
+
+model collaborations {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  created_by  String   @db.Uuid
+  title       String   @db.VarChar(255)
+  description String?
+  members     String[] @db.Uuid
+  status      String?  @default("Active") @db.VarChar(50)
+  created_at  DateTime @default(now()) @db.Timestamp(6)
+  updated_at  DateTime @default(now()) @db.Timestamp(6)
+  users       users    @relation(fields: [created_by], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([created_by], map: "idx_collaborations_created_by")
+}
+
+model departments {
+  id                                     String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name                                   String           @db.VarChar(255)
+  description                            String?
+  head_id                                String?          @db.Uuid
+  budget                                 Decimal?         @db.Decimal(12, 2)
+  created_at                             DateTime         @default(now()) @db.Timestamp(6)
+  updated_at                             DateTime         @default(now()) @db.Timestamp(6)
+  deleted_at                             DateTime?        @db.Timestamp(6)
+  users_departments_head_idTousers       users?           @relation("departments_head_idTousers", fields: [head_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  task_templates                         task_templates[]
+  tasks                                  tasks[]
+  users_users_department_idTodepartments users[]          @relation("users_department_idTodepartments")
+
+  @@index([name], map: "idx_departments_name")
+}
+
+model email_verification_tokens {
+  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id     String    @db.Uuid
+  token_hash  String    @unique @db.VarChar(255)
+  expires_at  DateTime  @db.Timestamp(6)
+  consumed_at DateTime? @db.Timestamp(6)
+  created_at  DateTime  @default(now()) @db.Timestamp(6)
+  users       users     @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([expires_at], map: "idx_email_verification_tokens_expires_at")
+  @@index([user_id], map: "idx_email_verification_tokens_user_id")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model feedback_360 {
+  id                                    String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  employee_id                           String   @db.Uuid
+  reviewer_id                           String   @db.Uuid
+  category                              String?  @db.VarChar(100)
+  rating                                Int?
+  comment                               String?
+  anonymous                             Boolean? @default(false)
+  created_at                            DateTime @default(now()) @db.Timestamp(6)
+  users_feedback_360_employee_idTousers users    @relation("feedback_360_employee_idTousers", fields: [employee_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  users_feedback_360_reviewer_idTousers users    @relation("feedback_360_reviewer_idTousers", fields: [reviewer_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([employee_id], map: "idx_feedback_360_employee_id")
+  @@index([reviewer_id], map: "idx_feedback_360_reviewer_id")
+}
+
+model holidays {
+  id             String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  date           DateTime @db.Date
+  name           String   @db.VarChar(255)
+  country        String?  @db.VarChar(50)
+  is_working_day Boolean? @default(false)
+  created_at     DateTime @default(now()) @db.Timestamp(6)
+
+  @@index([country], map: "idx_holidays_country")
+  @@index([date], map: "idx_holidays_date")
+}
+
+model kpis {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  employee_id String   @db.Uuid
+  metric_name String   @db.VarChar(255)
+  value       Decimal  @db.Decimal(12, 2)
+  target      Decimal? @db.Decimal(12, 2)
+  period      String?  @default("Monthly") @db.VarChar(50)
+  measured_at DateTime @db.Timestamp(6)
+  source      String?  @default("Manual") @db.VarChar(100)
+  created_at  DateTime @default(now()) @db.Timestamp(6)
+  users       users    @relation(fields: [employee_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([employee_id], map: "idx_kpis_employee_id")
+  @@index([measured_at], map: "idx_kpis_measured_at")
+  @@index([metric_name], map: "idx_kpis_metric_name")
+}
+
+model leave_requests {
+  id                                      String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id                                 String   @db.Uuid
+  start_date                              DateTime @db.Date
+  end_date                                DateTime @db.Date
+  type                                    String   @db.VarChar(50)
+  reason                                  String?
+  approver_id                             String?  @db.Uuid
+  status                                  String?  @default("Pending") @db.VarChar(50)
+  created_at                              DateTime @default(now()) @db.Timestamp(6)
+  updated_at                              DateTime @default(now()) @db.Timestamp(6)
+  users_leave_requests_approver_idTousers users?   @relation("leave_requests_approver_idTousers", fields: [approver_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  users_leave_requests_user_idTousers     users    @relation("leave_requests_user_idTousers", fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([user_id, start_date, end_date], map: "idx_leave_requests_date_range")
+  @@index([status], map: "idx_leave_requests_status")
+  @@index([user_id], map: "idx_leave_requests_user_id")
+}
+
+model mentions {
+  id                                      String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  mentioned_user_id                       String   @db.Uuid
+  mentioned_by                            String   @db.Uuid
+  entity_type                             String   @db.VarChar(100)
+  entity_id                               String   @db.Uuid
+  context                                 String?
+  read                                    Boolean? @default(false)
+  created_at                              DateTime @default(now()) @db.Timestamp(6)
+  users_mentions_mentioned_byTousers      users    @relation("mentions_mentioned_byTousers", fields: [mentioned_by], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  users_mentions_mentioned_user_idTousers users    @relation("mentions_mentioned_user_idTousers", fields: [mentioned_user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([mentioned_user_id], map: "idx_mentions_mentioned_user_id")
+  @@index([read], map: "idx_mentions_read")
+}
+
+model message_notifications {
+  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id    String    @db.Uuid
+  channel_id String    @db.Uuid
+  message_id String?   @db.Uuid
+  type       String?   @db.VarChar(50)
+  read       Boolean?  @default(false)
+  created_at DateTime  @default(now()) @db.Timestamp(6)
+  channels   channels  @relation(fields: [channel_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  messages   messages? @relation(fields: [message_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  users      users     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([read], map: "idx_message_notifications_read")
+  @@index([user_id], map: "idx_message_notifications_user_id")
+}
+
+/// This model contains an expression index which requires additional setup for migrations. Visit https://pris.ly/d/expression-indexes for more info.
+model messages {
+  id                    String                  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  channel_id            String                  @db.Uuid
+  user_id               String                  @db.Uuid
+  content               String
+  attachments           Json?
+  reactions             Json?
+  thread_id             String?                 @db.Uuid
+  edited_at             DateTime?               @db.Timestamp(6)
+  deleted_at            DateTime?               @db.Timestamp(6)
+  created_at            DateTime                @default(now()) @db.Timestamp(6)
+  message_notifications message_notifications[]
+  channels              channels                @relation(fields: [channel_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  messages              messages?               @relation("messagesTomessages", fields: [thread_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  other_messages        messages[]              @relation("messagesTomessages")
+  users                 users                   @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([channel_id], map: "idx_messages_channel_id")
+  @@index([created_at], map: "idx_messages_created_at")
+  @@index([thread_id], map: "idx_messages_thread_id")
+  @@index([user_id], map: "idx_messages_user_id")
+}
+
+model okrs {
+  id                            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  employee_id                   String   @db.Uuid
+  objective                     String   @db.VarChar(255)
+  key_results                   Json
+  quarter                       String   @db.VarChar(10)
+  year                          Int
+  status                        String?  @default("On Track") @db.VarChar(50)
+  owner_id                      String?  @db.Uuid
+  created_at                    DateTime @default(now()) @db.Timestamp(6)
+  updated_at                    DateTime @default(now()) @db.Timestamp(6)
+  users_okrs_employee_idTousers users    @relation("okrs_employee_idTousers", fields: [employee_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  users_okrs_owner_idTousers    users?   @relation("okrs_owner_idTousers", fields: [owner_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([employee_id], map: "idx_okrs_employee_id")
+  @@index([quarter, year], map: "idx_okrs_quarter_year")
+}
+
+model password_reset_tokens {
+  id           String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id      String    @db.Uuid
+  token_hash   String    @unique @db.VarChar(255)
+  expires_at   DateTime  @db.Timestamp(6)
+  consumed_at  DateTime? @db.Timestamp(6)
+  requested_ip String?   @db.Inet
+  created_at   DateTime  @default(now()) @db.Timestamp(6)
+  users        users     @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([expires_at], map: "idx_password_reset_tokens_expires_at")
+  @@index([user_id], map: "idx_password_reset_tokens_user_id")
+}
+
+model performance_reviews {
+  id                                           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  employee_id                                  String   @db.Uuid
+  reviewer_id                                  String   @db.Uuid
+  review_period_start                          DateTime @db.Date
+  review_period_end                            DateTime @db.Date
+  rating                                       String?  @db.VarChar(50)
+  feedback                                     String?
+  goals_met                                    Json?
+  areas_for_improvement                        Json?
+  created_at                                   DateTime @default(now()) @db.Timestamp(6)
+  updated_at                                   DateTime @default(now()) @db.Timestamp(6)
+  users_performance_reviews_employee_idTousers users    @relation("performance_reviews_employee_idTousers", fields: [employee_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  users_performance_reviews_reviewer_idTousers users    @relation("performance_reviews_reviewer_idTousers", fields: [reviewer_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([employee_id], map: "idx_performance_reviews_employee_id")
+  @@index([review_period_start, review_period_end], map: "idx_performance_reviews_period")
+  @@index([reviewer_id], map: "idx_performance_reviews_reviewer_id")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model prompt_executions {
+  id                String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  prompt_id         String   @db.Uuid
+  user_id           String   @db.Uuid
+  variables_used    Json?
+  ai_provider       String?  @db.VarChar(50)
+  model             String?  @db.VarChar(100)
+  input_text        String?
+  output_text       String?
+  rating            Int?
+  execution_time_ms Int?
+  cost              Decimal? @db.Decimal(10, 6)
+  created_at        DateTime @default(now()) @db.Timestamp(6)
+  prompts           prompts  @relation(fields: [prompt_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  users             users    @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([prompt_id], map: "idx_prompt_executions_prompt_id")
+  @@index([user_id], map: "idx_prompt_executions_user_id")
+}
+
+model prompt_libraries {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title       String   @db.VarChar(255)
+  description String?
+  prompts     String[] @db.Uuid
+  owner       String   @db.Uuid
+  shared_with String[] @db.Uuid
+  is_public   Boolean? @default(false)
+  created_at  DateTime @default(now()) @db.Timestamp(6)
+  users       users    @relation(fields: [owner], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([owner], map: "idx_prompt_libraries_owner")
+}
+
+model prompt_versions {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  prompt_id  String   @db.Uuid
+  version    Int
+  template   String
+  changes    String?
+  created_by String   @db.Uuid
+  created_at DateTime @default(now()) @db.Timestamp(6)
+  users      users    @relation(fields: [created_by], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  prompts    prompts  @relation(fields: [prompt_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([prompt_id, version])
+  @@index([prompt_id], map: "idx_prompt_versions_prompt_id")
+}
+
+model prompts {
+  id                String              @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name              String              @db.VarChar(255)
+  description       String?
+  category          String?             @db.VarChar(100)
+  template          String
+  variables         Json?
+  created_by        String              @db.Uuid
+  is_public         Boolean?            @default(false)
+  version           Int?                @default(1)
+  status            String?             @default("Draft") @db.VarChar(50)
+  created_at        DateTime            @default(now()) @db.Timestamp(6)
+  updated_at        DateTime            @default(now()) @db.Timestamp(6)
+  prompt_executions prompt_executions[]
+  prompt_versions   prompt_versions[]
+  users             users               @relation(fields: [created_by], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([category], map: "idx_prompts_category")
+  @@index([created_by], map: "idx_prompts_created_by")
+  @@index([status], map: "idx_prompts_status")
+}
+
+model settings {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id    String?  @db.Uuid
+  key        String   @db.VarChar(255)
+  value      Json?
+  updated_at DateTime @default(now()) @db.Timestamp(6)
+  users      users?   @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@unique([user_id, key])
+}
+
+model task_attachments {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  task_id     String   @db.Uuid
+  uploaded_by String   @db.Uuid
+  file_name   String   @db.VarChar(255)
+  file_url    String
+  file_size   Int?
+  mime_type   String?  @db.VarChar(100)
+  created_at  DateTime @default(now()) @db.Timestamp(6)
+  tasks       tasks    @relation(fields: [task_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users       users    @relation(fields: [uploaded_by], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([task_id], map: "idx_task_attachments_task_id")
+}
+
+model task_comments {
+  id              String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  task_id         String    @db.Uuid
+  user_id         String    @db.Uuid
+  content         String
+  mentioned_users String[]  @db.Uuid
+  created_at      DateTime  @default(now()) @db.Timestamp(6)
+  updated_at      DateTime  @default(now()) @db.Timestamp(6)
+  deleted_at      DateTime? @db.Timestamp(6)
+  tasks           tasks     @relation(fields: [task_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users           users     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([task_id], map: "idx_task_comments_task_id")
+  @@index([user_id], map: "idx_task_comments_user_id")
+}
+
+model task_templates {
+  id               String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name             String       @db.VarChar(255)
+  description      String?
+  department_id    String?      @db.Uuid
+  default_priority String?      @default("Medium") @db.VarChar(50)
+  default_tags     String[]
+  subtasks         Json?
+  created_by       String       @db.Uuid
+  is_public        Boolean?     @default(false)
+  created_at       DateTime     @default(now()) @db.Timestamp(6)
+  users            users        @relation(fields: [created_by], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  departments      departments? @relation(fields: [department_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([department_id], map: "idx_task_templates_department_id")
+}
+
+/// This model contains an expression index which requires additional setup for migrations. Visit https://pris.ly/d/expression-indexes for more info.
+model tasks {
+  id                             String             @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title                          String             @db.VarChar(255)
+  description                    String?
+  created_by                     String             @db.Uuid
+  assigned_to                    String?            @db.Uuid
+  department_id                  String?            @db.Uuid
+  priority                       String?            @default("Medium") @db.VarChar(50)
+  status                         String?            @default("Backlog") @db.VarChar(50)
+  due_date                       DateTime?          @db.Date
+  completed_at                   DateTime?          @db.Timestamp(6)
+  estimated_hours                Decimal?           @db.Decimal(8, 2)
+  actual_hours                   Decimal?           @db.Decimal(8, 2)
+  tags                           String[]
+  parent_task_id                 String?            @db.Uuid
+  created_at                     DateTime           @default(now()) @db.Timestamp(6)
+  updated_at                     DateTime           @default(now()) @db.Timestamp(6)
+  deleted_at                     DateTime?          @db.Timestamp(6)
+  task_attachments               task_attachments[]
+  task_comments                  task_comments[]
+  users_tasks_assigned_toTousers users?             @relation("tasks_assigned_toTousers", fields: [assigned_to], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  users_tasks_created_byTousers  users              @relation("tasks_created_byTousers", fields: [created_by], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  departments                    departments?       @relation(fields: [department_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  tasks                          tasks?             @relation("tasksTotasks", fields: [parent_task_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  other_tasks                    tasks[]            @relation("tasksTotasks")
+  time_entries                   time_entries[]
+
+  @@index([assigned_to], map: "idx_tasks_assigned_to")
+  @@index([created_by], map: "idx_tasks_created_by")
+  @@index([department_id], map: "idx_tasks_department_id")
+  @@index([due_date], map: "idx_tasks_due_date")
+  @@index([due_date, status], map: "idx_tasks_due_date_status")
+  @@index([status], map: "idx_tasks_status")
+  @@index([updated_at], map: "idx_tasks_updated_at")
+}
+
+model time_entries {
+  id               String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id          String   @db.Uuid
+  task_id          String?  @db.Uuid
+  date             DateTime @db.Date
+  start_time       DateTime @db.Timestamp(6)
+  end_time         DateTime @db.Timestamp(6)
+  duration_minutes Int?
+  description      String?
+  billable         Boolean? @default(false)
+  status           String?  @default("Draft") @db.VarChar(50)
+  created_at       DateTime @default(now()) @db.Timestamp(6)
+  updated_at       DateTime @default(now()) @db.Timestamp(6)
+  tasks            tasks?   @relation(fields: [task_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  users            users    @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([date], map: "idx_time_entries_date")
+  @@index([user_id, date], map: "idx_time_entries_date_range")
+  @@index([task_id], map: "idx_time_entries_task_id")
+  @@index([user_id], map: "idx_time_entries_user_id")
+}
+
+model user_presence {
+  user_id          String    @id @db.Uuid
+  status           String?   @default("Offline") @db.VarChar(50)
+  last_seen        DateTime? @default(now()) @db.Timestamp(6)
+  current_location String?   @db.VarChar(255)
+  device           String?   @db.VarChar(100)
+  updated_at       DateTime? @default(now()) @db.Timestamp(6)
+  users            users     @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+model users {
+  id                                                         String                      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email                                                      String                      @unique @db.VarChar(255)
+  password_hash                                              String?                     @db.VarChar(255)
+  name                                                       String                      @db.VarChar(255)
+  avatar_url                                                 String?
+  department_id                                              String?                     @db.Uuid
+  role                                                       String                      @default("Contributor") @db.VarChar(50)
+  status                                                     String?                     @default("active") @db.VarChar(50)
+  last_login_at                                              DateTime?                   @db.Timestamp(6)
+  created_at                                                 DateTime                    @default(now()) @db.Timestamp(6)
+  updated_at                                                 DateTime                    @default(now()) @db.Timestamp(6)
+  deleted_at                                                 DateTime?                   @db.Timestamp(6)
+  activity_logs                                              activity_logs[]
+  ai_configurations                                          ai_configurations[]
+  ai_outputs                                                 ai_outputs[]
+  ai_requests                                                ai_requests[]
+  api_keys                                                   api_keys[]
+  audit_logs                                                 audit_logs[]
+  availability                                               availability[]
+  capacity                                                   capacity[]
+  channels                                                   channels[]
+  collaborations                                             collaborations[]
+  departments_departments_head_idTousers                     departments[]               @relation("departments_head_idTousers")
+  email_verification_tokens                                  email_verification_tokens[]
+  feedback_360_feedback_360_employee_idTousers               feedback_360[]              @relation("feedback_360_employee_idTousers")
+  feedback_360_feedback_360_reviewer_idTousers               feedback_360[]              @relation("feedback_360_reviewer_idTousers")
+  kpis                                                       kpis[]
+  leave_requests_leave_requests_approver_idTousers           leave_requests[]            @relation("leave_requests_approver_idTousers")
+  leave_requests_leave_requests_user_idTousers               leave_requests[]            @relation("leave_requests_user_idTousers")
+  mentions_mentions_mentioned_byTousers                      mentions[]                  @relation("mentions_mentioned_byTousers")
+  mentions_mentions_mentioned_user_idTousers                 mentions[]                  @relation("mentions_mentioned_user_idTousers")
+  message_notifications                                      message_notifications[]
+  messages                                                   messages[]
+  okrs_okrs_employee_idTousers                               okrs[]                      @relation("okrs_employee_idTousers")
+  okrs_okrs_owner_idTousers                                  okrs[]                      @relation("okrs_owner_idTousers")
+  password_reset_tokens                                      password_reset_tokens[]
+  performance_reviews_performance_reviews_employee_idTousers performance_reviews[]       @relation("performance_reviews_employee_idTousers")
+  performance_reviews_performance_reviews_reviewer_idTousers performance_reviews[]       @relation("performance_reviews_reviewer_idTousers")
+  prompt_executions                                          prompt_executions[]
+  prompt_libraries                                           prompt_libraries[]
+  prompt_versions                                            prompt_versions[]
+  prompts                                                    prompts[]
+  settings                                                   settings[]
+  task_attachments                                           task_attachments[]
+  task_comments                                              task_comments[]
+  task_templates                                             task_templates[]
+  tasks_tasks_assigned_toTousers                             tasks[]                     @relation("tasks_assigned_toTousers")
+  tasks_tasks_created_byTousers                              tasks[]                     @relation("tasks_created_byTousers")
+  time_entries                                               time_entries[]
+  user_presence                                              user_presence?
+  departments_users_department_idTodepartments               departments?                @relation("users_department_idTodepartments", fields: [department_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_users_department")
+  workflow_executions                                        workflow_executions[]
+  workflow_templates                                         workflow_templates[]
+  workflows                                                  workflows[]
+
+  @@index([department_id], map: "idx_users_department_id")
+  @@index([email], map: "idx_users_email")
+  @@index([role], map: "idx_users_role")
+}
+
+model workflow_executions {
+  id                String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  workflow_id       String    @db.Uuid
+  triggered_by      String?   @db.Uuid
+  trigger_data      Json?
+  status            String?   @default("Running") @db.VarChar(50)
+  steps_executed    Int?
+  error_message     String?
+  execution_time_ms Int?
+  created_at        DateTime  @default(now()) @db.Timestamp(6)
+  users             users?    @relation(fields: [triggered_by], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  workflows         workflows @relation(fields: [workflow_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([status], map: "idx_workflow_executions_status")
+  @@index([workflow_id], map: "idx_workflow_executions_workflow_id")
+}
+
+model workflow_templates {
+  id              String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name            String   @db.VarChar(255)
+  category        String?  @db.VarChar(100)
+  description     String?
+  workflow_config Json?
+  created_by      String   @db.Uuid
+  usage_count     Int?     @default(0)
+  created_at      DateTime @default(now()) @db.Timestamp(6)
+  users           users    @relation(fields: [created_by], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([category], map: "idx_workflow_templates_category")
+}
+
+model workflows {
+  id                  String                @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name                String                @db.VarChar(255)
+  description         String?
+  trigger             Json
+  steps               Json
+  enabled             Boolean?              @default(true)
+  created_by          String                @db.Uuid
+  last_executed_at    DateTime?             @db.Timestamp(6)
+  execution_count     Int?                  @default(0)
+  success_count       Int?                  @default(0)
+  created_at          DateTime              @default(now()) @db.Timestamp(6)
+  updated_at          DateTime              @default(now()) @db.Timestamp(6)
+  workflow_executions workflow_executions[]
+  users               users                 @relation(fields: [created_by], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([created_by], map: "idx_workflows_created_by")
+  @@index([enabled], map: "idx_workflows_enabled")
 }

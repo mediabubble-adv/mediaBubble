@@ -15,6 +15,10 @@
     "dev:eg:clean": "lsof -ti :3000 | xargs kill -9 2>/dev/null || true; rm -rf apps/web-eg/.next node_modules/.cache/webpack/apps/web-eg && find apps/web-eg/public -maxdepth 1 -type f \\( -name 'sw.js' -o -name 'workbox-*.js' -o -name 'swe-worker-*.js' -o -name 'fallback-*.js' \\) -delete && nx run web-eg:dev",
     "dev:brand": "nx run brand:dev",
     "dev:launcher": "nx run launcher:dev",
+    "db:generate": "prisma generate --schema apps/launcher/prisma/schema.prisma",
+    "db:migrate": "prisma migrate dev --schema apps/launcher/prisma/schema.prisma",
+    "db:studio": "prisma studio --schema apps/launcher/prisma/schema.prisma",
+    "db:seed": "tsx apps/launcher/prisma/seed.ts",
     "build": "nx run-many -t build",
     "start": "nx run web-eg:start",
     "lint": "nx run-many -t lint --exclude=@mediabubble/design-system",
@@ -26,7 +30,12 @@
     "graph": "nx graph",
     "format": "prettier --write ."
   },
+  "prisma": {
+    "schema": "apps/launcher/prisma/schema.prisma",
+    "seed": "tsx apps/launcher/prisma/seed.ts"
+  },
   "dependencies": {
+    "@prisma/client": "^6.19.3",
     "@radix-ui/react-slot": "^1.2.5",
     "i18next": "^26.3.1",
     "i18next-browser-languagedetector": "^8.2.1",
@@ -70,6 +79,7 @@
     "lint-staged": "^17.0.7",
     "nx": "23.0.0",
     "postcss": "^8.4.32",
+    "prisma": "^6.19.3",
     "rollup": "^4.59.0",
     "tailwindcss": "^3.3.6",
     "ts-jest": "^29.4.11",

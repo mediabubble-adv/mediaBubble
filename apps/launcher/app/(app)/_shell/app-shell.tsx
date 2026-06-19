@@ -1,0 +1,284 @@
+'use client'
+
+import { useCallback, useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
+import { usePathname, useRouter } from 'next/navigation'
+import {
+  Rocket,
+  Search,
+  Bell,
+  PanelLeftClose,
+  PanelLeftOpen,
+  Menu,
+  LogOut,
+  ChevronDown,
+} from 'lucide-react'
+import { NAV_ITEMS, NAV_FOOTER, isActive, type NavItem } from './nav'
+import { CommandPalette } from './command-palette'
+
+export interface ShellUser {
+  name: string
+  email: string
+  role: string
+  department: string | null
+  initials: string
+}
+
+const COLLAPSE_KEY = 'mb_sidebar_collapsed'
+
+export function AppShell({ user, children }: { user: ShellUser; children: React.ReactNode }) {
+  const [collapsed, setCollapsed] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [paletteOpen, setPaletteOpen] = useState(false)
+  const pathname = usePathname()
+
+  // Restore the persisted collapsed state on mount.
+  useEffect(() => {
+    setCollapsed(localStorage.getItem(COLLAPSE_KEY) === '1')
+  }, [])
+
+  const toggleCollapsed = useCallback(() => {
+    setCollapsed((c) => {
+      const next = !c
+      localStorage.setItem(COLLAPSE_KEY, next ? '1' : '0')
+      return next
+    })
+  }, [])
+
+  // Global Cmd/Ctrl+K opens the palette.
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault()
+        setPaletteOpen((o) => !o)
+      }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
+
+  // Close the mobile drawer on navigation.
+  useEffect(() => {
+    setMobileOpen(false)
+  }, [pathname])
+
+  return (
+    <div className="flex min-h-screen bg-brand-canvas">
+      {/* Mobile backdrop */}
+      {mobileOpen ? (
+        <div
+          className="fixed inset-0 z-30 bg-black/50 lg:hidden"
+          onClick={() => setMobileOpen(false)}
+        />
+      ) : null}
+
+      <Sidebar
+        collapsed={collapsed}
+        mobileOpen={mobileOpen}
+        pathname={pathname}
+        onToggleCollapsed={toggleCollapsed}
+      />
+
+      <div className="flex min-w-0 flex-1 flex-col">
+        <Topbar
+          user={user}
+          onOpenPalette={() => setPaletteOpen(true)}
+          onOpenMobile={() => setMobileOpen(true)}
+        />
+        <main className="min-w-0 flex-1">{children}</main>
+      </div>
+
+      <CommandPalette open={paletteOpen} onClose={() => setPaletteOpen(false)} />
+    </div>
+  )
+}
+
+function Sidebar({
+  collapsed,
+  mobileOpen,
+  pathname,
+  onToggleCollapsed,
+}: {
+  collapsed: boolean
+  mobileOpen: boolean
+  pathname: string
+  onToggleCollapsed: () => void
+}) {
+  return (
+    <aside
+      className={`fixed inset-y-0 left-0 z-40 flex flex-col border-r border-brand-whisper-border bg-brand-surface transition-[width,transform] duration-200 lg:static lg:translate-x-0 ${
+        collapsed ? 'w-[64px]' : 'w-[240px]'
+      } ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}`}
+    >
+      {/* Brand */}
+      <div className="flex h-14 items-center gap-2 px-3.5">
+        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand-blue/[0.16]">
+          <Rocket size={16} className="text-brand-blue" />
+        </div>
+        {!collapsed ? (
+          <span className="truncate text-[13px] font-bold text-brand-text">MediaBubble</span>
+        ) : null}
+      </div>
+
+      <nav className="flex-1 space-y-1 px-2.5 py-2">
+        {NAV_ITEMS.map((item) => (
+          <NavLink key={item.href} item={item} collapsed={collapsed} pathname={pathname} />
+        ))}
+      </nav>
+
+      <div className="space-y-1 border-t border-brand-whisper-border px-2.5 py-2">
+        {NAV_FOOTER.map((item) => (
+          <NavLink key={item.href} item={item} collapsed={collapsed} pathname={pathname} />
+        ))}
+        <button
+          type="button"
+          onClick={onToggleCollapsed}
+          title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+          className="hidden w-full items-center gap-3 rounded-lg px-2.5 py-2 text-[13px] text-brand-text-muted transition-colors hover:bg-brand-canvas hover:text-brand-text lg:flex"
+        >
+          {collapsed ? <PanelLeftOpen size={18} /> : <PanelLeftClose size={18} />}
+          {!collapsed ? <span>Collapse</span> : null}
+        </button>
+      </div>
+    </aside>
+  )
+}
+
+function NavLink({
+  item,
+  collapsed,
+  pathname,
+}: {
+  item: NavItem
+  collapsed: boolean
+  pathname: string
+}) {
+  const active = isActive(pathname, item.href)
+  const Icon = item.icon
+  return (
+    <Link
+      href={item.href}
+      title={collapsed ? item.label : undefined}
+      className={`group flex items-center gap-3 rounded-lg px-2.5 py-2 text-[13px] font-medium transition-all duration-200 active:scale-[0.98] ${
+        active
+          ? 'bg-brand-blue/[0.16] text-brand-text'
+          : 'text-brand-text-muted hover:bg-brand-canvas hover:text-brand-text'
+      } ${collapsed ? 'justify-center' : ''}`}
+    >
+      <Icon
+        size={18}
+        className={`shrink-0 ${active ? 'text-brand-blue' : 'text-brand-text-muted group-hover:text-brand-text'}`}
+      />
+      {!collapsed ? <span className="flex-1 truncate">{item.label}</span> : null}
+    </Link>
+  )
+}
+
+function Topbar({
+  user,
+  onOpenPalette,
+  onOpenMobile,
+}: {
+  user: ShellUser
+  onOpenPalette: () => void
+  onOpenMobile: () => void
+}) {
+  return (
+    <header className="sticky top-0 z-20 flex h-14 items-center gap-3 border-b border-brand-whisper-border bg-brand-canvas/80 px-4 backdrop-blur">
+      <button
+        type="button"
+        onClick={onOpenMobile}
+        className="text-brand-text-muted transition-colors hover:text-brand-text lg:hidden"
+        aria-label="Open menu"
+      >
+        <Menu size={20} />
+      </button>
+
+      {/* Search trigger → opens Cmd+K */}
+      <button
+        type="button"
+        onClick={onOpenPalette}
+        className="flex h-9 max-w-sm flex-1 items-center gap-2 rounded-lg border border-brand-input-border bg-brand-surface px-3 text-left text-[13px] text-brand-text-muted transition-colors hover:border-brand-blue/50"
+      >
+        <Search size={15} className="shrink-0" />
+        <span className="flex-1 truncate">Search…</span>
+        <kbd className="hidden rounded border border-brand-whisper-border px-1.5 py-0.5 text-[10px] font-semibold sm:inline">
+          ⌘K
+        </kbd>
+      </button>
+
+      <div className="flex-1" />
+
+      <button
+        type="button"
+        className="relative text-brand-text-muted transition-colors hover:text-brand-text"
+        aria-label="Notifications"
+      >
+        <Bell size={18} />
+      </button>
+
+      <UserMenu user={user} />
+    </header>
+  )
+}
+
+function UserMenu({ user }: { user: ShellUser }) {
+  const [open, setOpen] = useState(false)
+  const [pending, setPending] = useState(false)
+  const router = useRouter()
+  const ref = useRef<HTMLDivElement>(null)
+
+  // Close on outside click.
+  useEffect(() => {
+    if (!open) return
+    function onClick(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false)
+    }
+    window.addEventListener('mousedown', onClick)
+    return () => window.removeEventListener('mousedown', onClick)
+  }, [open])
+
+  async function signOut() {
+    setPending(true)
+    await fetch('/api/auth/logout', { method: 'POST' })
+    router.replace('/login')
+    router.refresh()
+  }
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        className="flex items-center gap-2 rounded-lg py-1 pl-1 pr-2 transition-colors hover:bg-brand-surface"
+      >
+        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-blue/[0.16] text-[12px] font-bold text-brand-blue">
+          {user.initials}
+        </span>
+        <ChevronDown size={14} className="text-brand-text-muted" />
+      </button>
+
+      {open ? (
+        <div className="absolute right-0 top-[calc(100%+6px)] w-56 overflow-hidden rounded-xl border border-brand-whisper-border bg-brand-surface shadow-xl shadow-black/30">
+          <div className="border-b border-brand-whisper-border px-3.5 py-3">
+            <p className="truncate text-[13px] font-bold text-brand-text">{user.name}</p>
+            <p className="truncate text-[12px] text-brand-text-muted">{user.email}</p>
+            <p className="mt-1 text-[11px] text-brand-text-muted">
+              {user.role}
+              {user.department ? ` · ${user.department}` : ''}
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={signOut}
+            disabled={pending}
+            className="flex w-full items-center gap-2.5 px-3.5 py-2.5 text-left text-[13px] text-brand-text transition-colors hover:bg-brand-canvas disabled:opacity-60"
+          >
+            <LogOut size={15} className="text-brand-text-muted" />
+            {pending ? 'Signing out…' : 'Sign out'}
+          </button>
+        </div>
+      ) : null}
+    </div>
+  )
+}
