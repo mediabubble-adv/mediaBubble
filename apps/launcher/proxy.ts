@@ -42,7 +42,8 @@ export function proxy(req: NextRequest): NextResponse {
   return NextResponse.next()
 }
 
-export const proxyConfig = {
+// Next 16.2.9 reads the matcher from `config` (not `proxyConfig`).
+export const config = {
   // Skip API routes, Next internals, and anything with a file extension.
   matcher: ['/((?!api|_next/static|_next/image|favicon.ico|.*\\..*).*)'],
 }
