@@ -14,15 +14,17 @@ const prisma = new PrismaClient()
 // Shared dev password for every seeded account. Override via env for staging.
 const DEV_PASSWORD = process.env['SEED_PASSWORD'] ?? 'Launch@2026'
 
+// MediaBubble service-line departments (match the live ops data so re-seeding
+// is idempotent against an existing instance).
 const DEPARTMENTS = [
-  'Leadership',
-  'Creative',
-  'Accounts',
-  'Media Buying',
-  'Content',
-  'Development',
-  'Operations',
-  'Sales',
+  'Strategic Consulting',
+  'Branding',
+  'Social Media',
+  'Paid Advertising',
+  'Email Marketing',
+  'SEO',
+  'Media Production',
+  'Analytics & Reporting',
   'Client Services',
 ] as const
 
@@ -34,10 +36,10 @@ interface SeedUser {
 }
 
 const USERS: SeedUser[] = [
-  { email: 'yasser@mediabubble.co', name: 'Yasser Dorgham', role: 'Admin', department: 'Leadership' },
-  { email: 'manager@mediabubble.co', name: 'Project Manager', role: 'Manager', department: 'Operations' },
-  { email: 'creative@mediabubble.co', name: 'Creative Staff', role: 'Contributor', department: 'Creative' },
-  { email: 'viewer@mediabubble.co', name: 'Read Only', role: 'Viewer', department: 'Client Services' },
+  { email: 'yasser@mediabubble.co', name: 'Yasser Dorgham', role: 'Admin', department: 'Strategic Consulting' },
+  { email: 'manager@mediabubble.co', name: 'Project Manager', role: 'Manager', department: 'Client Services' },
+  { email: 'creative@mediabubble.co', name: 'Creative Staff', role: 'Contributor', department: 'Social Media' },
+  { email: 'viewer@mediabubble.co', name: 'Read Only', role: 'Viewer', department: 'Analytics & Reporting' },
 ]
 
 /** Find a department by name, or create it. (No unique constraint on name.) */
