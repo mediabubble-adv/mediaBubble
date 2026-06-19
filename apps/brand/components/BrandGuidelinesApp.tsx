@@ -23,7 +23,7 @@ import { CollateralPage } from './sections/CollateralPage'
 import { DigitalAssetsPage } from './sections/DigitalAssetsPage'
 import { RealWorldExamplesPage } from './sections/RealWorldExamplesPage'
 import { AssetsPage } from './sections/AssetsPage'
-import { PromptsPage } from './sections/PromptsPage'
+import { PromptGeneratorPage } from './prompt-generator/PromptGeneratorPage'
 import { searchGuidelineItems, type GuidelineSearchItem } from '@/lib/guideline-search'
 
 export const BrandGuidelinesApp = () => {
@@ -138,7 +138,7 @@ export const BrandGuidelinesApp = () => {
       case 'digital': return <DigitalAssetsPage />
       case 'real-world-examples': return <RealWorldExamplesPage />
       case 'assets': return <AssetsPage />
-      case 'prompts': return <PromptsPage />
+      case 'prompts': return <PromptGeneratorPage onNavigate={setActiveTab} />
       default: return <OverviewSection onNavigate={setActiveTab} />
     }
   }
