@@ -1,6 +1,6 @@
 {
   "extends": ["../../.eslintrc.json"],
-  "ignorePatterns": ["!**/*", ".next/**", "out/**", "dist/**", "node_modules/**", "prisma/**"],
+  "ignorePatterns": ["!**/*", ".next/**", "out/**", "dist/**", "node_modules/**", "prisma/**", "!prisma/seed.ts"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],

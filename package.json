@@ -15,6 +15,10 @@
     "dev:eg:clean": "lsof -ti :3000 | xargs kill -9 2>/dev/null || true; rm -rf apps/web-eg/.next node_modules/.cache/webpack/apps/web-eg && find apps/web-eg/public -maxdepth 1 -type f \\( -name 'sw.js' -o -name 'workbox-*.js' -o -name 'swe-worker-*.js' -o -name 'fallback-*.js' \\) -delete && nx run web-eg:dev",
     "dev:brand": "nx run brand:dev",
     "dev:launcher": "nx run launcher:dev",
+    "db:generate": "prisma generate --schema apps/launcher/prisma/schema.prisma",
+    "db:migrate": "prisma migrate dev --schema apps/launcher/prisma/schema.prisma",
+    "db:studio": "prisma studio --schema apps/launcher/prisma/schema.prisma",
+    "db:seed": "tsx apps/launcher/prisma/seed.ts",
     "build": "nx run-many -t build",
     "start": "nx run web-eg:start",
     "lint": "nx run-many -t lint --exclude=@mediabubble/design-system",
@@ -25,6 +29,10 @@
     "prepare": "husky",
     "graph": "nx graph",
     "format": "prettier --write ."
+  },
+  "prisma": {
+    "schema": "apps/launcher/prisma/schema.prisma",
+    "seed": "tsx apps/launcher/prisma/seed.ts"
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",

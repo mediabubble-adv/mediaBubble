@@ -6,6 +6,7 @@ import { loginSchema } from '@/lib/auth/schemas'
 import { verifyPassword } from '@/lib/auth/password'
 import { signJwt } from '@/lib/auth/jwt'
 import { getJwtSecret, ACCESS_TOKEN_TTL } from '@/lib/auth/config'
+import { serializeSessionCookie } from '@/lib/auth/cookie'
 import { prisma } from '@/lib/db/prisma'
 
 export const runtime = 'nodejs'
@@ -33,10 +34,14 @@ export async function POST(req: Request): Promise<Response> {
   await prisma.users.update({ where: { id: user.id }, data: { last_login_at: new Date() } })
 
   const token = signJwt({ sub: user.id, role: user.role }, getJwtSecret(), ACCESS_TOKEN_TTL)
-  return toResponse(
+  const res = toResponse(
     ok(
       { token, user: { id: user.id, email: user.email, name: user.name, role: user.role } },
       'Signed in',
     ),
   )
+  // Persist the session as an httpOnly cookie so the proxy gate and server
+  // components see it; the body token remains for non-browser API clients.
+  res.headers.append('Set-Cookie', serializeSessionCookie(token))
+  return res
 }
