@@ -62,10 +62,11 @@ export async function proxy(request: NextRequest) {
     pathname === '/signup' ||
     pathname === '/forgot-password' ||
     pathname.startsWith('/reset-password') ||
-    pathname.startsWith('/verify-email')
+    pathname.startsWith('/verify-email') ||
+    pathname.startsWith('/api/auth/')
 
   if (isAuthRoute) {
-    if (isAuthenticated) {
+    if (isAuthenticated && !pathname.startsWith('/api/')) {
       // Authenticated users should not see login/signup -> send to home
       return NextResponse.redirect(new URL('/', request.url))
     }

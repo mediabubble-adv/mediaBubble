@@ -52,3 +52,12 @@ apps/*/public/workbox-*.js
 apps/*/public/workbox-*.js.map
 apps/*/public/swe-worker-*.js
 apps/*/public/fallback-*.js
+
+# Playwright E2E
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# TypeScript build info
+*.tsbuildinfo
