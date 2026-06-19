@@ -1,0 +1,31 @@
+// launcher.mediabubble.co — Prisma schema
+//
+// Baseline strategy (Phase 1, no live database provisioned yet):
+//
+//   1. The COMPLETE PostgreSQL schema is the source of truth and lives,
+//      verbatim, in prisma/migrations/0001_init/migration.sql (a copy of the
+//      canonical LAUNCHER_DATABASE_SCHEMA.sql). It includes all tables,
+//      indexes, views, functions, triggers, and seed data.
+//
+//   2. Once a database exists, reproduce it exactly with:
+//        DATABASE_URL=... npx prisma migrate deploy
+//      Then baseline the migration history if needed:
+//        npx prisma migrate resolve --applied 0001_init
+//
+//   3. Generate the typed Prisma models by introspecting the live DB
+//      (per the Phase 1 plan: "generate from database, don't write by hand"):
+//        npx prisma db pull        # populates the models below
+//        npx prisma generate       # emits the typed client
+//
+// Until step 3 runs, this file intentionally declares only the datasource and
+// generator. Hand-authoring 30+ models here would risk drifting from the
+// canonical SQL — introspection keeps them in lockstep.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}

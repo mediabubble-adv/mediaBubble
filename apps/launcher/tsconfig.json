@@ -1,0 +1,38 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "plugins": [{ "name": "next" }],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"],
+      "@mediabubble/design-system": ["../../packages/design-system/src/index.ts"],
+      "@mediabubble/design-system/tailwind-preset": [
+        "../../packages/design-system/src/tailwind-preset.ts"
+      ],
+      "@mediabubble/shared": ["../../packages/shared/src/index.ts"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "../../packages/design-system/src/tailwindcss-rtl.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "prisma",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.stories.tsx"
+  ]
+}

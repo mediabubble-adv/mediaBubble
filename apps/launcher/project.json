@@ -1,0 +1,23 @@
+{
+  "name": "launcher",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/launcher",
+  "projectType": "application",
+  "tags": ["type:app", "scope:app"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc -p apps/launcher/tsconfig.json --noEmit"
+      }
+    },
+    "dev": {
+      "options": {
+        "port": 3003
+      }
+    }
+  }
+}
