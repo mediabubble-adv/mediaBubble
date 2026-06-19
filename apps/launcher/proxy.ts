@@ -1,49 +1,101 @@
-// Next.js 16 proxy (formerly middleware.ts). Optimistic auth gate: only checks
-// whether the session cookie is present, then defers real JWT verification to
-// getCurrentUser() in route handlers and server components (node runtime).
+import { NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
+import { createCspMiddleware } from '@mediabubble/shared/csp-middleware'
 
-import { NextResponse, type NextRequest } from 'next/server'
-import { SESSION_COOKIE } from '@/lib/auth/cookie'
+// Instantiate the CSP middleware handler (shared across MediaBubble apps)
+const cspMiddleware = createCspMiddleware({ analytics: false })
 
-// Routes reachable without a session. Everything else requires the cookie.
-const PUBLIC_PATHS = [
-  '/login',
-  '/signup',
-  '/forgot-password',
-  '/reset-password',
-  '/verify-email',
-]
+const SESSION_COOKIE = 'mb_session'
+const JWT_SECRET = process.env['JWT_SECRET'] || 'dev-only-insecure-secret-change-me-1f3c9b7e'
 
-const isPublic = (pathname: string): boolean =>
-  PUBLIC_PATHS.some((p) => pathname === p || pathname.startsWith(`${p}/`))
+// Edge-compatible verification of HS256 JWT signature via Web Crypto API
+async function verifyJwtEdge(token: string, secret: string): Promise<any | null> {
+  const parts = token.split('.')
+  if (parts.length !== 3) return null
+  const [header, body, signature] = parts
 
-export function proxy(req: NextRequest): NextResponse {
-  const { pathname } = req.nextUrl
-  const hasSession = req.cookies.has(SESSION_COOKIE)
+  try {
+    const enc = new TextEncoder()
+    const key = await crypto.subtle.importKey(
+      'raw',
+      enc.encode(secret),
+      { name: 'HMAC', hash: 'SHA-256' },
+      false,
+      ['verify']
+    )
+    const data = enc.encode(`${header}.${body}`)
+    const sigBuf = base64urlToBuffer(signature)
+    const isValid = await crypto.subtle.verify('HMAC', key, sigBuf as any, data)
+    if (!isValid) return null
 
-  // Unauthenticated visitor on a protected route → send to login, remembering
-  // where they were headed.
-  if (!hasSession && !isPublic(pathname)) {
-    const url = req.nextUrl.clone()
-    url.pathname = '/login'
-    url.search = ''
-    url.searchParams.set('next', pathname)
-    return NextResponse.redirect(url)
+    const claims = JSON.parse(new TextDecoder().decode(base64urlToBuffer(body)))
+    if (typeof claims.exp !== 'number' || claims.exp < Math.floor(Date.now() / 1000)) {
+      return null
+    }
+    return claims
+  } catch {
+    return null
   }
-
-  // Authenticated visitor on an auth page → bounce to the dashboard.
-  if (hasSession && isPublic(pathname)) {
-    const url = req.nextUrl.clone()
-    url.pathname = '/'
-    url.search = ''
-    return NextResponse.redirect(url)
-  }
-
-  return NextResponse.next()
 }
 
-// Next 16.2.9 reads the matcher from `config` (not `proxyConfig`).
+function base64urlToBuffer(str: string): Uint8Array {
+  let base64 = str.replace(/-/g, '+').replace(/_/g, '/')
+  while (base64.length % 4) base64 += '='
+  const binary = atob(base64)
+  const bytes = new Uint8Array(binary.length)
+  for (let i = 0; i < binary.length; i++) {
+    bytes[i] = binary.charCodeAt(i)
+  }
+  return bytes
+}
+
+export async function proxy(request: NextRequest) {
+  const { pathname } = request.nextUrl
+
+  // Retrieve the session token from the cookies
+  const token = request.cookies.get(SESSION_COOKIE)?.value
+  const claims = token ? await verifyJwtEdge(token, JWT_SECRET) : null
+  const isAuthenticated = !!claims
+
+  const isAuthRoute =
+    pathname === '/login' ||
+    pathname === '/signup' ||
+    pathname === '/forgot-password' ||
+    pathname.startsWith('/reset-password') ||
+    pathname.startsWith('/verify-email')
+
+  if (isAuthRoute) {
+    if (isAuthenticated) {
+      // Authenticated users should not see login/signup -> send to home
+      return NextResponse.redirect(new URL('/', request.url))
+    }
+    // Allow guest access with CSP headers applied
+    return cspMiddleware(request)
+  }
+
+  // Protected app routes
+  if (!isAuthenticated) {
+    const url = new URL('/login', request.url)
+    if (pathname !== '/') {
+      url.searchParams.set('next', pathname)
+    }
+    return NextResponse.redirect(url)
+  }
+
+  // Allow authenticated users with CSP headers applied
+  return cspMiddleware(request)
+}
+
+/** Must be inlined — Next.js cannot analyze imported matcher constants. */
 export const config = {
-  // Skip API routes, Next internals, and anything with a file extension.
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|.*\\..*).*)'],
+  matcher: [
+    {
+      source:
+        '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|woff2?)$).*)',
+      missing: [
+        { type: 'header', key: 'next-router-prefetch' },
+        { type: 'header', key: 'purpose', value: 'prefetch' },
+      ],
+    },
+  ],
 }
