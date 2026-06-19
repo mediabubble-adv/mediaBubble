@@ -42,6 +42,80 @@ const USERS: SeedUser[] = [
   { email: 'viewer@mediabubble.co', name: 'Read Only', role: 'Viewer', department: 'Analytics & Reporting' },
 ]
 
+// Software-cost ledger (LAUNCHER_PLAN_V2.md §4.3). Monthly recurring outflows
+// in USD. The duplicate Hostinger "openclaw" tier is intentional — the Finance
+// AI brief flags it as the ~$25/mo cost-recovery opportunity.
+const SOFTWARE_COSTS = [
+  { description: 'Supabase', category: 'Hosting & Servers', usd: 25 },
+  { description: 'Vercel', category: 'Hosting & Servers', usd: 20 },
+  { description: 'Hostinger', category: 'Hosting & Servers', usd: 10 },
+  { description: 'Hostinger (openclaw)', category: 'Hosting & Servers', usd: 25 },
+  { description: 'Claude', category: 'AI & Dev', usd: 20 },
+  { description: 'Cursor', category: 'AI & Dev', usd: 20 },
+  { description: 'Gmail Workspace', category: 'Comms', usd: 12 },
+  { description: 'SendGrid', category: 'Comms', usd: 20 },
+  { description: 'Domain (mediabubble.co)', category: 'Domains', usd: 1.5 },
+] as const
+
+// Rows written by the seed carry this marker so re-seeding is idempotent and
+// never disturbs manually-entered transactions.
+const SEED_MARKER = 'seed'
+
+/** First-of-month dates for the trailing `count` months, oldest first. */
+function recentMonths(count: number): Date[] {
+  const now = new Date()
+  return Array.from({ length: count }, (_, i) => {
+    const d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() - (count - 1 - i), 1))
+    return d
+  })
+}
+
+async function seedFinance(): Promise<number> {
+  await prisma.transactions.deleteMany({ where: { payment_method: SEED_MARKER } })
+
+  const months = recentMonths(6)
+  const rows: {
+    date: Date
+    category: string
+    type: string
+    amount: number
+    currency: string
+    description: string
+    payment_method: string
+    recurring: boolean
+  }[] = []
+
+  for (const month of months) {
+    // Recurring software costs (USD outflows).
+    for (const c of SOFTWARE_COSTS) {
+      rows.push({
+        date: month,
+        category: c.category,
+        type: 'outflow',
+        amount: c.usd,
+        currency: 'USD',
+        description: c.description,
+        payment_method: SEED_MARKER,
+        recurring: true,
+      })
+    }
+    // Monthly client retainer inflow (EGP) — gives the cash-flow chart a topline.
+    rows.push({
+      date: month,
+      category: 'Revenue',
+      type: 'inflow',
+      amount: 120_000,
+      currency: 'EGP',
+      description: 'Client retainers',
+      payment_method: SEED_MARKER,
+      recurring: false,
+    })
+  }
+
+  await prisma.transactions.createMany({ data: rows })
+  return rows.length
+}
+
 /** Find a department by name, or create it. (No unique constraint on name.) */
 async function ensureDepartment(name: string): Promise<string> {
   const existing = await prisma.departments.findFirst({ where: { name } })
@@ -73,10 +147,12 @@ async function main(): Promise<void> {
     })
   }
 
+  const financeRows = await seedFinance()
+
   // eslint-disable-next-line no-console -- seed scripts report their summary to stdout
   console.log(
-    `Seeded ${DEPARTMENTS.length} departments and ${USERS.length} users ` +
-      `(password: "${DEV_PASSWORD}").`,
+    `Seeded ${DEPARTMENTS.length} departments, ${USERS.length} users ` +
+      `(password: "${DEV_PASSWORD}"), and ${financeRows} finance transactions.`,
   )
 }
 
