@@ -3,20 +3,30 @@
 MediaBubble's unified internal operations platform. This app is being built per
 `PHASE_1_EXECUTION_PROMPT.md` and the `LAUNCHER_*` design docs at the repo root.
 
-## Status: Phase 1 — Week 1 (Foundation)
+## Status: Phase 1 — Weeks 1–2 (Foundation + auth core)
 
-This is the **Week 1 foundation slice**, scoped to what's achievable without
-provisioning live infrastructure. Delivered:
+Scoped to what's verifiable without live infrastructure. Delivered:
 
+**Week 1 — foundation**
 - ✅ Nx Next.js 16 app scaffold (`apps/launcher`), mirroring the monorepo's
   conventions (Tailwind + design-system preset, TS, ESLint). Builds + typechecks.
 - ✅ Dashboard shell placeholder (`app/page.tsx`).
 - ✅ Prisma **baseline migration** = the canonical database schema, verbatim.
 
+**Week 2 — auth core (DB-independent, fully unit-tested)**
+- ✅ `0002_auth_tokens` additive migration (email-verification + password-reset
+  tokens — closes the gap noted below).
+- ✅ `lib/auth`: password hashing (scrypt), HS256 JWT, one-time tokens, Zod
+  request schemas, RBAC — all via `node:crypto`/`zod`, no new deps.
+- ✅ `lib/api/response.ts`: standardized success/error envelopes.
+- ✅ 26 Jest unit tests (`npm test` → project `launcher`).
+
 ### Deliberately deferred
 
 - ❌ Live PostgreSQL / Redis (decision: schema + Prisma only, no provisioning yet).
-- ❌ Auth, API endpoints, real-time, Task/Time MVP apps — Weeks 2–4.
+- ❌ **Auth HTTP endpoints** — the `lib/auth` core is ready, but wiring
+  `/api/auth/*` route handlers needs the generated Prisma client (live DB).
+- ❌ Real-time, Task/Time MVP apps — Weeks 3–4.
 
 ## Database
 
@@ -54,18 +64,25 @@ npx prisma generate  --schema apps/launcher/prisma/schema.prisma
 Seed data (departments, system settings) is embedded in the baseline migration,
 so `migrate deploy` seeds the DB — no separate seed step.
 
-## ⚠️ Findings to resolve before Week 2 (auth)
+## ✅ Resolved finding (auth token tables)
 
-A "schema is immutable / additive-only" rule is stated in the plan, but the
-Week 2 auth spec needs tables the canonical schema **does not contain**:
+The canonical schema lacked the token tables the Week 2 auth spec needs. Added,
+**additively**, in `prisma/migrations/0002_auth_tokens/migration.sql`:
 
 - **Email verification tokens** (`/api/auth/verify-email`)
 - **Password reset tokens** (`/api/auth/reset-password`)
-- No `sessions` table — implies JWT-only sessions (consistent with the spec, but
-  worth confirming refresh-token storage strategy).
 
-These will require an **additive** `0002_auth_tokens` migration in Week 2. The
-immutability rule (only add, never remove/rename) still holds.
+Both store only a SHA-256 hash of the token, never the raw value. No `sessions`
+table — sessions are JWT-only (consistent with the spec); refresh-token rotation,
+if added later, gets its own additive migration. The immutability rule (only
+add, never remove/rename) holds.
+
+## Crypto note
+
+`lib/auth` uses Node's built-in `crypto` (scrypt for passwords, HMAC for JWT) to
+stay dependency-free and fully unit-testable now. If the team prefers `bcrypt` /
+`jsonwebtoken`, swap the implementations behind the same function signatures —
+call sites won't change.
 
 ## Develop
 

@@ -127,6 +127,37 @@ module.exports = {
           },
         ],
       },
+    },
+    {
+      displayName: 'launcher',
+      testEnvironment: 'node',
+      testMatch: [
+        '<rootDir>/apps/launcher/lib/**/*.(test|spec).(ts|tsx|js|cjs)'
+      ],
+      modulePathIgnorePatterns: [
+        '\\.next',
+        '\\.nx',
+        'dist',
+      ],
+      moduleNameMapper: {
+        '^@/(.*)$': '<rootDir>/apps/launcher/$1',
+      },
+      transform: {
+        '^.+\\.(ts|tsx)$': [
+          'ts-jest',
+          {
+            tsconfig: {
+              esModuleInterop: true,
+              module: 'commonjs',
+              baseUrl: '.',
+              resolveJsonModule: true,
+              paths: {
+                '@/*': ['apps/launcher/*'],
+              },
+            },
+          },
+        ],
+      },
     }
   ]
 }
