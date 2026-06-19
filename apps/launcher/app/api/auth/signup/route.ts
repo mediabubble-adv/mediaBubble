@@ -6,6 +6,7 @@ import { signupSchema } from '@/lib/auth/schemas'
 import { hashPassword } from '@/lib/auth/password'
 import { generateOneTimeToken, TOKEN_TTL } from '@/lib/auth/tokens'
 import { isProduction } from '@/lib/auth/config'
+import { sendVerificationEmail } from '@/lib/auth/email'
 import { prisma } from '@/lib/db/prisma'
 
 export const runtime = 'nodejs'
@@ -38,8 +39,20 @@ export async function POST(req: Request): Promise<Response> {
     },
   })
 
-  // No email transport yet (Phase 1): in non-prod we return the raw token so the
-  // verify-email flow is exercisable end-to-end.
+  try {
+    await sendVerificationEmail(user.email, token)
+  } catch (err: any) {
+    if (isProduction()) {
+      await prisma.email_verification_tokens.deleteMany({ where: { user_id: user.id } })
+      await prisma.users.delete({ where: { id: user.id } })
+      return toResponse(
+        fail('email_delivery_failed', 'Failed to send verification email. Please try again.', 500),
+      )
+    }
+    // eslint-disable-next-line no-console
+    console.error('Failed to send verification email:', err)
+  }
+
   const data = {
     user: { id: user.id, email: user.email, name: user.name, role: user.role, status: user.status },
     ...(isProduction() ? {} : { verificationToken: token }),
