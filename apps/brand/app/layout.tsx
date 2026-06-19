@@ -29,13 +29,20 @@ export const viewport = {
   initialScale: 1,
 }
 
+/** Per-request CSP nonce from middleware — must not be statically cached. */
+export const dynamic = 'force-dynamic'
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const nonce = await getCspNonce()
 
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script nonce={nonce} dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+        <script
+          suppressHydrationWarning
+          {...(nonce ? { nonce } : {})}
+          dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }}
+        />
       </head>
       <body className={`${rootFontClassName} font-sans antialiased bg-brand-canvas text-brand-text`}>
         <AppProviders>

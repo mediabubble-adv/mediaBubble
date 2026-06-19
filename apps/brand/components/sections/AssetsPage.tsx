@@ -43,7 +43,7 @@ export function AssetsPage() {
       <div className="px-6 lg:px-10 py-8 lg:py-12 max-w-[1400px] mx-auto">
 
       {/* Logo files */}
-      <section className="mb-10">
+      <section className="mb-10 scroll-mt-20" id="guideline-asset-logo-files">
         <div className="flex items-center gap-2.5 mb-4">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2196F3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M12 2L2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
           <h2 className="text-[13px] font-semibold text-brand-dark-blue">Logo Files</h2>
@@ -85,7 +85,7 @@ export function AssetsPage() {
       </section>
 
       {/* Color tokens */}
-      <section className="mb-8">
+      <section className="mb-8 scroll-mt-20" id="guideline-asset-color-tokens">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-[13px] font-semibold text-brand-dark-blue">Brand Colors</h2>
           <span className="text-[10px] font-mono text-brand-muted-steel">Click to copy HEX</span>
@@ -113,7 +113,7 @@ export function AssetsPage() {
       </section>
 
       {/* Font references */}
-      <section className="mb-16">
+      <section className="mb-16 scroll-mt-20" id="guideline-asset-font-stack">
         <div className="mb-4">
           <h2 className="text-[13px] font-semibold text-brand-dark-blue">Font References</h2>
         </div>

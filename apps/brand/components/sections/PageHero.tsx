@@ -14,10 +14,20 @@ interface PageHeroProps {
   showLogo?: boolean
   icon?: LucideIcon
   stats?: Stat[]
+  statsTone?: 'dark' | 'yellow'
   onNavigate?: (id: string) => void
 }
 
-export function PageHero({ kicker, title, titleHighlight, description, showLogo = false, icon: Icon, stats }: PageHeroProps) {
+export function PageHero({
+  kicker,
+  title,
+  titleHighlight,
+  description,
+  showLogo = false,
+  icon: Icon,
+  stats,
+  statsTone = 'dark',
+}: PageHeroProps) {
   const renderTitle = () => {
     if (!titleHighlight) {
       return <span className="text-white">{title}</span>
@@ -44,7 +54,18 @@ export function PageHero({ kicker, title, titleHighlight, description, showLogo 
       <div className="px-10 sm:px-16 lg:ps-20 lg:pe-[60px] py-16 sm:py-24 max-w-[1400px] mx-auto relative z-10">
         <div className="flex items-start gap-10">
           {showLogo && (
-            <img src="/assets/logo.svg" alt="MediaBubble" className="w-28 h-28 sm:w-36 sm:h-36 shrink-0" />
+            <>
+              <img
+                src="/assets/logo.svg"
+                alt="MediaBubble"
+                className="w-28 h-28 sm:w-36 sm:h-36 shrink-0 dark:hidden"
+              />
+              <img
+                src="/assets/Logo/mediaBubble_logo_horizontal_text_white.svg"
+                alt="MediaBubble"
+                className="hidden dark:block h-12 sm:h-16 w-auto max-w-[min(100%,280px)] sm:max-w-[320px] shrink-0"
+              />
+            </>
           )}
           {Icon && !showLogo && (
             <div className="shrink-0 pt-1">
@@ -67,12 +88,27 @@ export function PageHero({ kicker, title, titleHighlight, description, showLogo 
         </div>
       </div>
       {stats && stats.length > 0 && (
-        <div className="border-t border-white/[0.06]">
+        <div className={statsTone === 'yellow' ? 'bg-[#FFC107]' : 'border-t border-white/[0.06]'}>
           <div className="grid grid-cols-2 sm:grid-cols-4 max-w-[1400px] mx-auto">
             {stats.map((stat, i) => (
-              <div key={stat.label} className={`px-6 lg:px-10 py-4 ${i < stats.length - 1 ? 'border-e border-white/[0.06]' : ''}`}>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-white/35 mb-1">{stat.label}</p>
-                <p className="text-base font-bold text-white">{stat.value}</p>
+              <div
+                key={stat.label}
+                className={`px-6 lg:px-10 py-4 ${
+                  statsTone === 'yellow'
+                    ? `text-[#0D0F12]${i < stats.length - 1 ? ' border-e border-[#0D0F12]/15' : ''}`
+                    : `${i < stats.length - 1 ? ' border-e border-white/[0.06]' : ''}`
+                }`}
+              >
+                <p
+                  className={`text-[10px] font-semibold uppercase tracking-[0.12em] mb-1 ${
+                    statsTone === 'yellow' ? 'text-[#0D0F12]/65' : 'text-white/35'
+                  }`}
+                >
+                  {stat.label}
+                </p>
+                <p className={`text-base font-bold ${statsTone === 'yellow' ? 'text-[#0D0F12]' : 'text-white'}`}>
+                  {stat.value}
+                </p>
               </div>
             ))}
           </div>

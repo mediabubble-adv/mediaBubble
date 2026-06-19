@@ -7,12 +7,12 @@ export function LogoPage() {
   const { t } = useI18n()
 
   const bgVariants = [
-    { bg: '#FFFFFF', bgLabel: t('White'), filter: 'none', label: t('Full Color'), preferred: true },
-    { bg: '#1565C0', bgLabel: t('Deep Blue'), filter: 'brightness(0) invert(1)', label: t('White on dark'), preferred: true },
-    { bg: '#FAFAFA', bgLabel: t('Canvas'), filter: 'none', label: t('On Canvas White (#FAFAFA)'), preferred: true },
-    { bg: '#FFC107', bgLabel: t('Brand Yellow'), filter: 'none', label: t('On Yellow'), preferred: false },
-    { bg: '#333333', bgLabel: t('Charcoal'), filter: 'brightness(0) invert(1)', label: t('White on Charcoal (#333)'), preferred: true },
-    { bg: '#E3F2FD', bgLabel: t('Blue Tint'), filter: 'none', label: t('On Light Blue (#E3F2FD)'), preferred: true },
+    { bg: '#FFFFFF', bgLabel: t('White'), filter: 'none', label: t('Full Color'), preferred: true, anchor: 'logo-bg-white' },
+    { bg: '#1565C0', bgLabel: t('Deep Blue'), filter: 'brightness(0) invert(1)', label: t('White on dark'), preferred: true, anchor: 'logo-bg-deep-blue' },
+    { bg: '#FAFAFA', bgLabel: t('Canvas'), filter: 'none', label: t('On Canvas White (#FAFAFA)'), preferred: true, anchor: 'logo-bg-canvas' },
+    { bg: '#FFC107', bgLabel: t('Brand Yellow'), filter: 'none', label: t('On Yellow'), preferred: false, anchor: 'logo-bg-yellow' },
+    { bg: '#333333', bgLabel: t('Charcoal'), filter: 'brightness(0) invert(1)', label: t('White on Charcoal (#333)'), preferred: true, anchor: 'logo-bg-charcoal' },
+    { bg: '#E3F2FD', bgLabel: t('Blue Tint'), filter: 'none', label: t('On Light Blue (#E3F2FD)'), preferred: true, anchor: 'logo-bg-blue-tint' },
   ]
 
   const donts = [
@@ -41,7 +41,7 @@ export function LogoPage() {
       <div className="px-6 lg:px-10 py-8 lg:py-12 max-w-[1400px] mx-auto">
 
       {/* Primary mark */}
-      <section className="mb-10">
+      <section className="mb-10 scroll-mt-20" id="guideline-logo-primary-mark">
         <div className="flex items-center gap-2.5 mb-4">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2196F3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M12 2L2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
           <h2 className="text-[13px] font-semibold text-brand-text">{t('Primary Mark')}</h2>
@@ -79,7 +79,7 @@ export function LogoPage() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {bgVariants.map((v) => (
-            <div key={v.label} className="rounded-xl overflow-hidden border border-brand-whisper-border transition-colors hover:bg-black/[0.02]">
+            <div key={v.label} id={`guideline-${v.anchor}`} className="rounded-xl overflow-hidden border border-brand-whisper-border transition-colors hover:bg-black/[0.02] scroll-mt-20">
               <div className="flex items-center justify-center py-8" style={{ backgroundColor: v.bg }}>
                 <img src="/assets/logo.svg" alt="MediaBubble" className="w-12 h-12" style={{ filter: v.filter }} />
               </div>

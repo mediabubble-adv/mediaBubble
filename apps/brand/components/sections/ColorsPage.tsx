@@ -3,7 +3,6 @@ import { Copy, Check, Palette, SunMoon, Layers } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { colorFamilies, neutralScale } from '../constants'
 import { ColorFamilyCard } from '../ui/ColorFamilyCard'
-import { ContrastChecker } from '../ui/ContrastChecker'
 import { PageHero } from './PageHero'
 import { BrandPageContent, BrandSectionHeading } from '../ui/brand-doc'
 import { useI18n } from '@/lib/i18n/provider'
@@ -94,7 +93,8 @@ export function ColorsPage({
               return (
                 <div
                   key={color.name}
-                  className="group flex flex-col rounded-xl overflow-hidden border border-brand-whisper-border bg-brand-surface shadow-sm hover:border-brand-blue/30 dark:hover:border-brand-blue/50 transition-all duration-300 select-none"
+                  id={`guideline-neutral-${color.name.toLowerCase().replace(/\s+/g, '-')}`}
+                  className="group flex flex-col rounded-xl overflow-hidden border border-brand-whisper-border bg-brand-surface shadow-sm hover:border-brand-blue/30 dark:hover:border-brand-blue/50 transition-all duration-300 select-none scroll-mt-20"
                 >
                   {/* Swatch Color Block */}
                   <button
@@ -259,11 +259,6 @@ export function ColorsPage({
             )}
           </p>
         </section>
-
-        <SectionDivider />
-
-        {/* SECTION 4: Contrast Checker */}
-        <ContrastChecker />
       </BrandPageContent>
     </div>
   )

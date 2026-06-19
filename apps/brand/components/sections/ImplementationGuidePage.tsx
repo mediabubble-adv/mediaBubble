@@ -67,7 +67,7 @@ const inter = Inter({ subsets: ['latin'], weight: ['400','500','600'], variable:
   const implementationNotes = [
     'Use the Components page as the definitive reference — every button, input, and card variant is documented with working code.',
     'Never override brand tokens with custom values. If a color or size does not exist in the system, request an addition — do not invent your own.',
-    'Test every UI against WCAG 2.1 AA before shipping. Use the Contrast Checker on the Color Palette page for quick verification.',
+    'Test every UI against WCAG 2.1 AA before shipping. Verify foreground/background pairs meet 4.5:1 for body text and 3:1 for large text.',
     'Keep font loading in layout.tsx. Do not load fonts in individual components — it causes layout shift and duplicate requests.',
   ]
 

@@ -141,7 +141,7 @@ export function IconographyPage() {
               </div>
               <div className="p-5 grid grid-cols-6 gap-3">
                 {cat.icons.map(({ name, Icon }) => (
-                  <div key={name} className="flex flex-col items-center gap-1.5 group cursor-default">
+                  <div key={name} id={`guideline-icon-${name.toLowerCase()}`} className="flex flex-col items-center gap-1.5 group cursor-default scroll-mt-20">
                     <div 
                       className="w-10 h-10 rounded-lg bg-brand-canvas dark:bg-white/[0.04] flex items-center justify-center transition-all duration-150"
                       onMouseEnter={(e) => {

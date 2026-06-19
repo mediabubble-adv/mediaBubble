@@ -31,7 +31,7 @@ export function ColorFamilyCard({
   const copyMain = () => onCopy(family.hex, mainId)
 
   return (
-    <div className="group flex items-stretch rounded-xl border border-brand-whisper-border bg-brand-surface overflow-hidden hover:border-brand-blue/30 dark:hover:border-brand-blue/50 hover:bg-brand-surface/80 dark:hover:bg-brand-surface/40 transition-all duration-300 ease-out select-none">
+    <div id={`guideline-color-${family.name.toLowerCase().replace(/\s+/g, '-')}`} className="group flex items-stretch rounded-xl border border-brand-whisper-border bg-brand-surface overflow-hidden hover:border-brand-blue/30 dark:hover:border-brand-blue/50 hover:bg-brand-surface/80 dark:hover:bg-brand-surface/40 transition-all duration-300 ease-out select-none scroll-mt-20">
       {/* Premium left-bleed physical swatch card */}
       <button
         type="button"

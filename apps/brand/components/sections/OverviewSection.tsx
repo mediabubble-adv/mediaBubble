@@ -25,6 +25,7 @@ export function OverviewHero({ onNavigate }: { onNavigate: (id: string) => void 
         { label: t('overview.stats.services', 'Services'), value: t('overview.stats.servicesValue', '20+ services') },
         { label: t('overview.stats.clients', 'Clients'), value: t('overview.stats.clientsValue', '200+ brands') },
       ]}
+      statsTone="yellow"
     />
   )
 }

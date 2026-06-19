@@ -10,13 +10,3 @@ export function relativeLuminance(hex: string): number {
   })
   return 0.2126 * rs + 0.7152 * gs + 0.0722 * bs
 }
-
-export function contrastRatio(a: string, b: string): number {
-  const l1 = relativeLuminance(a), l2 = relativeLuminance(b)
-  return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05)
-}
-
-export function parseHex(input: string): string | null {
-  const clean = input.replace('#', '')
-  return /^[0-9A-Fa-f]{6}$/.test(clean) ? `#${clean.toUpperCase()}` : null
-}

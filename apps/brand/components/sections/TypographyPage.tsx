@@ -95,7 +95,8 @@ export function TypographyPage() {
             {fonts.map((font) => (
               <div
                 key={font.name}
-                className="group bg-brand-surface rounded-xl border border-brand-whisper-border shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-out overflow-hidden flex flex-col"
+                id={`guideline-font-${font.name.toLowerCase().replace(/\s+/g, '-')}`}
+                className="group bg-brand-surface rounded-xl border border-brand-whisper-border shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ease-out overflow-hidden flex flex-col scroll-mt-20"
               >
                 <div className="p-5 pb-0">
                   <div className="flex items-start justify-between mb-3">
@@ -156,7 +157,7 @@ export function TypographyPage() {
         </section>
 
         {/* Type Scale */}
-        <section className="mb-14">
+        <section className="mb-14 scroll-mt-20" id="guideline-typography-scale">
           <BrandSectionHeading icon={Layers} title={t('Type Scale')} />
           <div className="bg-brand-surface rounded-xl border border-brand-whisper-border shadow-sm overflow-hidden">
             {scaleSteps.map((step, i) => (

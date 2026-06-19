@@ -6,13 +6,18 @@ import { useTheme } from '@mediabubble/shared/client'
 export interface ThemeToggleProps {
   className?: string
   /** Nav surface behind the toggle — affects contrast styles. */
-  surface?: 'dark' | 'light'
+  surface?: 'dark' | 'light' | 'yellow'
 }
 
 export function ThemeToggle({ className = '', surface = 'light' }: ThemeToggleProps) {
   const { resolved, toggleTheme } = useTheme()
   const isDark = resolved === 'dark'
-  const onLightSurface = surface === 'light'
+  const surfaceStyles =
+    surface === 'yellow'
+      ? 'border-brand-navy/15 bg-white/80 text-brand-navy hover:bg-white'
+      : surface === 'light'
+        ? 'border-brand-whisper-border dark:border-white/10 bg-brand-surface text-brand-navy dark:text-brand-off-white hover:bg-black/[0.04] dark:hover:bg-white/[0.06]'
+        : 'border-white/20 bg-white/10 text-white hover:bg-white/15'
 
   return (
     <button
@@ -20,9 +25,7 @@ export function ThemeToggle({ className = '', surface = 'light' }: ThemeTogglePr
       onClick={toggleTheme}
       className={[
         'inline-flex h-8 w-8 items-center justify-center rounded-lg border transition-colors',
-        onLightSurface
-          ? 'border-brand-whisper-border dark:border-white/10 bg-brand-surface text-brand-navy dark:text-brand-off-white hover:bg-black/[0.04] dark:hover:bg-white/[0.06]'
-          : 'border-white/20 bg-white/10 text-white hover:bg-white/15',
+        surfaceStyles,
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow/60',
         className,
       ].join(' ')}

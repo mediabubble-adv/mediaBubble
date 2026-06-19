@@ -105,7 +105,7 @@ export function DigitalAssetsPage() {
       <div className="px-6 lg:px-10 py-8 lg:py-12 max-w-[1400px] mx-auto space-y-16">
 
       {/* Avatar */}
-      <section>
+      <section id="guideline-digital-avatars" className="scroll-mt-20">
         <div className="flex items-center gap-2.5 mb-6 text-start">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2196F3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           <h2 className="text-[13px] font-semibold text-brand-text">Avatar Specs</h2>
@@ -146,7 +146,7 @@ export function DigitalAssetsPage() {
       </section>
 
       {/* Favicon */}
-      <section>
+      <section id="guideline-digital-favicon" className="scroll-mt-20">
         <div className="flex items-center gap-2.5 mb-6 text-start">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2196F3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
           <h2 className="text-[13px] font-semibold text-brand-text">Favicon Standards</h2>
@@ -226,8 +226,7 @@ export function DigitalAssetsPage() {
         </div>
       </section>
 
-      {/* Email signature */}
-      <section>
+      <section id="guideline-digital-email-signature" className="scroll-mt-20">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div className="text-start">
             <h2 className="text-[13px] font-semibold text-brand-text font-display">Email Signature Templates</h2>

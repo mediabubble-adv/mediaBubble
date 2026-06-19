@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
+import Image from 'next/image'
 import { 
   Copy, Check, AlertCircle, ArrowRight, Bell, ChevronRight, Square, Code,
   HelpCircle, Info, Calendar, ArrowUpRight, Search, Menu, Home, Settings,
-  BarChart3, CalendarDays, MoreHorizontal, User, Mail, Sparkles, AlertTriangle
+  BarChart3, CalendarDays, MoreHorizontal, User, Mail, AlertTriangle
 } from 'lucide-react'
 import { getButtonClasses } from '@mediabubble/design-system'
 import { PageHero } from './PageHero'
@@ -230,7 +231,14 @@ export function ComponentsPage() {
                     {/* Left Sidebar */}
                     <div className="w-16 shrink-0 bg-[#0D0F12] border-e border-white/[0.08] flex flex-col items-center py-4 justify-between text-white/50">
                       <div className="flex flex-col items-center gap-4 w-full">
-                        <div className="w-8 h-8 rounded-lg bg-[#FFC107] flex items-center justify-center text-[#0D0F12] font-black text-xs">M</div>
+                        <Image
+                          src="/assets/Logo/mediaBubble_icon.svg"
+                          alt=""
+                          width={32}
+                          height={32}
+                          className="w-8 h-8 shrink-0"
+                          aria-hidden
+                        />
                         <div className="w-8 h-8 rounded-lg bg-white/10 text-brand-blue flex items-center justify-center"><Home size={14} /></div>
                         <div className="w-8 h-8 rounded-lg text-white/40 flex items-center justify-center"><BarChart3 size={14} /></div>
                         <div className="w-8 h-8 rounded-lg text-white/40 flex items-center justify-center"><CalendarDays size={14} /></div>
@@ -305,7 +313,14 @@ export function ComponentsPage() {
                 <div className="lg:col-span-7 bg-brand-canvas dark:bg-[#05080e] p-6 sm:p-8 md:p-10 rounded-xl border border-brand-whisper-border flex items-center justify-center">
                   <header className="w-full bg-[#0D0F12] border border-white/[0.08] rounded-xl px-5 py-3.5 flex items-center justify-between text-white select-none">
                     <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 rounded bg-[#2196F3] flex items-center justify-center"><Sparkles size={11} className="text-white" /></div>
+                      <Image
+                        src="/assets/Logo/mediaBubble_icon.svg"
+                        alt=""
+                        width={24}
+                        height={24}
+                        className="w-6 h-6 shrink-0"
+                        aria-hidden
+                      />
                       <span className="text-xs font-bold font-display tracking-tight">mediaBubble</span>
                     </div>
                     <nav className="hidden sm:flex items-center gap-5 text-[10.5px] font-semibold text-white/60">
@@ -361,7 +376,14 @@ export function ComponentsPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-[10.5px]">
                       <div className="space-y-2.5">
                         <div className="flex items-center gap-1.5 text-white">
-                          <div className="w-5 h-5 rounded bg-[#2196F3] flex items-center justify-center"><Sparkles size={9} /></div>
+                          <Image
+                            src="/assets/Logo/mediaBubble_icon.svg"
+                            alt=""
+                            width={20}
+                            height={20}
+                            className="w-5 h-5 shrink-0"
+                            aria-hidden
+                          />
                           <span className="font-bold tracking-tight">mediaBubble</span>
                         </div>
                         <p className="leading-relaxed">Strategic creative that fills rooms and grows business outcomes.</p>
