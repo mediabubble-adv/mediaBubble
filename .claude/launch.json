@@ -20,6 +20,13 @@
       "runtimeArgs": ["run", "dev:brand"],
       "port": 3002,
       "autoPort": false
+    },
+    {
+      "name": "Launcher Dev Server",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev:launcher"],
+      "port": 3003,
+      "autoPort": false
     }
   ]
 }
