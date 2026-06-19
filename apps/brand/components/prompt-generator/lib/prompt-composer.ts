@@ -90,17 +90,24 @@ function formatKling(core: string, config: GeneratorConfig): string {
   return `${core}\n\n[Kling] ${ASPECT_RATIO[config.composition.orientation]}, ${config.camera.duration}s, ${config.camera.motion} motion strength.`
 }
 
-const FORMATTERS: Record<Model, (core: string, config: GeneratorConfig) => string> = {
-  midjourney: formatMidjourney,
+type Formatter = (core: string, config: GeneratorConfig) => string
+
+const identity: Formatter = (core) => core
+
+// A Map (not an object) avoids dynamic property dispatch on a user-controlled
+// key: get() only ever returns one of these explicit entries or undefined, and
+// never resolves to an inherited Object.prototype member.
+const FORMATTERS = new Map<Model, Formatter>([
+  ['midjourney', formatMidjourney],
   // Flux & Grok prefer rich natural language with no flags.
-  flux: (core) => core,
-  grok: (core) => core,
-  runway: formatRunway,
-  kling: formatKling,
-}
+  ['flux', identity],
+  ['grok', identity],
+  ['runway', formatRunway],
+  ['kling', formatKling],
+])
 
 export function compose(config: GeneratorConfig, dna: BrandDNA): string {
   const core = coreDescription(config, dna)
-  const formatter = FORMATTERS[config.model] ?? ((c: string) => c)
+  const formatter = FORMATTERS.get(config.model) ?? identity
   return formatter(core, config).trim()
 }

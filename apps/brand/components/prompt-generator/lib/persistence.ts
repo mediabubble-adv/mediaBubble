@@ -2,7 +2,7 @@
 // Wrapped in try/catch for private mode / quota; falls back to in-memory so the
 // UI never crashes. Share links serialise config to a versioned base64 hash.
 
-import type { GeneratorConfig, HistoryEntry, SavedTemplate } from './types'
+import type { GeneratorConfig, HistoryEntry, Mode, Model, SavedTemplate } from './types'
 
 const NS = 'mb.promptgen'
 const TEMPLATES_KEY = `${NS}.savedTemplates`
@@ -94,6 +94,16 @@ export function encodeShare(config: GeneratorConfig): string {
   }
 }
 
+const KNOWN_MODES = new Set<Mode>(['image', 'video'])
+const KNOWN_MODELS = new Set<Model>(['midjourney', 'flux', 'grok', 'runway', 'kling'])
+
+/** Reject share payloads whose enum fields aren't recognised values. */
+function isValidConfig(c: unknown): c is GeneratorConfig {
+  if (!c || typeof c !== 'object') return false
+  const cfg = c as Partial<GeneratorConfig>
+  return KNOWN_MODES.has(cfg.mode as Mode) && KNOWN_MODELS.has(cfg.model as Model)
+}
+
 /** Decode a share hash back into config, or null if absent/invalid/old. */
 export function decodeShare(hash: string): GeneratorConfig | null {
   const match = hash.match(/pg=([^&]+)/)
@@ -101,7 +111,7 @@ export function decodeShare(hash: string): GeneratorConfig | null {
   try {
     const decoded = decodeURIComponent(atob(match[1]))
     const data = JSON.parse(decoded) as { v: number; config: GeneratorConfig }
-    if (data.v !== SHARE_VERSION || !data.config) return null
+    if (data.v !== SHARE_VERSION || !isValidConfig(data.config)) return null
     return data.config
   } catch {
     return null
