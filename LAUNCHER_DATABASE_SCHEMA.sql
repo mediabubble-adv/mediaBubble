@@ -6,6 +6,31 @@
 -- CORE TABLES (Required for all apps)
 -- ============================================================================
 
+-- Clients Table
+CREATE TABLE clients (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  name VARCHAR(255) NOT NULL,
+  allowed_domains TEXT[] DEFAULT '{}',
+  primary_contact_name VARCHAR(255),
+  primary_contact_email VARCHAR(255),
+  primary_contact_phone VARCHAR(50),
+  contract_type VARCHAR(50) DEFAULT 'retainer', -- retainer, hourly, project
+  monthly_budget DECIMAL(12, 2),
+  vat_number VARCHAR(100),
+  status VARCHAR(50) DEFAULT 'active', -- active, inactive
+  brand_assets_url TEXT,
+  client_portal_enabled BOOLEAN DEFAULT true,
+  invoice_view_enabled BOOLEAN DEFAULT true,
+  content_approval_enabled BOOLEAN DEFAULT true,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  deleted_at TIMESTAMP,
+  UNIQUE(name)
+);
+
+CREATE INDEX idx_clients_name ON clients(name);
+CREATE INDEX idx_clients_status ON clients(status);
+
 -- Users Table
 CREATE TABLE users (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -14,8 +39,15 @@ CREATE TABLE users (
   name VARCHAR(255) NOT NULL,
   avatar_url TEXT,
   department_id UUID,
-  role VARCHAR(50) NOT NULL DEFAULT 'Contributor', -- Admin, Manager, Contributor, Viewer
+  user_type VARCHAR(50) NOT NULL DEFAULT 'internal', -- internal, client, ai_agent
+  client_id UUID REFERENCES clients(id) ON DELETE SET NULL,
+  role VARCHAR(50) NOT NULL DEFAULT 'Contributor', -- Admin, PM, Contributor, Guest, ClientAdmin, ClientMember
   status VARCHAR(50) DEFAULT 'active', -- active, inactive, suspended
+  onboarding_progress JSONB DEFAULT '{"dashboard": false, "tasks": false, "crm": false, "finance": false}'::JSONB, -- Tracks onboarding tutorials completed per module
+  xp INTEGER DEFAULT 0,
+  level INTEGER DEFAULT 1,
+  streak_days INTEGER DEFAULT 0,
+  last_task_completed_at TIMESTAMP,
   last_login_at TIMESTAMP,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -25,6 +57,7 @@ CREATE TABLE users (
 CREATE INDEX idx_users_email ON users(email);
 CREATE INDEX idx_users_department_id ON users(department_id);
 CREATE INDEX idx_users_role ON users(role);
+CREATE INDEX idx_users_client_id ON users(client_id);
 
 -- Departments Table
 CREATE TABLE departments (
@@ -41,6 +74,82 @@ CREATE TABLE departments (
 ALTER TABLE users ADD CONSTRAINT fk_users_department FOREIGN KEY (department_id) REFERENCES departments(id);
 
 CREATE INDEX idx_departments_name ON departments(name);
+
+-- Employee Profiles Table
+CREATE TABLE employee_profiles (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE UNIQUE,
+  title VARCHAR(255),
+  manager_id UUID REFERENCES users(id),
+  timezone VARCHAR(100) DEFAULT 'Africa/Cairo',
+  weekly_hours INTEGER DEFAULT 40,
+  instapay_handle VARCHAR(255),
+  skills TEXT[] DEFAULT '{}',
+  bio TEXT,
+  leave_balance INTEGER DEFAULT 21,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_employee_profiles_user_id ON employee_profiles(user_id);
+
+-- Role Permissions Table (RBAC matrix)
+CREATE TABLE role_permissions (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  role VARCHAR(50) NOT NULL, -- Admin, PM, Contributor, Guest, ClientAdmin, ClientMember
+  module VARCHAR(100) NOT NULL, -- CRM, Finance, Tasks, Chat, Assets, Prompts, etc.
+  can_create BOOLEAN DEFAULT false,
+  can_read BOOLEAN DEFAULT true,
+  can_update BOOLEAN DEFAULT false,
+  can_delete BOOLEAN DEFAULT false,
+  can_comment BOOLEAN DEFAULT false,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE(role, module)
+);
+
+CREATE INDEX idx_role_permissions_role ON role_permissions(role);
+
+-- AI Agents Table
+CREATE TABLE ai_agents (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE UNIQUE,
+  system_prompt TEXT NOT NULL,
+  temperature DECIMAL(3, 2) DEFAULT 0.7,
+  model_name VARCHAR(100) DEFAULT 'gemini-1.5-flash',
+  allowed_channels UUID[] DEFAULT '{}',
+  capabilities TEXT[] DEFAULT '{}',
+  trigger_words TEXT[] DEFAULT '{}',
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_ai_agents_user_id ON ai_agents(user_id);
+
+-- Achievements Table
+CREATE TABLE achievements (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  name VARCHAR(255) UNIQUE NOT NULL,
+  description TEXT NOT NULL,
+  icon VARCHAR(50) NOT NULL, -- name of Lucide icon
+  xp_reward INTEGER DEFAULT 100,
+  badge_color VARCHAR(50) DEFAULT 'gold', -- gold, silver, bronze, mint, blue
+  department_id UUID REFERENCES departments(id) ON DELETE SET NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_achievements_department ON achievements(department_id);
+
+-- User Achievements Table
+CREATE TABLE user_achievements (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  achievement_id UUID NOT NULL REFERENCES achievements(id) ON DELETE CASCADE,
+  unlocked_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE(user_id, achievement_id)
+);
+
+CREATE INDEX idx_user_achievements_user ON user_achievements(user_id);
 
 -- Audit Logs Table
 CREATE TABLE audit_logs (
@@ -89,6 +198,71 @@ CREATE INDEX idx_api_keys_user_id ON api_keys(user_id);
 -- TASK MANAGEMENT APP
 -- ============================================================================
 
+-- TASK MANAGEMENT APP (ClickUp-Inspired Re-architecture)
+-- ============================================================================
+
+-- Spaces Table
+CREATE TABLE spaces (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  name VARCHAR(255) NOT NULL,
+  description TEXT,
+  color VARCHAR(50),
+  icon VARCHAR(50),
+  created_by UUID NOT NULL REFERENCES users(id),
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  deleted_at TIMESTAMP
+);
+
+CREATE INDEX idx_spaces_created_by ON spaces(created_by);
+
+-- Folders Table
+CREATE TABLE folders (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  space_id UUID NOT NULL REFERENCES spaces(id) ON DELETE CASCADE,
+  name VARCHAR(255) NOT NULL,
+  description TEXT,
+  created_by UUID NOT NULL REFERENCES users(id),
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  deleted_at TIMESTAMP
+);
+
+CREATE INDEX idx_folders_space_id ON folders(space_id);
+
+-- Lists Table
+CREATE TABLE lists (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  space_id UUID NOT NULL REFERENCES spaces(id) ON DELETE CASCADE,
+  folder_id UUID REFERENCES folders(id) ON DELETE CASCADE,
+  name VARCHAR(255) NOT NULL,
+  description TEXT,
+  created_by UUID NOT NULL REFERENCES users(id),
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  deleted_at TIMESTAMP
+);
+
+CREATE INDEX idx_lists_space_id ON lists(space_id);
+CREATE INDEX idx_lists_folder_id ON lists(folder_id);
+
+-- Sprints Table
+CREATE TABLE sprints (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  space_id UUID NOT NULL REFERENCES spaces(id) ON DELETE CASCADE,
+  name VARCHAR(255) NOT NULL,
+  start_date DATE NOT NULL,
+  end_date DATE NOT NULL,
+  status VARCHAR(50) DEFAULT 'planned', -- planned, active, completed
+  goal TEXT,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_sprints_space_id ON sprints(space_id);
+CREATE INDEX idx_sprints_dates ON sprints(start_date, end_date);
+
+-- Tasks Table
 CREATE TABLE tasks (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   title VARCHAR(255) NOT NULL,
@@ -96,14 +270,19 @@ CREATE TABLE tasks (
   created_by UUID NOT NULL REFERENCES users(id),
   assigned_to UUID REFERENCES users(id),
   department_id UUID REFERENCES departments(id),
-  priority VARCHAR(50) DEFAULT 'Medium', -- High, Medium, Low
-  status VARCHAR(50) DEFAULT 'Backlog', -- Backlog, In Progress, Review, Done
+  space_id UUID REFERENCES spaces(id) ON DELETE SET NULL,
+  list_id UUID REFERENCES lists(id) ON DELETE SET NULL,
+  sprint_id UUID REFERENCES sprints(id) ON DELETE SET NULL,
+  priority VARCHAR(50) DEFAULT 'Medium', -- Critical, High, Medium, Low
+  status VARCHAR(50) DEFAULT 'Backlog', -- Space-specific statuses or default: Backlog, In Progress, Review, Done
   due_date DATE,
   completed_at TIMESTAMP,
   estimated_hours DECIMAL(8, 2),
   actual_hours DECIMAL(8, 2),
+  sprint_points INTEGER,
   tags TEXT[],
-  parent_task_id UUID REFERENCES tasks(id), -- For subtasks
+  custom_fields JSONB DEFAULT '{}'::JSONB, -- ClickUp-style dynamic fields
+  parent_task_id UUID REFERENCES tasks(id) ON DELETE CASCADE, -- Subtasks
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   deleted_at TIMESTAMP
@@ -114,7 +293,74 @@ CREATE INDEX idx_tasks_created_by ON tasks(created_by);
 CREATE INDEX idx_tasks_status ON tasks(status);
 CREATE INDEX idx_tasks_due_date ON tasks(due_date);
 CREATE INDEX idx_tasks_department_id ON tasks(department_id);
+CREATE INDEX idx_tasks_space_id ON tasks(space_id);
+CREATE INDEX idx_tasks_list_id ON tasks(list_id);
+CREATE INDEX idx_tasks_sprint_id ON tasks(sprint_id);
 CREATE INDEX idx_tasks_updated_at ON tasks(updated_at);
+
+-- Task Dependencies Table
+CREATE TABLE task_dependencies (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  blocking_task_id UUID NOT NULL REFERENCES tasks(id) ON DELETE CASCADE,
+  blocked_task_id UUID NOT NULL REFERENCES tasks(id) ON DELETE CASCADE,
+  dependency_type VARCHAR(50) DEFAULT 'blocking', -- blocking, waiting_on
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE(blocking_task_id, blocked_task_id)
+);
+
+CREATE INDEX idx_dependencies_blocking ON task_dependencies(blocking_task_id);
+CREATE INDEX idx_dependencies_blocked ON task_dependencies(blocked_task_id);
+
+-- Custom Field Definitions Table
+CREATE TABLE custom_field_definitions (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  space_id UUID REFERENCES spaces(id) ON DELETE CASCADE,
+  list_id UUID REFERENCES lists(id) ON DELETE CASCADE,
+  name VARCHAR(255) NOT NULL,
+  type VARCHAR(50) NOT NULL, -- Text, Number, Date, Checkbox, Dropdown, User, Currency
+  options JSONB, -- For dropdown choices or validation config
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_cf_definitions_space_id ON custom_field_definitions(space_id);
+CREATE INDEX idx_cf_definitions_list_id ON custom_field_definitions(list_id);
+
+-- Task Checklists Table
+CREATE TABLE task_checklists (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  task_id UUID NOT NULL REFERENCES tasks(id) ON DELETE CASCADE,
+  name VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_task_checklists_task_id ON task_checklists(task_id);
+
+-- Task Checklist Items Table
+CREATE TABLE task_checklist_items (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  checklist_id UUID NOT NULL REFERENCES task_checklists(id) ON DELETE CASCADE,
+  title VARCHAR(255) NOT NULL,
+  is_completed BOOLEAN DEFAULT false,
+  assigned_to UUID REFERENCES users(id) ON DELETE SET NULL,
+  due_date DATE,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_checklist_items_checklist_id ON task_checklist_items(checklist_id);
+
+-- Task Watchers Table
+CREATE TABLE task_watchers (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  task_id UUID NOT NULL REFERENCES tasks(id) ON DELETE CASCADE,
+  user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE(task_id, user_id)
+);
+
+CREATE INDEX idx_task_watchers_task_id ON task_watchers(task_id);
+CREATE INDEX idx_task_watchers_user_id ON task_watchers(user_id);
 
 -- Task Comments Table
 CREATE TABLE task_comments (
@@ -311,6 +557,102 @@ CREATE TABLE time_entries (
 CREATE INDEX idx_time_entries_user_id ON time_entries(user_id);
 CREATE INDEX idx_time_entries_date ON time_entries(date);
 CREATE INDEX idx_time_entries_task_id ON time_entries(task_id);
+
+-- ============================================================================
+-- FINANCE APP (Invoicing, Quotations, Cash Flow)
+-- ============================================================================
+
+-- Invoices Table
+CREATE TABLE invoices (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  invoice_number VARCHAR(100) UNIQUE NOT NULL,
+  client_id UUID NOT NULL REFERENCES clients(id) ON DELETE CASCADE,
+  status VARCHAR(50) DEFAULT 'Draft', -- Draft, Sent, Paid, Overdue, Cancelled
+  currency VARCHAR(10) DEFAULT 'EGP', -- EGP, AED, USD
+  subtotal DECIMAL(12, 2) NOT NULL,
+  discount_percentage DECIMAL(5, 2) DEFAULT 0,
+  discount_amount DECIMAL(12, 2) DEFAULT 0,
+  vat_percentage DECIMAL(5, 2) DEFAULT 14.00,
+  vat_amount DECIMAL(12, 2) NOT NULL,
+  total DECIMAL(12, 2) NOT NULL,
+  due_date DATE NOT NULL,
+  sent_at TIMESTAMP,
+  paid_at TIMESTAMP,
+  created_by UUID NOT NULL REFERENCES users(id),
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  deleted_at TIMESTAMP
+);
+
+CREATE INDEX idx_invoices_client_id ON invoices(client_id);
+CREATE INDEX idx_invoices_status ON invoices(status);
+CREATE INDEX idx_invoices_due_date ON invoices(due_date);
+
+-- Invoice Items Table
+CREATE TABLE invoice_items (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  invoice_id UUID NOT NULL REFERENCES invoices(id) ON DELETE CASCADE,
+  description TEXT NOT NULL,
+  quantity DECIMAL(10, 2) NOT NULL DEFAULT 1,
+  unit_price DECIMAL(12, 2) NOT NULL,
+  amount DECIMAL(12, 2) NOT NULL,
+  task_id UUID REFERENCES tasks(id) ON DELETE SET NULL, -- Lock billable task
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_invoice_items_invoice_id ON invoice_items(invoice_id);
+
+-- Quotations Table
+CREATE TABLE quotations (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  quotation_number VARCHAR(100) UNIQUE NOT NULL,
+  client_id UUID NOT NULL REFERENCES clients(id) ON DELETE CASCADE,
+  status VARCHAR(50) DEFAULT 'Draft', -- Draft, Sent, Approved, Expired, Revised
+  currency VARCHAR(10) DEFAULT 'EGP',
+  subtotal DECIMAL(12, 2) NOT NULL,
+  total DECIMAL(12, 2) NOT NULL,
+  valid_until DATE,
+  converted_to_invoice_id UUID REFERENCES invoices(id) ON DELETE SET NULL,
+  created_by UUID NOT NULL REFERENCES users(id),
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_quotations_client_id ON quotations(client_id);
+CREATE INDEX idx_quotations_status ON quotations(status);
+
+-- Quotation Items Table
+CREATE TABLE quotation_items (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  quotation_id UUID NOT NULL REFERENCES quotations(id) ON DELETE CASCADE,
+  description TEXT NOT NULL,
+  quantity DECIMAL(10, 2) NOT NULL DEFAULT 1,
+  unit_price DECIMAL(12, 2) NOT NULL,
+  amount DECIMAL(12, 2) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_quotation_items_quotation_id ON quotation_items(quotation_id);
+
+-- Cash Flow Ledger Table (For cash flow charts)
+CREATE TABLE cash_flow_ledger (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  type VARCHAR(50) NOT NULL, -- inflow (paid invoices, investment), outflow (payroll, software, rent)
+  category VARCHAR(100) NOT NULL, -- Payroll, Software, Rent, Ads, Invoice Payment, etc.
+  amount DECIMAL(12, 2) NOT NULL,
+  currency VARCHAR(10) DEFAULT 'EGP',
+  transaction_date DATE NOT NULL,
+  reference_id UUID, -- Links to invoice_id, or leave null for manual expense
+  description TEXT,
+  payment_method VARCHAR(100), -- Instapay, Bank Transfer, Fawry, Telr, Cash
+  logged_by UUID NOT NULL REFERENCES users(id),
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_cash_flow_type ON cash_flow_ledger(type);
+CREATE INDEX idx_cash_flow_date ON cash_flow_ledger(transaction_date);
+CREATE INDEX idx_cash_flow_category ON cash_flow_ledger(category);
 
 -- Availability Table
 CREATE TABLE availability (
