@@ -14,6 +14,13 @@
         "command": "tsc -p apps/launcher/tsconfig.json --noEmit"
       }
     },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "jest --config jest.config.cjs --selectProjects launcher --passWithNoTests"
+      },
+      "cache": true
+    },
     "dev": {
       "options": {
         "port": 3003

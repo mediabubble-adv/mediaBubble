@@ -61,3 +61,14 @@ playwright/.cache/
 
 # TypeScript build info
 *.tsbuildinfo
+
+# Prisma
+prisma/.env
+prisma/.env.local
+
+# Launcher
+apps/launcher/.env
+apps/launcher/.env.local
+apps/launcher/prisma/.env
+apps/launcher/prisma/.env.local
+apps/launcher/node_modules
