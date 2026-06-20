@@ -108,6 +108,7 @@ const FORMATTERS = new Map<Model, Formatter>([
 
 export function compose(config: GeneratorConfig, dna: BrandDNA): string {
   const core = coreDescription(config, dna)
-  const formatter = FORMATTERS.get(config.model) ?? identity
+  const formatterCandidate = FORMATTERS.get(config.model)
+  const formatter: Formatter = typeof formatterCandidate === 'function' ? formatterCandidate : identity
   return formatter(core, config).trim()
 }
