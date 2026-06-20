@@ -1,0 +1,4 @@
+{
+  "buildCommand": "cd ../.. && npm run vercel-build:launcher",
+  "installCommand": "cd ../.. && npm ci"
+}

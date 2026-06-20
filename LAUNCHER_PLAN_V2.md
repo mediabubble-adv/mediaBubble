@@ -129,7 +129,7 @@ JWT/RBAC/token flows + auth routes + response conventions. **Done.**
 ---
 
 ## 5. Immediate next actions (Phase 1 → Phase 2 handoff)
-1. **Ship** — Vercel project for `apps/launcher`, env vars, `launcher.mediabubble.co` DNS.
+1. **Ship** — Vercel project for `apps/launcher`, env vars (`DATABASE_URL`, **`DIRECT_URL`**, `JWT_SECRET`, `RESEND_API_KEY`), `launcher.mediabubble.co` DNS. Prisma Compute only injects `DATABASE_URL`; duplicate it as `DIRECT_URL` or use Supabase session pooler.
 2. **CI** — add `launcher` to the GitHub Actions build matrix (+ optional `test:launcher`).
 3. **Phase 2 kickoff** — Time Management module first (schema exists; board timer is a slice).
 4. Update stale docs as modules land (`apps/launcher/README.md` refreshed 2026-06-20).

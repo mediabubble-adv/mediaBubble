@@ -73,6 +73,28 @@ For ad-hoc Prisma CLI from `apps/launcher/prisma/`, mirror the same vars in
 
 ---
 
+## Deploy (Vercel)
+
+Root the Vercel project at `apps/launcher` (`apps/launcher/vercel.json` runs
+`vercel-build:launcher` from the monorepo root).
+
+**Required environment variables** (Project → Settings → Environment):
+
+| Variable | Notes |
+|----------|--------|
+| `DATABASE_URL` | Auto-injected by Prisma Compute, or Supabase **transaction** pooler (6543, `?pgbouncer=true`) |
+| `DIRECT_URL` | **Required** — schema uses `directUrl`. Prisma Compute: set to the **same value** as `DATABASE_URL`. Supabase: **session** pooler (5432). |
+| `JWT_SECRET` | `openssl rand -base64 48` |
+| `RESEND_API_KEY` | Email verify/reset in production |
+
+If deploy fails with `Environment variable not found: DIRECT_URL`, add `DIRECT_URL`
+in the Vercel console (do not rely on Prisma Compute injecting it automatically).
+
+After first deploy, run `pnpm run db:seed` against the production database once
+(from a machine with prod env), or seed via Supabase SQL editor.
+
+---
+
 ## Develop
 
 ```bash
