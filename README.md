@@ -82,6 +82,12 @@ Env lives in `apps/launcher/.env.local` (not the repo root). See [apps/launcher/
 
 ## Architecture
 
+Two views: **monorepo dependencies** (how Nx apps consume shared packages) and **runtime integrations** (external services per surface).
+
+### Monorepo topology
+
+Apps import shared packages only — `packages/*` never import from `apps/*` (`@nx/enforce-module-boundaries`).
+
 ```mermaid
 %%{init: {"theme":"base","themeVariables":{"fontFamily":"Poppins, Inter, system-ui, sans-serif","fontSize":"13px","lineColor":"#072A6B","primaryTextColor":"#072A6B","primaryBorderColor":"#358DCC","clusterBkg":"#FAFAFA","clusterBorder":"#E8E8E8","titleColor":"#072A6B","edgeLabelBackground":"#FFFFFF"},"flowchart":{"curve":"linear","nodeSpacing":44,"rankSpacing":52,"padding":14,"diagramPadding":10}}}%%
 flowchart LR
@@ -93,7 +99,7 @@ flowchart LR
     LA["MediaBubble Launcher<br/>launcher.mediabubble.co"]
   end
 
-  subgraph packages ["Shared packages"]
+  subgraph packages ["Shared packages — Nx workspace"]
     direction LR
     DS["@mediabubble/design-system"]
     SH["@mediabubble/shared"]
@@ -118,7 +124,6 @@ flowchart LR
   classDef app fill:#072A6B,stroke:#358DCC,color:#FFFFFF,stroke-width:1.5px
   classDef pkg fill:#358DCC,stroke:#072A6B,color:#FFFFFF,stroke-width:1.5px
   classDef pipe fill:#FFFFFF,stroke:#358DCC,color:#072A6B,stroke-width:1.5px
-  classDef integration fill:#FFC107,stroke:#072A6B,color:#072A6B,stroke-width:1.5px
 
   class EG,AE,BR,LA app
   class DS,SH pkg
@@ -126,13 +131,61 @@ flowchart LR
   class HS,RS,GA,DB integration
 
   style apps fill:#FAFAFA,stroke:#E8E8E8,stroke-width:1px,color:#072A6B
+  style marketing fill:#FFFFFF,stroke:#358DCC,stroke-width:1px,color:#072A6B
   style packages fill:#F5F8FC,stroke:#358DCC,stroke-width:1px,color:#072A6B
-  style integrations fill:#FFFBEB,stroke:#FFC107,stroke-width:1px,color:#072A6B
+```
+
+### Deployment & data plane
+
+Marketing apps share HubSpot, GA4, and Resend (contact). **MediaBubble Launcher** adds its own Postgres data layer and JWT auth gate.
+
+```mermaid
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Poppins, Inter, system-ui, sans-serif","fontSize":"13px","lineColor":"#072A6B","primaryTextColor":"#072A6B","primaryBorderColor":"#358DCC","clusterBkg":"#FAFAFA","clusterBorder":"#E8E8E8","titleColor":"#072A6B","edgeLabelBackground":"#FFFFFF"},"flowchart":{"curve":"basis","nodeSpacing":32,"rankSpacing":44,"padding":12}}}%%
+flowchart TB
+  subgraph surfaces ["Next.js apps"]
+    PUB["Marketing + Brand<br/>web-eg · web-ae · brand"]
+    OPS["MediaBubble Launcher<br/>tasks · finance · gamification"]
+  end
+
+  subgraph marketing_ext ["Marketing integrations"]
+    direction LR
+    HS["HubSpot CRM"]
+    GA["Google Analytics 4"]
+    RSC["Resend · contact"]
+  end
+
+  subgraph launcher_ext ["Launcher stack"]
+    direction LR
+    PR["Prisma 6"]
+    DB["Supabase Postgres"]
+    AUTH["JWT + RBAC · proxy.ts"]
+    RSL["Resend · verify / reset"]
+  end
+
+  PUB --> HS
+  PUB --> GA
+  PUB --> RSC
+  OPS --> AUTH
+  OPS --> PR
+  PR --> DB
+  OPS --> RSL
+
+  classDef surface fill:#072A6B,stroke:#358DCC,color:#FFFFFF,stroke-width:1.5px
+  classDef mkt fill:#FFC107,stroke:#072A6B,color:#072A6B,stroke-width:1.5px
+  classDef ops fill:#358DCC,stroke:#072A6B,color:#FFFFFF,stroke-width:1.5px
+
+  class PUB,OPS surface
+  class HS,GA,RSC mkt
+  class PR,DB,AUTH,RSL ops
+
+  style surfaces fill:#FAFAFA,stroke:#E8E8E8,stroke-width:1px,color:#072A6B
+  style marketing_ext fill:#FFFBEB,stroke:#FFC107,stroke-width:1px,color:#072A6B
+  style launcher_ext fill:#F5F8FC,stroke:#358DCC,stroke-width:1px,color:#072A6B
 ```
 
 **Client vs server imports:** In `'use client'` files, import hooks and browser utilities from `@mediabubble/shared/client` (not the root barrel). Server Components and API routes use `@mediabubble/shared/server` or package subpaths to avoid pulling server-only code into the client bundle.
 
-**CSP middleware:** Each app’s `middleware.ts` imports `createCspMiddleware` from `@mediabubble/shared/csp-middleware` (implementation in `packages/shared/csp-middleware.cjs`). Keep `export const config.matcher` as an **inlined literal** in each middleware file—Next.js cannot statically analyze imported matcher constants.
+**CSP / route protection:** Market apps and brand use `middleware.ts` with `createCspMiddleware` from `@mediabubble/shared/csp-middleware`. **MediaBubble Launcher** uses `proxy.ts` for JWT route gating (Next.js 16 builder). Keep `export const config.matcher` as an **inlined literal** in each middleware file—Next.js cannot statically analyze imported matcher constants.
 
 ---
 
@@ -417,6 +470,9 @@ mediabubble Main/
 | [docs/planning/MASTER_DEVELOPMENT_PLAN.md](./docs/planning/MASTER_DEVELOPMENT_PLAN.md) | 12-week development roadmap |
 | [docs/website/README.md](./docs/website/README.md) | Website transformation & conversions |
 | [AGENTS.md](./AGENTS.md) | Agent/workspace conventions learned in-repo |
+| [LAUNCHER_PLAN_V2.md](./LAUNCHER_PLAN_V2.md) | MediaBubble Launcher Phase 1 status + Phase 2 roadmap |
+| [apps/launcher/README.md](./apps/launcher/README.md) | MediaBubble Launcher setup, DB, deploy, and test commands |
+
 | [LAUNCHER_PLAN_V2.md](./LAUNCHER_PLAN_V2.md) | MediaBubble Launcher Phase 1 status + Phase 2 roadmap |
 | [apps/launcher/README.md](./apps/launcher/README.md) | MediaBubble Launcher setup, DB, deploy, and test commands |
 
