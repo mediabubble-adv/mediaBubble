@@ -10,8 +10,6 @@ import {
   ArrowUpDown,
   DollarSign,
   Info,
-  Calendar,
-  CheckCircle2,
 } from 'lucide-react'
 import { CURRENCIES, formatMoney, convert, type CurrencyCode } from '@/lib/finance/currency'
 import { summarize, byCategory, monthlySeries, type FinanceTxn } from '@/lib/finance/kpis'
