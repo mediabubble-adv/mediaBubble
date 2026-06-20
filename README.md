@@ -4,7 +4,7 @@
 
 # MediaBubble
 
-**Bilingual marketing platform for a full-service agency — Egypt, UAE, and brand guidelines in one Nx monorepo.**
+**Bilingual marketing platform and internal ops hub — Egypt, UAE, brand guidelines, and launcher in one Nx monorepo.**
 
 [![CI](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)](https://github.com/mediabubble-adv/mediaBubble/actions/workflows/ci.yml)
 [![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js&logoColor=white)](https://nextjs.org/)
@@ -15,7 +15,7 @@
 [![Node](https://img.shields.io/badge/Node.js-20-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![Vercel](https://img.shields.io/badge/Deploy-Vercel-000000?logo=vercel&logoColor=white)](https://vercel.com/)
 
-[mediabubble.co](https://mediabubble.co) · [mediabubble.ae](https://mediabubble.ae) · [brand.mediabubble.co](https://brand.mediabubble.co)
+[mediabubble.co](https://mediabubble.co) · [mediabubble.ae](https://mediabubble.ae) · [brand.mediabubble.co](https://brand.mediabubble.co) · [launcher.mediabubble.co](https://launcher.mediabubble.co)
 
 </div>
 
@@ -27,6 +27,7 @@
 
 - **Market websites** for Egypt and the UAE — conversion-focused, bilingual, RTL-aware Next.js apps replacing a legacy WordPress stack
 - **Brand guidelines** — an interactive reference app for identity, tokens, components, and AI-assisted design workflows
+- **Launcher** — internal ops platform (`launcher.mediabubble.co`): task board, finance dashboard, gamification, JWT auth, Supabase + Prisma
 - **Shared packages** — design system, env validation, API integrations, and localization tooling used across all surfaces
 
 The monorepo is built for **parallel market delivery**: Egypt (`web-eg`) ships first with Egyptian Arabic (Masri); UAE (`web-ae`) is a structural clone with Khaliji Arabic and UAE-specific metadata, kept in sync via scripts and an i18n parity gate.
@@ -40,9 +41,23 @@ The monorepo is built for **parallel market delivery**: Egypt (`web-eg`) ships f
 | Egypt marketing site | `apps/web-eg` | [mediabubble.co](https://mediabubble.co) | Primary market app — routes, services, blog, contact |
 | UAE marketing site | `apps/web-ae` | [mediabubble.ae](https://mediabubble.ae) | Structural clone — Khaliji `ar` locale, UAE config |
 | Brand guidelines | `apps/brand` | [brand.mediabubble.co](https://brand.mediabubble.co) | Interactive brand book (14 sections, search, copy tools) |
+| **Launcher (internal ops)** | `apps/launcher` | [launcher.mediabubble.co](https://launcher.mediabubble.co) | Phase 1 MVP — Task Board, Finance, Gamification, auth |
 | Design system | `packages/design-system` | — | Shared UI primitives + Tailwind preset (Rollup build) |
 | Shared library | `packages/shared` | — | Env, HubSpot/Resend clients, i18n factory, security headers |
 | Content pipeline | `packages/content-pipeline` | — | UAE localization (`nx run content-pipeline:localize`) |
+
+### Launcher (`apps/launcher`)
+
+Team-facing ops app on **Next.js 16** with **Supabase Postgres + Prisma**, custom **JWT auth** (RBAC), and **Resend** for verify/reset email. Phase 1 (merged) includes:
+
+| Module | Features |
+|--------|----------|
+| **Task Board** | Kanban (Backlog → Done), drag-and-drop, comments, inline timer → `time_entries` |
+| **Finance** | Transactions ledger, KPI strip, EGP/AED/USD switcher, cash-flow + expense charts |
+| **Gamification** | XP/levels, login streak, leaderboard podium, achievements |
+| **Auth** | Signup, login, email verify, password reset; route gate via `proxy.ts` |
+
+Env lives in `apps/launcher/.env.local` (not the repo root). See [apps/launcher/README.md](./apps/launcher/README.md) and [LAUNCHER_PLAN_V2.md](./LAUNCHER_PLAN_V2.md) for setup, deploy, and Phase 2 roadmap.
 
 ### Live service pages (both market apps)
 
@@ -64,6 +79,7 @@ flowchart LR
     EG["web-eg<br/>mediabubble.co"]
     AE["web-ae<br/>mediabubble.ae"]
     BR["brand<br/>brand.mediabubble.co"]
+    LA["launcher<br/>launcher.mediabubble.co"]
   end
 
   subgraph packages ["Shared packages"]
@@ -78,22 +94,25 @@ flowchart LR
     HS["HubSpot CRM"]
     RS["Resend email"]
     GA["Google Analytics 4"]
+    DB["Supabase Postgres"]
   end
 
-  EG & AE & BR --> DS
-  EG & AE & BR --> SH
+  EG & AE & BR & LA --> DS
+  EG & AE & BR & LA --> SH
   CP -.->|UAE localize| AE
   SH --> HS & RS & GA
+  LA --> DB
+  LA --> RS
 
   classDef app fill:#072A6B,stroke:#358DCC,color:#FFFFFF,stroke-width:1.5px
   classDef pkg fill:#358DCC,stroke:#072A6B,color:#FFFFFF,stroke-width:1.5px
   classDef pipe fill:#FFFFFF,stroke:#358DCC,color:#072A6B,stroke-width:1.5px
   classDef integration fill:#FFC107,stroke:#072A6B,color:#072A6B,stroke-width:1.5px
 
-  class EG,AE,BR app
+  class EG,AE,BR,LA app
   class DS,SH pkg
   class CP pipe
-  class HS,RS,GA integration
+  class HS,RS,GA,DB integration
 
   style apps fill:#FAFAFA,stroke:#E8E8E8,stroke-width:1px,color:#072A6B
   style packages fill:#F5F8FC,stroke:#358DCC,stroke-width:1px,color:#072A6B
@@ -110,14 +129,16 @@ flowchart LR
 
 | Category | Choices |
 |----------|---------|
-| Framework | Next.js 14 (App Router), React 18 |
-| Language | TypeScript 5.3 |
+| Framework | Next.js 14–16 (App Router), React 18 — market apps on 14; launcher on 16 |
+| Language | TypeScript 5.3+ |
 | Styling | Tailwind CSS 3, `tailwindcss-rtl`, semantic `brand-*` tokens + dark mode (`html.dark`) |
-| Monorepo | Nx 22, npm workspaces |
+| Monorepo | Nx 22+, npm workspaces |
 | i18n | i18next + react-i18next — English + dialect locales (`ar-masri` EG, `ar` Khaliji AE) |
 | UI | Radix primitives, Lucide / React Icons, shared design-system components |
 | Forms & CRM | HubSpot API (contacts, newsletter), Resend (transactional email) |
-| PWA | `@ducanh2912/next-pwa` (per-app) |
+| Launcher data | Prisma 6 + Supabase Postgres (`DATABASE_URL` pooler + `DIRECT_URL` for migrations) |
+| Launcher auth | Custom JWT (HS256), scrypt passwords, RBAC middleware via `proxy.ts` |
+| PWA | `@ducanh2912/next-pwa` (market apps + brand) |
 | CI | GitHub Actions — build, lint, typecheck, Jest |
 | Hosting | Vercel (one project per app) |
 
@@ -148,6 +169,16 @@ npm run dev:eg               # http://localhost:3000
 | `npm run dev:eg` | Egypt (`web-eg`) | 3000 |
 | `npm run dev:ae` | UAE (`web-ae`) | 3001 |
 | `npm run dev:brand` | Brand guidelines | 3002 |
+| `npm run dev:launcher` | Launcher (internal ops) | 3003 |
+
+**Launcher first-time setup:**
+
+```bash
+cp apps/launcher/.env.example apps/launcher/.env.local
+# Set DATABASE_URL, DIRECT_URL, JWT_SECRET
+npm run db:deploy && npm run db:seed
+npm run dev:launcher   # http://localhost:3003 — seed login: creative@mediabubble.co / Launch@2026
+```
 
 ### Clean dev restart (after webpack / PWA cache issues)
 
@@ -156,6 +187,7 @@ Stale service workers or overlapping prod builds can cause `Cannot read properti
 ```bash
 npm run dev:eg:clean   # kills :3000, wipes .next + webpack cache + stale SW
 npm run dev:ae:clean   # same for :3001
+npm run dev:launcher:clean   # kills :3003, wipes .next/cache (e.g. after Playwright E2E)
 ```
 
 Then hard-refresh the browser or use an incognito window for `localhost`.
@@ -176,6 +208,18 @@ Copy [`.env.example`](./.env.example) to `.env.local` in the repo root (gitignor
 | `HUBSPOT_API_KEY` | CRM upsert for `/api/contact` and `/api/hubspot` |
 | `IMPECCABLE_CONTEXT_DIR` | Design-agent context path (`docs/planning`) |
 
+**Launcher** uses a separate env file — copy [`apps/launcher/.env.example`](./apps/launcher/.env.example) to `apps/launcher/.env.local`:
+
+| Variable | Purpose |
+|----------|---------|
+| `DATABASE_URL` | Supabase transaction pooler (6543, `?pgbouncer=true`) or Vercel Prisma Compute URL |
+| `DIRECT_URL` | Session/direct pooler (5432) for migrations — on Vercel, duplicate `DATABASE_URL` if Prisma Compute only injects one URL |
+| `JWT_SECRET` | JWT signing secret (`openssl rand -base64 48`) |
+| `RESEND_API_KEY` | Verify/reset email in production |
+| `REDIS_URL` | Reserved for Phase 2 (rate limiting, pub/sub) |
+
+Root `db:*` scripts source `apps/launcher/.env.local` automatically.
+
 On Vercel, set variables per project, then:
 
 ```bash
@@ -191,7 +235,13 @@ vercel env pull .env.local --yes
 | `npm run dev` / `dev:eg` | Egypt marketing site (port 3000) |
 | `npm run dev:ae` | UAE marketing site (port 3001) |
 | `npm run dev:brand` | Brand guidelines (port 3002) |
-| `npm run dev:eg:clean` / `dev:ae:clean` | Reset dev server + caches |
+| `npm run dev:launcher` | Launcher internal ops (port 3003) |
+| `npm run dev:eg:clean` / `dev:ae:clean` / `dev:launcher:clean` | Reset dev server + caches |
+| `npm run db:deploy` | Apply launcher Prisma migrations (Supabase) |
+| `npm run db:seed` | Seed launcher departments, users, finance sample data |
+| `npm run db:migrate` | Create/apply launcher dev migrations |
+| `npm run db:studio` | Prisma Studio for launcher schema |
+| `npm run test:launcher` | Jest unit tests for `apps/launcher/lib/**` |
 | `npm run build` | Build all Nx projects |
 | `npm run start` | Production server for `web-eg` |
 | `npm run lint` | ESLint across workspace |
@@ -208,7 +258,7 @@ vercel env pull .env.local --yes
 
 ### `@mediabubble/design-system`
 
-Shared UI primitives and Tailwind preset. Built with Rollup (`nx build design-system`). Import components and tokens in all three apps for visual consistency.
+Shared UI primitives and Tailwind preset. Built with Rollup (`nx build design-system`). Import components and tokens in all apps for visual consistency.
 
 ### `@mediabubble/shared`
 
@@ -225,7 +275,7 @@ Cross-app utilities. Prefer **subpath imports** (not the root barrel in client c
 
 Also includes rate limiting, GA4 event helpers, and `security-headers.cjs` wired from each app’s `next.config.js`.
 
-**TypeScript:** `tsconfig.base.json` defines shared path aliases. Each app `tsconfig.json` redeclares `paths`—when adding a new `@mediabubble/shared/*` subpath, mirror it in `apps/web-eg`, `apps/web-ae`, and `apps/brand` (see `csp-middleware`).
+**TypeScript:** `tsconfig.base.json` defines shared path aliases. Each app `tsconfig.json` redeclares `paths`—when adding a new `@mediabubble/shared/*` subpath, mirror it in `apps/web-eg`, `apps/web-ae`, `apps/brand`, and `apps/launcher` where needed (see `csp-middleware`).
 
 See [packages/shared/README.md](./packages/shared/README.md) for usage examples.
 
@@ -283,12 +333,15 @@ Each app is a **separate Vercel project** with root directory set to the app fol
 | `apps/web-eg` | mediabubble.co |
 | `apps/web-ae` | mediabubble.ae |
 | `apps/brand` | brand.mediabubble.co |
+| `apps/launcher` | launcher.mediabubble.co |
 
-Each `vercel.json` uses a monorepo-aware build:
+Each market/brand `vercel.json` uses a monorepo-aware build:
 
 ```json
 "buildCommand": "cd ../.. && npx nx build <app>"
 ```
+
+Launcher runs migrations + generate before build (`vercel-build:launcher`). **Required Vercel env:** `DATABASE_URL`, `DIRECT_URL`, `JWT_SECRET`, `RESEND_API_KEY`. If deploy fails with missing `DIRECT_URL`, set it to the same value as `DATABASE_URL` (Prisma Compute) or the Supabase session pooler URL. See [apps/launcher/README.md](./apps/launcher/README.md).
 
 Avoid running production builds while a dev server is active on the same app.
 
@@ -301,7 +354,7 @@ Avoid running production builds while a dev server is active on the same app.
 On push/PR to `master`, GitHub Actions runs:
 
 1. `npm ci`
-2. `nx run-many -t build` (design-system, web-eg, web-ae, brand)
+2. `nx run-many -t build` (design-system, web-eg, web-ae, brand — **launcher** pending CI addition)
 3. `npm run lint`
 4. `npm run typecheck`
 5. `npm run test`
@@ -322,13 +375,15 @@ mediabubble Main/
 ├── apps/
 │   ├── web-eg/              Egypt marketing → mediabubble.co
 │   ├── web-ae/              UAE marketing → mediabubble.ae
-│   └── brand/               Brand guidelines → brand.mediabubble.co
+│   ├── brand/               Brand guidelines → brand.mediabubble.co
+│   └── launcher/            Internal ops → launcher.mediabubble.co (Prisma, Supabase)
 ├── packages/
 │   ├── design-system/       @mediabubble/design-system
 │   ├── shared/              @mediabubble/shared
 │   └── content-pipeline/    UAE localization
 ├── scripts/                 Clone, i18n, Arabic skill sync
 ├── docs/                    Planning, audits, brand, website specs
+├── LAUNCHER_PLAN_V2.md      Launcher Phase 1–2 scope (single source of truth)
 ├── .github/workflows/       CI
 ├── .env.example             Env template (copy → .env.local)
 ├── nx.json
@@ -351,6 +406,8 @@ mediabubble Main/
 | [docs/planning/MASTER_DEVELOPMENT_PLAN.md](./docs/planning/MASTER_DEVELOPMENT_PLAN.md) | 12-week development roadmap |
 | [docs/website/README.md](./docs/website/README.md) | Website transformation & conversions |
 | [AGENTS.md](./AGENTS.md) | Agent/workspace conventions learned in-repo |
+| [LAUNCHER_PLAN_V2.md](./LAUNCHER_PLAN_V2.md) | Launcher Phase 1 status + Phase 2 roadmap |
+| [apps/launcher/README.md](./apps/launcher/README.md) | Launcher setup, DB, deploy, and test commands |
 
 ---
 
@@ -358,6 +415,7 @@ mediabubble Main/
 
 - Expand service pages beyond the current five live slugs
 - HubSpot + Resend + GA4 fully configured in all environments
+- **Launcher Phase 2** — Time Management, CRM, AI Tools, Communication Hub (see `LAUNCHER_PLAN_V2.md`)
 - Lighthouse 95+, formal WCAG AA audit
 - AI chat agent for lead qualification (spec in `docs/business/`)
 - Open-source design system and website template (strategy docs in `docs/business/strategy/`)
