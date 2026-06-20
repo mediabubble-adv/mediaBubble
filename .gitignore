@@ -52,3 +52,23 @@ apps/*/public/workbox-*.js
 apps/*/public/workbox-*.js.map
 apps/*/public/swe-worker-*.js
 apps/*/public/fallback-*.js
+
+# Playwright E2E
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Prisma
+prisma/.env
+prisma/.env.local
+
+# Launcher
+apps/launcher/.env
+apps/launcher/.env.local
+apps/launcher/prisma/.env
+apps/launcher/prisma/.env.local
+apps/launcher/node_modules

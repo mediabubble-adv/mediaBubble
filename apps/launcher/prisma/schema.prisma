@@ -3,8 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model activity_logs {
@@ -449,6 +450,25 @@ model settings {
   users      users?   @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@unique([user_id, key])
+}
+
+model transactions {
+  id             String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  date           DateTime @db.Date
+  category       String   @db.VarChar(100)
+  type           String   @db.VarChar(20)
+  amount         Decimal  @db.Decimal(14, 2)
+  currency       String   @db.VarChar(3)
+  description    String?  @db.VarChar(255)
+  payment_method String?  @db.VarChar(100)
+  recurring      Boolean  @default(false)
+  created_by     String?  @db.Uuid
+  created_at     DateTime @default(now()) @db.Timestamp(6)
+  updated_at     DateTime @default(now()) @db.Timestamp(6)
+
+  @@index([category], map: "idx_transactions_category")
+  @@index([date], map: "idx_transactions_date")
+  @@index([type], map: "idx_transactions_type")
 }
 
 model task_attachments {

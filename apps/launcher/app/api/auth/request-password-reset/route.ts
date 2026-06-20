@@ -7,6 +7,7 @@ import { toResponse, readJson } from '@/lib/api/http'
 import { requestPasswordResetSchema } from '@/lib/auth/schemas'
 import { generateOneTimeToken, TOKEN_TTL } from '@/lib/auth/tokens'
 import { isProduction } from '@/lib/auth/config'
+import { sendPasswordResetEmail } from '@/lib/auth/email'
 import { prisma } from '@/lib/db/prisma'
 
 export const runtime = 'nodejs'
@@ -36,7 +37,19 @@ export async function POST(req: Request): Promise<Response> {
     },
   })
 
-  // No email transport yet (Phase 1): expose the raw token in non-prod only.
+  try {
+    await sendPasswordResetEmail(user.email, token)
+  } catch (err: any) {
+    if (isProduction()) {
+      await prisma.password_reset_tokens.deleteMany({ where: { token_hash: tokenHash } })
+      return toResponse(
+        fail('email_delivery_failed', 'Failed to send password reset email. Please try again.', 500),
+      )
+    }
+    // eslint-disable-next-line no-console
+    console.error('Failed to send password reset email:', err)
+  }
+
   const data = { requested: true, ...(isProduction() ? {} : { resetToken: token }) }
   return toResponse(ok(data, GENERIC_MESSAGE))
 }

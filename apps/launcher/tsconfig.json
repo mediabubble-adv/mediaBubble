@@ -18,7 +18,15 @@
       "@mediabubble/design-system/tailwind-preset": [
         "../../packages/design-system/src/tailwind-preset.ts"
       ],
-      "@mediabubble/shared": ["../../packages/shared/src/index.ts"]
+      "@mediabubble/shared": ["../../packages/shared/src/index.ts"],
+      "@mediabubble/shared/client": ["../../packages/shared/src/client.ts"],
+      "@mediabubble/shared/server": ["../../packages/shared/src/server.ts"],
+      "@mediabubble/shared/csp-middleware": [
+        "../../packages/shared/csp-middleware.cjs"
+      ],
+      "@mediabubble/shared/ui/marketing-kicker": [
+        "../../packages/shared/src/ui/marketing-kicker.ts"
+      ]
     }
   },
   "include": [
