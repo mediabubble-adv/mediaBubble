@@ -4,7 +4,7 @@
 
 # MediaBubble
 
-**Bilingual marketing platform and internal ops hub — Egypt, UAE, brand guidelines, and launcher in one Nx monorepo.**
+**Bilingual marketing platform and internal ops hub — Egypt, UAE, brand guidelines, and MediaBubble Launcher in one Nx monorepo.**
 
 [![CI](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)](https://github.com/mediabubble-adv/mediaBubble/actions/workflows/ci.yml)
 [![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js&logoColor=white)](https://nextjs.org/)
@@ -27,10 +27,21 @@
 
 - **Market websites** for Egypt and the UAE — conversion-focused, bilingual, RTL-aware Next.js apps replacing a legacy WordPress stack
 - **Brand guidelines** — an interactive reference app for identity, tokens, components, and AI-assisted design workflows
-- **Launcher** — internal ops platform (`launcher.mediabubble.co`): task board, finance dashboard, gamification, JWT auth, Supabase + Prisma
+- **MediaBubble Launcher** — internal ops app ([launcher.mediabubble.co](https://launcher.mediabubble.co)): task board, finance dashboard, gamification, JWT auth, Supabase + Prisma
 - **Shared packages** — design system, env validation, API integrations, and localization tooling used across all surfaces
 
-The monorepo is built for **parallel market delivery**: Egypt (`web-eg`) ships first with Egyptian Arabic (Masri); UAE (`web-ae`) is a structural clone with Khaliji Arabic and UAE-specific metadata, kept in sync via scripts and an i18n parity gate.
+The monorepo is built for **parallel market delivery**: Egypt (`web-eg`) ships first with Egyptian Arabic (Masri); UAE (`web-ae`) is a structural clone with Khaliji Arabic and UAE-specific metadata, kept in sync via scripts and an i18n parity gate. **MediaBubble Launcher** is the team-facing ops surface on the same design system and shared packages.
+
+---
+
+## Applications
+
+| Product | App path | URL | Audience |
+|---------|----------|-----|----------|
+| **MediaBubble Egypt** | `apps/web-eg` | [mediabubble.co](https://mediabubble.co) | Public — Egypt market |
+| **MediaBubble UAE** | `apps/web-ae` | [mediabubble.ae](https://mediabubble.ae) | Public — UAE market |
+| **MediaBubble Brand** | `apps/brand` | [brand.mediabubble.co](https://brand.mediabubble.co) | Brand book — identity & tokens |
+| **MediaBubble Launcher** | `apps/launcher` | [launcher.mediabubble.co](https://launcher.mediabubble.co) | Internal — tasks, finance, gamification |
 
 ---
 
@@ -41,14 +52,14 @@ The monorepo is built for **parallel market delivery**: Egypt (`web-eg`) ships f
 | Egypt marketing site | `apps/web-eg` | [mediabubble.co](https://mediabubble.co) | Primary market app — routes, services, blog, contact |
 | UAE marketing site | `apps/web-ae` | [mediabubble.ae](https://mediabubble.ae) | Structural clone — Khaliji `ar` locale, UAE config |
 | Brand guidelines | `apps/brand` | [brand.mediabubble.co](https://brand.mediabubble.co) | Interactive brand book (14 sections, search, copy tools) |
-| **Launcher (internal ops)** | `apps/launcher` | [launcher.mediabubble.co](https://launcher.mediabubble.co) | Phase 1 MVP — Task Board, Finance, Gamification, auth |
+| **MediaBubble Launcher** | `apps/launcher` | [launcher.mediabubble.co](https://launcher.mediabubble.co) | Phase 1 MVP — Task Board, Finance, Gamification, auth |
 | Design system | `packages/design-system` | — | Shared UI primitives + Tailwind preset (Rollup build) |
 | Shared library | `packages/shared` | — | Env, HubSpot/Resend clients, i18n factory, security headers |
 | Content pipeline | `packages/content-pipeline` | — | UAE localization (`nx run content-pipeline:localize`) |
 
-### Launcher (`apps/launcher`)
+### MediaBubble Launcher (`apps/launcher`)
 
-Team-facing ops app on **Next.js 16** with **Supabase Postgres + Prisma**, custom **JWT auth** (RBAC), and **Resend** for verify/reset email. Phase 1 (merged) includes:
+**MediaBubble Launcher** is the agency’s unified internal operations platform — team-facing, auth-gated, and separate from the public marketing sites. Built on **Next.js 16** with **Supabase Postgres + Prisma**, custom **JWT auth** (RBAC), and **Resend** for verify/reset email. Phase 1 (merged) includes:
 
 | Module | Features |
 |--------|----------|
@@ -79,7 +90,7 @@ flowchart LR
     EG["web-eg<br/>mediabubble.co"]
     AE["web-ae<br/>mediabubble.ae"]
     BR["brand<br/>brand.mediabubble.co"]
-    LA["launcher<br/>launcher.mediabubble.co"]
+    LA["MediaBubble Launcher<br/>launcher.mediabubble.co"]
   end
 
   subgraph packages ["Shared packages"]
@@ -169,9 +180,9 @@ npm run dev:eg               # http://localhost:3000
 | `npm run dev:eg` | Egypt (`web-eg`) | 3000 |
 | `npm run dev:ae` | UAE (`web-ae`) | 3001 |
 | `npm run dev:brand` | Brand guidelines | 3002 |
-| `npm run dev:launcher` | Launcher (internal ops) | 3003 |
+| `npm run dev:launcher` | **MediaBubble Launcher** | 3003 |
 
-**Launcher first-time setup:**
+**MediaBubble Launcher — first-time setup:**
 
 ```bash
 cp apps/launcher/.env.example apps/launcher/.env.local
@@ -208,7 +219,7 @@ Copy [`.env.example`](./.env.example) to `.env.local` in the repo root (gitignor
 | `HUBSPOT_API_KEY` | CRM upsert for `/api/contact` and `/api/hubspot` |
 | `IMPECCABLE_CONTEXT_DIR` | Design-agent context path (`docs/planning`) |
 
-**Launcher** uses a separate env file — copy [`apps/launcher/.env.example`](./apps/launcher/.env.example) to `apps/launcher/.env.local`:
+**MediaBubble Launcher** uses a separate env file — copy [`apps/launcher/.env.example`](./apps/launcher/.env.example) to `apps/launcher/.env.local`:
 
 | Variable | Purpose |
 |----------|---------|
@@ -235,12 +246,12 @@ vercel env pull .env.local --yes
 | `npm run dev` / `dev:eg` | Egypt marketing site (port 3000) |
 | `npm run dev:ae` | UAE marketing site (port 3001) |
 | `npm run dev:brand` | Brand guidelines (port 3002) |
-| `npm run dev:launcher` | Launcher internal ops (port 3003) |
+| `npm run dev:launcher` | MediaBubble Launcher (port 3003) |
 | `npm run dev:eg:clean` / `dev:ae:clean` / `dev:launcher:clean` | Reset dev server + caches |
-| `npm run db:deploy` | Apply launcher Prisma migrations (Supabase) |
-| `npm run db:seed` | Seed launcher departments, users, finance sample data |
-| `npm run db:migrate` | Create/apply launcher dev migrations |
-| `npm run db:studio` | Prisma Studio for launcher schema |
+| `npm run db:deploy` | Apply MediaBubble Launcher Prisma migrations (Supabase) |
+| `npm run db:seed` | Seed Launcher departments, users, finance sample data |
+| `npm run db:migrate` | Create/apply Launcher dev migrations |
+| `npm run db:studio` | Prisma Studio for Launcher schema |
 | `npm run test:launcher` | Jest unit tests for `apps/launcher/lib/**` |
 | `npm run build` | Build all Nx projects |
 | `npm run start` | Production server for `web-eg` |
@@ -333,7 +344,7 @@ Each app is a **separate Vercel project** with root directory set to the app fol
 | `apps/web-eg` | mediabubble.co |
 | `apps/web-ae` | mediabubble.ae |
 | `apps/brand` | brand.mediabubble.co |
-| `apps/launcher` | launcher.mediabubble.co |
+| `apps/launcher` | launcher.mediabubble.co (MediaBubble Launcher) |
 
 Each market/brand `vercel.json` uses a monorepo-aware build:
 
@@ -341,7 +352,7 @@ Each market/brand `vercel.json` uses a monorepo-aware build:
 "buildCommand": "cd ../.. && npx nx build <app>"
 ```
 
-Launcher runs migrations + generate before build (`vercel-build:launcher`). **Required Vercel env:** `DATABASE_URL`, `DIRECT_URL`, `JWT_SECRET`, `RESEND_API_KEY`. If deploy fails with missing `DIRECT_URL`, set it to the same value as `DATABASE_URL` (Prisma Compute) or the Supabase session pooler URL. See [apps/launcher/README.md](./apps/launcher/README.md).
+**MediaBubble Launcher** runs migrations + generate before build (`vercel-build:launcher`). **Required Vercel env:** `DATABASE_URL`, `DIRECT_URL`, `JWT_SECRET`, `RESEND_API_KEY`. If deploy fails with missing `DIRECT_URL`, set it to the same value as `DATABASE_URL` (Prisma Compute) or the Supabase session pooler URL. See [apps/launcher/README.md](./apps/launcher/README.md).
 
 Avoid running production builds while a dev server is active on the same app.
 
@@ -376,7 +387,7 @@ mediabubble Main/
 │   ├── web-eg/              Egypt marketing → mediabubble.co
 │   ├── web-ae/              UAE marketing → mediabubble.ae
 │   ├── brand/               Brand guidelines → brand.mediabubble.co
-│   └── launcher/            Internal ops → launcher.mediabubble.co (Prisma, Supabase)
+│   └── launcher/            MediaBubble Launcher → launcher.mediabubble.co
 ├── packages/
 │   ├── design-system/       @mediabubble/design-system
 │   ├── shared/              @mediabubble/shared
@@ -406,8 +417,8 @@ mediabubble Main/
 | [docs/planning/MASTER_DEVELOPMENT_PLAN.md](./docs/planning/MASTER_DEVELOPMENT_PLAN.md) | 12-week development roadmap |
 | [docs/website/README.md](./docs/website/README.md) | Website transformation & conversions |
 | [AGENTS.md](./AGENTS.md) | Agent/workspace conventions learned in-repo |
-| [LAUNCHER_PLAN_V2.md](./LAUNCHER_PLAN_V2.md) | Launcher Phase 1 status + Phase 2 roadmap |
-| [apps/launcher/README.md](./apps/launcher/README.md) | Launcher setup, DB, deploy, and test commands |
+| [LAUNCHER_PLAN_V2.md](./LAUNCHER_PLAN_V2.md) | MediaBubble Launcher Phase 1 status + Phase 2 roadmap |
+| [apps/launcher/README.md](./apps/launcher/README.md) | MediaBubble Launcher setup, DB, deploy, and test commands |
 
 ---
 
@@ -415,7 +426,7 @@ mediabubble Main/
 
 - Expand service pages beyond the current five live slugs
 - HubSpot + Resend + GA4 fully configured in all environments
-- **Launcher Phase 2** — Time Management, CRM, AI Tools, Communication Hub (see `LAUNCHER_PLAN_V2.md`)
+- **MediaBubble Launcher Phase 2** — Time Management, CRM, AI Tools, Communication Hub (see `LAUNCHER_PLAN_V2.md`)
 - Lighthouse 95+, formal WCAG AA audit
 - AI chat agent for lead qualification (spec in `docs/business/`)
 - Open-source design system and website template (strategy docs in `docs/business/strategy/`)
