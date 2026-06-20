@@ -1,97 +1,122 @@
 # launcher.mediabubble.co
 
-MediaBubble's unified internal operations platform. This app is being built per
-`PHASE_1_EXECUTION_PROMPT.md` and the `LAUNCHER_*` design docs at the repo root.
+MediaBubble's unified internal operations platform. Built per `LAUNCHER_PLAN_V2.md`
+and the `LAUNCHER_*` design docs at the repo root.
 
-## Status: Phase 1 — Weeks 1–2 (Foundation + auth core)
+## Status: Phase 1 complete (merged to `master`)
 
-Scoped to what's verifiable without live infrastructure. Delivered:
+Phase 1 MVP ships **Task Board**, **Finance**, and **Gamification** on top of a
+JWT auth foundation. Postgres runs on **Supabase** via Prisma; local dev uses port **3003**.
 
-**Week 1 — foundation**
-- ✅ Nx Next.js 16 app scaffold (`apps/launcher`), mirroring the monorepo's
-  conventions (Tailwind + design-system preset, TS, ESLint). Builds + typechecks.
-- ✅ Dashboard shell placeholder (`app/page.tsx`).
-- ✅ Prisma **baseline migration** = the canonical database schema, verbatim.
+### Delivered
 
-**Week 2 — auth core (DB-independent, fully unit-tested)**
-- ✅ `0002_auth_tokens` additive migration (email-verification + password-reset
-  tokens — closes the gap noted below).
-- ✅ `lib/auth`: password hashing (scrypt), HS256 JWT, one-time tokens, Zod
-  request schemas, RBAC — all via `node:crypto`/`zod`, no new deps.
-- ✅ `lib/api/response.ts`: standardized success/error envelopes.
-- ✅ 26 Jest unit tests (`npm test` → project `launcher`).
+**Foundation**
+- Nx Next.js 16 app (`apps/launcher`), Tailwind + design-system preset, ESLint, typecheck.
+- Prisma schema (37 models), migrations `0001_init`, `0002_auth_tokens`, `0003_finance`.
+- Supabase pooler wiring — `DATABASE_URL` (6543, transaction) + `DIRECT_URL` (5432, migrations).
 
-### Deliberately deferred
+**Auth**
+- JWT sessions (HS256), scrypt passwords, one-time verify/reset tokens, RBAC
+  (Viewer / Contributor / Manager / Admin).
+- Auth API: signup, login, logout, verify-email, request/reset password.
+- Auth UI: login, signup, verify-email, forgot/reset password.
+- Route protection via `proxy.ts` (Next.js 16 builder).
+- Resend email for verification and password reset (when `RESEND_API_KEY` is set).
 
-- ❌ Live PostgreSQL / Redis (decision: schema + Prisma only, no provisioning yet).
-- ❌ **Auth HTTP endpoints** — the `lib/auth` core is ready, but wiring
-  `/api/auth/*` route handlers needs the generated Prisma client (live DB).
-- ❌ Real-time, Task/Time MVP apps — Weeks 3–4.
+**Nav shell**
+- Collapsible sidebar, topbar, `Cmd+K` command palette, app layout.
 
-## Database
+**Task Board**
+- Kanban API + UI (Backlog / In Progress / Review / Done), drag-and-drop, comments,
+  inline timer → `time_entries`, assigned-to-me.
 
-The complete PostgreSQL schema (≈30 tables, indexes, views, functions,
-triggers, seed data) is committed verbatim as the initial Prisma migration:
+**Finance**
+- Transactions ledger, KPI strip, currency switcher (EGP / AED / USD), cash-flow chart,
+  expense donut, AI optimization brief (static copy).
 
-```
-prisma/migrations/0001_init/migration.sql   # = LAUNCHER_DATABASE_SCHEMA.sql
-prisma/schema.prisma                         # datasource + generator only (see below)
-```
+**Gamification**
+- XP / levels, hot streak, leaderboard podium, achievements grid.
 
-### Bringing the database online (Week 1 finish / Week 2 start)
+**Testing**
+- 74 Jest unit tests (`pnpm run test:launcher`).
+- Playwright E2E: login → create task → timer → drag column
+  (`npx playwright test --config apps/launcher/playwright.config.ts`).
 
-The Phase 1 plan says *generate the Prisma schema from the database, don't write
-it by hand*. With no DB yet, `schema.prisma` declares only the datasource and
-generator. Once a Postgres instance exists (local, or a host such as **Neon** or
-**Supabase**):
+### Deferred to Phase 2+
+
+- Time Management (full module — inline task timer exists on the board).
+- Redis, WebSocket realtime, CRM, AI Tools, Communication Hub, client portal.
+
+---
+
+## Database setup
+
+1. Copy the env template and fill in Supabase credentials:
 
 ```bash
-# 1. Install Prisma (not yet added to the workspace deps)
-npm install -D prisma && npm install @prisma/client
-
-# 2. Point at your database
-cp apps/launcher/.env.example apps/launcher/.env.local   # set DATABASE_URL
-
-# 3. Apply the canonical schema (creates all tables + seed data)
-npx prisma migrate deploy --schema apps/launcher/prisma/schema.prisma
-
-# 4. Mark the baseline as applied, then introspect the models
-npx prisma migrate resolve --applied 0001_init --schema apps/launcher/prisma/schema.prisma
-npx prisma db pull   --schema apps/launcher/prisma/schema.prisma
-npx prisma generate  --schema apps/launcher/prisma/schema.prisma
+cp apps/launcher/.env.example apps/launcher/.env.local
+# Set DATABASE_URL, DIRECT_URL, JWT_SECRET; optional RESEND_API_KEY
 ```
 
-Seed data (departments, system settings) is embedded in the baseline migration,
-so `migrate deploy` seeds the DB — no separate seed step.
+2. Apply migrations and seed from the **repo root** (scripts source `.env.local`):
 
-## ✅ Resolved finding (auth token tables)
+```bash
+pnpm run db:deploy    # apply migrations
+pnpm run db:seed      # departments, 4 RBAC users, finance sample data
+pnpm run db:generate  # regenerate Prisma client after schema changes
+```
 
-The canonical schema lacked the token tables the Week 2 auth spec needs. Added,
-**additively**, in `prisma/migrations/0002_auth_tokens/migration.sql`:
+Seeded dev password: `Launch@2026` (override with `SEED_PASSWORD`).
 
-- **Email verification tokens** (`/api/auth/verify-email`)
-- **Password reset tokens** (`/api/auth/reset-password`)
+For ad-hoc Prisma CLI from `apps/launcher/prisma/`, mirror the same vars in
+`apps/launcher/prisma/.env` (git-ignored).
 
-Both store only a SHA-256 hash of the token, never the raw value. No `sessions`
-table — sessions are JWT-only (consistent with the spec); refresh-token rotation,
-if added later, gets its own additive migration. The immutability rule (only
-add, never remove/rename) holds.
+---
 
-## Crypto note
+## Deploy (Vercel)
 
-`lib/auth` uses Node's built-in `crypto` (scrypt for passwords, HMAC for JWT) to
-stay dependency-free and fully unit-testable now. If the team prefers `bcrypt` /
-`jsonwebtoken`, swap the implementations behind the same function signatures —
-call sites won't change.
+Root the Vercel project at `apps/launcher` (`apps/launcher/vercel.json` runs
+`vercel-build:launcher` from the monorepo root).
+
+**Required environment variables** (Project → Settings → Environment):
+
+| Variable | Notes |
+|----------|--------|
+| `DATABASE_URL` | Auto-injected by Prisma Compute, or Supabase **transaction** pooler (6543, `?pgbouncer=true`) |
+| `DIRECT_URL` | **Required** — schema uses `directUrl`. Prisma Compute: set to the **same value** as `DATABASE_URL`. Supabase: **session** pooler (5432). |
+| `JWT_SECRET` | `openssl rand -base64 48` |
+| `RESEND_API_KEY` | Email verify/reset in production |
+
+If deploy fails with `Environment variable not found: DIRECT_URL`, add `DIRECT_URL`
+in the Vercel console (do not rely on Prisma Compute injecting it automatically).
+
+After first deploy, run `pnpm run db:seed` against the production database once
+(from a machine with prod env), or seed via Supabase SQL editor.
+
+---
 
 ## Develop
 
 ```bash
-npm run dev:launcher   # http://localhost:3003
+pnpm run dev:launcher          # http://localhost:3003
+pnpm run dev:launcher:clean    # kill :3003, wipe .next/cache, restart
 ```
+
+Use `:clean` after Playwright E2E (leaves a dev server on 3003) or Turbopack cache issues.
+
+### Useful commands
+
+| Command | Purpose |
+|---------|---------|
+| `pnpm run test:launcher` | Jest unit tests |
+| `pnpm run db:studio` | Prisma Studio |
+| `pnpm run db:migrate` | Create/apply dev migrations |
+| `npx playwright test --config apps/launcher/playwright.config.ts` | E2E gate |
+
+---
 
 ## Reference
 
-- `PHASE_1_EXECUTION_PROMPT.md` — week-by-week plan
-- `LAUNCHER_DATABASE_SCHEMA.sql` — canonical schema (source of truth)
-- `LAUNCHER_TECHNICAL_ROADMAP.md`, `IMPLEMENTATION_PHASE_1_DETAILED.md`
+- `LAUNCHER_PLAN_V2.md` — Phase 1 scope + Phase 2 roadmap (single source of truth)
+- `LAUNCHER_DATABASE_SCHEMA.sql` — canonical SQL schema
+- `LAUNCHER_TECHNICAL_ROADMAP.md` — full 8-app vision

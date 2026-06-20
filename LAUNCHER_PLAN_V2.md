@@ -5,9 +5,9 @@
 > Those remain valid for Phase 2–3 module specs and the full 8-app vision.
 >
 > **Target:** `launcher.mediabubble.co`
-> **Status:** Phase 1 in progress
-> **Reconciled:** 2026-06-19 — merges PRD v1.0 with actual repo state
-> **Branch:** `feature/launcher-phase1-foundation`
+> **Status:** Phase 1 complete — shipping / Phase 2 next
+> **Reconciled:** 2026-06-20 — post-merge snapshot (PR #19 → `master`)
+> **Branch:** `master`
 
 ---
 
@@ -27,28 +27,30 @@ Everything in the foundation/auth layer carries over unchanged.
 
 ---
 
-## 1. Progress snapshot (as of 2026-06-19)
+## 1. Progress snapshot (as of 2026-06-20)
 
-### ✅ Done
-- **App scaffold** — Next.js 16, Tailwind, brand fonts, NX `project.json`, ESLint.
+### ✅ Done (Phase 1)
+- **App scaffold** — Next.js 16, Tailwind, brand fonts, NX `project.json`, ESLint, typecheck.
 - **Prisma schema** — full 37-model schema covering *all 8 apps* (well ahead of plan).
-- **Migrations** — `0001_init`, `0002_auth_tokens`.
-- **Auth core** — JWT, password hashing, one-time tokens, RBAC
-  (Viewer/Contributor/Manager/Admin), Zod schemas. **All unit-tested.**
-- **Auth API** — `signup`, `login`, `verify-email`, `request-password-reset`,
-  `reset-password`, now DB-backed via the Prisma singleton.
-- **API conventions** — standardized `ok/fail/validationError` responses + Zod validation.
+- **Migrations** — `0001_init`, `0002_auth_tokens`, `0003_finance`; deployed to Supabase.
+- **Auth core + API + UI** — JWT, RBAC, signup/login/verify/reset, Resend email, auth screens.
+- **Route protection** — `proxy.ts` (replaces `middleware.ts` for Next.js 16 builder).
+- **Nav shell** — collapsible sidebar, topbar, `Cmd+K` command palette.
+- **Task Board MVP** — Kanban API + UI, DnD, inline timer, comments.
+- **Finance MVP** — ledger, KPIs, currency switcher, charts, AI optimization brief.
+- **Gamification MVP** — XP/levels, streak, leaderboard, achievements.
+- **Seed** — `prisma/seed.ts` (departments, 4 RBAC users, software-cost ledger).
+- **Supabase env** — root `db:*` scripts source `apps/launcher/.env.local` (`DIRECT_URL` for migrations).
+- **Testing gate** — 74 Jest unit tests; Playwright E2E (login → task → timer → drag).
 
-### ⚠️ Partial / stubbed
-- **Email transport** — no provider yet; non-prod returns the raw token so flows are testable.
-- **Uncommitted work** — `lib/db/prisma.ts`, `lib/api/http.ts`, `lib/auth/config.ts`,
-  and `app/api/**` are staged-but-uncommitted. **Action: commit these.**
+### ⚠️ Partial / ops remaining
+- **Production deploy** — Vercel project + `launcher.mediabubble.co` DNS not wired yet.
+- **CI** — GitHub Actions builds `web-eg`/`web-ae`/`brand` but not `launcher` yet.
+- **Redis** — deferred; not required for Phase 1 modules.
 
-### ❌ Not started (Phase 1 gaps)
-- Nav shell: collapsible sidebar (64↔240px), Topbar, `Cmd+K` command palette.
-- Auth UI (login/signup pages) + route protection `middleware.ts`.
-- Seed data (test users, departments).
-- Task Board MVP, Finance MVP, Gamification MVP.
+### ❌ Not started (Phase 2)
+- Time Management (full module), CRM, AI Tools + Prompt Studio, Communication Hub,
+  Workflow Automation, Campaign/Proposal.
 
 ---
 
@@ -57,57 +59,52 @@ Everything in the foundation/auth layer carries over unchanged.
 ### Week 1 — Foundation ✅ (complete)
 Scaffold, Prisma baseline, CI. **Done.**
 
-### Week 2 — Auth + API core ✅ (complete, pending commit)
+### Week 2 — Auth + API core ✅ (complete)
 JWT/RBAC/token flows + auth routes + response conventions. **Done.**
 
-### Week 2.5 — Close the foundation (do next, ~2–3 days)
-- [ ] Commit the uncommitted auth/db/api files.
-- [ ] `middleware.ts` — protect app routes, redirect unauth → `/login`.
-- [ ] Session helper: read JWT from cookie, expose `getCurrentUser()`.
-- [ ] `prisma/seed.ts` — departments + one user per role + sample data.
-- [ ] Auth UI: `/login`, `/signup`, verify + reset password screens.
-- [ ] Wire a real email provider (Resend) behind the existing token stubs.
+### Week 2.5 — Close the foundation ✅ (complete)
+- [x] Auth/db/api committed to git.
+- [x] Route protection — `proxy.ts` (Next.js 16; replaces `middleware.ts`).
+- [x] Session helper: read JWT from cookie, `getCurrentUser()`.
+- [x] `prisma/seed.ts` — departments + one user per role + finance sample data.
+- [x] Auth UI: `/login`, `/signup`, verify + reset password screens.
+- [x] Resend email for verify/reset flows.
 
-### Week 3 — Nav Shell + Task Board MVP
+### Week 3 — Nav Shell + Task Board MVP ✅ (complete)
 **Nav Shell (§4.1 PRD)**
-- [ ] App layout with collapsible **Sidebar** — 240px expanded / 64px collapsed,
+- [x] App layout with collapsible **Sidebar** — 240px expanded / 64px collapsed,
       icon-only + hover tooltips when collapsed, active route uses brand accent,
       footer toggle button. Persist collapsed state (localStorage).
-- [ ] **Topbar** — search trigger, user dropdown, notification placeholder.
-- [ ] **Command palette (`Cmd+K`)** — modal/backdrop, filters nav links + (later) tasks/invoices.
+- [x] **Topbar** — search trigger, user dropdown, notification placeholder.
+- [x] **Command palette (`Cmd+K`)** — modal/backdrop, filters nav links + (later) tasks/invoices.
 
 **Task Board (§4.2 PRD)**
-- [ ] API: `POST/GET/GET:id/PUT/DELETE` `tasks`, `POST/GET` `tasks/:id/comments`,
-      `tasks/:id/status`, `tasks/assigned-to-me`. (Models already exist.)
-- [ ] Kanban board — Backlog / In Progress / Review / Done, glassmorphism surfaces
-      (`bg-brand-surface border border-brand-whisper-border`).
-- [ ] Drag-and-drop between columns (optimistic update).
-- [ ] Inline timer per card — play/pause, pulsing active state, minutes → `time_entries`.
+- [x] API: `POST/GET/GET:id/PUT/DELETE` `tasks`, `POST/GET` `tasks/:id/comments`,
+      `tasks/:id/status`, `tasks/assigned-to-me`.
+- [x] Kanban board — Backlog / In Progress / Review / Done, glassmorphism surfaces.
+- [x] Drag-and-drop between columns (optimistic update).
+- [x] Inline timer per card — play/pause, pulsing active state, minutes → `time_entries`.
 
-### Week 4 — Finance MVP + Gamification MVP
+### Week 4 — Finance MVP + Gamification MVP ✅ (complete)
 
 **Finance (§4.3 PRD)**
-- [ ] Data: `transactions` model (Date, Category, Type, Amount, PaymentMethod,
-      currency) + software-cost ledger seed (Supabase, Claude, Cursor, Vercel,
-      Hostinger ×2, Gmail Workspace, Slack, SendGrid, domain).
-- [ ] KPI strip — Total Inflows, Outflows, Net Profit, Operating Burn Rate.
-- [ ] **Currency switcher** — EGP `ج.م` / AED `د.إ` / USD `$`, totals via rate table.
-- [ ] **SVG cash-flow area chart** — dual-fill (mint inflow / red-orange outflow),
-      6-month scale, hover tooltips.
-- [ ] **SVG expense donut** — grouped by AI&Dev / Hosting&Servers / Comms / Domains.
-- [ ] Ledger table — sortable, filterable, searchable.
-- [ ] **AI optimization brief** — text panel flagging the duplicate Hostinger
-      `openclaw` ($25/mo) + DB right-sizing. (Static copy first; AI-generated in Phase 3.)
+- [x] Data: `transactions` model + software-cost ledger seed.
+- [x] KPI strip — Total Inflows, Outflows, Net Profit, Operating Burn Rate.
+- [x] **Currency switcher** — EGP / AED / USD, totals via rate table.
+- [x] **SVG cash-flow area chart** — dual-fill, 6-month scale, hover tooltips.
+- [x] **SVG expense donut** — grouped by category.
+- [x] Ledger table — sortable, filterable, searchable.
+- [x] **AI optimization brief** — static copy flagging duplicate Hostinger tier.
 
 **Gamification (§4.4 PRD)**
-- [ ] XP model + `XP_required(L) = L² × 100`; level/avatar/progress card.
-- [ ] Hot-streak flame — CSS glow/pulse on active login streak.
-- [ ] Top-3 podium (gold/silver/bronze) + ranked table + Global/Department toggle.
-- [ ] Achievements grid — locked (grayscale/transparent) vs unlocked (glow + date) + tooltips.
+- [x] XP model + `XP_required(L) = L² × 100`; level/avatar/progress card.
+- [x] Hot-streak flame — CSS glow/pulse on active login streak.
+- [x] Top-3 podium + ranked table + Global/Department toggle.
+- [x] Achievements grid — locked vs unlocked states + tooltips.
 
-### Phase 1 testing gate
-- [ ] Unit tests on new API endpoints (keep the ≥80% bar already set by auth).
-- [ ] One Playwright E2E: login → create task → log time → see it on the board.
+### Phase 1 testing gate ✅ (complete)
+- [x] Unit tests on new API endpoints (74 tests, auth + tasks + finance libs).
+- [x] One Playwright E2E: login → create task → log time → drag on the board.
 
 ---
 
@@ -123,19 +120,19 @@ JWT/RBAC/token flows + auth routes + response conventions. **Done.**
 
 | Topic | PRD says | Repo reality | Recommendation |
 |---|---|---|---|
-| DB | PostgreSQL + Prisma | Prisma schema ready | ✅ keep; provision Postgres (Supabase/Neon) |
+| DB | PostgreSQL + Prisma | ✅ Supabase + Prisma, migrations deployed | Keep; add prod Vercel env + `db:deploy` on release |
 | Realtime | Upstash Redis Pub/Sub + WS bridge on Railway | none yet | Defer to Phase 2 — Task Board ships without realtime first |
-| Auth | "Stateless JWT middleware" | JWT core done, no `middleware.ts` | Add middleware in Week 2.5 |
-| Email | implied (verify/reset) | stubbed | Wire Resend in Week 2.5 |
-| AI brief | dynamic | n/a | Static in Phase 1, AI-generated in Phase 3 |
+| Auth | "Stateless JWT middleware" | ✅ JWT + `proxy.ts` route gate | Keep; no session table |
+| Email | implied (verify/reset) | ✅ Resend wired (`RESEND_API_KEY`) | Set key on Vercel for prod |
+| AI brief | dynamic | static copy in Finance UI | AI-generated in Phase 3 |
 
 ---
 
-## 5. Immediate next actions (this week)
-1. Commit the uncommitted auth/db/api files (foundation isn't in git yet).
-2. Add `middleware.ts` + session helper + `prisma/seed.ts`.
-3. Build the nav shell (sidebar + topbar + `Cmd+K`) — unblocks every module UI.
-4. Provision Postgres and run migrations against it.
+## 5. Immediate next actions (Phase 1 → Phase 2 handoff)
+1. **Ship** — Vercel project for `apps/launcher`, env vars (`DATABASE_URL`, **`DIRECT_URL`**, `JWT_SECRET`, `RESEND_API_KEY`), `launcher.mediabubble.co` DNS. Prisma Compute only injects `DATABASE_URL`; duplicate it as `DIRECT_URL` or use Supabase session pooler.
+2. **CI** — add `launcher` to the GitHub Actions build matrix (+ optional `test:launcher`).
+3. **Phase 2 kickoff** — Time Management module first (schema exists; board timer is a slice).
+4. Update stale docs as modules land (`apps/launcher/README.md` refreshed 2026-06-20).
 
 ---
 
