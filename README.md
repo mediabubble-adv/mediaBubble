@@ -89,16 +89,13 @@ Two views: **monorepo dependencies** (how Nx apps consume shared packages) and *
 Apps import shared packages only — `packages/*` never import from `apps/*` (`@nx/enforce-module-boundaries`).
 
 ```mermaid
-%%{init: {"theme":"base","themeVariables":{"fontFamily":"Poppins, Inter, system-ui, sans-serif","fontSize":"13px","lineColor":"#072A6B","primaryTextColor":"#072A6B","primaryBorderColor":"#358DCC","clusterBkg":"#FAFAFA","clusterBorder":"#E8E8E8","titleColor":"#072A6B","edgeLabelBackground":"#FFFFFF"},"flowchart":{"curve":"basis","nodeSpacing":36,"rankSpacing":48,"padding":12}}}%%
-flowchart TB
-  subgraph apps ["Applications — Vercel"]
-    direction TB
-    subgraph marketing ["Public marketing"]
-      direction LR
-      EG["web-eg<br/>mediabubble.co"]
-      AE["web-ae<br/>mediabubble.ae"]
-      BR["brand<br/>brand.mediabubble.co"]
-    end
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Poppins, Inter, system-ui, sans-serif","fontSize":"13px","lineColor":"#072A6B","primaryTextColor":"#072A6B","primaryBorderColor":"#358DCC","clusterBkg":"#FAFAFA","clusterBorder":"#E8E8E8","titleColor":"#072A6B","edgeLabelBackground":"#FFFFFF"},"flowchart":{"curve":"linear","nodeSpacing":44,"rankSpacing":52,"padding":14,"diagramPadding":10}}}%%
+flowchart LR
+  subgraph apps ["Applications"]
+    direction LR
+    EG["web-eg<br/>mediabubble.co"]
+    AE["web-ae<br/>mediabubble.ae"]
+    BR["brand<br/>brand.mediabubble.co"]
     LA["MediaBubble Launcher<br/>launcher.mediabubble.co"]
   end
 
@@ -109,15 +106,20 @@ flowchart TB
     CP["content-pipeline"]
   end
 
-  EG --> DS
-  EG --> SH
-  AE --> DS
-  AE --> SH
-  BR --> DS
-  BR --> SH
-  LA --> DS
-  LA --> SH
+  subgraph integrations ["Integrations"]
+    direction LR
+    HS["HubSpot CRM"]
+    RS["Resend email"]
+    GA["Google Analytics 4"]
+    DB["Supabase Postgres"]
+  end
+
+  EG & AE & BR & LA --> DS
+  EG & AE & BR & LA --> SH
   CP -.->|UAE localize| AE
+  SH --> HS & RS & GA
+  LA --> DB
+  LA --> RS
 
   classDef app fill:#072A6B,stroke:#358DCC,color:#FFFFFF,stroke-width:1.5px
   classDef pkg fill:#358DCC,stroke:#072A6B,color:#FFFFFF,stroke-width:1.5px
@@ -126,6 +128,7 @@ flowchart TB
   class EG,AE,BR,LA app
   class DS,SH pkg
   class CP pipe
+  class HS,RS,GA,DB integration
 
   style apps fill:#FAFAFA,stroke:#E8E8E8,stroke-width:1px,color:#072A6B
   style marketing fill:#FFFFFF,stroke:#358DCC,stroke-width:1px,color:#072A6B
@@ -467,6 +470,8 @@ mediabubble Main/
 | [docs/planning/MASTER_DEVELOPMENT_PLAN.md](./docs/planning/MASTER_DEVELOPMENT_PLAN.md) | 12-week development roadmap |
 | [docs/website/README.md](./docs/website/README.md) | Website transformation & conversions |
 | [AGENTS.md](./AGENTS.md) | Agent/workspace conventions learned in-repo |
+| [LAUNCHER_PLAN_V2.md](./LAUNCHER_PLAN_V2.md) | MediaBubble Launcher Phase 1 status + Phase 2 roadmap |
+| [apps/launcher/README.md](./apps/launcher/README.md) | MediaBubble Launcher setup, DB, deploy, and test commands |
 
 | [LAUNCHER_PLAN_V2.md](./LAUNCHER_PLAN_V2.md) | MediaBubble Launcher Phase 1 status + Phase 2 roadmap |
 | [apps/launcher/README.md](./apps/launcher/README.md) | MediaBubble Launcher setup, DB, deploy, and test commands |
