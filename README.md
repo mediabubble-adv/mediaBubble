@@ -89,14 +89,19 @@ Two views: **monorepo dependencies** (how Nx apps consume shared packages) and *
 Apps import shared packages only — `packages/*` never import from `apps/*` (`@nx/enforce-module-boundaries`).
 
 ```mermaid
-%%{init: {"theme":"base","themeVariables":{"fontFamily":"Poppins, Inter, system-ui, sans-serif","fontSize":"13px","lineColor":"#072A6B","primaryTextColor":"#072A6B","primaryBorderColor":"#358DCC","clusterBkg":"#FAFAFA","clusterBorder":"#E8E8E8","titleColor":"#072A6B","edgeLabelBackground":"#FFFFFF"},"flowchart":{"curve":"linear","nodeSpacing":44,"rankSpacing":52,"padding":14,"diagramPadding":10}}}%%
-flowchart LR
-  subgraph apps ["Applications"]
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Poppins, Inter, system-ui, sans-serif","fontSize":"13px","lineColor":"#358DCC","primaryTextColor":"#072A6B","primaryBorderColor":"#358DCC","clusterBkg":"#FAFAFA","clusterBorder":"#E8E8E8","titleColor":"#072A6B","edgeLabelBackground":"#FFFFFF"},"flowchart":{"curve":"monotoneY","nodeSpacing":48,"rankSpacing":64,"padding":16}}}%%
+flowchart TB
+  subgraph apps ["Applications — Vercel"]
     direction LR
-    EG["web-eg<br/>mediabubble.co"]
-    AE["web-ae<br/>mediabubble.ae"]
-    BR["brand<br/>brand.mediabubble.co"]
-    LA["MediaBubble Launcher<br/>launcher.mediabubble.co"]
+    subgraph public ["Public marketing"]
+      direction LR
+      EG["web-eg<br/>mediabubble.co"]
+      AE["web-ae<br/>mediabubble.ae"]
+      BR["brand<br/>brand.mediabubble.co"]
+    end
+    subgraph internal ["Internal ops"]
+      LA["MediaBubble Launcher<br/>launcher.mediabubble.co"]
+    end
   end
 
   subgraph packages ["Shared packages — Nx workspace"]
@@ -106,20 +111,8 @@ flowchart LR
     CP["content-pipeline"]
   end
 
-  subgraph integrations ["Integrations"]
-    direction LR
-    HS["HubSpot CRM"]
-    RS["Resend email"]
-    GA["Google Analytics 4"]
-    DB["Supabase Postgres"]
-  end
-
-  EG & AE & BR & LA --> DS
-  EG & AE & BR & LA --> SH
+  apps ==>|imports| packages
   CP -.->|UAE localize| AE
-  SH --> HS & RS & GA
-  LA --> DB
-  LA --> RS
 
   classDef app fill:#072A6B,stroke:#358DCC,color:#FFFFFF,stroke-width:1.5px
   classDef pkg fill:#358DCC,stroke:#072A6B,color:#FFFFFF,stroke-width:1.5px
@@ -128,11 +121,11 @@ flowchart LR
   class EG,AE,BR,LA app
   class DS,SH pkg
   class CP pipe
-  class HS,RS,GA,DB integration
 
-  style apps fill:#FAFAFA,stroke:#E8E8E8,stroke-width:1px,color:#072A6B
-  style marketing fill:#FFFFFF,stroke:#358DCC,stroke-width:1px,color:#072A6B
-  style packages fill:#F5F8FC,stroke:#358DCC,stroke-width:1px,color:#072A6B
+  style apps fill:#FAFAFA,stroke:#E8E8E8,color:#072A6B
+  style public fill:#FFFFFF,stroke:#358DCC,color:#072A6B
+  style internal fill:#FFFBEB,stroke:#FFC107,color:#072A6B
+  style packages fill:#F5F8FC,stroke:#358DCC,color:#072A6B
 ```
 
 ### Deployment & data plane
