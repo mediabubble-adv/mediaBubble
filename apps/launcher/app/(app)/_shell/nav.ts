@@ -5,6 +5,12 @@ import {
   CheckSquare,
   Wallet,
   Trophy,
+  Clock,
+  Building2,
+  Bot,
+  MessageSquare,
+  Workflow,
+  Megaphone,
   Settings,
   type LucideIcon,
 } from 'lucide-react'
@@ -20,6 +26,12 @@ export interface NavItem {
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Dashboard', href: '/', icon: LayoutDashboard },
   { label: 'Tasks', href: '/tasks', icon: CheckSquare, status: 'Week 3' },
+  { label: 'Time', href: '/time', icon: Clock },
+  { label: 'CRM', href: '/crm', icon: Building2, status: 'Phase 2' },
+  { label: 'AI Tools', href: '/ai', icon: Bot, status: 'Phase 2' },
+  { label: 'Chat', href: '/chat', icon: MessageSquare, status: 'Phase 2' },
+  { label: 'Automation', href: '/automation', icon: Workflow, status: 'Phase 2' },
+  { label: 'Campaigns', href: '/campaigns', icon: Megaphone, status: 'Phase 2' },
   { label: 'Finance', href: '/finance', icon: Wallet, status: 'Week 4' },
   { label: 'Leaderboard', href: '/leaderboard', icon: Trophy, status: 'Week 4' },
 ]

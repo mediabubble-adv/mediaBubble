@@ -5,7 +5,7 @@
 > Those remain valid for Phase 2–3 module specs and the full 8-app vision.
 >
 > **Target:** `launcher.mediabubble.co`
-> **Status:** Phase 1 complete — shipping / Phase 2 next
+> **Status:** Phase 2 in progress — Time Management complete; CRM slice 1 shipped
 > **Reconciled:** 2026-06-20 — post-merge snapshot (PR #19 → `master`)
 > **Branch:** `master`
 
@@ -41,15 +41,25 @@ Everything in the foundation/auth layer carries over unchanged.
 - **Gamification MVP** — XP/levels, streak, leaderboard, achievements.
 - **Seed** — `prisma/seed.ts` (departments, 4 RBAC users, software-cost ledger).
 - **Supabase env** — root `db:*` scripts source `apps/launcher/.env.local` (`DIRECT_URL` for migrations).
-- **Testing gate** — 74 Jest unit tests; Playwright E2E (login → task → timer → drag).
+- **Testing gate** — 97 Jest unit tests; Playwright E2E (login → task → timer → drag).
+
+### ✅ Done (Phase 2 — Time Management)
+- Timesheet hub — manual entries, KPIs, task-linked logging.
+- Leave requests — submit, manager approve/reject.
+- Availability + holidays — schedule panel, EG/UAE holiday seed.
+- Capacity dashboard — mine/team utilization snapshots.
+- Calendar week view — entries + availability blocks; Google Calendar placeholder.
+- Team views — pending queue, submit/approve workflow on time entries.
 
 ### ⚠️ Partial / ops remaining
 - **Production deploy** — Vercel project + `launcher.mediabubble.co` DNS not wired yet.
-- **CI** — GitHub Actions builds `web-eg`/`web-ae`/`brand` but not `launcher` yet.
-- **Redis** — deferred; not required for Phase 1 modules.
+- **CI** — GitHub Actions now builds `launcher`; deploy env still manual.
+
+### 🚧 In progress (Phase 2)
+- **CRM slice 1** — `clients` table, `/crm` directory, CRUD API (Manager+ write).
 
 ### ❌ Not started (Phase 2)
-- Time Management (full module), CRM, AI Tools + Prompt Studio, Communication Hub,
+- CRM invoices/quotations, AI Tools + Prompt Studio, Communication Hub,
   Workflow Automation, Campaign/Proposal.
 
 ---
@@ -128,11 +138,11 @@ JWT/RBAC/token flows + auth routes + response conventions. **Done.**
 
 ---
 
-## 5. Immediate next actions (Phase 1 → Phase 2 handoff)
-1. **Ship** — Vercel project for `apps/launcher`, env vars (`DATABASE_URL`, **`DIRECT_URL`**, `JWT_SECRET`, `RESEND_API_KEY`), `launcher.mediabubble.co` DNS. Prisma Compute only injects `DATABASE_URL`; duplicate it as `DIRECT_URL` or use Supabase session pooler.
-2. **CI** — add `launcher` to the GitHub Actions build matrix (+ optional `test:launcher`).
-3. **Phase 2 kickoff** — Time Management module first (schema exists; board timer is a slice).
-4. Update stale docs as modules land (`apps/launcher/README.md` refreshed 2026-06-20).
+## 5. Immediate next actions (Phase 2)
+1. **Ship** — Vercel project for `apps/launcher`, env vars (`DATABASE_URL`, **`DIRECT_URL`**, `JWT_SECRET`, `RESEND_API_KEY`), `launcher.mediabubble.co` DNS.
+2. **CRM slice 2** — invoices + quotations linked to `clients`.
+3. **Phase 2 modules** — AI Tools, Communication Hub, Workflow Automation (schema exists).
+4. Keep docs aligned as modules land (`apps/launcher/README.md`).
 
 ---
 

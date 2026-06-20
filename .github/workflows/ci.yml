@@ -26,8 +26,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Generate Prisma client (launcher)
+        run: npx prisma generate --schema apps/launcher/prisma/schema.prisma
+        env:
+          DATABASE_URL: postgresql://ci:ci@localhost:5432/ci
+          DIRECT_URL: postgresql://ci:ci@localhost:5432/ci
+
       - name: Build
-        run: npx nx run-many -t build --projects=design-system,web-eg,web-ae,brand
+        run: npx nx run-many -t build --projects=design-system,web-eg,web-ae,brand,launcher
 
       - name: Lint
         run: npm run lint --if-present

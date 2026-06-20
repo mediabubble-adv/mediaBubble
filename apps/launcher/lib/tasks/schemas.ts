@@ -34,17 +34,7 @@ export const taskCommentSchema = z.object({
   mentioned_users: z.array(uuid).optional(),
 })
 
-export const timeEntrySchema = z
-  .object({
-    start_time: z.coerce.date(),
-    end_time: z.coerce.date(),
-    description: z.string().trim().max(2_000).optional(),
-    billable: z.boolean().optional(),
-  })
-  .refine((v) => v.end_time.getTime() > v.start_time.getTime(), {
-    message: 'end_time must be after start_time',
-    path: ['end_time'],
-  })
+export { timeEntrySchema, type TimeEntryInput } from '@/lib/time/schemas'
 
 export const listTasksQuerySchema = z.object({
   status: status.optional(),
@@ -55,5 +45,4 @@ export const listTasksQuerySchema = z.object({
 export type CreateTaskInput = z.infer<typeof createTaskSchema>
 export type UpdateTaskInput = z.infer<typeof updateTaskSchema>
 export type TaskCommentInput = z.infer<typeof taskCommentSchema>
-export type TimeEntryInput = z.infer<typeof timeEntrySchema>
 export type ListTasksQuery = z.infer<typeof listTasksQuerySchema>

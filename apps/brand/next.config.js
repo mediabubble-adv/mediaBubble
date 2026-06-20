@@ -1,4 +1,3 @@
-const { composePlugins, withNx } = require('@nx/next')
 const {
   buildImageRemotePatterns,
   buildNextHeaders,
@@ -15,12 +14,8 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react'],
   },
-  nx: {
-    svgr: false,
-  },
 }
 
 nextConfig.headers = async () => buildNextHeaders()
 
-const plugins = [withNx]
-module.exports = composePlugins(...plugins)(nextConfig)
+module.exports = nextConfig

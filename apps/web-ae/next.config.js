@@ -1,4 +1,3 @@
-const { composePlugins, withNx } = require('@nx/next')
 const withPWA = require('@ducanh2912/next-pwa').default
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -18,9 +17,6 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react', 'react-icons'],
   },
-  nx: {
-    svgr: false,
-  },
 }
 
 nextConfig.headers = async () => buildNextHeaders()
@@ -33,8 +29,9 @@ nextConfig.redirects = async () => [
 ]
 nextConfig.webpack = (config, context) => patchWebpackForDev(config, context)
 
-const plugins = [withNx, withBundleAnalyzer]
+let config = withBundleAnalyzer(nextConfig)
 if (process.env.NODE_ENV !== 'development') {
-  plugins.push(withPWA(buildPwaConfig({ offlinePath: '/offline' })))
+  config = withPWA(buildPwaConfig({ offlinePath: '/offline' }))(config)
 }
-module.exports = composePlugins(...plugins)(nextConfig)
+
+module.exports = config

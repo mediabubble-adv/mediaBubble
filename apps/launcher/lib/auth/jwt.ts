@@ -4,8 +4,10 @@
 import { createHmac, timingSafeEqual } from 'node:crypto'
 
 export interface JwtPayload {
-  sub: string // user id
-  role: string
+  sub: string
+  role?: string
+  kind?: string
+  email?: string
   [key: string]: unknown
 }
 

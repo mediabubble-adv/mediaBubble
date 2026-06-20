@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { CheckSquare, Wallet, Trophy, ShieldCheck, Database, Rocket } from 'lucide-react'
+import { CheckSquare, Wallet, Trophy, Clock, ShieldCheck, Database, Rocket } from 'lucide-react'
 import { getServerSession } from '@/lib/auth/server-session'
 import { prisma } from '@/lib/db/prisma'
 
@@ -12,9 +12,10 @@ const foundation = [
 ]
 
 const modules = [
-  { name: 'Tasks', href: '/tasks', description: 'Kanban board, inline timers.', icon: CheckSquare, status: 'Week 3' },
-  { name: 'Finance', href: '/finance', description: 'Cash flow, currencies, ledger.', icon: Wallet, status: 'Week 4' },
-  { name: 'Leaderboard', href: '/leaderboard', description: 'XP levels, streaks, podium.', icon: Trophy, status: 'Week 4' },
+  { name: 'Tasks', href: '/tasks', description: 'Kanban board, inline timers.', icon: CheckSquare, status: 'Live' },
+  { name: 'Time', href: '/time', description: 'Timesheet, weekly totals, billable hours.', icon: Clock, status: 'Phase 2' },
+  { name: 'Finance', href: '/finance', description: 'Cash flow, currencies, ledger.', icon: Wallet, status: 'Live' },
+  { name: 'Leaderboard', href: '/leaderboard', description: 'XP levels, streaks, podium.', icon: Trophy, status: 'Live' },
 ]
 
 export default async function DashboardPage() {
@@ -34,7 +35,7 @@ export default async function DashboardPage() {
           Welcome back, {firstName}
         </h1>
         <p className="mt-2 max-w-2xl text-[14px] text-brand-text-muted">
-          The Phase 1 foundation is live. Modules land over the coming weeks — jump
+          Phase 1 modules are live. Time Management is in active development — jump
           in below or press <kbd className="rounded border border-brand-whisper-border px-1.5 py-0.5 text-[11px] font-semibold">⌘K</kbd> to search.
         </p>
 
@@ -58,9 +59,9 @@ export default async function DashboardPage() {
 
         <section className="mt-8">
           <h2 className="text-[12px] font-bold uppercase tracking-wider text-brand-text-muted">
-            Phase 1 modules
+            Modules
           </h2>
-          <div className="mt-3 grid gap-3 sm:grid-cols-3">
+          <div className="mt-3 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
             {modules.map(({ name, href, description, icon: Icon, status }) => (
               <Link
                 key={name}

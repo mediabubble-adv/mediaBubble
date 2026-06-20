@@ -12,7 +12,8 @@ Planning, strategy, brand, and execution docs live here. Application code lives 
 
 | Doc | Purpose |
 |-----|---------|
-| [../README.md](../README.md) | **Monorepo onboarding** — apps, packages, scripts, CI, deployment |
+| [../README.md](../README.md) | **Monorepo onboarding** — install, apps, packages, scripts, CI, deployment |
+| [../apps/launcher/README.md](../apps/launcher/README.md) | **MediaBubble Launcher** — DB setup, modules, Vercel ship checklist |
 | [CONTEXT.md](./CONTEXT.md) | **Full repo context** — structure, progress, plans |
 | [website/README.md](./website/README.md) | **Website transformation** — audit, phase 1, service pages (Jun 2026) |
 | [getting-started/START_HERE.md](./getting-started/START_HERE.md) | OpenCode agent consolidation execution |

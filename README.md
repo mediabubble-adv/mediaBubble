@@ -7,17 +7,19 @@
 **Bilingual marketing platform and internal ops hub — Egypt, UAE, brand guidelines, and MediaBubble Launcher in one Nx monorepo.**
 
 [![CI](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)](https://github.com/mediabubble-adv/mediaBubble/actions/workflows/ci.yml)
-[![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js&logoColor=white)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js&logoColor=white)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.3-38B2AC?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-[![Nx](https://img.shields.io/badge/Nx-22.7-143055?logo=nx&logoColor=white)](https://nx.dev/)
-[![Node](https://img.shields.io/badge/Node.js-20-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Nx](https://img.shields.io/badge/Nx-23-143055?logo=nx&logoColor=white)](https://nx.dev/)
+[![Node](https://img.shields.io/badge/Node.js-22-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![Vercel](https://img.shields.io/badge/Deploy-Vercel-000000?logo=vercel&logoColor=white)](https://vercel.com/)
 
 [mediabubble.co](https://mediabubble.co) · [mediabubble.ae](https://mediabubble.ae) · [brand.mediabubble.co](https://brand.mediabubble.co) · [launcher.mediabubble.co](https://launcher.mediabubble.co)
 
 </div>
+
+**Contents:** [Overview](#overview) · [Applications](#applications) · [Installation](#installation) · [Environment variables](#environment-variables) · [Scripts](#scripts) · [Architecture](#architecture) · [Deployment](#deployment-vercel) · [Documentation](#documentation)
 
 ---
 
@@ -27,7 +29,7 @@
 
 - **Market websites** for Egypt and the UAE — conversion-focused, bilingual, RTL-aware Next.js apps replacing a legacy WordPress stack
 - **Brand guidelines** — an interactive reference app for identity, tokens, components, and AI-assisted design workflows
-- **MediaBubble Launcher** — internal ops app ([launcher.mediabubble.co](https://launcher.mediabubble.co)): task board, finance dashboard, gamification, JWT auth, Supabase + Prisma
+- **MediaBubble Launcher** — internal ops app ([launcher.mediabubble.co](https://launcher.mediabubble.co)): tasks, time, CRM, finance, chat, AI tools, JWT auth, Supabase + Prisma
 - **Shared packages** — design system, env validation, API integrations, and localization tooling used across all surfaces
 
 The monorepo is built for **parallel market delivery**: Egypt (`web-eg`) ships first with Egyptian Arabic (Masri); UAE (`web-ae`) is a structural clone with Khaliji Arabic and UAE-specific metadata, kept in sync via scripts and an i18n parity gate. **MediaBubble Launcher** is the team-facing ops surface on the same design system and shared packages.
@@ -41,7 +43,7 @@ The monorepo is built for **parallel market delivery**: Egypt (`web-eg`) ships f
 | **MediaBubble Egypt** | `apps/web-eg` | [mediabubble.co](https://mediabubble.co) | Public — Egypt market |
 | **MediaBubble UAE** | `apps/web-ae` | [mediabubble.ae](https://mediabubble.ae) | Public — UAE market |
 | **MediaBubble Brand** | `apps/brand` | [brand.mediabubble.co](https://brand.mediabubble.co) | Brand book — identity & tokens |
-| **MediaBubble Launcher** | `apps/launcher` | [launcher.mediabubble.co](https://launcher.mediabubble.co) | Internal — tasks, finance, gamification |
+| **MediaBubble Launcher** | `apps/launcher` | [launcher.mediabubble.co](https://launcher.mediabubble.co) | Internal — tasks, time, CRM, finance, chat, AI |
 
 ---
 
@@ -52,23 +54,29 @@ The monorepo is built for **parallel market delivery**: Egypt (`web-eg`) ships f
 | Egypt marketing site | `apps/web-eg` | [mediabubble.co](https://mediabubble.co) | Primary market app — routes, services, blog, contact |
 | UAE marketing site | `apps/web-ae` | [mediabubble.ae](https://mediabubble.ae) | Structural clone — Khaliji `ar` locale, UAE config |
 | Brand guidelines | `apps/brand` | [brand.mediabubble.co](https://brand.mediabubble.co) | Interactive brand book (14 sections, search, copy tools) |
-| **MediaBubble Launcher** | `apps/launcher` | [launcher.mediabubble.co](https://launcher.mediabubble.co) | Phase 1 MVP — Task Board, Finance, Gamification, auth |
+| **MediaBubble Launcher** | `apps/launcher` | [launcher.mediabubble.co](https://launcher.mediabubble.co) | Phase 2 — tasks, finance, time, CRM, AI, chat, automation, campaigns |
 | Design system | `packages/design-system` | — | Shared UI primitives + Tailwind preset (Rollup build) |
 | Shared library | `packages/shared` | — | Env, HubSpot/Resend clients, i18n factory, security headers |
 | Content pipeline | `packages/content-pipeline` | — | UAE localization (`nx run content-pipeline:localize`) |
 
 ### MediaBubble Launcher (`apps/launcher`)
 
-**MediaBubble Launcher** is the agency’s unified internal operations platform — team-facing, auth-gated, and separate from the public marketing sites. Built on **Next.js 16** with **Supabase Postgres + Prisma**, custom **JWT auth** (RBAC), and **Resend** for verify/reset email. Phase 1 (merged) includes:
+**MediaBubble Launcher** is the agency’s unified internal operations platform — team-facing, auth-gated, and separate from the public marketing sites. Built on **Next.js 16** with **Supabase Postgres + Prisma**, custom **JWT auth** (RBAC), and **Resend** for verify/reset email.
 
 | Module | Features |
 |--------|----------|
 | **Task Board** | Kanban (Backlog → Done), drag-and-drop, comments, inline timer → `time_entries` |
 | **Finance** | Transactions ledger, KPI strip, EGP/AED/USD switcher, cash-flow + expense charts |
 | **Gamification** | XP/levels, login streak, leaderboard podium, achievements |
+| **Time** | Timesheet, leave, capacity, calendar, manager approvals |
+| **CRM** | Clients, invoices, quotations, quote → invoice |
+| **AI Tools** | Prompt Studio (`/ai`), Gemini when `GEMINI_API_KEY` is set |
+| **Chat** | Channels + messages (`/chat`); Redis pub/sub + WebSocket bridge |
+| **Automation** | Workflows + manual test runs (`/automation`) |
+| **Campaigns** | Pitch proposals + live campaigns (`/campaigns`) |
 | **Auth** | Signup, login, email verify, password reset; route gate via `proxy.ts` |
 
-Env lives in `apps/launcher/.env.local` (not the repo root). See [apps/launcher/README.md](./apps/launcher/README.md) and [LAUNCHER_PLAN_V2.md](./LAUNCHER_PLAN_V2.md) for setup, deploy, and Phase 2 roadmap.
+Vercel project **`mediabubble/launcher`** is linked from `apps/launcher`. Ship checklist: [apps/launcher/README.md](./apps/launcher/README.md#ship-checklist-vercel--dns).
 
 ### Live service pages (both market apps)
 
@@ -137,7 +145,7 @@ Marketing apps share HubSpot, GA4, and Resend (contact). **MediaBubble Launcher*
 flowchart TB
   subgraph surfaces ["Next.js apps"]
     PUB["Marketing + Brand<br/>web-eg · web-ae · brand"]
-    OPS["MediaBubble Launcher<br/>tasks · finance · gamification"]
+    OPS["MediaBubble Launcher<br/>tasks · time · CRM · finance · chat"]
   end
 
   subgraph marketing_ext ["Marketing integrations"]
@@ -189,7 +197,7 @@ flowchart TB
 | Framework | Next.js 14–16 (App Router), React 18 — market apps on 14; launcher on 16 |
 | Language | TypeScript 5.3+ |
 | Styling | Tailwind CSS 3, `tailwindcss-rtl`, semantic `brand-*` tokens + dark mode (`html.dark`) |
-| Monorepo | Nx 22+, npm workspaces |
+| Monorepo | Nx 23, npm workspaces + `pnpm-workspace.yaml` for local pnpm |
 | i18n | i18next + react-i18next — English + dialect locales (`ar-masri` EG, `ar` Khaliji AE) |
 | UI | Radix primitives, Lucide / React Icons, shared design-system components |
 | Forms & CRM | HubSpot API (contacts, newsletter), Resend (transactional email) |
@@ -201,50 +209,77 @@ flowchart TB
 
 ---
 
-## Prerequisites
+## Installation
 
-- **Node.js 20** (matches CI)
-- **npm** (lockfile: `package-lock.json`)
-- Optional: [Vercel CLI](https://vercel.com/docs/cli) for env pull and deploys
+### Prerequisites
 
----
+| Requirement | Notes |
+|-------------|--------|
+| **Node.js 22+** | Matches [CI](.github/workflows/ci.yml) |
+| **npm 10+** | Root `package-lock.json` — use `npm ci` for reproducible installs |
+| **Git** | Clone from GitHub |
+| **pnpm 9+** *(optional)* | Local dev via `pnpm-workspace.yaml`; do not run `npm install` inside `apps/*` |
+| **Supabase project** | Required only for **MediaBubble Launcher** (Postgres URLs) |
+| **Vercel CLI** *(optional)* | Env pull and deploys |
 
-## Quick start
+> **Command style:** Examples use `npm run …`. If you use pnpm locally, run `pnpm run …` instead. CI always uses `npm ci` + `npm run`.
+
+### 1. Clone and install
 
 ```bash
 git clone https://github.com/mediabubble-adv/mediaBubble.git
 cd mediaBubble
-npm install
-cp .env.example .env.local   # fill in keys — see Environment variables
-npm run dev:eg               # http://localhost:3000
+npm ci
 ```
 
-### Run each app locally
+First clone without a lockfile yet? Use `npm install` once, then prefer `npm ci` afterward.
 
-| Command | App | Port |
-|---------|-----|------|
-| `npm run dev:eg` | Egypt (`web-eg`) | 3000 |
-| `npm run dev:ae` | UAE (`web-ae`) | 3001 |
-| `npm run dev:brand` | Brand guidelines | 3002 |
-| `npm run dev:launcher` | **MediaBubble Launcher** | 3003 |
+### 2. Environment — marketing apps & brand
 
-**MediaBubble Launcher — first-time setup:**
+```bash
+cp .env.example .env.local
+```
+
+Fill in keys listed under [Environment variables](#environment-variables). HubSpot, Resend, and GA4 are optional for local UI work.
+
+### 3. Start a public app
+
+| Command | App | URL |
+|---------|-----|-----|
+| `npm run dev:eg` | MediaBubble Egypt | http://localhost:3000 |
+| `npm run dev:ae` | MediaBubble UAE | http://localhost:3001 |
+| `npm run dev:brand` | Brand guidelines | http://localhost:3002 |
+
+Default entrypoint: `npm run dev` → Egypt (`web-eg`).
+
+### 4. MediaBubble Launcher *(internal ops)*
 
 ```bash
 cp apps/launcher/.env.example apps/launcher/.env.local
-# Set DATABASE_URL, DIRECT_URL, JWT_SECRET
+# Edit: DATABASE_URL, DIRECT_URL, JWT_SECRET (see apps/launcher/.env.example)
+
 npm run db:deploy && npm run db:seed
-npm run dev:launcher   # http://localhost:3003 — seed login: creative@mediabubble.co / Launch@2026
+npm run dev:launcher
 ```
 
-### Clean dev restart (after webpack / PWA cache issues)
+Open http://localhost:3003 — seeded login: `creative@mediabubble.co` / `Launch@2026` (Manager: `manager@mediabubble.co`).
 
-Stale service workers or overlapping prod builds can cause `Cannot read properties of undefined (reading 'call')` in dev. Use:
+**Chat realtime** (optional, second terminal):
 
 ```bash
-npm run dev:eg:clean   # kills :3000, wipes .next + webpack cache + stale SW
-npm run dev:ae:clean   # same for :3001
-npm run dev:launcher:clean   # kills :3003, wipes .next/cache (e.g. after Playwright E2E)
+npm run ws:launcher   # WebSocket bridge :3004 — requires REDIS_URL in .env.local
+```
+
+Full Launcher setup, Vercel ship checklist, and module list: **[apps/launcher/README.md](./apps/launcher/README.md)**.
+
+### 5. Clean dev restart
+
+Stale PWA workers or Turbopack cache can cause webpack `Cannot read properties of undefined (reading 'call')` in dev:
+
+```bash
+npm run dev:eg:clean
+npm run dev:ae:clean
+npm run dev:launcher:clean
 ```
 
 Then hard-refresh the browser or use an incognito window for `localhost`.
@@ -299,6 +334,7 @@ vercel env pull .env.local --yes
 | `npm run db:migrate` | Create/apply Launcher dev migrations |
 | `npm run db:studio` | Prisma Studio for Launcher schema |
 | `npm run test:launcher` | Jest unit tests for `apps/launcher/lib/**` |
+| `npm run ws:launcher` | Launcher chat WebSocket bridge (port 3004) |
 | `npm run build` | Build all Nx projects |
 | `npm run start` | Production server for `web-eg` |
 | `npm run lint` | ESLint across workspace |
@@ -411,7 +447,7 @@ Avoid running production builds while a dev server is active on the same app.
 On push/PR to `master`, GitHub Actions runs:
 
 1. `npm ci`
-2. `nx run-many -t build` (design-system, web-eg, web-ae, brand — **launcher** pending CI addition)
+2. `nx run-many -t build` (design-system, web-eg, web-ae, brand, **launcher**)
 3. `npm run lint`
 4. `npm run typecheck`
 5. `npm run test`
@@ -464,10 +500,7 @@ mediabubble Main/
 | [docs/website/README.md](./docs/website/README.md) | Website transformation & conversions |
 | [AGENTS.md](./AGENTS.md) | Agent/workspace conventions learned in-repo |
 | [LAUNCHER_PLAN_V2.md](./LAUNCHER_PLAN_V2.md) | MediaBubble Launcher Phase 1 status + Phase 2 roadmap |
-| [apps/launcher/README.md](./apps/launcher/README.md) | MediaBubble Launcher setup, DB, deploy, and test commands |
-
-| [LAUNCHER_PLAN_V2.md](./LAUNCHER_PLAN_V2.md) | MediaBubble Launcher Phase 1 status + Phase 2 roadmap |
-| [apps/launcher/README.md](./apps/launcher/README.md) | MediaBubble Launcher setup, DB, deploy, and test commands |
+| [apps/launcher/README.md](./apps/launcher/README.md) | MediaBubble Launcher install, DB, deploy, and test commands |
 
 ---
 
@@ -475,7 +508,7 @@ mediabubble Main/
 
 - Expand service pages beyond the current five live slugs
 - HubSpot + Resend + GA4 fully configured in all environments
-- **MediaBubble Launcher Phase 2** — Time Management, CRM, AI Tools, Communication Hub (see `LAUNCHER_PLAN_V2.md`)
+- **MediaBubble Launcher** — Phase 2 modules shipping (time, CRM, AI, chat, automation, campaigns); production DNS + env on Vercel (see `LAUNCHER_PLAN_V2.md`)
 - Lighthouse 95+, formal WCAG AA audit
 - AI chat agent for lead qualification (spec in `docs/business/`)
 - Open-source design system and website template (strategy docs in `docs/business/strategy/`)

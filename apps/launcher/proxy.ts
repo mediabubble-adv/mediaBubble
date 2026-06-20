@@ -6,6 +6,8 @@ import { createCspMiddleware } from '@mediabubble/shared/csp-middleware'
 const cspMiddleware = createCspMiddleware({ analytics: false })
 
 const SESSION_COOKIE = 'mb_session'
+const CLIENT_SESSION_COOKIE = 'mb_client_session'
+const CLIENT_PORTAL_KIND = 'client_portal'
 const JWT_SECRET = process.env['JWT_SECRET'] || 'dev-only-insecure-secret-change-me-1f3c9b7e'
 
 // Edge-compatible verification of HS256 JWT signature via Web Crypto API
@@ -51,6 +53,33 @@ function base64urlToBuffer(str: string): Uint8Array {
 
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
+
+  const isPortalPublic =
+    pathname === '/portal/verify' || pathname.startsWith('/api/portal/verify')
+  const isPortalRoute = pathname === '/portal' || pathname.startsWith('/portal/')
+  const isPortalApi = pathname.startsWith('/api/portal/')
+
+  if (isPortalRoute || isPortalApi) {
+    if (isPortalPublic) return cspMiddleware(request)
+
+    const clientToken = request.cookies.get(CLIENT_SESSION_COOKIE)?.value
+    const clientClaims = clientToken ? await verifyJwtEdge(clientToken, JWT_SECRET) : null
+    const isClientAuthenticated = clientClaims?.['kind'] === CLIENT_PORTAL_KIND
+
+    if (!isClientAuthenticated) {
+      if (pathname.startsWith('/api/')) {
+        return NextResponse.json(
+          { status: 401, code: 'unauthorized', message: 'Portal sign-in required', data: null },
+          { status: 401 },
+        )
+      }
+      const url = new URL('/portal/verify', request.url)
+      if (pathname !== '/portal') url.searchParams.set('next', pathname)
+      return NextResponse.redirect(url)
+    }
+
+    return cspMiddleware(request)
+  }
 
   // Retrieve the session token from the cookies
   const token = request.cookies.get(SESSION_COOKIE)?.value

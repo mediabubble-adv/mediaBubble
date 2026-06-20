@@ -152,6 +152,165 @@ model channels {
   @@index([type], map: "idx_channels_type")
 }
 
+model clients {
+  id                       String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name                     String    @unique @db.VarChar(255)
+  allowed_domains          String[]  @default([])
+  primary_contact_name     String?   @db.VarChar(255)
+  primary_contact_email    String?   @db.VarChar(255)
+  primary_contact_phone    String?   @db.VarChar(50)
+  contract_type            String?   @default("retainer") @db.VarChar(50)
+  monthly_budget           Decimal?  @db.Decimal(12, 2)
+  vat_number               String?   @db.VarChar(100)
+  status                   String?   @default("active") @db.VarChar(50)
+  brand_assets_url         String?
+  client_portal_enabled    Boolean?  @default(true)
+  invoice_view_enabled     Boolean?  @default(true)
+  content_approval_enabled Boolean?  @default(true)
+  created_at               DateTime  @default(now()) @db.Timestamp(6)
+  updated_at               DateTime  @default(now()) @updatedAt @db.Timestamp(6)
+  deleted_at               DateTime? @db.Timestamp(6)
+  invoices                 invoices[]
+  quotations               quotations[]
+  campaigns                campaigns[]
+  proposals                proposals[]
+  client_portal_tokens     client_portal_tokens[]
+
+  @@index([name], map: "idx_clients_name")
+  @@index([status], map: "idx_clients_status")
+}
+
+model invoice_items {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  invoice_id  String   @db.Uuid
+  description String
+  quantity    Decimal  @default(1) @db.Decimal(10, 2)
+  unit_price  Decimal  @db.Decimal(12, 2)
+  amount      Decimal  @db.Decimal(12, 2)
+  task_id     String?  @db.Uuid
+  created_at  DateTime @default(now()) @db.Timestamp(6)
+  invoices    invoices @relation(fields: [invoice_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  tasks       tasks?   @relation(fields: [task_id], references: [id], onDelete: SetNull, onUpdate: NoAction)
+
+  @@index([invoice_id], map: "idx_invoice_items_invoice_id")
+}
+
+model invoices {
+  id                  String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  invoice_number      String          @unique @db.VarChar(100)
+  client_id           String          @db.Uuid
+  status              String?         @default("Draft") @db.VarChar(50)
+  currency            String?         @default("EGP") @db.VarChar(10)
+  subtotal            Decimal         @db.Decimal(12, 2)
+  discount_percentage Decimal?        @default(0) @db.Decimal(5, 2)
+  discount_amount     Decimal?        @default(0) @db.Decimal(12, 2)
+  vat_percentage      Decimal?        @default(14.00) @db.Decimal(5, 2)
+  vat_amount          Decimal         @db.Decimal(12, 2)
+  total               Decimal         @db.Decimal(12, 2)
+  due_date            DateTime        @db.Date
+  sent_at             DateTime?       @db.Timestamp(6)
+  paid_at             DateTime?       @db.Timestamp(6)
+  created_by          String          @db.Uuid
+  created_at          DateTime        @default(now()) @db.Timestamp(6)
+  updated_at          DateTime        @default(now()) @updatedAt @db.Timestamp(6)
+  deleted_at          DateTime?       @db.Timestamp(6)
+  invoice_items       invoice_items[]
+  clients             clients         @relation(fields: [client_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users               users           @relation(fields: [created_by], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  quotations          quotations[]
+
+  @@index([client_id], map: "idx_invoices_client_id")
+  @@index([status], map: "idx_invoices_status")
+  @@index([due_date], map: "idx_invoices_due_date")
+}
+
+model quotation_items {
+  id           String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  quotation_id String     @db.Uuid
+  description  String
+  quantity     Decimal    @default(1) @db.Decimal(10, 2)
+  unit_price   Decimal    @db.Decimal(12, 2)
+  amount       Decimal    @db.Decimal(12, 2)
+  created_at   DateTime   @default(now()) @db.Timestamp(6)
+  quotations   quotations @relation(fields: [quotation_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([quotation_id], map: "idx_quotation_items_quotation_id")
+}
+
+model quotations {
+  id                      String            @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  quotation_number        String            @unique @db.VarChar(100)
+  client_id               String            @db.Uuid
+  status                  String?           @default("Draft") @db.VarChar(50)
+  currency                String?           @default("EGP") @db.VarChar(10)
+  subtotal                Decimal           @db.Decimal(12, 2)
+  total                   Decimal           @db.Decimal(12, 2)
+  valid_until             DateTime?         @db.Date
+  converted_to_invoice_id String?           @db.Uuid
+  created_by              String            @db.Uuid
+  created_at              DateTime          @default(now()) @db.Timestamp(6)
+  updated_at              DateTime          @default(now()) @updatedAt @db.Timestamp(6)
+  quotation_items         quotation_items[]
+  clients                 clients           @relation(fields: [client_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users                   users             @relation(fields: [created_by], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  converted_invoice       invoices?         @relation(fields: [converted_to_invoice_id], references: [id], onDelete: SetNull, onUpdate: NoAction)
+  proposals               proposals?
+
+  @@index([client_id], map: "idx_quotations_client_id")
+  @@index([status], map: "idx_quotations_status")
+}
+
+model proposals {
+  id               String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  proposal_number  String      @unique @db.VarChar(100)
+  client_id        String      @db.Uuid
+  title            String      @db.VarChar(255)
+  summary          String?
+  objectives       Json?
+  deliverables     Json?
+  timeline_weeks   Int?
+  budget_estimate  Decimal?    @db.Decimal(12, 2)
+  currency         String?     @default("EGP") @db.VarChar(10)
+  status           String?     @default("Draft") @db.VarChar(50)
+  quotation_id     String?     @unique @db.Uuid
+  created_by       String      @db.Uuid
+  created_at       DateTime    @default(now()) @db.Timestamp(6)
+  updated_at       DateTime    @default(now()) @updatedAt @db.Timestamp(6)
+  campaigns        campaigns?
+  clients          clients     @relation(fields: [client_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users            users       @relation(fields: [created_by], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  quotations       quotations? @relation(fields: [quotation_id], references: [id], onDelete: SetNull, onUpdate: NoAction)
+
+  @@index([client_id], map: "idx_proposals_client_id")
+  @@index([status], map: "idx_proposals_status")
+}
+
+model campaigns {
+  id          String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  client_id   String     @db.Uuid
+  name        String     @db.VarChar(255)
+  brief       String?
+  market      String?    @default("eg") @db.VarChar(20)
+  channels    String[]   @default([])
+  budget      Decimal?   @db.Decimal(12, 2)
+  currency    String?    @default("EGP") @db.VarChar(10)
+  start_date  DateTime?  @db.Date
+  end_date    DateTime?  @db.Date
+  status      String?    @default("Planning") @db.VarChar(50)
+  proposal_id String?    @unique @db.Uuid
+  created_by  String     @db.Uuid
+  created_at  DateTime   @default(now()) @db.Timestamp(6)
+  updated_at  DateTime   @default(now()) @updatedAt @db.Timestamp(6)
+  deleted_at  DateTime?  @db.Timestamp(6)
+  clients     clients    @relation(fields: [client_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users       users      @relation(fields: [created_by], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  proposals   proposals? @relation(fields: [proposal_id], references: [id], onDelete: SetNull, onUpdate: NoAction)
+
+  @@index([client_id], map: "idx_campaigns_client_id")
+  @@index([status], map: "idx_campaigns_status")
+  @@index([proposal_id], map: "idx_campaigns_proposal_id")
+}
+
 model collaborations {
   id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   created_by  String   @db.Uuid
@@ -347,6 +506,22 @@ model password_reset_tokens {
 
   @@index([expires_at], map: "idx_password_reset_tokens_expires_at")
   @@index([user_id], map: "idx_password_reset_tokens_user_id")
+}
+
+model client_portal_tokens {
+  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  client_id  String    @db.Uuid
+  email      String    @db.VarChar(255)
+  token_hash String    @unique @db.VarChar(255)
+  expires_at DateTime  @db.Timestamp(6)
+  used_at    DateTime? @db.Timestamp(6)
+  created_by String    @db.Uuid
+  created_at DateTime  @default(now()) @db.Timestamp(6)
+  clients    clients   @relation(fields: [client_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users      users     @relation(fields: [created_by], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([client_id], map: "idx_client_portal_tokens_client_id")
+  @@index([expires_at], map: "idx_client_portal_tokens_expires_at")
 }
 
 model performance_reviews {
@@ -546,6 +721,7 @@ model tasks {
   tasks                          tasks?             @relation("tasksTotasks", fields: [parent_task_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
   other_tasks                    tasks[]            @relation("tasksTotasks")
   time_entries                   time_entries[]
+  invoice_items                  invoice_items[]
 
   @@index([assigned_to], map: "idx_tasks_assigned_to")
   @@index([created_by], map: "idx_tasks_created_by")
@@ -610,6 +786,7 @@ model users {
   availability                                               availability[]
   capacity                                                   capacity[]
   channels                                                   channels[]
+  client_portal_tokens                                       client_portal_tokens[]
   collaborations                                             collaborations[]
   departments_departments_head_idTousers                     departments[]               @relation("departments_head_idTousers")
   email_verification_tokens                                  email_verification_tokens[]
@@ -638,6 +815,10 @@ model users {
   tasks_tasks_assigned_toTousers                             tasks[]                     @relation("tasks_assigned_toTousers")
   tasks_tasks_created_byTousers                              tasks[]                     @relation("tasks_created_byTousers")
   time_entries                                               time_entries[]
+  invoices                                                   invoices[]
+  quotations                                                 quotations[]
+  campaigns                                                  campaigns[]
+  proposals                                                  proposals[]
   user_presence                                              user_presence?
   departments_users_department_idTodepartments               departments?                @relation("users_department_idTodepartments", fields: [department_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_users_department")
   workflow_executions                                        workflow_executions[]
