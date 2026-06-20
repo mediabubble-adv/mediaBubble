@@ -70,11 +70,6 @@ export function LeaderboardDashboard({
     return result
   }, [rankedUsers])
 
-  // Rest of the list
-  const runnersUp = useMemo(() => {
-    return rankedUsers.slice(3)
-  }, [rankedUsers])
-
   // XP calculations for current user card
   const xpMetrics = useMemo(() => {
     if (!currentUser) return { currentLevelXp: 0, nextLevelXp: 100, progressPercent: 0, needed: 100 }
