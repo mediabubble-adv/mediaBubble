@@ -26,10 +26,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # CI installs with npm; the committed pnpm-lock.yaml (kept for local pnpm
-      # dev) makes Nx 23 try to parse it for the project graph and fail with
-      # "Could not find .modules.yaml". Remove it in the runner so Nx resolves
-      # via package-lock.json. Does not affect the repo or local development.
+      # CI installs with npm. pnpm-lock.yaml is kept for local pnpm dev, but Nx
+      # otherwise auto-detects pnpm and fails parsing without node_modules/.modules.yaml.
+      # nx.json sets cli.packageManager=npm; this step is a belt-and-suspenders guard.
       - name: Drop pnpm lockfile (CI uses npm)
         run: rm -f pnpm-lock.yaml
 

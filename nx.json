@@ -1,6 +1,9 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "defaultBase": "main",
+  "cli": {
+    "packageManager": "npm"
+  },
   "namedInputs": {
     "default": [
       "{projectRoot}/**/*",
