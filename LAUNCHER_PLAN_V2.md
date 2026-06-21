@@ -5,8 +5,8 @@
 > Those remain valid for Phase 2–3 module specs and the full 8-app vision.
 >
 > **Target:** `launcher.mediabubble.co`
-> **Status:** Phase 2 in progress — Time Management complete; CRM slice 1 shipped
-> **Reconciled:** 2026-06-20 — post-merge snapshot (PR #19 → `master`)
+> **Status:** Phase 2 complete locally — Phase 3 portal slice 1 shipped; **production deploy pending**
+> **Reconciled:** 2026-06-20 — post-merge snapshot (Phase 2 modules + `/portal`)
 > **Branch:** `master`
 
 ---
@@ -32,7 +32,7 @@ Everything in the foundation/auth layer carries over unchanged.
 ### ✅ Done (Phase 1)
 - **App scaffold** — Next.js 16, Tailwind, brand fonts, NX `project.json`, ESLint, typecheck.
 - **Prisma schema** — full 37-model schema covering *all 8 apps* (well ahead of plan).
-- **Migrations** — `0001_init`, `0002_auth_tokens`, `0003_finance`; deployed to Supabase.
+- **Migrations** — `0001`–`0007` (auth, finance, clients, invoices/quotations, campaigns, client portal).
 - **Auth core + API + UI** — JWT, RBAC, signup/login/verify/reset, Resend email, auth screens.
 - **Route protection** — `proxy.ts` (replaces `middleware.ts` for Next.js 16 builder).
 - **Nav shell** — collapsible sidebar, topbar, `Cmd+K` command palette.
@@ -41,26 +41,28 @@ Everything in the foundation/auth layer carries over unchanged.
 - **Gamification MVP** — XP/levels, streak, leaderboard, achievements.
 - **Seed** — `prisma/seed.ts` (departments, 4 RBAC users, software-cost ledger).
 - **Supabase env** — root `db:*` scripts source `apps/launcher/.env.local` (`DIRECT_URL` for migrations).
-- **Testing gate** — 97 Jest unit tests; Playwright E2E (login → task → timer → drag).
+- **Testing gate** — 134 Jest unit tests; Playwright E2E (login → task → timer → drag).
 
-### ✅ Done (Phase 2 — Time Management)
-- Timesheet hub — manual entries, KPIs, task-linked logging.
-- Leave requests — submit, manager approve/reject.
-- Availability + holidays — schedule panel, EG/UAE holiday seed.
-- Capacity dashboard — mine/team utilization snapshots.
-- Calendar week view — entries + availability blocks; Google Calendar placeholder.
-- Team views — pending queue, submit/approve workflow on time entries.
+### ✅ Done (Phase 2)
+- **Time Management** — timesheet, leave, availability, holidays, capacity, calendar, manager approvals.
+- **CRM** — clients, invoices, quotations, quote → invoice conversion.
+- **AI Tools** — Prompt Studio, `{{variables}}`, execution logs (Gemini when keyed).
+- **Communication Hub** — channels, messages, Redis pub/sub + WS bridge (`ws:launcher`), SSE fallback.
+- **Workflow Automation** — triggers, steps, templates, manual test runs.
+- **Campaigns** — pitch proposals, launch, link to CRM quotations.
 
-### ⚠️ Partial / ops remaining
+### ✅ Done (Phase 3 — slice 1, local)
+- **Client portal** — magic-link verify, client invoice view at `/portal`.
+
+### ⚠️ Partial / placeholders
 - **Production deploy** — Vercel project + `launcher.mediabubble.co` DNS not wired yet.
-- **CI** — GitHub Actions now builds `launcher`; deploy env still manual.
+- **Settings** — `/settings` placeholder (profile, team, workspace prefs).
+- **Google Calendar sync** — Time calendar panel placeholder.
+- **Finance AI brief** — static copy (dynamic brief → Phase 3).
 
-### 🚧 In progress (Phase 2)
-- **CRM slice 1** — `clients` table, `/crm` directory, CRUD API (Manager+ write).
-
-### ❌ Not started (Phase 2)
-- CRM invoices/quotations, AI Tools + Prompt Studio, Communication Hub,
-  Workflow Automation, Campaign/Proposal.
+### ❌ Not started (Phase 3 remainder)
+- Portal on `clients.mediabubble.co`, Fawry/Telr payments, WhatsApp invoice automation,
+  AI predictions, perf hardening (WAF, uptime, load).
 
 ---
 
@@ -131,18 +133,18 @@ JWT/RBAC/token flows + auth routes + response conventions. **Done.**
 | Topic | PRD says | Repo reality | Recommendation |
 |---|---|---|---|
 | DB | PostgreSQL + Prisma | ✅ Supabase + Prisma, migrations deployed | Keep; add prod Vercel env + `db:deploy` on release |
-| Realtime | Upstash Redis Pub/Sub + WS bridge on Railway | none yet | Defer to Phase 2 — Task Board ships without realtime first |
+| Realtime | Upstash Redis Pub/Sub + WS bridge on Railway | ✅ Chat: Redis + `ws:launcher` (:3004), SSE fallback | Set `REDIS_URL` on prod; optional for Task Board |
 | Auth | "Stateless JWT middleware" | ✅ JWT + `proxy.ts` route gate | Keep; no session table |
 | Email | implied (verify/reset) | ✅ Resend wired (`RESEND_API_KEY`) | Set key on Vercel for prod |
 | AI brief | dynamic | static copy in Finance UI | AI-generated in Phase 3 |
 
 ---
 
-## 5. Immediate next actions (Phase 2)
-1. **Ship** — Vercel project for `apps/launcher`, env vars (`DATABASE_URL`, **`DIRECT_URL`**, `JWT_SECRET`, `RESEND_API_KEY`), `launcher.mediabubble.co` DNS.
-2. **CRM slice 2** — invoices + quotations linked to `clients`.
-3. **Phase 2 modules** — AI Tools, Communication Hub, Workflow Automation (schema exists).
-4. Keep docs aligned as modules land (`apps/launcher/README.md`).
+## 5. Immediate next actions
+1. **Ship** — Vercel project for `apps/launcher`, env vars (`DATABASE_URL`, **`DIRECT_URL`**, `JWT_SECRET`, `RESEND_API_KEY`, `NEXT_PUBLIC_SITE_URL`), `launcher.mediabubble.co` DNS. See [`apps/launcher/README.md`](apps/launcher/README.md#ship-checklist-vercel--dns).
+2. **Settings module** — profile, team, workspace preferences (replace placeholder).
+3. **Phase 3** — portal domain, payments (Fawry/Telr), WhatsApp automation, dynamic AI brief.
+4. **Polish** — Google Calendar API, workflow visual canvas, >80% test coverage gate.
 
 ---
 
