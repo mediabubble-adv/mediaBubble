@@ -19,7 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className={`${rootFontClassName} font-sans antialiased bg-brand-canvas text-brand-text`}
+        className={`${rootFontClassName} font-sans antialiased bg-background text-foreground`}
       >
         {children}
       </body>

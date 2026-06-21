@@ -38,10 +38,10 @@ function combineDateTime(date: string, time: string): string {
 type Tab = 'timesheet' | 'leave' | 'schedule' | 'capacity' | 'calendar' | 'team'
 
 const ENTRY_STATUS_STYLES: Record<string, string> = {
-  Draft: 'bg-brand-text-muted/15 text-brand-text-muted',
-  Submitted: 'bg-brand-warning/15 text-brand-warning',
-  Approved: 'bg-brand-success/15 text-brand-success',
-  Rejected: 'bg-brand-error/15 text-brand-error',
+  Draft: 'bg-muted-foreground/15 text-muted-foreground',
+  Submitted: 'bg-[#CA8A04]/15 text-[#CA8A04]',
+  Approved: 'bg-[#16A34A]/15 text-[#16A34A]',
+  Rejected: 'bg-destructive/15 text-destructive',
 }
 
 export function TimeDashboard({
@@ -180,18 +180,18 @@ export function TimeDashboard({
     <div className="px-6 py-8 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-blue/[0.16]">
-            <Clock size={20} className="text-brand-blue" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
+            <Clock size={20} className="text-primary" />
           </div>
           <div>
-            <h1 className="font-display text-2xl font-bold text-brand-text">Time</h1>
-            <p className="text-[13px] text-brand-text-muted">
+            <h1 className="font-display text-2xl font-bold text-foreground">Time</h1>
+            <p className="text-[13px] text-muted-foreground">
               Log hours, request leave, and track billable work — task timers sync here automatically.
             </p>
           </div>
         </div>
 
-        <div className="mt-6 flex flex-wrap gap-2 border-b border-brand-whisper-border">
+        <div className="mt-6 flex flex-wrap gap-2 border-b border-border">
           {(
             [
               { id: 'timesheet' as const, label: 'Timesheet', icon: Clock },
@@ -210,8 +210,8 @@ export function TimeDashboard({
               onClick={() => setTab(id)}
               className={`inline-flex items-center gap-2 border-b-2 px-4 py-2.5 text-[13px] font-bold transition-colors ${
                 tab === id
-                  ? 'border-brand-blue text-brand-text'
-                  : 'border-transparent text-brand-text-muted hover:text-brand-text'
+                  ? 'border-primary text-foreground'
+                  : 'border-transparent text-muted-foreground hover:text-foreground'
               }`}
             >
               <Icon size={14} />
@@ -279,76 +279,76 @@ export function TimeDashboard({
           ].map(({ label, value, hint }) => (
             <div
               key={label}
-              className="rounded-2xl border border-brand-whisper-border bg-brand-surface px-4 py-4"
+              className="rounded-2xl border border-border bg-card px-4 py-4"
             >
-              <p className="text-[11px] font-bold uppercase tracking-wider text-brand-text-muted">
+              <p className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
                 {label}
               </p>
-              <p className="mt-1 font-display text-2xl font-bold text-brand-text" dir="ltr">
+              <p className="mt-1 font-display text-2xl font-bold text-foreground" dir="ltr">
                 {value}
               </p>
-              <p className="mt-1 text-[11px] text-brand-text-muted">{hint}</p>
+              <p className="mt-1 text-[11px] text-muted-foreground">{hint}</p>
             </div>
           ))}
         </div>
 
         <form
           onSubmit={logTime}
-          className="mt-6 rounded-2xl border border-brand-whisper-border bg-brand-surface p-4"
+          className="mt-6 rounded-2xl border border-border bg-card p-4"
         >
           <div className="flex items-center gap-2">
-            <Plus size={16} className="text-brand-blue" />
-            <h2 className="text-[14px] font-bold text-brand-text">Log time manually</h2>
+            <Plus size={16} className="text-primary" />
+            <h2 className="text-[14px] font-bold text-foreground">Log time manually</h2>
           </div>
           <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
-            <label className="flex flex-col gap-1 text-[12px] font-semibold text-brand-text-muted">
+            <label className="flex flex-col gap-1 text-[12px] font-semibold text-muted-foreground">
               Date
               <input
                 name="date"
                 type="date"
                 defaultValue={today}
                 required
-                className="rounded-lg border border-brand-whisper-border bg-brand-input px-3 py-2 text-[14px] text-brand-text"
+                className="rounded-lg border border-border bg-input px-3 py-2 text-[14px] text-foreground"
               />
             </label>
-            <label className="flex flex-col gap-1 text-[12px] font-semibold text-brand-text-muted">
+            <label className="flex flex-col gap-1 text-[12px] font-semibold text-muted-foreground">
               Start
               <input
                 name="start"
                 type="time"
                 required
-                className="rounded-lg border border-brand-whisper-border bg-brand-input px-3 py-2 text-[14px] text-brand-text"
+                className="rounded-lg border border-border bg-input px-3 py-2 text-[14px] text-foreground"
                 dir="ltr"
               />
             </label>
-            <label className="flex flex-col gap-1 text-[12px] font-semibold text-brand-text-muted">
+            <label className="flex flex-col gap-1 text-[12px] font-semibold text-muted-foreground">
               End
               <input
                 name="end"
                 type="time"
                 required
-                className="rounded-lg border border-brand-whisper-border bg-brand-input px-3 py-2 text-[14px] text-brand-text"
+                className="rounded-lg border border-border bg-input px-3 py-2 text-[14px] text-foreground"
                 dir="ltr"
               />
             </label>
-            <label className="flex flex-col gap-1 text-[12px] font-semibold text-brand-text-muted sm:col-span-2">
+            <label className="flex flex-col gap-1 text-[12px] font-semibold text-muted-foreground sm:col-span-2">
               Description
               <input
                 name="description"
                 type="text"
                 placeholder="What did you work on?"
-                className="rounded-lg border border-brand-whisper-border bg-brand-input px-3 py-2 text-[14px] text-brand-text"
+                className="rounded-lg border border-border bg-input px-3 py-2 text-[14px] text-foreground"
               />
             </label>
             <div className="flex flex-col justify-end gap-3">
-              <label className="flex items-center gap-2 text-[13px] text-brand-text">
-                <input name="billable" type="checkbox" className="rounded border-brand-whisper-border" />
+              <label className="flex items-center gap-2 text-[13px] text-foreground">
+                <input name="billable" type="checkbox" className="rounded border-border" />
                 Billable
               </label>
               <button
                 type="submit"
                 disabled={logging}
-                className="rounded-lg bg-brand-yellow px-4 py-2 text-[13px] font-bold text-brand-navy transition-all duration-200 hover:opacity-90 active:scale-[0.98] disabled:opacity-50"
+                className="rounded-lg bg-accent px-4 py-2 text-[13px] font-bold text-accent-foreground transition-all duration-200 hover:opacity-90 active:scale-[0.98] disabled:opacity-50"
               >
                 {logging ? 'Saving…' : 'Add entry'}
               </button>
@@ -362,12 +362,12 @@ export function TimeDashboard({
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search entries…"
-            className="min-w-[200px] flex-1 rounded-lg border border-brand-whisper-border bg-brand-input px-3 py-2 text-[14px] text-brand-text"
+            className="min-w-[200px] flex-1 rounded-lg border border-border bg-input px-3 py-2 text-[14px] text-foreground"
           />
           <select
             value={billableFilter}
             onChange={(e) => setBillableFilter(e.target.value as typeof billableFilter)}
-            className="rounded-lg border border-brand-whisper-border bg-brand-input px-3 py-2 text-[13px] text-brand-text"
+            className="rounded-lg border border-border bg-input px-3 py-2 text-[13px] text-foreground"
           >
             <option value="all">All entries</option>
             <option value="billable">Billable only</option>
@@ -375,10 +375,10 @@ export function TimeDashboard({
           </select>
         </div>
 
-        <div className="mt-4 overflow-x-auto rounded-2xl border border-brand-whisper-border bg-brand-surface">
+        <div className="mt-4 overflow-x-auto rounded-2xl border border-border bg-card">
           <table className="min-w-full text-left text-[13px]">
             <thead>
-              <tr className="border-b border-brand-whisper-border text-[11px] uppercase tracking-wider text-brand-text-muted">
+              <tr className="border-b border-border text-[11px] uppercase tracking-wider text-muted-foreground">
                 <th className="px-4 py-3 font-bold">Date</th>
                 <th className="px-4 py-3 font-bold">Time</th>
                 <th className="px-4 py-3 font-bold">Duration</th>
@@ -392,49 +392,49 @@ export function TimeDashboard({
             <tbody>
               {filtered.length === 0 ? (
                 <tr>
-                  <td colSpan={8} className="px-4 py-10 text-center text-brand-text-muted">
+                  <td colSpan={8} className="px-4 py-10 text-center text-muted-foreground">
                     No time entries yet — log manually or start a timer on the task board.
                   </td>
                 </tr>
               ) : (
                 filtered.map((entry) => (
-                  <tr key={entry.id} className="border-b border-brand-whisper-border/60 last:border-0">
-                    <td className="px-4 py-3 text-brand-text" dir="ltr">
+                  <tr key={entry.id} className="border-b border-border/60 last:border-0">
+                    <td className="px-4 py-3 text-foreground" dir="ltr">
                       {entry.date}
                     </td>
-                    <td className="px-4 py-3 text-brand-text-muted" dir="ltr">
+                    <td className="px-4 py-3 text-muted-foreground" dir="ltr">
                       {toLocalTimeInput(entry.start_time)} – {toLocalTimeInput(entry.end_time)}
                     </td>
-                    <td className="px-4 py-3 font-semibold text-brand-text" dir="ltr">
+                    <td className="px-4 py-3 font-semibold text-foreground" dir="ltr">
                       {formatDuration(entry.duration_minutes ?? 0)}
                     </td>
-                    <td className="px-4 py-3 text-brand-text">
+                    <td className="px-4 py-3 text-foreground">
                       {entry.task ? (
                         <span className="inline-flex items-center gap-1.5">
-                          <Briefcase size={12} className="text-brand-blue" />
+                          <Briefcase size={12} className="text-primary" />
                           {entry.task.title}
                         </span>
                       ) : (
-                        <span className="text-brand-text-muted">—</span>
+                        <span className="text-muted-foreground">—</span>
                       )}
                     </td>
-                    <td className="max-w-xs truncate px-4 py-3 text-brand-text-muted">
+                    <td className="max-w-xs truncate px-4 py-3 text-muted-foreground">
                       {entry.description ?? '—'}
                     </td>
                     <td className="px-4 py-3">
                       {entry.billable ? (
-                        <span className="rounded-md bg-brand-success/15 px-2 py-0.5 text-[11px] font-bold text-brand-success">
+                        <span className="rounded-md bg-[#16A34A]/15 px-2 py-0.5 text-[11px] font-bold text-[#16A34A]">
                           Yes
                         </span>
                       ) : (
-                        <span className="text-brand-text-muted">No</span>
+                        <span className="text-muted-foreground">No</span>
                       )}
                     </td>
                     <td className="px-4 py-3">
                       <span
                         className={`rounded-md px-2 py-0.5 text-[11px] font-bold ${
                           ENTRY_STATUS_STYLES[entry.status ?? 'Draft'] ??
-                          'bg-brand-text-muted/15 text-brand-text-muted'
+                          'bg-muted-foreground/15 text-muted-foreground'
                         }`}
                       >
                         {entry.status ?? 'Draft'}
@@ -447,7 +447,7 @@ export function TimeDashboard({
                             type="button"
                             onClick={() => submitEntry(entry.id)}
                             aria-label="Submit entry"
-                            className="rounded-lg p-1.5 text-brand-blue transition-colors hover:bg-brand-blue/10 active:scale-[0.98]"
+                            className="rounded-lg p-1.5 text-primary transition-colors hover:bg-primary/10 active:scale-[0.98]"
                           >
                             <Send size={14} />
                           </button>
@@ -457,7 +457,7 @@ export function TimeDashboard({
                             type="button"
                             onClick={() => removeEntry(entry.id)}
                             aria-label="Delete entry"
-                            className="rounded-lg p-1.5 text-brand-text-muted transition-colors hover:bg-brand-error/10 hover:text-brand-error active:scale-[0.98]"
+                            className="rounded-lg p-1.5 text-muted-foreground transition-colors hover:bg-destructive/10 hover:text-destructive active:scale-[0.98]"
                           >
                             <Trash2 size={14} />
                           </button>

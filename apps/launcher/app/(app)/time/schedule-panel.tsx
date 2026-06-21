@@ -24,9 +24,9 @@ export interface HolidayRow {
 }
 
 const STATUS_STYLES: Record<string, string> = {
-  Available: 'bg-brand-success/15 text-brand-success',
-  Busy: 'bg-brand-warning/15 text-brand-warning',
-  'On Leave': 'bg-brand-error/15 text-brand-error',
+  Available: 'bg-[#16A34A]/15 text-[#16A34A]',
+  Busy: 'bg-[#CA8A04]/15 text-[#CA8A04]',
+  'On Leave': 'bg-destructive/15 text-destructive',
 }
 
 export function SchedulePanel({
@@ -118,52 +118,52 @@ export function SchedulePanel({
     <div className="grid gap-6 xl:grid-cols-2">
       <section className="space-y-4">
         <div className="flex items-center gap-2">
-          <CalendarDays size={16} className="text-brand-blue" />
-          <h2 className="text-[14px] font-bold text-brand-text">Your availability</h2>
+          <CalendarDays size={16} className="text-primary" />
+          <h2 className="text-[14px] font-bold text-foreground">Your availability</h2>
         </div>
 
         <form
           onSubmit={addSlot}
-          className="rounded-2xl border border-brand-whisper-border bg-brand-surface p-4"
+          className="rounded-2xl border border-border bg-card p-4"
         >
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            <label className="flex flex-col gap-1 text-[12px] font-semibold text-brand-text-muted">
+            <label className="flex flex-col gap-1 text-[12px] font-semibold text-muted-foreground">
               Date
               <input
                 name="date"
                 type="date"
                 defaultValue={today}
                 required
-                className="rounded-lg border border-brand-whisper-border bg-brand-input px-3 py-2 text-[14px] text-brand-text"
+                className="rounded-lg border border-border bg-input px-3 py-2 text-[14px] text-foreground"
               />
             </label>
-            <label className="flex flex-col gap-1 text-[12px] font-semibold text-brand-text-muted">
+            <label className="flex flex-col gap-1 text-[12px] font-semibold text-muted-foreground">
               From
               <input
                 name="start_time"
                 type="time"
                 defaultValue="09:00"
                 required
-                className="rounded-lg border border-brand-whisper-border bg-brand-input px-3 py-2 text-[14px] text-brand-text"
+                className="rounded-lg border border-border bg-input px-3 py-2 text-[14px] text-foreground"
                 dir="ltr"
               />
             </label>
-            <label className="flex flex-col gap-1 text-[12px] font-semibold text-brand-text-muted">
+            <label className="flex flex-col gap-1 text-[12px] font-semibold text-muted-foreground">
               To
               <input
                 name="end_time"
                 type="time"
                 defaultValue="17:00"
                 required
-                className="rounded-lg border border-brand-whisper-border bg-brand-input px-3 py-2 text-[14px] text-brand-text"
+                className="rounded-lg border border-border bg-input px-3 py-2 text-[14px] text-foreground"
                 dir="ltr"
               />
             </label>
-            <label className="flex flex-col gap-1 text-[12px] font-semibold text-brand-text-muted">
+            <label className="flex flex-col gap-1 text-[12px] font-semibold text-muted-foreground">
               Status
               <select
                 name="status"
-                className="rounded-lg border border-brand-whisper-border bg-brand-input px-3 py-2 text-[14px] text-brand-text"
+                className="rounded-lg border border-border bg-input px-3 py-2 text-[14px] text-foreground"
               >
                 {AVAILABILITY_STATUSES.map((s) => (
                   <option key={s} value={s}>
@@ -176,16 +176,16 @@ export function SchedulePanel({
           <button
             type="submit"
             disabled={submitting}
-            className="mt-4 rounded-lg bg-brand-yellow px-4 py-2 text-[13px] font-bold text-brand-navy transition-all duration-200 hover:opacity-90 active:scale-[0.98] disabled:opacity-50"
+            className="mt-4 rounded-lg bg-accent px-4 py-2 text-[13px] font-bold text-accent-foreground transition-all duration-200 hover:opacity-90 active:scale-[0.98] disabled:opacity-50"
           >
             {submitting ? 'Saving…' : 'Add slot'}
           </button>
         </form>
 
-        <div className="overflow-x-auto rounded-2xl border border-brand-whisper-border bg-brand-surface">
+        <div className="overflow-x-auto rounded-2xl border border-border bg-card">
           <table className="min-w-full text-left text-[13px]">
             <thead>
-              <tr className="border-b border-brand-whisper-border text-[11px] uppercase tracking-wider text-brand-text-muted">
+              <tr className="border-b border-border text-[11px] uppercase tracking-wider text-muted-foreground">
                 <th className="px-4 py-3 font-bold">Date</th>
                 <th className="px-4 py-3 font-bold">Hours</th>
                 <th className="px-4 py-3 font-bold">Status</th>
@@ -195,24 +195,24 @@ export function SchedulePanel({
             <tbody>
               {upcomingSlots.length === 0 ? (
                 <tr>
-                  <td colSpan={4} className="px-4 py-10 text-center text-brand-text-muted">
+                  <td colSpan={4} className="px-4 py-10 text-center text-muted-foreground">
                     No upcoming availability slots.
                   </td>
                 </tr>
               ) : (
                 upcomingSlots.map((slot) => (
-                  <tr key={slot.id} className="border-b border-brand-whisper-border/60 last:border-0">
-                    <td className="px-4 py-3 text-brand-text" dir="ltr">
+                  <tr key={slot.id} className="border-b border-border/60 last:border-0">
+                    <td className="px-4 py-3 text-foreground" dir="ltr">
                       {slot.date}
                     </td>
-                    <td className="px-4 py-3 text-brand-text-muted" dir="ltr">
+                    <td className="px-4 py-3 text-muted-foreground" dir="ltr">
                       {formatSlotTime(slot.start_time)} – {formatSlotTime(slot.end_time)}
                     </td>
                     <td className="px-4 py-3">
                       <span
                         className={`rounded-md px-2 py-0.5 text-[11px] font-bold ${
                           STATUS_STYLES[slot.status ?? 'Available'] ??
-                          'bg-brand-text-muted/15 text-brand-text-muted'
+                          'bg-muted-foreground/15 text-muted-foreground'
                         }`}
                       >
                         {slot.status ?? 'Available'}
@@ -223,7 +223,7 @@ export function SchedulePanel({
                         type="button"
                         onClick={() => removeSlot(slot.id)}
                         aria-label="Delete slot"
-                        className="rounded-lg p-1.5 text-brand-text-muted transition-colors hover:bg-brand-error/10 hover:text-brand-error active:scale-[0.98]"
+                        className="rounded-lg p-1.5 text-muted-foreground transition-colors hover:bg-destructive/10 hover:text-destructive active:scale-[0.98]"
                       >
                         <Trash2 size={14} />
                       </button>
@@ -238,8 +238,8 @@ export function SchedulePanel({
 
       <section className="space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <h2 className="text-[14px] font-bold text-brand-text">Holiday calendar</h2>
-          <div className="flex rounded-lg border border-brand-whisper-border p-0.5">
+          <h2 className="text-[14px] font-bold text-foreground">Holiday calendar</h2>
+          <div className="flex rounded-lg border border-border p-0.5">
             {HOLIDAY_COUNTRIES.map((c) => (
               <button
                 key={c}
@@ -247,8 +247,8 @@ export function SchedulePanel({
                 onClick={() => setCountry(c)}
                 className={`rounded-md px-3 py-1.5 text-[12px] font-bold transition-colors ${
                   country === c
-                    ? 'bg-brand-blue text-white'
-                    : 'text-brand-text-muted hover:text-brand-text'
+                    ? 'bg-primary text-white'
+                    : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
                 {c === 'Egypt' ? 'Egypt (EG)' : 'UAE (AE)'}
@@ -257,10 +257,10 @@ export function SchedulePanel({
           </div>
         </div>
 
-        <div className="overflow-x-auto rounded-2xl border border-brand-whisper-border bg-brand-surface">
+        <div className="overflow-x-auto rounded-2xl border border-border bg-card">
           <table className="min-w-full text-left text-[13px]">
             <thead>
-              <tr className="border-b border-brand-whisper-border text-[11px] uppercase tracking-wider text-brand-text-muted">
+              <tr className="border-b border-border text-[11px] uppercase tracking-wider text-muted-foreground">
                 <th className="px-4 py-3 font-bold">Date</th>
                 <th className="px-4 py-3 font-bold">Holiday</th>
                 <th className="px-4 py-3 font-bold">Office</th>
@@ -269,22 +269,22 @@ export function SchedulePanel({
             <tbody>
               {holidays.length === 0 ? (
                 <tr>
-                  <td colSpan={3} className="px-4 py-10 text-center text-brand-text-muted">
+                  <td colSpan={3} className="px-4 py-10 text-center text-muted-foreground">
                     No holidays loaded — run <code className="text-[12px]">pnpm run db:seed</code>.
                   </td>
                 </tr>
               ) : (
                 holidays.map((h) => (
-                  <tr key={h.id} className="border-b border-brand-whisper-border/60 last:border-0">
-                    <td className="px-4 py-3 text-brand-text" dir="ltr">
+                  <tr key={h.id} className="border-b border-border/60 last:border-0">
+                    <td className="px-4 py-3 text-foreground" dir="ltr">
                       {h.date}
                     </td>
-                    <td className="px-4 py-3 text-brand-text">{h.name}</td>
+                    <td className="px-4 py-3 text-foreground">{h.name}</td>
                     <td className="px-4 py-3">
                       {h.is_working_day ? (
-                        <span className="text-brand-text-muted">Working day</span>
+                        <span className="text-muted-foreground">Working day</span>
                       ) : (
-                        <span className="rounded-md bg-brand-error/15 px-2 py-0.5 text-[11px] font-bold text-brand-error">
+                        <span className="rounded-md bg-destructive/15 px-2 py-0.5 text-[11px] font-bold text-destructive">
                           Closed
                         </span>
                       )}
@@ -295,7 +295,7 @@ export function SchedulePanel({
             </tbody>
           </table>
         </div>
-        <p className="text-[12px] text-brand-text-muted">
+        <p className="text-[12px] text-muted-foreground">
           Islamic holiday dates are approximate for 2026 planning. Confirm official UAE/EG gazette
           announcements before scheduling client work.
         </p>

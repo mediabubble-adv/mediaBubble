@@ -8,7 +8,7 @@ export default function PortalVerifyPage() {
   return (
     <Suspense
       fallback={
-        <div className="rounded-2xl border border-brand-whisper-border bg-brand-surface p-6 text-[13px] text-brand-text-muted">
+        <div className="rounded-2xl border border-border bg-card p-6 text-[13px] text-muted-foreground">
           Loading…
         </div>
       }

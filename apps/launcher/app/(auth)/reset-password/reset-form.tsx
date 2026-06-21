@@ -35,10 +35,10 @@ export function ResetForm() {
   if (done) {
     return (
       <div className="space-y-4">
-        <h1 className="font-display text-xl font-bold text-brand-text">Password updated</h1>
+        <h1 className="font-display text-xl font-bold text-foreground">Password updated</h1>
         <Alert kind="success">Your password has been changed. You can now sign in.</Alert>
-        <p className="text-center text-[13px] text-brand-text-muted">
-          <Link href="/login" className="font-semibold text-brand-blue hover:underline">
+        <p className="text-center text-[13px] text-muted-foreground">
+          <Link href="/login" className="font-semibold text-primary hover:underline">
             Go to sign in
           </Link>
         </p>
@@ -49,8 +49,8 @@ export function ResetForm() {
   return (
     <form onSubmit={onSubmit} className="space-y-4">
       <div>
-        <h1 className="font-display text-xl font-bold text-brand-text">Set a new password</h1>
-        <p className="mt-1 text-[13px] text-brand-text-muted">Choose a strong password.</p>
+        <h1 className="font-display text-xl font-bold text-foreground">Set a new password</h1>
+        <p className="mt-1 text-[13px] text-muted-foreground">Choose a strong password.</p>
       </div>
 
       {!token ? <Alert kind="error">Missing reset token. Use the link from your email.</Alert> : null}

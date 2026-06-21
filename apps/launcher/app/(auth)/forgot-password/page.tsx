@@ -27,7 +27,7 @@ export default function ForgotPasswordPage() {
   if (done) {
     return (
       <div className="space-y-4">
-        <h1 className="font-display text-xl font-bold text-brand-text">Check your email</h1>
+        <h1 className="font-display text-xl font-bold text-foreground">Check your email</h1>
         <Alert kind="success">
           If an account exists for that email, a reset link has been sent.
         </Alert>
@@ -37,8 +37,8 @@ export default function ForgotPasswordPage() {
             label="Reset password now"
           />
         ) : null}
-        <p className="text-center text-[13px] text-brand-text-muted">
-          <Link href="/login" className="font-semibold text-brand-blue hover:underline">
+        <p className="text-center text-[13px] text-muted-foreground">
+          <Link href="/login" className="font-semibold text-primary hover:underline">
             Back to sign in
           </Link>
         </p>
@@ -49,8 +49,8 @@ export default function ForgotPasswordPage() {
   return (
     <form onSubmit={onSubmit} className="space-y-4">
       <div>
-        <h1 className="font-display text-xl font-bold text-brand-text">Reset password</h1>
-        <p className="mt-1 text-[13px] text-brand-text-muted">
+        <h1 className="font-display text-xl font-bold text-foreground">Reset password</h1>
+        <p className="mt-1 text-[13px] text-muted-foreground">
           Enter your email and we’ll send a reset link.
         </p>
       </div>
@@ -59,8 +59,8 @@ export default function ForgotPasswordPage() {
 
       <SubmitButton pending={pending}>Send reset link</SubmitButton>
 
-      <p className="text-center text-[13px] text-brand-text-muted">
-        <Link href="/login" className="font-semibold text-brand-blue hover:underline">
+      <p className="text-center text-[13px] text-muted-foreground">
+        <Link href="/login" className="font-semibold text-primary hover:underline">
           Back to sign in
         </Link>
       </p>

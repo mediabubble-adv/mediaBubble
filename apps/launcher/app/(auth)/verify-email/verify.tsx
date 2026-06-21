@@ -24,10 +24,10 @@ export function VerifyEmail() {
 
   return (
     <div className="space-y-4">
-      <h1 className="font-display text-xl font-bold text-brand-text">Verify email</h1>
+      <h1 className="font-display text-xl font-bold text-foreground">Verify email</h1>
 
       {status === 'verifying' ? (
-        <p className="text-[13px] text-brand-text-muted">Verifying your email…</p>
+        <p className="text-[13px] text-muted-foreground">Verifying your email…</p>
       ) : null}
       {status === 'missing' ? (
         <Alert kind="error">No verification token found. Use the link from your email.</Alert>
@@ -36,8 +36,8 @@ export function VerifyEmail() {
       {status === 'success' ? <Alert kind="success">{message}</Alert> : null}
 
       {status !== 'verifying' ? (
-        <p className="text-center text-[13px] text-brand-text-muted">
-          <Link href="/login" className="font-semibold text-brand-blue hover:underline">
+        <p className="text-center text-[13px] text-muted-foreground">
+          <Link href="/login" className="font-semibold text-primary hover:underline">
             Continue to sign in
           </Link>
         </p>

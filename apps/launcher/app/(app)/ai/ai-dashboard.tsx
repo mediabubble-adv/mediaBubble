@@ -7,9 +7,9 @@ import { PROMPT_CATEGORIES } from '@/lib/ai/schemas'
 import { extractVariableNames } from '@/lib/ai/template'
 
 const STATUS_STYLES: Record<string, string> = {
-  Draft: 'bg-brand-text-muted/15 text-brand-text-muted',
-  Active: 'bg-brand-success/15 text-brand-success',
-  Archived: 'bg-brand-text-muted/15 text-brand-text-muted',
+  Draft: 'bg-muted-foreground/15 text-muted-foreground',
+  Active: 'bg-[#16A34A]/15 text-[#16A34A]',
+  Archived: 'bg-muted-foreground/15 text-muted-foreground',
 }
 
 const CATEGORY_LABELS: Record<string, string> = {
@@ -117,12 +117,12 @@ export function AiDashboard({
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-blue/[0.16]">
-              <Bot size={20} className="text-brand-blue" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
+              <Bot size={20} className="text-primary" />
             </div>
             <div>
-              <h1 className="font-display text-2xl font-bold text-brand-text">AI Tools</h1>
-              <p className="text-[13px] text-brand-text-muted">
+              <h1 className="font-display text-2xl font-bold text-foreground">AI Tools</h1>
+              <p className="text-[13px] text-muted-foreground">
                 Prompt Studio — build templates, fill variables, run and log outputs.
               </p>
             </div>
@@ -130,7 +130,7 @@ export function AiDashboard({
           <button
             type="button"
             onClick={() => setShowForm((v) => !v)}
-            className="inline-flex items-center gap-2 rounded-xl bg-brand-blue px-4 py-2 text-[13px] font-bold text-white transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
+            className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-[13px] font-bold text-white transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
           >
             <Plus size={16} />
             New prompt
@@ -138,7 +138,7 @@ export function AiDashboard({
         </div>
 
         {error ? (
-          <p className="mt-4 rounded-xl border border-brand-error/30 bg-brand-error/10 px-4 py-3 text-[13px] text-brand-error">
+          <p className="mt-4 rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-[13px] text-destructive">
             {error}
           </p>
         ) : null}
@@ -146,22 +146,22 @@ export function AiDashboard({
         {showForm ? (
           <form
             onSubmit={createPrompt}
-            className="mt-6 grid gap-4 rounded-2xl border border-brand-whisper-border bg-brand-surface p-5"
+            className="mt-6 grid gap-4 rounded-2xl border border-border bg-card p-5"
           >
             <label className="block">
-              <span className="text-[12px] font-bold text-brand-text-muted">Name</span>
+              <span className="text-[12px] font-bold text-muted-foreground">Name</span>
               <input
                 name="name"
                 required
-                className="mt-1 w-full rounded-xl border border-brand-whisper-border bg-brand-input px-3 py-2 text-[14px] text-brand-text"
+                className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[14px] text-foreground"
               />
             </label>
             <label className="block">
-              <span className="text-[12px] font-bold text-brand-text-muted">Category</span>
+              <span className="text-[12px] font-bold text-muted-foreground">Category</span>
               <select
                 name="category"
                 defaultValue="content"
-                className="mt-1 w-full rounded-xl border border-brand-whisper-border bg-brand-input px-3 py-2 text-[14px] text-brand-text"
+                className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[14px] text-foreground"
               >
                 {PROMPT_CATEGORIES.map((c) => (
                   <option key={c} value={c}>
@@ -171,14 +171,14 @@ export function AiDashboard({
               </select>
             </label>
             <label className="block">
-              <span className="text-[12px] font-bold text-brand-text-muted">Description</span>
+              <span className="text-[12px] font-bold text-muted-foreground">Description</span>
               <input
                 name="description"
-                className="mt-1 w-full rounded-xl border border-brand-whisper-border bg-brand-input px-3 py-2 text-[14px] text-brand-text"
+                className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[14px] text-foreground"
               />
             </label>
             <label className="block">
-              <span className="text-[12px] font-bold text-brand-text-muted">
+              <span className="text-[12px] font-bold text-muted-foreground">
                 Template <span className="font-normal">(use {'{{variable}}'} syntax)</span>
               </span>
               <textarea
@@ -186,11 +186,11 @@ export function AiDashboard({
                 required
                 rows={5}
                 placeholder="Write a LinkedIn post for {{brand}} promoting {{offer}} in {{market}}."
-                className="mt-1 w-full rounded-xl border border-brand-whisper-border bg-brand-input px-3 py-2 font-mono text-[13px] text-brand-text"
+                className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 font-mono text-[13px] text-foreground"
               />
             </label>
             {canManage ? (
-              <label className="flex items-center gap-2 text-[13px] text-brand-text-muted">
+              <label className="flex items-center gap-2 text-[13px] text-muted-foreground">
                 <input name="is_public" type="checkbox" className="rounded" />
                 Share with team (public)
               </label>
@@ -199,14 +199,14 @@ export function AiDashboard({
               <button
                 type="submit"
                 disabled={busy}
-                className="rounded-xl bg-brand-blue px-4 py-2 text-[13px] font-bold text-white disabled:opacity-50"
+                className="rounded-xl bg-primary px-4 py-2 text-[13px] font-bold text-white disabled:opacity-50"
               >
                 Save prompt
               </button>
               <button
                 type="button"
                 onClick={() => setShowForm(false)}
-                className="rounded-xl border border-brand-whisper-border px-4 py-2 text-[13px] font-bold text-brand-text-muted"
+                className="rounded-xl border border-border px-4 py-2 text-[13px] font-bold text-muted-foreground"
               >
                 Cancel
               </button>
@@ -217,17 +217,17 @@ export function AiDashboard({
         <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
           <div>
             <div className="relative mb-3">
-              <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-brand-text-muted" />
+              <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
               <input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search prompts…"
-                className="w-full rounded-xl border border-brand-whisper-border bg-brand-surface py-2 pl-9 pr-3 text-[14px] text-brand-text"
+                className="w-full rounded-xl border border-border bg-card py-2 pl-9 pr-3 text-[14px] text-foreground"
               />
             </div>
             <div className="space-y-2">
               {filtered.length === 0 ? (
-                <p className="rounded-2xl border border-dashed border-brand-whisper-border px-4 py-10 text-center text-[13px] text-brand-text-muted">
+                <p className="rounded-2xl border border-dashed border-border px-4 py-10 text-center text-[13px] text-muted-foreground">
                   No prompts yet. Create one to get started.
                 </p>
               ) : (
@@ -242,14 +242,14 @@ export function AiDashboard({
                     }}
                     className={`w-full rounded-2xl border px-4 py-3 text-left transition-all duration-200 active:scale-[0.99] ${
                       selectedId === prompt.id
-                        ? 'border-brand-blue/50 bg-brand-blue/10'
-                        : 'border-brand-whisper-border bg-brand-surface hover:border-brand-blue/30'
+                        ? 'border-primary/50 bg-primary/10'
+                        : 'border-border bg-card hover:border-primary/30'
                     }`}
                   >
                     <div className="flex items-start justify-between gap-2">
                       <div>
-                        <p className="font-bold text-brand-text">{prompt.name}</p>
-                        <p className="mt-0.5 text-[12px] text-brand-text-muted">
+                        <p className="font-bold text-foreground">{prompt.name}</p>
+                        <p className="mt-0.5 text-[12px] text-muted-foreground">
                           {CATEGORY_LABELS[prompt.category ?? 'other'] ?? prompt.category} · v
                           {prompt.version ?? 1}
                         </p>
@@ -269,42 +269,42 @@ export function AiDashboard({
             <button
               type="button"
               onClick={() => void refreshPrompts()}
-              className="mt-3 rounded-xl border border-brand-whisper-border px-3 py-2 text-[13px] font-bold text-brand-text-muted"
+              className="mt-3 rounded-xl border border-border px-3 py-2 text-[13px] font-bold text-muted-foreground"
             >
               Refresh
             </button>
           </div>
 
-          <div className="rounded-2xl border border-brand-whisper-border bg-brand-surface p-5">
+          <div className="rounded-2xl border border-border bg-card p-5">
             {!selected ? (
-              <div className="flex flex-col items-center justify-center py-16 text-center text-brand-text-muted">
+              <div className="flex flex-col items-center justify-center py-16 text-center text-muted-foreground">
                 <Sparkles size={24} className="opacity-50" />
-                <p className="mt-3 text-[14px] font-bold text-brand-text">Select a prompt</p>
+                <p className="mt-3 text-[14px] font-bold text-foreground">Select a prompt</p>
                 <p className="mt-1 text-[13px]">Pick a template from the list to test it.</p>
               </div>
             ) : (
               <>
-                <h2 className="font-display text-lg font-bold text-brand-text">{selected.name}</h2>
+                <h2 className="font-display text-lg font-bold text-foreground">{selected.name}</h2>
                 {selected.description ? (
-                  <p className="mt-1 text-[13px] text-brand-text-muted">{selected.description}</p>
+                  <p className="mt-1 text-[13px] text-muted-foreground">{selected.description}</p>
                 ) : null}
-                <pre className="mt-4 max-h-40 overflow-auto rounded-xl border border-brand-whisper-border bg-brand-canvas/50 p-3 font-mono text-[12px] text-brand-text-muted whitespace-pre-wrap">
+                <pre className="mt-4 max-h-40 overflow-auto rounded-xl border border-border bg-background/50 p-3 font-mono text-[12px] text-muted-foreground whitespace-pre-wrap">
                   {selected.template}
                 </pre>
 
                 <div className="mt-4 space-y-3">
                   {variableNames.length === 0 ? (
-                    <p className="text-[12px] text-brand-text-muted">No variables — run as-is.</p>
+                    <p className="text-[12px] text-muted-foreground">No variables — run as-is.</p>
                   ) : (
                     variableNames.map((name) => (
                       <label key={name} className="block">
-                        <span className="text-[12px] font-bold text-brand-text-muted">{name}</span>
+                        <span className="text-[12px] font-bold text-muted-foreground">{name}</span>
                         <input
                           value={variableValues[name] ?? ''}
                           onChange={(e) =>
                             setVariableValues((prev) => ({ ...prev, [name]: e.target.value }))
                           }
-                          className="mt-1 w-full rounded-xl border border-brand-whisper-border bg-brand-input px-3 py-2 text-[14px] text-brand-text"
+                          className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[14px] text-foreground"
                         />
                       </label>
                     ))
@@ -315,20 +315,20 @@ export function AiDashboard({
                   type="button"
                   disabled={busy}
                   onClick={() => void runSelected()}
-                  className="mt-4 inline-flex items-center gap-2 rounded-xl bg-brand-blue px-4 py-2 text-[13px] font-bold text-white disabled:opacity-50"
+                  className="mt-4 inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-[13px] font-bold text-white disabled:opacity-50"
                 >
                   <Play size={14} />
                   Run prompt
                 </button>
 
                 {runOutput ? (
-                  <div className="mt-4 rounded-xl border border-brand-whisper-border bg-brand-canvas/40 p-4">
+                  <div className="mt-4 rounded-xl border border-border bg-background/40 p-4">
                     {runProvider ? (
-                      <p className="mb-2 text-[11px] font-bold uppercase tracking-wide text-brand-text-muted">
+                      <p className="mb-2 text-[11px] font-bold uppercase tracking-wide text-muted-foreground">
                         {runProvider}
                       </p>
                     ) : null}
-                    <pre className="max-h-64 overflow-auto whitespace-pre-wrap font-mono text-[12px] text-brand-text">
+                    <pre className="max-h-64 overflow-auto whitespace-pre-wrap font-mono text-[12px] text-foreground">
                       {runOutput}
                     </pre>
                   </div>
