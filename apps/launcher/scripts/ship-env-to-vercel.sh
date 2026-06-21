@@ -42,20 +42,39 @@ add_sensitive_env() {
     return 0
   fi
 
+  if [[ "$env" == "preview" ]]; then
+    local branch added=0
+    for branch in $(preview_branch_names); do
+      if out="$(vercel --non-interactive env add "$key" preview "$branch" --value "$val" --yes --sensitive --force 2>&1)"; then
+        echo "  ✓ $key (preview, branch $branch)"
+        added=1
+      elif [[ "$out" != *"git_branch_required"* ]]; then
+        printf '%s\n' "$out" >&2
+        return 1
+      fi
+    done
+    if [[ "$added" -eq 0 ]]; then
+      echo "  ! $key (preview) — set in Vercel dashboard (Preview) or per-branch via CLI"
+    fi
+    return 0
+  fi
+
   if out="$(vercel --non-interactive env add "$key" "$env" --value "$val" --yes --sensitive --force 2>&1)"; then
     echo "  ✓ $key ($env)"
     return 0
   fi
   rc=$?
 
-  if [[ "$env" == "preview" && "$out" == *"git_branch_required"* ]]; then
-    echo "  ! $key (preview) — CLI needs a branch; set in Vercel dashboard or run:"
-    echo "    cd apps/launcher && vercel env add $key preview <branch> --value '…' --yes --sensitive --force"
-    return 0
-  fi
-
   printf '%s\n' "$out" >&2
   return "$rc"
+}
+
+preview_branch_names() {
+  local b
+  for b in "${VERCEL_GIT_COMMIT_REF:-}" "$(git -C "$ROOT" branch --show-current 2>/dev/null || true)" master main; do
+    [[ -z "$b" || "$b" == "HEAD" ]] && continue
+    echo "$b"
+  done | sort -u
 }
 
 add_sensitive() {
@@ -70,15 +89,25 @@ add_plain() {
   local key="$1"
   local val="$2"
   local env="$3"
-  local out
+  local out branch
 
-  if out="$(vercel --non-interactive env add "$key" "$env" --value "$val" --yes --force --no-sensitive 2>&1)"; then
-    echo "  ✓ $key ($env)"
+  if [[ "$env" == "preview" ]]; then
+    local added=0
+    for branch in $(preview_branch_names); do
+      if out="$(vercel --non-interactive env add "$key" preview "$branch" --value "$val" --yes --force --no-sensitive 2>&1)"; then
+        echo "  ✓ $key (preview, branch $branch)"
+        added=1
+      elif [[ "$out" != *"git_branch_required"* ]]; then
+        printf '%s\n' "$out" >&2
+        return 1
+      fi
+    done
+    [[ "$added" -eq 0 ]] && echo "  ! $key (preview) skipped — add via Vercel dashboard if needed"
     return 0
   fi
 
-  if [[ "$env" == "preview" && "$out" == *"git_branch_required"* ]]; then
-    echo "  ! $key (preview) skipped — add via Vercel dashboard if needed"
+  if out="$(vercel --non-interactive env add "$key" "$env" --value "$val" --yes --force --no-sensitive 2>&1)"; then
+    echo "  ✓ $key ($env)"
     return 0
   fi
 
