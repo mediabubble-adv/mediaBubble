@@ -12,13 +12,23 @@ import {
   Info,
 } from 'lucide-react'
 import { CURRENCIES, formatMoney, convert, type CurrencyCode } from '@/lib/finance/currency'
-import { summarize, byCategory, monthlySeries, type FinanceTxn } from '@/lib/finance/kpis'
+import { summarize, byCategory, monthlySeriesPadded, trailingMonthKeys, formatMonthLabel, type FinanceTxn } from '@/lib/finance/kpis'
 
 interface DashboardTxn extends FinanceTxn {
   id: string
   description: string | null
   payment_method: string | null
   recurring: boolean
+}
+
+type CashFlowPoint = {
+  x: number
+  yInflow: number
+  yOutflow: number
+  label: string
+  month: string
+  inflow: number
+  outflow: number
 }
 
 export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] }) {
@@ -74,7 +84,7 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
 
   // Operating Burn Rate calculation: average monthly outflow of the last 6 months
   const burnRate = useMemo(() => {
-    const monthlyData = monthlySeries(initialTxns, displayCurrency)
+    const monthlyData = monthlySeriesPadded(initialTxns, displayCurrency)
     if (monthlyData.length === 0) return 0
     const totalOutflow = monthlyData.reduce((sum, m) => sum + m.outflow, 0)
     return totalOutflow / monthlyData.length
@@ -101,8 +111,8 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
 
     return categoryData.map((c, i) => {
       const percentage = (c.total / total) * 100
-      const strokeDasharray = `${percentage} ${100 - percentage}`
-      const strokeDashoffset = 100 - accumulatedPercentage + 25 // +25 to start at 12 o'clock
+      const strokeDasharray = `${percentage.toFixed(2)} ${(100 - percentage).toFixed(2)}`
+      const strokeDashoffset = Number((100 - accumulatedPercentage + 25).toFixed(2))
       accumulatedPercentage += percentage
 
       return {
@@ -116,41 +126,80 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
     })
   }, [categoryData])
 
-  // SVG Area Chart Calculations
+  // Cash-flow chart uses full ledger (filters apply to the table only).
+  const usingDemoChart = initialTxns.length === 0
   const monthlyData = useMemo(() => {
-    return monthlySeries(filteredTxns, displayCurrency)
-  }, [filteredTxns, displayCurrency])
+    if (usingDemoChart) {
+      const demoInflowUsd = 120_000 / CURRENCIES.EGP.perUsd
+      const demoOutflowUsd = 25 + 20 + 10 + 25 + 20 + 20 + 12 + 20 + 1.5
+      const scale = displayCurrency === 'USD' ? 1 : convert(1, 'USD', displayCurrency)
+      return trailingMonthKeys(6).map((month) => ({
+        month,
+        label: formatMonthLabel(month),
+        inflow: demoInflowUsd * scale,
+        outflow: demoOutflowUsd * scale,
+      }))
+    }
+    return monthlySeriesPadded(initialTxns, displayCurrency)
+  }, [initialTxns, displayCurrency, usingDemoChart])
+
+  const [hoveredMonth, setHoveredMonth] = useState<string | null>(null)
 
   const chartPaths = useMemo(() => {
-    if (monthlyData.length === 0) return { inflowLine: '', inflowArea: '', outflowLine: '', outflowArea: '', points: [] }
+    if (monthlyData.length === 0) {
+      return {
+        inflowLine: '',
+        inflowArea: '',
+        outflowLine: '',
+        outflowArea: '',
+        points: [] as CashFlowPoint[],
+        yTicks: [] as { y: number; label: string }[],
+        maxVal: 0,
+      }
+    }
 
     const width = 600
     const height = 180
-    const padding = 20
-    const chartW = width - padding * 2
-    const chartH = height - padding * 2
+    const paddingLeft = 72
+    const paddingRight = 16
+    const paddingTop = 12
+    const paddingBottom = 28
+    const chartW = width - paddingLeft - paddingRight
+    const chartH = height - paddingTop - paddingBottom
 
     const maxVal = Math.max(
       ...monthlyData.map((m) => Math.max(m.inflow, m.outflow)),
-      1000 // min ceiling
+      1,
     )
 
-    const points = monthlyData.map((m, i) => {
-      const x = padding + (i / (monthlyData.length - 1 || 1)) * chartW
-      const yInflow = height - padding - (m.inflow / maxVal) * chartH
-      const yOutflow = height - padding - (m.outflow / maxVal) * chartH
-      return { x, yInflow, yOutflow, label: m.month, raw: m }
+    const points: CashFlowPoint[] = monthlyData.map((m, i) => {
+      const x = paddingLeft + (i / Math.max(monthlyData.length - 1, 1)) * chartW
+      const yInflow = paddingTop + chartH - (m.inflow / maxVal) * chartH
+      const yOutflow = paddingTop + chartH - (m.outflow / maxVal) * chartH
+      return {
+        x,
+        yInflow,
+        yOutflow,
+        label: m.label,
+        month: m.month,
+        inflow: m.inflow,
+        outflow: m.outflow,
+      }
     })
 
     const getLinePath = (yKey: 'yInflow' | 'yOutflow') =>
-      points.reduce((path, p, i) => {
-        return path + `${i === 0 ? 'M' : 'L'} ${p.x} ${p[yKey]}`
-      }, '')
+      points.reduce((path, p, i) => path + `${i === 0 ? 'M' : 'L'} ${p.x} ${p[yKey]}`, '')
 
     const getAreaPath = (linePath: string) => {
       if (!linePath) return ''
-      return `${linePath} L ${points[points.length - 1].x} ${height - padding} L ${points[0].x} ${height - padding} Z`
+      const baseline = paddingTop + chartH
+      return `${linePath} L ${points[points.length - 1].x} ${baseline} L ${points[0].x} ${baseline} Z`
     }
+
+    const yTicks = [0, maxVal / 2, maxVal].map((val) => ({
+      y: paddingTop + chartH - (val / maxVal) * chartH,
+      label: formatMoney(val, displayCurrency),
+    }))
 
     return {
       inflowLine: getLinePath('yInflow'),
@@ -158,8 +207,10 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
       outflowLine: getLinePath('yOutflow'),
       outflowArea: getAreaPath(getLinePath('yOutflow')),
       points,
+      yTicks,
+      maxVal,
     }
-  }, [monthlyData])
+  }, [monthlyData, displayCurrency])
 
   // AI Optimization Brief Check: Look for duplicate Hosting (Hostinger) charges
   const optimizationIssues = useMemo(() => {
@@ -300,10 +351,17 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
         <div className="grid gap-6 lg:grid-cols-3">
           {/* Cash Flow Area Chart */}
           <div className="lg:col-span-2 rounded-2xl border border-brand-whisper-border bg-brand-surface p-5">
-            <h2 className="font-display text-[15px] font-bold text-brand-text mb-4">Cash Flow History</h2>
+            <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+              <h2 className="font-display text-[15px] font-bold text-brand-text">Cash Flow History</h2>
+              {usingDemoChart ? (
+                <span className="rounded-md bg-brand-yellow/[0.14] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-brand-text">
+                  Example data — run npm run db:seed for live ledger
+                </span>
+              ) : null}
+            </div>
             <div className="w-full overflow-x-auto">
               <div className="min-w-[500px]">
-                <svg className="w-full" viewBox="0 0 600 200">
+                <svg className="w-full" viewBox="0 0 600 200" role="img" aria-label="Cash flow area chart">
                   <defs>
                     <linearGradient id="inflowGrad" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="0%" stopColor="var(--brand-blue, #3B82F6)" stopOpacity="0.2" />
@@ -315,69 +373,131 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
                     </linearGradient>
                   </defs>
 
-                  {/* Grid Lines */}
-                  <line x1="20" y1="20" x2="580" y2="20" stroke="#1F2128" strokeWidth="1" />
-                  <line x1="20" y1="90" x2="580" y2="90" stroke="#1F2128" strokeWidth="1" />
-                  <line x1="20" y1="160" x2="580" y2="160" stroke="#1F2128" strokeWidth="1" />
+                  {/* Y-axis labels */}
+                  {chartPaths.yTicks.map((tick, idx) => (
+                    <g key={idx}>
+                      <line
+                        x1="72"
+                        y1={tick.y}
+                        x2="584"
+                        y2={tick.y}
+                        stroke="#1F2128"
+                        strokeWidth="1"
+                      />
+                      <text
+                        x="68"
+                        y={tick.y + 3}
+                        textAnchor="end"
+                        className="fill-brand-text-muted text-[9px] font-semibold tabular-nums"
+                      >
+                        {tick.label}
+                      </text>
+                    </g>
+                  ))}
 
                   {chartPaths.points.length > 0 && (
                     <>
-                      {/* Area Paths */}
                       <path d={chartPaths.inflowArea} fill="url(#inflowGrad)" />
                       <path d={chartPaths.outflowArea} fill="url(#outflowGrad)" />
 
-                      {/* Line Paths */}
                       <path
                         d={chartPaths.inflowLine}
                         fill="none"
                         className="stroke-brand-blue"
                         strokeWidth="2.5"
+                        strokeLinejoin="round"
+                        strokeLinecap="round"
                       />
                       <path
                         d={chartPaths.outflowLine}
                         fill="none"
                         className="stroke-brand-error"
                         strokeWidth="2.5"
+                        strokeLinejoin="round"
+                        strokeLinecap="round"
                       />
 
-                      {/* Points / Circles */}
-                      {chartPaths.points.map((p, idx) => (
-                        <g key={idx} className="group cursor-pointer">
-                          <circle
-                            cx={p.x}
-                            cy={p.yInflow}
-                            r="4"
-                            className="fill-brand-blue stroke-brand-surface"
-                            strokeWidth="2"
-                          />
-                          <circle
-                            cx={p.x}
-                            cy={p.yOutflow}
-                            r="4"
-                            className="fill-brand-error stroke-brand-surface"
-                            strokeWidth="2"
-                          />
-                          {/* X-Axis Labels */}
-                          <text
-                            x={p.x}
-                            y="190"
-                            textAnchor="middle"
-                            className="fill-brand-text-muted text-[10px] font-semibold"
+                      {chartPaths.points.map((p) => {
+                        const active = hoveredMonth === p.month
+                        return (
+                          <g
+                            key={p.month}
+                            onMouseEnter={() => setHoveredMonth(p.month)}
+                            onMouseLeave={() => setHoveredMonth(null)}
+                            className="cursor-pointer"
                           >
-                            {p.label}
-                          </text>
-
-                          {/* Hover Tooltip Helper */}
-                          <title>
-                            {p.label}
-                            {`\n`}Inflow: {formatMoney(p.raw.inflow, displayCurrency)}
-                            {`\n`}Outflow: {formatMoney(p.raw.outflow, displayCurrency)}
-                          </title>
-                        </g>
-                      ))}
+                            {active ? (
+                              <line
+                                x1={p.x}
+                                y1="12"
+                                x2={p.x}
+                                y2="172"
+                                stroke="#358DCC"
+                                strokeWidth="1"
+                                strokeDasharray="3 3"
+                                opacity="0.55"
+                              />
+                            ) : null}
+                            <circle
+                              cx={p.x}
+                              cy={p.yInflow}
+                              r={active ? 5 : 4}
+                              className="fill-brand-blue stroke-brand-surface"
+                              strokeWidth="2"
+                            />
+                            <circle
+                              cx={p.x}
+                              cy={p.yOutflow}
+                              r={active ? 5 : 4}
+                              className="fill-brand-error stroke-brand-surface"
+                              strokeWidth="2"
+                            />
+                            <text
+                              x={p.x}
+                              y="190"
+                              textAnchor="middle"
+                              className={`text-[10px] font-semibold ${
+                                active ? 'fill-brand-text' : 'fill-brand-text-muted'
+                              }`}
+                            >
+                              {p.label}
+                            </text>
+                          </g>
+                        )
+                      })}
                     </>
                   )}
                 </svg>
+
+                {hoveredMonth && chartPaths.points.length > 0 ? (
+                  (() => {
+                    const p = chartPaths.points.find((pt) => pt.month === hoveredMonth)
+                    if (!p) return null
+                    return (
+                      <div className="mt-2 flex flex-wrap gap-3 rounded-lg border border-brand-whisper-border bg-brand-canvas px-3 py-2 text-[12px]">
+                        <span className="font-bold text-brand-text">{p.label}</span>
+                        <span className="text-brand-blue tabular-nums" dir="ltr">
+                          Inflow {formatMoney(p.inflow, displayCurrency)}
+                        </span>
+                        <span className="text-brand-error tabular-nums" dir="ltr">
+                          Outflow {formatMoney(p.outflow, displayCurrency)}
+                        </span>
+                        <span
+                          className={`font-semibold tabular-nums ${
+                            p.inflow - p.outflow >= 0 ? 'text-brand-blue' : 'text-brand-error'
+                          }`}
+                          dir="ltr"
+                        >
+                          Net {formatMoney(p.inflow - p.outflow, displayCurrency)}
+                        </span>
+                      </div>
+                    )
+                  })()
+                ) : (
+                  <p className="mt-2 text-[11px] text-brand-text-muted">
+                    Hover a month for inflow / outflow breakdown. Values convert to {displayCurrency}.
+                  </p>
+                )}
               </div>
             </div>
             {/* Chart Legend */}

@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation'
 import { getServerSession } from '@/lib/auth/server-session'
 import { prisma } from '@/lib/db/prisma'
 import { AppShell, type ShellUser } from './_shell/app-shell'
+import { ToastProvider } from '@/components/ui/toast'
 
 export const dynamic = 'force-dynamic'
 
@@ -36,5 +37,9 @@ export default async function AppLayout({ children }: { children: React.ReactNod
     initials: initials(record.name),
   }
 
-  return <AppShell user={user}>{children}</AppShell>
+  return (
+    <ToastProvider>
+      <AppShell user={user}>{children}</AppShell>
+    </ToastProvider>
+  )
 }

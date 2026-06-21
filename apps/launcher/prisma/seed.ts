@@ -7,8 +7,11 @@
 // guarded by a name lookup (the schema has no unique constraint on name).
 
 import { PrismaClient } from '@prisma/client'
+import { applyLauncherEnv } from '../lib/db/load-launcher-env'
 import { hashPassword } from '../lib/auth/password'
 import { HOLIDAY_SEED_2026, HOLIDAY_SEED_NAMES } from '../lib/time/holidays-data'
+
+applyLauncherEnv()
 
 const prisma = new PrismaClient()
 

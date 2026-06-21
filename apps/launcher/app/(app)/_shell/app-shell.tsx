@@ -63,7 +63,7 @@ export function AppShell({ user, children }: { user: ShellUser; children: React.
   }, [pathname])
 
   return (
-    <div className="flex min-h-screen bg-brand-canvas">
+    <div className="flex min-h-screen bg-background">
       {/* Mobile backdrop */}
       {mobileOpen ? (
         <div
@@ -106,17 +106,17 @@ function Sidebar({
 }) {
   return (
     <aside
-      className={`fixed inset-y-0 left-0 z-40 flex flex-col border-r border-brand-whisper-border bg-brand-surface transition-[width,transform] duration-200 lg:static lg:translate-x-0 ${
+      className={`fixed inset-y-0 left-0 z-40 flex flex-col border-r border-border bg-card transition-[width,transform] duration-200 lg:static lg:translate-x-0 ${
         collapsed ? 'w-[64px]' : 'w-[240px]'
       } ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}`}
     >
       {/* Brand */}
       <div className="flex h-14 items-center gap-2 px-3.5">
-        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand-blue/[0.16]">
-          <Rocket size={16} className="text-brand-blue" />
+        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+          <Rocket size={16} className="text-primary" />
         </div>
         {!collapsed ? (
-          <span className="truncate text-[13px] font-bold text-brand-text">MediaBubble</span>
+          <span className="truncate text-[13px] font-bold text-foreground">MediaBubble</span>
         ) : null}
       </div>
 
@@ -126,7 +126,7 @@ function Sidebar({
         ))}
       </nav>
 
-      <div className="space-y-1 border-t border-brand-whisper-border px-2.5 py-2">
+      <div className="space-y-1 border-t border-border px-2.5 py-2">
         {NAV_FOOTER.map((item) => (
           <NavLink key={item.href} item={item} collapsed={collapsed} pathname={pathname} />
         ))}
@@ -134,7 +134,7 @@ function Sidebar({
           type="button"
           onClick={onToggleCollapsed}
           title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-          className="hidden w-full items-center gap-3 rounded-lg px-2.5 py-2 text-[13px] text-brand-text-muted transition-colors hover:bg-brand-canvas hover:text-brand-text lg:flex"
+          className="hidden w-full items-center gap-3 rounded-lg px-2.5 py-2 text-[13px] text-muted-foreground transition-[background-color,color] hover:bg-secondary hover:text-foreground lg:flex"
         >
           {collapsed ? <PanelLeftOpen size={18} /> : <PanelLeftClose size={18} />}
           {!collapsed ? <span>Collapse</span> : null}
@@ -159,15 +159,15 @@ function NavLink({
     <Link
       href={item.href}
       title={collapsed ? item.label : undefined}
-      className={`group flex items-center gap-3 rounded-lg px-2.5 py-2 text-[13px] font-medium transition-all duration-200 active:scale-[0.98] ${
+      className={`group flex items-center gap-3 rounded-lg px-2.5 py-2 text-[13px] font-medium transition-[transform,background-color,color] duration-150 ease-[var(--ease-out)] active:scale-[0.98] ${
         active
-          ? 'bg-brand-blue/[0.16] text-brand-text'
-          : 'text-brand-text-muted hover:bg-brand-canvas hover:text-brand-text'
+          ? 'bg-primary/10 text-foreground'
+          : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
       } ${collapsed ? 'justify-center' : ''}`}
     >
       <Icon
         size={18}
-        className={`shrink-0 ${active ? 'text-brand-blue' : 'text-brand-text-muted group-hover:text-brand-text'}`}
+        className={`shrink-0 ${active ? 'text-primary' : 'text-muted-foreground group-hover:text-foreground'}`}
       />
       {!collapsed ? <span className="flex-1 truncate">{item.label}</span> : null}
     </Link>
@@ -184,11 +184,11 @@ function Topbar({
   onOpenMobile: () => void
 }) {
   return (
-    <header className="sticky top-0 z-20 flex h-14 items-center gap-3 border-b border-brand-whisper-border bg-brand-canvas/80 px-4 backdrop-blur">
+    <header className="sticky top-0 z-20 flex h-14 items-center gap-3 border-b border-border bg-background/80 px-4 backdrop-blur">
       <button
         type="button"
         onClick={onOpenMobile}
-        className="text-brand-text-muted transition-colors hover:text-brand-text lg:hidden"
+        className="text-muted-foreground transition-[color] hover:text-foreground lg:hidden"
         aria-label="Open menu"
       >
         <Menu size={20} />
@@ -198,11 +198,11 @@ function Topbar({
       <button
         type="button"
         onClick={onOpenPalette}
-        className="flex h-9 max-w-sm flex-1 items-center gap-2 rounded-lg border border-brand-input-border bg-brand-surface px-3 text-left text-[13px] text-brand-text-muted transition-colors hover:border-brand-blue/50"
+        className="flex h-9 max-w-sm flex-1 items-center gap-2 rounded-lg border border-input bg-card px-3 text-left text-[13px] text-muted-foreground transition-[border-color] hover:border-primary/50"
       >
         <Search size={15} className="shrink-0" />
         <span className="flex-1 truncate">Search…</span>
-        <kbd className="hidden rounded border border-brand-whisper-border px-1.5 py-0.5 text-[10px] font-semibold sm:inline">
+        <kbd className="hidden rounded border border-border px-1.5 py-0.5 text-[10px] font-semibold text-foreground sm:inline">
           ⌘K
         </kbd>
       </button>
@@ -211,7 +211,7 @@ function Topbar({
 
       <button
         type="button"
-        className="relative text-brand-text-muted transition-colors hover:text-brand-text"
+        className="relative text-muted-foreground transition-[color] hover:text-foreground"
         aria-label="Notifications"
       >
         <Bell size={18} />
@@ -250,20 +250,20 @@ function UserMenu({ user }: { user: ShellUser }) {
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="flex items-center gap-2 rounded-lg py-1 pl-1 pr-2 transition-colors hover:bg-brand-surface"
+        className="flex items-center gap-2 rounded-lg py-1 pl-1 pr-2 transition-[background-color] hover:bg-secondary"
       >
-        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-blue/[0.16] text-[12px] font-bold text-brand-blue">
+        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-[12px] font-bold text-primary">
           {user.initials}
         </span>
-        <ChevronDown size={14} className="text-brand-text-muted" />
+        <ChevronDown size={14} className="text-muted-foreground" />
       </button>
 
       {open ? (
-        <div className="absolute right-0 top-[calc(100%+6px)] w-56 overflow-hidden rounded-xl border border-brand-whisper-border bg-brand-surface shadow-xl shadow-black/30">
-          <div className="border-b border-brand-whisper-border px-3.5 py-3">
-            <p className="truncate text-[13px] font-bold text-brand-text">{user.name}</p>
-            <p className="truncate text-[12px] text-brand-text-muted">{user.email}</p>
-            <p className="mt-1 text-[11px] text-brand-text-muted">
+        <div className="absolute right-0 top-[calc(100%+6px)] w-56 overflow-hidden rounded-xl border border-border bg-card shadow-xl shadow-black/30">
+          <div className="border-b border-border px-3.5 py-3">
+            <p className="truncate text-[13px] font-bold text-foreground">{user.name}</p>
+            <p className="truncate text-[12px] text-muted-foreground">{user.email}</p>
+            <p className="mt-1 text-[11px] text-muted-foreground">
               {user.role}
               {user.department ? ` · ${user.department}` : ''}
             </p>
@@ -272,9 +272,9 @@ function UserMenu({ user }: { user: ShellUser }) {
             type="button"
             onClick={signOut}
             disabled={pending}
-            className="flex w-full items-center gap-2.5 px-3.5 py-2.5 text-left text-[13px] text-brand-text transition-colors hover:bg-brand-canvas disabled:opacity-60"
+            className="flex w-full items-center gap-2.5 px-3.5 py-2.5 text-left text-[13px] text-foreground transition-[background-color] hover:bg-secondary disabled:opacity-60"
           >
-            <LogOut size={15} className="text-brand-text-muted" />
+            <LogOut size={15} className="text-muted-foreground" />
             {pending ? 'Signing out…' : 'Sign out'}
           </button>
         </div>
