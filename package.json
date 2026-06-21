@@ -114,6 +114,8 @@
     "@next/eslint-plugin-next": {
       "glob": "10.5.0"
     },
+    "form-data": "4.0.6",
+    "serialize-javascript": "7.0.6",
     "js-yaml": "4.2.0",
     "http-proxy-middleware": "3.0.7",
     "webpack-dev-server": {
