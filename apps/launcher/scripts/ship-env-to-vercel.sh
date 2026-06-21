@@ -3,7 +3,7 @@
 # Run from repo root: bash apps/launcher/scripts/ship-env-to-vercel.sh
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
+ROOT="$(cd "$(dirname "$0")/../../.." && pwd)"
 LAUNCHER="$ROOT/apps/launcher"
 cd "$LAUNCHER"
 
@@ -30,21 +30,60 @@ read_env() {
   printf '%s' "$val"
 }
 
+add_sensitive_env() {
+  local key="$1"
+  local val="$2"
+  local env="$3"
+  local out rc
+
+  if [[ "$env" == "development" ]]; then
+    vercel --non-interactive env add "$key" "$env" --value "$val" --yes --force --no-sensitive
+    echo "  ✓ $key ($env)"
+    return 0
+  fi
+
+  if out="$(vercel --non-interactive env add "$key" "$env" --value "$val" --yes --sensitive --force 2>&1)"; then
+    echo "  ✓ $key ($env)"
+    return 0
+  fi
+  rc=$?
+
+  if [[ "$env" == "preview" && "$out" == *"git_branch_required"* ]]; then
+    echo "  ! $key (preview) — CLI needs a branch; set in Vercel dashboard or run:"
+    echo "    cd apps/launcher && vercel env add $key preview <branch> --value '…' --yes --sensitive --force"
+    return 0
+  fi
+
+  printf '%s\n' "$out" >&2
+  return "$rc"
+}
+
 add_sensitive() {
   local key="$1"
   local val="$2"
-  for env in production preview development; do
-    printf '%s' "$val" | vercel env add "$key" "$env" --yes --sensitive --force
-    echo "  ✓ $key ($env)"
-  done
+  add_sensitive_env "$key" "$val" production
+  add_sensitive_env "$key" "$val" preview
+  add_sensitive_env "$key" "$val" development
 }
 
 add_plain() {
   local key="$1"
   local val="$2"
   local env="$3"
-  vercel env add "$key" "$env" --value "$val" --yes --force --no-sensitive
-  echo "  ✓ $key ($env)"
+  local out
+
+  if out="$(vercel --non-interactive env add "$key" "$env" --value "$val" --yes --force --no-sensitive 2>&1)"; then
+    echo "  ✓ $key ($env)"
+    return 0
+  fi
+
+  if [[ "$env" == "preview" && "$out" == *"git_branch_required"* ]]; then
+    echo "  ! $key (preview) skipped — add via Vercel dashboard if needed"
+    return 0
+  fi
+
+  printf '%s\n' "$out" >&2
+  return 1
 }
 
 echo "→ Syncing env to mediabubble/launcher …"
