@@ -35,8 +35,8 @@ export function LoginForm() {
   return (
     <form onSubmit={onSubmit} className="space-y-4">
       <div>
-        <h1 className="font-display text-xl font-bold text-brand-text">Sign in</h1>
-        <p className="mt-1 text-[13px] text-brand-text-muted">
+        <h1 className="font-display text-xl font-bold text-foreground">Sign in</h1>
+        <p className="mt-1 text-[13px] text-muted-foreground">
           Welcome back to the operations platform.
         </p>
       </div>
@@ -47,16 +47,16 @@ export function LoginForm() {
       <Field label="Password" name="password" type="password" autoComplete="current-password" required />
 
       <div className="text-right">
-        <Link href="/forgot-password" className="text-[12px] font-semibold text-brand-blue hover:underline">
+        <Link href="/forgot-password" className="text-[12px] font-semibold text-primary hover:underline">
           Forgot password?
         </Link>
       </div>
 
       <SubmitButton pending={pending}>Sign in</SubmitButton>
 
-      <p className="text-center text-[13px] text-brand-text-muted">
+      <p className="text-center text-[13px] text-muted-foreground">
         No account?{' '}
-        <Link href="/signup" className="font-semibold text-brand-blue hover:underline">
+        <Link href="/signup" className="font-semibold text-primary hover:underline">
           Create one
         </Link>
       </p>

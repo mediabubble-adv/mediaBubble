@@ -13,6 +13,7 @@ import {
 } from 'lucide-react'
 import { CURRENCIES, formatMoney, convert, type CurrencyCode } from '@/lib/finance/currency'
 import { summarize, byCategory, monthlySeriesPadded, trailingMonthKeys, formatMonthLabel, type FinanceTxn } from '@/lib/finance/kpis'
+import { Input } from '@/components/ui/input'
 
 interface DashboardTxn extends FinanceTxn {
   id: string
@@ -102,11 +103,11 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
 
     let accumulatedPercentage = 0
     const colors = [
-      'stroke-brand-blue',
-      'stroke-brand-warning',
-      'stroke-brand-error',
-      'stroke-brand-info',
-      'stroke-brand-text-muted',
+      'stroke-primary',
+      'stroke-[#CA8A04]',
+      'stroke-destructive',
+      'stroke-primary',
+      'stroke-muted-foreground',
     ]
 
     return categoryData.map((c, i) => {
@@ -263,27 +264,27 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
         {/* Header with Currency Switcher */}
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-blue/[0.16]">
-              <Wallet size={20} className="text-brand-blue" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
+              <Wallet size={20} className="text-primary" />
             </div>
             <div>
-              <h1 className="font-display text-2xl font-bold text-brand-text">Finance Ledger</h1>
-              <p className="text-[13px] text-brand-text-muted">
+              <h1 className="font-display text-2xl font-bold text-foreground">Finance Ledger</h1>
+              <p className="text-[13px] text-muted-foreground">
                 Audit transactions, track cash flow, and optimize infrastructure spend.
               </p>
             </div>
           </div>
 
           {/* Currency Switcher */}
-          <div className="flex rounded-lg border border-brand-whisper-border bg-brand-surface p-1">
+          <div className="flex rounded-lg border border-border bg-card p-1">
             {(Object.keys(CURRENCIES) as CurrencyCode[]).map((code) => (
               <button
                 key={code}
                 onClick={() => setDisplayCurrency(code)}
-                className={`rounded-md px-3 py-1.5 text-[12px] font-semibold transition-all ${
+                className={`rounded-md px-3 py-1.5 text-[12px] font-semibold transition-[transform,background-color,color,border-color,opacity] ${
                   displayCurrency === code
-                    ? 'bg-brand-blue text-white'
-                    : 'text-brand-text-muted hover:text-brand-text'
+                    ? 'bg-primary text-white'
+                    : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
                 {code} ({CURRENCIES[code].symbol})
@@ -294,32 +295,32 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
 
         {/* KPI Strip */}
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="rounded-2xl border border-brand-whisper-border bg-brand-surface p-4">
+          <div className="rounded-2xl border border-border bg-card p-4">
             <div className="flex items-center justify-between">
-              <span className="text-[12px] font-medium text-brand-text-muted">Total Inflows</span>
-              <TrendingUp size={16} className="text-brand-blue" />
+              <span className="text-[12px] font-medium text-muted-foreground">Total Inflows</span>
+              <TrendingUp size={16} className="text-primary" />
             </div>
-            <p className="mt-2 text-2xl font-bold text-brand-text tabular-nums" dir="ltr">
+            <p className="mt-2 text-2xl font-bold text-foreground tabular-nums" dir="ltr">
               {formatMoney(summary.inflows, displayCurrency)}
             </p>
           </div>
 
-          <div className="rounded-2xl border border-brand-whisper-border bg-brand-surface p-4">
+          <div className="rounded-2xl border border-border bg-card p-4">
             <div className="flex items-center justify-between">
-              <span className="text-[12px] font-medium text-brand-text-muted">Total Outflows</span>
-              <TrendingDown size={16} className="text-brand-error" />
+              <span className="text-[12px] font-medium text-muted-foreground">Total Outflows</span>
+              <TrendingDown size={16} className="text-destructive" />
             </div>
-            <p className="mt-2 text-2xl font-bold text-brand-text tabular-nums" dir="ltr">
+            <p className="mt-2 text-2xl font-bold text-foreground tabular-nums" dir="ltr">
               {formatMoney(summary.outflows, displayCurrency)}
             </p>
           </div>
 
-          <div className="rounded-2xl border border-brand-whisper-border bg-brand-surface p-4">
+          <div className="rounded-2xl border border-border bg-card p-4">
             <div className="flex items-center justify-between">
-              <span className="text-[12px] font-medium text-brand-text-muted">Net Profit</span>
+              <span className="text-[12px] font-medium text-muted-foreground">Net Profit</span>
               <div
                 className={`flex h-5 w-5 items-center justify-center rounded-full ${
-                  summary.net >= 0 ? 'bg-brand-blue/15 text-brand-blue' : 'bg-brand-error/15 text-brand-error'
+                  summary.net >= 0 ? 'bg-primary/15 text-primary' : 'bg-destructive/15 text-destructive'
                 }`}
               >
                 <DollarSign size={12} />
@@ -327,7 +328,7 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
             </div>
             <p
               className={`mt-2 text-2xl font-bold tabular-nums ${
-                summary.net >= 0 ? 'text-brand-blue' : 'text-brand-error'
+                summary.net >= 0 ? 'text-primary' : 'text-destructive'
               }`}
               dir="ltr"
             >
@@ -335,14 +336,14 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
             </p>
           </div>
 
-          <div className="rounded-2xl border border-brand-whisper-border bg-brand-surface p-4">
+          <div className="rounded-2xl border border-border bg-card p-4">
             <div className="flex items-center justify-between">
-              <span className="text-[12px] font-medium text-brand-text-muted">Operating Burn Rate</span>
-              <Info size={16} className="text-brand-text-muted" />
+              <span className="text-[12px] font-medium text-muted-foreground">Operating Burn Rate</span>
+              <Info size={16} className="text-muted-foreground" />
             </div>
-            <p className="mt-2 text-2xl font-bold text-brand-text tabular-nums" dir="ltr">
+            <p className="mt-2 text-2xl font-bold text-foreground tabular-nums" dir="ltr">
               {formatMoney(burnRate, displayCurrency)}
-              <span className="text-[11px] font-normal text-brand-text-muted"> / mo</span>
+              <span className="text-[11px] font-normal text-muted-foreground"> / mo</span>
             </p>
           </div>
         </div>
@@ -350,11 +351,11 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
         {/* Charts & AI Optimization Brief */}
         <div className="grid gap-6 lg:grid-cols-3">
           {/* Cash Flow Area Chart */}
-          <div className="lg:col-span-2 rounded-2xl border border-brand-whisper-border bg-brand-surface p-5">
+          <div className="lg:col-span-2 rounded-2xl border border-border bg-card p-5">
             <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
-              <h2 className="font-display text-[15px] font-bold text-brand-text">Cash Flow History</h2>
+              <h2 className="font-display text-[15px] font-bold text-foreground">Cash Flow History</h2>
               {usingDemoChart ? (
-                <span className="rounded-md bg-brand-yellow/[0.14] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-brand-text">
+                <span className="rounded-md bg-accent/[0.14] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-foreground">
                   Example data — run npm run db:seed for live ledger
                 </span>
               ) : null}
@@ -364,12 +365,12 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
                 <svg className="w-full" viewBox="0 0 600 200" role="img" aria-label="Cash flow area chart">
                   <defs>
                     <linearGradient id="inflowGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="var(--brand-blue, #3B82F6)" stopOpacity="0.2" />
-                      <stop offset="100%" stopColor="var(--brand-blue, #3B82F6)" stopOpacity="0.0" />
+                      <stop offset="0%" stopColor="var(--primary, #3B82F6)" stopOpacity="0.2" />
+                      <stop offset="100%" stopColor="var(--primary, #3B82F6)" stopOpacity="0.0" />
                     </linearGradient>
                     <linearGradient id="outflowGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="var(--brand-error, #EF4444)" stopOpacity="0.2" />
-                      <stop offset="100%" stopColor="var(--brand-error, #EF4444)" stopOpacity="0.0" />
+                      <stop offset="0%" stopColor="var(--destructive, #EF4444)" stopOpacity="0.2" />
+                      <stop offset="100%" stopColor="var(--destructive, #EF4444)" stopOpacity="0.0" />
                     </linearGradient>
                   </defs>
 
@@ -388,7 +389,7 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
                         x="68"
                         y={tick.y + 3}
                         textAnchor="end"
-                        className="fill-brand-text-muted text-[9px] font-semibold tabular-nums"
+                        className="fill-muted-foreground text-[9px] font-semibold tabular-nums"
                       >
                         {tick.label}
                       </text>
@@ -403,7 +404,7 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
                       <path
                         d={chartPaths.inflowLine}
                         fill="none"
-                        className="stroke-brand-blue"
+                        className="stroke-primary"
                         strokeWidth="2.5"
                         strokeLinejoin="round"
                         strokeLinecap="round"
@@ -411,7 +412,7 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
                       <path
                         d={chartPaths.outflowLine}
                         fill="none"
-                        className="stroke-brand-error"
+                        className="stroke-destructive"
                         strokeWidth="2.5"
                         strokeLinejoin="round"
                         strokeLinecap="round"
@@ -442,14 +443,14 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
                               cx={p.x}
                               cy={p.yInflow}
                               r={active ? 5 : 4}
-                              className="fill-brand-blue stroke-brand-surface"
+                              className="fill-primary stroke-card"
                               strokeWidth="2"
                             />
                             <circle
                               cx={p.x}
                               cy={p.yOutflow}
                               r={active ? 5 : 4}
-                              className="fill-brand-error stroke-brand-surface"
+                              className="fill-destructive stroke-card"
                               strokeWidth="2"
                             />
                             <text
@@ -457,7 +458,7 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
                               y="190"
                               textAnchor="middle"
                               className={`text-[10px] font-semibold ${
-                                active ? 'fill-brand-text' : 'fill-brand-text-muted'
+                                active ? 'fill-foreground' : 'fill-muted-foreground'
                               }`}
                             >
                               {p.label}
@@ -474,17 +475,17 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
                     const p = chartPaths.points.find((pt) => pt.month === hoveredMonth)
                     if (!p) return null
                     return (
-                      <div className="mt-2 flex flex-wrap gap-3 rounded-lg border border-brand-whisper-border bg-brand-canvas px-3 py-2 text-[12px]">
-                        <span className="font-bold text-brand-text">{p.label}</span>
-                        <span className="text-brand-blue tabular-nums" dir="ltr">
+                      <div className="mt-2 flex flex-wrap gap-3 rounded-lg border border-border bg-background px-3 py-2 text-[12px]">
+                        <span className="font-bold text-foreground">{p.label}</span>
+                        <span className="text-primary tabular-nums" dir="ltr">
                           Inflow {formatMoney(p.inflow, displayCurrency)}
                         </span>
-                        <span className="text-brand-error tabular-nums" dir="ltr">
+                        <span className="text-destructive tabular-nums" dir="ltr">
                           Outflow {formatMoney(p.outflow, displayCurrency)}
                         </span>
                         <span
                           className={`font-semibold tabular-nums ${
-                            p.inflow - p.outflow >= 0 ? 'text-brand-blue' : 'text-brand-error'
+                            p.inflow - p.outflow >= 0 ? 'text-primary' : 'text-destructive'
                           }`}
                           dir="ltr"
                         >
@@ -494,7 +495,7 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
                     )
                   })()
                 ) : (
-                  <p className="mt-2 text-[11px] text-brand-text-muted">
+                  <p className="mt-2 text-[11px] text-muted-foreground">
                     Hover a month for inflow / outflow breakdown. Values convert to {displayCurrency}.
                   </p>
                 )}
@@ -503,19 +504,19 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
             {/* Chart Legend */}
             <div className="flex gap-4 mt-2 justify-end text-[11px] font-bold">
               <div className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-brand-blue" />
-                <span className="text-brand-text-muted">Inflows</span>
+                <span className="h-2 w-2 rounded-full bg-primary" />
+                <span className="text-muted-foreground">Inflows</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-brand-error" />
-                <span className="text-brand-text-muted">Outflows</span>
+                <span className="h-2 w-2 rounded-full bg-destructive" />
+                <span className="text-muted-foreground">Outflows</span>
               </div>
             </div>
           </div>
 
           {/* Expense Donut Chart */}
-          <div className="rounded-2xl border border-brand-whisper-border bg-brand-surface p-5">
-            <h2 className="font-display text-[15px] font-bold text-brand-text mb-4">Outflows by Category</h2>
+          <div className="rounded-2xl border border-border bg-card p-5">
+            <h2 className="font-display text-[15px] font-bold text-foreground mb-4">Outflows by Category</h2>
             {donutSegments.length > 0 ? (
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row lg:flex-col xl:flex-row">
                 <div className="relative h-28 w-28 shrink-0">
@@ -538,8 +539,8 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
                     ))}
                   </svg>
                   <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-brand-text-muted">Total</span>
-                    <span className="text-[13px] font-extrabold text-brand-text">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Total</span>
+                    <span className="text-[13px] font-extrabold text-foreground">
                       {formatMoney(
                         categoryData.reduce((sum, c) => sum + c.total, 0),
                         displayCurrency
@@ -553,11 +554,11 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
                     <div key={idx} className="flex items-center justify-between text-[12px]">
                       <div className="flex items-center gap-2">
                         <span className={`h-2 w-2 rounded-full ${seg.bgClass}`} />
-                        <span className="font-medium text-brand-text-muted truncate max-w-[100px] xl:max-w-[120px]">
+                        <span className="font-medium text-muted-foreground truncate max-w-[100px] xl:max-w-[120px]">
                           {seg.category}
                         </span>
                       </div>
-                      <span className="font-bold text-brand-text tabular-nums">
+                      <span className="font-bold text-foreground tabular-nums">
                         {seg.percentage.toFixed(0)}%
                       </span>
                     </div>
@@ -565,28 +566,28 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
                 </div>
               </div>
             ) : (
-              <p className="text-center text-brand-text-muted text-[13px] py-10">No outflows logged</p>
+              <p className="text-center text-muted-foreground text-[13px] py-10">No outflows logged</p>
             )}
           </div>
         </div>
 
         {/* AI Optimization Brief Callout */}
         {optimizationIssues.length > 0 && (
-          <div className="rounded-2xl border border-brand-warning/30 bg-brand-warning/5 p-5">
+          <div className="rounded-2xl border border-[#CA8A04]/30 bg-[#CA8A04]/5 p-5">
             <div className="flex items-start gap-3">
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-brand-warning/10 text-brand-warning">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#CA8A04]/10 text-[#CA8A04]">
                 <AlertTriangle size={18} />
               </div>
               <div className="flex-1">
-                <h3 className="font-display text-[14px] font-bold text-brand-warning">
+                <h3 className="font-display text-[14px] font-bold text-[#CA8A04]">
                   AI Spending Optimization Opportunity
                 </h3>
                 {optimizationIssues.map((issue, idx) => (
                   <div key={idx} className="mt-2 flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
-                    <p className="text-[13px] text-brand-text-muted leading-relaxed max-w-2xl">
+                    <p className="text-[13px] text-muted-foreground leading-relaxed max-w-2xl">
                       {issue.desc}
                     </p>
-                    <div className="shrink-0 flex items-center gap-2 rounded-lg bg-brand-warning/10 px-3 py-1.5 text-brand-warning">
+                    <div className="shrink-0 flex items-center gap-2 rounded-lg bg-[#CA8A04]/10 px-3 py-1.5 text-[#CA8A04]">
                       <span className="text-[11px] font-bold uppercase tracking-wider">Potential Savings</span>
                       <span className="font-mono text-sm font-bold tabular-nums" dir="ltr">
                         {issue.savings}
@@ -600,21 +601,21 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
         )}
 
         {/* Ledger Table Section */}
-        <div className="rounded-2xl border border-brand-whisper-border bg-brand-surface p-5">
+        <div className="rounded-2xl border border-border bg-card p-5">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between pb-4">
-            <h2 className="font-display text-[15px] font-bold text-brand-text">Ledger List</h2>
+            <h2 className="font-display text-[15px] font-bold text-foreground">Ledger List</h2>
 
             {/* Filters Bar */}
             <div className="flex flex-wrap items-center gap-3">
               {/* Search box */}
               <div className="relative">
-                <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-brand-text-muted" />
-                <input
+                <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                <Input
                   type="text"
                   placeholder="Search ledger…"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="rounded-lg border border-brand-input-border bg-brand-canvas pl-9 pr-3 py-1.5 text-[13px] text-brand-text placeholder:text-brand-text-muted outline-none focus:border-brand-blue/60 w-full sm:w-44"
+                  className="rounded-lg border border-input bg-background pl-9 pr-3 py-1.5 text-[13px] text-foreground placeholder:text-muted-foreground outline-none focus:border-primary/60 w-full sm:w-44"
                 />
               </div>
 
@@ -622,7 +623,7 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
               <select
                 value={typeFilter}
                 onChange={(e: any) => setTypeFilter(e.target.value)}
-                className="rounded-lg border border-brand-input-border bg-brand-canvas px-3 py-1.5 text-[13px] text-brand-text outline-none focus:border-brand-blue/60"
+                className="rounded-lg border border-input bg-background px-3 py-1.5 text-[13px] text-foreground outline-none focus:border-primary/60"
               >
                 <option value="all">All Types</option>
                 <option value="inflow">Inflow</option>
@@ -633,7 +634,7 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
               <select
                 value={categoryFilter}
                 onChange={(e) => setCategoryFilter(e.target.value)}
-                className="rounded-lg border border-brand-input-border bg-brand-canvas px-3 py-1.5 text-[13px] text-brand-text outline-none focus:border-brand-blue/60"
+                className="rounded-lg border border-input bg-background px-3 py-1.5 text-[13px] text-foreground outline-none focus:border-primary/60"
               >
                 <option value="all">All Categories</option>
                 {categories.filter((c) => c !== 'all').map((cat) => (
@@ -649,10 +650,10 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
           <div className="overflow-x-auto">
             <table className="w-full border-collapse text-left text-[13px]">
               <thead>
-                <tr className="border-b border-brand-whisper-border text-brand-text-muted">
+                <tr className="border-b border-border text-muted-foreground">
                   <th
                     onClick={() => toggleSort('date')}
-                    className="cursor-pointer py-3 pr-4 font-bold select-none hover:text-brand-text"
+                    className="cursor-pointer py-3 pr-4 font-bold select-none hover:text-foreground"
                   >
                     <div className="flex items-center gap-1.5">
                       Date
@@ -661,7 +662,7 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
                   </th>
                   <th
                     onClick={() => toggleSort('category')}
-                    className="cursor-pointer px-4 py-3 font-bold select-none hover:text-brand-text"
+                    className="cursor-pointer px-4 py-3 font-bold select-none hover:text-foreground"
                   >
                     <div className="flex items-center gap-1.5">
                       Category
@@ -671,7 +672,7 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
                   <th className="px-4 py-3 font-bold">Description</th>
                   <th
                     onClick={() => toggleSort('type')}
-                    className="cursor-pointer px-4 py-3 font-bold select-none hover:text-brand-text"
+                    className="cursor-pointer px-4 py-3 font-bold select-none hover:text-foreground"
                   >
                     <div className="flex items-center gap-1.5">
                       Type
@@ -680,7 +681,7 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
                   </th>
                   <th
                     onClick={() => toggleSort('amount')}
-                    className="cursor-pointer py-3 pl-4 font-bold select-none hover:text-brand-text text-right"
+                    className="cursor-pointer py-3 pl-4 font-bold select-none hover:text-foreground text-right"
                   >
                     <div className="flex items-center gap-1.5 justify-end">
                       Amount
@@ -689,26 +690,26 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-brand-whisper-border">
+              <tbody className="divide-y divide-border">
                 {filteredTxns.map((t) => {
                   const displayAmt = convert(t.amount, t.currency, displayCurrency)
                   const isMultiCurrency = t.currency !== displayCurrency
 
                   return (
-                    <tr key={t.id} className="hover:bg-brand-whisper-border/20">
-                      <td className="py-3 pr-4 font-medium text-brand-text tabular-nums" dir="ltr">
+                    <tr key={t.id} className="hover:bg-border/20">
+                      <td className="py-3 pr-4 font-medium text-foreground tabular-nums" dir="ltr">
                         {t.date}
                       </td>
-                      <td className="px-4 py-3 text-brand-text-muted">
-                        <span className="rounded bg-brand-whisper-border/30 px-2 py-0.5 text-[11px] font-semibold text-brand-text-muted">
+                      <td className="px-4 py-3 text-muted-foreground">
+                        <span className="rounded bg-border/30 px-2 py-0.5 text-[11px] font-semibold text-muted-foreground">
                           {t.category}
                         </span>
                       </td>
                       <td className="px-4 py-3">
                         <div className="flex flex-col">
-                          <span className="font-semibold text-brand-text">{t.description || '—'}</span>
+                          <span className="font-semibold text-foreground">{t.description || '—'}</span>
                           {t.recurring && (
-                            <span className="text-[10px] text-brand-blue font-bold uppercase tracking-wider mt-0.5">
+                            <span className="text-[10px] text-primary font-bold uppercase tracking-wider mt-0.5">
                               Monthly Recurring
                             </span>
                           )}
@@ -718,8 +719,8 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
                         <span
                           className={`inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[11px] font-bold ${
                             t.type === 'inflow'
-                              ? 'bg-brand-blue/10 text-brand-blue'
-                              : 'bg-brand-error/10 text-brand-error'
+                              ? 'bg-primary/10 text-primary'
+                              : 'bg-destructive/10 text-destructive'
                           }`}
                         >
                           {t.type === 'inflow' ? 'Inflow' : 'Outflow'}
@@ -729,14 +730,14 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
                         <div className="flex flex-col items-end">
                           <span
                             className={`font-bold tabular-nums ${
-                              t.type === 'inflow' ? 'text-brand-blue' : 'text-brand-text'
+                              t.type === 'inflow' ? 'text-primary' : 'text-foreground'
                             }`}
                             dir="ltr"
                           >
                             {formatMoney(displayAmt, displayCurrency)}
                           </span>
                           {isMultiCurrency && (
-                            <span className="text-[10px] text-brand-text-muted tabular-nums" dir="ltr">
+                            <span className="text-[10px] text-muted-foreground tabular-nums" dir="ltr">
                               ({formatMoney(t.amount, t.currency)} local)
                             </span>
                           )}
@@ -748,7 +749,7 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
 
                 {filteredTxns.length === 0 && (
                   <tr>
-                    <td colSpan={5} className="py-8 text-center text-brand-text-muted">
+                    <td colSpan={5} className="py-8 text-center text-muted-foreground">
                       No matching transactions found.
                     </td>
                   </tr>

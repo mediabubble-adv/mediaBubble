@@ -8,6 +8,7 @@ import type { QuotationRow } from '@/lib/crm/quotations'
 import { CONTRACT_TYPES } from '@/lib/crm/schemas'
 import { CrmInvoicesPanel } from './crm-invoices-panel'
 import { CrmQuotationsPanel } from './crm-quotations-panel'
+import { Input } from '@/components/ui/input'
 
 export type { ClientRow }
 
@@ -20,8 +21,8 @@ const TABS: { id: CrmTab; label: string }[] = [
 ]
 
 const STATUS_STYLES: Record<string, string> = {
-  active: 'bg-brand-success/15 text-brand-success',
-  inactive: 'bg-brand-text-muted/15 text-brand-text-muted',
+  active: 'bg-[#16A34A]/15 text-[#16A34A]',
+  inactive: 'bg-muted-foreground/15 text-muted-foreground',
 }
 
 const CONTRACT_LABELS: Record<string, string> = {
@@ -143,12 +144,12 @@ export function CrmDashboard({
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-blue/[0.16]">
-              <Building2 size={20} className="text-brand-blue" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
+              <Building2 size={20} className="text-primary" />
             </div>
             <div>
-              <h1 className="font-display text-2xl font-bold text-brand-text">CRM</h1>
-              <p className="text-[13px] text-brand-text-muted">
+              <h1 className="font-display text-2xl font-bold text-foreground">CRM</h1>
+              <p className="text-[13px] text-muted-foreground">
                 Clients, invoices, and quotations in one workspace.
               </p>
             </div>
@@ -157,7 +158,7 @@ export function CrmDashboard({
             <button
               type="button"
               onClick={() => setShowForm((v) => !v)}
-              className="inline-flex items-center gap-2 rounded-xl bg-brand-blue px-4 py-2 text-[13px] font-bold text-white transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
+              className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-[13px] font-bold text-white transition-[transform,opacity] duration-150 ease-[var(--ease-out)] hover:opacity-90 active:scale-[0.98]"
             >
               <Plus size={16} />
               Add client
@@ -166,30 +167,30 @@ export function CrmDashboard({
         </div>
 
         {portalLink ? (
-          <p className="mt-4 rounded-xl border border-brand-blue/30 bg-brand-blue/10 px-4 py-3 text-[13px] text-brand-text">
+          <p className="mt-4 rounded-xl border border-primary/30 bg-primary/10 px-4 py-3 text-[13px] text-foreground">
             Dev portal link:{' '}
-            <a href={portalLink} className="font-bold text-brand-blue underline">
+            <a href={portalLink} className="font-bold text-primary underline">
               open client portal
             </a>
           </p>
         ) : null}
 
         {error ? (
-          <p className="mt-4 rounded-xl border border-brand-error/30 bg-brand-error/10 px-4 py-3 text-[13px] text-brand-error">
+          <p className="mt-4 rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-[13px] text-destructive">
             {error}
           </p>
         ) : null}
 
-        <div className="mt-6 flex flex-wrap gap-2 border-b border-brand-whisper-border pb-3">
+        <div className="mt-6 flex flex-wrap gap-2 border-b border-border pb-3">
           {TABS.map((item) => (
             <button
               key={item.id}
               type="button"
               onClick={() => setTab(item.id)}
-              className={`rounded-xl px-4 py-2 text-[13px] font-bold transition-all duration-200 active:scale-[0.98] ${
+              className={`rounded-xl px-4 py-2 text-[13px] font-bold transition-[transform,background-color,color,border-color,opacity] duration-150 ease-[var(--ease-out)] active:scale-[0.98] ${
                 tab === item.id
-                  ? 'bg-brand-blue text-white'
-                  : 'border border-brand-whisper-border text-brand-text-muted hover:text-brand-text'
+                  ? 'bg-primary text-white'
+                  : 'border border-border text-muted-foreground hover:text-foreground'
               }`}
             >
               {item.label}
@@ -202,46 +203,46 @@ export function CrmDashboard({
         {showForm && canManage ? (
           <form
             onSubmit={createClient}
-            className="mt-6 grid gap-4 rounded-2xl border border-brand-whisper-border bg-brand-surface p-5 md:grid-cols-2"
+            className="mt-6 grid gap-4 rounded-2xl border border-border bg-card p-5 md:grid-cols-2"
           >
             <label className="block md:col-span-2">
-              <span className="text-[12px] font-bold text-brand-text-muted">Client name</span>
-              <input
+              <span className="text-[12px] font-bold text-muted-foreground">Client name</span>
+              <Input
                 name="name"
                 required
-                className="mt-1 w-full rounded-xl border border-brand-whisper-border bg-brand-input px-3 py-2 text-[14px] text-brand-text"
+                className="mt-1 text-[14px]"
               />
             </label>
             <label className="block">
-              <span className="text-[12px] font-bold text-brand-text-muted">Contact name</span>
-              <input
+              <span className="text-[12px] font-bold text-muted-foreground">Contact name</span>
+              <Input
                 name="primary_contact_name"
-                className="mt-1 w-full rounded-xl border border-brand-whisper-border bg-brand-input px-3 py-2 text-[14px] text-brand-text"
+                className="mt-1 text-[14px]"
               />
             </label>
             <label className="block">
-              <span className="text-[12px] font-bold text-brand-text-muted">Contact email</span>
-              <input
+              <span className="text-[12px] font-bold text-muted-foreground">Contact email</span>
+              <Input
                 name="primary_contact_email"
                 type="email"
-                className="mt-1 w-full rounded-xl border border-brand-whisper-border bg-brand-input px-3 py-2 text-[14px] text-brand-text"
+                className="mt-1 text-[14px]"
               />
             </label>
             <label className="block">
-              <span className="text-[12px] font-bold text-brand-text-muted">Phone</span>
-              <input
+              <span className="text-[12px] font-bold text-muted-foreground">Phone</span>
+              <Input
                 name="primary_contact_phone"
                 dir="ltr"
-                className="mt-1 w-full rounded-xl border border-brand-whisper-border bg-brand-input px-3 py-2 text-[14px] tabular-nums text-brand-text"
+                className="mt-1 text-[14px] tabular-nums"
                 style={{ unicodeBidi: 'isolate' }}
               />
             </label>
             <label className="block">
-              <span className="text-[12px] font-bold text-brand-text-muted">Contract</span>
+              <span className="text-[12px] font-bold text-muted-foreground">Contract</span>
               <select
                 name="contract_type"
                 defaultValue="retainer"
-                className="mt-1 w-full rounded-xl border border-brand-whisper-border bg-brand-input px-3 py-2 text-[14px] text-brand-text"
+                className="mt-1 text-[14px]"
               >
                 {CONTRACT_TYPES.map((t) => (
                   <option key={t} value={t}>
@@ -251,23 +252,23 @@ export function CrmDashboard({
               </select>
             </label>
             <label className="block">
-              <span className="text-[12px] font-bold text-brand-text-muted">Monthly budget (EGP)</span>
-              <input
+              <span className="text-[12px] font-bold text-muted-foreground">Monthly budget (EGP)</span>
+              <Input
                 name="monthly_budget"
                 type="number"
                 min="0"
                 step="0.01"
                 dir="ltr"
-                className="mt-1 w-full rounded-xl border border-brand-whisper-border bg-brand-input px-3 py-2 text-[14px] tabular-nums text-brand-text"
+                className="mt-1 text-[14px] tabular-nums"
                 style={{ unicodeBidi: 'isolate' }}
               />
             </label>
             <label className="block">
-              <span className="text-[12px] font-bold text-brand-text-muted">Status</span>
+              <span className="text-[12px] font-bold text-muted-foreground">Status</span>
               <select
                 name="status"
                 defaultValue="active"
-                className="mt-1 w-full rounded-xl border border-brand-whisper-border bg-brand-input px-3 py-2 text-[14px] text-brand-text"
+                className="mt-1 text-[14px]"
               >
                 <option value="active">Active</option>
                 <option value="inactive">Inactive</option>
@@ -277,14 +278,14 @@ export function CrmDashboard({
               <button
                 type="submit"
                 disabled={busy}
-                className="rounded-xl bg-brand-blue px-4 py-2 text-[13px] font-bold text-white disabled:opacity-50"
+                className="rounded-xl bg-primary px-4 py-2 text-[13px] font-bold text-white disabled:opacity-50"
               >
                 Save client
               </button>
               <button
                 type="button"
                 onClick={() => setShowForm(false)}
-                className="rounded-xl border border-brand-whisper-border px-4 py-2 text-[13px] font-bold text-brand-text-muted"
+                className="rounded-xl border border-border px-4 py-2 text-[13px] font-bold text-muted-foreground"
               >
                 Cancel
               </button>
@@ -294,18 +295,18 @@ export function CrmDashboard({
 
         <div className="mt-6 flex flex-wrap gap-3">
           <div className="relative min-w-[220px] flex-1">
-            <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-brand-text-muted" />
-            <input
+            <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+            <Input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search clients…"
-              className="w-full rounded-xl border border-brand-whisper-border bg-brand-surface py-2 pl-9 pr-3 text-[14px] text-brand-text"
+              className="w-full rounded-xl border border-border bg-card py-2 pl-9 pr-3 text-[14px] text-foreground"
             />
           </div>
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value as typeof statusFilter)}
-            className="rounded-xl border border-brand-whisper-border bg-brand-surface px-3 py-2 text-[13px] text-brand-text"
+            className="rounded-xl border border-border bg-card px-3 py-2 text-[13px] text-foreground"
           >
             <option value="all">All statuses</option>
             <option value="active">Active</option>
@@ -314,15 +315,15 @@ export function CrmDashboard({
           <button
             type="button"
             onClick={() => void refreshClients()}
-            className="rounded-xl border border-brand-whisper-border px-3 py-2 text-[13px] font-bold text-brand-text-muted"
+            className="rounded-xl border border-border px-3 py-2 text-[13px] font-bold text-muted-foreground"
           >
             Refresh
           </button>
         </div>
 
-        <div className="mt-6 overflow-hidden rounded-2xl border border-brand-whisper-border bg-brand-surface">
+        <div className="mt-6 overflow-hidden rounded-2xl border border-border bg-card">
           <table className="w-full text-left text-[13px]">
-            <thead className="border-b border-brand-whisper-border bg-brand-canvas/40 text-brand-text-muted">
+            <thead className="border-b border-border bg-background/40 text-muted-foreground">
               <tr>
                 <th className="px-4 py-3 font-bold">Client</th>
                 <th className="px-4 py-3 font-bold">Contact</th>
@@ -335,15 +336,15 @@ export function CrmDashboard({
             <tbody>
               {filtered.length === 0 ? (
                 <tr>
-                  <td colSpan={canManage ? 6 : 5} className="px-4 py-10 text-center text-brand-text-muted">
+                  <td colSpan={canManage ? 6 : 5} className="px-4 py-10 text-center text-muted-foreground">
                     No clients yet. {canManage ? 'Add one to get started.' : 'Ask a manager to add clients.'}
                   </td>
                 </tr>
               ) : (
                 filtered.map((client) => (
-                  <tr key={client.id} className="border-b border-brand-whisper-border/60 last:border-0">
-                    <td className="px-4 py-3 font-bold text-brand-text">{client.name}</td>
-                    <td className="px-4 py-3 text-brand-text-muted">
+                  <tr key={client.id} className="border-b border-border/60 last:border-0">
+                    <td className="px-4 py-3 font-bold text-foreground">{client.name}</td>
+                    <td className="px-4 py-3 text-muted-foreground">
                       <div>{client.primary_contact_name ?? '—'}</div>
                       {client.primary_contact_email ? (
                         <div dir="ltr" className="tabular-nums" style={{ unicodeBidi: 'isolate' }}>
@@ -351,10 +352,10 @@ export function CrmDashboard({
                         </div>
                       ) : null}
                     </td>
-                    <td className="px-4 py-3 capitalize text-brand-text-muted">
+                    <td className="px-4 py-3 capitalize text-muted-foreground">
                       {CONTRACT_LABELS[client.contract_type ?? ''] ?? client.contract_type ?? '—'}
                     </td>
-                    <td className="px-4 py-3 text-brand-text-muted" dir="ltr" style={{ unicodeBidi: 'isolate' }}>
+                    <td className="px-4 py-3 text-muted-foreground" dir="ltr" style={{ unicodeBidi: 'isolate' }}>
                       {client.monthly_budget != null
                         ? client.monthly_budget.toLocaleString(undefined, { maximumFractionDigits: 0 })
                         : '—'}
@@ -375,7 +376,7 @@ export function CrmDashboard({
                             type="button"
                             disabled={busy}
                             onClick={() => void sendPortalLink(client)}
-                            className="rounded-lg p-2 text-brand-text-muted hover:bg-brand-blue/10 hover:text-brand-blue disabled:opacity-50"
+                            className="rounded-lg p-2 text-muted-foreground hover:bg-primary/10 hover:text-primary disabled:opacity-50"
                             aria-label={`Send portal link to ${client.name}`}
                             title="Send client portal link"
                           >
@@ -385,7 +386,7 @@ export function CrmDashboard({
                             type="button"
                             disabled={busy}
                             onClick={() => void archiveClient(client.id)}
-                            className="rounded-lg p-2 text-brand-text-muted hover:bg-brand-error/10 hover:text-brand-error disabled:opacity-50"
+                            className="rounded-lg p-2 text-muted-foreground hover:bg-destructive/10 hover:text-destructive disabled:opacity-50"
                             aria-label={`Archive ${client.name}`}
                           >
                             <Trash2 size={16} />

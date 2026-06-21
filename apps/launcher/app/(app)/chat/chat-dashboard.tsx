@@ -7,6 +7,7 @@ import type { MessageRow } from '@/lib/comms/messages'
 import type { CommsEvent } from '@/lib/comms/realtime/events'
 import { useCommsRealtime } from '@/lib/comms/realtime/use-comms-realtime'
 import { CHANNEL_TYPES } from '@/lib/comms/schemas'
+import { Input } from '@/components/ui/input'
 
 function formatTime(iso: string): string {
   return new Date(iso).toLocaleString(undefined, {
@@ -164,12 +165,12 @@ export function ChatDashboard({
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-blue/[0.16]">
-              <MessageSquare size={20} className="text-brand-blue" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
+              <MessageSquare size={20} className="text-primary" />
             </div>
             <div>
-              <h1 className="font-display text-2xl font-bold text-brand-text">Communication Hub</h1>
-              <p className="text-[13px] text-brand-text-muted">
+              <h1 className="font-display text-2xl font-bold text-foreground">Communication Hub</h1>
+              <p className="text-[13px] text-muted-foreground">
                 Team channels with Redis-backed live updates.
               </p>
             </div>
@@ -177,7 +178,7 @@ export function ChatDashboard({
           <button
             type="button"
             onClick={() => setShowForm((v) => !v)}
-            className="inline-flex items-center gap-2 rounded-xl bg-brand-blue px-4 py-2 text-[13px] font-bold text-white transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
+            className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-[13px] font-bold text-white transition-[transform,opacity] duration-150 ease-[var(--ease-out)] hover:opacity-90 active:scale-[0.98]"
           >
             <Plus size={16} />
             New channel
@@ -185,7 +186,7 @@ export function ChatDashboard({
         </div>
 
         {error ? (
-          <p className="mt-4 rounded-xl border border-brand-error/30 bg-brand-error/10 px-4 py-3 text-[13px] text-brand-error">
+          <p className="mt-4 rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-[13px] text-destructive">
             {error}
           </p>
         ) : null}
@@ -193,30 +194,30 @@ export function ChatDashboard({
         {showForm ? (
           <form
             onSubmit={createChannel}
-            className="mt-6 grid gap-4 rounded-2xl border border-brand-whisper-border bg-brand-surface p-5 md:grid-cols-2"
+            className="mt-6 grid gap-4 rounded-2xl border border-border bg-card p-5 md:grid-cols-2"
           >
             <label className="block md:col-span-2">
-              <span className="text-[12px] font-bold text-brand-text-muted">Channel name</span>
-              <input
+              <span className="text-[12px] font-bold text-muted-foreground">Channel name</span>
+              <Input
                 name="name"
                 required
                 placeholder="general"
-                className="mt-1 w-full rounded-xl border border-brand-whisper-border bg-brand-input px-3 py-2 text-[14px] text-brand-text"
+                className="mt-1 text-[14px]"
               />
             </label>
             <label className="block md:col-span-2">
-              <span className="text-[12px] font-bold text-brand-text-muted">Description</span>
-              <input
+              <span className="text-[12px] font-bold text-muted-foreground">Description</span>
+              <Input
                 name="description"
-                className="mt-1 w-full rounded-xl border border-brand-whisper-border bg-brand-input px-3 py-2 text-[14px] text-brand-text"
+                className="mt-1 text-[14px]"
               />
             </label>
             <label className="block">
-              <span className="text-[12px] font-bold text-brand-text-muted">Type</span>
+              <span className="text-[12px] font-bold text-muted-foreground">Type</span>
               <select
                 name="type"
                 defaultValue="Public"
-                className="mt-1 w-full rounded-xl border border-brand-whisper-border bg-brand-input px-3 py-2 text-[14px] text-brand-text"
+                className="mt-1 text-[14px]"
               >
                 {CHANNEL_TYPES.map((t) => (
                   <option key={t} value={t}>
@@ -229,14 +230,14 @@ export function ChatDashboard({
               <button
                 type="submit"
                 disabled={busy}
-                className="rounded-xl bg-brand-blue px-4 py-2 text-[13px] font-bold text-white disabled:opacity-50"
+                className="rounded-xl bg-primary px-4 py-2 text-[13px] font-bold text-white disabled:opacity-50"
               >
                 Create
               </button>
               <button
                 type="button"
                 onClick={() => setShowForm(false)}
-                className="rounded-xl border border-brand-whisper-border px-4 py-2 text-[13px] font-bold text-brand-text-muted"
+                className="rounded-xl border border-border px-4 py-2 text-[13px] font-bold text-muted-foreground"
               >
                 Cancel
               </button>
@@ -245,13 +246,13 @@ export function ChatDashboard({
         ) : null}
 
         <div className="mt-6 grid min-h-[28rem] gap-4 lg:grid-cols-[220px_minmax(0,1fr)]">
-          <aside className="rounded-2xl border border-brand-whisper-border bg-brand-surface p-3">
+          <aside className="rounded-2xl border border-border bg-card p-3">
             <div className="mb-2 flex items-center justify-between px-1">
-              <p className="text-[11px] font-bold uppercase tracking-wide text-brand-text-muted">Channels</p>
+              <p className="text-[11px] font-bold uppercase tracking-wide text-muted-foreground">Channels</p>
               <button
                 type="button"
                 onClick={() => void refreshChannels()}
-                className="rounded-lg p-1 text-brand-text-muted hover:text-brand-text"
+                className="rounded-lg p-1 text-muted-foreground hover:text-foreground"
                 aria-label="Refresh channels"
               >
                 <RefreshCw size={14} />
@@ -259,17 +260,17 @@ export function ChatDashboard({
             </div>
             <div className="space-y-1">
               {channels.length === 0 ? (
-                <p className="px-2 py-6 text-center text-[12px] text-brand-text-muted">No channels yet.</p>
+                <p className="px-2 py-6 text-center text-[12px] text-muted-foreground">No channels yet.</p>
               ) : (
                 channels.map((channel) => (
                   <button
                     key={channel.id}
                     type="button"
                     onClick={() => void selectChannel(channel.id)}
-                    className={`flex w-full items-center gap-2 rounded-xl px-2 py-2 text-left text-[13px] transition-all duration-200 active:scale-[0.99] ${
+                    className={`flex w-full items-center gap-2 rounded-xl px-2 py-2 text-left text-[13px] transition-[transform,background-color,color,border-color,opacity] duration-150 ease-[var(--ease-out)] active:scale-[0.99] ${
                       selectedId === channel.id
-                        ? 'bg-brand-blue/15 text-brand-text'
-                        : 'text-brand-text-muted hover:bg-brand-canvas/60 hover:text-brand-text'
+                        ? 'bg-primary/15 text-foreground'
+                        : 'text-muted-foreground hover:bg-background/60 hover:text-foreground'
                     }`}
                   >
                     <Hash size={14} className="shrink-0 opacity-70" />
@@ -280,30 +281,30 @@ export function ChatDashboard({
             </div>
           </aside>
 
-          <section className="flex min-h-[28rem] flex-col rounded-2xl border border-brand-whisper-border bg-brand-surface">
+          <section className="flex min-h-[28rem] flex-col rounded-2xl border border-border bg-card">
             {!selected ? (
-              <div className="flex flex-1 flex-col items-center justify-center text-brand-text-muted">
+              <div className="flex flex-1 flex-col items-center justify-center text-muted-foreground">
                 <MessageSquare size={24} className="opacity-40" />
-                <p className="mt-2 text-[14px] font-bold text-brand-text">Pick a channel</p>
+                <p className="mt-2 text-[14px] font-bold text-foreground">Pick a channel</p>
               </div>
             ) : (
               <>
-                <header className="border-b border-brand-whisper-border px-4 py-3">
+                <header className="border-b border-border px-4 py-3">
                   <div className="flex items-center justify-between gap-2">
                     <div>
-                      <p className="font-bold text-brand-text">#{selected.name}</p>
+                      <p className="font-bold text-foreground">#{selected.name}</p>
                       {selected.description ? (
-                        <p className="text-[12px] text-brand-text-muted">{selected.description}</p>
+                        <p className="text-[12px] text-muted-foreground">{selected.description}</p>
                       ) : null}
                     </div>
                     <div className="flex items-center gap-2">
                       <span
                         className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-bold uppercase ${
                           liveStatus === 'live'
-                            ? 'bg-brand-success/15 text-brand-success'
+                            ? 'bg-[#16A34A]/15 text-[#16A34A]'
                             : liveStatus === 'polling'
-                              ? 'bg-brand-blue/15 text-brand-blue'
-                              : 'bg-brand-text-muted/15 text-brand-text-muted'
+                              ? 'bg-primary/15 text-primary'
+                              : 'bg-muted-foreground/15 text-muted-foreground'
                         }`}
                       >
                         {liveStatus === 'live' || liveStatus === 'polling' ? (
@@ -317,7 +318,7 @@ export function ChatDashboard({
                         type="button"
                         disabled={busy}
                         onClick={() => void loadMessages(selected.id)}
-                        className="rounded-lg border border-brand-whisper-border px-2 py-1 text-[11px] font-bold text-brand-text-muted disabled:opacity-50"
+                        className="rounded-lg border border-border px-2 py-1 text-[11px] font-bold text-muted-foreground disabled:opacity-50"
                       >
                         Refresh
                       </button>
@@ -327,7 +328,7 @@ export function ChatDashboard({
 
                 <div ref={listRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
                   {messages.length === 0 ? (
-                    <p className="py-10 text-center text-[13px] text-brand-text-muted">
+                    <p className="py-10 text-center text-[13px] text-muted-foreground">
                       No messages yet. Say hello.
                     </p>
                   ) : (
@@ -336,14 +337,14 @@ export function ChatDashboard({
                         key={msg.id}
                         className={`rounded-xl border px-3 py-2 ${
                           msg.user_id === currentUserId
-                            ? 'border-brand-blue/30 bg-brand-blue/10'
-                            : 'border-brand-whisper-border bg-brand-canvas/40'
+                            ? 'border-primary/30 bg-primary/10'
+                            : 'border-border bg-background/40'
                         }`}
                       >
                         <div className="flex items-baseline justify-between gap-2">
-                          <p className="text-[12px] font-bold text-brand-text">{msg.author_name}</p>
+                          <p className="text-[12px] font-bold text-foreground">{msg.author_name}</p>
                           <time
-                            className="text-[10px] text-brand-text-muted"
+                            className="text-[10px] text-muted-foreground"
                             dateTime={msg.created_at}
                             dir="ltr"
                             style={{ unicodeBidi: 'isolate' }}
@@ -352,7 +353,7 @@ export function ChatDashboard({
                             {msg.edited_at ? ' · edited' : ''}
                           </time>
                         </div>
-                        <p className="mt-1 whitespace-pre-wrap text-[13px] text-brand-text">{msg.content}</p>
+                        <p className="mt-1 whitespace-pre-wrap text-[13px] text-foreground">{msg.content}</p>
                       </article>
                     ))
                   )}
@@ -360,18 +361,18 @@ export function ChatDashboard({
 
                 <form
                   onSubmit={sendMessage}
-                  className="flex gap-2 border-t border-brand-whisper-border p-3"
+                  className="flex gap-2 border-t border-border p-3"
                 >
-                  <input
+                  <Input
                     value={draft}
                     onChange={(e) => setDraft(e.target.value)}
                     placeholder={`Message #${selected.name}`}
-                    className="min-w-0 flex-1 rounded-xl border border-brand-whisper-border bg-brand-input px-3 py-2 text-[14px] text-brand-text"
+                    className="min-w-0 flex-1 text-[14px]"
                   />
                   <button
                     type="submit"
                     disabled={busy || !draft.trim()}
-                    className="inline-flex items-center gap-1 rounded-xl bg-brand-blue px-4 py-2 text-[13px] font-bold text-white disabled:opacity-50"
+                    className="inline-flex items-center gap-1 rounded-xl bg-primary px-4 py-2 text-[13px] font-bold text-white disabled:opacity-50"
                   >
                     <Send size={14} />
                     Send

@@ -4,6 +4,7 @@
 // the forms POST to /api/auth/* and render the standardized envelope.
 
 import { useId, type InputHTMLAttributes, type ReactNode } from 'react'
+import { Input } from '@/components/ui/input'
 
 export interface ApiResult<T = unknown> {
   ok: boolean
@@ -47,13 +48,13 @@ export function Field({
   const id = useId()
   return (
     <label htmlFor={id} className="block">
-      <span className="mb-1.5 block text-[13px] font-semibold text-brand-text">{label}</span>
-      <input
+      <span className="mb-1.5 block text-[13px] font-semibold text-foreground">{label}</span>
+      <Input
         id={id}
-        className="w-full rounded-lg border border-brand-input-border bg-brand-canvas px-3 py-2.5 text-[14px] text-brand-text placeholder:text-brand-text-muted transition-all duration-200 focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/30"
+        className="w-full rounded-lg border border-input bg-background px-3 py-2.5 text-[14px] text-foreground placeholder:text-muted-foreground transition-[transform,background-color,color,border-color,opacity] duration-150 ease-[var(--ease-out)] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
         {...props}
       />
-      {hint ? <span className="mt-1 block text-[12px] text-brand-text-muted">{hint}</span> : null}
+      {hint ? <span className="mt-1 block text-[12px] text-muted-foreground">{hint}</span> : null}
     </label>
   )
 }
@@ -69,7 +70,7 @@ export function SubmitButton({
     <button
       type="submit"
       disabled={pending}
-      className="w-full rounded-lg bg-brand-blue px-4 py-2.5 text-[14px] font-bold text-white transition-all duration-200 hover:bg-brand-dark-blue active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
+      className="w-full rounded-lg bg-primary px-4 py-2.5 text-[14px] font-bold text-white transition-[transform,background-color,color,border-color,opacity] duration-150 ease-[var(--ease-out)] hover:bg-primary/85 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
     >
       {pending ? 'Please wait…' : children}
     </button>
@@ -79,8 +80,8 @@ export function SubmitButton({
 export function Alert({ kind, children }: { kind: 'error' | 'success'; children: ReactNode }) {
   const styles =
     kind === 'error'
-      ? 'border-brand-error/40 bg-brand-error/[0.12] text-brand-error'
-      : 'border-brand-success/40 bg-brand-success/[0.12] text-brand-success'
+      ? 'border-destructive/40 bg-destructive/[0.12] text-destructive'
+      : 'border-[#16A34A]/40 bg-[#16A34A]/[0.12] text-[#16A34A]'
   return (
     <div role="alert" className={`rounded-lg border px-3 py-2.5 text-[13px] ${styles}`}>
       {children}
@@ -94,9 +95,9 @@ export function Alert({ kind, children }: { kind: 'error' | 'success'; children:
  */
 export function DevTokenNote({ href, label }: { href: string; label: string }) {
   return (
-    <div className="rounded-lg border border-brand-warning/40 bg-brand-warning/[0.12] px-3 py-2.5 text-[12px] text-brand-text">
-      <span className="font-bold text-brand-warning">Dev only:</span> email isn’t wired yet.{' '}
-      <a href={href} className="font-semibold text-brand-blue underline">
+    <div className="rounded-lg border border-[#CA8A04]/40 bg-[#CA8A04]/[0.12] px-3 py-2.5 text-[12px] text-foreground">
+      <span className="font-bold text-[#CA8A04]">Dev only:</span> email isn’t wired yet.{' '}
+      <a href={href} className="font-semibold text-primary underline">
         {label}
       </a>
     </div>

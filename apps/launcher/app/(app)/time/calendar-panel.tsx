@@ -8,10 +8,10 @@ import type { DashboardTimeEntry } from './time-dashboard'
 import type { AvailabilityRow } from './schedule-panel'
 
 const BLOCK_CLASS: Record<string, string> = {
-  entry: 'border-brand-blue/40 bg-brand-blue/10 text-brand-text',
-  available: 'border-brand-success/40 bg-brand-success/10 text-brand-success',
-  busy: 'border-brand-warning/40 bg-brand-warning/10 text-brand-warning',
-  leave: 'border-brand-error/40 bg-brand-error/10 text-brand-error',
+  entry: 'border-primary/40 bg-primary/10 text-foreground',
+  available: 'border-[#16A34A]/40 bg-[#16A34A]/10 text-[#16A34A]',
+  busy: 'border-[#CA8A04]/40 bg-[#CA8A04]/10 text-[#CA8A04]',
+  leave: 'border-destructive/40 bg-destructive/10 text-destructive',
 }
 
 export function CalendarPanel({
@@ -49,18 +49,18 @@ export function CalendarPanel({
           <button
             type="button"
             onClick={() => setWeekAnchor(new Date(`${shiftWeek(weekAnchor, -1)}T00:00:00.000Z`))}
-            className="rounded-lg border border-brand-whisper-border p-2 text-brand-text-muted hover:text-brand-text active:scale-[0.98]"
+            className="rounded-lg border border-border p-2 text-muted-foreground hover:text-foreground active:scale-[0.98]"
             aria-label="Previous week"
           >
             <ChevronLeft size={16} />
           </button>
-          <span className="text-[13px] font-bold text-brand-text" dir="ltr">
+          <span className="text-[13px] font-bold text-foreground" dir="ltr">
             {weekStart(weekAnchor)} → {weekEnd(weekAnchor)}
           </span>
           <button
             type="button"
             onClick={() => setWeekAnchor(new Date(`${shiftWeek(weekAnchor, 1)}T00:00:00.000Z`))}
-            className="rounded-lg border border-brand-whisper-border p-2 text-brand-text-muted hover:text-brand-text active:scale-[0.98]"
+            className="rounded-lg border border-border p-2 text-muted-foreground hover:text-foreground active:scale-[0.98]"
             aria-label="Next week"
           >
             <ChevronRight size={16} />
@@ -75,7 +75,7 @@ export function CalendarPanel({
               ? 'Google Calendar sync (Phase 2 placeholder)'
               : 'Set GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET in apps/launcher/.env.local'
           }
-          className="inline-flex items-center gap-2 rounded-lg border border-brand-whisper-border px-3 py-2 text-[12px] font-bold text-brand-text-muted transition-all disabled:cursor-not-allowed disabled:opacity-50 active:scale-[0.98]"
+          className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-[12px] font-bold text-muted-foreground transition-[transform,background-color,color,border-color,opacity] disabled:cursor-not-allowed disabled:opacity-50 active:scale-[0.98]"
         >
           <Link2 size={14} />
           Sync Google Calendar
@@ -83,7 +83,7 @@ export function CalendarPanel({
       </div>
 
       {!googleConfigured && (
-        <p className="rounded-xl border border-dashed border-brand-whisper-border bg-brand-surface px-4 py-3 text-[12px] text-brand-text-muted">
+        <p className="rounded-xl border border-dashed border-border bg-card px-4 py-3 text-[12px] text-muted-foreground">
           Google Calendar sync is a Phase 2 placeholder. Add{' '}
           <code className="text-[11px]">GOOGLE_CLIENT_ID</code> and{' '}
           <code className="text-[11px]">GOOGLE_CLIENT_SECRET</code> to enable the OAuth flow later.
@@ -94,19 +94,19 @@ export function CalendarPanel({
         {columns.map((col) => (
           <div
             key={col.date}
-            className="min-h-[220px] rounded-2xl border border-brand-whisper-border bg-brand-surface p-3"
+            className="min-h-[220px] rounded-2xl border border-border bg-card p-3"
           >
-            <div className="mb-3 border-b border-brand-whisper-border pb-2">
-              <p className="text-[11px] font-bold uppercase tracking-wider text-brand-text-muted">
+            <div className="mb-3 border-b border-border pb-2">
+              <p className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
                 {col.weekday}
               </p>
-              <p className="text-[13px] font-bold text-brand-text" dir="ltr">
+              <p className="text-[13px] font-bold text-foreground" dir="ltr">
                 {col.date.slice(5)}
               </p>
             </div>
             <div className="space-y-2">
               {col.blocks.length === 0 ? (
-                <p className="text-[11px] text-brand-text-muted">No blocks</p>
+                <p className="text-[11px] text-muted-foreground">No blocks</p>
               ) : (
                 col.blocks.map((block) => (
                   <div

@@ -12,6 +12,7 @@ import {
   SERVICE_CHANNELS,
 } from '@/lib/campaigns/schemas'
 import { CURRENCIES } from '@/lib/crm/schemas'
+import { Input } from '@/components/ui/input'
 
 type HubTab = 'proposals' | 'campaigns'
 
@@ -21,19 +22,19 @@ const TABS: { id: HubTab; label: string }[] = [
 ]
 
 const PROPOSAL_STYLES: Record<string, string> = {
-  Draft: 'bg-brand-text-muted/15 text-brand-text-muted',
-  Sent: 'bg-brand-blue/15 text-brand-blue',
-  Won: 'bg-brand-success/15 text-brand-success',
-  Lost: 'bg-brand-red/15 text-brand-red',
-  Archived: 'bg-brand-text-muted/15 text-brand-text-muted',
+  Draft: 'bg-muted-foreground/15 text-muted-foreground',
+  Sent: 'bg-primary/15 text-primary',
+  Won: 'bg-[#16A34A]/15 text-[#16A34A]',
+  Lost: 'bg-destructive/15 text-destructive',
+  Archived: 'bg-muted-foreground/15 text-muted-foreground',
 }
 
 const CAMPAIGN_STYLES: Record<string, string> = {
-  Planning: 'bg-brand-text-muted/15 text-brand-text-muted',
-  Active: 'bg-brand-success/15 text-brand-success',
-  Paused: 'bg-brand-yellow/15 text-brand-yellow',
-  Completed: 'bg-brand-blue/15 text-brand-blue',
-  Archived: 'bg-brand-text-muted/15 text-brand-text-muted',
+  Planning: 'bg-muted-foreground/15 text-muted-foreground',
+  Active: 'bg-[#16A34A]/15 text-[#16A34A]',
+  Paused: 'bg-accent/15 text-accent',
+  Completed: 'bg-primary/15 text-primary',
+  Archived: 'bg-muted-foreground/15 text-muted-foreground',
 }
 
 const CHANNEL_LABELS: Record<string, string> = {
@@ -179,12 +180,12 @@ export function CampaignsDashboard({
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-red/[0.16]">
-              <Megaphone size={20} className="text-brand-red" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-destructive/[0.16]">
+              <Megaphone size={20} className="text-destructive" />
             </div>
             <div>
-              <h1 className="font-display text-2xl font-bold text-brand-text">Campaign & Proposal</h1>
-              <p className="text-[13px] text-brand-text-muted">
+              <h1 className="font-display text-2xl font-bold text-foreground">Campaign & Proposal</h1>
+              <p className="text-[13px] text-muted-foreground">
                 Pitch proposals, launch client campaigns, and hand off to CRM quotations.
               </p>
             </div>
@@ -193,7 +194,7 @@ export function CampaignsDashboard({
             <button
               type="button"
               onClick={() => setShowForm((v) => !v)}
-              className="inline-flex items-center gap-2 rounded-xl bg-brand-blue px-4 py-2 text-[13px] font-bold text-white transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
+              className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-[13px] font-bold text-white transition-[transform,opacity] duration-150 ease-[var(--ease-out)] hover:opacity-90 active:scale-[0.98]"
             >
               <Plus size={16} />
               New {tab === 'proposals' ? 'proposal' : 'campaign'}
@@ -201,7 +202,7 @@ export function CampaignsDashboard({
           ) : null}
         </div>
 
-        <div className="mt-6 flex gap-2 border-b border-brand-border pb-2">
+        <div className="mt-6 flex gap-2 border-b border-border pb-2">
           {TABS.map((t) => (
             <button
               key={t.id}
@@ -210,10 +211,10 @@ export function CampaignsDashboard({
                 setTab(t.id)
                 setShowForm(false)
               }}
-              className={`rounded-lg px-4 py-2 text-[13px] font-bold transition-all duration-200 active:scale-[0.98] ${
+              className={`rounded-lg px-4 py-2 text-[13px] font-bold transition-[transform,background-color,color,border-color,opacity] duration-150 ease-[var(--ease-out)] active:scale-[0.98] ${
                 tab === t.id
-                  ? 'bg-brand-blue/15 text-brand-blue'
-                  : 'text-brand-text-muted hover:text-brand-text'
+                  ? 'bg-primary/15 text-primary'
+                  : 'text-muted-foreground hover:text-foreground'
               }`}
             >
               {t.label}
@@ -222,7 +223,7 @@ export function CampaignsDashboard({
         </div>
 
         {error ? (
-          <p className="mt-4 rounded-xl border border-brand-red/30 bg-brand-red/10 px-4 py-3 text-[13px] text-brand-red">
+          <p className="mt-4 rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-[13px] text-destructive">
             {error}
           </p>
         ) : null}
@@ -230,18 +231,18 @@ export function CampaignsDashboard({
         {showForm && canManage ? (
           <form
             onSubmit={tab === 'proposals' ? createProposal : createCampaign}
-            className="mt-6 rounded-2xl border border-brand-border bg-brand-surface p-5"
+            className="mt-6 rounded-2xl border border-border bg-card p-5"
           >
-            <h2 className="mb-4 font-display text-lg font-bold text-brand-text">
+            <h2 className="mb-4 font-display text-lg font-bold text-foreground">
               {tab === 'proposals' ? 'New proposal' : 'New campaign'}
             </h2>
             <div className="grid gap-4 sm:grid-cols-2">
-              <label className="block text-[12px] font-medium text-brand-text-muted">
+              <label className="block text-[12px] font-medium text-muted-foreground">
                 Client
                 <select
                   name="client_id"
                   required
-                  className="mt-1 w-full rounded-xl border border-brand-border bg-brand-input px-3 py-2 text-[13px] text-brand-text"
+                  className="mt-1 text-[13px]"
                 >
                   {activeClients.map((c) => (
                     <option key={c.id} value={c.id}>
@@ -250,12 +251,12 @@ export function CampaignsDashboard({
                   ))}
                 </select>
               </label>
-              <label className="block text-[12px] font-medium text-brand-text-muted">
+              <label className="block text-[12px] font-medium text-muted-foreground">
                 Currency
                 <select
                   name="currency"
                   defaultValue="EGP"
-                  className="mt-1 w-full rounded-xl border border-brand-border bg-brand-input px-3 py-2 text-[13px] text-brand-text"
+                  className="mt-1 text-[13px]"
                 >
                   {CURRENCIES.map((c) => (
                     <option key={c} value={c}>
@@ -266,88 +267,88 @@ export function CampaignsDashboard({
               </label>
               {tab === 'proposals' ? (
                 <>
-                  <label className="block text-[12px] font-medium text-brand-text-muted sm:col-span-2">
+                  <label className="block text-[12px] font-medium text-muted-foreground sm:col-span-2">
                     Title
-                    <input
+                    <Input
                       name="title"
                       required
-                      className="mt-1 w-full rounded-xl border border-brand-border bg-brand-input px-3 py-2 text-[13px] text-brand-text"
+                      className="mt-1 text-[13px]"
                     />
                   </label>
-                  <label className="block text-[12px] font-medium text-brand-text-muted sm:col-span-2">
+                  <label className="block text-[12px] font-medium text-muted-foreground sm:col-span-2">
                     Summary
                     <textarea
                       name="summary"
                       rows={2}
-                      className="mt-1 w-full rounded-xl border border-brand-border bg-brand-input px-3 py-2 text-[13px] text-brand-text"
+                      className="mt-1 text-[13px]"
                     />
                   </label>
-                  <label className="block text-[12px] font-medium text-brand-text-muted">
+                  <label className="block text-[12px] font-medium text-muted-foreground">
                     Objective
-                    <input
+                    <Input
                       name="objective"
-                      className="mt-1 w-full rounded-xl border border-brand-border bg-brand-input px-3 py-2 text-[13px] text-brand-text"
+                      className="mt-1 text-[13px]"
                     />
                   </label>
-                  <label className="block text-[12px] font-medium text-brand-text-muted">
+                  <label className="block text-[12px] font-medium text-muted-foreground">
                     Timeline (weeks)
-                    <input
+                    <Input
                       name="timeline_weeks"
                       type="number"
                       min={1}
                       defaultValue={12}
-                      className="mt-1 w-full rounded-xl border border-brand-border bg-brand-input px-3 py-2 text-[13px] text-brand-text"
+                      className="mt-1 text-[13px]"
                     />
                   </label>
-                  <label className="block text-[12px] font-medium text-brand-text-muted">
+                  <label className="block text-[12px] font-medium text-muted-foreground">
                     Budget estimate
-                    <input
+                    <Input
                       name="budget_estimate"
                       type="number"
                       min={0}
-                      className="mt-1 w-full rounded-xl border border-brand-border bg-brand-input px-3 py-2 text-[13px] text-brand-text"
+                      className="mt-1 text-[13px]"
                     />
                   </label>
-                  <label className="block text-[12px] font-medium text-brand-text-muted">
+                  <label className="block text-[12px] font-medium text-muted-foreground">
                     Deliverable title
-                    <input
+                    <Input
                       name="deliverable_title"
                       defaultValue="Monthly retainer scope"
-                      className="mt-1 w-full rounded-xl border border-brand-border bg-brand-input px-3 py-2 text-[13px] text-brand-text"
+                      className="mt-1 text-[13px]"
                     />
                   </label>
-                  <label className="block text-[12px] font-medium text-brand-text-muted sm:col-span-2">
+                  <label className="block text-[12px] font-medium text-muted-foreground sm:col-span-2">
                     Deliverable notes
-                    <input
+                    <Input
                       name="deliverable_desc"
-                      className="mt-1 w-full rounded-xl border border-brand-border bg-brand-input px-3 py-2 text-[13px] text-brand-text"
+                      className="mt-1 text-[13px]"
                     />
                   </label>
                 </>
               ) : (
                 <>
-                  <label className="block text-[12px] font-medium text-brand-text-muted sm:col-span-2">
+                  <label className="block text-[12px] font-medium text-muted-foreground sm:col-span-2">
                     Campaign name
-                    <input
+                    <Input
                       name="name"
                       required
-                      className="mt-1 w-full rounded-xl border border-brand-border bg-brand-input px-3 py-2 text-[13px] text-brand-text"
+                      className="mt-1 text-[13px]"
                     />
                   </label>
-                  <label className="block text-[12px] font-medium text-brand-text-muted sm:col-span-2">
+                  <label className="block text-[12px] font-medium text-muted-foreground sm:col-span-2">
                     Brief
                     <textarea
                       name="brief"
                       rows={2}
-                      className="mt-1 w-full rounded-xl border border-brand-border bg-brand-input px-3 py-2 text-[13px] text-brand-text"
+                      className="mt-1 text-[13px]"
                     />
                   </label>
-                  <label className="block text-[12px] font-medium text-brand-text-muted">
+                  <label className="block text-[12px] font-medium text-muted-foreground">
                     Market
                     <select
                       name="market"
                       defaultValue="eg"
-                      className="mt-1 w-full rounded-xl border border-brand-border bg-brand-input px-3 py-2 text-[13px] text-brand-text"
+                      className="mt-1 text-[13px]"
                     >
                       {MARKETS.map((m) => (
                         <option key={m} value={m}>
@@ -356,21 +357,21 @@ export function CampaignsDashboard({
                       ))}
                     </select>
                   </label>
-                  <label className="block text-[12px] font-medium text-brand-text-muted">
+                  <label className="block text-[12px] font-medium text-muted-foreground">
                     Budget
-                    <input
+                    <Input
                       name="budget"
                       type="number"
                       min={0}
-                      className="mt-1 w-full rounded-xl border border-brand-border bg-brand-input px-3 py-2 text-[13px] text-brand-text"
+                      className="mt-1 text-[13px]"
                     />
                   </label>
                   <div className="sm:col-span-2">
-                    <p className="text-[12px] font-medium text-brand-text-muted">Channels</p>
+                    <p className="text-[12px] font-medium text-muted-foreground">Channels</p>
                     <div className="mt-2 flex flex-wrap gap-3">
                       {SERVICE_CHANNELS.map((ch) => (
-                        <label key={ch} className="flex items-center gap-2 text-[12px] text-brand-text">
-                          <input type="checkbox" name={`ch_${ch}`} className="rounded" />
+                        <label key={ch} className="flex items-center gap-2 text-[12px] text-foreground">
+                          <Input type="checkbox" name={`ch_${ch}`} className="rounded" />
                           {CHANNEL_LABELS[ch] ?? ch}
                         </label>
                       ))}
@@ -383,14 +384,14 @@ export function CampaignsDashboard({
               <button
                 type="submit"
                 disabled={busy}
-                className="rounded-xl bg-brand-blue px-4 py-2 text-[13px] font-bold text-white active:scale-[0.98]"
+                className="rounded-xl bg-primary px-4 py-2 text-[13px] font-bold text-white active:scale-[0.98]"
               >
                 Save
               </button>
               <button
                 type="button"
                 onClick={() => setShowForm(false)}
-                className="rounded-xl border border-brand-border px-4 py-2 text-[13px] text-brand-text-muted"
+                className="rounded-xl border border-border px-4 py-2 text-[13px] text-muted-foreground"
               >
                 Cancel
               </button>
@@ -399,9 +400,9 @@ export function CampaignsDashboard({
         ) : null}
 
         {tab === 'proposals' ? (
-          <div className="mt-6 overflow-x-auto rounded-2xl border border-brand-border">
+          <div className="mt-6 overflow-x-auto rounded-2xl border border-border">
             <table className="min-w-full text-left text-[13px]">
-              <thead className="border-b border-brand-border bg-brand-input/40 text-[11px] uppercase tracking-wider text-brand-text-muted">
+              <thead className="border-b border-border bg-input/40 text-[11px] uppercase tracking-wider text-muted-foreground">
                 <tr>
                   <th className="px-4 py-3">Proposal</th>
                   <th className="px-4 py-3">Client</th>
@@ -412,14 +413,14 @@ export function CampaignsDashboard({
               </thead>
               <tbody>
                 {proposals.map((p) => (
-                  <tr key={p.id} className="border-b border-brand-border/60">
+                  <tr key={p.id} className="border-b border-border/60">
                     <td className="px-4 py-3">
-                      <p className="font-bold text-brand-text">{p.title}</p>
-                      <p className="text-[11px] text-brand-text-muted" dir="ltr">
+                      <p className="font-bold text-foreground">{p.title}</p>
+                      <p className="text-[11px] text-muted-foreground" dir="ltr">
                         {p.proposal_number}
                       </p>
                     </td>
-                    <td className="px-4 py-3 text-brand-text-muted">{p.client_name}</td>
+                    <td className="px-4 py-3 text-muted-foreground">{p.client_name}</td>
                     <td className="px-4 py-3 tabular-nums" dir="ltr">
                       {p.budget_estimate != null
                         ? `${p.currency ?? 'EGP'} ${p.budget_estimate.toLocaleString()}`
@@ -442,7 +443,7 @@ export function CampaignsDashboard({
                               type="button"
                               disabled={busy}
                               onClick={() => void proposalToQuotation(p.id)}
-                              className="inline-flex items-center gap-1 rounded-lg border border-brand-border px-2 py-1 text-[11px] text-brand-text-muted hover:text-brand-text"
+                              className="inline-flex items-center gap-1 rounded-lg border border-border px-2 py-1 text-[11px] text-muted-foreground hover:text-foreground"
                             >
                               <FileOutput size={12} />
                               To quote
@@ -453,7 +454,7 @@ export function CampaignsDashboard({
                               type="button"
                               disabled={busy}
                               onClick={() => void launchProposal(p.id)}
-                              className="inline-flex items-center gap-1 rounded-lg bg-brand-blue/15 px-2 py-1 text-[11px] font-bold text-brand-blue"
+                              className="inline-flex items-center gap-1 rounded-lg bg-primary/15 px-2 py-1 text-[11px] font-bold text-primary"
                             >
                               <Rocket size={12} />
                               Launch
@@ -466,7 +467,7 @@ export function CampaignsDashboard({
                 ))}
                 {proposals.length === 0 ? (
                   <tr>
-                    <td colSpan={canManage ? 5 : 4} className="px-4 py-8 text-center text-brand-text-muted">
+                    <td colSpan={canManage ? 5 : 4} className="px-4 py-8 text-center text-muted-foreground">
                       No proposals yet.
                     </td>
                   </tr>
@@ -475,9 +476,9 @@ export function CampaignsDashboard({
             </table>
           </div>
         ) : (
-          <div className="mt-6 overflow-x-auto rounded-2xl border border-brand-border">
+          <div className="mt-6 overflow-x-auto rounded-2xl border border-border">
             <table className="min-w-full text-left text-[13px]">
-              <thead className="border-b border-brand-border bg-brand-input/40 text-[11px] uppercase tracking-wider text-brand-text-muted">
+              <thead className="border-b border-border bg-input/40 text-[11px] uppercase tracking-wider text-muted-foreground">
                 <tr>
                   <th className="px-4 py-3">Campaign</th>
                   <th className="px-4 py-3">Client</th>
@@ -488,11 +489,11 @@ export function CampaignsDashboard({
               </thead>
               <tbody>
                 {campaigns.map((c) => (
-                  <tr key={c.id} className="border-b border-brand-border/60">
-                    <td className="px-4 py-3 font-bold text-brand-text">{c.name}</td>
-                    <td className="px-4 py-3 text-brand-text-muted">{c.client_name}</td>
-                    <td className="px-4 py-3 uppercase text-brand-text-muted">{c.market}</td>
-                    <td className="px-4 py-3 text-brand-text-muted">
+                  <tr key={c.id} className="border-b border-border/60">
+                    <td className="px-4 py-3 font-bold text-foreground">{c.name}</td>
+                    <td className="px-4 py-3 text-muted-foreground">{c.client_name}</td>
+                    <td className="px-4 py-3 uppercase text-muted-foreground">{c.market}</td>
+                    <td className="px-4 py-3 text-muted-foreground">
                       {c.channels.length > 0
                         ? c.channels.map((ch) => CHANNEL_LABELS[ch] ?? ch).join(', ')
                         : '—'}
@@ -510,7 +511,7 @@ export function CampaignsDashboard({
                 ))}
                 {campaigns.length === 0 ? (
                   <tr>
-                    <td colSpan={5} className="px-4 py-8 text-center text-brand-text-muted">
+                    <td colSpan={5} className="px-4 py-8 text-center text-muted-foreground">
                       No campaigns yet.
                     </td>
                   </tr>
@@ -521,11 +522,11 @@ export function CampaignsDashboard({
         )}
 
         {tab === 'proposals' ? (
-          <p className="mt-3 text-[11px] text-brand-text-muted">
+          <p className="mt-3 text-[11px] text-muted-foreground">
             Statuses: {PROPOSAL_STATUSES.join(' · ')}
           </p>
         ) : (
-          <p className="mt-3 text-[11px] text-brand-text-muted">
+          <p className="mt-3 text-[11px] text-muted-foreground">
             Statuses: {CAMPAIGN_STATUSES.join(' · ')}
           </p>
         )}
