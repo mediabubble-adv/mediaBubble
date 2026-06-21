@@ -5,6 +5,18 @@
   "projectType": "application",
   "tags": ["type:app", "scope:app"],
   "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/web-ae",
+        "tty": false,
+        "command": "next build --webpack"
+      },
+      "outputs": [
+        "{workspaceRoot}/apps/web-ae/.next/!(cache)/**/*",
+        "{workspaceRoot}/apps/web-ae/.next/!(cache)"
+      ]
+    },
     "lint": {
       "executor": "@nx/eslint:lint"
     },
