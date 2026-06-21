@@ -13,6 +13,7 @@ import {
 } from 'lucide-react'
 import { CURRENCIES, formatMoney, convert, type CurrencyCode } from '@/lib/finance/currency'
 import { summarize, byCategory, monthlySeriesPadded, trailingMonthKeys, formatMonthLabel, type FinanceTxn } from '@/lib/finance/kpis'
+import { Input } from '@/components/ui/input'
 
 interface DashboardTxn extends FinanceTxn {
   id: string
@@ -280,7 +281,7 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
               <button
                 key={code}
                 onClick={() => setDisplayCurrency(code)}
-                className={`rounded-md px-3 py-1.5 text-[12px] font-semibold transition-all ${
+                className={`rounded-md px-3 py-1.5 text-[12px] font-semibold transition-[transform,background-color,color,border-color,opacity] ${
                   displayCurrency === code
                     ? 'bg-primary text-white'
                     : 'text-muted-foreground hover:text-foreground'
@@ -609,7 +610,7 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
               {/* Search box */}
               <div className="relative">
                 <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-                <input
+                <Input
                   type="text"
                   placeholder="Search ledger…"
                   value={searchQuery}

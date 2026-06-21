@@ -2,6 +2,8 @@
 
 import { useMemo, useState, type FormEvent } from 'react'
 import { Clock, Plus, Trash2, Briefcase, CalendarOff, CalendarDays, BarChart3, Users, Send } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 import {
   summarize,
   entriesInRange,
@@ -303,7 +305,7 @@ export function TimeDashboard({
           <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
             <label className="flex flex-col gap-1 text-[12px] font-semibold text-muted-foreground">
               Date
-              <input
+              <Input
                 name="date"
                 type="date"
                 defaultValue={today}
@@ -313,7 +315,7 @@ export function TimeDashboard({
             </label>
             <label className="flex flex-col gap-1 text-[12px] font-semibold text-muted-foreground">
               Start
-              <input
+              <Input
                 name="start"
                 type="time"
                 required
@@ -323,7 +325,7 @@ export function TimeDashboard({
             </label>
             <label className="flex flex-col gap-1 text-[12px] font-semibold text-muted-foreground">
               End
-              <input
+              <Input
                 name="end"
                 type="time"
                 required
@@ -333,7 +335,7 @@ export function TimeDashboard({
             </label>
             <label className="flex flex-col gap-1 text-[12px] font-semibold text-muted-foreground sm:col-span-2">
               Description
-              <input
+              <Input
                 name="description"
                 type="text"
                 placeholder="What did you work on?"
@@ -342,22 +344,18 @@ export function TimeDashboard({
             </label>
             <div className="flex flex-col justify-end gap-3">
               <label className="flex items-center gap-2 text-[13px] text-foreground">
-                <input name="billable" type="checkbox" className="rounded border-border" />
+                <Input name="billable" type="checkbox" className="rounded border-border" />
                 Billable
               </label>
-              <button
-                type="submit"
-                disabled={logging}
-                className="rounded-lg bg-accent px-4 py-2 text-[13px] font-bold text-accent-foreground transition-all duration-200 hover:opacity-90 active:scale-[0.98] disabled:opacity-50"
-              >
-                {logging ? 'Saving…' : 'Add entry'}
-              </button>
+              <Button type="submit" variant="accent" size="sm" isLoading={logging} loadingText="Saving…">
+                Add entry
+              </Button>
             </div>
           </div>
         </form>
 
         <div className="mt-6 flex flex-wrap items-center gap-3">
-          <input
+          <Input
             type="search"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}

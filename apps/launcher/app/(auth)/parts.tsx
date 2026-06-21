@@ -4,6 +4,7 @@
 // the forms POST to /api/auth/* and render the standardized envelope.
 
 import { useId, type InputHTMLAttributes, type ReactNode } from 'react'
+import { Input } from '@/components/ui/input'
 
 export interface ApiResult<T = unknown> {
   ok: boolean
@@ -48,9 +49,9 @@ export function Field({
   return (
     <label htmlFor={id} className="block">
       <span className="mb-1.5 block text-[13px] font-semibold text-foreground">{label}</span>
-      <input
+      <Input
         id={id}
-        className="w-full rounded-lg border border-input bg-background px-3 py-2.5 text-[14px] text-foreground placeholder:text-muted-foreground transition-all duration-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+        className="w-full rounded-lg border border-input bg-background px-3 py-2.5 text-[14px] text-foreground placeholder:text-muted-foreground transition-[transform,background-color,color,border-color,opacity] duration-150 ease-[var(--ease-out)] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
         {...props}
       />
       {hint ? <span className="mt-1 block text-[12px] text-muted-foreground">{hint}</span> : null}
@@ -69,7 +70,7 @@ export function SubmitButton({
     <button
       type="submit"
       disabled={pending}
-      className="w-full rounded-lg bg-primary px-4 py-2.5 text-[14px] font-bold text-white transition-all duration-200 hover:bg-primary/85 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
+      className="w-full rounded-lg bg-primary px-4 py-2.5 text-[14px] font-bold text-white transition-[transform,background-color,color,border-color,opacity] duration-150 ease-[var(--ease-out)] hover:bg-primary/85 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
     >
       {pending ? 'Please wait…' : children}
     </button>

@@ -54,7 +54,7 @@ export function PortalDashboard({
             type="button"
             disabled={busy}
             onClick={() => void signOut()}
-            className="inline-flex items-center gap-2 rounded-xl border border-border px-4 py-2 text-[13px] font-bold text-muted-foreground transition-all duration-200 hover:text-foreground active:scale-[0.98] disabled:opacity-50"
+            className="inline-flex items-center gap-2 rounded-xl border border-border px-4 py-2 text-[13px] font-bold text-muted-foreground transition-[transform,background-color,color,border-color] duration-150 ease-[var(--ease-out)] hover:text-foreground active:scale-[0.98] disabled:opacity-50"
           >
             <LogOut size={16} />
             Sign out

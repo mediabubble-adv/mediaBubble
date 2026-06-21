@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState, type FormEvent } from 'react'
 import { Plus, CheckSquare } from 'lucide-react'
 import { TASK_STATUSES, type TaskStatus } from '@/lib/tasks/status'
 import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 import { TaskCard } from '@/components/tasks/task-card'
 import { TaskForm } from '@/components/tasks/task-form'
 import { TaskDetails } from '@/components/tasks/task-details'
@@ -198,7 +199,7 @@ export function TaskBoard({
                 {/* Quick-add only in Backlog column */}
                 {status === 'Backlog' && (
                   <form onSubmit={quickCreate} className="mb-2 flex items-center gap-1.5">
-                    <input
+                    <Input
                       value={quickTitle}
                       onChange={(e) => setQuickTitle(e.target.value)}
                       placeholder="Quick add…"

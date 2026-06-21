@@ -5,6 +5,7 @@ import { Bot, Play, Plus, Search, Sparkles } from 'lucide-react'
 import type { PromptRow } from '@/lib/ai/prompts'
 import { PROMPT_CATEGORIES } from '@/lib/ai/schemas'
 import { extractVariableNames } from '@/lib/ai/template'
+import { Input } from '@/components/ui/input'
 
 const STATUS_STYLES: Record<string, string> = {
   Draft: 'bg-muted-foreground/15 text-muted-foreground',
@@ -130,7 +131,7 @@ export function AiDashboard({
           <button
             type="button"
             onClick={() => setShowForm((v) => !v)}
-            className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-[13px] font-bold text-white transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
+            className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-[13px] font-bold text-white transition-[transform,opacity] duration-150 ease-[var(--ease-out)] hover:opacity-90 active:scale-[0.98]"
           >
             <Plus size={16} />
             New prompt
@@ -150,10 +151,10 @@ export function AiDashboard({
           >
             <label className="block">
               <span className="text-[12px] font-bold text-muted-foreground">Name</span>
-              <input
+              <Input
                 name="name"
                 required
-                className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[14px] text-foreground"
+                className="mt-1 text-[14px]"
               />
             </label>
             <label className="block">
@@ -161,7 +162,7 @@ export function AiDashboard({
               <select
                 name="category"
                 defaultValue="content"
-                className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[14px] text-foreground"
+                className="mt-1 text-[14px]"
               >
                 {PROMPT_CATEGORIES.map((c) => (
                   <option key={c} value={c}>
@@ -172,9 +173,9 @@ export function AiDashboard({
             </label>
             <label className="block">
               <span className="text-[12px] font-bold text-muted-foreground">Description</span>
-              <input
+              <Input
                 name="description"
-                className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[14px] text-foreground"
+                className="mt-1 text-[14px]"
               />
             </label>
             <label className="block">
@@ -186,12 +187,12 @@ export function AiDashboard({
                 required
                 rows={5}
                 placeholder="Write a LinkedIn post for {{brand}} promoting {{offer}} in {{market}}."
-                className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 font-mono text-[13px] text-foreground"
+                className="mt-1 font-mono text-[13px]"
               />
             </label>
             {canManage ? (
               <label className="flex items-center gap-2 text-[13px] text-muted-foreground">
-                <input name="is_public" type="checkbox" className="rounded" />
+                <Input name="is_public" type="checkbox" className="rounded" />
                 Share with team (public)
               </label>
             ) : null}
@@ -218,7 +219,7 @@ export function AiDashboard({
           <div>
             <div className="relative mb-3">
               <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-              <input
+              <Input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search prompts…"
@@ -240,7 +241,7 @@ export function AiDashboard({
                       setRunOutput(null)
                       setVariableValues({})
                     }}
-                    className={`w-full rounded-2xl border px-4 py-3 text-left transition-all duration-200 active:scale-[0.99] ${
+                    className={`w-full rounded-2xl border px-4 py-3 text-left transition-[transform,background-color,color,border-color,opacity] duration-150 ease-[var(--ease-out)] active:scale-[0.99] ${
                       selectedId === prompt.id
                         ? 'border-primary/50 bg-primary/10'
                         : 'border-border bg-card hover:border-primary/30'
@@ -299,12 +300,12 @@ export function AiDashboard({
                     variableNames.map((name) => (
                       <label key={name} className="block">
                         <span className="text-[12px] font-bold text-muted-foreground">{name}</span>
-                        <input
+                        <Input
                           value={variableValues[name] ?? ''}
                           onChange={(e) =>
                             setVariableValues((prev) => ({ ...prev, [name]: e.target.value }))
                           }
-                          className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[14px] text-foreground"
+                          className="mt-1 text-[14px]"
                         />
                       </label>
                     ))

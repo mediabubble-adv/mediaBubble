@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Search } from 'lucide-react'
 import { NAV_ITEMS, NAV_FOOTER } from './nav'
+import { Input } from '@/components/ui/input'
 
 const ALL = [...NAV_ITEMS, ...NAV_FOOTER]
 
@@ -77,7 +78,7 @@ export function CommandPalette({
       >
         <div className="flex items-center gap-2 border-b border-border px-4">
           <Search size={16} className="shrink-0 text-muted-foreground" />
-          <input
+          <Input
             ref={inputRef}
             value={query}
             onChange={(e) => setQuery(e.target.value)}

@@ -75,7 +75,7 @@ export function CalendarPanel({
               ? 'Google Calendar sync (Phase 2 placeholder)'
               : 'Set GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET in apps/launcher/.env.local'
           }
-          className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-[12px] font-bold text-muted-foreground transition-all disabled:cursor-not-allowed disabled:opacity-50 active:scale-[0.98]"
+          className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-[12px] font-bold text-muted-foreground transition-[transform,background-color,color,border-color,opacity] disabled:cursor-not-allowed disabled:opacity-50 active:scale-[0.98]"
         >
           <Link2 size={14} />
           Sync Google Calendar

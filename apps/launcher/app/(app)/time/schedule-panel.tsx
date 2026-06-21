@@ -2,6 +2,8 @@
 
 import { useMemo, useState, type FormEvent } from 'react'
 import { CalendarDays, Trash2 } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 import {
   AVAILABILITY_STATUSES,
   HOLIDAY_COUNTRIES,
@@ -129,7 +131,7 @@ export function SchedulePanel({
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             <label className="flex flex-col gap-1 text-[12px] font-semibold text-muted-foreground">
               Date
-              <input
+              <Input
                 name="date"
                 type="date"
                 defaultValue={today}
@@ -139,7 +141,7 @@ export function SchedulePanel({
             </label>
             <label className="flex flex-col gap-1 text-[12px] font-semibold text-muted-foreground">
               From
-              <input
+              <Input
                 name="start_time"
                 type="time"
                 defaultValue="09:00"
@@ -150,7 +152,7 @@ export function SchedulePanel({
             </label>
             <label className="flex flex-col gap-1 text-[12px] font-semibold text-muted-foreground">
               To
-              <input
+              <Input
                 name="end_time"
                 type="time"
                 defaultValue="17:00"
@@ -173,13 +175,9 @@ export function SchedulePanel({
               </select>
             </label>
           </div>
-          <button
-            type="submit"
-            disabled={submitting}
-            className="mt-4 rounded-lg bg-accent px-4 py-2 text-[13px] font-bold text-accent-foreground transition-all duration-200 hover:opacity-90 active:scale-[0.98] disabled:opacity-50"
-          >
-            {submitting ? 'Saving…' : 'Add slot'}
-          </button>
+          <Button type="submit" variant="accent" size="sm" isLoading={submitting} loadingText="Saving…" className="mt-4 w-full">
+            Add slot
+          </Button>
         </form>
 
         <div className="overflow-x-auto rounded-2xl border border-border bg-card">

@@ -7,6 +7,7 @@ import type { MessageRow } from '@/lib/comms/messages'
 import type { CommsEvent } from '@/lib/comms/realtime/events'
 import { useCommsRealtime } from '@/lib/comms/realtime/use-comms-realtime'
 import { CHANNEL_TYPES } from '@/lib/comms/schemas'
+import { Input } from '@/components/ui/input'
 
 function formatTime(iso: string): string {
   return new Date(iso).toLocaleString(undefined, {
@@ -177,7 +178,7 @@ export function ChatDashboard({
           <button
             type="button"
             onClick={() => setShowForm((v) => !v)}
-            className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-[13px] font-bold text-white transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
+            className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-[13px] font-bold text-white transition-[transform,opacity] duration-150 ease-[var(--ease-out)] hover:opacity-90 active:scale-[0.98]"
           >
             <Plus size={16} />
             New channel
@@ -197,18 +198,18 @@ export function ChatDashboard({
           >
             <label className="block md:col-span-2">
               <span className="text-[12px] font-bold text-muted-foreground">Channel name</span>
-              <input
+              <Input
                 name="name"
                 required
                 placeholder="general"
-                className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[14px] text-foreground"
+                className="mt-1 text-[14px]"
               />
             </label>
             <label className="block md:col-span-2">
               <span className="text-[12px] font-bold text-muted-foreground">Description</span>
-              <input
+              <Input
                 name="description"
-                className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[14px] text-foreground"
+                className="mt-1 text-[14px]"
               />
             </label>
             <label className="block">
@@ -216,7 +217,7 @@ export function ChatDashboard({
               <select
                 name="type"
                 defaultValue="Public"
-                className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[14px] text-foreground"
+                className="mt-1 text-[14px]"
               >
                 {CHANNEL_TYPES.map((t) => (
                   <option key={t} value={t}>
@@ -266,7 +267,7 @@ export function ChatDashboard({
                     key={channel.id}
                     type="button"
                     onClick={() => void selectChannel(channel.id)}
-                    className={`flex w-full items-center gap-2 rounded-xl px-2 py-2 text-left text-[13px] transition-all duration-200 active:scale-[0.99] ${
+                    className={`flex w-full items-center gap-2 rounded-xl px-2 py-2 text-left text-[13px] transition-[transform,background-color,color,border-color,opacity] duration-150 ease-[var(--ease-out)] active:scale-[0.99] ${
                       selectedId === channel.id
                         ? 'bg-primary/15 text-foreground'
                         : 'text-muted-foreground hover:bg-background/60 hover:text-foreground'
@@ -362,11 +363,11 @@ export function ChatDashboard({
                   onSubmit={sendMessage}
                   className="flex gap-2 border-t border-border p-3"
                 >
-                  <input
+                  <Input
                     value={draft}
                     onChange={(e) => setDraft(e.target.value)}
                     placeholder={`Message #${selected.name}`}
-                    className="min-w-0 flex-1 rounded-xl border border-border bg-input px-3 py-2 text-[14px] text-foreground"
+                    className="min-w-0 flex-1 text-[14px]"
                   />
                   <button
                     type="submit"

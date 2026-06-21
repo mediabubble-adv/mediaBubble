@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState, type FormEvent } from 'react'
 import { Play, Plus, RefreshCw, Workflow, Zap } from 'lucide-react'
 import type { ExecutionRow, TemplateRow, WorkflowRow } from '@/lib/automation/workflows'
 import { ACTION_CATALOG, TRIGGER_CATALOG } from '@/lib/automation/catalog'
+import { Input } from '@/components/ui/input'
 
 const STATUS_STYLES: Record<string, string> = {
   Completed: 'bg-[#16A34A]/15 text-[#16A34A]',
@@ -179,7 +180,7 @@ export function AutomationDashboard({
           <button
             type="button"
             onClick={() => setShowForm((v) => !v)}
-            className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-[13px] font-bold text-white transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
+            className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-[13px] font-bold text-white transition-[transform,opacity] duration-150 ease-[var(--ease-out)] hover:opacity-90 active:scale-[0.98]"
           >
             <Plus size={16} />
             New workflow
@@ -201,10 +202,10 @@ export function AutomationDashboard({
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="block text-[12px] font-medium text-muted-foreground">
                 Name
-                <input
+                <Input
                   name="name"
                   required
-                  className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[13px] text-foreground"
+                  className="mt-1 text-[13px]"
                 />
               </label>
               <label className="block text-[12px] font-medium text-muted-foreground">
@@ -212,7 +213,7 @@ export function AutomationDashboard({
                 <select
                   name="trigger"
                   defaultValue="manual"
-                  className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[13px] text-foreground"
+                  className="mt-1 text-[13px]"
                 >
                   {TRIGGER_CATALOG.map((t) => (
                     <option key={t.id} value={t.id}>
@@ -223,9 +224,9 @@ export function AutomationDashboard({
               </label>
               <label className="block text-[12px] font-medium text-muted-foreground sm:col-span-2">
                 Description
-                <input
+                <Input
                   name="description"
-                  className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[13px] text-foreground"
+                  className="mt-1 text-[13px]"
                 />
               </label>
               <label className="block text-[12px] font-medium text-muted-foreground">
@@ -233,7 +234,7 @@ export function AutomationDashboard({
                 <select
                   name="action"
                   defaultValue="log_message"
-                  className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[13px] text-foreground"
+                  className="mt-1 text-[13px]"
                 >
                   {ACTION_CATALOG.map((a) => (
                     <option key={a.id} value={a.id}>
@@ -244,14 +245,14 @@ export function AutomationDashboard({
               </label>
               <label className="block text-[12px] font-medium text-muted-foreground">
                 Action message / note
-                <input
+                <Input
                   name="message"
                   defaultValue="Workflow step executed"
-                  className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[13px] text-foreground"
+                  className="mt-1 text-[13px]"
                 />
               </label>
               <label className="flex items-center gap-2 text-[12px] text-muted-foreground sm:col-span-2">
-                <input type="checkbox" name="enabled" defaultChecked className="rounded" />
+                <Input type="checkbox" name="enabled" defaultChecked className="rounded" />
                 Enabled on create
               </label>
             </div>
@@ -295,7 +296,7 @@ export function AutomationDashboard({
                   <button
                     type="button"
                     onClick={() => setSelectedId(w.id)}
-                    className={`flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-[13px] transition-all duration-200 active:scale-[0.98] ${
+                    className={`flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-[13px] transition-[transform,background-color,color,border-color,opacity] duration-150 ease-[var(--ease-out)] active:scale-[0.98] ${
                       selectedId === w.id
                         ? 'bg-primary/15 text-primary'
                         : 'text-foreground hover:bg-input'
@@ -411,7 +412,7 @@ export function AutomationDashboard({
                     value={triggerDataJson}
                     onChange={(e) => setTriggerDataJson(e.target.value)}
                     rows={3}
-                    className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 font-mono text-[11px] text-foreground"
+                    className="mt-1 font-mono text-[11px]"
                   />
                 </label>
 

@@ -172,7 +172,7 @@ export function LeaderboardDashboard({
           <div className="flex rounded-lg border border-border bg-card p-1">
             <button
               onClick={() => setFilterMode('global')}
-              className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[12px] font-semibold transition-all ${
+              className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[12px] font-semibold transition-[transform,background-color,color,border-color,opacity] ${
                 filterMode === 'global'
                   ? 'bg-primary text-white'
                   : 'text-muted-foreground hover:text-foreground'
@@ -183,7 +183,7 @@ export function LeaderboardDashboard({
             </button>
             <button
               onClick={() => setFilterMode('department')}
-              className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[12px] font-semibold transition-all ${
+              className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[12px] font-semibold transition-[transform,background-color,color,border-color,opacity] ${
                 filterMode === 'department'
                   ? 'bg-primary text-white'
                   : 'text-muted-foreground hover:text-foreground'
@@ -231,7 +231,7 @@ export function LeaderboardDashboard({
                 </div>
                 <div className="h-2.5 w-full rounded-full bg-background overflow-hidden">
                   <div
-                    className="h-full rounded-full bg-primary transition-all duration-500 ease-out"
+                    className="h-full rounded-full bg-primary transition-[transform,background-color,color,border-color,opacity] duration-500 ease-out"
                     style={{ width: `${xpMetrics.progressPercent}%` }}
                   />
                 </div>
@@ -241,7 +241,7 @@ export function LeaderboardDashboard({
             {/* Hot Streak Flame Card */}
             <div className="rounded-2xl border border-border bg-card p-5 flex flex-col items-center justify-center text-center relative overflow-hidden group">
               {/* Glow background */}
-              <div className="absolute -inset-10 bg-[#CA8A04]/5 rounded-full blur-xl group-hover:bg-[#CA8A04]/10 transition-all duration-300" />
+              <div className="absolute -inset-10 bg-[#CA8A04]/5 rounded-full blur-xl group-hover:bg-[#CA8A04]/10 transition-[transform,background-color,color,border-color,opacity] duration-200 ease-[var(--ease-out)]" />
               <div className="relative">
                 <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-[#CA8A04]/10 text-[#CA8A04] animate-pulse">
                   <Flame size={36} className="fill-[#CA8A04] text-[#CA8A04] drop-shadow-[0_0_8px_rgba(245,158,11,0.5)]" />
@@ -434,7 +434,7 @@ export function LeaderboardDashboard({
                 return (
                   <div
                     key={a.id}
-                    className={`relative rounded-xl border p-3 flex gap-3 transition-all duration-300 overflow-hidden ${
+                    className={`relative rounded-xl border p-3 flex gap-3 transition-[transform,background-color,color,border-color,opacity] duration-200 ease-[var(--ease-out)] overflow-hidden ${
                       a.condition
                         ? 'border-primary/30 bg-primary/5 shadow-[0_0_8px_rgba(59,130,246,0.1)]'
                         : 'border-border bg-background/40 opacity-60'

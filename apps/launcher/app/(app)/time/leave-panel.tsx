@@ -2,6 +2,8 @@
 
 import { useState, type FormEvent } from 'react'
 import { CalendarOff, Check, X } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 import { LEAVE_TYPES, type LEAVE_STATUSES } from '@/lib/time/leave-schemas'
 
 export interface LeaveRequestRow {
@@ -162,7 +164,7 @@ export function LeavePanel({
                             type="button"
                             disabled={reviewingId === row.id}
                             onClick={() => reviewLeave(row.id, 'Approved')}
-                            className="inline-flex items-center gap-1 rounded-lg bg-[#16A34A]/15 px-2.5 py-1.5 text-[12px] font-bold text-[#16A34A] transition-all active:scale-[0.98] disabled:opacity-50"
+                            className="inline-flex items-center gap-1 rounded-lg bg-[#16A34A]/15 px-2.5 py-1.5 text-[12px] font-bold text-[#16A34A] transition-[transform,background-color,color,border-color,opacity] active:scale-[0.98] disabled:opacity-50"
                           >
                             <Check size={12} />
                             Approve
@@ -171,7 +173,7 @@ export function LeavePanel({
                             type="button"
                             disabled={reviewingId === row.id}
                             onClick={() => reviewLeave(row.id, 'Rejected')}
-                            className="inline-flex items-center gap-1 rounded-lg bg-destructive/15 px-2.5 py-1.5 text-[12px] font-bold text-destructive transition-all active:scale-[0.98] disabled:opacity-50"
+                            className="inline-flex items-center gap-1 rounded-lg bg-destructive/15 px-2.5 py-1.5 text-[12px] font-bold text-destructive transition-[transform,background-color,color,border-color,opacity] active:scale-[0.98] disabled:opacity-50"
                           >
                             <X size={12} />
                             Reject
@@ -209,7 +211,7 @@ export function LeavePanel({
           </label>
           <label className="flex flex-col gap-1 text-[12px] font-semibold text-muted-foreground">
             From
-            <input
+            <Input
               name="start_date"
               type="date"
               required
@@ -218,7 +220,7 @@ export function LeavePanel({
           </label>
           <label className="flex flex-col gap-1 text-[12px] font-semibold text-muted-foreground">
             To
-            <input
+            <Input
               name="end_date"
               type="date"
               required
@@ -227,7 +229,7 @@ export function LeavePanel({
           </label>
           <label className="flex flex-col gap-1 text-[12px] font-semibold text-muted-foreground sm:col-span-2">
             Reason
-            <input
+            <Input
               name="reason"
               type="text"
               placeholder="Optional note for your manager"
@@ -235,13 +237,9 @@ export function LeavePanel({
             />
           </label>
         </div>
-        <button
-          type="submit"
-          disabled={submitting}
-          className="mt-4 rounded-lg bg-accent px-4 py-2 text-[13px] font-bold text-accent-foreground transition-all duration-200 hover:opacity-90 active:scale-[0.98] disabled:opacity-50"
-        >
-          {submitting ? 'Submitting…' : 'Submit request'}
-        </button>
+        <Button type="submit" variant="accent" size="sm" isLoading={submitting} loadingText="Submitting…" className="mt-4 w-full">
+          Submit request
+        </Button>
       </form>
 
       <div className="overflow-x-auto rounded-2xl border border-border bg-card">

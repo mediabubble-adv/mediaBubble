@@ -12,6 +12,7 @@ import {
   SERVICE_CHANNELS,
 } from '@/lib/campaigns/schemas'
 import { CURRENCIES } from '@/lib/crm/schemas'
+import { Input } from '@/components/ui/input'
 
 type HubTab = 'proposals' | 'campaigns'
 
@@ -193,7 +194,7 @@ export function CampaignsDashboard({
             <button
               type="button"
               onClick={() => setShowForm((v) => !v)}
-              className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-[13px] font-bold text-white transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
+              className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-[13px] font-bold text-white transition-[transform,opacity] duration-150 ease-[var(--ease-out)] hover:opacity-90 active:scale-[0.98]"
             >
               <Plus size={16} />
               New {tab === 'proposals' ? 'proposal' : 'campaign'}
@@ -210,7 +211,7 @@ export function CampaignsDashboard({
                 setTab(t.id)
                 setShowForm(false)
               }}
-              className={`rounded-lg px-4 py-2 text-[13px] font-bold transition-all duration-200 active:scale-[0.98] ${
+              className={`rounded-lg px-4 py-2 text-[13px] font-bold transition-[transform,background-color,color,border-color,opacity] duration-150 ease-[var(--ease-out)] active:scale-[0.98] ${
                 tab === t.id
                   ? 'bg-primary/15 text-primary'
                   : 'text-muted-foreground hover:text-foreground'
@@ -241,7 +242,7 @@ export function CampaignsDashboard({
                 <select
                   name="client_id"
                   required
-                  className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[13px] text-foreground"
+                  className="mt-1 text-[13px]"
                 >
                   {activeClients.map((c) => (
                     <option key={c.id} value={c.id}>
@@ -255,7 +256,7 @@ export function CampaignsDashboard({
                 <select
                   name="currency"
                   defaultValue="EGP"
-                  className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[13px] text-foreground"
+                  className="mt-1 text-[13px]"
                 >
                   {CURRENCIES.map((c) => (
                     <option key={c} value={c}>
@@ -268,10 +269,10 @@ export function CampaignsDashboard({
                 <>
                   <label className="block text-[12px] font-medium text-muted-foreground sm:col-span-2">
                     Title
-                    <input
+                    <Input
                       name="title"
                       required
-                      className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[13px] text-foreground"
+                      className="mt-1 text-[13px]"
                     />
                   </label>
                   <label className="block text-[12px] font-medium text-muted-foreground sm:col-span-2">
@@ -279,48 +280,48 @@ export function CampaignsDashboard({
                     <textarea
                       name="summary"
                       rows={2}
-                      className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[13px] text-foreground"
+                      className="mt-1 text-[13px]"
                     />
                   </label>
                   <label className="block text-[12px] font-medium text-muted-foreground">
                     Objective
-                    <input
+                    <Input
                       name="objective"
-                      className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[13px] text-foreground"
+                      className="mt-1 text-[13px]"
                     />
                   </label>
                   <label className="block text-[12px] font-medium text-muted-foreground">
                     Timeline (weeks)
-                    <input
+                    <Input
                       name="timeline_weeks"
                       type="number"
                       min={1}
                       defaultValue={12}
-                      className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[13px] text-foreground"
+                      className="mt-1 text-[13px]"
                     />
                   </label>
                   <label className="block text-[12px] font-medium text-muted-foreground">
                     Budget estimate
-                    <input
+                    <Input
                       name="budget_estimate"
                       type="number"
                       min={0}
-                      className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[13px] text-foreground"
+                      className="mt-1 text-[13px]"
                     />
                   </label>
                   <label className="block text-[12px] font-medium text-muted-foreground">
                     Deliverable title
-                    <input
+                    <Input
                       name="deliverable_title"
                       defaultValue="Monthly retainer scope"
-                      className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[13px] text-foreground"
+                      className="mt-1 text-[13px]"
                     />
                   </label>
                   <label className="block text-[12px] font-medium text-muted-foreground sm:col-span-2">
                     Deliverable notes
-                    <input
+                    <Input
                       name="deliverable_desc"
-                      className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[13px] text-foreground"
+                      className="mt-1 text-[13px]"
                     />
                   </label>
                 </>
@@ -328,10 +329,10 @@ export function CampaignsDashboard({
                 <>
                   <label className="block text-[12px] font-medium text-muted-foreground sm:col-span-2">
                     Campaign name
-                    <input
+                    <Input
                       name="name"
                       required
-                      className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[13px] text-foreground"
+                      className="mt-1 text-[13px]"
                     />
                   </label>
                   <label className="block text-[12px] font-medium text-muted-foreground sm:col-span-2">
@@ -339,7 +340,7 @@ export function CampaignsDashboard({
                     <textarea
                       name="brief"
                       rows={2}
-                      className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[13px] text-foreground"
+                      className="mt-1 text-[13px]"
                     />
                   </label>
                   <label className="block text-[12px] font-medium text-muted-foreground">
@@ -347,7 +348,7 @@ export function CampaignsDashboard({
                     <select
                       name="market"
                       defaultValue="eg"
-                      className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[13px] text-foreground"
+                      className="mt-1 text-[13px]"
                     >
                       {MARKETS.map((m) => (
                         <option key={m} value={m}>
@@ -358,11 +359,11 @@ export function CampaignsDashboard({
                   </label>
                   <label className="block text-[12px] font-medium text-muted-foreground">
                     Budget
-                    <input
+                    <Input
                       name="budget"
                       type="number"
                       min={0}
-                      className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[13px] text-foreground"
+                      className="mt-1 text-[13px]"
                     />
                   </label>
                   <div className="sm:col-span-2">
@@ -370,7 +371,7 @@ export function CampaignsDashboard({
                     <div className="mt-2 flex flex-wrap gap-3">
                       {SERVICE_CHANNELS.map((ch) => (
                         <label key={ch} className="flex items-center gap-2 text-[12px] text-foreground">
-                          <input type="checkbox" name={`ch_${ch}`} className="rounded" />
+                          <Input type="checkbox" name={`ch_${ch}`} className="rounded" />
                           {CHANNEL_LABELS[ch] ?? ch}
                         </label>
                       ))}

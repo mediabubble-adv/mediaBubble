@@ -5,6 +5,7 @@ import { FileText, Plus } from 'lucide-react'
 import type { ClientRow } from '@/lib/crm/clients'
 import type { InvoiceRow } from '@/lib/crm/invoices'
 import { CURRENCIES, INVOICE_STATUSES } from '@/lib/crm/schemas'
+import { Input } from '@/components/ui/input'
 
 const STATUS_STYLES: Record<string, string> = {
   Draft: 'bg-muted-foreground/15 text-muted-foreground',
@@ -111,7 +112,7 @@ export function CrmInvoicesPanel({
           <button
             type="button"
             onClick={() => setShowForm((v) => !v)}
-            className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-[13px] font-bold text-white transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
+            className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-[13px] font-bold text-white transition-[transform,opacity] duration-150 ease-[var(--ease-out)] hover:opacity-90 active:scale-[0.98]"
           >
             <Plus size={16} />
             New invoice
@@ -135,7 +136,7 @@ export function CrmInvoicesPanel({
             <select
               name="client_id"
               required
-              className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[14px] text-foreground"
+              className="mt-1 text-[14px]"
             >
               <option value="">Select client…</option>
               {activeClients.map((c) => (
@@ -147,36 +148,36 @@ export function CrmInvoicesPanel({
           </label>
           <label className="block md:col-span-2">
             <span className="text-[12px] font-bold text-muted-foreground">Line item</span>
-            <input
+            <Input
               name="description"
               required
               placeholder="Monthly retainer — June 2026"
-              className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[14px] text-foreground"
+              className="mt-1 text-[14px]"
             />
           </label>
           <label className="block">
             <span className="text-[12px] font-bold text-muted-foreground">Quantity</span>
-            <input
+            <Input
               name="quantity"
               type="number"
               min="0.01"
               step="0.01"
               defaultValue="1"
               dir="ltr"
-              className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[14px] tabular-nums text-foreground"
+              className="mt-1 text-[14px] tabular-nums"
               style={{ unicodeBidi: 'isolate' }}
             />
           </label>
           <label className="block">
             <span className="text-[12px] font-bold text-muted-foreground">Unit price</span>
-            <input
+            <Input
               name="unit_price"
               type="number"
               min="0"
               step="0.01"
               required
               dir="ltr"
-              className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[14px] tabular-nums text-foreground"
+              className="mt-1 text-[14px] tabular-nums"
               style={{ unicodeBidi: 'isolate' }}
             />
           </label>
@@ -185,7 +186,7 @@ export function CrmInvoicesPanel({
             <select
               name="currency"
               defaultValue="EGP"
-              className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[14px] text-foreground"
+              className="mt-1 text-[14px]"
             >
               {CURRENCIES.map((c) => (
                 <option key={c} value={c}>
@@ -196,19 +197,19 @@ export function CrmInvoicesPanel({
           </label>
           <label className="block">
             <span className="text-[12px] font-bold text-muted-foreground">Due date</span>
-            <input
+            <Input
               name="due_date"
               type="date"
               required
               defaultValue={defaultDueDate()}
               dir="ltr"
-              className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[14px] tabular-nums text-foreground"
+              className="mt-1 text-[14px] tabular-nums"
               style={{ unicodeBidi: 'isolate' }}
             />
           </label>
           <label className="block md:col-span-2">
             <span className="text-[12px] font-bold text-muted-foreground">Discount %</span>
-            <input
+            <Input
               name="discount_percentage"
               type="number"
               min="0"
@@ -216,7 +217,7 @@ export function CrmInvoicesPanel({
               step="0.01"
               defaultValue="0"
               dir="ltr"
-              className="mt-1 w-full rounded-xl border border-border bg-input px-3 py-2 text-[14px] tabular-nums text-foreground"
+              className="mt-1 text-[14px] tabular-nums"
               style={{ unicodeBidi: 'isolate' }}
             />
           </label>
