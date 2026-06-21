@@ -1,6 +1,16 @@
 {
   "extends": ["../../.eslintrc.json"],
-  "ignorePatterns": ["!**/*", ".next/**", "out/**", "dist/**", "node_modules/**"],
+  "ignorePatterns": [
+    "!**/*",
+    ".next/**",
+    "out/**",
+    "dist/**",
+    "node_modules/**",
+    "public/sw.js",
+    "public/workbox-*.js",
+    "public/swe-worker-*.js",
+    "public/fallback-*.js"
+  ],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],

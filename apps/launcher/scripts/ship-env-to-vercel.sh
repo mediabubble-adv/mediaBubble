@@ -51,6 +51,9 @@ echo "→ Syncing env to mediabubble/launcher …"
 
 for key in DATABASE_URL DIRECT_URL; do
   val="$(read_env "$key" "$LAUNCHER/prisma/.env" || read_env "$key" "$LAUNCHER/.env.local" || true)"
+  if [[ -z "${val:-}" && "$key" == "DIRECT_URL" ]]; then
+    val="$(read_env DATABASE_URL "$LAUNCHER/prisma/.env" || read_env DATABASE_URL "$LAUNCHER/.env.local" || true)"
+  fi
   if [[ -z "${val:-}" ]]; then
     echo "  ✗ $key missing — set in apps/launcher/.env.local or prisma/.env" >&2
     exit 1
