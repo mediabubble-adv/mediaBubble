@@ -1,4 +1,4 @@
-import { summarize, byCategory, monthlySeries, type FinanceTxn } from './kpis'
+import { summarize, byCategory, monthlySeries, monthlySeriesPadded, type FinanceTxn } from './kpis'
 
 const txns: FinanceTxn[] = [
   { date: '2026-01-15', category: 'AI & Dev', type: 'outflow', amount: 100, currency: 'USD' },
@@ -30,12 +30,16 @@ describe('byCategory', () => {
   })
 })
 
-describe('monthlySeries', () => {
-  it('buckets inflow/outflow by month', () => {
-    const series = monthlySeries(txns, 'USD')
-    expect(series).toEqual([
-      { month: '2026-01', inflow: 0, outflow: 150 },
-      { month: '2026-02', inflow: 1000, outflow: 2 },
-    ])
+describe('monthlySeriesPadded', () => {
+  it('returns six trailing months with zero-filled gaps', () => {
+    const series = monthlySeriesPadded(txns, 'USD', 6)
+    expect(series).toHaveLength(6)
+    expect(series.every((row) => row.label.length > 0)).toBe(true)
+    const jan = series.find((row) => row.month === '2026-01')
+    const feb = series.find((row) => row.month === '2026-02')
+    expect(jan?.inflow).toBe(0)
+    expect(jan?.outflow).toBe(150)
+    expect(feb?.inflow).toBe(1000)
+    expect(feb?.outflow).toBe(2)
   })
 })

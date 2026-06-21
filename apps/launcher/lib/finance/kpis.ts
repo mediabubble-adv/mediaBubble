@@ -64,3 +64,45 @@ export function monthlySeries(
     .map(([month, v]) => ({ month, ...v }))
     .sort((a, b) => a.month.localeCompare(b.month))
 }
+
+const MONTH_LABEL = new Intl.DateTimeFormat('en-US', { month: 'short', year: '2-digit' })
+
+/** Stable YYYY-MM label (UTC) for chart axes. */
+export function formatMonthLabel(monthKey: string): string {
+  const [year, month] = monthKey.split('-').map(Number)
+  if (!year || !month) return monthKey
+  return MONTH_LABEL.format(new Date(Date.UTC(year, month - 1, 1)))
+}
+
+/** Trailing calendar month keys ending at `asOf` (UTC), oldest first. */
+export function trailingMonthKeys(count = 6, asOf = new Date()): string[] {
+  return Array.from({ length: count }, (_, i) => {
+    const d = new Date(Date.UTC(asOf.getUTCFullYear(), asOf.getUTCMonth() - (count - 1 - i), 1))
+    return d.toISOString().slice(0, 7)
+  })
+}
+
+/** Pad to the trailing N calendar months (zeros for gaps) — stable chart axis. */
+export function monthlySeriesPadded(
+  txns: FinanceTxn[],
+  display: CurrencyCode,
+  monthCount = 6,
+): { month: string; label: string; inflow: number; outflow: number }[] {
+  const byMonth = new Map(monthlySeries(txns, display).map((row) => [row.month, row]))
+  const now = new Date()
+  const rows: { month: string; label: string; inflow: number; outflow: number }[] = []
+
+  for (let i = monthCount - 1; i >= 0; i--) {
+    const d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() - i, 1))
+    const month = d.toISOString().slice(0, 7)
+    const hit = byMonth.get(month)
+    rows.push({
+      month,
+      label: formatMonthLabel(month),
+      inflow: hit?.inflow ?? 0,
+      outflow: hit?.outflow ?? 0,
+    })
+  }
+
+  return rows
+}

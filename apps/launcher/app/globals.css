@@ -19,7 +19,34 @@
     --space-4xl: 64px;
     --space-5xl: 96px;
 
-    /* Semantic theme tokens (light) — mirror the design-system defaults. */
+    /* Motion — strong custom easing curves */
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+    --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
+    /* ─── shadcn/ui CSS variables (light fallback) ─── */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 20%;
+    --primary: 210 88% 54%;        /* brand-blue #2196F3 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 20%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 46 100% 51%;         /* brand-yellow #FFC107 */
+    --accent-foreground: 222 17% 7%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 91%;
+    --input: 0 0% 88%;
+    --ring: 210 88% 54%;
+    --radius: 0.75rem;
+
+    /* ─── Semantic brand tokens (light) ─── */
     --brand-canvas: #fafafa;
     --brand-surface: #ffffff;
     --brand-off-white: #ffffff;
@@ -31,19 +58,85 @@
     --brand-input-border: #e0e0e0;
   }
 
+  /* ─── Obsidian Creative Studio dark theme ─── */
+  /* DESIGN.md: deep charcoal (#0D0F12), brand-blue (#2196F3),
+     brand-yellow (#FFC107), flat elevation (borders > shadows). */
   .dark {
+    /* shadcn variables */
+    --background: 222 17% 7%;      /* #0D0F12 charcoal */
+    --foreground: 0 0% 91%;        /* #e8e8e8 */
+    --card: 222 17% 9%;            /* #111418 */
+    --card-foreground: 0 0% 91%;
+    --popover: 222 17% 9%;
+    --popover-foreground: 0 0% 91%;
+    --primary: 210 88% 54%;        /* #2196F3 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 17% 14%;      /* #1a1d24 */
+    --secondary-foreground: 0 0% 91%;
+    --muted: 222 17% 14%;
+    --muted-foreground: 0 0% 62%;  /* #9E9E9E */
+    --accent: 46 100% 51%;         /* #FFC107 brand-yellow */
+    --accent-foreground: 222 17% 7%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 225 15% 14%;         /* #1f2128 */
+    --input: 222 16% 19%;          /* #2a2d35 */
+    --ring: 210 88% 54%;
+
+    /* Brand semantic tokens */
     --brand-canvas: #0d0f12;
     --brand-surface: #121418;
     --brand-off-white: #f5f5f5;
     --brand-text: #e8e8e8;
     --brand-text-secondary: #9e9e9e;
     --brand-text-muted: #9e9e9e;
-    --brand-light-border: #1f2128;
+    --brand-light-border: #1a1d24;
     --brand-whisper-border: #1f2128;
     --brand-input-border: #2a2d35;
   }
 
+  * {
+    @apply border-border;
+  }
+
   body {
+    @apply bg-background text-foreground;
     font-feature-settings: 'cv11', 'ss01';
+  }
+}
+
+@layer utilities {
+  /* Staggered list entrance — decorative, never blocks interaction.
+     Apply `data-stagger` to a container; set `--i` per child for the delay. */
+  [data-stagger] > * {
+    opacity: 0;
+    transform: translateY(6px);
+    animation: mb-rise 360ms var(--ease-out) forwards;
+    animation-delay: calc(var(--i, 0) * 45ms);
+  }
+
+  @keyframes mb-rise {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-stagger] > * {
+    transform: none;
+    animation: mb-fade 200ms ease forwards;
+    animation-delay: 0ms;
+  }
+
+  @keyframes mb-fade {
+    to { opacity: 1; }
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
   }
 }

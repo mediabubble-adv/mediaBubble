@@ -24,9 +24,13 @@ export async function postJson<T = unknown>(
       body: JSON.stringify(body),
     })
     const json = await res.json().catch(() => ({}))
+    const fallback =
+      res.status >= 500
+        ? 'Server error — check launcher env (DATABASE_URL) and restart dev.'
+        : 'Something went wrong'
     return {
       ok: res.ok,
-      message: json.message ?? (res.ok ? 'Success' : 'Something went wrong'),
+      message: json.message ?? (res.ok ? 'Success' : fallback),
       data: json.data,
       error: json.error,
     }

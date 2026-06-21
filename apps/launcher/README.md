@@ -155,9 +155,10 @@ In [Vercel → launcher → Settings](https://vercel.com/mediabubble/launcher/se
 
 | Setting | Value |
 |---------|--------|
-| **Git repository** | `mediabubble-adv/mediaBubble` |
+| **Git repository** | `mediabubble-adv/mediaBubble` (branch `master`) |
 | **Root Directory** | `apps/launcher` |
 | **Include source files outside of the Root Directory** | **Enabled** |
+| **Framework** | Next.js |
 
 `apps/launcher/vercel.json` runs `cd ../.. && npm ci` then `vercel-build:launcher`.
 
@@ -166,6 +167,14 @@ Re-link locally:
 ```bash
 cd apps/launcher && vercel link --yes --project launcher
 ```
+
+**One-time env sync** (after `.env.local` / `prisma/.env` are filled):
+
+```bash
+bash apps/launcher/scripts/ship-env-to-vercel.sh
+```
+
+Generate a **new** production `JWT_SECRET` if `.env.local` still uses the dev placeholder.
 
 <details>
 <summary><strong>Troubleshooting: <code>npm ci</code> — no package-lock.json</strong></summary>
