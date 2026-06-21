@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "MediaBubble Nx monorepo — Egypt marketing, UAE clone, brand guidelines",
   "private": true,
+  "packageManager": "npm@10.8.2",
   "workspaces": [
     "apps/*",
     "packages/*"
