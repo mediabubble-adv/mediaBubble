@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, useRef } from 'react'
-import { User, Lock, Users, Camera, CheckCircle2, Settings2 } from 'lucide-react'
+import { useState, useRef, useEffect, useCallback } from 'react'
+import { User, Lock, Users, CheckCircle2, Settings2 } from 'lucide-react'
+import { ProfileForm, type ProfileUser, UserAvatar } from '@/components/account/profile-form'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -16,37 +17,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { useToast } from '@/components/ui/toast'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
-import { CURRENCIES, type CurrencyCode } from '@/lib/finance/currency'
-import type { Role } from '@/lib/auth/rbac'
 import type { WorkspacePrefs } from '@/app/api/settings/workspace/route'
-
-export interface WorkspacePrefs {
-  timezone: string
-  default_currency: string
-  notifications: {
-    email_digest: boolean
-    task_reminders: boolean
-    weekly_report: boolean
-  }
-}
-
-const TIMEZONES: { value: string; label: string }[] = [
-  { value: 'Africa/Cairo', label: 'Cairo (EET/EEST, UTC+2/3)' },
-  { value: 'Asia/Riyadh', label: 'Riyadh (AST, UTC+3)' },
-  { value: 'Asia/Dubai', label: 'Dubai (GST, UTC+4)' },
-  { value: 'Europe/London', label: 'London (GMT/BST, UTC+0/1)' },
-  { value: 'Europe/Berlin', label: 'Berlin (CET/CEST, UTC+1/2)' },
-  { value: 'America/New_York', label: 'New York (ET, UTC-5/4)' },
-  { value: 'America/Los_Angeles', label: 'Los Angeles (PT, UTC-8/7)' },
-  { value: 'UTC', label: 'UTC (Coordinated Universal Time)' },
-]
 
 export type SettingsUser = ProfileUser
 
@@ -67,6 +38,28 @@ const ROLE_TONE: Record<string, 'blue' | 'warning' | 'danger' | 'neutral'> = {
   Contributor: 'blue',
   Viewer: 'neutral',
 }
+
+const TIMEZONES = [
+  { value: 'UTC', label: 'UTC' },
+  { value: 'Africa/Cairo', label: 'Cairo (UTC+2)' },
+  { value: 'Asia/Dubai', label: 'Dubai (UTC+4)' },
+  { value: 'Asia/Riyadh', label: 'Riyadh (UTC+3)' },
+  { value: 'Europe/London', label: 'London (UTC+0/+1)' },
+  { value: 'Europe/Paris', label: 'Paris (UTC+1/+2)' },
+  { value: 'America/New_York', label: 'New York (UTC−5/−4)' },
+  { value: 'America/Los_Angeles', label: 'Los Angeles (UTC−8/−7)' },
+]
+
+const DATE_FORMATS: { value: WorkspacePrefs['date_format']; label: string }[] = [
+  { value: 'DD/MM/YYYY', label: 'DD/MM/YYYY' },
+  { value: 'MM/DD/YYYY', label: 'MM/DD/YYYY' },
+  { value: 'YYYY-MM-DD', label: 'YYYY-MM-DD' },
+]
+
+const LANGUAGES: { value: WorkspacePrefs['language']; label: string }[] = [
+  { value: 'en', label: 'English' },
+  { value: 'ar', label: 'العربية' },
+]
 
 function SecurityTab() {
   const { toast } = useToast()
@@ -228,28 +221,6 @@ function TeamTab({ members, currentUserId }: { members: TeamMember[]; currentUse
     </div>
   )
 }
-
-const TIMEZONES = [
-  { value: 'UTC', label: 'UTC' },
-  { value: 'Africa/Cairo', label: 'Cairo (UTC+2)' },
-  { value: 'Asia/Dubai', label: 'Dubai (UTC+4)' },
-  { value: 'Asia/Riyadh', label: 'Riyadh (UTC+3)' },
-  { value: 'Europe/London', label: 'London (UTC+0/+1)' },
-  { value: 'Europe/Paris', label: 'Paris (UTC+1/+2)' },
-  { value: 'America/New_York', label: 'New York (UTC−5/−4)' },
-  { value: 'America/Los_Angeles', label: 'Los Angeles (UTC−8/−7)' },
-]
-
-const DATE_FORMATS: { value: WorkspacePrefs['date_format']; label: string }[] = [
-  { value: 'DD/MM/YYYY', label: 'DD/MM/YYYY' },
-  { value: 'MM/DD/YYYY', label: 'MM/DD/YYYY' },
-  { value: 'YYYY-MM-DD', label: 'YYYY-MM-DD' },
-]
-
-const LANGUAGES: { value: WorkspacePrefs['language']; label: string }[] = [
-  { value: 'en', label: 'English' },
-  { value: 'ar', label: 'العربية' },
-]
 
 function Toggle({ checked, onChange }: { checked: boolean; onChange: (v: boolean) => void }) {
   return (
@@ -450,8 +421,6 @@ export function SettingsDashboard({
   const tabRefs = useRef<Partial<Record<Tab, HTMLButtonElement>>>({})
   const [pill, setPill] = useState<{ x: number; w: number } | null>(null)
 
-  // offsetLeft is relative to the tablist's padding-box (our position:relative ancestor),
-  // so it stays accurate regardless of page scroll — no getBoundingClientRect needed.
   const updatePill = useCallback(() => {
     const btn = tabRefs.current[tab]
     if (!btn) return
@@ -462,7 +431,6 @@ export function SettingsDashboard({
     updatePill()
   }, [updatePill])
 
-  // Re-measure on resize (flex-1 buttons reflow on window resize)
   useEffect(() => {
     window.addEventListener('resize', updatePill)
     return () => window.removeEventListener('resize', updatePill)
@@ -480,7 +448,17 @@ export function SettingsDashboard({
         </p>
 
         {/* Tab bar */}
-        <div role="tablist" className="mt-6 flex gap-1 rounded-lg border border-border bg-muted/30 p-1">
+        <div
+          role="tablist"
+          className="relative mt-6 flex gap-1 rounded-lg border border-border bg-muted/30 p-1"
+        >
+          {pill && (
+            <span
+              aria-hidden
+              className="pointer-events-none absolute bottom-1 left-0 top-1 rounded-md bg-card shadow-sm transition-transform duration-200"
+              style={{ transform: `translateX(${pill.x}px)`, width: pill.w }}
+            />
+          )}
           {TABS.map(({ id, label, icon: Icon }) => (
             <button
               key={id}
@@ -491,9 +469,9 @@ export function SettingsDashboard({
               aria-selected={tab === id}
               aria-controls={`tabpanel-${id}`}
               className={[
-                'relative z-10 flex flex-1 items-center justify-center gap-2 rounded-md px-3 py-2 text-[13px] font-medium transition-colors duration-150 xl:flex-none xl:justify-start xl:px-4 xl:py-2.5',
+                'relative z-10 flex flex-1 items-center justify-center gap-2 rounded-md px-3 py-2 text-[13px] font-medium transition-colors duration-150',
                 tab === id
-                  ? 'text-foreground xl:bg-card xl:shadow-sm xl:ring-1 xl:ring-border'
+                  ? 'text-foreground'
                   : 'text-muted-foreground hover:text-foreground',
               ].join(' ')}
             >
@@ -504,7 +482,7 @@ export function SettingsDashboard({
         </div>
 
         {/* Tab panels */}
-        <div className="min-w-0 flex-1 xl:max-w-3xl">
+        <div className="mt-6">
           <div id="tabpanel-profile" role="tabpanel" hidden={tab !== 'profile'}>
             <ProfileForm user={user} />
           </div>
@@ -515,13 +493,10 @@ export function SettingsDashboard({
             <TeamTab members={team} currentUserId={user.id} />
           </div>
           <div id="tabpanel-workspace" role="tabpanel" hidden={tab !== 'workspace'}>
-            <WorkspaceTab initialPrefs={workspacePrefs} />
-          </div>
-          <div id="tabpanel-workspace" role="tabpanel" hidden={tab !== 'workspace'}>
-            {tab === 'workspace' && <WorkspaceTab prefs={workspacePrefs} />}
+            <WorkspaceTab prefs={workspacePrefs} />
           </div>
         </div>
       </div>
-    </PageFrame>
+    </div>
   )
 }
