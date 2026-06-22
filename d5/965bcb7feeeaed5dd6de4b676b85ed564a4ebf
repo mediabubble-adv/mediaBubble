@@ -1,0 +1,91 @@
+apps/launcher/app/(app)/_shell/nav.ts
+  s_7d4514b344fbbd::t_0db638214349e2 1,26-67,70-71
+apps/launcher/app/(app)/ai/ai-dashboard.tsx
+  s_7d4514b344fbbd::t_59e149bc296af6 9
+  s_7d4514b344fbbd::t_98adb39655cdd5 335
+  s_7d4514b344fbbd::t_902e4d76092602 118-123,132-133
+apps/launcher/app/(app)/crm/crm-dashboard.tsx
+  s_7d4514b344fbbd::t_3fa12dbe15e686 12
+  s_7d4514b344fbbd::t_53d857b2fd20cc 144-150,159-161
+  s_7d4514b344fbbd::t_f41ce287ec349d 415
+apps/launcher/app/(app)/campaigns/campaigns-dashboard.tsx
+  s_7d4514b344fbbd::t_f39f7c0b20f9e5 16,180-186,195-197
+apps/launcher/app/(app)/chat/chat-dashboard.tsx
+  s_7d4514b344fbbd::t_528cc0a481d7ef 379
+  s_7d4514b344fbbd::t_f89c6b23721263 11
+  s_7d4514b344fbbd::t_c10b5d0172f14b 242
+apps/launcher/app/(app)/opus/opus-hub.tsx
+  s_7d4514b344fbbd::t_ce9076f66dea9b 8
+  s_7d4514b344fbbd::t_2e4d1f399608cd 85
+  s_7d4514b344fbbd::t_b7bf790d5a4291 136
+  s_7d4514b344fbbd::t_012c77596abe52 35-41,47
+apps/launcher/components/layout/page-frame.tsx
+  s_7d4514b344fbbd::t_2dec059e2d7b7d 1-94
+apps/launcher/app/(app)/opus/briefs/new/page.tsx
+  s_7d4514b344fbbd::t_2ab3f2279133c8 14
+apps/launcher/app/(app)/tasks/task-board.tsx
+  s_7d4514b344fbbd::t_c27048601dd8d9 177
+  s_7d4514b344fbbd::t_f219c4b005deb9 238
+  s_7d4514b344fbbd::t_b57edf6bcd62e4 8
+apps/launcher/app/(app)/_shell/app-shell.tsx
+  s_7d4514b344fbbd::t_9790ff435509e2 16,84-86,107-108,111-113,116-121,125-138,142,186,194-203,218,232,235,241,245,287,290-292,304
+apps/launcher/app/(app)/opus/triggers/triggers-dashboard.tsx
+  s_7d4514b344fbbd::t_33762d819f9e09 9
+  s_7d4514b344fbbd::t_2dca261b067302 56-60,64-65,69-70
+  s_7d4514b344fbbd::t_6549c4aa050da5 101
+  s_7d4514b344fbbd::t_fc1e93615ae841 143
+apps/launcher/app/globals.css
+  s_7d4514b344fbbd::t_a0cde6e2a10c09 135-148
+  s_7d4514b344fbbd::t_3ee3d74fa964c1 59-61
+apps/launcher/app/(app)/automation/automation-dashboard.tsx
+  s_7d4514b344fbbd::t_457b450324cd69 167-172,181-182
+  s_7d4514b344fbbd::t_78ed420d87b199 272
+  s_7d4514b344fbbd::t_441775fe6cd67c 8
+  s_7d4514b344fbbd::t_828ba7de7d586b 453
+apps/launcher/app/(app)/page.tsx
+  s_7d4514b344fbbd::t_51bcd14112ea19 13,15,21,25-28,31-61,72-78,80-92,94-133,136,138-144,146-164
+apps/launcher/app/(app)/opus/usage/usage-dashboard.tsx
+  s_7d4514b344fbbd::t_8bd4ce1daa9408 42-51,55-56,59
+  s_7d4514b344fbbd::t_74e5a5481b8337 82
+  s_7d4514b344fbbd::t_5524cdaec4ad4c 8
+apps/launcher/app/(app)/settings/settings-dashboard.tsx
+  s_7d4514b344fbbd::t_63c050298c69b5 626,641-644
+  s_7d4514b344fbbd::t_203aa2a74067ef 608-616,619
+  s_7d4514b344fbbd::t_efccd57ba00b62 5
+  s_7d4514b344fbbd::t_8db634f20a8aa5 653-654
+  s_7d4514b344fbbd::t_681750278573dd 669
+apps/launcher/app/(app)/_shell/module-placeholder.tsx
+  s_7d4514b344fbbd::t_9e50754a3cb865 2,17-18,20-25,27
+apps/launcher/app/(app)/leaderboard/leaderboard-dashboard.tsx
+  s_7d4514b344fbbd::t_0f621d5a143ca8 156-161,186-189
+  s_7d4514b344fbbd::t_920fd2fb9c7fbf 15
+apps/launcher/app/(app)/finance/finance-dashboard.tsx
+  s_7d4514b344fbbd::t_14cd3f0e1b1ea8 289
+apps/launcher/app/(app)/opus/campaigns/[id]/performance/performance-view.tsx
+  s_7d4514b344fbbd::t_f0a01bd3c2c3e0 46
+  s_7d4514b344fbbd::t_a2df9ab27609e0 77
+  s_7d4514b344fbbd::t_caafd3c08cff91 8
+  s_7d4514b344fbbd::t_7e746d6b0dc566 12-18,25-26,28
+apps/launcher/app/(app)/opus/briefs/new/brief-builder.tsx
+  s_7d4514b344fbbd::t_cb0258e2614242 13
+  s_7d4514b344fbbd::t_4d56f8eea6ee86 210
+  s_7d4514b344fbbd::t_0f00bdc0164f5e 71-86,91-92,94,97
+  s_7d4514b344fbbd::t_8c00add001d6c9 5
+  s_7d4514b344fbbd::t_d58830f9f73c26 197
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "d5965bcb7feeeaed5dd6de4b676b85ed564a4ebf",
+  "prompts": {},
+  "sessions": {
+    "s_7d4514b344fbbd": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "27a964a6-d1b7-4c2a-99e2-e903694c1b32",
+        "model": "default"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
