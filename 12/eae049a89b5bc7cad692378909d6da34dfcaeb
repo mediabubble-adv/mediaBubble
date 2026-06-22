@@ -1,0 +1,34 @@
+apps/launcher/next-env.d.ts
+  s_0b0f5439e81ae5::t_8cf7c099b1709c 3
+AGENTS.md
+  s_10477befd28d94::t_715dfca80c98e4 10-11
+  s_10477befd28d94::t_0cafc5eb8a90f2 28
+  s_10477befd28d94::t_70ba2e13e8c0da 18
+  s_10477befd28d94::t_5634311c88a4ec 22
+.cursor/hooks/state/continual-learning-index.json
+  s_10477befd28d94::t_0f5e5843c12cc5 4,8,12,16,20,24,28,32,36,40,44,48,52,56,60,64,68,72,76,80,84,88,92,96,100,104,108,112,116,120,124,128,132,136,140,144,148,152,156,160,164,168,172,176,180,184,188,192,196,200,204,208,212,216,220,224,228,232,236,240,243-244,247-248,252-276
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "12eae049a89b5bc7cad692378909d6da34dfcaeb",
+  "prompts": {},
+  "sessions": {
+    "s_0b0f5439e81ae5": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "ccd58eb9-a82b-41ae-b183-9beee983acd9",
+        "model": "default"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    },
+    "s_10477befd28d94": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "bf23523f-8a9b-4c01-a365-305d062602ea",
+        "model": "default"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
