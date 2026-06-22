@@ -1,0 +1,185 @@
+docs/opus/CHAT_SESSION_INDEX.md
+  s_7d4514b344fbbd::t_afa57cb5acfd0a 1-228
+docs/operations/README.md
+  s_a1a54ec3d27568::t_16ed521e9df704 1-14
+docs/CONTEXT.md
+  s_a1a54ec3d27568::t_810a04346bc4ce 5
+apps/launcher/prisma/seed.ts
+  s_7d4514b344fbbd::t_6973cd2e0473eb 634-635,646-647
+  s_7d4514b344fbbd::t_5359315be3dc8f 524-588
+docs/tools/README.md
+  s_a1a54ec3d27568::t_9dbbad4f81f093 1-19
+apps/launcher/lib/opus/triggers/engine.ts
+  s_7d4514b344fbbd::t_489aeea551e920 1-97
+apps/launcher/lib/opus/billing/enforcement.ts
+  s_7d4514b344fbbd::t_f9cc6ce2a287ba 1-61
+docs/tools/prompt-generator/README.md
+  s_a1a54ec3d27568::t_f2b8070513c9a9 49-54
+  s_a1a54ec3d27568::t_b2a0cfc3077d1a 409
+apps/launcher/app/api/opus/summary/route.ts
+  s_7d4514b344fbbd::t_ae561444e8a742 1-34
+docs/opus/development/05-brief-to-campaign.md
+  s_7d4514b344fbbd::t_a2c95260f6045e 1-21
+docs/operations/DEPLOYMENT_CHECKLIST.md
+  s_a1a54ec3d27568::t_873154226e306b 6
+apps/launcher/app/(app)/opus/campaigns/[id]/performance/page.tsx
+  s_7d4514b344fbbd::t_716763e5f5e5f7 1-18
+docs/opus/session/07-ui-wireframes.md
+  s_7d4514b344fbbd::t_ac3a71294d9890 1-224
+apps/launcher/lib/opus/event-bus.ts
+  s_7d4514b344fbbd::t_d10c311d6357d1 1-50
+docs/opus/session/02-architecture.md
+  s_7d4514b344fbbd::t_8a19bdbf2a966f 1-124
+apps/launcher/app/(app)/opus/usage/usage-dashboard.tsx
+  s_7d4514b344fbbd::t_a6c391225db099 1-85
+docs/launcher/README.md
+  s_a1a54ec3d27568::t_785bde1ff883dd 1-30
+package.json
+  s_a1a54ec3d27568::t_a2c36d6ba69be5 104,107-113
+apps/launcher/app/(app)/opus/briefs/new/page.tsx
+  s_7d4514b344fbbd::t_f2f12770819f19 1-19
+apps/launcher/lib/opus/triggers/handlers.ts
+  s_7d4514b344fbbd::t_7117e9272d8177 1-109
+apps/launcher/app/api/opus/campaigns/[id]/performance/route.ts
+  s_7d4514b344fbbd::t_c8672feda3b61e 1-20
+docs/opus/development/README.md
+  s_7d4514b344fbbd::t_0045874a2dea97 1-72
+docs/opus/product/README.md
+  s_7d4514b344fbbd::t_d443954a940707 1-15
+apps/launcher/app/(app)/opus/triggers/page.tsx
+  s_7d4514b344fbbd::t_2c36d3fda9a732 1-13
+docs/opus/development/07-ui-pages.md
+  s_7d4514b344fbbd::t_00eb39ed476165 1-19
+docs/opus/operations/README.md
+  s_7d4514b344fbbd::t_3796baeb90754b 1-29
+docs/opus/session/01-strategy-integration.md
+  s_7d4514b344fbbd::t_c5ba7396638057 1-136
+apps/launcher/lib/opus/workflow-engine.ts
+  s_a1a54ec3d27568::t_e5e90ce46ca65d 11-12,15-16,19-20,23-24,27-28
+  s_7d4514b344fbbd::t_5d96fd755a6429 1-10,13-14,17-18,21-22,25-26,29-34
+docs/README.md
+  s_a1a54ec3d27568::t_5e1cfa444b8627 9,13-23,29-38,40-41,44-45,47-52,60,62-93,96-99
+apps/launcher/app/(app)/opus/triggers/triggers-dashboard.tsx
+  s_a1a54ec3d27568::t_995bd7e8025c2f 3
+  s_7d4514b344fbbd::t_4da2e1999b7b2b 1-2,4-18,20-23,25,27-34,37-49,51-146
+  s_a1a54ec3d27568::t_d9b7abc1bd1f37 24
+  s_a1a54ec3d27568::t_74cff7f23ec036 50
+  s_a1a54ec3d27568::t_1ea4a9817474c0 19,26,35-36
+apps/launcher/app/api/opus/triggers/route.ts
+  s_7d4514b344fbbd::t_705dc5856a38b1 1-47
+docs/opus/session/05-multi-tenant-security.md
+  s_7d4514b344fbbd::t_17a08d2cf780f7 1-155
+docs/opus/roadmap/README.md
+  s_7d4514b344fbbd::t_b2e5f8784ed399 1-16
+docs/opus/development/02-data-model.md
+  s_7d4514b344fbbd::t_a2f228257340cf 1-44
+apps/launcher/lib/opus/billing/plans.test.ts
+  s_7d4514b344fbbd::t_df486b96daf2dc 1-10
+apps/launcher/lib/opus/api/rbac.ts
+  s_7d4514b344fbbd::t_d36e87de573b83 1-24
+apps/launcher/lib/opus/briefs/service.ts
+  s_7d4514b344fbbd::t_22fe9ade68e45b 1-48,50-113
+  s_7d4514b344fbbd::t_2ef06bf1a158fb 49
+apps/launcher/lib/opus/billing/metering.ts
+  s_7d4514b344fbbd::t_a4ff6bd6c61cfe 1-97
+docs/tools/prompt-generator/IMPLEMENTATION_GUIDE.md
+  s_a1a54ec3d27568::t_d409f2d1804e38 113
+apps/launcher/lib/opus/schemas.ts
+  s_7d4514b344fbbd::t_c20b939dddaea6 1-61
+apps/launcher/lib/opus/billing/plans.ts
+  s_7d4514b344fbbd::t_5cb72cb63dbee9 1-46
+docs/opus/development/08-testing.md
+  s_7d4514b344fbbd::t_b8dbcd90167edd 1-30
+apps/launcher/app/api/opus/triggers/[id]/runs/route.ts
+  s_7d4514b344fbbd::t_3556112e63cedc 1-19
+apps/launcher/prisma/schema.prisma
+  s_7d4514b344fbbd::t_644b808db69e02 830-832
+  s_7d4514b344fbbd::t_ecdfa75971878d 889-991
+  s_7d4514b344fbbd::t_c196f17b7422f7 178
+  s_7d4514b344fbbd::t_a2a0ea2b3a3a8b 309-310
+apps/launcher/lib/opus/types.ts
+  s_7d4514b344fbbd::t_5945dc5c889d10 1-127
+apps/launcher/app/(app)/opus/campaigns/[id]/performance/performance-view.tsx
+  s_7d4514b344fbbd::t_10e8af75d3bc42 1-83
+docs/opus/development/04-automation-triggers.md
+  s_7d4514b344fbbd::t_08ea110579defa 1-31
+docs/opus/development/06-billing-metering.md
+  s_7d4514b344fbbd::t_265e02ae9557a9 1-31
+apps/launcher/app/(app)/opus/page.tsx
+  s_7d4514b344fbbd::t_37cd3596805291 1-9
+docs/opus/development/03-event-bus.md
+  s_7d4514b344fbbd::t_55f5b256f589d6 1-27
+docs/opus/session/03-foundation-implementation.md
+  s_7d4514b344fbbd::t_a4c4734a1e0e2d 1-125
+apps/launcher/app/(app)/opus/opus-hub.tsx
+  s_7d4514b344fbbd::t_b255b6d441fdfe 1-140
+docs/opus/session/04-automation-engine.md
+  s_7d4514b344fbbd::t_39b3c5f6755f24 1-151
+apps/launcher/app/(app)/_shell/nav.ts
+  s_7d4514b344fbbd::t_1407c0655abacb 35
+  s_7d4514b344fbbd::t_841612f9fd58e5 14
+docs/opus/product/WHO-PAIN-VALUE.md
+  s_7d4514b344fbbd::t_dd4878d9703198 1-127
+apps/launcher/lib/opus/triggers/serialize.ts
+  s_7d4514b344fbbd::t_60c7278e9438dd 1-63
+docs/opus/README.md
+  s_a1a54ec3d27568::t_5ef2c6c0303c55 18
+  s_7d4514b344fbbd::t_675c0cadde17bc 1-17,19-83
+docs/opus/architecture/README.md
+  s_7d4514b344fbbd::t_f78ed2246082be 1-21
+apps/launcher/lib/opus/metrics/campaign-performance.ts
+  s_7d4514b344fbbd::t_188fc40aa62c15 1-92
+apps/launcher/app/api/opus/triggers/[id]/run/route.ts
+  s_7d4514b344fbbd::t_03f9bddf54701c 1-27
+docs/opus/development/01-getting-started.md
+  s_7d4514b344fbbd::t_65a5143e6bddd6 1-37
+apps/launcher/app/api/opus/usage/route.ts
+  s_7d4514b344fbbd::t_5344abbd602aa8 1-15
+apps/launcher/app/(app)/opus/briefs/new/brief-builder.tsx
+  s_7d4514b344fbbd::t_7fdc9624393654 1-207
+apps/launcher/app/api/opus/briefs/route.ts
+  s_7d4514b344fbbd::t_66de69d4469949 1-38
+apps/launcher/prisma/migrations/0008_opus/migration.sql
+  s_7d4514b344fbbd::t_905cd3bd6c2d38 1-121
+docs/opus/session/06-billing-metering.md
+  s_7d4514b344fbbd::t_db9127b9116402 1-184
+apps/launcher/lib/opus/schemas.test.ts
+  s_7d4514b344fbbd::t_3ae8551b5895e2 1-24
+apps/launcher/lib/opus/event-bus.test.ts
+  s_7d4514b344fbbd::t_520501b468fb57 1-23
+docs/opus/integrations/README.md
+  s_7d4514b344fbbd::t_418ade8cdda5c8 1-16
+docs/opus/chat.md
+  s_7d4514b344fbbd::t_d8926b93e11b75 2,4-6,8,13-15,28-30,32,42-46,48
+apps/launcher/app/(app)/opus/usage/page.tsx
+  s_7d4514b344fbbd::t_1ab5a6eb314d8c 1-9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "8d896c04ce8cf3231da6e8c0d2a97eee093bc019",
+  "prompts": {},
+  "humans": {
+    "h_220d66b2244819": {
+      "author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_7d4514b344fbbd": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "27a964a6-d1b7-4c2a-99e2-e903694c1b32",
+        "model": "default"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    },
+    "s_a1a54ec3d27568": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "252690d7-ef3d-48c9-b157-b38062d72c1f",
+        "model": "default"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
