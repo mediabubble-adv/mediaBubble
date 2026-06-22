@@ -3,6 +3,7 @@ import { getServerSession } from '@/lib/auth/server-session'
 import { prisma } from '@/lib/db/prisma'
 import { AppShell, type ShellUser } from './_shell/app-shell'
 import { ToastProvider } from '@/components/ui/toast'
+import { OnboardingTour } from '@/components/onboarding/tour'
 
 export const dynamic = 'force-dynamic'
 
@@ -40,6 +41,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   return (
     <ToastProvider>
       <AppShell user={user}>{children}</AppShell>
+      <OnboardingTour />
     </ToastProvider>
   )
 }

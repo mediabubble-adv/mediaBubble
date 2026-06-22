@@ -10,16 +10,17 @@ Effective communication across the AI agent hierarchy requires clear protocols, 
 
 ### Channel Matrix by Urgency Level
 
-| Urgency | Time Req. | Channel | Audience | Format |
-|---------|-----------|---------|----------|--------|
-| **🔴 CRITICAL** | <30 min | Slack (urgent), Phone, Email | C-AI + affected Director | Incident report |
-| **🟠 HIGH** | <2 hours | Slack + email | Director + Team Manager | Issue ticket |
-| **🟡 MEDIUM** | <24 hours | Email + Slack | Team Manager + QC Lead | Status update |
-| **🟢 LOW** | <3 days | Weekly sync, monthly report | Team Manager | Agenda item |
+| Urgency         | Time Req. | Channel                      | Audience                 | Format          |
+| --------------- | --------- | ---------------------------- | ------------------------ | --------------- |
+| **🔴 CRITICAL** | <30 min   | Slack (urgent), Phone, Email | C-AI + affected Director | Incident report |
+| **🟠 HIGH**     | <2 hours  | Slack + email                | Director + Team Manager  | Issue ticket    |
+| **🟡 MEDIUM**   | <24 hours | Email + Slack                | Team Manager + QC Lead   | Status update   |
+| **🟢 LOW**      | <3 days   | Weekly sync, monthly report  | Team Manager             | Agenda item     |
 
 ### Communication Tools Setup
 
 #### **Slack Channels (Real-time)**
+
 ```
 #ai-executive
   └─ C-AI Officer, Department Directors
@@ -48,6 +49,7 @@ Effective communication across the AI agent hierarchy requires clear protocols, 
 ```
 
 #### **Email (Formal Records)**
+
 ```
 Executive Briefing: C-AI Officer
   └─ Subject: "AI Weekly Briefing - [Date]"
@@ -71,6 +73,7 @@ QC Audit Reports: QC Leads
 ```
 
 #### **Shared Dashboards (Data)**
+
 ```
 Google Sheets: Real-time Metrics
   └─ AI Agent Performance Dashboard (live)
@@ -89,6 +92,7 @@ Airtable: Issue Tracking
 ```
 
 #### **Meeting Cadence**
+
 ```
 Daily Standups: 9:30 AM
   └─ Attendees: Team Manager + QC Lead (per department)
@@ -130,6 +134,7 @@ Quarterly Strategic: Every 3 months
 **Trigger:** Security breach, data loss, compliance violation, customer impact
 
 **Slack Message Template:**
+
 ```
 @channel 🔴 CRITICAL ESCALATION
 
@@ -141,7 +146,7 @@ ISSUE:
 [Brief description of what went wrong]
 
 IMPACT:
-- Customer risk: [Yes/No] 
+- Customer risk: [Yes/No]
 - Data affected: [Yes/No]
 - Business impact: $[amount] or [customers affected]
 
@@ -157,6 +162,7 @@ Full details: [Link to ticket]
 ```
 
 **Example:**
+
 ```
 @channel 🔴 CRITICAL ESCALATION
 
@@ -185,6 +191,7 @@ Full details: https://airtable.com/[link]
 ```
 
 **Email Follow-up (within 30 min):**
+
 ```
 Subject: [URGENT] Lead Scorer Agent - Critical Issue Report
 
@@ -234,6 +241,7 @@ Timeline: Fix expected by EOD (17:00)
 **Trigger:** Agent accuracy <80%, brand risk, customer-facing impact, data quality issue
 
 **Slack Message:**
+
 ```
 @[Team Manager] @[Director] 🟠 HIGH PRIORITY ISSUE
 
@@ -264,6 +272,7 @@ Ticket: [Link]
 ```
 
 **Example:**
+
 ```
 @mike.chen @sarah.kim 🟠 HIGH PRIORITY ISSUE
 
@@ -293,6 +302,7 @@ Ticket: https://airtable.com/[link]
 ```
 
 **Follow-up Email:**
+
 ```
 Subject: [ACTION REQUIRED] Brand Consistency Checker - Accuracy Drop
 
@@ -313,7 +323,7 @@ PERFORMANCE METRICS:
 - False positive rate: 45% of flagged items
 
 ROOT CAUSE ANALYSIS (in progress):
-Appears to be color tolerance threshold too strict. Standard tolerance: 5% 
+Appears to be color tolerance threshold too strict. Standard tolerance: 5%
 (RGB ±12 points). Current threshold possibly <3%.
 
 IMMEDIATE ACTIONS:
@@ -348,6 +358,7 @@ Next update: 15:00 (fix status)
 **Trigger:** Minor accuracy issues (<5% miss), optimization opportunities, edge cases
 
 **Slack Message:**
+
 ```
 @[Team Manager] 🟡 MEDIUM PRIORITY
 
@@ -367,6 +378,7 @@ Ticket: [Link]
 ```
 
 **Email:**
+
 ```
 Subject: [OPTIMIZATION] [Agent Name] - [Issue Description]
 
@@ -410,6 +422,7 @@ Timeline: Start next week, complete by [Date]
 **Trigger:** Feedback, suggestions, learnings, celebrations
 
 **Slack Message:**
+
 ```
 @channel 🟢 AGENT WIN
 
@@ -426,6 +439,7 @@ Great work, team! 🎉
 ```
 
 **Example:**
+
 ```
 @channel 🟢 AGENT WIN
 
@@ -436,8 +450,8 @@ METRIC:
 Response rate: 42% (target: 30%, industry avg: 18%)
 
 Example from today:
-"Hey Sarah - noticed you just joined as VP of Marketing at TechCorp (congrats!). 
-We just helped 3 similar-sized companies reduce their content creation time by 60%. 
+"Hey Sarah - noticed you just joined as VP of Marketing at TechCorp (congrats!).
+We just helped 3 similar-sized companies reduce their content creation time by 60%.
 Quick question: How are you thinking about content strategy in your first 90 days?"
 
 Great work, team! 🎉
@@ -612,12 +626,12 @@ Issue Detected by QC Lead
 
 ### Escalation Response Times
 
-| Severity | Detect | Acknowledge | Owner Assigned | Resolution Start | Target Resolution |
-|----------|--------|-------------|----------------|-----------------|------------------|
-| 🔴 Critical | Immediate | <15 min | <30 min | <30 min | <2-4 hours |
-| 🟠 High | <1 hour | <2 hours | <2 hours | <4 hours | <24 hours |
-| 🟡 Medium | <4 hours | <8 hours | <24 hours | <24 hours | <1 week |
-| 🟢 Low | <1 day | <3 days | <1 week | <1 week | <2 weeks |
+| Severity    | Detect    | Acknowledge | Owner Assigned | Resolution Start | Target Resolution |
+| ----------- | --------- | ----------- | -------------- | ---------------- | ----------------- |
+| 🔴 Critical | Immediate | <15 min     | <30 min        | <30 min          | <2-4 hours        |
+| 🟠 High     | <1 hour   | <2 hours    | <2 hours       | <4 hours         | <24 hours         |
+| 🟡 Medium   | <4 hours  | <8 hours    | <24 hours      | <24 hours        | <1 week           |
+| 🟢 Low      | <1 day    | <3 days     | <1 week        | <1 week          | <2 weeks          |
 
 ### Escalation Path
 
@@ -716,6 +730,7 @@ COMMUNICATION TO STAKEHOLDERS
 ### Performance Reviews
 
 **Quarterly Individual Reviews:**
+
 ```
 Team Manager Performance Review (by Director)
 ├─ Agent performance vs. targets (40%)
@@ -735,6 +750,7 @@ QC Lead Performance Review (by Team Manager)
 ```
 
 **Director Performance Review (by C-AI Officer):**
+
 ```
 Department Director Performance Review
 ├─ Department ROI vs. targets (25%)
@@ -749,6 +765,7 @@ Department Director Performance Review
 ### Feedback Loops
 
 **360-Degree Feedback (Quarterly):**
+
 ```
 Team Manager
 ├─ Feedback from: QC Lead, Team, Department Director
@@ -787,18 +804,18 @@ Director
 
 ### Response Time Guarantees
 
-| Channel | Sender | Recipient | Response Time |
-|---------|--------|-----------|---------------|
-| **Slack - Urgent** | QC Lead | Team Manager | <30 min |
-| **Slack - High** | Team Manager | Director | <1 hour |
-| **Slack - Medium** | QC Lead | Team Manager | <4 hours |
-| **Slack - Low** | Team Member | Slack room | <1 day |
-| **Email - Critical** | Team Manager | Director | <1 hour |
-| **Email - High** | QC Lead | Team Manager | <2 hours |
-| **Email - Standard** | QC Lead | Team Manager | <8 hours |
-| **Email - Reports** | QC Lead/Team Manager | Director | Next business day |
-| **Meetings - Weekly Sync** | Scheduled | All attendees | On time or <15 min late |
-| **Meetings - Monthly Review** | Scheduled | All attendees | On time or <10 min late |
+| Channel                       | Sender               | Recipient     | Response Time           |
+| ----------------------------- | -------------------- | ------------- | ----------------------- |
+| **Slack - Urgent**            | QC Lead              | Team Manager  | <30 min                 |
+| **Slack - High**              | Team Manager         | Director      | <1 hour                 |
+| **Slack - Medium**            | QC Lead              | Team Manager  | <4 hours                |
+| **Slack - Low**               | Team Member          | Slack room    | <1 day                  |
+| **Email - Critical**          | Team Manager         | Director      | <1 hour                 |
+| **Email - High**              | QC Lead              | Team Manager  | <2 hours                |
+| **Email - Standard**          | QC Lead              | Team Manager  | <8 hours                |
+| **Email - Reports**           | QC Lead/Team Manager | Director      | Next business day       |
+| **Meetings - Weekly Sync**    | Scheduled            | All attendees | On time or <15 min late |
+| **Meetings - Monthly Review** | Scheduled            | All attendees | On time or <10 min late |
 
 ### Do Not Disturb / Office Hours
 
@@ -906,26 +923,26 @@ AGENDA:
    - Agent accuracy scores
    - Time savings vs. baseline
    - Quality metrics
-   
+
 2. Issues & escalations from week (5 min)
    - Review high-priority issues
    - Status on resolution
    - Learnings captured?
-   
+
 3. Optimization planning (10 min)
    - A/B tests from last week (results?)
    - Optimizations to run this week
    - Prompt changes to test
-   
+
 4. Team feedback & wins (5 min)
    - User satisfaction feedback
    - Wins to celebrate
    - Concerns from team
-   
+
 5. Cross-department dependencies (3 min)
    - Any handoffs with other departments?
    - Coordination needs?
-   
+
 6. Next week priorities (2 min)
    - Confirm what we're focusing on
 
@@ -949,7 +966,7 @@ AGENDA:
    - Monthly highlights
    - Critical metrics
    - Major wins
-   
+
 2. Department presentations (50 min, ~5-6 min each)
    Each Director presents:
    - Monthly performance vs. targets
@@ -958,18 +975,18 @@ AGENDA:
    - Escalations & challenges
    - ROI & cost-benefit
    - Q next month priorities
-   
+
 3. Cross-functional discussion (20 min)
    - Insights across departments
    - Shared learnings
    - Resource coordination
    - Strategic alignments
-   
+
 4. Budget & resource planning (10 min)
    - Q allocation review
    - Budget for new initiatives
    - Headcount needs
-   
+
 5. Executive decisions (5 min)
    - Decisions made
    - Approvals granted
@@ -1094,6 +1111,7 @@ Post-mortems & Learnings
 ### Email Templates Ready-to-Use
 
 **[1] Weekly Performance Report**
+
 ```
 Subject: [Department] AI Weekly Performance - Week of [Date]
 
@@ -1159,6 +1177,7 @@ Thanks,
 ```
 
 **[2] Escalation Report**
+
 ```
 Subject: [ESCALATION] [Department] - [Agent Name] Issue
 
@@ -1250,16 +1269,16 @@ ENCOUNTERED AN ISSUE?
 
 ### "Who Do I Contact?" Quick Guide
 
-| Question | Answer | Contact |
-|----------|--------|---------|
-| "How do I use this agent?" | Training/usage help | Team Manager |
-| "The agent is producing wrong output" | Bug/issue | QC Lead (→ Team Manager) |
-| "Can we optimize this agent?" | Improvement idea | Team Manager |
-| "Agent isn't meeting targets" | Performance issue | QC Lead (→ Director) |
-| "We should build a new agent" | Strategy question | Department Director |
-| "Budget allocation question" | Financial decision | Director (→ C-AI) |
-| "Company-wide AI strategy" | Executive decision | C-AI Officer |
-| "Board needs update" | Executive visibility | C-AI Officer + Director |
+| Question                              | Answer               | Contact                  |
+| ------------------------------------- | -------------------- | ------------------------ |
+| "How do I use this agent?"            | Training/usage help  | Team Manager             |
+| "The agent is producing wrong output" | Bug/issue            | QC Lead (→ Team Manager) |
+| "Can we optimize this agent?"         | Improvement idea     | Team Manager             |
+| "Agent isn't meeting targets"         | Performance issue    | QC Lead (→ Director)     |
+| "We should build a new agent"         | Strategy question    | Department Director      |
+| "Budget allocation question"          | Financial decision   | Director (→ C-AI)        |
+| "Company-wide AI strategy"            | Executive decision   | C-AI Officer             |
+| "Board needs update"                  | Executive visibility | C-AI Officer + Director  |
 
 ---
 

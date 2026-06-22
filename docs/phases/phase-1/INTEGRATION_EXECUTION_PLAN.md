@@ -1,4 +1,5 @@
 # Integration Validation Execution Plan
+
 **Week 0: Pre-Launch API Setup**
 
 **Timeline:** Monday - Friday  
@@ -12,17 +13,20 @@
 ### Task 1.1: Secure API Key (30 min)
 
 **Step 1: Login to HubSpot**
+
 - URL: https://app.hubspot.com
 - Use admin account (if you don't have one, request from HubSpot admin)
 - Navigate to: Settings (gear icon, bottom left) → Integrations → Private Apps
 
 **Step 2: Create New Private App**
+
 - Click "Create app"
 - Name: `MediaBubble_Phase1_Agents`
 - Description: "Phase 1 AI agent integrations for lead scoring, sales workflow, invoicing"
 
 **Step 3: Set Scopes**
 Check these permissions:
+
 - ✅ `crm.objects.contacts.read` (read contacts)
 - ✅ `crm.objects.contacts.write` (create/update contacts)
 - ✅ `crm.objects.companies.read` (read company data)
@@ -33,6 +37,7 @@ Check these permissions:
 - ✅ `crm.objects.custom_objects.write` (if creating custom fields)
 
 **Step 4: Generate Token**
+
 - Click "Show token"
 - Copy the token (it's long, like 40+ characters)
 - **IMPORTANT:** Save to secure vault (1Password, LastPass, or .env file)
@@ -40,12 +45,14 @@ Check these permissions:
 
 **Step 5: Verify Token**
 Run this curl command:
+
 ```bash
 curl -X GET "https://api.hubapi.com/crm/v3/objects/contacts?limit=1" \
   -H "authorization: Bearer YOUR_API_KEY_HERE"
 ```
 
 Expected response:
+
 ```json
 {
   "results": [...],
@@ -66,12 +73,14 @@ Expected response:
 
 **Step 1: List Standard Fields**
 Run this command:
+
 ```bash
 curl -X GET "https://api.hubapi.com/crm/v3/objects/contacts/model" \
   -H "authorization: Bearer YOUR_API_KEY_HERE"
 ```
 
 Save the response. Note which fields exist:
+
 - `firstname` ✅ (standard)
 - `lastname` ✅ (standard)
 - `email` ✅ (standard)
@@ -82,6 +91,7 @@ Save the response. Note which fields exist:
 
 **Step 2: List Custom Fields**
 In HubSpot UI:
+
 - Settings → Objects → Contacts → Properties
 - Look for:
   - `hs_lead_category` (should NOT exist yet — you'll create it)
@@ -112,6 +122,7 @@ curl -X POST "https://api.hubapi.com/crm/v3/objects/contacts/properties" \
 ```
 
 Repeat for:
+
 - `lead_source` (text field)
 - `company_size` (text field)
 - `industry` (text field)
@@ -131,6 +142,7 @@ Repeat for:
 ### Task 1.3: Test Full Contact Creation Flow (1 hour)
 
 **Step 1: Create Test Contact**
+
 ```bash
 curl -X POST "https://api.hubapi.com/crm/v3/objects/contacts" \
   -H "authorization: Bearer YOUR_API_KEY_HERE" \
@@ -153,6 +165,7 @@ curl -X POST "https://api.hubapi.com/crm/v3/objects/contacts" \
 ```
 
 Expected response:
+
 ```json
 {
   "id": "12345",
@@ -165,6 +178,7 @@ Expected response:
 ❌ **Failure:** 400 error = field name wrong, 401 = auth issue
 
 **Step 2: Verify Contact in HubSpot UI**
+
 - Login to HubSpot
 - Contacts → Search for "test.lead@example.com"
 - Verify: All fields populated correctly
@@ -173,6 +187,7 @@ Expected response:
 ❌ **Failure:** Contact missing or fields empty = field mapping issue
 
 **Step 3: Test Activity Logging**
+
 ```bash
 curl -X POST "https://api.hubapi.com/crm/v3/objects/contacts/12345/associations/v2/batch/archive" \
   -H "authorization: Bearer YOUR_API_KEY_HERE" \
@@ -180,6 +195,7 @@ curl -X POST "https://api.hubapi.com/crm/v3/objects/contacts/12345/associations/
 ```
 
 Or use built-in HubSpot notes API:
+
 ```bash
 curl -X POST "https://api.hubapi.com/crm/v3/objects/contacts/12345" \
   -H "authorization: Bearer YOUR_API_KEY_HERE" \
@@ -203,6 +219,7 @@ curl -X POST "https://api.hubapi.com/crm/v3/objects/contacts/12345" \
 ### Task 1.4: Load Test (30 min)
 
 **Step 1: Batch Create 10 Test Contacts**
+
 ```bash
 # Create 10 contacts in rapid succession
 for i in {1..10}; do
@@ -225,6 +242,7 @@ wait
 ❌ **Failure:** Rate limit error (429) = implement backoff/queue
 
 **Step 2: Verify Performance**
+
 - Time to create 10 contacts: [X] seconds
 - Target: <2 sec per contact (20 sec for 10)
 - If slower: Check API quota, rate limits
@@ -254,6 +272,7 @@ wait
 ### Task 2.1: Generate GitHub Token (30 min)
 
 **Step 1: Login to GitHub**
+
 - URL: https://github.com/settings/tokens (requires login)
 - Click "Generate new token" → "Generate new token (classic)"
 
@@ -261,12 +280,14 @@ wait
 Token name: `MediaBubble_Phase1_CodeReview`
 
 Scopes needed:
+
 - ✅ `repo:status` (commit status)
 - ✅ `repo:read` (read repos)
 - ✅ `read:discussion` (read PR discussions)
 - ⚠️ `repo:write` (only if agent will auto-approve — else skip)
 
 **Step 3: Generate + Save**
+
 - Click "Generate token"
 - Copy token immediately (you can't see it again)
 - Save to vault: `GITHUB_API_TOKEN`
@@ -280,12 +301,14 @@ Scopes needed:
 ### Task 2.2: Test Basic Connection (30 min)
 
 **Step 1: Verify Token**
+
 ```bash
 curl -H "Authorization: token YOUR_GITHUB_TOKEN" \
   https://api.github.com/user
 ```
 
 Expected response:
+
 ```json
 {
   "login": "your-username",
@@ -298,6 +321,7 @@ Expected response:
 ❌ **Failure:** 401 error = token invalid, 403 = wrong scopes
 
 **Step 2: Test Repo Access**
+
 ```bash
 curl -H "Authorization: token YOUR_GITHUB_TOKEN" \
   https://api.github.com/repos/YOUR_ORG/YOUR_REPO/pulls?state=open
@@ -317,6 +341,7 @@ Expected: List of open PRs
 ### Task 2.3: Test PR Webhook Setup (1 hour)
 
 **Step 1: Create GitHub Webhook**
+
 - Go to repo → Settings → Webhooks → Add webhook
 - Payload URL: `https://your-agent-endpoint.com/github/webhook`
 - Content type: `application/json`
@@ -325,6 +350,7 @@ Expected: List of open PRs
 - Click "Add webhook"
 
 **Step 2: Test Webhook**
+
 - Create a test PR in the repo
 - In GitHub webhook UI, check "Recent Deliveries"
 - Should see POST request to your endpoint
@@ -333,6 +359,7 @@ Expected: List of open PRs
 ❌ **Failure:** 5xx response or timeout = endpoint not reachable, check URL
 
 **Step 3: Verify Agent Receives**
+
 - Agent should log: "Received PR webhook for #[PR_NUMBER]"
 - Check agent logs for webhook events
 
@@ -345,6 +372,7 @@ Expected: List of open PRs
 ### Task 2.4: Test Diff Retrieval & Comment (1 hour)
 
 **Step 1: Get PR Diff**
+
 ```bash
 curl -H "Authorization: token YOUR_GITHUB_TOKEN" \
   -H "Accept: application/vnd.github.v3.diff" \
@@ -357,6 +385,7 @@ Expected: Raw diff format
 ❌ **Failure:** 404 = PR doesn't exist, 401 = auth issue
 
 **Step 2: Post Test Comment**
+
 ```bash
 curl -X POST \
   -H "Authorization: token YOUR_GITHUB_TOKEN" \
@@ -365,6 +394,7 @@ curl -X POST \
 ```
 
 Expected response:
+
 ```json
 {
   "id": 123456,
@@ -401,15 +431,18 @@ Expected response:
 ### Task 3.1: Check Adobe API Access (1 hour)
 
 **Step 1: Login to Adobe Developer Console**
+
 - URL: https://developer.adobe.com/console
 - Sign in with Adobe account (needs admin)
 - Select organization
 
 **Step 2: Check for Existing Projects**
+
 - Projects & Apps section
 - Look for any project with Photoshop or Lightroom API enabled
 
 **Step 3a: IF Already Have API Access**
+
 - Go to project → Service Accounts
 - Create new credentials
 - Download as JSON
@@ -417,6 +450,7 @@ Expected response:
 - Continue to Task 3.2
 
 **Step 3b: IF NO API Access Yet**
+
 - Need to request from Adobe (2-3 week wait)
 - OR use ImageMagick fallback (immediate)
 - **DECISION:** Are you waiting for Adobe or using ImageMagick?
@@ -430,6 +464,7 @@ Expected response:
 ### Task 3.2A: Adobe API Test (If Available) (1.5 hours)
 
 **Step 1: Authenticate**
+
 ```bash
 curl -X POST https://ims-na1.adobelogin.com/ims/token/v3 \
   -d "grant_type=client_credentials&client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET&scope=openid,AdobeID,read_organizations"
@@ -441,6 +476,7 @@ Expected: Access token
 ❌ **Failure:** 400 = credentials wrong, 401 = client ID invalid
 
 **Step 2: Test Image Resize**
+
 ```bash
 curl -X POST https://image.adobe.io/ligenesis/image/GenerateFilter \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
@@ -456,6 +492,7 @@ curl -X POST https://image.adobe.io/ligenesis/image/GenerateFilter \
 
 **Step 3: Test with Multiple Sizes**
 Create batch of 5 resizes:
+
 - 1080x1080 (Instagram square)
 - 1080x1350 (Instagram feed)
 - 1200x627 (LinkedIn)
@@ -474,6 +511,7 @@ Create batch of 5 resizes:
 ### Task 3.2B: ImageMagick Fallback (If No Adobe) (1 hour)
 
 **Step 1: Install ImageMagick**
+
 ```bash
 # On Mac:
 brew install imagemagick
@@ -489,6 +527,7 @@ convert --version
 ❌ **Failure:** Check system package manager
 
 **Step 2: Test Basic Resize**
+
 ```bash
 # Create a test image, then resize it
 convert test.jpg -resize 1080x1080 test-1080x1080.jpg
@@ -502,6 +541,7 @@ identify test-1080x1080.jpg
 ❌ **Failure:** Check ImageMagick permissions
 
 **Step 3: Test Batch Resize**
+
 ```bash
 # Resize to 5 different sizes
 for size in "1080x1080" "1080x1350" "1200x627" "1920x1080" "3000x3000"; do
@@ -518,6 +558,7 @@ done
 ❌ **Failure:** Adjust ImageMagick settings for performance
 
 **Step 4: Integrate into Agent**
+
 - Agent uses ImageMagick instead of Adobe API
 - `convert` command in agent codebase
 - No additional cost, immediate availability
@@ -531,6 +572,7 @@ done
 ### Wednesday Completion Checkpoint
 
 **If Adobe API Available:**
+
 - [ ] API credentials secured
 - [ ] Authentication working
 - [ ] Single image resize successful
@@ -538,6 +580,7 @@ done
 - [ ] Performance acceptable (<60 sec for 5)
 
 **If Using ImageMagick:**
+
 - [ ] ImageMagick installed
 - [ ] Single image resize successful
 - [ ] Batch resize (5 images) successful
@@ -554,11 +597,13 @@ done
 (Skip if running behind schedule — this is Week 3, not Week 1)
 
 **Setup:**
+
 - Create Google Cloud project
 - Enable Google Ads API
 - Generate OAuth credentials
 
 **Test:**
+
 - Authenticate
 - Retrieve campaign list
 - Retrieve keyword performance
@@ -574,11 +619,13 @@ done
 (Skip if running behind schedule — this is Week 3, not Week 1)
 
 **Setup:**
+
 - Create Facebook app
 - Generate access token
 - Test authentication
 
 **Test:**
+
 - Retrieve ad account campaigns
 - Retrieve ad performance
 - Retrieve bid data
@@ -595,21 +642,24 @@ done
 
 **Checklist:**
 
-| Integration | Status | Notes |
-|-------------|--------|-------|
-| HubSpot | ✅/⚠️/❌ | [Pass/Fallback/Blocked] |
-| GitHub | ✅/⚠️/❌ | [Pass/Fallback/Blocked] |
-| Adobe/ImageMagick | ✅/⚠️/❌ | [Adobe/ImageMagick/Blocked] |
-| Google Ads | ✅/⚠️/⏭ | [Pass/Fallback/Deferred to Week 3] |
-| Meta Ads | ✅/⚠️/⏭ | [Pass/Fallback/Deferred to Week 3] |
+| Integration       | Status   | Notes                              |
+| ----------------- | -------- | ---------------------------------- |
+| HubSpot           | ✅/⚠️/❌ | [Pass/Fallback/Blocked]            |
+| GitHub            | ✅/⚠️/❌ | [Pass/Fallback/Blocked]            |
+| Adobe/ImageMagick | ✅/⚠️/❌ | [Adobe/ImageMagick/Blocked]        |
+| Google Ads        | ✅/⚠️/⏭ | [Pass/Fallback/Deferred to Week 3] |
+| Meta Ads          | ✅/⚠️/⏭ | [Pass/Fallback/Deferred to Week 3] |
 
 **Blockers:**
+
 - [List any ❌ items with resolution plan]
 
 **Fallbacks Used:**
+
 - [List any ⚠️ items and what fallback was chosen]
 
 **Ready for Week 1?**
+
 - All MUST-HAVE integrations: ✅
 - Engineering confidence: ✅
 - Test data ready: ✅
@@ -625,11 +675,13 @@ done
 ### Task 5.2: Team Briefing (30 min)
 
 **Present to:**
+
 - Engineering team
 - All 9 department heads
 - CTO
 
 **Cover:**
+
 - Integration status (all working)
 - API keys secured (where stored, access policy)
 - Fallbacks chosen (Adobe vs ImageMagick, etc.)
@@ -645,6 +697,7 @@ done
 ## Success Criteria (End of Week 0)
 
 ### MUST HAVE (Block Week 1 if missing):
+
 - ✅ HubSpot API working 100%
 - ✅ GitHub API working 100%
 - ✅ Design resizing (Adobe or ImageMagick) working 100%
@@ -653,11 +706,13 @@ done
 - ✅ Engineering team trained + confident
 
 ### NICE TO HAVE (Can defer to later):
+
 - Google Ads API (Week 3 needed)
 - Meta Ads API (Week 3 needed)
 - Secondary platform integrations
 
 ### MUST NOT HAPPEN:
+
 - ❌ Proceed to Week 1 with ❌ integration (will fail immediately)
 - ❌ Unknown fallbacks (make decisions now, not during Week 1)
 - ❌ Untested APIs (test everything before Week 1 launch)
@@ -667,6 +722,7 @@ done
 ## Escalation Path
 
 **If blocked:**
+
 - Step 1: Engineering Lead troubleshoots (30 min)
 - Step 2: CTO reviews approach (15 min)
 - Step 3: Contact vendor (Adobe, GitHub, HubSpot) if needed

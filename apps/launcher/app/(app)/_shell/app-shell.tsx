@@ -106,7 +106,7 @@ function Sidebar({
 }) {
   return (
     <aside
-      className={`fixed inset-y-0 left-0 z-40 flex flex-col border-r border-border bg-card transition-[width,transform] duration-200 lg:static lg:translate-x-0 ${
+      className={`fixed inset-y-0 left-0 z-40 flex flex-col border-r border-border bg-card transition-[width,transform] duration-[250ms] ease-[var(--ease-drawer)] lg:static lg:translate-x-0 ${
         collapsed ? 'w-[64px]' : 'w-[240px]'
       } ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}`}
     >
@@ -120,7 +120,7 @@ function Sidebar({
         ) : null}
       </div>
 
-      <nav className="flex-1 space-y-1 px-2.5 py-2">
+      <nav data-tour="sidebar-nav" className="flex-1 space-y-1 px-2.5 py-2">
         {NAV_ITEMS.map((item) => (
           <NavLink key={item.href} item={item} collapsed={collapsed} pathname={pathname} />
         ))}
@@ -128,7 +128,13 @@ function Sidebar({
 
       <div className="space-y-1 border-t border-border px-2.5 py-2">
         {NAV_FOOTER.map((item) => (
-          <NavLink key={item.href} item={item} collapsed={collapsed} pathname={pathname} />
+          <NavLink
+            key={item.href}
+            item={item}
+            collapsed={collapsed}
+            pathname={pathname}
+            data-tour={item.href === '/settings' ? 'settings-link' : undefined}
+          />
         ))}
         <button
           type="button"
@@ -148,10 +154,12 @@ function NavLink({
   item,
   collapsed,
   pathname,
+  'data-tour': dataTour,
 }: {
   item: NavItem
   collapsed: boolean
   pathname: string
+  'data-tour'?: string
 }) {
   const active = isActive(pathname, item.href)
   const Icon = item.icon
@@ -159,6 +167,7 @@ function NavLink({
     <Link
       href={item.href}
       title={collapsed ? item.label : undefined}
+      data-tour={dataTour}
       className={`group flex items-center gap-3 rounded-lg px-2.5 py-2 text-[13px] font-medium transition-[transform,background-color,color] duration-150 ease-[var(--ease-out)] active:scale-[0.98] ${
         active
           ? 'bg-primary/10 text-foreground'
@@ -198,7 +207,8 @@ function Topbar({
       <button
         type="button"
         onClick={onOpenPalette}
-        className="flex h-9 max-w-sm flex-1 items-center gap-2 rounded-lg border border-input bg-card px-3 text-left text-[13px] text-muted-foreground transition-[border-color] hover:border-primary/50"
+        data-tour="search-bar"
+        className="flex h-9 max-w-sm flex-1 items-center gap-2 rounded-lg border border-input bg-card px-3 text-left text-[13px] text-muted-foreground transition-[border-color,box-shadow] duration-150 hover:border-primary/50 hover:shadow-[0_0_0_3px_hsl(210_88%_54%/0.08)]"
       >
         <Search size={15} className="shrink-0" />
         <span className="flex-1 truncate">Search…</span>
@@ -251,34 +261,46 @@ function UserMenu({ user }: { user: ShellUser }) {
         type="button"
         onClick={() => setOpen((o) => !o)}
         className="flex items-center gap-2 rounded-lg py-1 pl-1 pr-2 transition-[background-color] hover:bg-secondary"
+        aria-expanded={open}
+        aria-haspopup="menu"
       >
         <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-[12px] font-bold text-primary">
           {user.initials}
         </span>
-        <ChevronDown size={14} className="text-muted-foreground" />
+        <ChevronDown
+          size={14}
+          className={`text-muted-foreground transition-transform duration-200 ease-[var(--ease-out)] ${open ? 'rotate-180' : 'rotate-0'}`}
+        />
       </button>
 
-      {open ? (
-        <div className="absolute right-0 top-[calc(100%+6px)] w-56 overflow-hidden rounded-xl border border-border bg-card shadow-xl shadow-black/30">
-          <div className="border-b border-border px-3.5 py-3">
-            <p className="truncate text-[13px] font-bold text-foreground">{user.name}</p>
-            <p className="truncate text-[12px] text-muted-foreground">{user.email}</p>
-            <p className="mt-1 text-[11px] text-muted-foreground">
-              {user.role}
-              {user.department ? ` · ${user.department}` : ''}
-            </p>
-          </div>
-          <button
-            type="button"
-            onClick={signOut}
-            disabled={pending}
-            className="flex w-full items-center gap-2.5 px-3.5 py-2.5 text-left text-[13px] text-foreground transition-[background-color] hover:bg-secondary disabled:opacity-60"
-          >
-            <LogOut size={15} className="text-muted-foreground" />
-            {pending ? 'Signing out…' : 'Sign out'}
-          </button>
+      {/* Always rendered so CSS transition works; pointer-events gated by open state */}
+      <div
+        role="menu"
+        className={[
+          'absolute right-0 top-[calc(100%+6px)] w-56 overflow-hidden rounded-xl border border-border bg-card shadow-xl shadow-black/30',
+          'origin-top-right transition-[opacity,transform] duration-150 ease-[var(--ease-out)]',
+          open ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none',
+        ].join(' ')}
+      >
+        <div className="border-b border-border px-3.5 py-3">
+          <p className="truncate text-[13px] font-bold text-foreground">{user.name}</p>
+          <p className="truncate text-[12px] text-muted-foreground">{user.email}</p>
+          <p className="mt-1 text-[11px] text-muted-foreground">
+            {user.role}
+            {user.department ? ` · ${user.department}` : ''}
+          </p>
         </div>
-      ) : null}
+        <button
+          type="button"
+          role="menuitem"
+          onClick={signOut}
+          disabled={pending}
+          className="flex w-full items-center gap-2.5 px-3.5 py-2.5 text-left text-[13px] text-foreground transition-[background-color] hover:bg-secondary disabled:opacity-60"
+        >
+          <LogOut size={15} className="text-muted-foreground" />
+          {pending ? 'Signing out…' : 'Sign out'}
+        </button>
+      </div>
     </div>
   )
 }

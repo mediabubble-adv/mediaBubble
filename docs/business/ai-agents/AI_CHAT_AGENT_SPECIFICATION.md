@@ -1,8 +1,9 @@
 # AI Chat Agent Specification
+
 **Component:** Bilingual Intelligent Lead Qualifier  
 **Technology:** Claude API (Anthropic)  
 **Languages:** English + Egyptian Arabic (Masri)  
-**Status:** Phase 3 Implementation  
+**Status:** Phase 3 Implementation
 
 ---
 
@@ -25,15 +26,15 @@ The agent is not a simple FAQ chatbot—it's a **strategic business tool** that 
 
 ### Technology Stack
 
-| Component | Technology | Purpose |
-|-----------|-----------|---------|
-| **LLM** | Claude 3.5 Sonnet (Anthropic) | Language understanding, conversation generation |
-| **Frontend** | React + TypeScript | Chat widget UI |
-| **Backend** | Next.js API Routes | Request handling, state management |
-| **Database** | PostgreSQL | Conversation history, lead data |
-| **CRM** | HubSpot API | Lead capture, sync |
-| **Language Detection** | `franc` or `langdetect` | Auto-detect English/Arabic |
-| **Scheduling** | Cal.com API | Consultation booking |
+| Component              | Technology                    | Purpose                                         |
+| ---------------------- | ----------------------------- | ----------------------------------------------- |
+| **LLM**                | Claude 3.5 Sonnet (Anthropic) | Language understanding, conversation generation |
+| **Frontend**           | React + TypeScript            | Chat widget UI                                  |
+| **Backend**            | Next.js API Routes            | Request handling, state management              |
+| **Database**           | PostgreSQL                    | Conversation history, lead data                 |
+| **CRM**                | HubSpot API                   | Lead capture, sync                              |
+| **Language Detection** | `franc` or `langdetect`       | Auto-detect English/Arabic                      |
+| **Scheduling**         | Cal.com API                   | Consultation booking                            |
 
 ### System Architecture Diagram
 
@@ -87,7 +88,7 @@ User: "Hi, I need help with my website"
 
 Agent: "👋 Hey there! Welcome to MediaBubble!
 
-I'm MediaBubble's AI assistant. I help businesses like yours 
+I'm MediaBubble's AI assistant. I help businesses like yours
 leverage AI-powered marketing strategies.
 
 To get started, could you tell me:
@@ -96,23 +97,23 @@ To get started, could you tell me:
 
 User: "We're an e-commerce store. We struggle with getting traffic"
 
-Agent: "Great! E-commerce is our sweet spot. We've helped dozens 
+Agent: "Great! E-commerce is our sweet spot. We've helped dozens
 of online stores increase traffic through AI-powered SEO and PPC.
 
-Quick question: 
+Quick question:
 - How much traffic are you targeting monthly?
 - What's your current budget for marketing?"
 
 User: "Maybe 10k visitors/month, budget is flexible"
 
-Agent: "Perfect! Based on your needs, I think our AI-powered SEO 
+Agent: "Perfect! Based on your needs, I think our AI-powered SEO
 + PPC strategy would be ideal. It uses intelligent automation to:
 - Find high-intent keywords
 - Optimize bids in real-time
 - Generate converting ad copy with AI
 
-Would you like to book a 30-min consultation with our team 
-to discuss a custom plan? We can show you exactly how AI 
+Would you like to book a 30-min consultation with our team
+to discuss a custom plan? We can show you exactly how AI
 can help your business. ✨"
 
 User: "Sure, let's set a time"
@@ -129,7 +130,7 @@ User (Arabic): "مرحبا، احنا عاوزين نعمل حملة على في
 
 Agent: "أهلا و سهلا! 👋
 
-أنا مساعد MediaBubble الذكي. أقدر أساعدك تحصل على 
+أنا مساعد MediaBubble الذكي. أقدر أساعدك تحصل على
 نتايج أفضل من حملاتك على الفيسبوك.
 
 عشان نقدم الحل اللي يناسبك:
@@ -138,7 +139,7 @@ Agent: "أهلا و سهلا! 👋
 
 User: "نحن نبيع ملابس أون لاين، الميزانية 5000 جنيه شهري"
 
-Agent: "تمام! الملابس الأون لاين فيها فرص كبيرة 
+Agent: "تمام! الملابس الأون لاين فيها فرص كبيرة
 للربح مع الإعلانات الذكية.
 
 الـ AI بتساعد في:
@@ -146,7 +147,7 @@ Agent: "تمام! الملابس الأون لاين فيها فرص كبيرة
 - تحسين الصور والنصوص اللي بتجذب
 - تقليل تكاليف الإعلان
 
-عايزين نتحدث مع فريقنا عشان نشوف إزاي 
+عايزين نتحدث مع فريقنا عشان نشوف إزاي
 نرفع مبيعاتك؟ 🚀"
 ```
 
@@ -185,7 +186,7 @@ Classification:
 ### English System Prompt
 
 ```
-You are MediaBubble's friendly AI assistant, helping companies 
+You are MediaBubble's friendly AI assistant, helping companies
 discover how AI-powered marketing strategies can transform their business.
 
 ## Your Role
@@ -229,26 +230,26 @@ Challenge → Solution
 
 ## Objection Handling
 "Won't AI replace my team?"
-→ "Actually, AI amplifies your team! It handles repetitive tasks so 
-    your team focuses on strategy and creativity. We've seen teams 
+→ "Actually, AI amplifies your team! It handles repetitive tasks so
+    your team focuses on strategy and creativity. We've seen teams
     do the work of 2x their size with AI."
 
 "Is AI really that effective?"
-→ "Absolutely. We use Claude AI for understanding, Google Ads AI 
-    for bidding, and Meta's AI for targeting. The companies seeing 
+→ "Absolutely. We use Claude AI for understanding, Google Ads AI
+    for bidding, and Meta's AI for targeting. The companies seeing
     the biggest wins combine AI with human strategy—best of both worlds."
 
 "What's the cost?"
-→ "It varies by scope, but most clients see ROI within 2-3 months. 
-    Let's book a call so we can understand your specific needs and 
+→ "It varies by scope, but most clients see ROI within 2-3 months.
+    Let's book a call so we can understand your specific needs and
     give you an accurate estimate."
 
 ## Lead Capture Trigger
-When customer shows strong intent (wants to proceed, asks about pricing, 
+When customer shows strong intent (wants to proceed, asks about pricing,
 wants timeline), immediately say:
 
-"Perfect! Let me get you scheduled with our strategy team. 
-They'll do a deep dive into your business and create a custom 
+"Perfect! Let me get you scheduled with our strategy team.
+They'll do a deep dive into your business and create a custom
 AI marketing plan.
 
 What's the best way to reach you?
@@ -273,11 +274,11 @@ If customer:
 - Shows frustration → "Let me connect you with someone right away"
 
 ## Closing Lines (if not scheduling)
-✨ "I'd love to see what MediaBubble can do for your business. 
-    You have nothing to lose with a free consultation. Our team 
+✨ "I'd love to see what MediaBubble can do for your business.
+    You have nothing to lose with a free consultation. Our team
     has seen companies transform in 3 months."
 
-🚀 "The best time to start was last year. The second best time is now. 
+🚀 "The best time to start was last year. The second best time is now.
     Let's talk about what's possible for your business!"
 
 ## Session Continuity
@@ -296,7 +297,7 @@ If customer:
 ### Arabic System Prompt (Masri)
 
 ```
-أنت مساعد MediaBubble الذكي. تساعد الشركات تكتشف 
+أنت مساعد MediaBubble الذكي. تساعد الشركات تكتشف
 إزاي التسويق بالذكاء الاصطناعي يغير أعمالهم بالكامل.
 
 ## دورك
@@ -329,11 +330,11 @@ If customer:
 - متجر محلي: أول ترتيب محلي في 3 شهور
 
 ## خاتمة إذا ما حجز موعد
-✨ "كنت بحب أشوف إيه اللي MediaBubble تقدر تعمله لشركتك. 
-    الاستشارة مجانية وماحدش بياخد حاجة إلا لو عجبته. الفريق شافه 
+✨ "كنت بحب أشوف إيه اللي MediaBubble تقدر تعمله لشركتك.
+    الاستشارة مجانية وماحدش بياخد حاجة إلا لو عجبته. الفريق شافه
     شركات تتغير بالكامل في 3 شهور."
 
-🚀 "أحسن وقت اتبدأ فيه كان سنة اللي فاتت. 
+🚀 "أحسن وقت اتبدأ فيه كان سنة اللي فاتت.
     التاني الحين. تعال نتحدث عن الممكن لشركتك!"
 ```
 
@@ -345,86 +346,86 @@ If customer:
 
 ```tsx
 // components/ChatWidget.tsx
-import { useState, useRef, useEffect } from 'react'
-import { useLocale } from 'next-intl'
-import { Button } from '@/components/ui/Button'
-import { Input } from '@/components/ui/Input'
-import { Card } from '@/components/ui/Card'
+import { useState, useRef, useEffect } from "react";
+import { useLocale } from "next-intl";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
+import { Card } from "@/components/ui/Card";
 
 interface Message {
-  id: string
-  role: 'user' | 'assistant'
-  content: string
-  timestamp: Date
+  id: string;
+  role: "user" | "assistant";
+  content: string;
+  timestamp: Date;
 }
 
 export function ChatWidget() {
-  const locale = useLocale()
-  const [open, setOpen] = useState(false)
-  const [messages, setMessages] = useState<Message[]>([])
-  const [input, setInput] = useState('')
-  const [loading, setLoading] = useState(false)
-  const scrollRef = useRef<HTMLDivElement>(null)
+  const locale = useLocale();
+  const [open, setOpen] = useState(false);
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   // Auto-scroll to latest message
   useEffect(() => {
     if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
-  }, [messages])
+  }, [messages]);
 
   const handleSend = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!input.trim()) return
+    e.preventDefault();
+    if (!input.trim()) return;
 
     // Add user message
     const userMessage: Message = {
       id: Date.now().toString(),
-      role: 'user',
+      role: "user",
       content: input,
       timestamp: new Date(),
-    }
+    };
 
-    setMessages(prev => [...prev, userMessage])
-    setInput('')
-    setLoading(true)
+    setMessages((prev) => [...prev, userMessage]);
+    setInput("");
+    setLoading(true);
 
     try {
       // Call chat API
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          messages: messages.map(m => ({
+          messages: messages.map((m) => ({
             role: m.role,
             content: m.content,
           })),
           locale,
         }),
-      })
+      });
 
-      const data = await response.json()
+      const data = await response.json();
 
       // Add assistant message
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
-        role: 'assistant',
+        role: "assistant",
         content: data.message,
         timestamp: new Date(),
-      }
+      };
 
-      setMessages(prev => [...prev, assistantMessage])
+      setMessages((prev) => [...prev, assistantMessage]);
 
       // Check if lead capture needed
       if (data.captureLeadData) {
         // Show lead form
       }
     } catch (error) {
-      console.error('Chat error:', error)
+      console.error("Chat error:", error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   if (!open) {
     return (
@@ -435,7 +436,7 @@ export function ChatWidget() {
       >
         💬
       </button>
-    )
+    );
   }
 
   return (
@@ -445,7 +446,7 @@ export function ChatWidget() {
         <div>
           <h3 className="font-bold text-primary-600">MediaBubble AI</h3>
           <p className="text-xs text-neutral-600">
-            {locale === 'en' ? 'Online & ready to help' : 'متاح الآن'}
+            {locale === "en" ? "Online & ready to help" : "متاح الآن"}
           </p>
         </div>
         <button
@@ -457,30 +458,27 @@ export function ChatWidget() {
       </div>
 
       {/* Messages */}
-      <div
-        ref={scrollRef}
-        className="flex-1 overflow-y-auto p-4 space-y-3"
-      >
+      <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-3">
         {messages.length === 0 && (
           <div className="text-center text-neutral-500 mt-8">
             <p className="text-sm">
-              {locale === 'en'
-                ? 'Hi! 👋 Ask me about AI-powered marketing'
-                : 'مرحبا! 👋 اسأل عن التسويق بالذكاء الاصطناعي'}
+              {locale === "en"
+                ? "Hi! 👋 Ask me about AI-powered marketing"
+                : "مرحبا! 👋 اسأل عن التسويق بالذكاء الاصطناعي"}
             </p>
           </div>
         )}
 
-        {messages.map(msg => (
+        {messages.map((msg) => (
           <div
             key={msg.id}
-            className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+            className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
           >
             <div
               className={`max-w-xs px-4 py-2.5 rounded-lg ${
-                msg.role === 'user'
-                  ? 'bg-primary-600 text-white'
-                  : 'bg-neutral-100 text-neutral-900'
+                msg.role === "user"
+                  ? "bg-primary-600 text-white"
+                  : "bg-neutral-100 text-neutral-900"
               }`}
             >
               {msg.content}
@@ -493,8 +491,14 @@ export function ChatWidget() {
             <div className="bg-neutral-100 px-4 py-2.5 rounded-lg">
               <div className="flex gap-1">
                 <div className="w-2 h-2 bg-neutral-400 rounded-full animate-bounce" />
-                <div className="w-2 h-2 bg-neutral-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
-                <div className="w-2 h-2 bg-neutral-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+                <div
+                  className="w-2 h-2 bg-neutral-400 rounded-full animate-bounce"
+                  style={{ animationDelay: "0.1s" }}
+                />
+                <div
+                  className="w-2 h-2 bg-neutral-400 rounded-full animate-bounce"
+                  style={{ animationDelay: "0.2s" }}
+                />
               </div>
             </div>
           </div>
@@ -502,29 +506,28 @@ export function ChatWidget() {
       </div>
 
       {/* Input */}
-      <form onSubmit={handleSend} className="p-4 border-t border-neutral-200 flex gap-2">
+      <form
+        onSubmit={handleSend}
+        className="p-4 border-t border-neutral-200 flex gap-2"
+      >
         <Input
           value={input}
-          onChange={e => setInput(e.target.value)}
-          placeholder={locale === 'en' ? 'Type a message...' : 'اكتب رسالة...'}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder={locale === "en" ? "Type a message..." : "اكتب رسالة..."}
           disabled={loading}
           className="flex-1"
         />
-        <Button
-          type="submit"
-          disabled={loading || !input.trim()}
-          size="sm"
-        >
+        <Button type="submit" disabled={loading || !input.trim()} size="sm">
           Send
         </Button>
       </form>
 
       {/* Powered by badge */}
       <div className="text-center p-2 text-xs text-neutral-500">
-        {locale === 'en' ? 'Powered by Claude AI' : 'مدعوم بـ Claude AI'}
+        {locale === "en" ? "Powered by Claude AI" : "مدعوم بـ Claude AI"}
       </div>
     </div>
-  )
+  );
 }
 ```
 
@@ -532,79 +535,78 @@ export function ChatWidget() {
 
 ```typescript
 // app/api/chat/route.ts
-import Anthropic from '@anthropic-sdk/sdk'
-import { NextRequest, NextResponse } from 'next/server'
-import { detectLanguage, getSystemPrompt } from '@/lib/chat-helpers'
-import { saveChatHistory, createHubSpotLead } from '@/lib/db'
+import Anthropic from "@anthropic-sdk/sdk";
+import { NextRequest, NextResponse } from "next/server";
+import { detectLanguage, getSystemPrompt } from "@/lib/chat-helpers";
+import { saveChatHistory, createHubSpotLead } from "@/lib/db";
 
-const client = new Anthropic()
+const client = new Anthropic();
 
 interface ChatRequest {
-  messages: Array<{ role: 'user' | 'assistant'; content: string }>
-  locale: 'en' | 'ar'
+  messages: Array<{ role: "user" | "assistant"; content: string }>;
+  locale: "en" | "ar";
 }
 
 export async function POST(req: NextRequest) {
   try {
-    const body: ChatRequest = await req.json()
-    const { messages, locale } = body
+    const body: ChatRequest = await req.json();
+    const { messages, locale } = body;
 
     // Detect language from last user message
-    const lastUserMessage = messages
-      .filter(m => m.role === 'user')
-      .pop()?.content || ''
-    const detectedLocale = detectLanguage(lastUserMessage) || locale
+    const lastUserMessage =
+      messages.filter((m) => m.role === "user").pop()?.content || "";
+    const detectedLocale = detectLanguage(lastUserMessage) || locale;
 
     // Get appropriate system prompt
-    const systemPrompt = getSystemPrompt(detectedLocale)
+    const systemPrompt = getSystemPrompt(detectedLocale);
 
     // Call Claude API
     const response = await client.messages.create({
-      model: 'claude-3-5-sonnet-20241022',
+      model: "claude-3-5-sonnet-20241022",
       max_tokens: 1024,
       system: systemPrompt,
-      messages: messages.map(m => ({
+      messages: messages.map((m) => ({
         role: m.role,
         content: m.content,
       })),
-    })
+    });
 
     const assistantMessage =
-      response.content[0].type === 'text' ? response.content[0].text : ''
+      response.content[0].type === "text" ? response.content[0].text : "";
 
     // Check if should capture lead
-    const shouldCaptureLead = checkLeadCaptureIntent(messages, assistantMessage)
+    const shouldCaptureLead = checkLeadCaptureIntent(
+      messages,
+      assistantMessage,
+    );
 
     // Save to database
     await saveChatHistory({
-      messages: [...messages, { role: 'assistant', content: assistantMessage }],
+      messages: [...messages, { role: "assistant", content: assistantMessage }],
       locale: detectedLocale,
-    })
+    });
 
     return NextResponse.json({
       message: assistantMessage,
       captureLeadData: shouldCaptureLead,
       locale: detectedLocale,
-    })
+    });
   } catch (error) {
-    console.error('Chat API error:', error)
-    return NextResponse.json(
-      { error: 'Chat API error' },
-      { status: 500 }
-    )
+    console.error("Chat API error:", error);
+    return NextResponse.json({ error: "Chat API error" }, { status: 500 });
   }
 }
 
 function checkLeadCaptureIntent(
   messages: Array<{ role: string; content: string }>,
-  assistantMessage: string
+  assistantMessage: string,
 ): boolean {
-  const intent = assistantMessage.toLowerCase()
+  const intent = assistantMessage.toLowerCase();
   return (
-    intent.includes('email') &&
-    intent.includes('schedule') &&
+    intent.includes("email") &&
+    intent.includes("schedule") &&
     messages.length > 4
-  )
+  );
 }
 ```
 
@@ -614,41 +616,45 @@ function checkLeadCaptureIntent(
 
 ```tsx
 // components/LeadCaptureForm.tsx
-import { useState } from 'react'
-import { Button } from '@/components/ui/Button'
-import { Input } from '@/components/ui/Input'
+import { useState } from "react";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
 
 interface LeadData {
-  email: string
-  phone?: string
-  firstName?: string
-  company?: string
-  serviceInterest?: string
-  budget?: string
+  email: string;
+  phone?: string;
+  firstName?: string;
+  company?: string;
+  serviceInterest?: string;
+  budget?: string;
 }
 
-export function LeadCaptureForm({ onSubmit }: { onSubmit: (data: LeadData) => void }) {
-  const [formData, setFormData] = useState<LeadData>({ email: '' })
-  const [loading, setLoading] = useState(false)
+export function LeadCaptureForm({
+  onSubmit,
+}: {
+  onSubmit: (data: LeadData) => void;
+}) {
+  const [formData, setFormData] = useState<LeadData>({ email: "" });
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setLoading(true)
+    e.preventDefault();
+    setLoading(true);
 
     try {
-      const response = await fetch('/api/leads', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
-      })
+      });
 
       if (response.ok) {
-        onSubmit(formData)
+        onSubmit(formData);
       }
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
@@ -656,29 +662,31 @@ export function LeadCaptureForm({ onSubmit }: { onSubmit: (data: LeadData) => vo
         type="email"
         label="Email"
         value={formData.email}
-        onChange={e => setFormData({ ...formData, email: e.target.value })}
+        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
         required
       />
       <Input
         label="Phone (optional)"
-        value={formData.phone || ''}
-        onChange={e => setFormData({ ...formData, phone: e.target.value })}
+        value={formData.phone || ""}
+        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
       />
       <Input
         label="First Name"
-        value={formData.firstName || ''}
-        onChange={e => setFormData({ ...formData, firstName: e.target.value })}
+        value={formData.firstName || ""}
+        onChange={(e) =>
+          setFormData({ ...formData, firstName: e.target.value })
+        }
       />
       <Input
         label="Company"
-        value={formData.company || ''}
-        onChange={e => setFormData({ ...formData, company: e.target.value })}
+        value={formData.company || ""}
+        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
       />
       <Button type="submit" fullWidth loading={loading}>
         Schedule Consultation
       </Button>
     </form>
-  )
+  );
 }
 ```
 
@@ -707,17 +715,17 @@ export function LeadCaptureForm({ onSubmit }: { onSubmit: (data: LeadData) => vo
 
 ```typescript
 interface ChatMetrics {
-  conversationId: string
-  visitorId: string
-  locale: 'en' | 'ar'
-  startTime: Date
-  endTime: Date
-  messageCount: number
-  leadCaptured: boolean
-  consultationBooked: boolean
-  conversationDuration: number // seconds
-  lastMessage: string
-  leadQualityScore: number // 0-100
+  conversationId: string;
+  visitorId: string;
+  locale: "en" | "ar";
+  startTime: Date;
+  endTime: Date;
+  messageCount: number;
+  leadCaptured: boolean;
+  consultationBooked: boolean;
+  conversationDuration: number; // seconds
+  lastMessage: string;
+  leadQualityScore: number; // 0-100
 }
 ```
 
@@ -750,6 +758,7 @@ interface ChatMetrics {
 The AI Chat Agent is a **core differentiator** for MediaBubble's new website. It demonstrates AI expertise while converting visitors into qualified leads.
 
 **Expected Impact:**
+
 - 🚀 50+ qualified leads/month
 - 📈 5% conversion rate (visitor → lead)
 - 💬 30% site visitor engagement

@@ -3,13 +3,17 @@
 ## **Project Overview**
 
 ### **Target Entity**
+
 **Media Bubble** (mediabubble.co)
 
 ### **Core Objective**
+
 Redesign and rebuild the website while completely overhauling content to dominate SEO (Search), AEO (Answer), and GEO (Generative) engines. This isn't just a visual refresh; it's a structural transformation to position Media Bubble as the definitive authority in digital media for both human clients and AI crawlers.
 
 ### **AI Integration Strategy**
+
 This rebuild leverages the complete AI-Powered Studio ecosystem:
+
 - **Claude:** Content creation and technical architecture
 - **Gemini:** Market research and competitive analysis
 - **Qwen:** Arabic localization and cultural adaptation
@@ -22,10 +26,12 @@ This rebuild leverages the complete AI-Powered Studio ecosystem:
 ### **1.1 Sitemap Restructuring with AI Intelligence**
 
 #### **Strategic Shift from Generic to Specialized**
+
 **Problem:** Flat brochure sites confuse AI crawlers and dilute keyword relevance
 **Solution:** Deep, hierarchical service silos establish topical authority
 
 #### **AI-Powered Sitemap Architecture**
+
 ```bash
 # Generate optimal sitemap structure
 claude "Create programmatic sitemap for Media Bubble with:
@@ -48,6 +54,7 @@ Knowledge Hub (The GEO Feeder):
 ```
 
 #### **Implementation Commands**
+
 ```bash
 # Generate programmatic routing
 cursor "Create Next.js dynamic routing system with:
@@ -62,6 +69,7 @@ cursor "Create Next.js dynamic routing system with:
 ### **1.2 AI-Powered Keyword & Intent Mapping**
 
 #### **Intelligent Keyword Assignment**
+
 ```bash
 # AI-driven keyword analysis
 gemini "Analyze search intent for Media Bubble services:
@@ -81,6 +89,7 @@ Generate intent mapping for each page."
 ```
 
 #### **Content Intent Optimization**
+
 ```bash
 # Intent-based content creation
 claude "Create content strategy based on search intent:
@@ -92,6 +101,7 @@ Map each page type to appropriate content structure and conversion goals."
 ```
 
 #### **AEO Question Mapping**
+
 ```bash
 # Question-based content strategy
 claude "Identify and map common questions for each service:
@@ -113,6 +123,7 @@ Brand Identity:
 ### **2.1 The AEO Service Page Formula**
 
 #### **AI-Optimized Content Structure**
+
 ```bash
 # Generate AEO-optimized service pages
 claude "Create service page template using exact formula:
@@ -130,6 +141,7 @@ The What: 'Premium website development focused on conversion and user experience
 ```
 
 #### **Implementation Template**
+
 ```typescript
 // Service page component template
 export default function ServicePage({ service, location }) {
@@ -151,6 +163,7 @@ export default function ServicePage({ service, location }) {
 ### **2.2 High-Information Portfolio with AI Enhancement**
 
 #### **Case Study AI Framework**
+
 ```bash
 # Generate comprehensive case studies
 claude "Create case study structure with:
@@ -168,6 +181,7 @@ Results: '↑ 300% brand recognition, ↓ 45% bounce rate, ↑ 60% engagement'"
 ```
 
 #### **AI-Powered Visual Strategy**
+
 ```bash
 # Generate image optimization strategy
 cursor "Create image optimization system:
@@ -179,6 +193,7 @@ cursor "Create image optimization system:
 ```
 
 #### **Portfolio Component Generation**
+
 ```bash
 # Generate portfolio components
 claude "Create responsive portfolio components:
@@ -194,6 +209,7 @@ claude "Create responsive portfolio components:
 ### **2.3 Entity Authority Building**
 
 #### **About Page AI Enhancement**
+
 ```bash
 # Generate authority-focused about page
 claude "Create comprehensive About page with:
@@ -211,6 +227,7 @@ E-E-A-T Signals: Experience, Expertise, Authoritativeness, Trustworthiness"
 ### **3.1 Performance-First Technical Implementation**
 
 #### **AI-Powered Performance Optimization**
+
 ```bash
 # Generate performance optimization commands
 cursor "Implement performance optimizations:
@@ -226,6 +243,7 @@ Example URL structure:
 ```
 
 #### **Technical SEO Implementation**
+
 ```bash
 # Generate technical SEO implementation
 claude "Create comprehensive technical SEO setup:
@@ -241,6 +259,7 @@ claude "Create comprehensive technical SEO setup:
 ### **3.2 Semantic Code & Advanced Schema Integration**
 
 #### **Schema Markup Strategy**
+
 ```bash
 # Generate schema implementation
 claude "Implement comprehensive schema strategy:
@@ -261,19 +280,20 @@ Example LocalBusiness schema:
 ```
 
 #### **Component-Based Schema Implementation**
+
 ```typescript
 // Schema component generator
 export function generateServiceSchema(service, location) {
   return {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    'name': `${service} in ${location}`,
-    'provider': {
-      '@type': 'Organization',
-      'name': 'Media Bubble'
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: `${service} in ${location}`,
+    provider: {
+      "@type": "Organization",
+      name: "Media Bubble",
     },
-    'areaServed': location,
-    'description': getSEOContent(service, location)
+    areaServed: location,
+    description: getSEOContent(service, location),
   };
 }
 ```
@@ -285,6 +305,7 @@ export function generateServiceSchema(service, location) {
 ### **4.1 The llms.txt Implementation**
 
 #### **AI-Crawler Optimization File**
+
 ```bash
 # Generate llms.txt file
 claude "Create comprehensive llms.txt file:
@@ -317,6 +338,7 @@ LinkedIn, Instagram, Facebook, Behance"
 ```
 
 #### **File Implementation**
+
 ```bash
 # Create and place llms.txt in public directory
 echo "$(llms.txt content)" > public/llms.txt
@@ -327,6 +349,7 @@ echo "$(llms.txt content)" > public/llms.txt
 ### **4.2 Migration & Redirect Strategy**
 
 #### **AI-Powered Redirect Mapping**
+
 ```bash
 # Generate comprehensive redirect strategy
 claude "Create redirect mapping for all URL changes:
@@ -342,6 +365,7 @@ Redirect 301 /portfolio https://mediabubble.co/case-studies"
 ```
 
 #### **Migration Implementation**
+
 ```bash
 # Implement migration scripts
 cursor "Create migration utilities:
@@ -367,6 +391,7 @@ export function createRedirects() {
 ### **4.3 Launch & AI-Powered Monitoring**
 
 #### **Launch Implementation**
+
 ```bash
 # Generate launch commands
 claude "Create comprehensive launch checklist:
@@ -385,6 +410,7 @@ scp -r out/* user@server:/var/www/mediabubble.co"
 ```
 
 #### **Post-Launch AI Monitoring**
+
 ```bash
 # Generate post-launch monitoring
 claude "Create comprehensive monitoring system:
@@ -410,11 +436,12 @@ export function createMonitoringDashboard() {
 ## **AI-Enhanced Implementation Templates**
 
 ### **Service Page Template**
+
 ```typescript
 // src/app/services/[service]/[location]/page.tsx
 export default function ServicePage({ params }) {
   const { service, location } = params;
-  
+
   return (
     <div className="service-page">
       <ServiceHero service={service} location={location} />
@@ -429,11 +456,12 @@ export default function ServicePage({ params }) {
 ```
 
 ### **Case Study Template**
+
 ```typescript
 // src/app/case-studies/[slug]/page.tsx
 export default function CaseStudyPage({ params }) {
   const { slug } = params;
-  
+
   return (
     <article className="case-study">
       <CaseStudyHeader case={caseData} />
@@ -448,6 +476,7 @@ export default function CaseStudyPage({ params }) {
 ```
 
 ### **SEO Schema Component**
+
 ```typescript
 // src/components/Schema.tsx
 export function ServiceSchema({ service, location }) {
@@ -477,6 +506,7 @@ export function ServiceSchema({ service, location }) {
 ## **AI-Powered Content Generation Commands**
 
 ### **Service Content Generation**
+
 ```bash
 # Generate service page content
 claude "Generate comprehensive content for 'Web Design Hurghada' service page:
@@ -491,6 +521,7 @@ Include specific Hurghada market references and local business considerations."
 ```
 
 ### **Case Study Generation**
+
 ```bash
 # Generate case study content
 claude "Create detailed case study for 'Egyptian Resort Rebrand':
@@ -505,6 +536,7 @@ Focus on measurable outcomes and ROI calculations."
 ```
 
 ### **Blog Content Generation**
+
 ```bash
 # Generate location-specific content
 claude "Create blog content for 'Digital Marketing Trends in Hurghada':
@@ -522,6 +554,7 @@ Include specific references to Hurghada market conditions."
 ## **Performance Optimization Checklist**
 
 ### **Technical Performance**
+
 - [ ] Mobile-first responsive design implemented
 - [ ] Core Web Vitals optimized (LCP < 2.5s)
 - [ ] Images optimized (WebP format, lazy loading)
@@ -529,6 +562,7 @@ Include specific references to Hurghada market conditions."
 - [ ] Semantic HTML5 structure implemented
 
 ### **SEO Implementation**
+
 - [ ] Comprehensive schema markup deployed
 - [ ] XML sitemap submitted to Search Console
 - [ ] Redirect strategy implemented
@@ -536,6 +570,7 @@ Include specific references to Hurghada market conditions."
 - [ ] Meta tags with dynamic generation
 
 ### **Content Quality**
+
 - [ ] All service pages expanded to 1000+ words
 - [ ] Case studies with quantifiable results
 - [ ] FAQ sections for featured snippets
@@ -543,6 +578,7 @@ Include specific references to Hurghada market conditions."
 - [ ] Conversion-focused CTAs implemented
 
 ### **Monitoring Setup**
+
 - [ ] Search Console configured
 - [ ] Analytics tracking implemented
 - [ ] Performance monitoring tools set up
@@ -554,24 +590,28 @@ Include specific references to Hurghada market conditions."
 ## **AI Integration Benefits**
 
 ### **Development Efficiency**
+
 - ⚡ **80% reduction** in content creation time
 - 🤖 **Automated** technical SEO implementation
 - 📝 **AI-assisted** copywriting and localization
 - 🔍 **Intelligent** keyword and intent mapping
 
 ### **Content Quality**
+
 - 📈 **Higher-authority** content with E-E-A-T signals
 - 🎯 **Better-optimized** for featured snippets
 - 🌍 **Culturally-adapted** for MENA markets
 - 📊 **Data-driven** with specific metrics and ROI
 
 ### **Technical Excellence**
+
 - ⚡ **Superior** Core Web Vitals performance
 - 📱 **Perfect** mobile-first responsive design
 - 🔗 **Clean** semantic HTML structure
 - 🎯 **Precise** schema markup implementation
 
 ### **Business Impact**
+
 - 🎯 **Increased** qualified lead generation
 - 🌐 **Enhanced** local and global search visibility
 - 💰 **Higher** conversion rates
@@ -582,18 +622,21 @@ Include specific references to Hurghada market conditions."
 ## **Success Metrics**
 
 ### **Technical Performance**
+
 - ⚡ **Core Web Vitals** all in "Good" range
 - 📱 **Mobile performance** score >90
 - 🔍 **Schema markup** 100% validated
 - ⚡ **Page load time** <2.5 seconds
 
 ### **SEO Performance**
+
 - 📈 **Organic traffic** growth >60%
 - 🎯 **Featured snippets** captured >50%
 - 🌍 **Local search** visibility >80%
 - 🔗 **Backlink quality** improvement
 
 ### **Business Results**
+
 - 💼 **Qualified leads** increase >40%
 - 📊 **Conversion rate** improvement >35%
 - 💰 **Customer acquisition** cost reduction >30%
@@ -603,18 +646,19 @@ Include specific references to Hurghada market conditions."
 
 ## **Implementation Timeline**
 
-| **Week** | **Focus Area** | **Key Deliverables** | **AI Tools Used** |
-|----------|----------------|---------------------|------------------|
-| **Week 1-2** | Architecture & Strategy | Sitemap structure, keyword mapping | Claude + Gemini |
-| **Week 3-4** | Content Creation | Service pages, case studies, FAQ sections | Claude + Qwen |
-| **Week 5-7** | Technical Implementation | Performance optimization, schema markup | Cursor + Copilot |
-| **Week 8** | Launch & Monitoring | Deployment, redirects, monitoring setup | All AI tools |
+| **Week**     | **Focus Area**           | **Key Deliverables**                      | **AI Tools Used** |
+| ------------ | ------------------------ | ----------------------------------------- | ----------------- |
+| **Week 1-2** | Architecture & Strategy  | Sitemap structure, keyword mapping        | Claude + Gemini   |
+| **Week 3-4** | Content Creation         | Service pages, case studies, FAQ sections | Claude + Qwen     |
+| **Week 5-7** | Technical Implementation | Performance optimization, schema markup   | Cursor + Copilot  |
+| **Week 8**   | Launch & Monitoring      | Deployment, redirects, monitoring setup   | All AI tools      |
 
 ---
 
 ## **Post-Launch AI Optimization**
 
 ### **Continuous Improvement Strategy**
+
 ```bash
 # AI-powered optimization cycle
 claude "Create ongoing optimization system:
@@ -637,6 +681,7 @@ export function generateOptimizationReport() {
 ```
 
 ### **AI-Enhanced Competitive Monitoring**
+
 ```bash
 # Competitive intelligence system
 gemini "Implement competitive monitoring:
@@ -659,7 +704,7 @@ export function createCompetitiveDashboard() {
 
 ---
 
-*This enhanced website rebuild strategy provides Media Bubble with a comprehensive AI-powered framework for building a technically perfect, content-rich website that dominates search results and converts visitors into high-value clients.*
+_This enhanced website rebuild strategy provides Media Bubble with a comprehensive AI-powered framework for building a technically perfect, content-rich website that dominates search results and converts visitors into high-value clients._
 
 ---
 

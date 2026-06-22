@@ -22,7 +22,6 @@ metadata:
 # =============================================================================
 
 tracks:
-
   # ---------------------------------------------------------------------------
   # Track A — Foundational Arabic Linguistics (the core sciences of language)
   # ---------------------------------------------------------------------------
@@ -1071,7 +1070,6 @@ crossTrackDependencies:
 # =============================================================================
 
 recommendedSequences:
-
   - persona: "General Learner"
     description: "Wants broad Arabic cultural and linguistic literacy"
     order: [A, N, K, L, F, B, I]

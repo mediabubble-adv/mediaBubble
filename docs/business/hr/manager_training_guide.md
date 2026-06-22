@@ -1,4 +1,5 @@
 # MediaBubble Manager Training Guide
+
 **How to Assess, Develop, and Advance Your Team**
 
 **Document Version:** 1.0  
@@ -28,6 +29,7 @@
 ### Your Role as a Manager in This Program
 
 As a manager, you are:
+
 - **The Primary Developer** of your team's talent
 - **The Fair Assessor** of skill levels and capability
 - **The Career Advisor** to each direct report
@@ -69,6 +71,7 @@ As a manager, you are:
 ### Your Time Commitment
 
 **Per Direct Report Per Year:**
+
 - Skill assessment (initial): 2–3 hours
 - Career conversation (initial): 1 hour
 - Quarterly check-ins: 0.5 hours × 4 = 2 hours
@@ -77,6 +80,7 @@ As a manager, you are:
 - **Total per person: ~25–35 hours/year**
 
 **For a team of 5 direct reports:**
+
 - **Total: ~125–175 hours/year** (~3 hours/week on average)
 
 ---
@@ -92,6 +96,7 @@ As a manager, you are:
 Your job is to accurately assess where each person is (Level 1–5) based on evidence.
 
 **What This Means:**
+
 - Know your team's work quality and capability
 - Observe how they handle different situations
 - Collect evidence of their skill level
@@ -99,6 +104,7 @@ Your job is to accurately assess where each person is (Level 1–5) based on evi
 - Document your assessment with specific examples
 
 **How to Get Good at This:**
+
 - Review recent work products regularly
 - Observe how they solve problems
 - Notice who others seek out for advice
@@ -106,6 +112,7 @@ Your job is to accurately assess where each person is (Level 1–5) based on evi
 - Gather peer feedback
 
 **Red Flags You Might Miss (Common Mistakes):**
+
 - Rating based on personality ("I like them") vs. capability
 - Rating based on tenure ("They've been here 2 years") vs. demonstrated skill
 - Rating the same across all competencies (people are uneven)
@@ -119,6 +126,7 @@ Your job is to accurately assess where each person is (Level 1–5) based on evi
 Your job is to create opportunities for growth and provide support.
 
 **What This Means:**
+
 - Know what each person needs to develop
 - Connect them to training and mentorship
 - Give them stretch assignments
@@ -126,6 +134,7 @@ Your job is to create opportunities for growth and provide support.
 - Remove obstacles to development
 
 **How to Develop Your Team:**
+
 - **Understand their goals** — what do they want to achieve?
 - **Create development plans** — specific steps to the next level
 - **Assign stretch work** — projects that challenge them
@@ -134,6 +143,7 @@ Your job is to create opportunities for growth and provide support.
 - **Check in regularly** — see what's working, adjust as needed
 
 **Red Flags You Might Miss:**
+
 - Only developing your high performers (everyone deserves development)
 - Waiting for people to ask (your job to offer)
 - Stretching people beyond their capacity (set them up to win)
@@ -147,6 +157,7 @@ Your job is to create opportunities for growth and provide support.
 Your job is to understand each person's aspirations and support their path.
 
 **What This Means:**
+
 - Regular conversations (monthly/quarterly)
 - Ask about their interests and goals
 - Listen more than you talk
@@ -154,6 +165,7 @@ Your job is to understand each person's aspirations and support their path.
 - Help them see their potential
 
 **How to Have Great Career Conversations:**
+
 - **Schedule them** — don't do this ad-hoc
 - **Create safety** — they should feel comfortable being honest
 - **Ask open questions** — "What are you interested in?" not yes/no
@@ -162,6 +174,7 @@ Your job is to understand each person's aspirations and support their path.
 - **Have a plan** — connect conversation to development plan
 
 **Red Flags You Might Miss:**
+
 - Conversations only when there's a problem
 - Talking about performance, not career
 - Not listening to their goals
@@ -175,6 +188,7 @@ Your job is to understand each person's aspirations and support their path.
 Your job is to remove obstacles and create an environment where people can develop.
 
 **What This Means:**
+
 - Clear expectations and feedback
 - Access to resources they need
 - Time to learn and grow
@@ -182,6 +196,7 @@ Your job is to remove obstacles and create an environment where people can devel
 - Celebration of wins
 
 **How to Create Conditions:**
+
 - **Be clear on expectations** — don't assume people know
 - **Give regular feedback** — not just annual reviews
 - **Provide resources** — tools, training, mentorship
@@ -198,19 +213,20 @@ Your job is to remove obstacles and create an environment where people can devel
 
 ### Quick Reference
 
-| Level | Capability | Supervision | Quality | Mentoring | Timeline |
-|-------|-----------|-------------|---------|-----------|----------|
-| **1** | Learning fundamentals | High | 70–80% | None | 0–3 mo |
-| **2** | Solid, independent | Minimal | 90–95% | Informal | 3–12 mo |
-| **3** | Expert, complex work | Strategic only | 95%+ | 1–2 people | 1–2 years |
-| **4** | Strategic, setting standards | Advice-seeking | 99%+ | 3–5 people | 2–4 years |
-| **5** | World-class, thought leader | Peer discussion | 100% | Multiple/leaders | 4+ years |
+| Level | Capability                   | Supervision     | Quality | Mentoring        | Timeline  |
+| ----- | ---------------------------- | --------------- | ------- | ---------------- | --------- |
+| **1** | Learning fundamentals        | High            | 70–80%  | None             | 0–3 mo    |
+| **2** | Solid, independent           | Minimal         | 90–95%  | Informal         | 3–12 mo   |
+| **3** | Expert, complex work         | Strategic only  | 95%+    | 1–2 people       | 1–2 years |
+| **4** | Strategic, setting standards | Advice-seeking  | 99%+    | 3–5 people       | 2–4 years |
+| **5** | World-class, thought leader  | Peer discussion | 100%    | Multiple/leaders | 4+ years  |
 
 ---
 
 ### Level 1: Junior / Foundational
 
 **What to Look For:**
+
 - ✅ Learning, asking good questions
 - ✅ Working with guidance most of the time
 - ✅ Making mistakes and correcting them
@@ -218,6 +234,7 @@ Your job is to remove obstacles and create an environment where people can devel
 - ⚠️ NOT: Independent work yet
 
 **How You Support:**
+
 - Provide clear direction and feedback
 - Answer questions regularly
 - Review work frequently
@@ -225,11 +242,13 @@ Your job is to remove obstacles and create an environment where people can devel
 - Set up for success, not failure
 
 **Typical Person:**
+
 - New to company or new to role
 - Recent graduate or career-changer
 - Learning the fundamentals
 
 **Red Flags (Not Level 1):**
+
 - If they're working totally independently → Level 2
 - If others seek their advice → Level 3+
 - If they're mentoring → Level 3+
@@ -239,6 +258,7 @@ Your job is to remove obstacles and create an environment where people can devel
 ### Level 2: Specialist / Competent
 
 **What to Look For:**
+
 - ✅ Works independently on standard tasks
 - ✅ Follows best practices
 - ✅ Makes good decisions
@@ -247,6 +267,7 @@ Your job is to remove obstacles and create an environment where people can devel
 - ⚠️ NOT: Handles all complex situations
 
 **How You Support:**
+
 - Check in periodically (not daily)
 - Trust their decisions on routine work
 - Coach on complex/non-standard situations
@@ -254,11 +275,13 @@ Your job is to remove obstacles and create an environment where people can devel
 - Help them see growth areas
 
 **Typical Person:**
+
 - 3–12 months in role
 - Has the basics down
 - Can be relied upon for solid work
 
 **Red Flags (Not Level 2):**
+
 - Still need high supervision → Level 1
 - Others regularly seeking their advice → Level 3
 - Handling complex, non-standard work regularly → Level 3
@@ -269,6 +292,7 @@ Your job is to remove obstacles and create an environment where people can devel
 ### Level 3: Senior Specialist / Advanced
 
 **What to Look For:**
+
 - ✅ Expert in specialty, others respect them
 - ✅ Handles complex, non-standard work
 - ✅ Makes sound decisions independently
@@ -278,6 +302,7 @@ Your job is to remove obstacles and create an environment where people can devel
 - ⚠️ NOT: Setting standards organization-wide
 
 **How You Support:**
+
 - Spot-check work, trust quality
 - Discuss strategy, not task management
 - Support their mentoring of others
@@ -285,12 +310,14 @@ Your job is to remove obstacles and create an environment where people can devel
 - Push them toward next level
 
 **Typical Person:**
+
 - 1–2 years in role or demonstrated mastery
 - Person others go to for advice
 - Mentor to 1–2 junior people
 - High-quality, consistent work
 
 **Red Flags (Not Level 3):**
+
 - Need help on standard tasks → Level 2
 - Not mentoring → Level 2
 - Seen as organization-wide authority → Level 4
@@ -301,6 +328,7 @@ Your job is to remove obstacles and create an environment where people can devel
 ### Level 4: Principal / Lead Specialist
 
 **What to Look For:**
+
 - ✅ Approaching world-class, industry-recognized expertise
 - ✅ Handles strategic challenges
 - ✅ Sets standards and best practices
@@ -311,6 +339,7 @@ Your job is to remove obstacles and create an environment where people can devel
 - ⚠️ NOT: Industry-recognized thought leader (that's Level 5)
 
 **How You Support:**
+
 - Very hands-off; they're self-directed
 - Provide strategic guidance only
 - Seek their input on major decisions
@@ -318,6 +347,7 @@ Your job is to remove obstacles and create an environment where people can devel
 - Help them think about next level
 
 **Typical Person:**
+
 - 2–4 years in role or demonstrated mastery
 - Seen as the expert in their domain
 - Mentoring 3–5 people
@@ -325,6 +355,7 @@ Your job is to remove obstacles and create an environment where people can devel
 - Person others think of for this specialty
 
 **Red Flags (Not Level 4):**
+
 - Needs your direction on decisions → Level 3
 - Not mentoring multiple people → Level 3
 - Industry-recognized thought leader → Level 5
@@ -335,6 +366,7 @@ Your job is to remove obstacles and create an environment where people can devel
 ### Level 5: Expert / Distinguished Specialist
 
 **What to Look For:**
+
 - ✅ World-class, industry-recognized expert
 - ✅ Thought leader (speaking, publications, industry presence)
 - ✅ Mentors other leaders and emerging experts
@@ -344,6 +376,7 @@ Your job is to remove obstacles and create an environment where people can devel
 - ✅ Work is flawless and highly impactful
 
 **How You Support:**
+
 - Minimal management; they're self-directed
 - Provide strategic partnership
 - Support their external visibility
@@ -351,6 +384,7 @@ Your job is to remove obstacles and create an environment where people can devel
 - Help them mentor the next generation
 
 **Typical Person:**
+
 - 4+ years of deep mastery
 - Recognized externally in their field
 - Mentoring 5+ people including leaders
@@ -358,6 +392,7 @@ Your job is to remove obstacles and create an environment where people can devel
 - Organization's go-to expert
 
 **Red Flags (Not Level 5):**
+
 - Approaching but not quite at world-class → Level 4
 - Not externally recognized → Level 4
 - New to this company → probably Level 4 (need time to establish)
@@ -367,23 +402,28 @@ Your job is to remove obstacles and create an environment where people can devel
 ### Common Assessment Mistakes
 
 **Mistake #1: Rating Based on Personality**
+
 - ❌ "I like them, so I'll rate them higher"
 - ❌ "They're quiet, so I rate them lower"
 - ✅ Rate based on actual capability and work quality
 
 **Mistake #2: Halo Effect**
+
 - ❌ "They're great in one area, so everything is great"
 - ✅ Rate each competency separately
 
 **Mistake #3: Tenure Bias**
+
 - ❌ "They've been here 3 years, so they must be Level 3"
 - ✅ Rate based on demonstrated skill, not time
 
 **Mistake #4: Not Enough Evidence**
+
 - ❌ "I have a feeling they're Level 2"
 - ✅ "Here are 3 projects showing Level 2 capability"
 
 **Mistake #5: Same Rating Across All Competencies**
+
 - ❌ Saying someone is "Level 3" across the board
 - ✅ Rating them on each competency separately (may be uneven)
 
@@ -396,10 +436,12 @@ Your job is to remove obstacles and create an environment where people can devel
 ### When to Assess
 
 **Initial Assessment:**
+
 - New hire: After 3–4 weeks onboarding
 - Existing employee: First comprehensive assessment in Month 2–3 of program
 
 **Ongoing Assessment:**
+
 - Quarterly check-ins (informal)
 - Semi-annual skill reviews (formal)
 - When you observe significant change in capability
@@ -411,6 +453,7 @@ Your job is to remove obstacles and create an environment where people can devel
 #### **Step 1: Gather Evidence (Weeks 1–2)**
 
 **What to Do:**
+
 1. Review their recent work (last 3–6 months)
 2. Look for patterns in quality, independence, complexity
 3. Note specific projects that show their capability
@@ -418,6 +461,7 @@ Your job is to remove obstacles and create an environment where people can devel
 5. Collect specific examples
 
 **Work Product Checklist:**
+
 ```
 Recent projects reviewed: ___  ___  ___
 Quality observations: _______________
@@ -432,12 +476,14 @@ Mentoring/leadership: _______________
 #### **Step 2: Collect Peer Feedback (Week 2)**
 
 **What to Do:**
+
 1. Identify 2–3 peers who work closely with them
 2. Send feedback form (see template at end)
 3. Ask for specific examples, not opinions
 4. Collect feedback anonymously if they prefer
 
 **Key Questions for Peers:**
+
 - How would you rate their work quality?
 - Do you trust their judgment?
 - Would you want them on your team?
@@ -449,6 +495,7 @@ Mentoring/leadership: _______________
 #### **Step 3: Have Assessment Conversation (Weeks 3–4)**
 
 **What to Do:**
+
 1. Schedule 1.5 hour meeting with them (don't rush)
 2. Review their self-assessment
 3. Discuss your observations
@@ -456,6 +503,7 @@ Mentoring/leadership: _______________
 5. Document the conversation
 
 **Conversation Structure:**
+
 - **Opening (5 min):** "This is our initial skills assessment. Goal is to understand where you are so we can support your growth."
 - **Self-Assessment Review (10 min):** Ask them to walk through their self-assessment
 - **Your Assessment (10 min):** Share your observations with specific examples
@@ -470,6 +518,7 @@ Mentoring/leadership: _______________
 #### **Step 4: Rate Their Level (Week 4)**
 
 **What to Do:**
+
 1. Review all evidence (work, peer feedback, conversation)
 2. Rate on each universal competency (7 total)
 3. Determine overall level (1–5)
@@ -477,6 +526,7 @@ Mentoring/leadership: _______________
 5. Document with evidence
 
 **Rating Form:**
+
 ```
 ASSESSMENT SUMMARY
 
@@ -509,6 +559,7 @@ See "Development Planning" section for details.
 ### Red Flags During Assessment
 
 **Watch for:**
+
 - You're rating based on opinion, not evidence
 - They strongly disagree with your assessment
 - You don't have enough examples to justify the level
@@ -516,6 +567,7 @@ See "Development Planning" section for details.
 - Peer feedback is very different from your assessment
 
 **If This Happens:**
+
 - Gather more evidence before finalizing
 - Have another conversation to clarify
 - Adjust your assessment based on new information
@@ -538,6 +590,7 @@ See "Development Planning" section for details.
 What does Level X+1 look like that they're not yet showing?
 
 **Example:** "Maria is Level 2. To reach Level 3, she needs to:
+
 - Handle complex projects independently (currently needs guidance)
 - Mentor other designers (currently doesn't)
 - Contribute to design system improvements (not yet)"
@@ -550,12 +603,12 @@ What experiences, training, and support will close the gap?
 
 **Example Development Plan for Maria (Level 2 → Level 3):**
 
-| Phase | Duration | Activity | Outcome |
-|-------|----------|----------|---------|
-| **Foundation** | Months 1–3 | Specialization training (advanced design) + shadow expert | Maria understands advanced techniques |
-| **Applied** | Months 4–6 | Lead 2 complex projects independently | Maria completes complex work |
-| **Mentoring** | Months 7–9 | Formal mentor to 1 junior designer | Maria learns to teach |
-| **Contribution** | Months 10–12 | Contribute to design system expansion | Maria shapes standards |
+| Phase            | Duration     | Activity                                                  | Outcome                               |
+| ---------------- | ------------ | --------------------------------------------------------- | ------------------------------------- |
+| **Foundation**   | Months 1–3   | Specialization training (advanced design) + shadow expert | Maria understands advanced techniques |
+| **Applied**      | Months 4–6   | Lead 2 complex projects independently                     | Maria completes complex work          |
+| **Mentoring**    | Months 7–9   | Formal mentor to 1 junior designer                        | Maria learns to teach                 |
+| **Contribution** | Months 10–12 | Contribute to design system expansion                     | Maria shapes standards                |
 
 ---
 
@@ -573,6 +626,7 @@ What experiences, training, and support will close the gap?
 Monthly or quarterly checkpoints to track progress.
 
 **Example:**
+
 - Month 3: Completed training, led first complex project
 - Month 6: Completed 2 complex projects independently, started mentoring
 - Month 9: Mentoring progressing well, contributed to system
@@ -679,6 +733,7 @@ Final Assessment: [Level reached] Date: ________
 "I want to talk about your career and growth here at MediaBubble. I'm genuinely interested in understanding what you're interested in, where you want to go, and how I can support you."
 
 **The Goal:**
+
 - Understand their aspirations
 - Understand which path they're drawn to (Expert or Leadership)
 - Identify what support they need
@@ -693,6 +748,7 @@ Final Assessment: [Level reached] Date: ________
 **Your Job:** Listen more than you talk.
 
 **Questions to Ask:**
+
 1. "What are you enjoying most about your work right now?"
 2. "What areas do you want to grow in?"
 3. "When you think about your career, where do you see yourself in 3 years?"
@@ -701,6 +757,7 @@ Final Assessment: [Level reached] Date: ________
 6. "What questions do you have about your development?"
 
 **How to Listen:**
+
 - Take notes
 - Ask follow-up questions
 - Don't interrupt or jump to solutions
@@ -714,12 +771,14 @@ Final Assessment: [Level reached] Date: ________
 **Your Job:** Share observations about their capability and potential.
 
 **What to Say:**
+
 - "Here's what I see as your strengths..." [specific examples]
 - "I've noticed you're really good at..." [examples]
 - "One area I'd like to see you develop is..." [specific, kind]
 - "I think you have the potential to..." [honest assessment]
 
 **How to Give Feedback:**
+
 - Specific examples (never general)
 - Balanced (strengths + growth areas)
 - Kind but honest (no sugar-coating)
@@ -732,12 +791,14 @@ Final Assessment: [Level reached] Date: ________
 **Your Job:** Co-create a development plan.
 
 **What to Discuss:**
+
 - "Based on our conversation, here's what I'm thinking..."
 - "Here's what a development plan might look like..."
 - "Here are resources we can tap into..."
 - "What else would help you succeed?"
 
 **How to Plan:**
+
 - Collaborate (not you dictating)
 - Connect to their goals
 - Be realistic about timeline
@@ -864,6 +925,7 @@ Final Assessment: [Level reached] Date: ________
 ### Receiving Feedback (Model This for Your Team)
 
 **How to Respond to Feedback:**
+
 1. Listen without interrupting
 2. Ask clarifying questions
 3. Say "thank you" (even if it's hard)
@@ -881,6 +943,7 @@ Final Assessment: [Level reached] Date: ________
 **Situation:** Sarah is a Level 3 specialist who's ready to be a Team Manager, but she's never managed before.
 
 **Solution:**
+
 - "You have the expertise to lead a team. Here's what you need to develop before taking the role: [specific management skills]."
 - Create a 6–12 month development plan with management training
 - Start with co-managing with current manager
@@ -894,6 +957,7 @@ Final Assessment: [Level reached] Date: ________
 **Situation:** Mike is solid but not exceptional, and he wants to be the lead/expert.
 
 **Solution:**
+
 - Be honest: "Here's what Level 4 looks like. Here's where you are today. That's the gap."
 - Don't crush dreams: "You could get there with dedicated development. But it would take 3–4 years of intentional work."
 - Create a development plan: "Here's the journey and what it takes."
@@ -906,6 +970,7 @@ Final Assessment: [Level reached] Date: ________
 **Situation:** Jill is reliable at Level 2 and happy. She doesn't want to advance.
 
 **Solution:**
+
 - That's fine. "Your job is secure. You're valuable as a solid specialist."
 - Offer growth within their level: "Want to expand to new areas? Develop secondary skills?"
 - Check in occasionally: "Are you still happy here?"
@@ -918,6 +983,7 @@ Final Assessment: [Level reached] Date: ________
 **Situation:** You underestimated someone. Now you see they're actually more capable.
 
 **Solution:**
+
 - Revise your assessment: "I want to update what I see. You've shown [evidence]."
 - Apologize if needed: "I underestimated your capability. My mistake."
 - Accelerate their development: "Let's move faster on your growth plan."
@@ -930,6 +996,7 @@ Final Assessment: [Level reached] Date: ________
 **Situation:** You have a Level 4 person and you're worried they'll leave.
 
 **Solution:**
+
 - THIS IS WHY YOU DEVELOP EVERYONE: If you only develop stars, everyone else leaves.
 - Best retention: "I'm invested in your growth, I challenge you, I recognize you."
 - Develop them into a mentor/leader: "Let's get you more strategic responsibility."
@@ -943,6 +1010,7 @@ Final Assessment: [Level reached] Date: ________
 **Situation:** You're great at your job but not great at teaching it.
 
 **Solution:**
+
 - Learn to mentor: This is a core skill you'll develop
 - Pair with others: Co-mentor
 - Ask them questions: "How would you approach this?" instead of telling
@@ -960,12 +1028,14 @@ Final Assessment: [Level reached] Date: ________
 **Duration:** 15–30 minutes
 
 **What to Discuss:**
+
 - How's development going?
 - Any blockers?
 - Progress toward milestones?
 - Do they have what they need?
 
 **What to Document:**
+
 - Notes on progress
 - Any adjustments needed
 - Next month focus
@@ -977,6 +1047,7 @@ Final Assessment: [Level reached] Date: ________
 **Duration:** 45–60 minutes
 
 **What to Discuss:**
+
 - Review development plan progress
 - Milestones achieved?
 - Adjustments needed?
@@ -984,6 +1055,7 @@ Final Assessment: [Level reached] Date: ________
 - What's working, what's not?
 
 **What to Document:**
+
 ```
 QUARTERLY PROGRESS REVIEW
 
@@ -1018,6 +1090,7 @@ _______________________________
 **Duration:** 1.5–2 hours
 
 **What to Do:**
+
 - Reassess their skill level
 - Have career conversation
 - Update development plan as needed
@@ -1030,6 +1103,7 @@ _______________________________
 **Duration:** 2 hours
 
 **What to Do:**
+
 - Full year review
 - Assess against annual goals
 - Plan for next 12 months
@@ -1046,35 +1120,39 @@ _______________________________
 
 **Quick Indicators of Each Level:**
 
-| Question | Level 1 | Level 2 | Level 3 | Level 4 | Level 5 |
-|----------|---------|---------|---------|---------|---------|
-| Can they work independently? | No | Yes (routine) | Yes (complex) | Yes | Yes |
-| Do others ask for their advice? | No | Sometimes | Often | Always | Always |
-| Are they mentoring? | No | Informal | 1–2 people | 3–5 people | 5+ leaders |
-| Do they set standards? | No | No | Sometimes | Yes | Yes |
-| Industry recognition? | No | No | Maybe | Possibly | Yes |
+| Question                        | Level 1 | Level 2       | Level 3       | Level 4    | Level 5    |
+| ------------------------------- | ------- | ------------- | ------------- | ---------- | ---------- |
+| Can they work independently?    | No      | Yes (routine) | Yes (complex) | Yes        | Yes        |
+| Do others ask for their advice? | No      | Sometimes     | Often         | Always     | Always     |
+| Are they mentoring?             | No      | Informal      | 1–2 people    | 3–5 people | 5+ leaders |
+| Do they set standards?          | No      | No            | Sometimes     | Yes        | Yes        |
+| Industry recognition?           | No      | No            | Maybe         | Possibly   | Yes        |
 
 ---
 
 ### Feedback Phrases (Use These)
 
 **Starting Feedback:**
+
 - "I noticed that..."
 - "Here's what I observed..."
 - "On that project, I saw..."
 - "I want to give you some feedback..."
 
 **Describing Impact:**
+
 - "Here's why that matters..."
 - "The impact was..."
 - "This affects the team because..."
 
 **Moving Forward:**
+
 - "Next time, I'd like to see..."
 - "Going forward, let's..."
 - "What would help you..."
 
 **Ending Feedback:**
+
 - "How do you feel about that?"
 - "What questions do you have?"
 - "Let's follow up in 2 weeks..."
@@ -1095,6 +1173,7 @@ _______________________________
 ### Manager Self-Assessment
 
 **Rate Yourself:**
+
 - [ ] I assess my team fairly (based on evidence, not opinions)
 - [ ] I have regular career conversations with each person
 - [ ] I provide specific, timely feedback
@@ -1117,6 +1196,7 @@ _______________________________
 Help your people grow.
 
 **The Framework:**
+
 1. Assess skills fairly (evidence-based)
 2. Develop intentionally (create opportunities)
 3. Have real conversations (understand their aspirations)
@@ -1124,6 +1204,7 @@ Help your people grow.
 5. Track progress (monthly, quarterly, annually)
 
 **What Happens When You Do This Well:**
+
 - People feel supported and valued
 - People advance and grow
 - People stay at MediaBubble
@@ -1131,6 +1212,7 @@ Help your people grow.
 - You become known as a great manager
 
 **What Happens When You Don't:**
+
 - People feel stuck
 - Talent leaves for opportunities elsewhere
 - Your team doesn't grow
@@ -1147,4 +1229,3 @@ Help your people grow.
 **For:** All MediaBubble Managers  
 **Status:** Ready for Implementation  
 **Version:** 1.0 — June 2026
-

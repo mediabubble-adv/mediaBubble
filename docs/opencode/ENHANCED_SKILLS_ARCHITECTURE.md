@@ -9,6 +9,7 @@
 ## The Problem with Current Skills
 
 Current skills are **passive templates**:
+
 - Single-purpose (one dialect, one design pattern)
 - No learning or feedback loops
 - No cross-skill intelligence
@@ -22,7 +23,9 @@ Current skills are **passive templates**:
 ## New Skill Architecture: 4 Tiers
 
 ### TIER 1: FOUNDATION SKILLS (Utilities)
+
 **What they do:** Basic operations, no reasoning
+
 - Arabic Language Syntax Checker
 - Design Color Validator
 - Tone Detector
@@ -30,7 +33,9 @@ Current skills are **passive templates**:
 **Power Level:** ⭐ (Basic)
 
 ### TIER 2: DOMAIN SKILLS (Intelligent)
+
 **What they do:** Deep domain knowledge + reasoning
+
 - Arabic Language Master (understands all dialects + cultural context)
 - Design System Master (knows principles + can critique designs)
 - Brand Voice Enforcer (understands positioning + can adapt messaging)
@@ -38,14 +43,18 @@ Current skills are **passive templates**:
 **Power Level:** ⭐⭐⭐ (Expert)
 
 ### TIER 3: ORCHESTRATION SKILLS (Coordination)
+
 **What they do:** Combine multiple skills intelligently
+
 - Arabic Brand Architect (language + design + brand = unified identity)
 - Content Quality Manager (voice + language + design working together)
 
 **Power Level:** ⭐⭐⭐⭐ (Master)
 
 ### TIER 4: ADAPTIVE SKILLS (Learning)
+
 **What they do:** Learn from feedback, improve over time
+
 - Arabic Excellence Engine (remembers what worked, gets smarter)
 - MediaBubble Style Guardian (learns brand evolution, adapts)
 
@@ -58,6 +67,7 @@ Current skills are **passive templates**:
 ### SKILL 1: ARABIC LANGUAGE MASTER (TIER 2 → TIER 3)
 
 **Current Capability:**
+
 - Dialect reference (Levantine, Khaliji, Egyptian, etc.)
 - Grammar checking
 - Vocabulary guides
@@ -65,12 +75,13 @@ Current skills are **passive templates**:
 **ENHANCED Capability:**
 
 #### Input
+
 ```yaml
 request_type: "translate|dialect_adapt|cultural_check|business_terminology|sentiment_analysis|audience_match"
 content: string
 source_dialect: "msa|levantine|khaliji|egyptian|moroccan|masri"
 target_dialect: "msa|levantine|khaliji|egyptian|moroccan|masri"
-context: 
+context:
   business_domain: "tech|ecommerce|finance|healthcare|education"
   audience: "formal|casual|premium|youth|executive"
   sensitivity_level: "standard|high|critical"
@@ -79,12 +90,13 @@ context:
 ```
 
 #### Output
+
 ```yaml
 primary_translation: string
 alternatives: [array of 3 options ranked by effectiveness]
 cultural_notes: [specific warnings/opportunities for this audience]
 business_terminology_suggestions: [industry-specific terms that work better]
-sentiment_analysis: 
+sentiment_analysis:
   emotional_impact: "positive|neutral|negative"
   formality_level: 1-10
   cultural_appropriateness: 1-10
@@ -95,6 +107,7 @@ previous_success_data: [similar requests that performed well]
 ```
 
 #### Key Features (ENHANCED)
+
 1. **Dialect Intelligence:** Not just reference, but **understands when to code-switch** (mix dialects strategically)
 2. **Cultural Radar:** Detects **potential cultural missteps** BEFORE publication
 3. **Business Terminology:** Knows **industry-specific Arabic vocabulary** (FinTech, E-commerce, SaaS)
@@ -105,17 +118,18 @@ previous_success_data: [similar requests that performed well]
 8. **Engagement Prediction:** Estimates **likelihood of audience engagement** before publishing
 
 #### Example Use Cases
+
 ```
 BASIC (Tier 1):
   Input: "Translate 'Hello' to Egyptian Arabic"
   Output: "مرحبا" (just the word)
 
 ENHANCED (Tier 3):
-  Input: "Create a tech product launch email for Egyptian millennial 
+  Input: "Create a tech product launch email for Egyptian millennial
           professionals, aligning with MediaBubble's premium positioning"
   Output:
     - Primary translation: [crafted specifically for segment]
-    - Cultural note: "Emojis work well here, formal tone should be balanced with 
+    - Cultural note: "Emojis work well here, formal tone should be balanced with
                       approachability"
     - Business term suggestions: [SaaS vocabulary that resonates]
     - Engagement prediction: "87% likely to click"
@@ -127,6 +141,7 @@ ENHANCED (Tier 3):
 ### SKILL 2: DESIGN SYSTEM MASTER (TIER 2 → TIER 3)
 
 **Current Capability:**
+
 - Color guidelines
 - Typography rules
 - Component patterns
@@ -135,9 +150,10 @@ ENHANCED (Tier 3):
 **ENHANCED Capability:**
 
 #### Input
+
 ```yaml
 request_type: "critique|generate|adapt|audit|brand_align|accessibility_check"
-design_artifact: 
+design_artifact:
   format: "figma|sketch|html|image|description"
   content: [file or description]
 context:
@@ -152,6 +168,7 @@ context:
 ```
 
 #### Output
+
 ```yaml
 overall_score: percentage (0-100)
 assessment:
@@ -171,7 +188,7 @@ specific_fixes:
   cultural_symbols_guidance: [what works, what to avoid]
   accessibility_remediation: [step-by-step fixes]
 
-generated_alternatives: 
+generated_alternatives:
   - option_1: [description of variation]
     reasoning: [why this might work better]
     risk_level: "low|medium|high"
@@ -183,6 +200,7 @@ design_principles_applied: [which design laws this follows]
 ```
 
 #### Key Features (ENHANCED)
+
 1. **Intelligent Critique:** Not just style checking, but **strategic analysis** of design effectiveness
 2. **Cultural Intelligence:** Understands **Arabic design preferences** (colors, symbols, spatial relationships)
 3. **RTL-First Thinking:** **Automatically checks RTL implications** (navigation, reading order, whitespace)
@@ -193,24 +211,25 @@ design_principles_applied: [which design laws this follows]
 8. **Design System Enforcement:** Catches **deviations from design tokens** automatically
 
 #### Example Use Cases
+
 ```
 BASIC (Tier 1):
   Input: "Is this color accessible?"
   Output: "WCAG AA compliant"
 
 ENHANCED (Tier 3):
-  Input: "I'm designing a luxury fintech landing page for Saudi Arabia 
-          (premium positioning, young professionals). Here's my design. 
+  Input: "I'm designing a luxury fintech landing page for Saudi Arabia
+          (premium positioning, young professionals). Here's my design.
           How will it perform?"
   Output:
     - Brand alignment: 94% (strong premium positioning)
     - Cultural appropriateness: 97% (excellent use of Arabic design principles)
     - Accessibility: 78% → [specific fixes for 95%]
-    - Engagement forecast: "82% likelihood of scroll past hero, 
+    - Engagement forecast: "82% likelihood of scroll past hero,
                             67% CTA click-through based on color psychology"
-    - Competitive positioning: "More sophisticated than competitor A, 
+    - Competitive positioning: "More sophisticated than competitor A,
                                less adventurous than competitor B"
-    - RTL suggestion: "Swap left padding to right padding on cards, 
+    - RTL suggestion: "Swap left padding to right padding on cards,
                        flip arrow directions"
     - Generated alternative: [second design option with 91% predicted engagement]
 ```
@@ -224,6 +243,7 @@ ENHANCED (Tier 3):
 **ENHANCED Skills Integration:**
 
 #### Input
+
 ```yaml
 request_type: "generate|optimize|a_b_test_brief|cultural_adapt|multilingual"
 content_brief:
@@ -232,7 +252,7 @@ content_brief:
   primary_message: string
   tone: "professional|casual|humorous|inspiring|urgent"
   call_to_action: "click|subscribe|buy|share|comment"
-  
+
 context:
   target_audience_segment: string
   cultural_region: "gcc|levant|maghreb|global"
@@ -241,7 +261,7 @@ context:
   brand_guidelines_ref: string
   competitor_messaging: [array of competitor copy for positioning]
   past_performance: [similar past pieces + their metrics]
-  
+
 constraints:
   character_limit: number
   include_hashtags: boolean
@@ -250,6 +270,7 @@ constraints:
 ```
 
 #### Output - SMART GENERATION
+
 ```yaml
 primary_copy: string
 secondary_options: [3 variations with predicted performance]
@@ -263,16 +284,16 @@ analysis:
       predicted_ctr: percentage
     - version_2: [copy optimized for logic]
       predicted_ctr: percentage
-  
+
   messaging_positioning: [how this compares to competitor messages]
   keywords_for_seo: [if blog/website]
   hashtag_recommendations: [ranked by reach potential]
-  
+
 learning_insights:
   similar_past_content: [previous pieces that performed well]
   success_pattern: [what made them work]
   audience_sentiment_from_past: [what this audience responds to]
-  
+
 multilingual_versions:
   arabic_msa: string
   arabic_dialect_x: string
@@ -281,13 +302,14 @@ multilingual_versions:
 ```
 
 #### TIER 4 Enhancement: ADAPTIVE LEARNING
+
 ```yaml
 feedback_loop:
   track_metrics: [engagement, CTR, conversions, sentiment]
   learn_what_worked: [remember successful patterns]
   adapt_future_suggestions: [apply learnings to next brief]
   personalize_by_audience: [different recommendations for different segments]
-  
+
 continuous_improvement:
   this_iteration_performance: [actual metrics from published content]
   previous_iterations_comparison: [how this compares to history]
@@ -295,6 +317,7 @@ continuous_improvement:
 ```
 
 #### Key Features (ENHANCED)
+
 1. **Predictive Analytics:** **Estimates engagement BEFORE publication**
 2. **A/B Testing Intelligence:** Generates **multiple versions optimized for different psychology** (emotional vs logical)
 3. **Cultural Code-Switching:** Suggests when to **mix dialects** for authenticity
@@ -311,6 +334,7 @@ continuous_improvement:
 **Purpose:** Ensures ALL content (copy, design, messaging) stays **on-brand** across dialects and channels
 
 #### Input
+
 ```yaml
 content_to_check: string or design reference
 content_type: "copy|design|email|social|video|website"
@@ -319,7 +343,7 @@ brand_context:
   positioning: string (e.g., "premium Arabic-first fintech")
   tone_guidelines: string
   cultural_values: [array of core values]
-  
+
 context:
   platform: "social|email|website|offline"
   audience: string
@@ -327,24 +351,25 @@ context:
 ```
 
 #### Output
+
 ```yaml
 brand_compliance_score: percentage (0-100)
 
 assessment:
-  voice_alignment: 
+  voice_alignment:
     score: percentage
     specific_feedback: string
     examples: [what works, what doesn't]
-  
+
   message_positioning:
     score: percentage
     vs_competitor_messaging: [comparison]
     uniqueness_score: "high|medium|low"
-  
+
   cultural_authenticity:
     score: percentage
     for_audience: [specific insights]
-    
+
   consistency_with_past:
     score: percentage
     similar_pieces: [past content this aligns with]
@@ -357,12 +382,13 @@ issues:
 remediation:
   suggested_rewrites: [specific edits]
   before_after_examples: string comparisons
-  
+
 enhancement_opportunities: [ways to make it more on-brand]
 approval_recommendation: "approve|needs_revision|reject"
 ```
 
 #### Key Features (ENHANCED)
+
 1. **Real-Time Brand Policing:** Catches off-brand messaging BEFORE publication
 2. **Evolution Awareness:** Understands **where brand is heading** (pivot vs steady state)
 3. **Dialect-Specific Tone:** Ensures **tone translates correctly** across Arabic dialects
@@ -445,12 +471,12 @@ learning_system:
 example_evolution:
   iteration_1: "Create Instagram post for Egyptian audience"
     result: 5% engagement rate
-  
+
   iteration_2: "Create Instagram post for Egyptian audience"
-    system_remembers: "Previous Egyptian posts with casual tone got 5%, 
+    system_remembers: "Previous Egyptian posts with casual tone got 5%,
                        emojis hurt reach, calls to action should be implicit"
     result: 8.2% engagement rate (64% improvement)
-  
+
   iteration_5: "Create Instagram post for Egyptian audience"
     system_now_knows: [detailed patterns specific to Egyptian millennials]
     result: 12.5% engagement rate
@@ -470,13 +496,13 @@ learning_system:
 example_evolution:
   month_1: "Brand is startup-phase, playful, experimental"
   month_6: "Brand is maturing, becoming premium, more sophisticated"
-  
-  system_recommendation: "I notice we've moved upmarket. Should we update 
-                          typography and tone to reflect premium positioning?"
-  
+
+  system_recommendation: "I notice we've moved upmarket. Should we update
+    typography and tone to reflect premium positioning?"
+
   month_12: "Brand is established leader, focuses on partnership and trust"
-  system_proactively_updates: All skills now emphasize partnership, trust, 
-                               proven expertise
+  system_proactively_updates: All skills now emphasize partnership, trust,
+    proven expertise
 ```
 
 ---
@@ -484,6 +510,7 @@ example_evolution:
 ## Power Comparison: Before vs After
 
 ### BEFORE (Current)
+
 ```
 Skill: Arabic Language Master
 Input: "Translate this to Egyptian"
@@ -493,11 +520,12 @@ Learning: None
 ```
 
 ### AFTER (Enhanced)
+
 ```
 Skill: Arabic Language Master
-Input: "Create launch email for Egyptian fintech professionals, 
+Input: "Create launch email for Egyptian fintech professionals,
         young, premium positioning, tech-savvy"
-Output: 
+Output:
   - Primary email body (crafted for segment)
   - Why this version works for this audience
   - Predicted engagement (87%)
@@ -516,6 +544,7 @@ Learning: Remembers every successful pattern
 ## Technical Implementation
 
 ### Skill File Structure
+
 ```
 skills/
 ├── tier-1-foundation/
@@ -580,15 +609,17 @@ skills/
 ### Example: Arabic Language Master Agent Call
 
 **Current (Basic):**
+
 ```
 Agent Input:
   prompt: "Translate 'Hello' to Egyptian"
-  
+
 Agent Output:
   translation: "مرحبا"
 ```
 
 **Enhanced (Intelligent):**
+
 ```
 Agent Input:
   system_context: "You are the Arabic Language Master skill.
@@ -596,7 +627,7 @@ Agent Input:
   user_request: "Create launch email for Egyptian fintech professionals"
   brand_context: "MediaBubble premium positioning"
   past_performance: "[link to successful past emails]"
-  
+
 Agent Output:
   {
     "primary_email": "...",
@@ -613,15 +644,18 @@ Agent Output:
 ## Implementation Roadmap
 
 ### Phase 1: Enhanced Tier 2 Skills (Weeks 1-4)
+
 - [ ] Upgrade Arabic Language Master (add intelligence)
 - [ ] Upgrade Design System Master (add intelligence)
 - [ ] Create Brand Voice Enforcer (new)
 
 ### Phase 2: Orchestration Skills (Weeks 5-7)
+
 - [ ] Build Arabic Brand Architect (tier 3)
 - [ ] Build Content Quality Manager (tier 3)
 
 ### Phase 3: Learning Systems (Weeks 8-10)
+
 - [ ] Implement learning loops
 - [ ] Build feedback mechanisms
 - [ ] Create Arabic Excellence Engine (tier 4)
@@ -631,26 +665,28 @@ Agent Output:
 
 ## Expected Power Increase
 
-| Dimension | Current | Enhanced | Improvement |
-|-----------|---------|----------|------------|
-| **Capability Depth** | Reference | Expert + Predictive | 5x |
-| **Intelligence Level** | Static | Adaptive | 10x |
-| **Engagement Accuracy** | Guesswork | Data-Driven Forecast | 3x |
-| **Time to Excellence** | Manual iteration | Automated optimization | 4x |
-| **Brand Consistency** | Occasional lapses | 99% compliance | 20x |
-| **Learning Speed** | Never learns | Improves each iteration | ∞ |
+| Dimension               | Current           | Enhanced                | Improvement |
+| ----------------------- | ----------------- | ----------------------- | ----------- |
+| **Capability Depth**    | Reference         | Expert + Predictive     | 5x          |
+| **Intelligence Level**  | Static            | Adaptive                | 10x         |
+| **Engagement Accuracy** | Guesswork         | Data-Driven Forecast    | 3x          |
+| **Time to Excellence**  | Manual iteration  | Automated optimization  | 4x          |
+| **Brand Consistency**   | Occasional lapses | 99% compliance          | 20x         |
+| **Learning Speed**      | Never learns      | Improves each iteration | ∞           |
 
 ---
 
 ## This is the REAL Power
 
 **Instead of:**
+
 - Skills being tools you use once
 - Manual checking and iteration
 - No learning or improvement
 - Disconnected from brand/business context
 
 **You get:**
+
 - Skills becoming **intelligent partners** that **understand your business**
 - **Automatic optimization** across all attributes
 - **Learning from success**, getting smarter
@@ -663,6 +699,7 @@ Agent Output:
 ## Why This Matters for MediaBubble
 
 **Arabic markets are competitive.** You need:
+
 1. ✅ **Authentic dialect expertise** (not generic Arabic)
 2. ✅ **Cultural intelligence** (not algorithm mistakes)
 3. ✅ **Brand consistency** (across all markets)
@@ -674,8 +711,8 @@ This enhanced architecture delivers **all five**.
 ---
 
 **Ready to implement this?** Should we:
+
 - A) Refine the architecture further
 - B) Begin Phase 1 in Claude Code
 - C) Adjust the skill hierarchy
 - D) Add more orchestration skills
-

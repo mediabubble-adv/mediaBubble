@@ -8,13 +8,13 @@ Prevents drift between `apps/web-eg` and `apps/web-ae` — the root cause of UAE
 
 ## Where code lives
 
-| Layer | Location | EG vs AE |
-|-------|----------|----------|
-| Tokens, primitives | `packages/design-system` | Identical |
-| Theme, site config, JSON-LD helpers | `packages/shared` | Market props via `resolveMarketSiteConfig` |
-| Marketing sections (byte-identical) | Extract to `packages/shared` or future `@mediabubble/marketing-ui` | Same component; props from market config |
-| Page content & SEO copy | `apps/*/lib/content/`, `public/locales/*` | Different per market |
-| Legal, contact address, portfolio data | `apps/*/lib/data/*` | Different per market |
+| Layer                                  | Location                                                           | EG vs AE                                   |
+| -------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------ |
+| Tokens, primitives                     | `packages/design-system`                                           | Identical                                  |
+| Theme, site config, JSON-LD helpers    | `packages/shared`                                                  | Market props via `resolveMarketSiteConfig` |
+| Marketing sections (byte-identical)    | Extract to `packages/shared` or future `@mediabubble/marketing-ui` | Same component; props from market config   |
+| Page content & SEO copy                | `apps/*/lib/content/`, `public/locales/*`                          | Different per market                       |
+| Legal, contact address, portfolio data | `apps/*/lib/data/*`                                                | Different per market                       |
 
 ## Per-PR drift checklist
 

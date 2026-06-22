@@ -93,7 +93,7 @@ export default async function DashboardPage() {
           <h2 className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
             Modules
           </h2>
-          <div data-stagger className="mt-3 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+          <div data-tour="modules-grid" data-stagger className="mt-3 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
             {modules.map(({ name, href, description, icon: Icon }, i) => (
               <Link
                 key={name}

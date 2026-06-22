@@ -1,4 +1,5 @@
 # Phase 1: Design System & Brand Foundation
+
 **Timeline:** Weeks 1-2  
 **Status:** Implementation Guide  
 **Owner:** Design Team
@@ -8,6 +9,7 @@
 ## Overview
 
 This phase establishes the visual and structural foundation for:
+
 1. MediaBubble's new website
 2. Future internal apps (dashboards, CMS, analytics)
 3. Long-term brand consistency
@@ -199,20 +201,25 @@ export default config
 ### Foundation Components
 
 #### 1. Button
+
 ```tsx
 // components/ui/Button.tsx
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "@/lib/utils"
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center font-semibold rounded-lg transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed",
   {
     variants: {
       variant: {
-        primary: "bg-primary-600 text-white hover:bg-primary-700 active:bg-primary-800",
-        secondary: "bg-secondary-600 text-white hover:bg-secondary-700 active:bg-secondary-800",
-        ghost: "bg-transparent text-primary-600 hover:bg-primary-50 active:bg-primary-100",
-        outline: "bg-transparent border-2 border-primary-600 text-primary-600 hover:bg-primary-50",
+        primary:
+          "bg-primary-600 text-white hover:bg-primary-700 active:bg-primary-800",
+        secondary:
+          "bg-secondary-600 text-white hover:bg-secondary-700 active:bg-secondary-800",
+        ghost:
+          "bg-transparent text-primary-600 hover:bg-primary-50 active:bg-primary-100",
+        outline:
+          "bg-transparent border-2 border-primary-600 text-primary-600 hover:bg-primary-50",
         danger: "bg-error text-white hover:bg-red-700 active:bg-red-800",
       },
       size: {
@@ -230,18 +237,22 @@ const buttonVariants = cva(
       variant: "primary",
       size: "md",
     },
-  }
-)
+  },
+);
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  loading?: boolean
-  icon?: React.ReactNode
+  loading?: boolean;
+  icon?: React.ReactNode;
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, fullWidth, loading, icon, children, ...props }, ref) => (
+  (
+    { className, variant, size, fullWidth, loading, icon, children, ...props },
+    ref,
+  ) => (
     <button
       ref={ref}
       className={cn(buttonVariants({ variant, size, fullWidth }), className)}
@@ -252,65 +263,91 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       {icon}
       {children}
     </button>
-  )
-)
+  ),
+);
 ```
 
 #### 2. Card
+
 ```tsx
 // components/ui/Card.tsx
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  variant?: 'elevated' | 'outlined' | 'flat'
-  interactive?: boolean
+  variant?: "elevated" | "outlined" | "flat";
+  interactive?: boolean;
 }
 
 export const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, variant = 'elevated', interactive, ...props }, ref) => (
+  ({ className, variant = "elevated", interactive, ...props }, ref) => (
     <div
       ref={ref}
       className={cn(
         "rounded-xl p-6 transition-all",
-        variant === 'elevated' && "bg-white shadow-md hover:shadow-lg",
-        variant === 'outlined' && "bg-white border border-neutral-200 hover:border-neutral-300",
-        variant === 'flat' && "bg-neutral-50 hover:bg-neutral-100",
+        variant === "elevated" && "bg-white shadow-md hover:shadow-lg",
+        variant === "outlined" &&
+          "bg-white border border-neutral-200 hover:border-neutral-300",
+        variant === "flat" && "bg-neutral-50 hover:bg-neutral-100",
         interactive && "cursor-pointer",
-        className
+        className,
       )}
       {...props}
     />
-  )
-)
+  ),
+);
 
-export const CardHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+export const CardHeader = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
   <div className={cn("mb-4", className)} {...props} />
-)
+);
 
-export const CardTitle = ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-  <h3 className={cn("text-xl font-bold text-neutral-900", className)} {...props} />
-)
+export const CardTitle = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLHeadingElement>) => (
+  <h3
+    className={cn("text-xl font-bold text-neutral-900", className)}
+    {...props}
+  />
+);
 
-export const CardDescription = ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
+export const CardDescription = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLParagraphElement>) => (
   <p className={cn("text-sm text-neutral-600", className)} {...props} />
-)
+);
 
-export const CardContent = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+export const CardContent = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
   <div className={cn("", className)} {...props} />
-)
+);
 
-export const CardFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn("mt-6 flex gap-3 border-t border-neutral-200 pt-4", className)} {...props} />
-)
+export const CardFooter = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
+  <div
+    className={cn(
+      "mt-6 flex gap-3 border-t border-neutral-200 pt-4",
+      className,
+    )}
+    {...props}
+  />
+);
 ```
 
 #### 3. Input & Form Fields
+
 ```tsx
 // components/ui/Input.tsx
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
-  label?: string
-  error?: string
-  icon?: React.ReactNode
-  hint?: string
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  label?: string;
+  error?: string;
+  icon?: React.ReactNode;
+  hint?: string;
 }
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -323,7 +360,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         </label>
       )}
       <div className="relative flex items-center">
-        {icon && <span className="absolute left-3 text-neutral-500">{icon}</span>}
+        {icon && (
+          <span className="absolute left-3 text-neutral-500">{icon}</span>
+        )}
         <input
           ref={ref}
           type={type}
@@ -333,8 +372,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             "focus:border-primary-500 focus:ring-2 focus:ring-primary-200 focus:outline-none",
             "disabled:bg-neutral-100 disabled:text-neutral-500",
             icon && "pl-10",
-            error && "border-error bg-red-50 focus:border-error focus:ring-red-200",
-            className
+            error &&
+              "border-error bg-red-50 focus:border-error focus:ring-red-200",
+            className,
           )}
           {...props}
         />
@@ -342,47 +382,62 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       {hint && <span className="text-xs text-neutral-500">{hint}</span>}
       {error && <span className="text-xs text-error">{error}</span>}
     </div>
-  )
-)
+  ),
+);
 ```
 
 #### 4. Modal/Dialog
+
 ```tsx
 // components/ui/Modal.tsx
 export interface ModalProps {
-  open: boolean
-  onClose: () => void
-  title?: string
-  description?: string
-  children: React.ReactNode
-  footer?: React.ReactNode
-  size?: 'sm' | 'md' | 'lg' | 'xl'
+  open: boolean;
+  onClose: () => void;
+  title?: string;
+  description?: string;
+  children: React.ReactNode;
+  footer?: React.ReactNode;
+  size?: "sm" | "md" | "lg" | "xl";
 }
 
-export function Modal({ open, onClose, title, children, footer, size = 'md' }: ModalProps) {
+export function Modal({
+  open,
+  onClose,
+  title,
+  children,
+  footer,
+  size = "md",
+}: ModalProps) {
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className={cn(
-        "rounded-xl border-0 p-6 shadow-xl",
-        size === 'sm' && "max-w-sm",
-        size === 'md' && "max-w-md",
-        size === 'lg' && "max-w-lg",
-        size === 'xl' && "max-w-xl",
-      )}>
+      <DialogContent
+        className={cn(
+          "rounded-xl border-0 p-6 shadow-xl",
+          size === "sm" && "max-w-sm",
+          size === "md" && "max-w-md",
+          size === "lg" && "max-w-lg",
+          size === "xl" && "max-w-xl",
+        )}
+      >
         {title && (
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold">{title}</DialogTitle>
           </DialogHeader>
         )}
         <div className="my-4">{children}</div>
-        {footer && <div className="mt-6 flex gap-3 border-t border-neutral-200 pt-4">{footer}</div>}
+        {footer && (
+          <div className="mt-6 flex gap-3 border-t border-neutral-200 pt-4">
+            {footer}
+          </div>
+        )}
       </DialogContent>
     </Dialog>
-  )
+  );
 }
 ```
 
 #### 5. Badge
+
 ```tsx
 // components/ui/Badge.tsx
 const badgeVariants = cva(
@@ -401,22 +456,30 @@ const badgeVariants = cva(
     defaultVariants: {
       variant: "default",
     },
-  }
-)
+  },
+);
 
-export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof badgeVariants> {}
+export interface BadgeProps
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof badgeVariants> {}
 
 export const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
   ({ className, variant, ...props }, ref) => (
-    <div ref={ref} className={cn(badgeVariants({ variant }), className)} {...props} />
-  )
-)
+    <div
+      ref={ref}
+      className={cn(badgeVariants({ variant }), className)}
+      {...props}
+    />
+  ),
+);
 ```
 
 #### 6. Tabs
+
 ```tsx
 // components/ui/Tabs.tsx
-export const Tabs = TabsPrimitive.Root
+export const Tabs = TabsPrimitive.Root;
 
 export const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
@@ -426,11 +489,11 @@ export const TabsList = React.forwardRef<
     ref={ref}
     className={cn(
       "inline-flex h-10 items-center justify-center rounded-lg bg-neutral-100 p-1 text-neutral-700",
-      className
+      className,
     )}
     {...props}
   />
-))
+));
 
 export const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
@@ -440,11 +503,11 @@ export const TabsTrigger = React.forwardRef<
     ref={ref}
     className={cn(
       "inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium ring-offset-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-white data-[state=active]:text-primary-600 data-[state=active]:shadow-sm",
-      className
+      className,
     )}
     {...props}
   />
-))
+));
 
 export const TabsContent = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Content>,
@@ -454,11 +517,11 @@ export const TabsContent = React.forwardRef<
     ref={ref}
     className={cn(
       "mt-2 ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2",
-      className
+      className,
     )}
     {...props}
   />
-))
+));
 ```
 
 ---
@@ -511,6 +574,7 @@ Create these components (30-minute implementation each):
 ## Part 4: Color Palette Deep Dive
 
 ### Primary Color (Blue) - For CTAs, focus states
+
 ```
 50: #f0f7ff   → Very light backgrounds
 100: #e0efff  → Light backgrounds
@@ -525,11 +589,13 @@ Create these components (30-minute implementation each):
 ```
 
 ### Secondary Color (Purple) - For secondary actions
+
 ```
 Similar 9-step scale for secondary CTAs, alternate themes
 ```
 
 ### Accent Color (Orange) - For highlights, alerts
+
 ```
 default: #f97316   → Normal state
 hover: #ea580c     → Hover state
@@ -537,6 +603,7 @@ active: #c2410c    → Active state
 ```
 
 ### Semantic Colors
+
 - **Success:** #10b981 (green)
 - **Error:** #ef4444 (red)
 - **Warning:** #f59e0b (amber)
@@ -547,6 +614,7 @@ active: #c2410c    → Active state
 ## Part 5: Typography System
 
 ### Font Selection
+
 ```
 English:
 - Sans-Serif (Body): Inter 400, 500, 600, 700
@@ -559,6 +627,7 @@ Arabic (Masri):
 ```
 
 ### Type Scale
+
 ```
 Display: 3rem (48px)  - H1, hero headlines
 Heading 1: 2.25rem (36px) - Page titles
@@ -571,6 +640,7 @@ Tiny: 0.75rem (12px) - Helper text
 ```
 
 ### Line Heights
+
 - Headings: 1.2 (tight)
 - Body: 1.5 (normal)
 - Large text: 1.75 (relaxed)
@@ -580,6 +650,7 @@ Tiny: 0.75rem (12px) - Helper text
 ## Part 6: Spacing & Layout
 
 ### Spacing Scale (8px base)
+
 ```
 4px (0.25rem)   - xs
 8px (0.5rem)    - sm
@@ -592,6 +663,7 @@ Tiny: 0.75rem (12px) - Helper text
 ```
 
 ### Grid System
+
 - Desktop: 12-column grid
 - Tablet: 8-column grid
 - Mobile: 4-column grid
@@ -602,23 +674,27 @@ Tiny: 0.75rem (12px) - Helper text
 ## Part 7: Accessibility Guidelines
 
 ### Color Contrast
+
 - **AAA Standard:** 7:1 contrast ratio (preferred)
 - **AA Standard:** 4.5:1 contrast ratio (minimum)
 - Test with: WebAIM Contrast Checker
 
 ### Keyboard Navigation
+
 - Tab order: Logical flow
 - Focus indicators: Visible (2px ring, 2px offset)
 - Skip links: Present on all pages
 - ARIA labels: On all interactive elements
 
 ### Screen Readers
+
 - Semantic HTML (buttons, links, headings)
 - ARIA labels for icon-only buttons
 - Form labels properly associated with inputs
 - Alt text on all images
 
 ### Motion & Animation
+
 - Respect `prefers-reduced-motion`
 - Animations: max 300ms
 - No auto-playing videos/animations
@@ -628,24 +704,28 @@ Tiny: 0.75rem (12px) - Helper text
 ## Part 8: Dark Mode Support
 
 ### Tailwind Dark Mode Config
+
 ```typescript
 // tailwind.config.ts
 module.exports = {
-  darkMode: 'class',
+  darkMode: "class",
   theme: {
     // ...
-  }
-}
+  },
+};
 ```
 
 ### Dark Mode Color Adjustments
+
 ```tsx
 // Example: Button in dark mode
-<button className="
+<button
+  className="
   bg-primary-600 dark:bg-primary-500
   text-white dark:text-white
   hover:bg-primary-700 dark:hover:bg-primary-600
-" />
+"
+/>
 ```
 
 ---
@@ -678,23 +758,23 @@ npx storybook@latest init
 
 ```typescript
 // components/ui/Button.stories.tsx
-import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from './Button';
+import type { Meta, StoryObj } from "@storybook/react";
+import { Button } from "./Button";
 
 const meta = {
-  title: 'Components/Button',
+  title: "Components/Button",
   component: Button,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
   argTypes: {
     variant: {
-      options: ['primary', 'secondary', 'ghost', 'outline', 'danger'],
-      control: { type: 'radio' },
+      options: ["primary", "secondary", "ghost", "outline", "danger"],
+      control: { type: "radio" },
     },
     size: {
-      options: ['xs', 'sm', 'md', 'lg', 'xl'],
-      control: { type: 'radio' },
+      options: ["xs", "sm", "md", "lg", "xl"],
+      control: { type: "radio" },
     },
   },
 } satisfies Meta<typeof Button>;
@@ -704,35 +784,35 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    variant: 'primary',
-    size: 'md',
-    children: 'Click me',
+    variant: "primary",
+    size: "md",
+    children: "Click me",
   },
 };
 
 export const Secondary: Story = {
   args: {
-    variant: 'secondary',
-    size: 'md',
-    children: 'Click me',
+    variant: "secondary",
+    size: "md",
+    children: "Click me",
   },
 };
 
 export const Loading: Story = {
   args: {
-    variant: 'primary',
-    size: 'md',
+    variant: "primary",
+    size: "md",
     loading: true,
-    children: 'Loading...',
+    children: "Loading...",
   },
 };
 
 export const Disabled: Story = {
   args: {
-    variant: 'primary',
-    size: 'md',
+    variant: "primary",
+    size: "md",
     disabled: true,
-    children: 'Disabled',
+    children: "Disabled",
   },
 };
 ```
@@ -748,7 +828,7 @@ export const Disabled: Story = {
 ✅ Accessibility guidelines  
 ✅ Dark mode support  
 ✅ Component usage guidelines  
-✅ Design system documentation site  
+✅ Design system documentation site
 
 ---
 

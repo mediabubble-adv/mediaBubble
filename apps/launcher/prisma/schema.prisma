@@ -175,6 +175,7 @@ model clients {
   campaigns                campaigns[]
   proposals                proposals[]
   client_portal_tokens     client_portal_tokens[]
+  opus_briefs              opus_briefs[]
 
   @@index([name], map: "idx_clients_name")
   @@index([status], map: "idx_clients_status")
@@ -305,6 +306,8 @@ model campaigns {
   clients     clients    @relation(fields: [client_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
   users       users      @relation(fields: [created_by], references: [id], onDelete: NoAction, onUpdate: NoAction)
   proposals   proposals? @relation(fields: [proposal_id], references: [id], onDelete: SetNull, onUpdate: NoAction)
+  opus_briefs opus_briefs?
+  opus_campaign_metrics opus_campaign_metrics[]
 
   @@index([client_id], map: "idx_campaigns_client_id")
   @@index([status], map: "idx_campaigns_status")
@@ -824,6 +827,9 @@ model users {
   workflow_executions                                        workflow_executions[]
   workflow_templates                                         workflow_templates[]
   workflows                                                  workflows[]
+  opus_briefs                                                opus_briefs[]
+  opus_triggers                                              opus_triggers[]
+  opus_trigger_runs                                          opus_trigger_runs[]
 
   @@index([department_id], map: "idx_users_department_id")
   @@index([email], map: "idx_users_email")
@@ -879,4 +885,107 @@ model workflows {
 
   @@index([created_by], map: "idx_workflows_created_by")
   @@index([enabled], map: "idx_workflows_enabled")
+}
+
+/// OPUS — structured campaign briefs (Brief → Content → Campaign flow).
+model opus_briefs {
+  id            String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  campaign_id   String?    @unique @db.Uuid
+  client_id     String     @db.Uuid
+  name          String     @db.VarChar(255)
+  goal          String     @default("leads") @db.VarChar(50)
+  audience      String?
+  budget        Decimal?   @db.Decimal(12, 2)
+  currency      String?    @default("EGP") @db.VarChar(10)
+  channels      String[]   @default([])
+  key_messages  Json?
+  platforms     Json?
+  status        String?    @default("draft") @db.VarChar(50)
+  created_by    String     @db.Uuid
+  created_at    DateTime   @default(now()) @db.Timestamp(6)
+  updated_at    DateTime   @default(now()) @updatedAt @db.Timestamp(6)
+  campaigns     campaigns? @relation(fields: [campaign_id], references: [id], onDelete: SetNull, onUpdate: NoAction)
+  clients       clients    @relation(fields: [client_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users         users      @relation(fields: [created_by], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([client_id], map: "idx_opus_briefs_client_id")
+  @@index([status], map: "idx_opus_briefs_status")
+  @@index([created_by], map: "idx_opus_briefs_created_by")
+}
+
+/// OPUS — time/event/data automation triggers (WeeklySocialPlanning, etc.).
+model opus_triggers {
+  id               String              @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name             String              @db.VarChar(255)
+  slug             String              @unique @db.VarChar(100)
+  type             String              @db.VarChar(50)
+  enabled          Boolean?            @default(true)
+  schedule         String?             @db.VarChar(100)
+  condition        Json?
+  action           String              @db.VarChar(100)
+  created_by       String              @db.Uuid
+  last_run_at      DateTime?           @db.Timestamp(6)
+  execution_count  Int?                @default(0)
+  created_at       DateTime            @default(now()) @db.Timestamp(6)
+  updated_at       DateTime            @default(now()) @updatedAt @db.Timestamp(6)
+  users            users               @relation(fields: [created_by], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  opus_trigger_runs opus_trigger_runs[]
+
+  @@index([enabled], map: "idx_opus_triggers_enabled")
+  @@index([type], map: "idx_opus_triggers_type")
+}
+
+/// OPUS — trigger execution audit log.
+model opus_trigger_runs {
+  id            String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  trigger_id    String        @db.Uuid
+  status        String?       @default("Running") @db.VarChar(50)
+  steps_total   Int?
+  steps_done    Int?
+  output        Json?
+  error_message String?
+  started_at    DateTime      @default(now()) @db.Timestamp(6)
+  finished_at   DateTime?     @db.Timestamp(6)
+  triggered_by  String?       @db.Uuid
+  opus_triggers opus_triggers @relation(fields: [trigger_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users         users?        @relation(fields: [triggered_by], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([trigger_id], map: "idx_opus_trigger_runs_trigger_id")
+  @@index([status], map: "idx_opus_trigger_runs_status")
+  @@index([started_at], map: "idx_opus_trigger_runs_started_at")
+}
+
+/// OPUS — campaign performance snapshots for dashboards.
+model opus_campaign_metrics {
+  id             String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  campaign_id    String    @db.Uuid
+  period_start   DateTime  @db.Date
+  period_end     DateTime  @db.Date
+  impressions    Int?      @default(0)
+  clicks         Int?      @default(0)
+  conversions    Int?      @default(0)
+  spend          Decimal?  @default(0) @db.Decimal(12, 2)
+  meta_metrics   Json?
+  google_metrics Json?
+  roas           Decimal?  @db.Decimal(8, 2)
+  recorded_at    DateTime  @default(now()) @db.Timestamp(6)
+  campaigns      campaigns @relation(fields: [campaign_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([campaign_id], map: "idx_opus_campaign_metrics_campaign_id")
+  @@index([period_start], map: "idx_opus_campaign_metrics_period_start")
+}
+
+/// OPUS — workspace usage metering (AI gens, campaigns, API calls).
+model opus_usage_periods {
+  id                 String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  period_start       DateTime @db.Date
+  period_end         DateTime @db.Date
+  plan               String?  @default("starter") @db.VarChar(50)
+  ai_generations     Int?     @default(0)
+  campaigns_launched Int?     @default(0)
+  api_calls          Int?     @default(0)
+  optimizations      Int?     @default(0)
+  updated_at         DateTime @default(now()) @updatedAt @db.Timestamp(6)
+
+  @@unique([period_start], map: "uq_opus_usage_periods_period_start")
 }

@@ -97,6 +97,7 @@ DEPARTMENT AGENTS (45 total)
 #### **Candidate Groups for Merging:**
 
 **GROUP A: Content Generation Agents (Cross-Department)**
+
 - **Current:** Social Content Creator Engine (Social) + Blog Post Auto-Outliner (Marketing) + Ad Copy Variations (Media Buying implied) + Video Caption Generator (Social)
 - **Merge Into:** `AGENT: Universal Content Generator` (Multi-Channel)
   - Single unified prompt engine
@@ -109,6 +110,7 @@ DEPARTMENT AGENTS (45 total)
 ---
 
 **GROUP B: Analytics & Reporting Agents (Cross-Department)**
+
 - **Current:** Campaign ROI Analyzer (Media) + Email Performance Analyzer (Marketing) + Lead Quality Insights (Lead Gen) + Financial Health Dashboard (Finance) + Project Profitability (Finance)
 - **Merge Into:** `AGENT: Analytics & Insights Engine` (Unified)
   - Single framework for all analytics workflows
@@ -121,6 +123,7 @@ DEPARTMENT AGENTS (45 total)
 ---
 
 **GROUP C: Auto-Generation Agents (Similar Structure)**
+
 - **Current:** Design Brief Generator (Design) + Email Sequence Builder (Lead Gen) + Proposal Generator (Sales) + Invoice Generator (Finance)
 - **Merge Into:** `AGENT: Document & Workflow Generator` (Template-Driven)
   - Single generation engine with different templates
@@ -133,6 +136,7 @@ DEPARTMENT AGENTS (45 total)
 ---
 
 **GROUP D: Monitoring & Alert Agents (Continuous Surveillance)**
+
 - **Current:** Brand Consistency Checker (Design) + Performance Regression Monitor (Dev) + Deal Forecast Health Monitor (Sales) + Project Timeline Risk Monitor (Mgmt) + Technical Debt Tracker (Dev)
 - **Merge Into:** `AGENT: System Health & Risk Monitor` (Continuous)
   - Single monitoring framework across all domains
@@ -145,6 +149,7 @@ DEPARTMENT AGENTS (45 total)
 ---
 
 **GROUP E: Optimization & Recommendation Agents**
+
 - **Current:** Hashtag Strategy Optimizer (Social) + Budget Allocation Optimizer (Media) + Bid Optimizer (Media) + Content Calendar Balancer (Social) + Audience Targeting Refiner (Media) + CRM Auto-Populate (Sales) + Workload Balancer (Mgmt)
 - **Merge Into:** `AGENT: Smart Optimizer Engine` (Multi-Domain)
   - Single optimization framework (algorithm-agnostic)
@@ -158,15 +163,15 @@ DEPARTMENT AGENTS (45 total)
 
 ### **AGENT CONSOLIDATION SUMMARY**
 
-| Group | Current Agents | Merged Into | File | Savings |
-|-------|----------------|-------------|------|---------|
-| A | 4 | 1 | `universal-content-generator.yaml` | 3 agents |
-| B | 5 | 1 | `analytics-insights-engine.yaml` | 4 agents |
-| C | 4 | 1 | `document-workflow-generator.yaml` | 3 agents |
-| D | 5 | 1 | `health-risk-monitor.yaml` | 4 agents |
-| E | 7 | 1 | `smart-optimizer-engine.yaml` | 6 agents |
-| **Remaining** (Dept-Specific, No Merge) | 15 | 15 | Various | 0 agents |
-| **TOTAL** | 45 | 20 | — | **25 agents removed** |
+| Group                                   | Current Agents | Merged Into | File                               | Savings               |
+| --------------------------------------- | -------------- | ----------- | ---------------------------------- | --------------------- |
+| A                                       | 4              | 1           | `universal-content-generator.yaml` | 3 agents              |
+| B                                       | 5              | 1           | `analytics-insights-engine.yaml`   | 4 agents              |
+| C                                       | 4              | 1           | `document-workflow-generator.yaml` | 3 agents              |
+| D                                       | 5              | 1           | `health-risk-monitor.yaml`         | 4 agents              |
+| E                                       | 7              | 1           | `smart-optimizer-engine.yaml`      | 6 agents              |
+| **Remaining** (Dept-Specific, No Merge) | 15             | 15          | Various                            | 0 agents              |
+| **TOTAL**                               | 45             | 20          | —                                  | **25 agents removed** |
 
 **Result:** 45 agents → 20 agents (56% reduction while maintaining capability)
 
@@ -258,9 +263,9 @@ Design Skills:
 │   └── cultural-context.md
 │
 └── test-cases/
-    ├── dialect-accuracy-tests.md
-    ├── cultural-sensitivity-checks.md
-    └── brand-voice-compliance.md
+├── dialect-accuracy-tests.md
+├── cultural-sensitivity-checks.md
+└── brand-voice-compliance.md
 ```
 
 #### **SKILL.md Content (Master):**
@@ -269,7 +274,9 @@ Design Skills:
 # Arabic Language Master Skill
 
 ## Overview
+
 Comprehensive Arabic language support for MediaBubble with:
+
 - 5 major dialects (Levantine, Khaliji, Egyptian, Moroccan, Masri)
 - Modern Standard Arabic (MSA)
 - Brand voice consistency
@@ -279,30 +286,35 @@ Comprehensive Arabic language support for MediaBubble with:
 ## Dialects Supported
 
 ### Levantine Arabic
+
 - Spoken: Syria, Lebanon, Palestine, Jordan
 - Formality: Medium (business-casual)
 - Best for: Regional B2B campaigns
 - Load: `dialects/levantine/`
 
 ### Khaliji/Gulf Arabic
+
 - Spoken: Saudi, UAE, Kuwait, Qatar, Bahrain, Oman
 - Formality: High (formal business)
 - Best for: Premium/corporate audiences
 - Load: `dialects/khaliji/`
 
 ### Egyptian Arabic (Masri)
+
 - Spoken: Egypt, widely understood across region
 - Formality: Low-Medium (conversational)
 - Best for: Social media, casual engagement
 - Load: `dialects/egyptian/` or `dialects/masri/`
 
 ### Moroccan Arabic (Darija)
+
 - Spoken: Morocco, Algeria, Tunisia
 - Formality: Medium
 - Best for: North African campaigns
 - Load: `dialects/moroccan/`
 
 ### Modern Standard Arabic (MSA/Fusha)
+
 - Spoken: Formal media, literature, official documents
 - Formality: Very High
 - Best for: Official statements, formal reports
@@ -311,29 +323,35 @@ Comprehensive Arabic language support for MediaBubble with:
 ## Usage
 
 ### For Content Creators
+
 "Generate social media post in Egyptian dialect about [topic]"
 → Claude loads `dialects/egyptian/` + applies brand voice
 
 ### For Business Communications
+
 "Write formal email in Khaliji dialect for [context]"
 → Claude loads `dialects/khaliji/` + business terminology
 
 ### For Multilingual Campaigns
+
 "Adapt this content to Levantine, Khaliji, and Egyptian"
 → Claude handles all 3 dialects simultaneously
 
 ## Brand Voice in Arabic
+
 - Tone: Professional yet approachable (per MediaBubble guidelines)
 - Formality: Adaptive (formal for B2B, conversational for social)
 - Cultural sensitivity: Always check `/reference-data/cultural-context.md`
 
 ## Quality Checks
+
 - Dialect authenticity (test against native speakers)
 - Cultural appropriateness
 - Business term accuracy
 - Consistency with MediaBubble brand
 
 ## Updates & Maintenance
+
 - Quarterly dialect updates (new slang, terminology)
 - Semi-annual cultural sensitivity audit
 - Version control in `/test-cases/`
@@ -429,11 +447,11 @@ Comprehensive Arabic language support for MediaBubble with:
 │   └── lessons-learned.md
 │
 └── test-cases/
-    ├── design-consistency-checks.md
-    ├── accessibility-audits.md
-    ├── rtl-rendering-tests.md
-    ├── cultural-sensitivity-reviews.md
-    └── performance-checks.md
+├── design-consistency-checks.md
+├── accessibility-audits.md
+├── rtl-rendering-tests.md
+├── cultural-sensitivity-reviews.md
+└── performance-checks.md
 ```
 
 #### **SKILL.md Content (Master):**
@@ -442,7 +460,9 @@ Comprehensive Arabic language support for MediaBubble with:
 # Design System Master Skill
 
 ## Overview
+
 Comprehensive design excellence for MediaBubble with:
+
 - Core design foundations (color, typography, spacing, components)
 - Visual identity & brand guidelines
 - **Arabic Design Excellence** (calligraphy, RTL, cultural symbolism)
@@ -452,6 +472,7 @@ Comprehensive design excellence for MediaBubble with:
 ## Core Competencies
 
 ### Design Foundations
+
 - Color system (accessibility, semantic meaning)
 - Typography (scale, hierarchy, readability)
 - Spacing & grid (8px/4px systems)
@@ -460,6 +481,7 @@ Comprehensive design excellence for MediaBubble with:
 - Accessibility (WCAG AA compliance)
 
 ### Visual Identity
+
 - Logo usage (proportions, clearance, color modes)
 - Brand guidelines & tone
 - Color palette (primary, secondary, semantic)
@@ -469,7 +491,9 @@ Comprehensive design excellence for MediaBubble with:
 ### 🌟 Arabic Design Excellence
 
 #### Calligraphy
+
 Master Arabic calligraphy for design excellence:
+
 - **Script Types:**
   - Naskh (most readable, professional)
   - Diwani (decorative, formal documents)
@@ -480,7 +504,9 @@ Master Arabic calligraphy for design excellence:
 - **Gallery:** Examples of excellent + poor calligraphy
 
 #### RTL (Right-to-Left) Design
+
 Critical for Arabic/Farsi/Hebrew content:
+
 - Layout grids (mirroring vs. true RTL adaptation)
 - Navigation patterns (menus, breadcrumbs, progress)
 - Form design (input fields, labels, error states)
@@ -488,6 +514,7 @@ Critical for Arabic/Farsi/Hebrew content:
 - Testing & validation
 
 #### Cultural Symbolism
+
 - **Color Meanings:** Different cultures assign different meanings
   - Green (Islam, nature, growth)
   - Gold (luxury, prosperity)
@@ -497,6 +524,7 @@ Critical for Arabic/Farsi/Hebrew content:
 - **Contextual Appropriateness:** When to use traditional vs. modern
 
 #### Arabic Typography
+
 - Font pairing (Arabic + Latin combinations)
 - Ligatures & OpenType features
 - Sizing scales (maintain readability at all sizes)
@@ -504,7 +532,9 @@ Critical for Arabic/Farsi/Hebrew content:
 - Diacritics rendering
 
 ### Designer Patterns
+
 Best practices for design systems:
+
 - Responsive design principles
 - Component composition & reusability
 - State management in UI
@@ -513,6 +543,7 @@ Best practices for design systems:
 - Performance considerations (file sizes, load times)
 
 ### Platform-Specific Design
+
 - Web design (desktop, tablet, responsive)
 - Mobile design (iOS, Android, responsive)
 - Print design (300 DPI, CMYK, bleeds)
@@ -520,6 +551,7 @@ Best practices for design systems:
 - Video design (motion, overlays, timing)
 
 ### Process Guides
+
 - Design brief intake (from client requirements)
 - Design review checklist (before handoff)
 - Design-to-dev handoff (specifications, assets)
@@ -529,22 +561,27 @@ Best practices for design systems:
 ## Usage
 
 ### For Global Campaigns
+
 "Design a banner for [audience] in Arabic"
 → Claude loads `visual-identity/` + `arabic-design-excellence/`
 
 ### For RTL Layouts
+
 "Create responsive form for Arabic language"
 → Claude loads `arabic-design-excellence/rtl-design-patterns/`
 
 ### For Calligraphy Projects
+
 "Design logo using Arabic calligraphy, Thuluth script, for [context]"
 → Claude loads `arabic-design-excellence/calligraphy-guide/`
 
 ### For Design System Work
+
 "Review this component for accessibility & brand consistency"
 → Claude loads `design-foundations/` + `visual-identity/`
 
 ## Quality Checks
+
 - Design consistency with brand guidelines
 - Accessibility compliance (WCAG AA)
 - RTL rendering (if Arabic)
@@ -552,12 +589,14 @@ Best practices for design systems:
 - Performance (file sizes, load times)
 
 ## Updates & Maintenance
+
 - Quarterly design trend analysis
 - Semi-annual brand guidelines refresh
 - Annual accessibility audit
 - Ongoing cultural sensitivity review
 
 ## Integration with Other Skills
+
 - `arabic-language-master` (coordinated messaging in Arabic + design)
 - `universal-content-generator` (visual + copy consistency)
 - AI agents for design automation
@@ -750,15 +789,15 @@ Best practices for design systems:
 │       └── BREAKING-CHANGES.md
 │
 └── examples/
-    ├── agent-configs/
-    │   ├── content-gen-config.yaml
-    │   ├── analytics-engine-config.yaml
-    │   └── optimizer-config.yaml
-    │
-    └── skill-implementations/
-        ├── using-arabic-skill.py
-        ├── using-design-skill.py
-        └── multi-skill-coordination.py
+├── agent-configs/
+│   ├── content-gen-config.yaml
+│   ├── analytics-engine-config.yaml
+│   └── optimizer-config.yaml
+│
+└── skill-implementations/
+├── using-arabic-skill.py
+├── using-design-skill.py
+└── multi-skill-coordination.py
 ```
 
 ---
@@ -831,15 +870,17 @@ categories:
       - name: "universal-content-generator"
         file: "agents/universal/universal-content-generator.yaml"
         version: "1.0.0"
-        capabilities: ["social_copy", "blog_posts", "ad_copy", "video_captions", "email"]
+        capabilities:
+          ["social_copy", "blog_posts", "ad_copy", "video_captions", "email"]
         time_to_execute: "2-5 minutes"
         approval_required: false
         dependencies: ["design-system-master"]
-        
+
       - name: "analytics-insights-engine"
         file: "agents/universal/analytics-insights-engine.yaml"
         version: "1.0.0"
-        capabilities: ["metrics_analysis", "insights_generation", "recommendations"]
+        capabilities:
+          ["metrics_analysis", "insights_generation", "recommendations"]
         time_to_execute: "3-8 minutes"
         approval_required: false
         dependencies: ["data_sources"]
@@ -860,7 +901,7 @@ skills:
     supports_claude_vision: false
     supports_function_calling: true
     dependencies: []
-    
+
   - name: "design-system-master"
     path: "skills/design/design-system-master"
     version: "1.0.0"
@@ -879,19 +920,23 @@ Every file must include:
 ## References
 
 ### Internal References (Other Skills/Agents)
+
 - [arabic-language-master](../../skills/language/arabic-language-master/SKILL.md)
 - [design-system-master](../../skills/design/design-system-master/SKILL.md)
 - [universal-content-generator](../universal/universal-content-generator.yaml)
 
 ### External References
+
 - [Claude API Documentation](https://docs.claude.com)
 - [Prompt Engineering Guide](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview)
 - [Claude Vision](https://docs.claude.com/en/docs/vision)
 
 ### Related Files
+
 - See also: [../design-system-master/arabic-design-excellence/rtl-design-patterns.md]
 
 ### Version History
+
 - v1.0.0 (2026-06-09): Initial release
 - v1.1.0 (TBD): Planned improvements
 ```
@@ -928,6 +973,7 @@ Every file must include:
 ### **Phase 3: Consolidation (Weeks 4-6)**
 
 **3A: Agent Consolidation**
+
 - [ ] Merge 4 content generation agents → `universal-content-generator.yaml`
 - [ ] Merge 5 analytics agents → `analytics-insights-engine.yaml`
 - [ ] Merge 4 doc generation agents → `document-workflow-generator.yaml`
@@ -937,6 +983,7 @@ Every file must include:
 - [ ] Create integration agents for HubSpot, Google Ads, Meta Ads, etc.
 
 **3B: Skill Consolidation**
+
 - [ ] Consolidate all Arabic dialects → `skills/language/arabic-language-master/`
 - [ ] Consolidate all design skills → `skills/design/design-system-master/`
 - [ ] Add calligraphy, RTL, cultural symbolism sections to design skill
@@ -991,6 +1038,7 @@ Every file must include:
 ### 6.1: Development Standards
 
 **All New Agents Must:**
+
 1. Follow `agents/meta/agent-template.yaml`
 2. Include system prompt following Part 4.1 standards
 3. Have clear input/output specifications
@@ -1000,6 +1048,7 @@ Every file must include:
 7. Update `AGENTS_MANIFEST.yaml`
 
 **All New Skills Must:**
+
 1. Follow `skills/meta/skill-template.md`
 2. Include SKILL.md with documentation
 3. Have system-prompt.md for Claude
@@ -1011,22 +1060,26 @@ Every file must include:
 ### 6.2: Naming Conventions
 
 **Agents:**
+
 - Format: `[domain]-[function]-[descriptor].yaml`
 - Example: `universal-content-generator.yaml`, `crm-auto-populate.yaml`
 
 **Skills:**
+
 - Format: `[domain]-[descriptor]-[adjective].md` or folder name
 - Example: `arabic-language-master`, `design-system-master`
 
 **Files inside skills:**
+
 - Use hyphens for multi-word names
 - Example: `rtl-design-patterns.md`, `cultural-symbolism.md`
 
 ### 6.3: Version Control
 
 Every file includes:
+
 ```yaml
-version: "X.Y.Z"  # Semantic versioning
+version: "X.Y.Z" # Semantic versioning
 last_updated: "YYYY-MM-DD"
 maintainer: "[Name]"
 ```
@@ -1044,6 +1097,7 @@ maintainer: "[Name]"
 ## Part 7: EXPECTED OUTCOMES
 
 ### **Before Reorganization**
+
 ```
 45 standalone agents
 ~20 individual skills
@@ -1054,6 +1108,7 @@ Scattered documentation
 ```
 
 ### **After Reorganization**
+
 ```
 20 agents (merged + consolidated)
 4 major skills (consolidated)
@@ -1066,14 +1121,14 @@ Comprehensive documentation
 
 ### **Benefits**
 
-| Metric | Impact |
-|--------|--------|
-| **Maintenance Time** | -50% (fewer files to update) |
-| **Onboarding Time** | -60% (clear structure, docs) |
-| **Code Reusability** | +75% (shared frameworks) |
-| **Bug Fix Time** | -40% (centralized, consistent code) |
-| **Feature Dev Time** | -35% (templates, frameworks) |
-| **Team Productivity** | +25-30% (less context switching) |
+| Metric                | Impact                              |
+| --------------------- | ----------------------------------- |
+| **Maintenance Time**  | -50% (fewer files to update)        |
+| **Onboarding Time**   | -60% (clear structure, docs)        |
+| **Code Reusability**  | +75% (shared frameworks)            |
+| **Bug Fix Time**      | -40% (centralized, consistent code) |
+| **Feature Dev Time**  | -35% (templates, frameworks)        |
+| **Team Productivity** | +25-30% (less context switching)    |
 
 ---
 
@@ -1089,7 +1144,7 @@ Comprehensive documentation
 
 ## Appendix A: Sample Agent YAML (Consolidated)
 
-```yaml
+````yaml
 # agents/universal/universal-content-generator.yaml
 
 ---
@@ -1145,7 +1200,7 @@ Content generation specialist across all channels (social, blog, email, ads, vid
   "cta": "string",
   "keywords": ["string", "string"]
 }
-```
+````
 
 ## Output Specification
 
@@ -1169,6 +1224,7 @@ Content generation specialist across all channels (social, blog, email, ads, vid
 ```
 
 ## Constraints
+
 - Respect brand guidelines always
 - No political/religious statements
 - No promises we can't keep
@@ -1176,10 +1232,12 @@ Content generation specialist across all channels (social, blog, email, ads, vid
 - Flag any cultural sensitivity concerns
 
 ## Approval Gates
+
 - Content for external clients: Human review before sending
 - Content with numbers/claims: Verify source accuracy
 - Arabic content: Cultural sensitivity review
 - Legal/compliance mentions: Legal team review
+
 ```
 
 ---
@@ -1200,6 +1258,7 @@ For questions about this plan:
 
 ---
 
-**Document Status:** DRAFT → READY FOR REVIEW  
-**Last Updated:** June 9, 2026  
+**Document Status:** DRAFT → READY FOR REVIEW
+**Last Updated:** June 9, 2026
 **Next Review:** June 16, 2026
+```

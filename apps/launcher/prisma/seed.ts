@@ -521,6 +521,71 @@ async function seedCampaignsHub(managerId: string): Promise<{ proposals: number;
   return { proposals: 1, campaigns: 1 }
 }
 
+async function seedOpus(adminId: string): Promise<{ triggers: number; usage: number; metrics: number }> {
+  const { OPUS_SEED_TRIGGERS } = await import('../lib/opus/triggers/serialize')
+
+  for (const trigger of OPUS_SEED_TRIGGERS) {
+    await prisma.opus_triggers.upsert({
+      where: { slug: trigger.slug },
+      update: {
+        name: trigger.name,
+        type: trigger.type,
+        schedule: trigger.schedule,
+        condition: trigger.condition,
+        action: trigger.action,
+        enabled: true,
+      },
+      create: {
+        name: trigger.name,
+        slug: trigger.slug,
+        type: trigger.type,
+        schedule: trigger.schedule,
+        condition: trigger.condition,
+        action: trigger.action,
+        enabled: true,
+        created_by: adminId,
+      },
+    })
+  }
+
+  const now = new Date()
+  const periodStart = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1))
+  const periodEnd = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 0))
+
+  await prisma.opus_usage_periods.upsert({
+    where: { period_start: periodStart },
+    update: {},
+    create: {
+      period_start: periodStart,
+      period_end: periodEnd,
+      plan: 'professional',
+      ai_generations: 42,
+      campaigns_launched: 2,
+      api_calls: 128,
+      optimizations: 5,
+    },
+  })
+
+  const campaign = await prisma.campaigns.findFirst({ where: { name: CAMPAIGN_SEED_NAME } })
+  if (campaign) {
+    await prisma.opus_campaign_metrics.deleteMany({ where: { campaign_id: campaign.id } })
+    await prisma.opus_campaign_metrics.create({
+      data: {
+        campaign_id: campaign.id,
+        period_start: periodStart,
+        period_end: now,
+        impressions: 87400,
+        clicks: 5920,
+        conversions: 312,
+        spend: 2847,
+        roas: 4.8,
+      },
+    })
+  }
+
+  return { triggers: OPUS_SEED_TRIGGERS.length, usage: 1, metrics: campaign ? 1 : 0 }
+}
+
 /** Find a department by name, or create it. (No unique constraint on name.) */
 async function ensureDepartment(name: string): Promise<string> {
   const existing = await prisma.departments.findFirst({ where: { name } })
@@ -566,6 +631,8 @@ async function main(): Promise<void> {
     ? await seedAutomation(manager.id, generalChannel?.id ?? null)
     : { workflows: 0, templates: 0 }
   const campaignsRows = manager ? await seedCampaignsHub(manager.id) : { proposals: 0, campaigns: 0 }
+  const admin = await prisma.users.findUnique({ where: { email: 'yasser@mediabubble.co' } })
+  const opusRows = admin ? await seedOpus(admin.id) : { triggers: 0, usage: 0, metrics: 0 }
 
   // eslint-disable-next-line no-console -- seed scripts report their summary to stdout
   console.log(
@@ -576,7 +643,8 @@ async function main(): Promise<void> {
       `${promptRows} AI prompt(s), ${commsRows.channels} chat channel(s), ` +
       `${commsRows.messages} message(s), ${automationRows.workflows} workflow(s), ` +
       `${automationRows.templates} automation template(s), ${campaignsRows.proposals} proposal(s), ` +
-      `and ${campaignsRows.campaigns} campaign(s).`,
+      `${campaignsRows.campaigns} campaign(s), ${opusRows.triggers} OPUS trigger(s), ` +
+      `${opusRows.usage} usage period(s), and ${opusRows.metrics} campaign metric snapshot(s).`,
   )
 }
 

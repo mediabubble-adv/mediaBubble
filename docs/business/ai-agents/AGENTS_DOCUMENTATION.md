@@ -1,4 +1,5 @@
 # MediaBubble AI Agents Documentation
+
 **Complete Operational Guide for All 45 Agents**
 
 ---
@@ -8,6 +9,7 @@
 **Never use AI as a chatbot. Use it as a specialized workforce.**
 
 Each agent has:
+
 - A single, well-defined purpose
 - Specific skills and capabilities
 - Clear reporting lines to managers
@@ -45,6 +47,7 @@ Each agent has:
 ### **Family 1: CREATIVE AGENTS (Design + Social)**
 
 #### Design Department Agents
+
 ```
 D1 - Design Brief Generator
 Purpose: Creates comprehensive design briefs from client requirements
@@ -52,7 +55,7 @@ Inputs: Client description, service type, target audience
 Outputs: Structured brief with objectives, deliverables, timeline
 Performance: Saves 30 min → 5 min per brief (83% time savings)
 
-D2 - Asset Variations Generator  
+D2 - Asset Variations Generator
 Purpose: Batch-generates platform-specific design variations
 Inputs: Master design, target platforms (social, web, print)
 Outputs: Optimized assets for each platform
@@ -78,6 +81,7 @@ Performance: 1 hour → instant (100% time savings)
 ```
 
 #### Social Media Agents
+
 ```
 S1 - Content Creator Engine
 Purpose: Generates platform-specific social content
@@ -115,6 +119,7 @@ Performance: 3 hours/month → 30 min (90% time savings)
 ### **Family 2: REVENUE AGENTS (Lead Gen + Sales + Media Buying)**
 
 #### Lead Generation Agents
+
 ```
 L1 - Lead Auto-Scorer
 Purpose: Scores and routes leads by quality
@@ -148,6 +153,7 @@ Performance: 30 min every 48h → automated (100% time savings)
 ```
 
 #### Sales Agents
+
 ```
 SL1 - CRM Auto-Populate
 Purpose: Extracts and syncs lead data automatically
@@ -181,6 +187,7 @@ Performance: 1-2 hours → 5 min (95% time savings)
 ```
 
 #### Media Buying Agents
+
 ```
 M1 - Smart Bid Optimizer
 Purpose: Optimizes daily ad bid strategies
@@ -218,6 +225,7 @@ Performance: 3-4 hours → 15 min (95% time savings)
 ### **Family 3: INTERNAL AGENTS (Development + Marketing + Management + Finance)**
 
 #### Development Agents
+
 ```
 DEV1 - Code Review Assistant
 Purpose: Initial code review with security/performance notes
@@ -251,6 +259,7 @@ Performance: 1 hour → 5 min (95% time savings)
 ```
 
 #### Marketing Agents
+
 ```
 MK1 - Content Calendar Auto-Generator
 Purpose: Monthly content calendar creation
@@ -284,6 +293,7 @@ Performance: 2-3 hours → 15 min (95% time savings)
 ```
 
 #### Management Agents
+
 ```
 MG1 - Meeting Prep Generator
 Purpose: Creates agendas + background materials
@@ -317,6 +327,7 @@ Performance: 30 min → automated (100% time savings)
 ```
 
 #### Finance Agents
+
 ```
 FN1 - Invoice Auto-Generator
 Purpose: Creates branded invoices with payment links
@@ -354,17 +365,18 @@ Performance: 3-4 hours → 15 min (95% time savings)
 ## 📊 Performance Matrix
 
 ### **Time Savings Summary**
-| Department | Hours Saved/Year | Primary Agents |
-|------------|------------------|----------------|
-| Design | 78 hours | Brief + Variations + Mockups |
-| Social Media | 130 hours | Content + Batching + Responses |
-| Lead Gen | 65 hours | Scoring + Nurture + Reminders |
-| Media Buying | 260 hours | Bids + Creatives + Analytics |
-| Development | 260 hours | Reviews + Monitoring + QA |
-| Marketing | 156 hours | Calendar + Blogs + Analysis |
-| Sales | 195 hours | CRM + Proposals + Outreach |
-| Management | 156 hours | Meetings + Reports + Planning |
-| Finance | 234 hours | Invoicing + Forecasting + Dashboards |
+
+| Department   | Hours Saved/Year | Primary Agents                       |
+| ------------ | ---------------- | ------------------------------------ |
+| Design       | 78 hours         | Brief + Variations + Mockups         |
+| Social Media | 130 hours        | Content + Batching + Responses       |
+| Lead Gen     | 65 hours         | Scoring + Nurture + Reminders        |
+| Media Buying | 260 hours        | Bids + Creatives + Analytics         |
+| Development  | 260 hours        | Reviews + Monitoring + QA            |
+| Marketing    | 156 hours        | Calendar + Blogs + Analysis          |
+| Sales        | 195 hours        | CRM + Proposals + Outreach           |
+| Management   | 156 hours        | Meetings + Reports + Planning        |
+| Finance      | 234 hours        | Invoicing + Forecasting + Dashboards |
 
 **Total: 949 hours/year saved**
 
@@ -373,6 +385,7 @@ Performance: 3-4 hours → 15 min (95% time savings)
 ## 🎛️ Management Commands
 
 ### **Agent Lifecycle**
+
 ```
 /agents-deploy [agent-name]    → Deploy new agent
 /agents-start [agent-name]     → Start agent execution
@@ -383,6 +396,7 @@ Performance: 3-4 hours → 15 min (95% time savings)
 ```
 
 ### **Team Commands**
+
 ```
 /agents-team [team-name]        → Team overview
 /agents-team-performance        → Performance metrics
@@ -391,6 +405,7 @@ Performance: 3-4 hours → 15 min (95% time savings)
 ```
 
 ### **Emergency Actions**
+
 ```
 /agents-emergency-stop          → Stop all agents
 /agents-quality-check           → Run compliance audit

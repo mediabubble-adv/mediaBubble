@@ -3,6 +3,7 @@
 ## Overview
 
 Your 45 AI agents need three core capabilities:
+
 1. **Email** — Outbound communications (to clients, team, leads)
 2. **Slack** — Real-time notifications & team alerts
 3. **Dashboard** — Live monitoring of all agent activity
@@ -16,6 +17,7 @@ This document outlines the complete architecture.
 ### Email Provider: SendGrid
 
 **Why SendGrid?**
+
 - High deliverability (99.9%)
 - Excellent for transactional emails
 - API-first (perfect for Claude integration)
@@ -25,46 +27,55 @@ This document outlines the complete architecture.
 ### Email Flows by Department
 
 #### DESIGN
+
 - **Design Brief Confirmation** → Client receives AI-generated brief for review
 - **Asset Delivery** → Client receives final designs + variations
 - **Revision Request** → Client email with design QA results
 
 #### SOCIAL MEDIA
+
 - **Content Calendar Approval** → Sends monthly calendar to content manager
 - **Post Performance Report** → Weekly digest of top/bottom posts
 - **Engagement Summary** → Weekly engagement metrics & trends
 
 #### LEAD GENERATION
+
 - **Lead Nurture Sequences** → Automated multi-email campaigns (7-email drip)
 - **Lead Scoring Alert** → High-priority leads to sales team
 - **Qualification Reminder** → Follow-up to dormant leads
 
 #### MEDIA BUYING
+
 - **Daily Bid Optimization Report** → Summary of bid changes & ROI impact
 - **Budget Alert** → When daily spend approaches budget
 - **Campaign Performance Summary** → Weekly campaign health email
 
 #### DEVELOPMENT
+
 - **Code Review Summary** → PR summary with issues & recommendations
 - **Performance Regression Alert** → Immediate notification of slowdowns
 - **Weekly Tech Debt Report** → Refactoring priorities & impact
 
 #### MARKETING
+
 - **Content Calendar Reminder** → Monthly content plan
 - **Blog Performance Report** → Weekly blog metrics & engagement
 - **Email Campaign Analysis** → Post-send email analytics
 
 #### SALES
+
 - **Lead Auto-Populate Notification** → New leads in CRM
 - **Deal Health Alert** → Stalled deals requiring attention
 - **Win/Loss Insight** → Post-deal analysis email
 
 #### MANAGEMENT
+
 - **Weekly Status Report** → Consolidated team update
 - **Meeting Minutes** → Auto-generated meeting summaries
 - **Timeline Risk Alert** → Project delays or blockers
 
 #### FINANCE
+
 - **Invoice Delivery** → Automated invoice to clients
 - **Monthly Close Report** → Financial summary + narrative
 - **Cash Flow Forecast** → 30/60/90 day projection
@@ -103,6 +114,7 @@ This document outlines the complete architecture.
 ### Slack Message Types
 
 #### 1. **Status Messages** (Every agent task completion)
+
 ```
 ✅ Lead Auto-Scorer
    Processed: 47 leads
@@ -112,6 +124,7 @@ This document outlines the complete architecture.
 ```
 
 #### 2. **Alert Messages** (Requires attention)
+
 ```
 ⚠️ URGENT: Media Buying Agent
    Budget alert: $4,980 of $5,000 daily budget used
@@ -120,6 +133,7 @@ This document outlines the complete architecture.
 ```
 
 #### 3. **Achievement Messages** (Milestone reached)
+
 ```
 🎯 Content Creator Engine Hit Milestone
    1,000 social posts generated
@@ -129,6 +143,7 @@ This document outlines the complete architecture.
 ```
 
 #### 4. **Report Messages** (With charts/tables)
+
 ```
 📊 Weekly Sales Agent Summary
    ├─ Proposals generated: 12
@@ -155,6 +170,7 @@ This document outlines the complete architecture.
 ### Dashboard Features
 
 **Real-time monitoring** of all 45 agents with:
+
 - ✅ Agent status (running, idle, paused, error)
 - ⏱️ Execution time
 - 📊 Tasks completed today
@@ -293,17 +309,20 @@ https://mediabubble-ai.yoursite.com/dashboard
 ### Dashboard Tech Stack
 
 **Frontend:**
+
 - React 18 + Next.js (for real-time updates)
 - TypeScript
 - Tailwind CSS + shadcn/ui
 - Socket.io for real-time updates
 
 **Backend:**
+
 - Node.js + Express
 - PostgreSQL (agent logs, metrics, history)
 - Redis (real-time state)
 
 **Data Pipeline:**
+
 - Claude API calls logged to database
 - Metrics calculated in real-time
 - Historical data for trends
@@ -365,24 +384,28 @@ Dashboard shows real-time update
 ## 5. IMPLEMENTATION TIMELINE
 
 ### Week 1: Foundation
+
 - [ ] SendGrid setup & authentication
 - [ ] Slack bot creation
 - [ ] Email template library (9 templates, 1 per dept)
 - [ ] Slack channel structure
 
 ### Week 2: Agent Integration
+
 - [ ] Integrate email into all 45 agents
 - [ ] Integrate Slack notifications
 - [ ] Test email delivery & formatting
 - [ ] Test Slack message formatting
 
 ### Week 3: Dashboard
+
 - [ ] Build dashboard frontend
 - [ ] Connect to agent logs database
 - [ ] Real-time WebSocket connection
 - [ ] Add charts & metrics
 
 ### Week 4: Polish & Deploy
+
 - [ ] Automated testing
 - [ ] Performance optimization
 - [ ] Team training on monitoring
@@ -393,46 +416,55 @@ Dashboard shows real-time update
 ## 6. EMAIL TEMPLATES (By Department)
 
 ### Design Department
+
 1. **Design Brief Confirmation** — Client receives AI-generated brief
 2. **Asset Delivery** — Final designs + design variations
 3. **Revision Request** — Design QA findings + fixes needed
 
 ### Social Media Department
+
 4. **Content Calendar Approval** — Monthly calendar for review
 5. **Weekly Performance Report** — Top/bottom posts + trends
 6. **Engagement Summary** — Weekly metrics + recommendations
 
 ### Lead Generation Department
+
 7. **Lead Scoring Alert** — High-priority leads to sales
 8. **Nurture Sequence Start** — First email in drip campaign
 9. **Lead Qualification Reminder** — Follow-up to dormant leads
 
 ### Media Buying Department
+
 10. **Bid Optimization Report** — Daily optimization summary
 11. **Budget Alert** — When approaching daily/weekly limits
 12. **Campaign Health** — Weekly performance overview
 
 ### Development Department
+
 13. **Code Review Summary** — PR issues + recommendations
 14. **Performance Alert** — Regression detection
 15. **Tech Debt Report** — Weekly refactoring priorities
 
 ### Marketing Department
+
 16. **Content Calendar** — Monthly planning document
 17. **Blog Performance** — Post analytics + engagement
 18. **Email Campaign Analysis** — Post-send metrics
 
 ### Sales Department
+
 19. **New Lead Notification** — CRM auto-populate
 20. **Deal Health Alert** — Stalled deals requiring action
 21. **Win/Loss Analysis** — Post-deal insights
 
 ### Management Department
+
 22. **Weekly Status** — Consolidated team update
 23. **Meeting Minutes** — Auto-generated summary
 24. **Timeline Risk** — Project delays/blockers
 
 ### Finance Department
+
 25. **Invoice Delivery** — Automated client invoice
 26. **Monthly Close Report** — Financial summary + narrative
 27. **Cash Forecast** — 30/60/90 day projection
@@ -442,6 +474,7 @@ Dashboard shows real-time update
 ## 7. SLACK COMMANDS & AUTOMATIONS
 
 ### Manual Commands (Team-triggered)
+
 ```
 /agents-pause social-content-creator    → Pause specific agent
 /agents-test design-brief-generator     → Run test of agent
@@ -450,6 +483,7 @@ Dashboard shows real-time update
 ```
 
 ### Automated Messages
+
 ```
 Every hour:
   → Real-time status check
@@ -471,18 +505,21 @@ Every week (Monday 8am):
 ## 8. MONITORING & ALERTS
 
 ### Critical Alerts (Immediate Slack notification)
+
 - ❌ Agent crashed or exceeded error rate (>5%)
 - 💾 API quota exceeded
 - 🔐 Authentication failure
 - 📧 Email delivery failure rate >2%
 
 ### Warning Alerts (Daily digest)
+
 - ⚠️ Agent response time >10s
 - ⚠️ Low quality scores (<85%)
 - ⚠️ Slack sync delays
 - ⚠️ Dashboard data staleness >5min
 
 ### Info Messages (Weekly)
+
 - ℹ️ Agent performance trends
 - ℹ️ Cost analysis
 - ℹ️ Recommendations for improvement
@@ -491,14 +528,14 @@ Every week (Monday 8am):
 
 ## 9. COST BREAKDOWN
 
-| Service | Cost | Usage |
-|---------|------|-------|
-| SendGrid | $19/mo | 100k emails/month |
-| Slack Bot | Free | Native integration |
-| Dashboard Hosting | $20/mo | Vercel (frontend) |
-| Database | $15/mo | PostgreSQL (logs) |
-| Redis | $10/mo | Real-time cache |
-| **TOTAL** | **$64/mo** | **Full comms system** |
+| Service           | Cost       | Usage                 |
+| ----------------- | ---------- | --------------------- |
+| SendGrid          | $19/mo     | 100k emails/month     |
+| Slack Bot         | Free       | Native integration    |
+| Dashboard Hosting | $20/mo     | Vercel (frontend)     |
+| Database          | $15/mo     | PostgreSQL (logs)     |
+| Redis             | $10/mo     | Real-time cache       |
+| **TOTAL**         | **$64/mo** | **Full comms system** |
 
 ---
 
@@ -522,7 +559,7 @@ Every week (Monday 8am):
       "unsubscribeGroup": 12345
     }
   },
-  
+
   "slack": {
     "token": "{{ SLACK_BOT_TOKEN }}",
     "signingSecret": "{{ SLACK_SIGNING_SECRET }}",
@@ -534,7 +571,7 @@ Every week (Monday 8am):
     },
     "webhook": "https://hooks.slack.com/services/YOUR/WEBHOOK/URL"
   },
-  
+
   "dashboard": {
     "url": "https://mediabubble-ai.yoursite.com",
     "updateInterval": 5000,
@@ -542,7 +579,7 @@ Every week (Monday 8am):
     "publicRead": false,
     "authentication": "oauth"
   },
-  
+
   "agents": {
     "enableEmail": true,
     "enableSlack": true,
@@ -558,12 +595,14 @@ Every week (Monday 8am):
 ## 11. GETTING STARTED
 
 ### Step 1: Create SendGrid Account
+
 - Sign up at sendgrid.com
 - Verify sender email (agents@mediabubble.co)
 - Generate API key
 - Create 9 email templates (one per department)
 
 ### Step 2: Create Slack Bot
+
 - Go to api.slack.com
 - Create new app "MediaBubble AI"
 - Enable bot token scopes
@@ -571,12 +610,14 @@ Every week (Monday 8am):
 - Create 10 channels (#agents-design, etc.)
 
 ### Step 3: Deploy Dashboard
+
 - Clone dashboard repository
 - Set environment variables (SendGrid, Slack, DB)
 - Deploy to Vercel or your hosting
 - Connect PostgreSQL database
 
 ### Step 4: Configure Agents
+
 - Add email config to each agent prompt
 - Add Slack config to notification system
 - Test with first agent (Lead Auto-Scorer)
@@ -593,7 +634,7 @@ Your AI agents now have:
 ✅ **Dashboard** — Live monitoring of all 45 agents  
 ✅ **Logs** — Complete audit trail of all agent actions  
 ✅ **Alerts** — Critical issues flagged immediately  
-✅ **Analytics** — Historical trends & ROI metrics  
+✅ **Analytics** — Historical trends & ROI metrics
 
 **Total cost: ~$64/month for complete communication system**
 

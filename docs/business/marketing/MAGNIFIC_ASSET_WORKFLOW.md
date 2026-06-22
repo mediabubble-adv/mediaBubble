@@ -1,4 +1,5 @@
 # MediaBubble Design Asset Generation Workflow
+
 ## Using Magnific Upscale + AI Image Generation + taste-skill + emil-design-eng
 
 ---
@@ -18,23 +19,27 @@ AI Image Gen      →    Magnific 2x/4x    →    taste-skill + emil-design-eng
 ## 2. ASSET INVENTORY FOR MEDIABUBBLE
 
 ### Category A: Hero & Primary Visuals
+
 - [ ] **Hero Image (Main)** - 1920x1080, agency/premium B2B aesthetic
 - [ ] **Hero Image Variants** - 3 alternatives (different moods, color treatments)
 - [ ] **Service Category Visuals** - 9 images (one per service: SEO, Branding, Media, etc.)
 - [ ] **Case Study Hero Backgrounds** - 4 images (featured case studies)
 
 ### Category B: Feature Cards & Sections
+
 - [ ] **Feature Icons/Illustrations** - 6-8 semi-abstract service icons
 - [ ] **Process Step Visuals** - 5 images (our workflow visualization)
 - [ ] **Team/Testimonial Backgrounds** - 3 cohesive backgrounds
 - [ ] **Client Logo Mockups** - 2-3 context images
 
 ### Category C: Social & Secondary
+
 - [ ] **Social Media Hero** - LinkedIn cover, Instagram story backgrounds (3 variants)
 - [ ] **Blog Featured Images** - 3 template variations
 - [ ] **CTA Section Backgrounds** - 2 images (calls to action)
 
 ### Category D: Responsive Variants
+
 - [ ] **Mobile Hero** - 1080x1920 (vertical orientation)
 - [ ] **Tablet Hero** - 2048x1536 (iPad landscape)
 - [ ] **Wide Desktop** - 3840x2160 (4K ultra-wide)
@@ -60,30 +65,33 @@ AI Image Gen      →    Magnific 2x/4x    →    taste-skill + emil-design-eng
 [BRAND CONTEXT] + [SCENE DESCRIPTION] + [STYLE DIRECTION] + [TECHNICAL SPECS]
 
 Example:
-"Premium digital marketing agency aesthetic. 
-Minimalist hero composition: tech-forward professional team 
+"Premium digital marketing agency aesthetic.
+Minimalist hero composition: tech-forward professional team
 reviewing analytics dashboards in modern office.
-Style: clean, aspirational, Linear-inspired minimalism. 
-Color palette: dark blue (#0052CC), white, accent cyan. 
+Style: clean, aspirational, Linear-inspired minimalism.
+Color palette: dark blue (#0052CC), white, accent cyan.
 Lighting: natural north-facing window light, slightly moody.
 Medium: professional photography + subtle CGI blend.
-No people faces visible (abstract shot from behind), 
+No people faces visible (abstract shot from behind),
 no text overlays, no logos, 16:9 aspect ratio."
 ```
 
 ### 3.3 Generation Batch Plan
 
 **Batch 1: Hero Concepts** (Day 1)
+
 - Main hero (4 variations)
 - Service category hero (3 variations)
 - **Total: 7 images to generate**
 
 **Batch 2: Feature & Process** (Day 2)
+
 - Feature illustrations (6 variations)
 - Process visuals (5 variations)
 - **Total: 11 images to generate**
 
 **Batch 3: Secondary Assets** (Day 3)
+
 - Case study backgrounds (4 variations)
 - Social backgrounds (3 variations)
 - CTA visuals (2 variations)
@@ -97,28 +105,29 @@ no text overlays, no logos, 16:9 aspect ratio."
 
 ### 4.1 Why Magnific Over Other Upscalers
 
-| Feature | Magnific 2x/4x | Standard Upscaling |
-|---------|---|---|
-| **Detail Enhancement** | ✓ Adds realistic detail | ✗ Just scales |
-| **Quality Preservation** | ✓ Maintains consistency | ✗ Can degrade |
-| **Brand Asset Suitable** | ✓ Professional quality | ✗ Synthetic-looking |
-| **Performance** | Fast (minutes) | Fast |
-| **Cost Efficiency** | Moderate | Low |
+| Feature                  | Magnific 2x/4x          | Standard Upscaling  |
+| ------------------------ | ----------------------- | ------------------- |
+| **Detail Enhancement**   | ✓ Adds realistic detail | ✗ Just scales       |
+| **Quality Preservation** | ✓ Maintains consistency | ✗ Can degrade       |
+| **Brand Asset Suitable** | ✓ Professional quality  | ✗ Synthetic-looking |
+| **Performance**          | Fast (minutes)          | Fast                |
+| **Cost Efficiency**      | Moderate                | Low                 |
 
 ### 4.2 Magnific Upscale Strategy
 
 **Scale Selection: 2x vs 4x**
+
 - **2x (Recommended for web)**: 1920x1080 → 3840x2160 (4K)
   - Optimal for web performance + retina displays
   - Excellent detail without excessive file size
   - Use this for primary web assets
-  
 - **4x (For print/archival)**: 1920x1080 → 7680x4320 (8K)
   - Only if assets needed for print/large format
   - File sizes become large (20-50MB each)
   - Skip for web-first strategy
 
 **Recommended Workflow:**
+
 1. Generate base at 1920x1080 (or lower)
 2. Upscale ALL to 2x (4K)
 3. Use 2x versions for web
@@ -141,12 +150,14 @@ images_upscale(
 ### 4.4 Quality Check Post-Upscale
 
 After Magnific enhancement, evaluate:
+
 - ✓ Detail clarity (no artifacts)
 - ✓ Color accuracy (vs original)
 - ✓ Brand consistency (still recognizable)
 - ✓ File size acceptable (<5MB per image for web)
 
 **Reject if:**
+
 - ✗ Artificial noise/over-processed look
 - ✗ Color shift away from brand palette
 - ✗ Loss of visual coherence
@@ -195,17 +206,18 @@ outpaint_image(
 
 ### 6.1 Design Read (Before Any Code)
 
-**Reading as:** Premium B2B digital marketing agency landing page, 
-for C-level decision makers and marketing directors, 
+**Reading as:** Premium B2B digital marketing agency landing page,
+for C-level decision makers and marketing directors,
 with clean minimalist language, leaning toward Linear-style + Geist design system.
 
 ### 6.2 taste-skill Configuration
 
 Set the three dials:
+
 ```yaml
-DESIGN_VARIANCE: 7      # Premium consumer/brand standard
-MOTION_INTENSITY: 6     # Smooth, not overwhelming
-VISUAL_DENSITY: 4       # Breathing room, not packed
+DESIGN_VARIANCE: 7 # Premium consumer/brand standard
+MOTION_INTENSITY: 6 # Smooth, not overwhelming
+VISUAL_DENSITY: 4 # Breathing room, not packed
 ```
 
 ### 6.3 Integration with Upscaled Assets
@@ -217,15 +229,18 @@ VISUAL_DENSITY: 4       # Breathing room, not packed
 <section class="hero">
   <!-- Mobile: Use 9:16 outpainted variant -->
   <picture>
-    <source media="(max-width: 768px)" 
-            srcset="/assets/hero-mobile-9-16.webp">
+    <source media="(max-width: 768px)" srcset="/assets/hero-mobile-9-16.webp" />
     <!-- Tablet: Use 16:9 base -->
-    <source media="(max-width: 1024px)" 
-            srcset="/assets/hero-tablet-16-9.webp">
+    <source
+      media="(max-width: 1024px)"
+      srcset="/assets/hero-tablet-16-9.webp"
+    />
     <!-- Desktop: Use 21:9 ultra-wide -->
-    <source media="(min-width: 1025px)" 
-            srcset="/assets/hero-desktop-21-9.webp">
-    <img src="/assets/hero-base.webp" alt="MediaBubble hero">
+    <source
+      media="(min-width: 1025px)"
+      srcset="/assets/hero-desktop-21-9.webp"
+    />
+    <img src="/assets/hero-base.webp" alt="MediaBubble hero" />
   </picture>
 </section>
 ```
@@ -264,19 +279,19 @@ After taste-skill HTML/CSS is in place:
 // Scroll-reveal for feature cards (from emil-design-eng playbook)
 const observerOptions = {
   threshold: 0.2,
-  rootMargin: '0px 0px -50px 0px'
+  rootMargin: "0px 0px -50px 0px",
 };
 
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('animate-in');
+      entry.target.classList.add("animate-in");
       observer.unobserve(entry.target);
     }
   });
 }, observerOptions);
 
-document.querySelectorAll('.feature-card').forEach(card => {
+document.querySelectorAll(".feature-card").forEach((card) => {
   observer.observe(card);
 });
 ```
@@ -289,18 +304,19 @@ document.querySelectorAll('.feature-card').forEach(card => {
 
 Compare final site against Brand Guidelines v2.0:
 
-| Element | Check | Status |
-|---------|-------|--------|
-| **Color Palette** | Hero BG matches primary blue, accents correct | ✓ |
-| **Typography** | Headlines use brand font stack | ✓ |
-| **Spacing** | 8px grid system consistent | ✓ |
-| **Asset Quality** | All images 2x upscale minimum | ✓ |
-| **Motion** | No jank, <60fps animations | ✓ |
-| **Accessibility** | Image alt text, color contrast | ✓ |
+| Element           | Check                                         | Status |
+| ----------------- | --------------------------------------------- | ------ |
+| **Color Palette** | Hero BG matches primary blue, accents correct | ✓      |
+| **Typography**    | Headlines use brand font stack                | ✓      |
+| **Spacing**       | 8px grid system consistent                    | ✓      |
+| **Asset Quality** | All images 2x upscale minimum                 | ✓      |
+| **Motion**        | No jank, <60fps animations                    | ✓      |
+| **Accessibility** | Image alt text, color contrast                | ✓      |
 
 ### 8.2 Performance Metrics
 
 **Target Benchmarks:**
+
 - [ ] LCP (Largest Contentful Paint): <2.5s
 - [ ] CLS (Cumulative Layout Shift): <0.1
 - [ ] FID (First Input Delay): <100ms
@@ -313,7 +329,7 @@ Compare final site against Brand Guidelines v2.0:
 ```
 Day 1: Generate Base Assets
 ├─ Generate Batch 1 (7 images) → 20 minutes
-├─ Generate Batch 2 (11 images) → 30 minutes  
+├─ Generate Batch 2 (11 images) → 30 minutes
 ├─ Generate Batch 3 (9 images) → 25 minutes
 └─ Total: ~75 minutes for 27 base images
 
@@ -348,6 +364,7 @@ TOTAL TIMELINE: 4 days (with parallel processing)
 
 **Problem**: Upscaled images have visible artifacts, noise, or artificial sharpening
 **Solution**:
+
 1. Try different source image (regenerate base at higher resolution first)
 2. Use 2x instead of 4x (less aggressive upscaling)
 3. Test outpainting instead to extend boundaries
@@ -356,6 +373,7 @@ TOTAL TIMELINE: 4 days (with parallel processing)
 
 **Problem**: Extended background doesn't match original aesthetic
 **Solution**:
+
 1. Add reference context to outpaint (describe the original lighting/mood)
 2. Only outpaint by max 25% per side (avoid too much extension)
 3. Consider manual touch-up in Figma/Photoshop if critical
@@ -364,6 +382,7 @@ TOTAL TIMELINE: 4 days (with parallel processing)
 
 **Problem**: Design looks templated despite good assets
 **Solution**:
+
 1. Increase DESIGN_VARIANCE dial (try 8-9)
 2. Add custom CSS animations beyond defaults
 3. Use asymmetric layouts for feature sections
@@ -373,6 +392,7 @@ TOTAL TIMELINE: 4 days (with parallel processing)
 
 **Problem**: Scroll animations stutter, fps drops below 60
 **Solution**:
+
 1. Remove will-change declarations (use only on hero)
 2. Reduce animation count in fold (above-viewport)
 3. Use requestAnimationFrame throttling
@@ -383,6 +403,7 @@ TOTAL TIMELINE: 4 days (with parallel processing)
 ## 11. DELIVERABLES CHECKLIST
 
 ### Assets
+
 - [ ] 27 base images (generated)
 - [ ] 27 upscaled 2x images (Magnific)
 - [ ] 14 outpainted 9:16 mobile variants
@@ -390,6 +411,7 @@ TOTAL TIMELINE: 4 days (with parallel processing)
 - [ ] **Total**: 82 optimized web-ready images
 
 ### Frontend
+
 - [ ] Homepage (responsive, animated)
 - [ ] 3 Service landing pages
 - [ ] 2 Case study templates
@@ -397,6 +419,7 @@ TOTAL TIMELINE: 4 days (with parallel processing)
 - [ ] Reusable component library (cards, buttons, hero template)
 
 ### Documentation
+
 - [ ] Updated Brand Guidelines v2.0 (with new asset examples)
 - [ ] Asset registry (which image used where)
 - [ ] Animation playbook (patterns used in site)

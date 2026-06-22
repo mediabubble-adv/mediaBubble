@@ -1,10 +1,13 @@
 # AUDIT TEMPLATE: Arabic Language Skills
+
 **Task #2 - Complete this form with your current Arabic language skills**
 
 ---
 
 ## Instructions
+
 List every Arabic language skill in your system. Include:
+
 - Exact skill name (as it appears in system)
 - Brief description
 - Parent category (if any)
@@ -16,6 +19,7 @@ List every Arabic language skill in your system. Include:
 ## Language Skills Inventory
 
 ### Skill #1
+
 **Exact Name:** [________________]  
 **Description:** [________________]  
 **Current Parent:** [None / Other: ________]  
@@ -27,6 +31,7 @@ List every Arabic language skill in your system. Include:
 ---
 
 ### Skill #2
+
 **Exact Name:** [________________]  
 **Description:** [________________]  
 **Current Parent:** [None / Other: ________]  
@@ -38,6 +43,7 @@ List every Arabic language skill in your system. Include:
 ---
 
 ### Skill #3
+
 **Exact Name:** [________________]  
 **Description:** [________________]  
 **Current Parent:** [None / Other: ________]  
@@ -49,6 +55,7 @@ List every Arabic language skill in your system. Include:
 ---
 
 ### Skill #4
+
 **Exact Name:** [________________]  
 **Description:** [________________]  
 **Current Parent:** [None / Other: ________]  
@@ -60,6 +67,7 @@ List every Arabic language skill in your system. Include:
 ---
 
 ### Skill #5
+
 **Exact Name:** [________________]  
 **Description:** [________________]  
 **Current Parent:** [None / Other: ________]  
@@ -71,11 +79,12 @@ List every Arabic language skill in your system. Include:
 ---
 
 ## Summary
+
 **Total Language Skills Found:** [ ]  
 **With Masri Content:** [ ]  
 **Without Masri Content:** [ ]  
 **Orphaned (No Parent):** [ ]  
-**Potential Duplicates:** [ ]  
+**Potential Duplicates:** [ ]
 
 ---
 

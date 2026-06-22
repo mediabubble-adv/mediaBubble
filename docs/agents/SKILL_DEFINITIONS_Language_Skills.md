@@ -14,6 +14,7 @@
 Conversational Egyptian Arabic (Masri) with core vocabulary, pronunciation, cultural context, and authentic usage patterns. Covers greetings, daily life, emotions, and social interaction in Cairo and other Egyptian regions.
 
 **Key Topics:**
+
 - Greetings & politeness (formal/informal)
 - Daily routines & family
 - Food, shopping, directions
@@ -22,6 +23,7 @@ Conversational Egyptian Arabic (Masri) with core vocabulary, pronunciation, cult
 - Cultural context & regional variations
 
 **Masri Resources Included:**
+
 - 150+ core vocabulary (organized by context)
 - Pronunciation guides with Egyptian phonetics
 - 30+ media resources (films, comedians, YouTubers)
@@ -29,6 +31,7 @@ Conversational Egyptian Arabic (Masri) with core vocabulary, pronunciation, cult
 - 5-level progression: Survival → Basic → Conversational → Intermediate → Advanced
 
 **Agent Behavior Guidelines:**
+
 - Lead every example with Masri first
 - Always include pronunciation in Masri-specific format
 - Explain cultural context & when to use formal vs. casual
@@ -54,6 +57,7 @@ Conversational Egyptian Arabic (Masri) with core vocabulary, pronunciation, cult
 Business and professional Egyptian Arabic for work, negotiations, emails, and formal meetings. Blends Masri colloquial with formal elements used in professional Egyptian business environments.
 
 **Key Topics:**
+
 - Business etiquette & professional greetings
 - Meeting vocabulary & negotiation phrases
 - Email writing (formal/semi-formal)
@@ -63,6 +67,7 @@ Business and professional Egyptian Arabic for work, negotiations, emails, and fo
 - Cultural norms in Egyptian business
 
 **Masri Resources Included:**
+
 - 100+ business vocabulary (organized by industry)
 - Professional email templates
 - Negotiation phrases & closing tactics
@@ -71,6 +76,7 @@ Business and professional Egyptian Arabic for work, negotiations, emails, and fo
 - Regional business culture differences
 
 **Agent Behavior Guidelines:**
+
 - Balance Masri authenticity with professional register
 - Explain formality levels & when each is appropriate
 - Include cultural protocol (hierarchy, respect markers)
@@ -96,6 +102,7 @@ Business and professional Egyptian Arabic for work, negotiations, emails, and fo
 Modern Standard Arabic (Fusha) for formal writing, academic contexts, media, and official communication. Covers classical grammar, formal vocabulary, and dignified expression suitable for news, literature, and official documents.
 
 **Key Topics:**
+
 - MSA grammar fundamentals
 - Formal vocabulary & eloquence
 - Academic writing & research
@@ -105,6 +112,7 @@ Modern Standard Arabic (Fusha) for formal writing, academic contexts, media, and
 - Relationship to dialectal Arabic
 
 **Resources Included:**
+
 - Grammar reference (verb conjugations, case system)
 - 100+ formal vocabulary
 - News article analysis & reading comprehension
@@ -113,6 +121,7 @@ Modern Standard Arabic (Fusha) for formal writing, academic contexts, media, and
 - Classical vs. modern MSA comparison
 
 **Agent Behavior Guidelines:**
+
 - Lead with clarity on when MSA is appropriate (formal contexts only)
 - Explain classical grammar with modern examples
 - Reference authentic news & literary sources
@@ -138,6 +147,7 @@ Modern Standard Arabic (Fusha) for formal writing, academic contexts, media, and
 Regional Arabic dialects outside Egypt: Levantine (Syria/Lebanon/Palestine), Gulf (Saudi/UAE), Moroccan, and Sudanese. Covers phonetic differences, vocabulary variations, cultural context, and when dialects are used.
 
 **Key Topics:**
+
 - Levantine Arabic (Shami) essentials
 - Gulf Arabic (Khaliji) characteristics
 - Moroccan Darija specifics
@@ -147,6 +157,7 @@ Regional Arabic dialects outside Egypt: Levantine (Syria/Lebanon/Palestine), Gul
 - When each dialect is used professionally/socially
 
 **Resources Included:**
+
 - 80+ vocabulary comparison (same word, different regions)
 - Pronunciation guides per dialect
 - Media resources per region (films, YouTube creators)
@@ -155,6 +166,7 @@ Regional Arabic dialects outside Egypt: Levantine (Syria/Lebanon/Palestine), Gul
 - Business contexts for non-Masri dialects
 
 **Agent Behavior Guidelines:**
+
 - Lead with Masri as reference point, then show regional variant
 - Explain phonetic & vocabulary differences clearly
 - Note mutual intelligibility levels
@@ -180,6 +192,7 @@ Regional Arabic dialects outside Egypt: Levantine (Syria/Lebanon/Palestine), Gul
 Translation methodology for English ↔ Arabic, including terminology databases, cultural adaptation, localization strategies, and common pitfalls. Covers both Masri and MSA translation approaches.
 
 **Key Topics:**
+
 - Translation fundamentals (literal vs. functional)
 - Terminology databases & resources
 - Localization vs. translation
@@ -190,6 +203,7 @@ Translation methodology for English ↔ Arabic, including terminology databases,
 - AI translation tool evaluation
 
 **Resources Included:**
+
 - 200+ English-Arabic terminology pairs (organized by field)
 - Translation style guides (Masri vs. MSA)
 - Localization checklist (dates, currencies, cultural references)
@@ -198,6 +212,7 @@ Translation methodology for English ↔ Arabic, including terminology databases,
 - Industry-specific glossaries
 
 **Agent Behavior Guidelines:**
+
 - Explain translation philosophy (not word-for-word)
 - Provide terminology databases without asking
 - Clarify Masri vs. MSA translation approaches
@@ -214,6 +229,7 @@ Translation methodology for English ↔ Arabic, including terminology databases,
 ## IMPLEMENTATION NOTES
 
 All 5 language skills should:
+
 - Be discoverable under `arabic:language` parent
 - Support hierarchical navigation (parent → child)
 - Have 150+ Masri resources deployed (especially Masri-focused skills)
@@ -223,6 +239,7 @@ All 5 language skills should:
 - Enable code-switching instruction (when to use which variety)
 
 Skills are organized by proficiency level and use context, not alphabetically:
+
 1. Masri Core (foundation)
 2. Masri Business (specialized Masri)
 3. MSA Formal (different system)

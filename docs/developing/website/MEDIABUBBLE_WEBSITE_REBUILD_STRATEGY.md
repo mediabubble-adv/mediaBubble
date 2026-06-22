@@ -1,4 +1,5 @@
 # MediaBubble Website Rebuild Strategy
+
 **Document Version:** 1.0  
 **Date:** June 2026  
 **Owner:** Yasser Dorgham  
@@ -9,6 +10,7 @@
 ## Executive Summary
 
 MediaBubble is rebuilding its digital presence with a **modern, AI-centric website** that:
+
 - ✅ Operates in **English & Egyptian Arabic (Masri)**
 - ✅ Features **bilingual AI chat agent** for lead qualification & support
 - ✅ Emphasizes **AI & Agents** as core value proposition
@@ -25,9 +27,11 @@ MediaBubble is rebuilding its digital presence with a **modern, AI-centric websi
 ## Part 1: Strategic Pillars
 
 ### 1. **AI-First Positioning**
+
 MediaBubble's website should showcase **AI and Agents** as the future of marketing:
 
 #### What This Means:
+
 - **Hero messaging** emphasizes AI-powered solutions
 - **Services are reframed** around AI implementation (AI-powered SEO, AI content generation, AI campaign optimization)
 - **Chat agent on every page** demonstrates AI in action
@@ -35,24 +39,29 @@ MediaBubble's website should showcase **AI and Agents** as the future of marketi
 - **Blog content** focuses on AI trends, implementation, ROI
 
 #### Example Messaging:
+
 > "Marketing Powered by AI Agents  
 > We don't just do marketing—we build intelligent systems that work 24/7.  
 > From AI-driven SEO to automated lead qualification, MediaBubble deploys agents that deliver results."
 
 ### 2. **Bilingual Excellence (English + Egyptian Arabic)**
+
 Support full bilingual experience:
 
 #### English (Primary):
+
 - Formal, professional tone
 - International audience focus
 - Full feature set
 
 #### Egyptian Arabic / Masri (Secondary):
+
 - Conversational, locally-resonant tone
 - Cairo/Hurghada market focus
 - Full parity with English (not partial translation)
 
 #### Technical Requirements:
+
 - Next.js `next-intl` for i18n
 - Separate content trees for each language
 - Language switcher in header
@@ -60,12 +69,15 @@ Support full bilingual experience:
 - Hreflang tags for SEO
 
 ### 3. **Design System First**
+
 Build a **reusable component library** that:
+
 - Supports MediaBubble's website
 - Scales to internal tools (client dashboards, reporting, CMS)
 - Supports future app launches
 
 #### Design System Scope:
+
 - 40+ components (buttons, cards, forms, modals, tables, etc.)
 - Design tokens (colors, typography, spacing, shadows)
 - Responsive design patterns
@@ -74,9 +86,11 @@ Build a **reusable component library** that:
 - Complete documentation + Storybook
 
 ### 4. **AI Chat Agent as Differentiator**
+
 The chat agent is NOT a sidebar—it's a **core product feature**:
 
 #### Agent Capabilities:
+
 - **Lead Qualification:** Ask about business goals, pain points, timeline
 - **Service Routing:** Guide customers to right service based on needs
 - **Appointment Scheduling:** Book consultations (via Cal.com or similar)
@@ -86,6 +100,7 @@ The chat agent is NOT a sidebar—it's a **core product feature**:
 - **24/7 Availability:** Answer outside business hours
 
 #### Conversation Flows:
+
 ```
 User: "I need help with my website ranking"
 Agent: "Great! Let me ask a few questions to find the best solution.
@@ -101,20 +116,20 @@ Agent: "Great! Let me ask a few questions to find the best solution.
 
 ### Technology Stack
 
-| Layer | Technology | Purpose |
-|-------|-----------|---------|
-| **Frontend** | Next.js 14+ (App Router) | Modern React framework with SSR |
-| **Language** | TypeScript | Type safety, developer experience |
-| **Styling** | Tailwind CSS + shadcn/ui | Rapid component development |
-| **i18n** | next-intl | English/Arabic support |
-| **Database** | PostgreSQL | User sessions, chat history, leads |
-| **API** | Next.js API Routes | Backend logic |
-| **AI** | Claude API (Anthropic) | Chat agent + content generation |
-| **CRM** | HubSpot API | Lead management, sync |
-| **Hosting** | Vercel | Frontend deployment |
-| **CDN** | Vercel / Cloudflare | Edge caching, performance |
-| **Monitoring** | Sentry + Datadog | Error tracking, analytics |
-| **Analytics** | Google Analytics 4 + HubSpot | Traffic, conversions, user behavior |
+| Layer          | Technology                   | Purpose                             |
+| -------------- | ---------------------------- | ----------------------------------- |
+| **Frontend**   | Next.js 14+ (App Router)     | Modern React framework with SSR     |
+| **Language**   | TypeScript                   | Type safety, developer experience   |
+| **Styling**    | Tailwind CSS + shadcn/ui     | Rapid component development         |
+| **i18n**       | next-intl                    | English/Arabic support              |
+| **Database**   | PostgreSQL                   | User sessions, chat history, leads  |
+| **API**        | Next.js API Routes           | Backend logic                       |
+| **AI**         | Claude API (Anthropic)       | Chat agent + content generation     |
+| **CRM**        | HubSpot API                  | Lead management, sync               |
+| **Hosting**    | Vercel                       | Frontend deployment                 |
+| **CDN**        | Vercel / Cloudflare          | Edge caching, performance           |
+| **Monitoring** | Sentry + Datadog             | Error tracking, analytics           |
+| **Analytics**  | Google Analytics 4 + HubSpot | Traffic, conversions, user behavior |
 
 ### Project Structure
 
@@ -189,24 +204,28 @@ design-system/
 ### Content Pillars
 
 #### 1. **AI & Agents (NEW - FOCUS)**
+
 - Thought leadership: AI trends in marketing
 - How-to guides: Implementing AI for your business
 - Case studies: AI-powered client results
 - Blog series: Agent types, use cases, ROI
 
 #### 2. **Services & Solutions**
+
 - Service pages (SEO, PPC, Social, Content, etc.)
 - Problem → Solution mapping
 - Feature highlights
 - Pricing/packages
 
 #### 3. **Thought Leadership**
+
 - Industry insights & trends
 - MediaBubble team expertise
 - Client success stories
 - Whitepapers & guides
 
 #### 4. **Educational Content**
+
 - Tutorials & guides
 - Free tools & resources
 - Webinars & events
@@ -228,6 +247,7 @@ Each piece of content will have:
    - Full feature parity
 
 #### Content Creation Process:
+
 ```
 1. Create English outline
 2. Write English version (SEO, keywords, structure)
@@ -240,8 +260,9 @@ Each piece of content will have:
 ### AI Chat Agent Content
 
 #### System Prompt Template:
+
 ```
-You are MediaBubble's friendly AI assistant, helping visitors learn about 
+You are MediaBubble's friendly AI assistant, helping visitors learn about
 AI-powered marketing solutions.
 
 Language: Detect from user input (English or Egyptian Arabic)
@@ -266,6 +287,7 @@ When user provides contact info:
 ### Phase 1: Design System & Brand Foundation (Weeks 1-2)
 
 **Deliverables:**
+
 - [ ] Color palette (primary, secondary, accent + semantic)
 - [ ] Typography system (fonts, scales, line heights)
 - [ ] Component specifications (40+ components)
@@ -276,6 +298,7 @@ When user provides contact info:
 - [ ] Design tokens JSON file
 
 **Key Decisions:**
+
 - Primary font: (Recommend: Inter/Poppins for English, + Cairo (sans-serif) for Arabic)
 - Color scheme: (Recommend: Tech-forward + warm accent for AI positioning)
 - Component library: shadcn/ui (Headless UI + Tailwind)
@@ -283,6 +306,7 @@ When user provides contact info:
 ### Phase 2: Content Strategy & Bilingual Structure (Weeks 2-3)
 
 **Deliverables:**
+
 - [ ] Content audit of current site
 - [ ] Content calendar (12+ months)
 - [ ] Bilingual content templates
@@ -293,6 +317,7 @@ When user provides contact info:
 - [ ] Tone & voice guidelines (both languages)
 
 **Key Tasks:**
+
 - Interview team on AI capabilities & success stories
 - Define target audience (startups, SMBs, enterprises)
 - Map service pages to AI benefits
@@ -300,6 +325,7 @@ When user provides contact info:
 ### Phase 3: AI Chat Agent Architecture (Weeks 3-4)
 
 **Deliverables:**
+
 - [ ] Agent spec document
 - [ ] Conversation flow diagrams (Miro/FigJam)
 - [ ] System prompt templates
@@ -309,6 +335,7 @@ When user provides contact info:
 - [ ] Analytics plan (conversations, conversion tracking)
 
 **Key Decisions:**
+
 - Agent platform: Claude API (via Anthropic)
 - Conversation persistence: PostgreSQL
 - Language detection: Auto-detect from first message
@@ -317,6 +344,7 @@ When user provides contact info:
 ### Phase 4: Build React Website Foundation (Weeks 4-5)
 
 **Deliverables:**
+
 - [ ] Next.js project scaffold
 - [ ] TypeScript configuration
 - [ ] Tailwind CSS + design tokens
@@ -328,6 +356,7 @@ When user provides contact info:
 - [ ] SEO setup (metadata, sitemap, robots.txt)
 
 **Commands:**
+
 ```bash
 # Create project
 npx create-next-app@latest mediabubble-website \
@@ -346,6 +375,7 @@ npm install next-intl
 ### Phase 5: Implement Core Pages & Components (Weeks 5-8)
 
 **Home Page:**
+
 - [ ] Hero section (AI messaging, CTA)
 - [ ] Services grid with AI highlights
 - [ ] Testimonials section
@@ -353,6 +383,7 @@ npm install next-intl
 - [ ] CTA section + chat widget
 
 **Services Pages:**
+
 - [ ] Service overview (4 pillars)
 - [ ] Sub-service detail pages (10+)
 - [ ] AI integration highlight on each
@@ -360,6 +391,7 @@ npm install next-intl
 - [ ] CTA + chat widget
 
 **Other Pages:**
+
 - [ ] About Us (team, company story, AI focus)
 - [ ] Solutions (problem → solution mapping)
 - [ ] Portfolio (case studies with metrics)
@@ -370,6 +402,7 @@ npm install next-intl
 ### Phase 6: Integrate AI Chat Agent (Weeks 8-9)
 
 **Deliverables:**
+
 - [ ] Chat widget component
 - [ ] Claude API integration
 - [ ] Language detection & switching
@@ -381,6 +414,7 @@ npm install next-intl
 - [ ] Mobile responsiveness
 
 **Testing:**
+
 - [ ] Test conversations (both languages)
 - [ ] Lead capture verification
 - [ ] HubSpot sync validation
@@ -389,6 +423,7 @@ npm install next-intl
 ### Phase 7: Performance, SEO & Accessibility (Weeks 9-10)
 
 **Deliverables:**
+
 - [ ] Image optimization
 - [ ] Code splitting & lazy loading
 - [ ] Core Web Vitals optimization
@@ -400,6 +435,7 @@ npm install next-intl
 - [ ] Performance monitoring
 
 **Targets:**
+
 - LCP: < 2.5s
 - FID: < 100ms
 - CLS: < 0.1
@@ -408,6 +444,7 @@ npm install next-intl
 ### Phase 8: Testing & QA (Weeks 10-11)
 
 **Deliverables:**
+
 - [ ] Unit tests (React components)
 - [ ] Integration tests (pages, flows)
 - [ ] E2E tests (critical journeys)
@@ -421,6 +458,7 @@ npm install next-intl
 ### Phase 9: Migration & Deployment (Week 11-12)
 
 **Deliverables:**
+
 - [ ] Production environment setup (Vercel)
 - [ ] DNS/domain configuration
 - [ ] Redirect mapping (old URLs)
@@ -431,6 +469,7 @@ npm install next-intl
 ### Phase 10: Design System Documentation (Week 12+)
 
 **Deliverables:**
+
 - [ ] Storybook deployment
 - [ ] Component documentation (40+ components)
 - [ ] Design tokens documentation
@@ -445,12 +484,13 @@ npm install next-intl
 ### AI Chat Agent Implementation
 
 #### 1. Chat Widget Component
+
 ```tsx
 // components/ChatWidget.tsx
 export function ChatWidget() {
   const [open, setOpen] = useState(false);
   const locale = useLocale(); // English or Arabic
-  
+
   return (
     <>
       <ChatButton onClick={() => setOpen(true)} />
@@ -465,34 +505,33 @@ export function ChatWidget() {
 ```
 
 #### 2. Claude API Integration
+
 ```typescript
 // lib/claude.ts
 import Anthropic from "@anthropic-sdk/sdk";
 
 const client = new Anthropic();
 
-export async function chatWithAgent(
-  messages: Message[],
-  locale: "en" | "ar"
-) {
-  const systemPrompt = 
+export async function chatWithAgent(messages: Message[], locale: "en" | "ar") {
+  const systemPrompt =
     locale === "en" ? ENGLISH_SYSTEM_PROMPT : ARABIC_SYSTEM_PROMPT;
-  
+
   const response = await client.messages.create({
     model: "claude-3-5-sonnet-20241022",
     max_tokens: 1024,
     system: systemPrompt,
-    messages: messages.map(m => ({
+    messages: messages.map((m) => ({
       role: m.role,
-      content: m.content
-    }))
+      content: m.content,
+    })),
   });
-  
+
   return response.content[0].type === "text" ? response.content[0].text : "";
 }
 ```
 
 #### 3. HubSpot Lead Capture
+
 ```typescript
 // lib/hubspot.ts
 export async function createHubSpotLead(leadData: {
@@ -507,8 +546,8 @@ export async function createHubSpotLead(leadData: {
     {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${process.env.HUBSPOT_API_KEY}`,
-        "Content-Type": "application/json"
+        Authorization: `Bearer ${process.env.HUBSPOT_API_KEY}`,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         properties: {
@@ -516,12 +555,12 @@ export async function createHubSpotLead(leadData: {
           phone: leadData.phone,
           firstname: leadData.firstName,
           lastname: leadData.lastName,
-          service_interest: leadData.serviceInterest
-        }
-      })
-    }
+          service_interest: leadData.serviceInterest,
+        },
+      }),
+    },
   );
-  
+
   return response.json();
 }
 ```
@@ -617,18 +656,21 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 ## Part 6: Success Metrics
 
 ### Business Metrics
+
 - **Lead Generation:** 50+ qualified leads/month from chat agent
 - **Conversion Rate:** 5%+ contact form completion
 - **Chat Engagement:** 80%+ visitor chat initiation rate
 - **Consultation Booking:** 30%+ of chat leads → booked consultations
 
 ### Technical Metrics
+
 - **Performance:** Lighthouse score 95+, LCP < 2.5s
 - **SEO:** #1-3 rankings for target keywords (both English & Arabic)
 - **Availability:** 99.9% uptime
 - **Accessibility:** WCAG 2.1 AA compliance 100%
 
 ### User Metrics
+
 - **Mobile Traffic:** 60%+ of total traffic
 - **Return Visitors:** 40%+ returning within 30 days
 - **Blog Engagement:** 3+ min avg. time on page
@@ -639,6 +681,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 ## Part 7: Maintenance & Scaling
 
 ### Post-Launch (Monthly)
+
 - [ ] Monitor performance & analytics
 - [ ] Update blog with new AI insights
 - [ ] Optimize chat agent based on conversations
@@ -646,6 +689,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 - [ ] Security updates & dependency upgrades
 
 ### Quarterly
+
 - [ ] A/B test landing page variations
 - [ ] Quarterly content audit & refresh
 - [ ] Chat agent training data updates
@@ -653,7 +697,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 - [ ] SEO performance analysis
 
 ### Design System for Future Apps
+
 Once validated on the website, this design system will power:
+
 1. **Client Dashboard** (project tracking, analytics)
 2. **Internal CMS** (content management)
 3. **Campaign Manager** (unified advertising view)
@@ -665,6 +711,7 @@ Once validated on the website, this design system will power:
 ## Part 8: Team & Resources
 
 ### Required Roles
+
 - **Product Manager** (1) - Strategy, prioritization
 - **Frontend Developers** (2-3) - React/Next.js
 - **Backend/API Developer** (1) - Node.js, integrations
@@ -674,6 +721,7 @@ Once validated on the website, this design system will power:
 - **DevOps/Infra** (0.5) - Deployment, monitoring
 
 ### External Resources
+
 - AI Integration: Claude API (Anthropic)
 - CRM: HubSpot
 - Hosting: Vercel
@@ -685,6 +733,7 @@ Once validated on the website, this design system will power:
 ## Part 9: Budget Considerations
 
 ### Development Costs (Estimated)
+
 - Design System: $15K-20K
 - Website Build: $30K-40K
 - Chat Agent Integration: $10K-15K
@@ -693,6 +742,7 @@ Once validated on the website, this design system will power:
 - **Total: $62K-86K**
 
 ### Ongoing Costs (Monthly)
+
 - Hosting (Vercel): $50-200
 - Claude API: $100-500 (based on usage)
 - HubSpot: $50-500 (based on contacts)

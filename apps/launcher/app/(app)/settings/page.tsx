@@ -2,14 +2,21 @@ import type { Metadata } from 'next'
 import { getServerSession } from '@/lib/auth/server-session'
 import { prisma } from '@/lib/db/prisma'
 import { SettingsDashboard } from './settings-dashboard'
+import type { WorkspacePrefs } from './settings-dashboard'
 
 export const metadata: Metadata = { title: 'Settings' }
 export const dynamic = 'force-dynamic'
 
+const DEFAULT_PREFS: WorkspacePrefs = {
+  timezone: 'Africa/Cairo',
+  default_currency: 'EGP',
+  notifications: { email_digest: true, task_reminders: true, weekly_report: false },
+}
+
 export default async function SettingsPage() {
   const session = await getServerSession()
 
-  const [userRow, teamRows] = await Promise.all([
+  const [userRow, teamRows, prefRows] = await Promise.all([
     session
       ? prisma.users.findUnique({
           where: { id: session.id },
@@ -39,6 +46,15 @@ export default async function SettingsPage() {
         },
       },
     }),
+    session
+      ? prisma.settings.findMany({
+          where: {
+            user_id: session.id,
+            key: { in: ['ui.timezone', 'ui.default_currency', 'ui.notifications'] },
+          },
+          select: { key: true, value: true },
+        })
+      : [],
   ])
 
   const toMember = (r: typeof teamRows[number]) => ({
@@ -54,5 +70,20 @@ export default async function SettingsPage() {
     ? toMember(userRow)
     : { id: '', name: 'Unknown', email: '', avatar_url: null, role: 'Viewer', department: null }
 
-  return <SettingsDashboard user={user} team={teamRows.map(toMember)} />
+  const prefMap = Object.fromEntries(prefRows.map((r) => [r.key, r.value]))
+  const workspacePrefs: WorkspacePrefs = {
+    timezone: (prefMap['ui.timezone'] as string) ?? DEFAULT_PREFS.timezone,
+    default_currency: (prefMap['ui.default_currency'] as string) ?? DEFAULT_PREFS.default_currency,
+    notifications:
+      (prefMap['ui.notifications'] as WorkspacePrefs['notifications']) ??
+      DEFAULT_PREFS.notifications,
+  }
+
+  return (
+    <SettingsDashboard
+      user={user}
+      team={teamRows.map(toMember)}
+      workspacePrefs={workspacePrefs}
+    />
+  )
 }

@@ -8,6 +8,7 @@
 **Description:** Comprehensive Arabic language skills spanning conversational Egyptian Arabic (Masri), formal Modern Standard Arabic, regional dialects, translation, and business communication.
 
 **Metadata:**
+
 ```
 type: parent
 priority: high
@@ -17,6 +18,7 @@ dialects: [Masri/Egyptian, MSA/Modern Standard, Levantine, Gulf, Moroccan, Sudan
 ```
 
 **Child Skills (5):**
+
 1. arabic:language-masri-core
 2. arabic:language-masri-business
 3. arabic:language-msa-formal
@@ -24,6 +26,7 @@ dialects: [Masri/Egyptian, MSA/Modern Standard, Levantine, Gulf, Moroccan, Sudan
 5. arabic:language-translation
 
 **Agent Guidelines:**
+
 - Lead with Masri examples in Masri-focused skills
 - Always include pronunciation guides
 - Explain cultural context & usage patterns
@@ -41,6 +44,7 @@ dialects: [Masri/Egyptian, MSA/Modern Standard, Levantine, Gulf, Moroccan, Sudan
 **Description:** Comprehensive Arabic and Islamic design skills encompassing calligraphy, typography, visual arts, cultural aesthetics, UI/UX localization, and marketing-focused creative design.
 
 **Metadata:**
+
 ```
 type: parent
 priority: high
@@ -51,6 +55,7 @@ cultural-focus: [Authentic representation, Historical context, Modern interpreta
 ```
 
 **Child Skills (6):**
+
 1. arabic:design-calligraphy
 2. arabic:design-typography
 3. arabic:design-visual-arts
@@ -59,6 +64,7 @@ cultural-focus: [Authentic representation, Historical context, Modern interpreta
 6. arabic:design-marketing-creative
 
 **Agent Guidelines:**
+
 - Explain historical & cultural context first
 - Clarify authentic vs. stereotypical representations
 - Include modern designer examples & contemporary applications
@@ -72,6 +78,7 @@ cultural-focus: [Authentic representation, Historical context, Modern interpreta
 ## IMPLEMENTATION NOTES
 
 Both parent categories should:
+
 - Be discoverable via search (name + slug)
 - Support 5-6 child skills respectively
 - Have clear metadata for classification

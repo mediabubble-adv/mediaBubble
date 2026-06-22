@@ -11,6 +11,7 @@ Each department is organized into specialized sub-teams, where each specialist h
 ## 1. DESIGN DEPARTMENT
 
 ### Team Structure
+
 ```
 Design Department
 ├── UI/UX Design Specialists
@@ -43,7 +44,9 @@ Design Department
 ### Specialist Agents (5 per specialist)
 
 #### **WEB UI DESIGNER SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Web Layout Generator** — Auto-generates wireframes & layouts for web pages
 2. **Web Component Designer** — Creates reusable UI components (buttons, cards, forms)
 3. **Web Responsive Optimizer** — Ensures designs work across all screen sizes
@@ -51,6 +54,7 @@ Design Department
 5. **Web Design System Manager** — Maintains & updates web design system consistency
 
 **Metrics Tracked:**
+
 - Web page layout generation time: Target 60% reduction
 - Component reusability score: Target >85%
 - Accessibility compliance: Target 100% (WCAG AA)
@@ -62,7 +66,9 @@ Design Department
 ---
 
 #### **MOBILE APP DESIGNER SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **iOS Design Optimizer** — Generates iOS-specific designs (Apple HIG compliance)
 2. **Android Design Optimizer** — Generates Android-specific designs (Material Design)
 3. **Mobile Navigation Designer** — Creates navigation patterns & information architecture
@@ -70,6 +76,7 @@ Design Department
 5. **Mobile Performance Monitor** — Ensures designs load fast, handle edge cases
 
 **Metrics Tracked:**
+
 - iOS/Android design time: Target 70% reduction
 - Platform guideline compliance: Target 100%
 - Mobile performance score: Target >90 (Lighthouse)
@@ -81,7 +88,9 @@ Design Department
 ---
 
 #### **APPLICATION DESIGNER SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Enterprise Dashboard Designer** — Creates complex data visualization dashboards
 2. **Forms & Data Entry Designer** — Designs intuitive forms & data collection flows
 3. **Navigation & Information Architect** — Structures complex application hierarchies
@@ -89,6 +98,7 @@ Design Department
 5. **Application Consistency Auditor** — Ensures patterns consistent across app
 
 **Metrics Tracked:**
+
 - Dashboard generation time: Target 75% reduction
 - Form completion rate improvement: Target +30%
 - Information architecture clarity: Target >90%
@@ -100,7 +110,9 @@ Design Department
 ---
 
 #### **LOGO & BRAND IDENTITY DESIGNER SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Logo Concept Generator** — Creates multiple logo concepts from brand brief
 2. **Logo Refinement Assistant** — Iterates and perfects selected logo concepts
 3. **Brand Identity Kit Builder** — Creates full brand identity guidelines (logo variants, usage)
@@ -108,6 +120,7 @@ Design Department
 5. **Logo Versatility Tester** — Tests logos across sizes, colors, backgrounds
 
 **Metrics Tracked:**
+
 - Logo concept generation: Target 5 concepts in 2 hours (vs. 8 hours manual)
 - Concept diversity score: Target >85% uniqueness
 - Brand identity kit completeness: Target 100%
@@ -119,7 +132,9 @@ Design Department
 ---
 
 #### **COLOR & TYPOGRAPHY SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Color Palette Generator** — Creates harmonious color palettes from brand direction
 2. **Color Accessibility Validator** — Ensures color contrast meets WCAG standards
 3. **Typography System Builder** — Establishes type hierarchies & font pairings
@@ -127,6 +142,7 @@ Design Department
 5. **Color Mood Analyzer** — Analyzes emotional impact of color selections
 
 **Metrics Tracked:**
+
 - Palette generation time: Target 80% reduction
 - Accessibility compliance: Target 100% (WCAG AA contrast)
 - Typography system adoption: Target >90%
@@ -138,7 +154,9 @@ Design Department
 ---
 
 #### **MOTION GRAPHICS DESIGNER SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Motion Concept Storyboarder** — Creates storyboards for motion graphics
 2. **Animation Sequence Generator** — Generates keyframe sequences for animations
 3. **Motion Timing Optimizer** — Perfects animation timing & easing curves
@@ -146,6 +164,7 @@ Design Department
 5. **Motion Performance Monitor** — Ensures animations render at target frame rate
 
 **Metrics Tracked:**
+
 - Motion concept creation: Target 90% reduction in time
 - Animation realism score: Target >85%
 - Performance (fps): Target 60 FPS minimum
@@ -175,6 +194,7 @@ Total Department ROI: $45K/month savings
 ## 2. SOCIAL MEDIA MARKETING DEPARTMENT
 
 ### Team Structure
+
 ```
 Social Media Marketing Department
 ├── Content Creation Specialists
@@ -207,7 +227,9 @@ Social Media Marketing Department
 ### Specialist Agents (5 per specialist)
 
 #### **SEO CONTENT CREATOR SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **SEO Blog Post Generator** — Writes SEO-optimized blog posts targeting keywords
 2. **Keyword Integration Assistant** — Naturally integrates target keywords into content
 3. **Internal Linking Optimizer** — Recommends and creates internal link opportunities
@@ -215,6 +237,7 @@ Social Media Marketing Department
 5. **SEO Content Performance Tracker** — Monitors rankings, traffic, CTR for content
 
 **Metrics Tracked:**
+
 - Blog post creation time: Target 70% reduction (3 hours → 1 hour)
 - Keyword ranking improvement: Target +25 positions within 3 months
 - Organic traffic per post: Target +40% vs. baseline
@@ -226,7 +249,9 @@ Social Media Marketing Department
 ---
 
 #### **EDUCATIONAL CONTENT CREATOR SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **How-To Guide Generator** — Creates step-by-step how-to content
 2. **Tutorial Script Writer** — Writes scripts for tutorial videos/content
 3. **Educational Structure Mapper** — Builds learning paths & content sequences
@@ -234,6 +259,7 @@ Social Media Marketing Department
 5. **Educational Accuracy Validator** — Ensures accuracy of technical/educational content
 
 **Metrics Tracked:**
+
 - How-to guide generation: Target 80% time reduction
 - Readability score: Target >4.5/5 (easy to understand)
 - Educational value rating: Target >4.6/5 (from learners)
@@ -245,7 +271,9 @@ Social Media Marketing Department
 ---
 
 #### **ENGAGEMENT CONTENT CREATOR SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Question & Poll Generator** — Creates engaging questions to spark discussion
 2. **Trending Topic Reactor** — Quickly capitalizes on trending topics with relevant takes
 3. **Meme & Humor Creator** — Generates brand-appropriate humor & meme content
@@ -253,6 +281,7 @@ Social Media Marketing Department
 5. **Engagement Optimizer** — A/B tests content variations for maximum engagement
 
 **Metrics Tracked:**
+
 - Content engagement rate: Target 5-8% (vs. 2% baseline)
 - Comment/discussion rate: Target +60%
 - Share rate: Target +40%
@@ -264,7 +293,9 @@ Social Media Marketing Department
 ---
 
 #### **BRAND CONTENT CREATOR SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Brand Voice Consistency Checker** — Ensures all content matches brand voice
 2. **Brand Story Generator** — Creates compelling brand narrative content
 3. **Values-Aligned Content Creator** — Aligns content with brand values & mission
@@ -272,6 +303,7 @@ Social Media Marketing Department
 5. **Brand Positioning Reinforcer** — Consistently reinforces brand positioning
 
 **Metrics Tracked:**
+
 - Brand voice consistency: Target >95%
 - Message penetration (% of audience aware of message): Target +30%
 - Brand preference: Target +15% vs. competitors
@@ -283,7 +315,9 @@ Social Media Marketing Department
 ---
 
 #### **VIDEO SCRIPT WRITER SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Short-Form Video Script Generator** — Writes scripts for 15-60 sec videos
 2. **Long-Form Video Script Creator** — Writes scripts for 3-10 min videos
 3. **Hook & Opening Generator** — Creates compelling video hooks & opens
@@ -291,6 +325,7 @@ Social Media Marketing Department
 5. **Call-to-Action Optimizer** — Crafts CTAs that drive desired action
 
 **Metrics Tracked:**
+
 - Script generation time: Target 80% reduction (2 hours → 25 min)
 - Video engagement rate: Target 6-9% (views to engagement)
 - Watch-time completion: Target >60% (average view duration)
@@ -302,7 +337,9 @@ Social Media Marketing Department
 ---
 
 #### **REEL & SHORT-FORM VIDEO SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **TikTok/Reel Trend Analyzer** — Identifies trending formats & sounds
 2. **Quick Hook Generator** — Creates 3-second hooks optimized for scroll-stopping
 3. **Reel Script Writer** — Writes scripts optimized for platform algorithm (Instagram/TikTok)
@@ -310,6 +347,7 @@ Social Media Marketing Department
 5. **Short-Form Performance Tracker** — Monitors performance across platforms
 
 **Metrics Tracked:**
+
 - Reel creation time: Target 85% reduction
 - Reel engagement rate: Target 8-12%
 - Save/share rate: Target 15%+ (high intent metric)
@@ -321,7 +359,9 @@ Social Media Marketing Department
 ---
 
 #### **ARABIC CONTENT CREATOR SPECIALIST (Formal)**
+
 **Agents Under This Specialist:**
+
 1. **Standard Arabic Content Generator** — Creates formal/Modern Standard Arabic content
 2. **Arabic SEO Optimizer** — Optimizes content for Arabic search
 3. **Arabic Cultural Adaptation** — Ensures cultural appropriateness for Arabic markets
@@ -329,6 +369,7 @@ Social Media Marketing Department
 5. **Arabic Content Quality Auditor** — Validates grammar, style, cultural fit
 
 **Metrics Tracked:**
+
 - Arabic content generation time: Target 70% reduction
 - Arabic audience engagement: Target 5-7%
 - Cultural appropriateness score: Target >95%
@@ -340,7 +381,9 @@ Social Media Marketing Department
 ---
 
 #### **MASRI/EGYPTIAN DIALECT CREATOR SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Masri Dialect Content Generator** — Writes conversational Egyptian Arabic content
 2. **Colloquial Tone Matcher** — Matches local dialect nuances & humor
 3. **Egyptian Cultural Relevance Checker** — Ensures content resonates locally
@@ -348,6 +391,7 @@ Social Media Marketing Department
 5. **Masri Authenticity Validator** — Ensures dialect authenticity (not "forced")
 
 **Metrics Tracked:**
+
 - Masri content engagement: Target 6-10% (higher than formal Arabic)
 - Local audience growth: Target +4% monthly
 - Authenticity rating: Target >4.7/5 (from local audience)
@@ -359,7 +403,9 @@ Social Media Marketing Department
 ---
 
 #### **LINKEDIN CONTENT SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **LinkedIn Professional Post Generator** — Writes B2B/professional posts
 2. **LinkedIn Article Creator** — Generates long-form LinkedIn articles
 3. **LinkedIn Thought Leadership Amplifier** — Positions brand as industry leader
@@ -367,6 +413,7 @@ Social Media Marketing Department
 5. **LinkedIn Network Growth Assistant** — Strategies for LinkedIn audience building
 
 **Metrics Tracked:**
+
 - Post generation time: Target 75% reduction
 - LinkedIn engagement (comments): Target 3-5% comment rate
 - Professional audience growth: Target +3% monthly
@@ -378,7 +425,9 @@ Social Media Marketing Department
 ---
 
 #### **INSTAGRAM & TIKTOK SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Instagram Carousel Generator** — Creates engaging carousel posts
 2. **TikTok Trend Validator** — Identifies high-potential TikTok trends
 3. **Visual-First Script Writer** — Writes scripts optimized for visual platforms
@@ -386,6 +435,7 @@ Social Media Marketing Department
 5. **Aesthetic Consistency Manager** — Maintains consistent visual aesthetic
 
 **Metrics Tracked:**
+
 - Content creation time: Target 80% reduction
 - Instagram engagement rate: Target 4-6%
 - TikTok engagement rate: Target 8-12%
@@ -419,6 +469,7 @@ Total Department ROI: $72K/month savings
 ## 3. LEAD GENERATION DEPARTMENT
 
 ### Team Structure
+
 ```
 Lead Generation Department
 ├── Lead Scoring & Qualification Specialists
@@ -456,7 +507,9 @@ Lead Generation Department
 ### Specialist Agents (5 per specialist)
 
 #### **B2B LEAD SCORER SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Company Fit Analyzer** — Scores company against ICP (firmographic data)
 2. **Decision-Maker Identifier** — Identifies decision-maker signals
 3. **Budget Indicator Detector** — Identifies budget availability signals
@@ -464,6 +517,7 @@ Lead Generation Department
 5. **B2B Lead Score Aggregator** — Combines signals into final lead score
 
 **Metrics Tracked:**
+
 - Lead scoring accuracy: Target >90%
 - False positive rate: Target <10%
 - Lead-to-sales conversion: Target +40% vs. manual scoring
@@ -475,7 +529,9 @@ Lead Generation Department
 ---
 
 #### **COLD EMAIL COPY WRITER SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Hook Line Generator** — Creates compelling email subject lines
 2. **Personalization Injector** — Personalizes email with prospect-specific details
 3. **Value Proposition Writer** — Clearly articulates value/benefit
@@ -483,6 +539,7 @@ Lead Generation Department
 5. **CTA Optimizer** — Creates high-converting calls-to-action
 
 **Metrics Tracked:**
+
 - Email open rate: Target 25%+ (vs. 18% industry avg)
 - Click-through rate: Target 5%+ (vs. 3% industry avg)
 - Reply rate: Target 3-5% (hot prospects)
@@ -494,7 +551,9 @@ Lead Generation Department
 ---
 
 #### **PERSONALIZATION SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Research-Based Personalization Writer** — Adds company-specific details
 2. **Role-Specific Customizer** — Tailors message to prospect's job function
 3. **Industry-Focused Adapter** — Customizes for industry-specific pain points
@@ -502,6 +561,7 @@ Lead Generation Department
 5. **Relationship Building Personalization** — Creates personal connection angles
 
 **Metrics Tracked:**
+
 - Personalization success rate: Target >85% (prospect recognizes themselves)
 - Email response rate: Target +50% vs. generic
 - Personalization accuracy: Target >92%
@@ -513,7 +573,9 @@ Lead Generation Department
 ---
 
 #### **NURTURE EMAIL WRITER SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Email Sequence Builder** — Creates 7+ email nurture sequences
 2. **Value-Add Content Provider** — Educates prospect with useful content
 3. **Objection Handler** — Addresses specific objections in sequence
@@ -521,6 +583,7 @@ Lead Generation Department
 5. **Urgency & Scarcity Specialist** — Creates appropriate urgency without aggression
 
 **Metrics Tracked:**
+
 - Sequence completion rate: Target >70% (recipient opens most/all emails)
 - Conversion rate from sequence: Target 10-15% (cool leads → warm)
 - Email-to-sales handoff: Target +60% qualified leads
@@ -532,7 +595,9 @@ Lead Generation Department
 ---
 
 #### **LINKEDIN OUTREACH SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **LinkedIn Connection Message Writer** — Writes compelling connection requests
 2. **LinkedIn InMail Creator** — Writes InMail for high-value prospects
 3. **LinkedIn Profile Analyzer** — Analyzes profile to find engagement angles
@@ -540,6 +605,7 @@ Lead Generation Department
 5. **LinkedIn Relationship Warm-Up Sequencer** — Plans 30-day relationship building sequence
 
 **Metrics Tracked:**
+
 - Connection acceptance rate: Target >45%
 - LinkedIn message response rate: Target 5-8%
 - LinkedIn-sourced meeting rate: Target +50%
@@ -551,7 +617,9 @@ Lead Generation Department
 ---
 
 #### **LEAD QUALITY ANALYST SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Lead Scoring Validator** — Validates accuracy of lead scores
 2. **Conversion Path Analyzer** — Analyzes what leads → customers
 3. **Churn Predictor** — Identifies likely to churn leads
@@ -559,6 +627,7 @@ Lead Generation Department
 5. **Predictive Lead Quality Scorer** — ML model to predict lead quality
 
 **Metrics Tracked:**
+
 - Lead quality prediction accuracy: Target >85%
 - Lead-to-customer conversion rate: Target +30% vs. baseline
 - Average deal size from high-quality leads: Target +40%
@@ -589,6 +658,7 @@ Total Department ROI: $58K/month savings
 ## 4. MEDIA BUYING DEPARTMENT
 
 ### Team Structure
+
 ```
 Media Buying Department
 ├── Platform Specialists
@@ -626,7 +696,9 @@ Media Buying Department
 ### Specialist Agents (5 per specialist)
 
 #### **GOOGLE ADS SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Search Campaign Optimizer** — Optimizes Google Search campaigns
 2. **Keyword Bid Manager** — Manages keyword bids for max ROAS
 3. **Search Ad Copy Tester** — A/B tests search ad headlines & descriptions
@@ -634,6 +706,7 @@ Media Buying Department
 5. **Google Display Campaign Manager** — Manages display/remarketing campaigns
 
 **Metrics Tracked:**
+
 - Google Ads ROAS: Target 3.5:1
 - Quality Score improvement: Target >7/10 average
 - Click-through rate: Target +25% vs. baseline
@@ -645,7 +718,9 @@ Media Buying Department
 ---
 
 #### **META ADS SPECIALIST (Facebook/Instagram)**
+
 **Agents Under This Specialist:**
+
 1. **Facebook Campaign Creator** — Builds Facebook advertising campaigns
 2. **Instagram Story Ads Optimizer** — Optimizes Instagram story format ads
 3. **Carousel Ads Designer** — Creates engaging carousel ad sequences
@@ -653,6 +728,7 @@ Media Buying Department
 5. **Meta Retargeting Coordinator** — Manages Facebook/Instagram retargeting
 
 **Metrics Tracked:**
+
 - Meta Ads ROAS: Target 2.8:1
 - Cost per lead (lead gen): Target -30% reduction
 - Engagement rate: Target 4-6%
@@ -664,7 +740,9 @@ Media Buying Department
 ---
 
 #### **BID STRATEGY OPTIMIZER SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Automated Bidding Analyst** — Manages automated bid strategies (Target CPA, ROAS)
 2. **Manual Bid Adjuster** — Adjusts bids based on performance signals
 3. **Dayparting Bid Strategist** — Optimizes bids by time of day/day of week
@@ -672,6 +750,7 @@ Media Buying Department
 5. **Geographic Bid Optimizer** — Optimizes bids by location/region
 
 **Metrics Tracked:**
+
 - Bid optimization accuracy: Target >85%
 - ROAS improvement from bidding: Target +20-25%
 - Bid adjustment impact: Target +15% efficiency
@@ -683,7 +762,9 @@ Media Buying Department
 ---
 
 #### **AUDIENCE TARGETING SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Lookalike Audience Builder** — Creates lookalike audiences from customer data
 2. **Interest-Based Audience Creator** — Builds audiences by interests/behaviors
 3. **Demographic Analyzer** — Identifies best-performing demographics
@@ -691,6 +772,7 @@ Media Buying Department
 5. **Audience Expansion Strategist** — Safely expands audience while maintaining ROI
 
 **Metrics Tracked:**
+
 - Audience targeting accuracy: Target >80%
 - Audience relevance (CTR): Target +30%
 - Lookalike audience quality: Target 2.5:1 ROAS
@@ -702,7 +784,9 @@ Media Buying Department
 ---
 
 #### **CREATIVE PERFORMANCE ANALYZER SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Ad Creative Scorer** — Rates ad creative quality & predicted performance
 2. **Creative Element Analyzer** — Identifies winning creative elements
 3. **Visual vs. Text Optimizer** — Determines optimal balance of visuals/text
@@ -710,6 +794,7 @@ Media Buying Department
 5. **Creative Fatigue Detector** — Identifies when creative needs refresh
 
 **Metrics Tracked:**
+
 - Creative prediction accuracy: Target >75%
 - Ad performance improvement from insights: Target +20%
 - Creative optimization impact: Target +15% CTR
@@ -721,7 +806,9 @@ Media Buying Department
 ---
 
 #### **ROAS ANALYZER SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Campaign ROAS Tracker** — Monitors ROAS across all campaigns
 2. **ROAS Target Recommender** — Recommends realistic ROAS targets
 3. **Revenue Attribution Mapper** — Accurately attributes revenue to campaigns
@@ -729,6 +816,7 @@ Media Buying Department
 5. **Profitability Calculator** — Calculates true profitability (including overhead)
 
 **Metrics Tracked:**
+
 - ROAS tracking accuracy: Target >95%
 - Attribution model accuracy: Target >90%
 - Profitability insight accuracy: Target >85%
@@ -760,6 +848,7 @@ Total Department ROI: $78K/month profit (all platforms combined)
 ## 5. DEVELOPMENT DEPARTMENT
 
 ### Team Structure
+
 ```
 Development Department
 ├── Frontend Specialists
@@ -797,7 +886,9 @@ Development Department
 ### Specialist Agents (5 per specialist)
 
 #### **REACT/VUE.JS SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Component Structure Analyzer** — Reviews component architecture
 2. **State Management Validator** — Audits state management patterns
 3. **Hook Usage Optimizer** — Optimizes React hooks usage
@@ -805,6 +896,7 @@ Development Department
 5. **Framework Best Practice Auditor** — Ensures compliance with framework standards
 
 **Metrics Tracked:**
+
 - Code review speed: Target 70% reduction
 - Component reusability score: Target >80%
 - Performance regression detection: Target 100% catch rate
@@ -816,7 +908,9 @@ Development Department
 ---
 
 #### **API DEVELOPMENT SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **API Design Reviewer** — Reviews API design & RESTful principles
 2. **Authentication Reviewer** — Audits authentication/authorization logic
 3. **Rate Limiting & Throttling Validator** — Ensures proper rate limiting
@@ -824,6 +918,7 @@ Development Department
 5. **API Documentation Validator** — Ensures API docs accurate & complete
 
 **Metrics Tracked:**
+
 - API design compliance: Target >95%
 - Security vulnerability detection: Target 100%
 - API performance (response time): Target <200ms avg
@@ -835,7 +930,9 @@ Development Department
 ---
 
 #### **SECURITY TESTING SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Vulnerability Scanner** — Automated security vulnerability detection
 2. **Authentication Tester** — Tests auth flows for vulnerabilities
 3. **SQL Injection Detector** — Identifies SQL injection risks
@@ -843,6 +940,7 @@ Development Department
 5. **Compliance Auditor** — Audits compliance with security standards
 
 **Metrics Tracked:**
+
 - Vulnerability detection rate: Target 100%
 - False positive rate: Target <5%
 - Security issue fix time: Target <48 hours for critical
@@ -854,7 +952,9 @@ Development Department
 ---
 
 #### **AUTOMATED TESTING SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Unit Test Generator** — Generates unit tests for new code
 2. **Integration Test Planner** — Plans integration test scenarios
 3. **Test Coverage Analyzer** — Identifies under-tested code
@@ -862,6 +962,7 @@ Development Department
 5. **Test Maintenance Assistant** — Updates tests when code changes
 
 **Metrics Tracked:**
+
 - Test coverage: Target >80% (new code)
 - Test execution speed: Target <5 min for full suite
 - Flaky test rate: Target <1%
@@ -873,7 +974,9 @@ Development Department
 ---
 
 #### **CODE REVIEW ANALYZER SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Code Style Auditor** — Checks code style & formatting
 2. **Anti-Pattern Detector** — Finds common coding anti-patterns
 3. **Performance Analyzer** — Identifies performance problems
@@ -881,6 +984,7 @@ Development Department
 5. **Test Quality Reviewer** — Reviews test quality & coverage
 
 **Metrics Tracked:**
+
 - Code review speed: Target 75% faster
 - Issue detection accuracy: Target >90%
 - False positive rate: Target <5%
@@ -912,6 +1016,7 @@ Total Department ROI: $62K/month savings + reduced production bugs
 ## 6. MARKETING DEPARTMENT
 
 ### Team Structure
+
 ```
 Marketing Department
 ├── Content Strategy Specialists
@@ -949,7 +1054,9 @@ Marketing Department
 ### Specialist Agents (5 per specialist)
 
 #### **SEO CONTENT STRATEGIST SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **SEO Keyword Research Assistant** — Finds high-opportunity keywords
 2. **Content Opportunity Mapper** — Maps content to buyer journey
 3. **Topic Cluster Builder** — Creates topic clusters for topical authority
@@ -957,6 +1064,7 @@ Marketing Department
 5. **Competitive Keyword Analyzer** — Analyzes competitor keyword rankings
 
 **Metrics Tracked:**
+
 - Keyword opportunity identification: Target >200 opportunities/quarter
 - Content ranking improvement: Target +40 positions first page within 3 months
 - Organic traffic growth: Target +50% YoY
@@ -968,7 +1076,9 @@ Marketing Department
 ---
 
 #### **BLOG POST WRITER (B2B) SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **B2B Blog Post Outliner** — Creates outline for B2B blog posts
 2. **Technical B2B Writer** — Writes technical B2B content
 3. **Decision-Maker Content Writer** — Writes content for C-suite/decision makers
@@ -976,6 +1086,7 @@ Marketing Department
 5. **B2B Trend Analyst** — Writes about B2B industry trends
 
 **Metrics Tracked:**
+
 - Blog post generation time: Target 70% reduction (4 hours → 1.2 hours)
 - Average time on page: Target 4+ min
 - Leads generated per post: Target 5-10 qualified leads
@@ -987,7 +1098,9 @@ Marketing Department
 ---
 
 #### **CASE STUDY WRITER SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Success Story Interviewer** — Interviews clients for case study data
 2. **Case Study Structure Designer** — Designs compelling case study format
 3. **Metrics & Results Highlighter** — Emphasizes quantifiable results
@@ -995,6 +1108,7 @@ Marketing Department
 5. **Case Study Performance Tracker** — Monitors case study engagement
 
 **Metrics Tracked:**
+
 - Case study completion time: Target 80% reduction (20 hours → 4 hours)
 - Conversion rate (case study → lead): Target 8-12%
 - Sales impact: Target $50K+ attributed revenue per case study
@@ -1006,7 +1120,9 @@ Marketing Department
 ---
 
 #### **NEWSLETTER WRITER SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Newsletter Hook Creator** — Writes compelling subject lines & preview text
 2. **Newsletter Content Curator** — Selects & summarizes key content
 3. **Newsletter Story Teller** — Writes engaging narrative for newsletters
@@ -1014,6 +1130,7 @@ Marketing Department
 5. **Newsletter Analytics Tracker** — Monitors performance & optimizes
 
 **Metrics Tracked:**
+
 - Newsletter open rate: Target 25%+ (vs. 18% industry avg)
 - Click-through rate: Target 4%+ (vs. 2.5% industry avg)
 - Newsletter list growth: Target +3% monthly
@@ -1025,7 +1142,9 @@ Marketing Department
 ---
 
 #### **CONTENT ROI CALCULATOR SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Content Attribution Mapper** — Maps content to conversions
 2. **Lead Value Calculator** — Calculates value of leads from content
 3. **Customer Lifetime Value Tracker** — Tracks LTV from content customers
@@ -1033,6 +1152,7 @@ Marketing Department
 5. **ROI Reporting Generator** — Creates ROI reports by content type
 
 **Metrics Tracked:**
+
 - Attribution accuracy: Target >85%
 - Content ROI calculation: Target 100% of content tracked
 - Revenue attributed to content: Target $100K+/month
@@ -1064,6 +1184,7 @@ Total Department ROI: $85K/month (content attribution + savings)
 ## 7. SALES DEPARTMENT
 
 ### Team Structure
+
 ```
 Sales Department
 ├── Deal Management Specialists
@@ -1101,7 +1222,9 @@ Sales Department
 ### Specialist Agents (5 per specialist)
 
 #### **DISCOVERY CALL SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Call Prep Briefer** — Prepares briefing for discovery calls
 2. **Qualification Question Generator** — Creates targeted discovery questions
 3. **Call Notes Summarizer** — Auto-summarizes call notes
@@ -1109,6 +1232,7 @@ Sales Department
 5. **Next Step Recommender** — Recommends next steps based on discovery
 
 **Metrics Tracked:**
+
 - Discovery call quality score: Target >4.5/5
 - Key insight extraction accuracy: Target >90%
 - Deal progression from discovery: Target >70% move forward
@@ -1120,7 +1244,9 @@ Sales Department
 ---
 
 #### **DEMO PREPARATION SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Prospect Profile Analyzer** — Analyzes prospect for demo customization
 2. **Demo Customization Guide Creator** — Creates guide for customizing demo
 3. **Pain Point Mapper** — Maps prospects' pain points to product features
@@ -1128,6 +1254,7 @@ Sales Department
 5. **Demo Success Predictor** — Predicts likelihood of demo-to-proposal
 
 **Metrics Tracked:**
+
 - Demo customization quality: Target >4.6/5
 - Demo-to-proposal conversion: Target 60%+
 - Sales rep prep time: Target 80% reduction
@@ -1139,7 +1266,9 @@ Sales Department
 ---
 
 #### **PROPOSAL WRITER (COMPLEX DEALS) SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Custom Proposal Designer** — Designs custom proposals for large deals
 2. **ROI Calculations Expert** — Calculates ROI for proposals
 3. **Executive Summary Creator** — Writes compelling exec summaries
@@ -1147,6 +1276,7 @@ Sales Department
 5. **Proposal Review & QA** — Reviews proposals before sending
 
 **Metrics Tracked:**
+
 - Proposal generation time: Target 85% reduction (3 hours → 27 min)
 - Proposal acceptance rate: Target 75%+
 - Average deal size from proposals: Target +40%
@@ -1158,7 +1288,9 @@ Sales Department
 ---
 
 #### **WIN/LOSS ANALYZER SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Win Analysis Extractor** — Extracts learnings from won deals
 2. **Loss Root Cause Analyzer** — Identifies why deals were lost
 3. **Competitor Win Tracker** — Tracks which competitors win against
@@ -1166,6 +1298,7 @@ Sales Department
 5. **Sales Playbook Updater** — Updates sales playbooks based on wins/losses
 
 **Metrics Tracked:**
+
 - Win/loss analysis completion: Target 100% for deals >$50K
 - Actionable insights from analysis: Target >80%
 - Sales improvement from insights: Target +15% win rate
@@ -1177,7 +1310,9 @@ Sales Department
 ---
 
 #### **SALES FORECAST PREDICTOR SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Deal Probability Scorer** — Predicts probability of deal closing
 2. **Close Date Predictor** — Predicts likely close date
 3. **Revenue Forecast Calculator** — Calculates revenue forecast
@@ -1185,6 +1320,7 @@ Sales Department
 5. **Forecast Accuracy Tracker** — Monitors forecast accuracy vs. actuals
 
 **Metrics Tracked:**
+
 - Forecast accuracy: Target 85%+ (actual vs. predicted)
 - Deal probability prediction: Target >80% accuracy
 - Revenue forecast: Target within ±15% of actual
@@ -1216,6 +1352,7 @@ Total Department ROI: $120K/month (increased deal velocity + larger average deal
 ## 8. OPERATIONS/MANAGEMENT DEPARTMENT
 
 ### Team Structure
+
 ```
 Operations/Management Department
 ├── Project Management Specialists
@@ -1253,7 +1390,9 @@ Operations/Management Department
 ### Specialist Agents (5 per specialist)
 
 #### **PROJECT TIMELINE MANAGER SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Schedule Optimizer** — Creates optimal project schedules
 2. **Critical Path Analyzer** — Identifies critical path activities
 3. **Timeline Risk Predictor** — Predicts timeline risks
@@ -1261,6 +1400,7 @@ Operations/Management Department
 5. **Timeline Adjustment Planner** — Plans adjustments when delays occur
 
 **Metrics Tracked:**
+
 - Project on-time delivery: Target >90%
 - Schedule accuracy: Target ±5 days prediction
 - Timeline risk detection: Target 2+ weeks early warning
@@ -1272,7 +1412,9 @@ Operations/Management Department
 ---
 
 #### **WORKLOAD BALANCER SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Team Capacity Analyzer** — Analyzes team capacity vs. workload
 2. **Workload Rebalancer** — Recommends workload adjustments
 3. **Skill-Based Allocator** — Matches skills to work
@@ -1280,6 +1422,7 @@ Operations/Management Department
 5. **Burnout Prevention Monitor** — Flags overwork situations
 
 **Metrics Tracked:**
+
 - Team utilization rate: Target 75-85%
 - Workload balance equity: Target <10% variance between team members
 - Burnout indicators: Target zero "extreme overwork" situations
@@ -1291,7 +1434,9 @@ Operations/Management Department
 ---
 
 #### **STATUS REPORT COMPILER SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Weekly Status Aggregator** — Aggregates weekly status data
 2. **Monthly Report Generator** — Generates monthly reports
 3. **Executive Summary Distiller** — Creates executive summaries
@@ -1299,6 +1444,7 @@ Operations/Management Department
 5. **Insight Extractor** — Extracts key insights from data
 
 **Metrics Tracked:**
+
 - Report generation time: Target 90% reduction
 - Report completeness: Target 100%
 - Executive understanding: Target >4.5/5
@@ -1310,7 +1456,9 @@ Operations/Management Department
 ---
 
 #### **CLIENT COMMUNICATION MANAGER SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Client Message Responder** — Drafts responses to client messages
 2. **Status Update Creator** — Creates status updates for clients
 3. **Issue Escalation Manager** — Manages client issue escalations
@@ -1318,6 +1466,7 @@ Operations/Management Department
 5. **Communication Tone Matcher** — Ensures appropriate tone per client
 
 **Metrics Tracked:**
+
 - Response time to clients: Target <2 hours average
 - Client satisfaction: Target >4.6/5
 - Issue resolution satisfaction: Target >4.5/5
@@ -1329,7 +1478,9 @@ Operations/Management Department
 ---
 
 #### **PROCESS OPTIMIZER SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Workflow Analyzer** — Analyzes current workflows
 2. **Bottleneck Identifier** — Identifies process bottlenecks
 3. **Process Redesigner** — Redesigns processes for efficiency
@@ -1337,6 +1488,7 @@ Operations/Management Department
 5. **Process Improvement Tracker** — Tracks improvement impact
 
 **Metrics Tracked:**
+
 - Process cycle time reduction: Target 30%+ improvement
 - Automation opportunities identified: Target 20+ per quarter
 - Implementation rate: Target 80% of recommendations
@@ -1367,6 +1519,7 @@ Total Department ROI: $68K/month (efficiency + productivity + morale improvement
 ## 9. FINANCE DEPARTMENT
 
 ### Team Structure
+
 ```
 Finance Department
 ├── Invoicing & Billing Specialists
@@ -1404,7 +1557,9 @@ Finance Department
 ### Specialist Agents (5 per specialist)
 
 #### **INVOICE GENERATOR SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Invoice Creator** — Generates invoices from deal data
 2. **Recurring Invoice Processor** — Handles recurring billing
 3. **Invoice Error Checker** — Validates invoices before sending
@@ -1412,6 +1567,7 @@ Finance Department
 5. **Invoice Template Customizer** — Customizes templates per client
 
 **Metrics Tracked:**
+
 - Invoice generation time: Target 95% reduction (2 hours → 3 min)
 - Invoice accuracy: Target 99.9%
 - Payment collection time: Target -20% (faster payment)
@@ -1423,7 +1579,9 @@ Finance Department
 ---
 
 #### **REVENUE RECOGNITION SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Revenue Recognition Calculator** — Calculates revenue recognition per contract
 2. **Deferred Revenue Tracker** — Tracks deferred revenue
 3. **Contract Revenue Analyzer** — Analyzes revenue per contract
@@ -1431,6 +1589,7 @@ Finance Department
 5. **Revenue Reporting Generator** — Generates revenue reports
 
 **Metrics Tracked:**
+
 - Revenue recognition accuracy: Target 99.5%+
 - GAAP compliance: Target 100%
 - Deferred revenue tracking: Target 100% accuracy
@@ -1442,7 +1601,9 @@ Finance Department
 ---
 
 #### **PROFITABILITY ANALYZER SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Project Profitability Calculator** — Calculates profit per project
 2. **Service Line Profitability Analyzer** — Analyzes profit by service
 3. **Customer Profitability Tracker** — Tracks profit by customer
@@ -1450,6 +1611,7 @@ Finance Department
 5. **Profitability Trend Analyzer** — Tracks profitability trends
 
 **Metrics Tracked:**
+
 - Profitability calculation accuracy: Target >95%
 - Project-level insight: Target 100% of projects analyzed
 - Customer profitability insight: Target 100% of customers analyzed
@@ -1461,7 +1623,9 @@ Finance Department
 ---
 
 #### **CASH FLOW FORECASTER SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **Cash Position Calculator** — Calculates current cash position
 2. **Cash Flow Projector** — Projects future cash flows
 3. **Receivables Aging Analyzer** — Analyzes receivables aging
@@ -1469,6 +1633,7 @@ Finance Department
 5. **Liquidity Stress Tester** — Tests scenarios (what if analysis)
 
 **Metrics Tracked:**
+
 - Forecast accuracy: Target 85%+ accuracy
 - Cash position visibility: Target 100% current & 90-day forward
 - Liquidity issue early warning: Target 4+ weeks advance notice
@@ -1480,7 +1645,9 @@ Finance Department
 ---
 
 #### **FINANCIAL REPORTING SPECIALIST**
+
 **Agents Under This Specialist:**
+
 1. **P&L Statement Generator** — Generates profit & loss statements
 2. **Balance Sheet Creator** — Creates balance sheet reports
 3. **Cash Flow Statement Generator** — Creates cash flow statements
@@ -1488,6 +1655,7 @@ Finance Department
 5. **Variance Report Generator** — Creates variance analysis reports
 
 **Metrics Tracked:**
+
 - Financial statement accuracy: Target 99.95%
 - Reporting timeliness: Target 100% on deadline
 - Executive dashboard updates: Target daily
@@ -1662,24 +1830,28 @@ Design Department Director
 ## IMPLEMENTATION ROADMAP
 
 ### Phase 1 (Week 1-2): Specialist Team Structure Setup
+
 - [ ] Create specialist breakdown for each department
 - [ ] Appoint specialist leads for each sub-team
 - [ ] Establish reporting structure
 - [ ] Set up metrics dashboards per specialist
 
 ### Phase 2 (Week 3-4): Specialist Training & Onboarding
+
 - [ ] Train each specialist team on their domain
 - [ ] Establish specialist-specific metrics
 - [ ] Create specialist checklists & processes
 - [ ] Launch specialist communication channels
 
 ### Phase 3 (Week 5-6): Specialist Operations Launch
+
 - [ ] Each specialist team begins daily operations
 - [ ] Track specialist-specific metrics
 - [ ] Gather specialist feedback
 - [ ] Begin daily specialist syncs
 
 ### Phase 4 (Week 7-8): Optimization & Refinement
+
 - [ ] Analyze specialist performance
 - [ ] Optimize specialist prompts & processes
 - [ ] Adjust specialist targets as needed
@@ -1701,6 +1873,7 @@ Design Department Director
 ---
 
 This framework gives you:
+
 - **45 specialized agents** organized by domain expertise
 - **Clear accountability** — each specialist owns specific outcomes
 - **Metrics per specialist** — track what matters for that domain

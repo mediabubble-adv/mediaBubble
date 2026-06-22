@@ -1,4 +1,5 @@
 # MediaBubble Skills Assessment Rubric
+
 **Comprehensive Framework for Evaluating Employee Skill Levels (1-5)**
 
 **Document Version:** 1.0  
@@ -26,6 +27,7 @@
 ### Purpose
 
 The Skills Assessment Rubric enables MediaBubble to:
+
 - **Objectively evaluate** current skill levels across all 287 employees
 - **Identify gaps** between current and desired future states
 - **Create personalized development plans** based on actual capability
@@ -36,6 +38,7 @@ The Skills Assessment Rubric enables MediaBubble to:
 ### Methodology
 
 Assessment uses **360-degree evaluation** combining:
+
 - **Self-assessment** (0 hrs, captures perspective)
 - **Manager assessment** (2 hrs, direct observation)
 - **Peer assessment** (1 hr, cross-functional feedback)
@@ -60,9 +63,11 @@ Assessment uses **360-degree evaluation** combining:
 ## LEVEL DEFINITIONS & CRITERIA
 
 ### **LEVEL 1: JUNIOR / FOUNDATIONAL**
-*New to role, learning fundamentals, requires supervision*
+
+_New to role, learning fundamentals, requires supervision_
 
 **Skill Characteristics:**
+
 - Understands role requirements and foundational concepts
 - Completes assigned tasks with supervision and guidance
 - Makes mistakes requiring correction
@@ -70,22 +75,26 @@ Assessment uses **360-degree evaluation** combining:
 - Limited independent judgment
 
 **Knowledge/Experience:**
+
 - 0–3 months in role
 - Has relevant education/training but limited on-job experience
 - Knows relevant tools but needs guidance on best practices
 
 **Quality & Output:**
+
 - Completes work with 2–3 rounds of review/correction
 - Delivers on timeline with significant oversight
 - Error rate: 15–25%
 - Needs improvement on quality, efficiency, and independence
 
 **Collaboration:**
+
 - Receptive to feedback
 - Asks good questions
 - Depends on team for problem-solving
 
 **Examples:**
+
 - New graduate in first week of job
 - Career changer in first month
 - Specialist new to company joining established team
@@ -93,9 +102,11 @@ Assessment uses **360-degree evaluation** combining:
 ---
 
 ### **LEVEL 2: SPECIALIST / COMPETENT**
-*Solid performer, independent on standard tasks, some consistency issues*
+
+_Solid performer, independent on standard tasks, some consistency issues_
 
 **Skill Characteristics:**
+
 - Independently completes standard tasks in domain
 - Follows best practices most of the time
 - Minimal supervision needed on routine work
@@ -103,23 +114,27 @@ Assessment uses **360-degree evaluation** combining:
 - Understands implications of decisions
 
 **Knowledge/Experience:**
+
 - 3–12 months in role
 - Deep knowledge of core job responsibilities
 - Strong tool proficiency
 - Understands company processes and culture
 
 **Quality & Output:**
+
 - Completes work with 1 round of review (light editing)
 - Consistently meets deadlines
 - Error rate: 5–10%
 - Work is solid and reliable
 
 **Collaboration:**
+
 - Communicates status and issues
 - Seeks feedback and implements suggestions
 - Helps newer team members informally
 
 **Examples:**
+
 - Specialist 6 months into role
 - Designer who can execute projects independently
 - Developer who handles routine features
@@ -128,9 +143,11 @@ Assessment uses **360-degree evaluation** combining:
 ---
 
 ### **LEVEL 3: SENIOR SPECIALIST / ADVANCED**
-*Expert in domain, mentors others, can handle complex work, some leadership capability*
+
+_Expert in domain, mentors others, can handle complex work, some leadership capability_
 
 **Skill Characteristics:**
+
 - Expert in specialty domain
 - Handles complex, non-standard situations
 - Minimal supervision needed (strategic guidance only)
@@ -139,29 +156,34 @@ Assessment uses **360-degree evaluation** combining:
 - Mentors other specialists
 
 **Knowledge/Experience:**
+
 - 1–2 years in role or demonstrated mastery
 - Mastery of specialty area
 - Deep understanding of customer/business context
 - Seen multiple scenarios and situations
 
 **Quality & Output:**
+
 - Work requires no more than spot-checking
 - Consistently exceeds standards
 - Error rate: <5%
 - Work is of high quality, efficient, and well-documented
 
 **Collaboration:**
+
 - Mentors 1–2 junior specialists
 - Influences team direction
 - Communicates with stakeholders independently
 - Contributes to process improvements
 
 **Leadership Signals:**
+
 - Could lead small project or initiative
 - Takes ownership of complex areas
 - Seeks career development (IC or management)
 
 **Examples:**
+
 - Senior designer leading design strategy for 2–3 clients
 - Backend engineer designing system architecture
 - Social media content creator building strategies
@@ -170,9 +192,11 @@ Assessment uses **360-degree evaluation** combining:
 ---
 
 ### **LEVEL 4: PRINCIPAL / LEAD SPECIALIST**
-*Exceptional expertise, strategic influence, mentors multiple people, approaches expert level*
+
+_Exceptional expertise, strategic influence, mentors multiple people, approaches expert level_
 
 **Skill Characteristics:**
+
 - Rare, deep expertise (approaching industry-recognized level)
 - Handles strategic and complex challenges
 - Sets standards and best practices
@@ -181,6 +205,7 @@ Assessment uses **360-degree evaluation** combining:
 - Seen as internal authority in domain
 
 **Knowledge/Experience:**
+
 - 2–4 years in role or demonstrated mastery
 - Deep mastery of specialty and adjacent areas
 - Strategic understanding of business impact
@@ -188,6 +213,7 @@ Assessment uses **360-degree evaluation** combining:
 - Stays current with industry trends
 
 **Quality & Output:**
+
 - Work requires no review for accuracy
 - Consistently exceeds expectations
 - Error rate: <1%
@@ -195,6 +221,7 @@ Assessment uses **360-degree evaluation** combining:
 - Contributes to organizational standards
 
 **Collaboration:**
+
 - Mentors 3–5 specialists
 - Influences department direction
 - Represents function at executive level
@@ -202,12 +229,14 @@ Assessment uses **360-degree evaluation** combining:
 - Visible thought leadership
 
 **Leadership Signals:**
+
 - Could lead team of 5–10 people
 - Contributes to strategic planning
 - Recognized internally as expert
 - May speak at industry events or publish
 
 **Examples:**
+
 - Principal designer setting design system standards across organization
 - Lead backend engineer designing platform architecture
 - Expert video creator building video strategy and mentoring team
@@ -216,9 +245,11 @@ Assessment uses **360-degree evaluation** combining:
 ---
 
 ### **LEVEL 5: EXPERT / DISTINGUISHED SPECIALIST**
-*World-class expertise, industry recognition, thought leadership, exceptional impact*
+
+_World-class expertise, industry recognition, thought leadership, exceptional impact_
 
 **Skill Characteristics:**
+
 - World-class expertise (industry-recognized expert)
 - Creates new approaches and innovations
 - Defines standards for organization and potentially industry
@@ -227,6 +258,7 @@ Assessment uses **360-degree evaluation** combining:
 - Driving force behind organizational success
 
 **Knowledge/Experience:**
+
 - 4+ years of deep mastery
 - Mastery across specialty and related domains
 - Strategic understanding of business and market
@@ -235,6 +267,7 @@ Assessment uses **360-degree evaluation** combining:
 - Contributes to industry advancement
 
 **Quality & Output:**
+
 - Work is flawless and strategic
 - Consistently exceeds all expectations
 - Error rate: 0%
@@ -242,6 +275,7 @@ Assessment uses **360-degree evaluation** combining:
 - Sets organizational standards
 
 **Collaboration:**
+
 - Mentors 5+ specialists and some leaders
 - Shapes organizational direction
 - Represents organization externally (speaking, publications, events)
@@ -249,12 +283,14 @@ Assessment uses **360-degree evaluation** combining:
 - Industry visibility and thought leadership
 
 **Leadership Signals:**
+
 - Could move into director role or remain as IC
 - Drives major organizational initiatives
 - Recognized as organizational leader and expert
 - Industry recognition and visibility
 
 **Examples:**
+
 - Expert designer with 5+ years, industry speaking engagements, thought leadership
 - Distinguished engineer designing complex systems, mentoring other leads
 - World-class SEO strategist driving organizational authority
@@ -268,13 +304,14 @@ All employees assessed on these competencies regardless of department/specialty:
 
 ### **1. TECHNICAL/DOMAIN EXPERTISE**
 
-| Level 1 | Level 2 | Level 3 | Level 4 | Level 5 |
-|---------|---------|---------|---------|---------|
-| Learning fundamentals | Solid domain knowledge | Expert in domain | Deep strategic expertise | World-class expertise |
-| Needs supervision | Independent on standard tasks | Handles complex work | Sets standards | Defines industry standards |
-| Follows procedures | Follows best practices | Mentors others | Strategic advisor | Thought leader |
+| Level 1               | Level 2                       | Level 3              | Level 4                  | Level 5                    |
+| --------------------- | ----------------------------- | -------------------- | ------------------------ | -------------------------- |
+| Learning fundamentals | Solid domain knowledge        | Expert in domain     | Deep strategic expertise | World-class expertise      |
+| Needs supervision     | Independent on standard tasks | Handles complex work | Sets standards           | Defines industry standards |
+| Follows procedures    | Follows best practices        | Mentors others       | Strategic advisor        | Thought leader             |
 
 **Assessment Questions:**
+
 - Can they complete tasks in their domain independently?
 - Do they understand why they use certain approaches?
 - Can they handle non-standard situations?
@@ -285,13 +322,14 @@ All employees assessed on these competencies regardless of department/specialty:
 
 ### **2. PROBLEM-SOLVING & JUDGMENT**
 
-| Level 1 | Level 2 | Level 3 | Level 4 | Level 5 |
-|---------|---------|---------|---------|---------|
-| Follows given solutions | Solves routine problems | Solves complex problems | Strategic problem-solving | Innovative solutions |
-| Asks for help appropriately | Makes sound decisions | Rarely errs in judgment | Confident decisions | Trusted strategic advisor |
-| Limited judgment | Good judgment | Good judgment with experience | Strategic insight | Visionary thinking |
+| Level 1                     | Level 2                 | Level 3                       | Level 4                   | Level 5                   |
+| --------------------------- | ----------------------- | ----------------------------- | ------------------------- | ------------------------- |
+| Follows given solutions     | Solves routine problems | Solves complex problems       | Strategic problem-solving | Innovative solutions      |
+| Asks for help appropriately | Makes sound decisions   | Rarely errs in judgment       | Confident decisions       | Trusted strategic advisor |
+| Limited judgment            | Good judgment           | Good judgment with experience | Strategic insight         | Visionary thinking        |
 
 **Assessment Questions:**
+
 - How do they approach novel problems?
 - What's their error rate in decision-making?
 - Do they consider implications and trade-offs?
@@ -302,13 +340,14 @@ All employees assessed on these competencies regardless of department/specialty:
 
 ### **3. EXECUTION & QUALITY**
 
-| Level 1 | Level 2 | Level 3 | Level 4 | Level 5 |
-|---------|---------|---------|---------|---------|
-| Needs correction | Minimal review needed | Spot-check only | No review needed | Sets quality standards |
-| 15–25% error rate | 5–10% error rate | <5% error rate | <1% error rate | 0% error rate |
-| Meets deadlines with help | Consistently on time | Ahead of schedule | Reliable/predictable | Exceptional quality |
+| Level 1                   | Level 2               | Level 3           | Level 4              | Level 5                |
+| ------------------------- | --------------------- | ----------------- | -------------------- | ---------------------- |
+| Needs correction          | Minimal review needed | Spot-check only   | No review needed     | Sets quality standards |
+| 15–25% error rate         | 5–10% error rate      | <5% error rate    | <1% error rate       | 0% error rate          |
+| Meets deadlines with help | Consistently on time  | Ahead of schedule | Reliable/predictable | Exceptional quality    |
 
 **Assessment Questions:**
+
 - What % of their work needs revision?
 - Do they meet deadlines consistently?
 - How do others rate the quality of their work?
@@ -319,13 +358,14 @@ All employees assessed on these competencies regardless of department/specialty:
 
 ### **4. LEARNING & GROWTH ORIENTATION**
 
-| Level 1 | Level 2 | Level 3 | Level 4 | Level 5 |
-|---------|---------|---------|---------|---------|
-| Eager to learn | Seeks feedback | Continuously improves | Pursues mastery | Drives innovation |
-| Asks good questions | Implements feedback | Mentors others on growth | Develops others' abilities | Creates learning culture |
-| Adapts to feedback | Open to new approaches | Experiments and iterates | Thinks systemically | Visionary growth mindset |
+| Level 1             | Level 2                | Level 3                  | Level 4                    | Level 5                  |
+| ------------------- | ---------------------- | ------------------------ | -------------------------- | ------------------------ |
+| Eager to learn      | Seeks feedback         | Continuously improves    | Pursues mastery            | Drives innovation        |
+| Asks good questions | Implements feedback    | Mentors others on growth | Develops others' abilities | Creates learning culture |
+| Adapts to feedback  | Open to new approaches | Experiments and iterates | Thinks systemically        | Visionary growth mindset |
 
 **Assessment Questions:**
+
 - Are they open to feedback and act on it?
 - Do they seek opportunities to grow?
 - Have they gained new skills in the past year?
@@ -336,13 +376,14 @@ All employees assessed on these competencies regardless of department/specialty:
 
 ### **5. COLLABORATION & COMMUNICATION**
 
-| Level 1 | Level 2 | Level 3 | Level 4 | Level 5 |
-|---------|---------|---------|---------|---------|
-| Communicates status | Clear communication | Influences cross-team | Strategic stakeholder management | Thought leader/industry voice |
-| Receptive to feedback | Seeks input appropriately | Mentors others | Shapes organizational direction | External recognition |
-| Team player | Positive relationships | Trusted advisor | Executive-level relationships | Industry visibility |
+| Level 1               | Level 2                   | Level 3               | Level 4                          | Level 5                       |
+| --------------------- | ------------------------- | --------------------- | -------------------------------- | ----------------------------- |
+| Communicates status   | Clear communication       | Influences cross-team | Strategic stakeholder management | Thought leader/industry voice |
+| Receptive to feedback | Seeks input appropriately | Mentors others        | Shapes organizational direction  | External recognition          |
+| Team player           | Positive relationships    | Trusted advisor       | Executive-level relationships    | Industry visibility           |
 
 **Assessment Questions:**
+
 - How is their communication clarity and frequency?
 - Do they communicate proactively or reactively?
 - Can they influence others effectively?
@@ -353,13 +394,14 @@ All employees assessed on these competencies regardless of department/specialty:
 
 ### **6. OWNERSHIP & ACCOUNTABILITY**
 
-| Level 1 | Level 2 | Level 3 | Level 4 | Level 5 |
-|---------|---------|---------|---------|---------|
-| Needs assignment | Takes ownership of tasks | Owns outcomes | Owns strategic results | Drives organizational success |
-| Escalates appropriately | Solves within scope | Solves outside boundaries | Defines scope | Sets organizational vision |
-| Follows up when reminded | Follows up independently | Proactive follow-up | Anticipates needs | Creates accountability culture |
+| Level 1                  | Level 2                  | Level 3                   | Level 4                | Level 5                        |
+| ------------------------ | ------------------------ | ------------------------- | ---------------------- | ------------------------------ |
+| Needs assignment         | Takes ownership of tasks | Owns outcomes             | Owns strategic results | Drives organizational success  |
+| Escalates appropriately  | Solves within scope      | Solves outside boundaries | Defines scope          | Sets organizational vision     |
+| Follows up when reminded | Follows up independently | Proactive follow-up       | Anticipates needs      | Creates accountability culture |
 
 **Assessment Questions:**
+
 - How much do they follow up without reminding?
 - Do they own outcomes or just tasks?
 - Can they see beyond their job description?
@@ -370,13 +412,14 @@ All employees assessed on these competencies regardless of department/specialty:
 
 ### **7. IMPACT & RESULTS ORIENTATION**
 
-| Level 1 | Level 2 | Level 3 | Level 4 | Level 5 |
-|---------|---------|---------|---------|---------|
-| Completes assignments | Achieves goals | Exceeds goals | Exceptional results | Transforms business |
-| Does assigned work | Looks for efficiencies | Drives optimization | Strategic impact | Organizational impact |
-| Meets expectations | Meets+ expectations | Exceeds expectations | Far exceeds expectations | Exceptional impact |
+| Level 1               | Level 2                | Level 3              | Level 4                  | Level 5               |
+| --------------------- | ---------------------- | -------------------- | ------------------------ | --------------------- |
+| Completes assignments | Achieves goals         | Exceeds goals        | Exceptional results      | Transforms business   |
+| Does assigned work    | Looks for efficiencies | Drives optimization  | Strategic impact         | Organizational impact |
+| Meets expectations    | Meets+ expectations    | Exceeds expectations | Far exceeds expectations | Exceptional impact    |
 
 **Assessment Questions:**
+
 - Do they meet, exceed, or fall short of goals?
 - What's the quality and impact of their results?
 - Do they think about efficiency and optimization?
@@ -394,6 +437,7 @@ All employees assessed on these competencies regardless of department/specialty:
 ### **Web UI Designer Assessment**
 
 **LEVEL 1 (Junior)**
+
 - Can execute design from brief with supervision
 - Understands responsive design concepts
 - Needs feedback on design decisions
@@ -403,6 +447,7 @@ All employees assessed on these competencies regardless of department/specialty:
 - Quality: 70–80%
 
 **LEVEL 2 (Specialist)**
+
 - Independently designs responsive websites
 - Makes sound design decisions aligned with brief
 - Figma: Proficient, uses components effectively
@@ -411,6 +456,7 @@ All employees assessed on these competencies regardless of department/specialty:
 - Quality: 90–95%
 
 **LEVEL 3 (Senior)**
+
 - Expert in responsive design and accessibility
 - Designs for complex requirements
 - Contributes to design system
@@ -421,6 +467,7 @@ All employees assessed on these competencies regardless of department/specialty:
 - Quality: 95%+
 
 **LEVEL 4 (Principal)**
+
 - Sets design standards for responsive/accessibility
 - Strategic design influence
 - Mentors multiple designers
@@ -429,6 +476,7 @@ All employees assessed on these competencies regardless of department/specialty:
 - Quality: 99%+
 
 **LEVEL 5 (Expert)**
+
 - World-class responsive design expertise
 - Industry recognition in web UI
 - Thought leadership
@@ -440,6 +488,7 @@ All employees assessed on these competencies regardless of department/specialty:
 ### **Mobile Designer Assessment**
 
 **LEVEL 1 (Junior)**
+
 - Learning iOS/Android design standards
 - Designs simple screens with supervision
 - Platform knowledge: Basic understanding
@@ -448,6 +497,7 @@ All employees assessed on these competencies regardless of department/specialty:
 - Quality: 70–80%
 
 **LEVEL 2 (Specialist)**
+
 - Independently designs platform-appropriate mobile apps
 - Understands iOS and Android design systems
 - Makes sound platform-specific decisions
@@ -455,6 +505,7 @@ All employees assessed on these competencies regardless of department/specialty:
 - Quality: 90–95%
 
 **LEVEL 3 (Senior)**
+
 - Expert in both iOS and Android design systems
 - Designs complex, multi-screen applications
 - Understands platform capabilities and limitations
@@ -463,6 +514,7 @@ All employees assessed on these competencies regardless of department/specialty:
 - Quality: 95%+
 
 **LEVEL 4 (Principal)**
+
 - Sets mobile design standards
 - Strategic influence on mobile direction
 - Mentors multiple designers
@@ -470,6 +522,7 @@ All employees assessed on these competencies regardless of department/specialty:
 - Quality: 99%+
 
 **LEVEL 5 (Expert)**
+
 - World-class mobile designer
 - Industry recognition
 - Thought leadership in mobile design
@@ -482,6 +535,7 @@ All employees assessed on these competencies regardless of department/specialty:
 ### **Backend Engineer Assessment**
 
 **LEVEL 1 (Junior)**
+
 - Completes assigned tasks with code review feedback
 - API design: Learning, makes mistakes
 - Database: Basic understanding
@@ -490,6 +544,7 @@ All employees assessed on these competencies regardless of department/specialty:
 - Needs supervision
 
 **LEVEL 2 (Specialist)**
+
 - Independently completes feature development
 - API design: Solid, understands best practices
 - Database: Good design, some optimization issues
@@ -498,6 +553,7 @@ All employees assessed on these competencies regardless of department/specialty:
 - Minimal supervision needed
 
 **LEVEL 3 (Senior)**
+
 - Expert in API and database design
 - Handles complex features and systems
 - Mentors junior engineers
@@ -506,6 +562,7 @@ All employees assessed on these competencies regardless of department/specialty:
 - Code quality: 95%+
 
 **LEVEL 4 (Principal)**
+
 - Sets architecture standards
 - Designs system-level features
 - Mentors multiple engineers
@@ -513,6 +570,7 @@ All employees assessed on these competencies regardless of department/specialty:
 - Code quality: 99%+
 
 **LEVEL 5 (Expert)**
+
 - World-class backend architecture expertise
 - Industry recognition
 - Thought leadership
@@ -525,6 +583,7 @@ All employees assessed on these competencies regardless of department/specialty:
 ### **Content Creator Assessment**
 
 **LEVEL 1 (Junior)**
+
 - Creates content with supervision
 - Platform knowledge: Basic
 - Engagement: Learning, below targets
@@ -532,6 +591,7 @@ All employees assessed on these competencies regardless of department/specialty:
 - Needs feedback on strategy
 
 **LEVEL 2 (Specialist)**
+
 - Independently creates engaging content
 - Platform expertise: Strong
 - Consistent engagement targets
@@ -539,6 +599,7 @@ All employees assessed on these competencies regardless of department/specialty:
 - Understands audience and algorithms
 
 **LEVEL 3 (Senior)**
+
 - Expert content creator
 - Consistently exceeds engagement targets
 - Understands platform trends and algorithms deeply
@@ -547,6 +608,7 @@ All employees assessed on these competencies regardless of department/specialty:
 - Quality: 95%+
 
 **LEVEL 4 (Principal)**
+
 - Sets content standards
 - Drives content strategy
 - Mentors multiple creators
@@ -554,6 +616,7 @@ All employees assessed on these competencies regardless of department/specialty:
 - Quality: 99%+
 
 **LEVEL 5 (Expert)**
+
 - World-class content creator
 - Industry recognition
 - Thought leadership
@@ -565,6 +628,7 @@ All employees assessed on these competencies regardless of department/specialty:
 ### **SEO Specialist Assessment**
 
 **LEVEL 1 (Junior)**
+
 - Learning SEO fundamentals
 - Keyword research: Basic
 - On-page optimization: Learning
@@ -573,6 +637,7 @@ All employees assessed on these competencies regardless of department/specialty:
 - Needs supervision
 
 **LEVEL 2 (Specialist)**
+
 - Independent keyword research and optimization
 - Solid on-page SEO understanding
 - Basic technical SEO knowledge
@@ -580,6 +645,7 @@ All employees assessed on these competencies regardless of department/specialty:
 - Results: 90–95% of targets
 
 **LEVEL 3 (Senior)**
+
 - Expert in keyword strategy and on-page SEO
 - Strong technical SEO understanding
 - Consistently exceeds targets
@@ -588,6 +654,7 @@ All employees assessed on these competencies regardless of department/specialty:
 - Results: 95%+
 
 **LEVEL 4 (Principal)**
+
 - Sets SEO standards and strategy
 - Strategic influence on company visibility
 - Mentors multiple specialists
@@ -595,6 +662,7 @@ All employees assessed on these competencies regardless of department/specialty:
 - Results: Exceptional
 
 **LEVEL 5 (Expert)**
+
 - World-class SEO expertise
 - Industry recognition
 - Thought leadership
@@ -610,6 +678,7 @@ All employees assessed on these competencies regardless of department/specialty:
 **Duration:** 2 hours per manager
 
 **Content:**
+
 - Overview of Level 1–5 framework
 - Understanding universal competencies
 - Department-specific rubrics
@@ -626,6 +695,7 @@ All employees assessed on these competencies regardless of department/specialty:
 **Duration:** 30 minutes per employee
 
 **Process:**
+
 1. Employee reviews Level 1–5 descriptions
 2. Self-rates on each universal competency
 3. Identifies evidence of current level
@@ -633,6 +703,7 @@ All employees assessed on these competencies regardless of department/specialty:
 5. Submits to manager
 
 **Template Provided:**
+
 ```
 SELF-ASSESSMENT FORM
 
@@ -680,6 +751,7 @@ Development Priorities:
 **Duration:** 1.5 hours per direct report (conducted over 2 weeks)
 
 **Process:**
+
 1. Manager reviews self-assessment
 2. Rates employee on each competency (with evidence)
 3. Reviews portfolio/work samples
@@ -688,6 +760,7 @@ Development Priorities:
 6. Identifies gaps vs. next level
 
 **Manager Assessment Form:**
+
 ```
 MANAGER ASSESSMENT FORM
 
@@ -740,12 +813,14 @@ Path Forward: [ ] IC  [ ] Management  [ ] Specialty  [ ] Cross-functional
 **Duration:** 30 minutes per peer (2–3 peers per employee)
 
 **Process:**
+
 1. Manager selects 2–3 peers who work closely with employee
 2. Sends peer feedback form (anonymous if preferred)
 3. Peers rate on collaboration, communication, quality, impact
 4. Manager incorporates feedback into assessment
 
 **Peer Feedback Form:**
+
 ```
 PEER FEEDBACK FORM (ANONYMOUS)
 
@@ -781,12 +856,14 @@ One area for growth:
 **Duration:** 1 hour per manager (reviewing work samples)
 
 **Process:**
+
 1. Manager reviews recent work products
 2. Assesses quality, complexity, impact
 3. Notes evidence for assessment
 4. Validates manager assessment vs. actual work
 
 **Work Product Checklist:**
+
 ```
 PORTFOLIO REVIEW CHECKLIST
 
@@ -823,6 +900,7 @@ Overall Pattern:
 **Duration:** 2 hours per department (department leads + HR)
 
 **Process:**
+
 1. Each manager presents 2–3 assessments
 2. Group discusses and validates levels
 3. Ensures consistency across team
@@ -830,6 +908,7 @@ Overall Pattern:
 5. Finalizes assessments
 
 **Calibration Discussion Framework:**
+
 ```
 CALIBRATION DISCUSSION
 
@@ -865,6 +944,7 @@ Timeline to Next Level: [Months]
 All assessments require documentation with specific evidence:
 
 **REQUIRED FOR EACH COMPETENCY:**
+
 1. **Specific examples** (at least 1–2 per competency)
 2. **Work products** or references to work
 3. **Behavior observations** from recent period
@@ -924,6 +1004,7 @@ Gap to Level 4:
 Employees rated at the same level should have similar evidence and capability.
 
 **Evidence Standards:**
+
 - Level 1–2: Direct manager observation required
 - Level 3: Portfolio review + peer feedback required
 - Level 4: Multiple projects + strategic influence evidence required
@@ -962,22 +1043,22 @@ UNIVERSAL COMPETENCY RATINGS
 
 1. Technical/Domain Expertise              Level: _____
    Evidence: _________________________________
-   
+
 2. Problem-Solving & Judgment              Level: _____
    Evidence: _________________________________
-   
+
 3. Execution & Quality                     Level: _____
    Evidence: _________________________________
-   
+
 4. Learning & Growth Orientation           Level: _____
    Evidence: _________________________________
-   
+
 5. Collaboration & Communication           Level: _____
    Evidence: _________________________________
-   
+
 6. Ownership & Accountability              Level: _____
    Evidence: _________________________________
-   
+
 7. Impact & Results Orientation            Level: _____
    Evidence: _________________________________
 
@@ -1005,11 +1086,11 @@ To advance from Level ____ to Level ____:
 
 1. Training Module: ____________________________
    Duration: ___  Timeline: ___________________
-   
+
 2. Stretch Assignment: _________________________
    Description: _______________________________
    Timeline: _________________________________
-   
+
 3. Mentorship/Coaching: _________________________
    With: ____________  Focus: __________________
    Timeline: _________________________________
@@ -1050,18 +1131,21 @@ HR Signature: _______________  Date: ________
 **For Each Employee Assessment:**
 
 **Before Assessment (Manager Prep):**
+
 - [ ] Read Level 1–5 framework
 - [ ] Review department-specific rubric
 - [ ] Gather recent work samples
 - [ ] Review employee's self-assessment
 
 **During Assessment (Data Collection):**
+
 - [ ] Review portfolio/work products
 - [ ] Document specific examples
 - [ ] Collect peer feedback (2–3 peers)
 - [ ] Rate on each universal competency
 
 **Assessment Documentation:**
+
 - [ ] Evidence for current level (at least 2 examples)
 - [ ] Gap to next level clearly identified
 - [ ] Development priorities (top 3)
@@ -1069,6 +1153,7 @@ HR Signature: _______________  Date: ________
 - [ ] Stretch assignments
 
 **Manager Guidance:**
+
 ```
 Common Assessment Questions:
 
@@ -1106,6 +1191,7 @@ Common Assessment Questions:
 **Week 6–7:** Development plans created and shared with employees
 
 **Total Time Investment:**
+
 - Per employee: ~3 hours of manager time + peer time
 - Per manager: ~50 hours total (for 30–50 direct reports + calibration)
 
@@ -1125,15 +1211,15 @@ Common Assessment Questions:
 
 ## SUCCESS METRICS
 
-| Metric | Target |
-|--------|--------|
-| Assessment completion rate | 100% |
-| Manager training completion | 100% |
-| Documentation quality | ≥95% with proper evidence |
-| Consistency (peer review) | ≥90% agreement on levels |
-| Calibration effectiveness | ≥85% consistency across departments |
-| Development plan creation | 100% of assessed employees |
-| Assessment time | <3 hrs per employee |
+| Metric                      | Target                              |
+| --------------------------- | ----------------------------------- |
+| Assessment completion rate  | 100%                                |
+| Manager training completion | 100%                                |
+| Documentation quality       | ≥95% with proper evidence           |
+| Consistency (peer review)   | ≥90% agreement on levels            |
+| Calibration effectiveness   | ≥85% consistency across departments |
+| Development plan creation   | 100% of assessed employees          |
+| Assessment time             | <3 hrs per employee                 |
 
 ---
 
@@ -1141,4 +1227,3 @@ Common Assessment Questions:
 **For:** MediaBubble Leadership & HR Team  
 **Status:** Ready for Implementation  
 **Version:** 1.0 — June 2026
-

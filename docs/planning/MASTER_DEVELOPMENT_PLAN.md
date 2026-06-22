@@ -1,4 +1,5 @@
 # MediaBubble - Master Development Plan
+
 **Strategic Roadmap: Code Quality + UI/UX Modernization**  
 **Generated**: June 13, 2026 | **Duration**: 12 weeks | **Total Effort**: ~240 hours
 
@@ -7,6 +8,7 @@
 ## 📋 Executive Overview
 
 This plan combines:
+
 1. **Code Quality & Security** (from comprehensive audit)
 2. **UI/UX Modernization** (high-quality, clean, modern design)
 3. **Content Enhancement** (blog imagery, portfolio assets)
@@ -63,9 +65,11 @@ Phase 6: Polish & Launch (Week 12)   [FINAL]
 ## Week 1: Security & Critical Fixes
 
 ### 1.1 Security Issues (Day 1-2)
+
 **Priority**: 🔴 CRITICAL | **Effort**: 4 hours | **Owner**: DevOps/Lead
 
 - [ ] Remove `.env.local` from git tracking
+
   ```bash
   git rm --cached .env.local
   echo ".env.local" >> .gitignore
@@ -73,64 +77,69 @@ Phase 6: Polish & Launch (Week 12)   [FINAL]
   ```
 
 - [ ] Fix CSP `'unsafe-inline'` issue
-  **File**: `apps/web-eg/next.config.js`
+      **File**: `apps/web-eg/next.config.js`
+
   ```javascript
   // BEFORE (VULNERABLE)
-  "script-src 'self' 'unsafe-inline'"
-  
+  "script-src 'self' 'unsafe-inline'";
+
   // AFTER (SECURE)
-  "script-src 'self' https://www.googletagmanager.com"
+  "script-src 'self' https://www.googletagmanager.com";
   ```
 
 - [ ] Replace wildcard domain with explicit subdomains
-  **File**: `apps/web-eg/next.config.js`
+      **File**: `apps/web-eg/next.config.js`
+
   ```javascript
   // BEFORE
   { protocol: 'https', hostname: '**.mediabubble.co' }
-  
+
   // AFTER
   { protocol: 'https', hostname: 'cdn.mediabubble.co' },
   { protocol: 'https', hostname: 'images.mediabubble.co' },
   ```
 
 - [ ] Add security headers validation test
-  **Create**: `apps/web-eg/__tests__/security.test.tsx`
+      **Create**: `apps/web-eg/__tests__/security.test.tsx`
   ```typescript
-  describe('Security Headers', () => {
-    it('should have CSP without unsafe-inline', () => {
+  describe("Security Headers", () => {
+    it("should have CSP without unsafe-inline", () => {
       // Test CSP header
-    })
-    it('should not expose credentials in git', () => {
+    });
+    it("should not expose credentials in git", () => {
       // Verify .env.local not in repo
-    })
-  })
+    });
+  });
   ```
 
 ### 1.2 Bug Fixes (Day 2-3)
+
 **Priority**: 🟡 HIGH | **Effort**: 6 hours
 
 - [ ] Fix GA4 consent race condition
-  **File**: `apps/web-eg/components/GoogleAnalytics.tsx`
+      **File**: `apps/web-eg/components/GoogleAnalytics.tsx`
+
   ```typescript
   // REFACTOR: Combine effects + add proper state handling
   export function GoogleAnalytics() {
     const [state, dispatch] = useReducer(consentReducer, initialState)
-    
+
     useEffect(() => {
       // Single effect to handle all logic
       const hasConsent = checkConsent()
       dispatch({ type: 'SET_CONSENT', payload: hasConsent })
     }, [])
-    
+
     return state.consented ? <GAScripts /> : null
   }
   ```
 
 - [ ] Add error boundary to root layout
-  **Create**: `apps/web-eg/app/error.tsx`
+      **Create**: `apps/web-eg/app/error.tsx`
+
   ```typescript
   'use client'
-  
+
   export default function Error({
     error,
     reset,
@@ -148,87 +157,95 @@ Phase 6: Polish & Launch (Week 12)   [FINAL]
   ```
 
 - [ ] Fix localStorage error handling
-  **File**: `apps/web-eg/lib/consent.ts` (new file)
+      **File**: `apps/web-eg/lib/consent.ts` (new file)
+
   ```typescript
   export function safeGetConsent(): boolean {
     try {
-      if (typeof window === 'undefined') return false
-      return localStorage.getItem('consent') === 'accepted'
+      if (typeof window === "undefined") return false;
+      return localStorage.getItem("consent") === "accepted";
     } catch (e) {
-      console.warn('Cannot access localStorage:', e)
-      return false
+      console.warn("Cannot access localStorage:", e);
+      return false;
     }
   }
   ```
 
 - [ ] Replace hardcoded metadata with env vars
-  **File**: `apps/web-eg/app/layout.tsx`
+      **File**: `apps/web-eg/app/layout.tsx`
   ```typescript
-  const BUSINESS_PHONE = process.env.NEXT_PUBLIC_BUSINESS_PHONE || '+20123456789'
-  const BUSINESS_EMAIL = process.env.NEXT_PUBLIC_BUSINESS_EMAIL || 'hello@mediabubble.com'
+  const BUSINESS_PHONE =
+    process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+20123456789";
+  const BUSINESS_EMAIL =
+    process.env.NEXT_PUBLIC_BUSINESS_EMAIL || "hello@mediabubble.com";
   ```
 
 ### 1.3 Testing Infrastructure (Day 3-4)
+
 **Priority**: 🔴 CRITICAL | **Effort**: 8 hours
 
 - [ ] Install testing dependencies
+
   ```bash
   npm install --save-dev jest @testing-library/react @testing-library/jest-dom @testing-library/user-event jest-environment-jsdom ts-jest @types/jest
   ```
 
 - [ ] Create Jest configuration
-  **Create**: `jest.config.ts`
+      **Create**: `jest.config.ts`
+
   ```typescript
   export default {
-    preset: 'ts-jest',
-    testEnvironment: 'jsdom',
-    roots: ['<rootDir>/apps'],
+    preset: "ts-jest",
+    testEnvironment: "jsdom",
+    roots: ["<rootDir>/apps"],
     moduleNameMapper: {
-      '^@/(.*)$': '<rootDir>/apps/web-eg/$1',
+      "^@/(.*)$": "<rootDir>/apps/web-eg/$1",
     },
-    setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+    setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
     collectCoverageFrom: [
-      'apps/**/src/**/*.{ts,tsx}',
-      '!**/*.d.ts',
-      '!**/node_modules/**',
+      "apps/**/src/**/*.{ts,tsx}",
+      "!**/*.d.ts",
+      "!**/node_modules/**",
     ],
-  }
+  };
   ```
 
 - [ ] Create setup file
-  **Create**: `jest.setup.ts`
+      **Create**: `jest.setup.ts`
+
   ```typescript
-  import '@testing-library/jest-dom'
-  
+  import "@testing-library/jest-dom";
+
   // Mock next/navigation
-  jest.mock('next/navigation', () => ({
+  jest.mock("next/navigation", () => ({
     useRouter() {
       return {
         push: jest.fn(),
-        pathname: '/',
-      }
+        pathname: "/",
+      };
     },
     usePathname() {
-      return '/'
+      return "/";
     },
     useSearchParams() {
-      return new URLSearchParams()
+      return new URLSearchParams();
     },
-  }))
+  }));
   ```
 
 - [ ] Write first test suite (GoogleAnalytics)
-  **Create**: `apps/web-eg/__tests__/components/GoogleAnalytics.test.tsx`
+      **Create**: `apps/web-eg/__tests__/components/GoogleAnalytics.test.tsx`
+
   ```typescript
   import { render } from '@testing-library/react'
   import { GoogleAnalytics } from '@/components/GoogleAnalytics'
-  
+
   describe('GoogleAnalytics', () => {
     it('should not render if no consent', () => {
       const { container } = render(<GoogleAnalytics />)
       expect(container.firstChild).toBeNull()
     })
-    
+
     it('should render GA script with consent', () => {
       // Mock consent + test
     })
@@ -236,10 +253,12 @@ Phase 6: Polish & Launch (Week 12)   [FINAL]
   ```
 
 ### 1.4 Project Configuration (Day 4-5)
+
 **Priority**: 🟡 HIGH | **Effort**: 4 hours
 
 - [ ] Update ESLint with stricter rules
-  **File**: `.eslintrc.json`
+      **File**: `.eslintrc.json`
+
   ```json
   {
     "extends": ["next/core-web-vitals"],
@@ -252,7 +271,8 @@ Phase 6: Polish & Launch (Week 12)   [FINAL]
   ```
 
 - [ ] Add npm scripts for testing & quality
-  **File**: `package.json`
+      **File**: `package.json`
+
   ```json
   {
     "scripts": {
@@ -267,7 +287,8 @@ Phase 6: Polish & Launch (Week 12)   [FINAL]
   ```
 
 - [ ] Add GitHub Actions for CI
-  **Create**: `.github/workflows/quality.yml`
+      **Create**: `.github/workflows/quality.yml`
+
   ```yaml
   name: Code Quality
   on: [push, pull_request]
@@ -303,101 +324,113 @@ Phase 6: Polish & Launch (Week 12)   [FINAL]
 ## Week 2: Additional Foundation Work
 
 ### 2.1 Custom Hooks Library (Day 1-2)
+
 **Priority**: 🟡 HIGH | **Effort**: 6 hours
 
 **Create**: `apps/web-eg/hooks/index.ts`
+
 ```typescript
-export { useConsent } from './useConsent'
-export { useGA } from './useGA'
-export { useI18n } from './useI18n'
-export { useLocalStorage } from './useLocalStorage'
+export { useConsent } from "./useConsent";
+export { useGA } from "./useGA";
+export { useI18n } from "./useI18n";
+export { useLocalStorage } from "./useLocalStorage";
 ```
 
 **Create**: `apps/web-eg/hooks/useConsent.ts`
-```typescript
-import { useCallback, useEffect, useState } from 'react'
 
-const CONSENT_KEY = 'mediabubble-consent'
+```typescript
+import { useCallback, useEffect, useState } from "react";
+
+const CONSENT_KEY = "mediabubble-consent";
 
 export function useConsent() {
-  const [consent, setConsent] = useState(false)
-  const [mounted, setMounted] = useState(false)
+  const [consent, setConsent] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true)
-    const stored = localStorage.getItem(CONSENT_KEY) === 'accepted'
-    setConsent(stored)
-  }, [])
+    setMounted(true);
+    const stored = localStorage.getItem(CONSENT_KEY) === "accepted";
+    setConsent(stored);
+  }, []);
 
   const grantConsent = useCallback(() => {
-    localStorage.setItem(CONSENT_KEY, 'accepted')
-    setConsent(true)
-    window.dispatchEvent(new Event('consentGranted'))
-  }, [])
+    localStorage.setItem(CONSENT_KEY, "accepted");
+    setConsent(true);
+    window.dispatchEvent(new Event("consentGranted"));
+  }, []);
 
   const denyConsent = useCallback(() => {
-    localStorage.removeItem(CONSENT_KEY)
-    setConsent(false)
-  }, [])
+    localStorage.removeItem(CONSENT_KEY);
+    setConsent(false);
+  }, []);
 
-  return { consent, grantConsent, denyConsent, mounted }
+  return { consent, grantConsent, denyConsent, mounted };
 }
 ```
 
 **Create**: `apps/web-eg/hooks/useGA.ts`
+
 ```typescript
-import { useConsent } from './useConsent'
+import { useConsent } from "./useConsent";
 
 export function useGA() {
-  const { consent } = useConsent()
-  
+  const { consent } = useConsent();
+
   const trackEvent = (action: string, label: string, value?: number) => {
-    if (!consent || typeof window === 'undefined') return
-    
-    window.gtag?.('event', action, {
+    if (!consent || typeof window === "undefined") return;
+
+    window.gtag?.("event", action, {
       event_label: label,
       event_value: value,
-    })
-  }
+    });
+  };
 
-  return { trackEvent, consent }
+  return { trackEvent, consent };
 }
 ```
 
 **Create**: `apps/web-eg/hooks/useLocalStorage.ts`
+
 ```typescript
-import { useState, useCallback } from 'react'
+import { useState, useCallback } from "react";
 
 export function useLocalStorage<T>(key: string, initialValue: T) {
   const [storedValue, setStoredValue] = useState<T>(() => {
     try {
-      const item = typeof window !== 'undefined' ? window.localStorage.getItem(key) : null
-      return item ? JSON.parse(item) : initialValue
+      const item =
+        typeof window !== "undefined" ? window.localStorage.getItem(key) : null;
+      return item ? JSON.parse(item) : initialValue;
     } catch {
-      return initialValue
+      return initialValue;
     }
-  })
+  });
 
-  const setValue = useCallback((value: T | ((val: T) => T)) => {
-    try {
-      const valueToStore = value instanceof Function ? value(storedValue) : value
-      setStoredValue(valueToStore)
-      if (typeof window !== 'undefined') {
-        window.localStorage.setItem(key, JSON.stringify(valueToStore))
+  const setValue = useCallback(
+    (value: T | ((val: T) => T)) => {
+      try {
+        const valueToStore =
+          value instanceof Function ? value(storedValue) : value;
+        setStoredValue(valueToStore);
+        if (typeof window !== "undefined") {
+          window.localStorage.setItem(key, JSON.stringify(valueToStore));
+        }
+      } catch (error) {
+        console.error("Error writing to localStorage:", error);
       }
-    } catch (error) {
-      console.error('Error writing to localStorage:', error)
-    }
-  }, [key, storedValue])
+    },
+    [key, storedValue],
+  );
 
-  return [storedValue, setValue] as const
+  return [storedValue, setValue] as const;
 }
 ```
 
 ### 2.2 Context API Setup (Day 2-3)
+
 **Priority**: 🟡 HIGH | **Effort**: 4 hours
 
 **Create**: `apps/web-eg/contexts/ConsentContext.tsx`
+
 ```typescript
 'use client'
 
@@ -433,6 +466,7 @@ export function useConsent() {
 ```
 
 **Update**: `apps/web-eg/app/layout.tsx`
+
 ```typescript
 import { ConsentProvider } from '@/contexts/ConsentContext'
 
@@ -450,9 +484,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 ```
 
 ### 2.3 Test Coverage - Initial Target (Day 3-5)
+
 **Priority**: 🔴 CRITICAL | **Effort**: 8 hours | **Target**: 15% coverage
 
 **Tests to write**:
+
 - [ ] `GoogleAnalytics.test.tsx` (consent tracking)
 - [ ] `CookieConsent.test.tsx` (consent grant/deny)
 - [ ] `I18nLayoutWrapper.test.tsx` (language switching)
@@ -460,6 +496,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 - [ ] `useLocalStorage.test.ts` (storage logic)
 
 **Target by end of Week 2**:
+
 - ✅ 15% test coverage
 - ✅ All critical components tested
 - ✅ CI/CD pipeline working
@@ -467,16 +504,17 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 ---
 
 ### 📊 Phase 1 Summary
-| Item | Status | Hours | Notes |
-|------|--------|-------|-------|
-| Security fixes | ✓ | 4 | env, CSP, domains |
-| Bug fixes | ✓ | 6 | GA, errors, localStorage |
-| Testing setup | ✓ | 8 | Jest + React Testing Library |
-| Hooks library | ✓ | 6 | useConsent, useGA, useLocalStorage |
-| Context API | ✓ | 4 | Global consent management |
-| Initial tests | ✓ | 8 | 15% coverage target |
-| Config & CI/CD | ✓ | 4 | Linting, pre-commit, GitHub Actions |
-| **TOTAL** | | **40 hours** | **2 weeks** |
+
+| Item           | Status | Hours        | Notes                               |
+| -------------- | ------ | ------------ | ----------------------------------- |
+| Security fixes | ✓      | 4            | env, CSP, domains                   |
+| Bug fixes      | ✓      | 6            | GA, errors, localStorage            |
+| Testing setup  | ✓      | 8            | Jest + React Testing Library        |
+| Hooks library  | ✓      | 6            | useConsent, useGA, useLocalStorage  |
+| Context API    | ✓      | 4            | Global consent management           |
+| Initial tests  | ✓      | 8            | 15% coverage target                 |
+| Config & CI/CD | ✓      | 4            | Linting, pre-commit, GitHub Actions |
+| **TOTAL**      |        | **40 hours** | **2 weeks**                         |
 
 ---
 
@@ -485,9 +523,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 ## Week 3: Component Refactoring & Organization
 
 ### 3.1 Reorganize Components (Day 1-2)
+
 **Priority**: 🟡 HIGH | **Effort**: 6 hours
 
 **New Structure**:
+
 ```
 apps/web-eg/components/
 ├── primitives/              (Base UI components)
@@ -527,67 +567,71 @@ apps/web-eg/components/
 ```
 
 **Migration Tasks**:
+
 - [ ] Create directory structure
 - [ ] Move existing components
 - [ ] Update import paths
 - [ ] Update tests
 
 ### 3.2 Enhance Type Safety (Day 2-3)
+
 **Priority**: 🟡 HIGH | **Effort**: 5 hours
 
 **Create**: `apps/web-eg/types/index.ts`
+
 ```typescript
 // Schema types
 export interface LocalBusinessSchema {
-  '@context': 'https://schema.org'
-  '@type': ['LocalBusiness', 'MarketingAgency', 'ProfessionalService']
-  '@id': string
-  name: string
-  url: string
+  "@context": "https://schema.org";
+  "@type": ["LocalBusiness", "MarketingAgency", "ProfessionalService"];
+  "@id": string;
+  name: string;
+  url: string;
   // ... other fields with strict types
 }
 
 // Domain types
 export interface BlogPost {
-  slug: string
-  title: string
-  description: string
-  content: string
-  author: Author
-  publishedAt: Date
-  updatedAt: Date
-  tags: string[]
-  image: Image
-  readingTime: number
+  slug: string;
+  title: string;
+  description: string;
+  content: string;
+  author: Author;
+  publishedAt: Date;
+  updatedAt: Date;
+  tags: string[];
+  image: Image;
+  readingTime: number;
 }
 
 export interface Portfolio {
-  id: string
-  title: string
-  description: string
-  images: Image[]
-  results: string[]
-  tools: string[]
-  link: string
+  id: string;
+  title: string;
+  description: string;
+  images: Image[];
+  results: string[];
+  tools: string[];
+  link: string;
 }
 
 export interface Image {
-  src: string
-  alt: string
-  width: number
-  height: number
-  placeholder?: string
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  placeholder?: string;
 }
 
 export interface Author {
-  name: string
-  email: string
-  avatar?: string
-  bio?: string
+  name: string;
+  email: string;
+  avatar?: string;
+  bio?: string;
 }
 ```
 
 **Add strict TypeScript checks**:
+
 ```json
 {
   "compilerOptions": {
@@ -605,24 +649,26 @@ export interface Author {
 ```
 
 ### 3.3 Add Comprehensive JSDoc (Day 3-4)
+
 **Priority**: 🟡 MEDIUM | **Effort**: 6 hours
 
 **Example**:
+
 ```typescript
 /**
  * GoogleAnalytics component - Tracks page views and events with GDPR consent
  * @component
- * 
+ *
  * @example
  * return (
  *   <GoogleAnalytics />
  * )
- * 
+ *
  * @remarks
  * - Only loads GA script if user has granted consent
  * - Listens for consent changes via ConsentContext
  * - Anonymizes IP addresses
- * 
+ *
  * @returns React component that injects GA script tags
  */
 export function GoogleAnalytics() {
@@ -632,13 +678,13 @@ export function GoogleAnalytics() {
 /**
  * Handles user consent for analytics tracking
  * @hook
- * 
+ *
  * @returns {Object} Consent state and control functions
  * @returns {boolean} consent - Current consent status
  * @returns {Function} grantConsent - Grant analytics consent
  * @returns {Function} denyConsent - Revoke analytics consent
  * @returns {boolean} mounted - Hydration status
- * 
+ *
  * @example
  * const { consent, grantConsent } = useConsent()
  */
@@ -648,9 +694,11 @@ export function useConsent() {
 ```
 
 ### 3.4 More Test Coverage (Day 4-5)
+
 **Priority**: 🔴 CRITICAL | **Effort**: 8 hours | **Target**: 30% coverage
 
 **Tests to add**:
+
 - [ ] All primitive components (Button, Card, Input)
 - [ ] Shared components (Navigation, Footer, CTA)
 - [ ] Feature components (BlogCard, PortfolioCard)
@@ -661,79 +709,80 @@ export function useConsent() {
 ## Week 4: Styling & Design System Enhancement
 
 ### 4.1 Enhance Tailwind Configuration (Day 1-2)
+
 **Priority**: 🟡 HIGH | **Effort**: 4 hours
 
 **Update**: `apps/web-eg/tailwind.config.ts`
+
 ```typescript
-import type { Config } from 'tailwindcss'
-import defaultTheme from 'tailwindcss/defaultTheme'
+import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 const config: Config = {
   content: [
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: 'class',
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
         // Brand colors
         primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          500: '#0ea5e9',
-          900: '#0c2d42',
+          50: "#f0f9ff",
+          100: "#e0f2fe",
+          500: "#0ea5e9",
+          900: "#0c2d42",
         },
         secondary: {
-          50: '#f5f5f5',
-          500: '#6b7280',
-          900: '#111827',
+          50: "#f5f5f5",
+          500: "#6b7280",
+          900: "#111827",
         },
       },
       fontFamily: {
-        sans: ['Poppins', ...defaultTheme.fontFamily.sans],
-        display: ['Cairo', ...defaultTheme.fontFamily.sans],
-        mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono],
+        sans: ["Poppins", ...defaultTheme.fontFamily.sans],
+        display: ["Cairo", ...defaultTheme.fontFamily.sans],
+        mono: ["JetBrains Mono", ...defaultTheme.fontFamily.mono],
       },
       spacing: {
-        '128': '32rem',
-        '144': '36rem',
+        "128": "32rem",
+        "144": "36rem",
       },
       typography: (theme: any) => ({
         DEFAULT: {
           css: {
-            color: theme('colors.gray.700'),
+            color: theme("colors.gray.700"),
             a: {
-              color: theme('colors.primary.500'),
-              '&:hover': {
-                color: theme('colors.primary.600'),
+              color: theme("colors.primary.500"),
+              "&:hover": {
+                color: theme("colors.primary.600"),
               },
             },
           },
         },
         dark: {
           css: {
-            color: theme('colors.gray.300'),
+            color: theme("colors.gray.300"),
           },
         },
       }),
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-    require('tailwindcss-rtl'),
-  ],
-}
+  plugins: [require("@tailwindcss/typography"), require("tailwindcss-rtl")],
+};
 
-export default config
+export default config;
 ```
 
 ### 4.2 Create Component Library (Day 2-4)
+
 **Priority**: 🟡 HIGH | **Effort**: 10 hours
 
 **Core Primitives** (`apps/web-eg/components/primitives/`):
 
 **Button.tsx** - Multiple variants, sizes, states
+
 ```typescript
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost'
@@ -754,7 +803,7 @@ export function Button({
     outline: 'border-2 border-blue-600 text-blue-600',
     ghost: 'hover:bg-gray-100 text-gray-900',
   }
-  
+
   const sizes = {
     sm: 'px-3 py-1 text-sm',
     md: 'px-4 py-2 text-base',
@@ -774,6 +823,7 @@ export function Button({
 ```
 
 **Card.tsx** - Flexible card component
+
 ```typescript
 interface CardProps {
   children: React.ReactNode
@@ -797,6 +847,7 @@ export function Card({ children, hover, className }: CardProps) {
 ```
 
 **Input.tsx** - Form input with validation
+
 ```typescript
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string
@@ -809,7 +860,7 @@ export function Input({ label, error, ...props }: InputProps) {
       {label && <label className="block text-sm font-medium mb-2">{label}</label>}
       <input
         className={`
-          w-full px-4 py-2 rounded-lg border-2 
+          w-full px-4 py-2 rounded-lg border-2
           ${error ? 'border-red-500' : 'border-gray-300'}
           focus:outline-none focus:border-blue-500
         `}
@@ -822,6 +873,7 @@ export function Input({ label, error, ...props }: InputProps) {
 ```
 
 **Badge.tsx** - Status indicators
+
 ```typescript
 interface BadgeProps {
   variant?: 'primary' | 'success' | 'warning' | 'error'
@@ -845,9 +897,11 @@ export function Badge({ variant = 'primary', children }: BadgeProps) {
 ```
 
 ### 4.3 Layout Components (Day 4-5)
+
 **Priority**: 🟡 MEDIUM | **Effort**: 6 hours
 
 **Create**: `apps/web-eg/components/layout/Header.tsx`
+
 ```typescript
 'use client'
 
@@ -897,16 +951,17 @@ export function Header() {
 ---
 
 ### 📊 Phase 2 Summary
-| Item | Hours | Status |
-|------|-------|--------|
-| Component reorganization | 6 | ✓ |
-| Type safety enhancements | 5 | ✓ |
-| JSDoc documentation | 6 | ✓ |
-| Test coverage (target 30%) | 8 | ✓ |
-| Tailwind configuration | 4 | ✓ |
-| Primitive components | 10 | ✓ |
-| Layout components | 6 | ✓ |
-| **TOTAL** | **45 hours** | **2 weeks** |
+
+| Item                       | Hours        | Status      |
+| -------------------------- | ------------ | ----------- |
+| Component reorganization   | 6            | ✓           |
+| Type safety enhancements   | 5            | ✓           |
+| JSDoc documentation        | 6            | ✓           |
+| Test coverage (target 30%) | 8            | ✓           |
+| Tailwind configuration     | 4            | ✓           |
+| Primitive components       | 10           | ✓           |
+| Layout components          | 6            | ✓           |
+| **TOTAL**                  | **45 hours** | **2 weeks** |
 
 ---
 
@@ -915,22 +970,26 @@ export function Header() {
 ## Week 5: Design System & Component Library
 
 ### 5.1 Design System Foundation
+
 **Priority**: 🟢 HIGH | **Effort**: 8 hours
 
 **Create**: `packages/design-system/src/components.ts`
+
 ```typescript
 // Export all components with versions
-export { Button } from './Button'
-export { Card } from './Card'
-export { Input } from './Input'
-export { Badge } from './Badge'
+export { Button } from "./Button";
+export { Card } from "./Card";
+export { Input } from "./Input";
+export { Badge } from "./Badge";
 // ... more exports
 ```
 
 ### 5.2 Hero Section Redesign
+
 **Priority**: 🟢 HIGH | **Effort**: 6 hours
 
 **Create**: `apps/web-eg/components/sections/Hero.tsx`
+
 ```typescript
 export function Hero() {
   return (
@@ -943,7 +1002,7 @@ export function Hero() {
               Elevate Your Brand's Digital Presence
             </h1>
             <p className="text-xl text-gray-600 mb-8">
-              Full-service marketing agency in Hurghada. We help businesses grow through 
+              Full-service marketing agency in Hurghada. We help businesses grow through
               strategic SEO, paid advertising, branding, and web development.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -970,9 +1029,11 @@ export function Hero() {
 ```
 
 ### 5.3 Features Section
+
 **Priority**: 🟡 MEDIUM | **Effort**: 5 hours
 
 **Create**: `apps/web-eg/components/sections/Features.tsx`
+
 ```typescript
 const FEATURES = [
   {
@@ -1024,9 +1085,11 @@ export function Features() {
 ```
 
 ### 5.4 Services Showcase
+
 **Priority**: 🟡 MEDIUM | **Effort**: 6 hours
 
 **Create**: `apps/web-eg/components/sections/Services.tsx`
+
 ```typescript
 const SERVICES = [
   {
@@ -1051,7 +1114,7 @@ export function Services() {
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-gray-900 mb-16">Our Services</h2>
-        
+
         <div className="space-y-16">
           {SERVICES.map((service, index) => (
             <div key={service.id} className={`grid md:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'md:grid-cols-2 md:direction-reverse' : ''}`}>
@@ -1086,9 +1149,11 @@ export function Services() {
 ```
 
 ### 5.5 Dark Mode Support
+
 **Priority**: 🟡 MEDIUM | **Effort**: 4 hours
 
 **Update**: All components with dark mode support
+
 ```typescript
 // Example: Card component with dark mode
 export function Card({ children, hover, className }: CardProps) {
@@ -1112,9 +1177,11 @@ export function Card({ children, hover, className }: CardProps) {
 ## Week 6-7: Page Redesigns & New Components
 
 ### 6.1 Blog Page Redesign
+
 **Priority**: 🟢 HIGH | **Effort**: 8 hours
 
 **UI Improvements**:
+
 - [ ] Modern blog grid with featured posts
 - [ ] Better post card design (image, excerpt, tags, reading time)
 - [ ] Sidebar with categories and recent posts
@@ -1123,6 +1190,7 @@ export function Card({ children, hover, className }: CardProps) {
 - [ ] Pagination or infinite scroll
 
 **Create**: `apps/web-eg/components/features/blog/BlogCard.tsx`
+
 ```typescript
 interface BlogCardProps {
   post: BlogPost
@@ -1168,6 +1236,7 @@ export function BlogCard({ post }: BlogCardProps) {
 ```
 
 **Create**: `apps/web-eg/components/features/blog/BlogSearch.tsx`
+
 ```typescript
 'use client'
 
@@ -1204,9 +1273,11 @@ export function BlogSearch({ onSearch }: BlogSearchProps) {
 ```
 
 ### 6.2 Portfolio Page Redesign
+
 **Priority**: 🟢 HIGH | **Effort**: 8 hours
 
 **UI Improvements**:
+
 - [ ] Modern portfolio grid layout
 - [ ] High-quality case study images
 - [ ] Filter by category/technology
@@ -1215,6 +1286,7 @@ export function BlogSearch({ onSearch }: BlogSearchProps) {
 - [ ] Client testimonials integration
 
 **Create**: `apps/web-eg/components/features/portfolio/PortfolioCard.tsx`
+
 ```typescript
 interface PortfolioCardProps {
   project: Portfolio
@@ -1234,7 +1306,7 @@ export function PortfolioCard({ project }: PortfolioCardProps) {
             fill
             className="object-cover transition-transform duration-300 hover:scale-105"
           />
-          
+
           {/* Image dots */}
           <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
             {project.images.map((_, i) => (
@@ -1276,9 +1348,11 @@ export function PortfolioCard({ project }: PortfolioCardProps) {
 ```
 
 ### 6.3 Contact Form Enhancement
+
 **Priority**: 🟡 MEDIUM | **Effort**: 4 hours
 
 **Create**: `apps/web-eg/components/features/contact/ContactForm.tsx`
+
 ```typescript
 'use client'
 
@@ -1380,17 +1454,18 @@ export function ContactForm() {
 ---
 
 ### 📊 Phase 3 Summary
-| Item | Hours | Components |
-|------|-------|-----------|
-| Design system foundation | 8 | All primitives |
-| Hero section redesign | 6 | Hero + CTA |
-| Features section | 5 | FeatureCard |
-| Services showcase | 6 | ServiceCard |
-| Dark mode support | 4 | All components |
-| Blog page redesign | 8 | BlogCard, BlogSearch, BlogGrid |
-| Portfolio page redesign | 8 | PortfolioCard, PortfolioGrid |
-| Contact form enhancement | 4 | ContactForm |
-| **TOTAL** | **49 hours** | **3 weeks** |
+
+| Item                     | Hours        | Components                     |
+| ------------------------ | ------------ | ------------------------------ |
+| Design system foundation | 8            | All primitives                 |
+| Hero section redesign    | 6            | Hero + CTA                     |
+| Features section         | 5            | FeatureCard                    |
+| Services showcase        | 6            | ServiceCard                    |
+| Dark mode support        | 4            | All components                 |
+| Blog page redesign       | 8            | BlogCard, BlogSearch, BlogGrid |
+| Portfolio page redesign  | 8            | PortfolioCard, PortfolioGrid   |
+| Contact form enhancement | 4            | ContactForm                    |
+| **TOTAL**                | **49 hours** | **3 weeks**                    |
 
 ---
 
@@ -1399,9 +1474,11 @@ export function ContactForm() {
 ## Week 8: Blog Content Enhancement
 
 ### 8.1 Blog Post Images
+
 **Priority**: 🟢 HIGH | **Effort**: 12 hours
 
 **Tasks**:
+
 - [ ] Create/source 10+ high-quality blog post featured images
 - [ ] Optimize images for web (compression, responsive sizes)
 - [ ] Add image metadata (alt text, descriptions)
@@ -1409,33 +1486,37 @@ export function ContactForm() {
 - [ ] Set up image CDN (Cloudinary or similar)
 
 **Image Specifications**:
+
 - Featured image: 1200 x 630 px (OG size)
 - Blog card thumbnail: 600 x 400 px
 - Format: WebP + JPEG fallback
 - Max file size: 100 KB (compressed)
 
 **Update blog posts with image data**:
+
 ```typescript
 const blogPosts = [
   {
-    slug: 'seo-strategy-2024',
-    title: '2024 SEO Strategy Guide',
+    slug: "seo-strategy-2024",
+    title: "2024 SEO Strategy Guide",
     image: {
-      src: '/blog/seo-2024.webp',
-      alt: 'SEO strategy diagram showing ranking factors',
+      src: "/blog/seo-2024.webp",
+      alt: "SEO strategy diagram showing ranking factors",
       width: 1200,
       height: 630,
-      placeholder: 'data:image/...',
+      placeholder: "data:image/...",
     },
   },
   // ... more posts
-]
+];
 ```
 
 ### 8.2 Blog Post Content Improvements
+
 **Priority**: 🟡 MEDIUM | **Effort**: 8 hours
 
 **Updates for existing posts**:
+
 - [ ] Add table of contents for longer articles
 - [ ] Add reading time estimate
 - [ ] Add related posts section
@@ -1449,9 +1530,11 @@ const blogPosts = [
 ## Week 9: Portfolio & Case Studies
 
 ### 9.1 Portfolio Project Images
+
 **Priority**: 🟢 HIGH | **Effort**: 16 hours
 
 **Tasks**:
+
 - [ ] Gather/create 3-5 portfolio projects with multiple images each
 - [ ] Screenshot-based: Project overview, results, tools used
 - [ ] Create mockup images of websites/apps
@@ -1459,33 +1542,43 @@ const blogPosts = [
 - [ ] Optimize all images for web
 
 **Portfolio project structure**:
+
 ```typescript
 const portfolioProjects = [
   {
-    id: 'luxury-resort-marketing',
-    title: 'Luxury Resort SEO & Branding',
-    description: 'Transformed a 3-star resort into a top-ranked vacation destination',
+    id: "luxury-resort-marketing",
+    title: "Luxury Resort SEO & Branding",
+    description:
+      "Transformed a 3-star resort into a top-ranked vacation destination",
     images: [
-      { src: '/portfolio/resort-homepage.jpg', alt: 'Resort website redesign' },
-      { src: '/portfolio/resort-booking.jpg', alt: 'Booking page conversion optimization' },
-      { src: '/portfolio/resort-seo-results.jpg', alt: 'SEO ranking improvements' },
+      { src: "/portfolio/resort-homepage.jpg", alt: "Resort website redesign" },
+      {
+        src: "/portfolio/resort-booking.jpg",
+        alt: "Booking page conversion optimization",
+      },
+      {
+        src: "/portfolio/resort-seo-results.jpg",
+        alt: "SEO ranking improvements",
+      },
     ],
     results: [
-      '300% increase in organic traffic',
-      'Top 3 ranking for 50+ keywords',
-      '45% increase in booking conversion rate',
+      "300% increase in organic traffic",
+      "Top 3 ranking for 50+ keywords",
+      "45% increase in booking conversion rate",
     ],
-    tools: ['SEO', 'Content Strategy', 'Web Design', 'Analytics'],
-    link: 'https://example-resort.com',
+    tools: ["SEO", "Content Strategy", "Web Design", "Analytics"],
+    link: "https://example-resort.com",
   },
   // ... more projects
-]
+];
 ```
 
 ### 9.2 Case Study Pages
+
 **Priority**: 🟡 MEDIUM | **Effort**: 8 hours
 
 **Create**: `apps/web-eg/app/portfolio/[id]/page.tsx`
+
 ```typescript
 export default function CaseStudyPage({ params }: { params: { id: string } }) {
   const project = portfolioProjects.find(p => p.id === params.id)
@@ -1561,13 +1654,14 @@ export default function CaseStudyPage({ params }: { params: { id: string } }) {
 ---
 
 ### 📊 Phase 4 Summary
-| Item | Hours | Notes |
-|------|-------|-------|
-| Blog featured images | 12 | 10+ posts, optimized |
-| Blog content enhancements | 8 | TOC, reading time, CTA |
-| Portfolio project images | 16 | 5 projects, 3-5 images each |
-| Case study pages | 8 | Dynamic routing, detailed layout |
-| **TOTAL** | **44 hours** | **2 weeks** |
+
+| Item                      | Hours        | Notes                            |
+| ------------------------- | ------------ | -------------------------------- |
+| Blog featured images      | 12           | 10+ posts, optimized             |
+| Blog content enhancements | 8            | TOC, reading time, CTA           |
+| Portfolio project images  | 16           | 5 projects, 3-5 images each      |
+| Case study pages          | 8            | Dynamic routing, detailed layout |
+| **TOTAL**                 | **44 hours** | **2 weeks**                      |
 
 ---
 
@@ -1576,82 +1670,91 @@ export default function CaseStudyPage({ params }: { params: { id: string } }) {
 ## Week 10: Feature Implementation
 
 ### 10.1 Blog Search (Day 1-3)
+
 **Priority**: 🟢 MEDIUM | **Effort**: 8 hours
 
 **Frontend**: Already done in Phase 3 (BlogSearch component)
 
 **Backend API** - `apps/web-eg/app/api/search/route.ts`:
+
 ```typescript
-import { NextRequest, NextResponse } from 'next/server'
-import { blogPosts } from '@/lib/blog'
+import { NextRequest, NextResponse } from "next/server";
+import { blogPosts } from "@/lib/blog";
 
 export async function GET(request: NextRequest) {
-  const query = request.nextUrl.searchParams.get('q')?.toLowerCase() || ''
+  const query = request.nextUrl.searchParams.get("q")?.toLowerCase() || "";
 
   if (!query) {
-    return NextResponse.json({ results: [] })
+    return NextResponse.json({ results: [] });
   }
 
-  const results = blogPosts.filter(post => 
-    post.title.toLowerCase().includes(query) ||
-    post.description.toLowerCase().includes(query) ||
-    post.tags.some(tag => tag.toLowerCase().includes(query))
-  )
+  const results = blogPosts.filter(
+    (post) =>
+      post.title.toLowerCase().includes(query) ||
+      post.description.toLowerCase().includes(query) ||
+      post.tags.some((tag) => tag.toLowerCase().includes(query)),
+  );
 
-  return NextResponse.json({ results })
+  return NextResponse.json({ results });
 }
 ```
 
 ### 10.2 A/B Testing Framework (Day 3-5)
+
 **Priority**: 🟡 MEDIUM | **Effort**: 8 hours
 
 **Create**: `apps/web-eg/lib/experiments.ts`
+
 ```typescript
-type ExperimentVariant = 'control' | 'variant'
+type ExperimentVariant = "control" | "variant";
 
 interface Experiment {
-  id: string
-  name: string
-  description: string
+  id: string;
+  name: string;
+  description: string;
   variants: {
-    control: string
-    variant: string
-  }
-  splitPercentage: number
-  active: boolean
+    control: string;
+    variant: string;
+  };
+  splitPercentage: number;
+  active: boolean;
 }
 
 const EXPERIMENTS: Record<string, Experiment> = {
-  'cta-button-color': {
-    id: 'cta-button-color',
-    name: 'CTA Button Color',
-    description: 'Testing blue vs red CTA buttons',
-    variants: { control: 'Blue', variant: 'Red' },
+  "cta-button-color": {
+    id: "cta-button-color",
+    name: "CTA Button Color",
+    description: "Testing blue vs red CTA buttons",
+    variants: { control: "Blue", variant: "Red" },
     splitPercentage: 50,
     active: true,
   },
-}
+};
 
-export function getExperimentVariant(experimentId: string, userId: string): ExperimentVariant {
-  const experiment = EXPERIMENTS[experimentId]
-  if (!experiment?.active) return 'control'
+export function getExperimentVariant(
+  experimentId: string,
+  userId: string,
+): ExperimentVariant {
+  const experiment = EXPERIMENTS[experimentId];
+  if (!experiment?.active) return "control";
 
-  const hash = generateHash(`${userId}-${experimentId}`)
-  return hash % 100 < experiment.splitPercentage ? 'variant' : 'control'
+  const hash = generateHash(`${userId}-${experimentId}`);
+  return hash % 100 < experiment.splitPercentage ? "variant" : "control";
 }
 
 function generateHash(str: string): number {
-  let hash = 0
+  let hash = 0;
   for (let i = 0; i < str.length; i++) {
-    const char = str.charCodeAt(i)
-    hash = ((hash << 5) - hash) + char
-    hash = hash & hash
+    const char = str.charCodeAt(i);
+    hash = (hash << 5) - hash + char;
+    hash = hash & hash;
   }
-  return Math.abs(hash)
+  return Math.abs(hash);
 }
 ```
 
 **Use in components**:
+
 ```typescript
 export function HeroSection() {
   const userId = useUserId() // or from analytics
@@ -1665,13 +1768,15 @@ export function HeroSection() {
 ## Week 11: Performance Optimization
 
 ### 11.1 Font Optimization (Day 1-2)
+
 **Priority**: 🟡 MEDIUM | **Effort**: 3 hours
 
 **Update**: `apps/web-eg/app/layout.tsx`
+
 ```typescript
 // Load fonts with display swap to prevent layout shift
-const inter = Inter({ 
-  subsets: ['latin'], 
+const inter = Inter({
+  subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap', // Critical: prevent layout shift
 })
@@ -1686,7 +1791,7 @@ const cairo = Cairo({
 // Load fonts conditionally based on language
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const locale = useLocale() // from i18n
-  
+
   return (
     <html lang={locale} className={locale === 'ar' ? cairo.variable : inter.variable}>
       {children}
@@ -1696,49 +1801,55 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 ```
 
 ### 11.2 Image Optimization (Day 2-3)
+
 **Priority**: 🟡 MEDIUM | **Effort**: 4 hours
 
 **Create**: `apps/web-eg/lib/image-loader.ts`
+
 ```typescript
 export const imageLoader = ({ src, width, quality }: any) => {
   // Use Cloudinary or similar service
-  if (src.startsWith('http')) return src
-  
-  return `https://res.cloudinary.com/mediabubble/image/fetch/w_${width},q_${quality || 75}/https://mediabubble.co${src}`
-}
+  if (src.startsWith("http")) return src;
+
+  return `https://res.cloudinary.com/mediabubble/image/fetch/w_${width},q_${quality || 75}/https://mediabubble.co${src}`;
+};
 ```
 
 **Use in Next.js config**:
+
 ```typescript
 const nextConfig = {
   images: {
-    loader: 'custom',
-    loaderFile: './lib/image-loader.ts',
-    formats: ['image/avif', 'image/webp', 'image/jpeg'],
+    loader: "custom",
+    loaderFile: "./lib/image-loader.ts",
+    formats: ["image/avif", "image/webp", "image/jpeg"],
   },
-}
+};
 ```
 
 ### 11.3 Service Worker & Offline Support (Day 3-5)
+
 **Priority**: 🟡 MEDIUM | **Effort**: 6 hours
 
 **Install package**:
+
 ```bash
 npm install next-pwa
 ```
 
 **Update**: `apps/web-eg/next.config.js`
+
 ```javascript
-const withPWA = require('next-pwa')({
-  dest: 'public',
+const withPWA = require("next-pwa")({
+  dest: "public",
   register: true,
   skipWaiting: true,
   runtimeCaching: [
     {
       urlPattern: /^https:\/\/images\./i,
-      handler: 'CacheFirst',
+      handler: "CacheFirst",
       options: {
-        cacheName: 'images-cache',
+        cacheName: "images-cache",
         expiration: {
           maxEntries: 100,
           maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
@@ -1747,21 +1858,23 @@ const withPWA = require('next-pwa')({
     },
     {
       urlPattern: /^https:\/\/fonts\./i,
-      handler: 'CacheFirst',
+      handler: "CacheFirst",
       options: {
-        cacheName: 'fonts-cache',
+        cacheName: "fonts-cache",
       },
     },
   ],
-})
+});
 
-module.exports = withPWA(nextConfig)
+module.exports = withPWA(nextConfig);
 ```
 
 ### 11.4 ISR for Blog Posts (Day 5)
+
 **Priority**: 🟡 MEDIUM | **Effort**: 2 hours
 
 **Update**: `apps/web-eg/app/blog/[slug]/page.tsx`
+
 ```typescript
 export const revalidate = 3600 // Revalidate every hour
 
@@ -1789,15 +1902,16 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 ---
 
 ### 📊 Phase 5 Summary
-| Item | Hours | Status |
-|------|-------|--------|
-| Blog search | 8 | ✓ |
-| A/B testing framework | 8 | ✓ |
-| Font optimization | 3 | ✓ |
-| Image optimization | 4 | ✓ |
-| Service worker & PWA | 6 | ✓ |
-| ISR setup | 2 | ✓ |
-| **TOTAL** | **31 hours** | **2 weeks** |
+
+| Item                  | Hours        | Status      |
+| --------------------- | ------------ | ----------- |
+| Blog search           | 8            | ✓           |
+| A/B testing framework | 8            | ✓           |
+| Font optimization     | 3            | ✓           |
+| Image optimization    | 4            | ✓           |
+| Service worker & PWA  | 6            | ✓           |
+| ISR setup             | 2            | ✓           |
+| **TOTAL**             | **31 hours** | **2 weeks** |
 
 ---
 
@@ -1806,64 +1920,69 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 ## Final Week: QA, Testing & Deployment
 
 ### 6.1 E2E Testing (Day 1-2)
+
 **Priority**: 🟡 HIGH | **Effort**: 6 hours
 
 **Install Playwright**:
+
 ```bash
 npm install --save-dev @playwright/test
 ```
 
 **Create**: `apps/web-eg/e2e/homepage.spec.ts`
+
 ```typescript
-import { test, expect } from '@playwright/test'
+import { test, expect } from "@playwright/test";
 
-test.describe('Homepage', () => {
-  test('should load and render hero section', async ({ page }) => {
-    await page.goto('/')
-    
-    const heading = page.locator('h1')
-    await expect(heading).toBeVisible()
-    await expect(heading).toContainText('Digital Presence')
-  })
+test.describe("Homepage", () => {
+  test("should load and render hero section", async ({ page }) => {
+    await page.goto("/");
 
-  test('should navigate to services page', async ({ page }) => {
-    await page.goto('/')
-    
-    const servicesLink = page.locator('a[href="/services"]')
-    await servicesLink.click()
-    
-    await expect(page).toHaveURL('/services')
-  })
+    const heading = page.locator("h1");
+    await expect(heading).toBeVisible();
+    await expect(heading).toContainText("Digital Presence");
+  });
 
-  test('should open contact form', async ({ page }) => {
-    await page.goto('/')
-    
-    const contactBtn = page.locator('button', { hasText: /Get Started/i })
-    await contactBtn.click()
-    
-    const form = page.locator('form')
-    await expect(form).toBeVisible()
-  })
+  test("should navigate to services page", async ({ page }) => {
+    await page.goto("/");
 
-  test('should submit contact form', async ({ page }) => {
-    await page.goto('/')
-    await page.fill('input[name="name"]', 'John Doe')
-    await page.fill('input[name="email"]', 'john@example.com')
-    await page.fill('textarea', 'Test message')
-    
-    const submitBtn = page.locator('button[type="submit"]')
-    await submitBtn.click()
-    
-    const success = page.locator('text=Message Sent')
-    await expect(success).toBeVisible()
-  })
-})
+    const servicesLink = page.locator('a[href="/services"]');
+    await servicesLink.click();
+
+    await expect(page).toHaveURL("/services");
+  });
+
+  test("should open contact form", async ({ page }) => {
+    await page.goto("/");
+
+    const contactBtn = page.locator("button", { hasText: /Get Started/i });
+    await contactBtn.click();
+
+    const form = page.locator("form");
+    await expect(form).toBeVisible();
+  });
+
+  test("should submit contact form", async ({ page }) => {
+    await page.goto("/");
+    await page.fill('input[name="name"]', "John Doe");
+    await page.fill('input[name="email"]', "john@example.com");
+    await page.fill("textarea", "Test message");
+
+    const submitBtn = page.locator('button[type="submit"]');
+    await submitBtn.click();
+
+    const success = page.locator("text=Message Sent");
+    await expect(success).toBeVisible();
+  });
+});
 ```
 
 ### 6.2 Performance Testing (Day 2-3)
+
 **Priority**: 🟡 MEDIUM | **Effort**: 4 hours
 
 **Bundle Analysis**:
+
 ```bash
 npm install --save-dev @next/bundle-analyzer
 
@@ -1876,6 +1995,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 **Run**: `ANALYZE=true npm run build`
 
 **Performance Audit Checklist**:
+
 - [ ] Lighthouse score >90 (all categories)
 - [ ] Core Web Vitals: LCP <2.5s, FID <100ms, CLS <0.1
 - [ ] Bundle size <200KB gzipped
@@ -1883,9 +2003,11 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 - [ ] First Contentful Paint <3s
 
 ### 6.3 Final QA & Testing (Day 3-4)
+
 **Priority**: 🔴 CRITICAL | **Effort**: 6 hours
 
 **QA Checklist**:
+
 - [ ] All pages load without errors
 - [ ] Mobile responsive (all breakpoints)
 - [ ] Forms submit correctly
@@ -1900,6 +2022,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 - [ ] robots.txt configured
 
 **Browser Testing**:
+
 - [ ] Chrome (latest)
 - [ ] Firefox (latest)
 - [ ] Safari (latest)
@@ -1908,39 +2031,45 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 - [ ] Chrome Mobile (Android)
 
 ### 6.4 Monitoring Setup (Day 4-5)
+
 **Priority**: 🟡 MEDIUM | **Effort**: 4 hours
 
 **Sentry Setup** - Error tracking:
+
 ```bash
 npm install @sentry/nextjs
 ```
 
 **Configure**: `apps/web-eg/sentry.server.config.ts`
+
 ```typescript
-import * as Sentry from "@sentry/nextjs"
+import * as Sentry from "@sentry/nextjs";
 
 Sentry.init({
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
   environment: process.env.NODE_ENV,
-  tracesSampleRate: process.env.NODE_ENV === 'production' ? 0.1 : 1.0,
-})
+  tracesSampleRate: process.env.NODE_ENV === "production" ? 0.1 : 1.0,
+});
 ```
 
 **Web Vitals Monitoring**:
+
 ```typescript
 // pages/_app.tsx
-import { reportWebVitals } from 'next/vitals'
+import { reportWebVitals } from "next/vitals";
 
 export function reportWebVitals(metric: any) {
   // Send to analytics
-  console.log(metric)
+  console.log(metric);
 }
 ```
 
 ### 6.5 Deployment (Day 5)
+
 **Priority**: 🔴 CRITICAL | **Effort**: 2 hours
 
 **Steps**:
+
 - [ ] Final security audit
 - [ ] Final performance check
 - [ ] Deploy to staging
@@ -1950,6 +2079,7 @@ export function reportWebVitals(metric: any) {
 - [ ] Celebrate! 🎉
 
 **Vercel Deployment**:
+
 ```bash
 vercel --prod
 ```
@@ -1957,14 +2087,15 @@ vercel --prod
 ---
 
 ### 📊 Phase 6 Summary
-| Item | Hours | Status |
-|------|-------|--------|
-| E2E testing | 6 | ✓ |
-| Performance testing | 4 | ✓ |
-| Final QA | 6 | ✓ |
-| Monitoring setup | 4 | ✓ |
-| Deployment | 2 | ✓ |
-| **TOTAL** | **22 hours** | **1 week** |
+
+| Item                | Hours        | Status     |
+| ------------------- | ------------ | ---------- |
+| E2E testing         | 6            | ✓          |
+| Performance testing | 4            | ✓          |
+| Final QA            | 6            | ✓          |
+| Monitoring setup    | 4            | ✓          |
+| Deployment          | 2            | ✓          |
+| **TOTAL**           | **22 hours** | **1 week** |
 
 ---
 
@@ -1986,6 +2117,7 @@ TOTAL: 12 weeks | 231 hours | ~6 weeks full-time or 12 weeks part-time
 # 🎯 SUCCESS METRICS BY PHASE
 
 ## Phase 1 Completion Criteria
+
 - ✅ 0 security vulnerabilities
 - ✅ 0 hardcoded credentials in git
 - ✅ Testing infrastructure in place
@@ -1993,6 +2125,7 @@ TOTAL: 12 weeks | 231 hours | ~6 weeks full-time or 12 weeks part-time
 - ✅ CI/CD pipeline working
 
 ## Phase 2 Completion Criteria
+
 - ✅ Components organized by feature
 - ✅ 100% TypeScript strict mode
 - ✅ All exports documented with JSDoc
@@ -2000,6 +2133,7 @@ TOTAL: 12 weeks | 231 hours | ~6 weeks full-time or 12 weeks part-time
 - ✅ Global state management working
 
 ## Phase 3 Completion Criteria
+
 - ✅ Design system complete (30+ components)
 - ✅ All pages redesigned (modern, clean, high-quality)
 - ✅ Dark mode working everywhere
@@ -2007,6 +2141,7 @@ TOTAL: 12 weeks | 231 hours | ~6 weeks full-time or 12 weeks part-time
 - ✅ Lighthouse score >85
 
 ## Phase 4 Completion Criteria
+
 - ✅ 10+ blog posts with optimized images
 - ✅ 5+ portfolio projects with case studies
 - ✅ All images WebP + JPEG optimized
@@ -2014,6 +2149,7 @@ TOTAL: 12 weeks | 231 hours | ~6 weeks full-time or 12 weeks part-time
 - ✅ SEO metadata complete
 
 ## Phase 5 Completion Criteria
+
 - ✅ Blog search fully functional
 - ✅ A/B testing framework live
 - ✅ Service worker installed
@@ -2021,6 +2157,7 @@ TOTAL: 12 weeks | 231 hours | ~6 weeks full-time or 12 weeks part-time
 - ✅ Lighthouse score >90
 
 ## Phase 6 Completion Criteria
+
 - ✅ 100% E2E test coverage (critical paths)
 - ✅ Core Web Vitals all green
 - ✅ Bundle size <200KB gzipped
@@ -2032,11 +2169,13 @@ TOTAL: 12 weeks | 231 hours | ~6 weeks full-time or 12 weeks part-time
 # 📋 RESOURCE REQUIREMENTS
 
 **Team Size**: 2-3 people
+
 - 1 Frontend Engineer (primary)
 - 1 UI/UX Designer (Phase 3-4)
 - 1 Content Manager (Phase 4)
 
 **Tools & Services**:
+
 - Testing: Jest, Playwright, React Testing Library
 - Monitoring: Sentry, Vercel Analytics
 - Images: Cloudinary or similar CDN
@@ -2048,6 +2187,7 @@ TOTAL: 12 weeks | 231 hours | ~6 weeks full-time or 12 weeks part-time
 # 🚀 GETTING STARTED TODAY
 
 1. **Immediately (Today)**
+
    ```bash
    git rm --cached .env.local
    echo ".env.local" >> .gitignore

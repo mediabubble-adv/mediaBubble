@@ -3,6 +3,7 @@
 ## ✅ What Was Created
 
 A **production-ready Sidebar component** with:
+
 - ✅ Gray background (`bg-gray-100` / `#F3F4F6`)
 - ✅ Collapsed by default (`w-20`)
 - ✅ Toggle button (expand/collapse)
@@ -33,76 +34,79 @@ A **production-ready Sidebar component** with:
 ## 🚀 How to Use
 
 ### Basic Import
+
 ```tsx
-import { Sidebar } from '@/components/layout/Sidebar'
+import { Sidebar } from "@/components/layout/Sidebar";
 
 export function Layout() {
   return (
     <div className="flex">
       <Sidebar />
-      <main className="flex-1 ml-64">
-        {/* Main content */}
-      </main>
+      <main className="flex-1 ml-64">{/* Main content */}</main>
     </div>
-  )
+  );
 }
 ```
 
 ### With Custom Nav Items
+
 ```tsx
-import { Sidebar } from '@/components/layout/Sidebar'
-import { Home, Settings, LogOut } from 'lucide-react'
+import { Sidebar } from "@/components/layout/Sidebar";
+import { Home, Settings, LogOut } from "lucide-react";
 
 const navItems = [
   {
-    id: 'dashboard',
-    label: 'Dashboard',
+    id: "dashboard",
+    label: "Dashboard",
     icon: <Home size={20} />,
-    href: '/dashboard',
+    href: "/dashboard",
   },
   {
-    id: 'campaigns',
-    label: 'Campaigns',
+    id: "campaigns",
+    label: "Campaigns",
     icon: <Campaign size={20} />,
-    href: '/campaigns',
+    href: "/campaigns",
     badge: 5, // Shows red badge with number
   },
   {
-    id: 'settings',
-    label: 'Settings',
+    id: "settings",
+    label: "Settings",
     icon: <Settings size={20} />,
-    href: '/settings',
+    href: "/settings",
   },
-]
+];
 
 export function Layout() {
   return (
-    <Sidebar 
+    <Sidebar
       navItems={navItems}
-      onLogout={() => console.log('User logged out')}
+      onLogout={() => console.log("User logged out")}
     />
-  )
+  );
 }
 ```
 
 ### With Layout Adjustment
-**IMPORTANT:** When sidebar is collapsed (w-20) or expanded (w-64), 
+
+**IMPORTANT:** When sidebar is collapsed (w-20) or expanded (w-64),
 adjust your main content margin:
 
 ```tsx
 export function Layout() {
-  const collapsed = useSidebarCollapsed() // Optional hook
+  const collapsed = useSidebarCollapsed(); // Optional hook
 
   return (
     <div className="flex">
       <Sidebar />
-      <main className={`flex-1 transition-all duration-300 ${
-        collapsed ? 'ml-20' : 'ml-64'
-      }`}>
+      <main
+        className={`flex-1 transition-all duration-300 ${
+          collapsed ? "ml-20" : "ml-64"
+        }`}
+      >
         {/* Main content - margin adjusts with sidebar */}
       </main>
     </div>
-  )
+  );
 }
 ```
 
@@ -111,30 +115,33 @@ export function Layout() {
 ## 🎨 Component Structure
 
 ### Props Interface
+
 ```typescript
 interface SidebarProps {
-  navItems?: NavItem[]        // Custom navigation items
-  onLogout?: () => void       // Logout callback
+  navItems?: NavItem[]; // Custom navigation items
+  onLogout?: () => void; // Logout callback
 }
 
 interface NavItem {
-  id: string                  // Unique identifier
-  label: string              // Display text
-  icon: React.ReactNode      // Icon element
-  href: string              // Link URL
-  badge?: number            // Optional badge number
+  id: string; // Unique identifier
+  label: string; // Display text
+  icon: React.ReactNode; // Icon element
+  href: string; // Link URL
+  badge?: number; // Optional badge number
 }
 ```
 
 ### Behavior
 
 **Collapsed State (Default - `w-20`):**
+
 - Logo: Shows only "M" icon
 - Nav items: Icons only
 - Labels: Hidden
 - Hover: Shows tooltip
 
 **Expanded State (`w-64`):**
+
 - Logo: Full "MediaBubble" text + icon
 - Nav items: Icons + labels
 - Badges: Visible
@@ -145,7 +152,9 @@ interface NavItem {
 ## 🎯 Key Features
 
 ### 1. **localStorage Persistence**
+
 State is automatically saved/restored:
+
 ```tsx
 // Automatically saves to localStorage when toggled
 // Automatically loads from localStorage on mount
@@ -153,6 +162,7 @@ State is automatically saved/restored:
 ```
 
 ### 2. **Smooth Animations**
+
 ```css
 /* All transitions use Tailwind duration-300 */
 transition-all duration-300
@@ -164,6 +174,7 @@ transition-all duration-300
 ```
 
 ### 3. **Dark Mode Support**
+
 ```tsx
 /* Automatic dark mode detection */
 <aside className="bg-gray-100 dark:bg-gray-900">
@@ -175,6 +186,7 @@ transition-all duration-300
 ```
 
 ### 4. **Accessibility (WCAG 2.1 AA)**
+
 ```tsx
 /* Semantic HTML */
 <aside>         {/* Correct role */}
@@ -194,6 +206,7 @@ All text: 4.5:1 minimum (WCAG AA)
 ```
 
 ### 5. **Responsive Design**
+
 ```tsx
 /* Mobile: Sidebar likely hidden, nav in drawer */
 /* Tablet/Desktop: Sidebar always visible */
@@ -207,6 +220,7 @@ All text: 4.5:1 minimum (WCAG AA)
 ```
 
 ### 6. **i18n Support**
+
 ```tsx
 /* Uses react-i18next for translations */
 {t('common.expandSidebar')}
@@ -241,11 +255,13 @@ All text: 4.5:1 minimum (WCAG AA)
 ## 🧪 Testing
 
 ### Run Tests
+
 ```bash
 npm run test Sidebar.test.tsx
 ```
 
 ### Test Coverage
+
 - ✅ Default state (collapsed)
 - ✅ Toggle functionality (expand/collapse)
 - ✅ localStorage persistence
@@ -262,6 +278,7 @@ npm run test Sidebar.test.tsx
 ## 📚 Storybook
 
 ### View in Storybook
+
 ```bash
 npm run storybook
 
@@ -269,6 +286,7 @@ npm run storybook
 ```
 
 ### Available Variants
+
 1. **Default** — Standard sidebar (collapsed)
 2. **WithActions** — Custom logout handler
 3. **DarkMode** — Dark theme
@@ -280,6 +298,7 @@ npm run storybook
 ## 🎨 Styling Details
 
 ### Colors
+
 ```css
 /* Background */
 bg-gray-100 dark:bg-gray-900
@@ -303,6 +322,7 @@ hover:bg-red-50 dark:hover:bg-red-900/20
 ```
 
 ### Spacing
+
 ```css
 /* Uses 8px base unit (Tailwind) */
 p-4    /* 16px padding */
@@ -313,6 +333,7 @@ space-y-2 /* 8px vertical space between items */
 ```
 
 ### Sizing
+
 ```css
 /* Collapsed: w-20 = 80px */
 /* Expanded: w-64 = 256px */
@@ -343,17 +364,18 @@ space-y-2 /* 8px vertical space between items */
    - Persists across page reloads and browser sessions
 
 ### Using the Hook (Optional)
+
 ```tsx
-import { useSidebarCollapsed } from '@/components/layout/Sidebar'
+import { useSidebarCollapsed } from "@/components/layout/Sidebar";
 
 export function MainContent() {
-  const collapsed = useSidebarCollapsed()
+  const collapsed = useSidebarCollapsed();
 
   return (
-    <main className={`ml-${collapsed ? '20' : '64'}`}>
+    <main className={`ml-${collapsed ? "20" : "64"}`}>
       {/* Adjust layout based on sidebar state */}
     </main>
-  )
+  );
 }
 ```
 
@@ -362,38 +384,49 @@ export function MainContent() {
 ## 🚨 Common Issues & Solutions
 
 ### Issue: Sidebar doesn't collapse/expand
+
 **Check:**
+
 1. Toggle button visible? → Check z-index
 2. localStorage enabled? → Check browser settings
 3. JavaScript enabled? → Check console for errors
 
 ### Issue: Content gets hidden behind sidebar
+
 **Solution:**
 Add margin to main content:
+
 ```tsx
 <main className="ml-64"> {/* Match expanded width */}
 ```
 
 Or use the hook to adjust dynamically:
+
 ```tsx
 const collapsed = useSidebarCollapsed()
 <main className={`ml-${collapsed ? '20' : '64'}`}>
 ```
 
 ### Issue: Icons not showing
+
 **Check:**
+
 1. Icons imported from lucide-react?
 2. SVG icons have correct size prop?
 3. Icons rendered as JSX elements?
 
 ### Issue: Dark mode not working
+
 **Check:**
+
 1. Parent has `dark` class?
 2. Using Tailwind dark mode?
 3. Browser dark preference enabled?
 
 ### Issue: Tooltips don't show
+
 **Check:**
+
 1. Sidebar expanded? (Tooltips only show when collapsed)
 2. Hover over icon? (Tooltip is on the link)
 3. z-index conflicts? (Tooltip has `z-50`)
@@ -413,11 +446,11 @@ Current sidebar is **always visible**. For mobile, consider:
 /* Option 2: Always collapsed on mobile */
 export function ResponsiveSidebar() {
   const isMobile = useMediaQuery('(max-width: 768px)')
-  
+
   if (isMobile) {
     return <MobileDrawerSidebar /> {/* Custom mobile variant */}
   }
-  
+
   return <Sidebar />
 }
 ```
@@ -436,26 +469,31 @@ export function ResponsiveSidebar() {
 ## ♿ Accessibility Features
 
 ✅ **Semantic HTML**
+
 - `<aside>` for sidebar (landmark)
 - `<nav>` for navigation
 - `<button>` for toggle
 - `<a>` for links
 
 ✅ **ARIA Labels**
+
 - `aria-label="Toggle sidebar"`
 - `title` attributes (tooltips)
 
 ✅ **Keyboard Navigation**
+
 - Tab through links
 - Enter to activate
 - Focus indicators visible
 
 ✅ **Color Contrast**
+
 - All text: 4.5:1 (WCAG AA)
 - Links: 3:1 (WCAG AA)
 - Light & dark modes
 
 ✅ **Screen Reader**
+
 - Links read correctly
 - Toggle purpose clear
 - Badges announced
@@ -527,4 +565,3 @@ If you encounter issues:
 **Last Updated:** June 9, 2026
 
 **Version:** 1.0.0
-

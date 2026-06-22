@@ -101,9 +101,16 @@
     "typescript": "^5.3.3"
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
+    "apps/**/*.{ts,tsx}": [
       "eslint --fix --max-warnings=0",
       "jest --findRelatedTests --passWithNoTests --config jest.config.cjs"
+    ],
+    "packages/**/*.{ts,tsx}": [
+      "eslint --fix --max-warnings=0",
+      "jest --findRelatedTests --passWithNoTests --config jest.config.cjs"
+    ],
+    "jest.setup.ts": [
+      "eslint --fix --max-warnings=0"
     ]
   },
   "overrides": {
