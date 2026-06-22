@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { User, Lock, Users, Camera, CheckCircle2, Sliders } from 'lucide-react'
+import { PageFrame, PageHeader } from '@/components/layout/page-frame'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -625,27 +626,25 @@ export function SettingsDashboard({
   }, [updatePill])
 
   return (
-    <div className="px-6 py-8 lg:px-10">
-      <div className="mx-auto max-w-2xl">
-        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary">Settings</p>
-        <h1 className="mt-1 font-display text-3xl font-bold tracking-tight text-foreground">
-          Account settings
-        </h1>
-        <p className="mt-2 text-[14px] text-muted-foreground">
-          Manage your profile, password, and team.
-        </p>
+    <PageFrame>
+      <PageHeader
+        kicker="Settings"
+        title="Account settings"
+        description="Manage your profile, password, and team."
+      />
 
-        {/* Tab bar with sliding pill indicator */}
+      <div className="mt-8 flex flex-col gap-8 xl:flex-row xl:items-start xl:gap-12">
+        {/* Tab bar — horizontal on small screens, vertical on ultra-wide */}
         <div
           role="tablist"
-          className="relative mt-6 flex gap-1 rounded-lg border border-border bg-muted/30 p-1"
+          className="relative flex shrink-0 gap-1 rounded-lg border border-border bg-muted/30 p-1 xl:w-56 xl:flex-col xl:border-0 xl:bg-transparent xl:p-0"
         >
           {/* Sliding pill — hardware-accelerated via transform.
               left-0 anchors it to the padding-box edge; translateX moves it to the active tab. */}
           {pill && (
             <span
               aria-hidden
-              className="pointer-events-none absolute left-0 top-1 bottom-1 rounded-md bg-card shadow-sm transition-transform duration-200 ease-[var(--ease-out)]"
+              className="pointer-events-none absolute left-0 top-1 bottom-1 rounded-md bg-card shadow-sm transition-transform duration-200 ease-[var(--ease-out)] xl:hidden"
               style={{ transform: `translateX(${pill.x}px)`, width: pill.w }}
             />
           )}
@@ -660,8 +659,10 @@ export function SettingsDashboard({
               aria-selected={tab === id}
               aria-controls={`tabpanel-${id}`}
               className={[
-                'relative z-10 flex flex-1 items-center justify-center gap-2 rounded-md px-3 py-2 text-[13px] font-medium transition-colors duration-150',
-                tab === id ? 'text-foreground' : 'text-muted-foreground hover:text-foreground',
+                'relative z-10 flex flex-1 items-center justify-center gap-2 rounded-md px-3 py-2 text-[13px] font-medium transition-colors duration-150 xl:flex-none xl:justify-start xl:px-4 xl:py-2.5',
+                tab === id
+                  ? 'text-foreground xl:bg-card xl:shadow-sm xl:ring-1 xl:ring-border'
+                  : 'text-muted-foreground hover:text-foreground',
               ].join(' ')}
             >
               <Icon size={14} aria-hidden="true" />
@@ -670,8 +671,8 @@ export function SettingsDashboard({
           ))}
         </div>
 
-        {/* Tab panels — animated via CSS @keyframes mb-tab-in on :not([hidden]) */}
-        <div className="mt-6">
+        {/* Tab panels */}
+        <div className="min-w-0 flex-1 xl:max-w-3xl">
           <div id="tabpanel-profile" role="tabpanel" hidden={tab !== 'profile'}>
             <ProfileTab user={user} />
           </div>
@@ -686,6 +687,6 @@ export function SettingsDashboard({
           </div>
         </div>
       </div>
-    </div>
+    </PageFrame>
   )
 }

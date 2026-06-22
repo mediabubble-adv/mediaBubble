@@ -5,6 +5,7 @@ import Link from 'next/link'
 import type { OpusUsageSnapshot } from '@/lib/opus/types'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
+import { PageFrame, PageHeader } from '@/components/layout/page-frame'
 
 function Meter({ label, used, quota, pct }: { label: string; used: number; quota: number; pct: number }) {
   return (
@@ -38,25 +39,24 @@ export function OpusUsageDashboard() {
   }, [])
 
   return (
-    <div className="px-6 py-8 lg:px-10">
-      <div className="mx-auto max-w-4xl">
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary">OPUS Billing</p>
-            <h1 className="mt-1 font-display text-2xl font-bold">Usage</h1>
-            {usage ? (
-              <p className="mt-1 text-sm text-muted-foreground">
-                {usage.period_start} → {usage.period_end} · Plan: {usage.plan}
-              </p>
-            ) : null}
-          </div>
+    <PageFrame>
+      <PageHeader
+        kicker="OPUS Billing"
+        title="Usage"
+        description={
+          usage
+            ? `${usage.period_start} → ${usage.period_end} · Plan: ${usage.plan}`
+            : 'Loading billing period…'
+        }
+        actions={
           <Link href="/opus">
             <Button variant="outline">Back</Button>
           </Link>
-        </div>
+        }
+      />
 
         {usage ? (
-          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
             <Meter
               label="AI Generations"
               used={usage.ai_generations}
@@ -79,7 +79,6 @@ export function OpusUsageDashboard() {
         ) : (
           <p className="mt-8 text-sm text-muted-foreground">Loading usage…</p>
         )}
-      </div>
-    </div>
+    </PageFrame>
   )
 }

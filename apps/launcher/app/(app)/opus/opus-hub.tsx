@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { ArrowRight, Bot, Megaphone, Workflow, Gauge, FilePlus } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { PageFrame, PageHeader } from '@/components/layout/page-frame'
 import type { OpusUsageSnapshot } from '@/lib/opus/types'
 
 interface OpusSummary {
@@ -31,21 +32,19 @@ export function OpusHub() {
   const usage = summary?.usage
 
   return (
-    <div className="px-6 py-8 lg:px-10">
-      <div className="mx-auto max-w-5xl">
-        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary">OPUS</p>
-        <h1 className="mt-1 font-display text-3xl font-bold tracking-tight text-foreground">
-          Command Center
-        </h1>
-        <p className="mt-2 max-w-2xl text-[14px] text-muted-foreground">
-          Autonomous marketing orchestration — brief to campaign to optimization in one workflow.
-        </p>
+    <PageFrame>
+      <PageHeader
+        kicker="OPUS"
+        icon={Bot}
+        title="Command Center"
+        description="Autonomous marketing orchestration — brief to campaign to optimization in one workflow."
+      />
 
         {error ? (
           <p className="mt-6 text-sm text-destructive">{error}</p>
         ) : null}
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-3">
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
           <Card>
             <CardContent className="p-5">
               <p className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
@@ -83,7 +82,7 @@ export function OpusHub() {
           </Card>
         </div>
 
-        <div className="mt-8 grid gap-3 sm:grid-cols-2">
+        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 2xl:gap-4">
           {[
             { href: '/opus/briefs/new', label: 'New Brief', icon: FilePlus, desc: 'Brief → campaign flow' },
             { href: '/opus/triggers', label: 'Triggers', icon: Workflow, desc: 'Weekly social planning + more' },
@@ -134,7 +133,6 @@ export function OpusHub() {
             </p>
           </CardContent>
         </Card>
-      </div>
-    </div>
+    </PageFrame>
   )
 }

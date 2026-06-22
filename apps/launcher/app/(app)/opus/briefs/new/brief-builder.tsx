@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from 'react'
 import Link from 'next/link'
+import { FilePlus } from 'lucide-react'
 import type { ClientRow } from '@/lib/crm/clients'
 import { OPUS_BRIEF_GOALS } from '@/lib/opus/types'
 import { SERVICE_CHANNELS } from '@/lib/campaigns/schemas'
@@ -9,6 +10,7 @@ import { CURRENCIES } from '@/lib/crm/schemas'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
+import { PageFrame, PageHeader } from '@/components/layout/page-frame'
 
 const CHANNEL_LABELS: Record<string, string> = {
   seo: 'SEO',
@@ -66,32 +68,33 @@ export function OpusBriefBuilder({ clients }: { clients: ClientRow[] }) {
 
   if (successId) {
     return (
-      <Card className="mx-auto max-w-lg">
-        <CardContent className="space-y-4 p-6 text-center">
-          <p className="font-display text-lg font-bold">Brief saved</p>
-          <p className="text-sm text-muted-foreground">OPUS recorded your campaign brief.</p>
-          <div className="flex justify-center gap-3">
-            <Link href="/opus">
-              <Button variant="outline">Back to OPUS</Button>
-            </Link>
-            <Link href="/campaigns">
-              <Button>View campaigns</Button>
-            </Link>
-          </div>
-        </CardContent>
-      </Card>
+      <PageFrame width="narrow">
+        <Card>
+          <CardContent className="space-y-4 p-6 text-center">
+            <p className="font-display text-lg font-bold">Brief saved</p>
+            <p className="text-sm text-muted-foreground">OPUS recorded your campaign brief.</p>
+            <div className="flex justify-center gap-3">
+              <Link href="/opus">
+                <Button variant="outline">Back to OPUS</Button>
+              </Link>
+              <Link href="/campaigns">
+                <Button>View campaigns</Button>
+              </Link>
+            </div>
+          </CardContent>
+        </Card>
+      </PageFrame>
     )
   }
 
   return (
-    <form onSubmit={onSubmit} className="mx-auto max-w-2xl space-y-6">
-      <div>
-        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary">OPUS Brief</p>
-        <h1 className="mt-1 font-display text-2xl font-bold">New Campaign Brief</h1>
-      </div>
+    <PageFrame>
+      <PageHeader kicker="OPUS Brief" icon={FilePlus} title="New Campaign Brief" />
 
+      <form onSubmit={onSubmit} className="mt-8 space-y-6">
       {error ? <p className="text-sm text-destructive">{error}</p> : null}
 
+      <div className="grid gap-6 xl:grid-cols-2 2xl:gap-8">
       <Card>
         <CardContent className="space-y-4 p-5">
           <label className="block space-y-1">
@@ -191,6 +194,7 @@ export function OpusBriefBuilder({ clients }: { clients: ClientRow[] }) {
           </label>
         </CardContent>
       </Card>
+      </div>
 
       <div className="flex gap-3">
         <Link href="/opus">
@@ -203,5 +207,6 @@ export function OpusBriefBuilder({ clients }: { clients: ClientRow[] }) {
         </Button>
       </div>
     </form>
+    </PageFrame>
   )
 }

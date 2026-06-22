@@ -5,6 +5,7 @@ import { Play, Plus, RefreshCw, Workflow, Zap } from 'lucide-react'
 import type { ExecutionRow, TemplateRow, WorkflowRow } from '@/lib/automation/workflows'
 import { ACTION_CATALOG, TRIGGER_CATALOG } from '@/lib/automation/catalog'
 import { Input } from '@/components/ui/input'
+import { PageFrame, PageHeader } from '@/components/layout/page-frame'
 
 const STATUS_STYLES: Record<string, string> = {
   Completed: 'bg-[#16A34A]/15 text-[#16A34A]',
@@ -163,20 +164,12 @@ export function AutomationDashboard({
   }
 
   return (
-    <div className="px-6 py-8 lg:px-8">
-      <div className="mx-auto max-w-6xl">
-        <div className="flex flex-wrap items-start justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10">
-              <Workflow size={20} className="text-accent" />
-            </div>
-            <div>
-              <h1 className="font-display text-2xl font-bold text-foreground">Workflow Automation</h1>
-              <p className="text-[13px] text-muted-foreground">
-                Triggers, actions, and execution logs — event hooks and scheduling deferred.
-              </p>
-            </div>
-          </div>
+    <PageFrame>
+      <PageHeader
+        icon={Workflow}
+        title="Workflow Automation"
+        description="Triggers, actions, and execution logs — event hooks and scheduling deferred."
+        actions={
           <button
             type="button"
             onClick={() => setShowForm((v) => !v)}
@@ -185,7 +178,8 @@ export function AutomationDashboard({
             <Plus size={16} />
             New workflow
           </button>
-        </div>
+        }
+      />
 
         {error ? (
           <p className="mt-4 rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-[13px] text-destructive">
@@ -275,7 +269,7 @@ export function AutomationDashboard({
           </form>
         ) : null}
 
-        <div className="mt-6 grid gap-6 lg:grid-cols-[240px_1fr]">
+        <div className="mt-6 grid gap-6 xl:grid-cols-[minmax(260px,320px)_minmax(0,1fr)] 2xl:gap-8">
           <aside className="rounded-2xl border border-border bg-card p-3">
             <div className="mb-2 flex items-center justify-between px-2">
               <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
@@ -456,7 +450,6 @@ export function AutomationDashboard({
             )}
           </section>
         </div>
-      </div>
-    </div>
+    </PageFrame>
   )
 }

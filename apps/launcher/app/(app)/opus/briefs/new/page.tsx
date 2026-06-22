@@ -11,9 +11,5 @@ export default async function OpusBriefNewPage() {
     where: { deleted_at: null, status: 'active' },
     orderBy: { name: 'asc' },
   })
-  return (
-    <div className="px-6 py-8 lg:px-10">
-      <OpusBriefBuilder clients={clients.map(serializeClient)} />
-    </div>
-  )
+  return <OpusBriefBuilder clients={clients.map(serializeClient)} />
 }
