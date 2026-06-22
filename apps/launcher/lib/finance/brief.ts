@@ -16,7 +16,7 @@ export interface BriefSnapshot {
 export function generateLocalBrief(s: BriefSnapshot): string {
   const cur = s.currency
   const fmt = (n: number) => formatMoney(n, cur)
-  const { inflows, outflows, net } = s.summary
+  const { inflows, net } = s.summary
 
   // ── Health ──────────────────────────────────────────────────────────────────
   const margin = inflows > 0 ? (net / inflows) * 100 : 0
