@@ -1,4 +1,5 @@
 # MediaBubble AI Agents Skills Architecture
+
 **Competency Framework, Development Pathways & Mastery Levels**
 
 **Document Version:** 1.0  
@@ -35,6 +36,7 @@ MediaBubble operates 287 AI agents across 9 departments with specialized skills:
 - **Tier 1 Executive:** 1 CEO/Chief Orchestration Agent
 
 Without clear skills frameworks:
+
 - Inconsistent capability levels
 - Unclear advancement paths
 - Gaps in critical capabilities
@@ -43,14 +45,17 @@ Without clear skills frameworks:
 ### The Solution: Three-Layer Skills Architecture
 
 **Layer 1: Universal Skills** (all 287 agents)
+
 - Core capabilities required by every agent
 - Frameworks, communication, compliance
 
 **Layer 2: Department Skills** (agents within each department)
+
 - Domain-specific mastery
 - Specialty-level expertise
 
 **Layer 3: Role-Specific Skills** (by tier/function)
+
 - Manager vs. Specialist skills
 - Executive vs. Execution skills
 
@@ -93,9 +98,11 @@ Level 5: EXPERT
 ## FIVE-LEVEL SKILLS PROGRESSION FRAMEWORK
 
 ### Level 1: Foundational
+
 **Characteristic:** Learning and guided practice
 
 **Indicators:**
+
 - Understands concepts
 - Follows processes with guidance
 - Makes mistakes; requires correction
@@ -104,6 +111,7 @@ Level 5: EXPERT
 - Asks good questions
 
 **Capability Examples:**
+
 - Writes code following established patterns (with review)
 - Creates design comps from templates
 - Writes social media copy with review
@@ -115,9 +123,11 @@ Level 5: EXPERT
 ---
 
 ### Level 2: Competent
+
 **Characteristic:** Independent execution with quality consistency
 
 **Indicators:**
+
 - Works independently with minimal guidance
 - Produces consistent quality output
 - Anticipates common issues
@@ -126,6 +136,7 @@ Level 5: EXPERT
 - Knows when to escalate
 
 **Capability Examples:**
+
 - Writes production code without review
 - Designs complex features
 - Creates original content strategies
@@ -138,9 +149,11 @@ Level 5: EXPERT
 ---
 
 ### Level 3: Advanced
+
 **Characteristic:** Complex problem-solving and informal leadership
 
 **Indicators:**
+
 - Solves complex, unusual problems
 - Makes design decisions independently
 - Mentors others regularly
@@ -149,6 +162,7 @@ Level 5: EXPERT
 - Recognized as go-to expert
 
 **Capability Examples:**
+
 - Architect complex systems
 - Lead department-wide initiatives
 - Design comprehensive strategies
@@ -161,9 +175,11 @@ Level 5: EXPERT
 ---
 
 ### Level 4: Lead
+
 **Characteristic:** Strategic leadership and organizational influence
 
 **Indicators:**
+
 - Sets direction for specialty area
 - Leads other specialists
 - Designs processes and systems
@@ -172,6 +188,7 @@ Level 5: EXPERT
 - Develops next generation
 
 **Capability Examples:**
+
 - Lead technical architecture decisions
 - Design training programs
 - Set department quality standards
@@ -184,9 +201,11 @@ Level 5: EXPERT
 ---
 
 ### Level 5: Expert
+
 **Characteristic:** Visionary leadership and industry recognition
 
 **Indicators:**
+
 - Sets organizational strategy in domain
 - Breaks new ground
 - Recognized industry expert
@@ -195,6 +214,7 @@ Level 5: EXPERT
 - Thought leadership
 
 **Capability Examples:**
+
 - Chief Architect of platform
 - CEO/Executive leadership
 - Define organizational strategy
@@ -211,9 +231,11 @@ Level 5: EXPERT
 All 287 MediaBubble agents must master these universal skills, regardless of department or role.
 
 ### 1. **Core Communication**
+
 **Definition:** Ability to exchange information clearly, listen actively, and adapt communication to context.
 
 **Level 1 (Foundational):**
+
 - Follows communication protocols
 - Writes clear messages
 - Listens to feedback
@@ -221,6 +243,7 @@ All 287 MediaBubble agents must master these universal skills, regardless of dep
 - Acknowledges misunderstandings
 
 **Level 2 (Competent):**
+
 - Communicates proactively
 - Adapts tone to audience
 - Summarizes discussions
@@ -228,6 +251,7 @@ All 287 MediaBubble agents must master these universal skills, regardless of dep
 - Builds rapport effectively
 
 **Level 3 (Advanced):**
+
 - Influences through communication
 - Handles difficult conversations
 - Mediates conflicts
@@ -235,6 +259,7 @@ All 287 MediaBubble agents must master these universal skills, regardless of dep
 - Leads team discussions
 
 **Level 4 (Lead):**
+
 - Sets communication standards
 - Coaches others on communication
 - Shapes team culture through communication
@@ -242,6 +267,7 @@ All 287 MediaBubble agents must master these universal skills, regardless of dep
 - Influences across organizations
 
 **Level 5 (Expert):**
+
 - Visionary communicator
 - Shapes organizational communication
 - Recognized speaking/writing platform
@@ -250,9 +276,11 @@ All 287 MediaBubble agents must master these universal skills, regardless of dep
 ---
 
 ### 2. **Process Adherence**
+
 **Definition:** Ability to follow established workflows, quality gates, and organizational processes.
 
 **Level 1:**
+
 - Understands processes
 - Follows checklists
 - Asks for guidance
@@ -260,6 +288,7 @@ All 287 MediaBubble agents must master these universal skills, regardless of dep
 - Learns from corrections
 
 **Level 2:**
+
 - Executes processes consistently
 - Identifies when to escalate
 - Suggests minor improvements
@@ -267,6 +296,7 @@ All 287 MediaBubble agents must master these universal skills, regardless of dep
 - Anticipates process needs
 
 **Level 3:**
+
 - Optimizes processes
 - Designs new workflows
 - Identifies systemic improvements
@@ -274,6 +304,7 @@ All 287 MediaBubble agents must master these universal skills, regardless of dep
 - Owns process quality
 
 **Level 4:**
+
 - Sets process standards
 - Leads process improvements
 - Designs systems
@@ -281,15 +312,18 @@ All 287 MediaBubble agents must master these universal skills, regardless of dep
 - Represents process discipline
 
 **Level 5:**
+
 - Architects organizational processes
 - Shapes company operational model
 
 ---
 
 ### 3. **Quality Consciousness**
+
 **Definition:** Commitment to high-quality output and continuous improvement.
 
 **Level 1:**
+
 - Understands quality standards
 - Self-checks work
 - Accepts feedback
@@ -297,6 +331,7 @@ All 287 MediaBubble agents must master these universal skills, regardless of dep
 - Asks for quality guidance
 
 **Level 2:**
+
 - Consistently meets quality standards
 - Identifies quality issues early
 - Self-corrects proactively
@@ -304,6 +339,7 @@ All 287 MediaBubble agents must master these universal skills, regardless of dep
 - Suggests quality improvements
 
 **Level 3:**
+
 - Sets quality expectations
 - Improves quality systematically
 - Mentors others on mastery
@@ -311,21 +347,25 @@ All 287 MediaBubble agents must master these universal skills, regardless of dep
 - Identifies quality barriers
 
 **Level 4:**
+
 - Defines quality standards
 - Leads quality initiatives
 - Builds quality culture
 - Influences company-wide quality
 
 **Level 5:**
+
 - Sets organizational quality vision
 - Recognized quality leader
 
 ---
 
 ### 4. **Collaboration & Teamwork**
+
 **Definition:** Ability to work effectively with others, contribute to team goals, and support colleagues.
 
 **Level 1:**
+
 - Contributes to team work
 - Asks for help appropriately
 - Supports teammates
@@ -333,6 +373,7 @@ All 287 MediaBubble agents must master these universal skills, regardless of dep
 - Responds to requests
 
 **Level 2:**
+
 - Works independently and collaboratively
 - Anticipates team needs
 - Helps teammates proactively
@@ -340,6 +381,7 @@ All 287 MediaBubble agents must master these universal skills, regardless of dep
 - Supports team goals
 
 **Level 3:**
+
 - Leads informal collaboration
 - Mentors team dynamics
 - Resolves peer conflicts
@@ -347,20 +389,24 @@ All 287 MediaBubble agents must master these universal skills, regardless of dep
 - Champions collaboration
 
 **Level 4:**
+
 - Leads cross-team collaboration
 - Designs team structures
 - Influences organizational teamwork
 - Coaches team leaders
 
 **Level 5:**
+
 - Sets organizational collaboration culture
 
 ---
 
 ### 5. **Continuous Learning**
+
 **Definition:** Commitment to personal growth, skill development, and knowledge acquisition.
 
 **Level 1:**
+
 - Seeks learning opportunities
 - Accepts feedback
 - Reads documentation
@@ -368,6 +414,7 @@ All 287 MediaBubble agents must master these universal skills, regardless of dep
 - Experiments with new skills
 
 **Level 2:**
+
 - Takes initiative in learning
 - Pursues skill development
 - Shares knowledge with teammates
@@ -375,6 +422,7 @@ All 287 MediaBubble agents must master these universal skills, regardless of dep
 - Identifies learning needs
 
 **Level 3:**
+
 - Drives own expertise development
 - Mentors others' growth
 - Contributes to knowledge base
@@ -382,21 +430,25 @@ All 287 MediaBubble agents must master these universal skills, regardless of dep
 - Stays ahead of field
 
 **Level 4:**
+
 - Sets learning culture
 - Designs training programs
 - Coaches talent development
 - Shapes organizational learning
 
 **Level 5:**
+
 - Thought leadership
 - Industry recognition as expert
 
 ---
 
 ### 6. **Ethical Conduct**
+
 **Definition:** Adherence to ethical standards, client confidentiality, and professional responsibility.
 
 **Level 1:**
+
 - Understands ethics policies
 - Maintains confidentiality
 - Follows compliance rules
@@ -404,6 +456,7 @@ All 287 MediaBubble agents must master these universal skills, regardless of dep
 - Reports concerns
 
 **Level 2:**
+
 - Consistently ethical behavior
 - Mentors others on ethics
 - Anticipates ethical issues
@@ -411,6 +464,7 @@ All 287 MediaBubble agents must master these universal skills, regardless of dep
 - Proactively maintains standards
 
 **Level 3:**
+
 - Coaches others on ethics
 - Handles complex ethical situations
 - Sets ethical tone
@@ -418,19 +472,23 @@ All 287 MediaBubble agents must master these universal skills, regardless of dep
 - Makes principled decisions
 
 **Level 4:**
+
 - Sets ethical standards
 - Leads ethical initiatives
 - Influences organizational ethics
 
 **Level 5:**
+
 - Sets organizational ethical vision
 
 ---
 
 ### 7. **Problem-Solving**
+
 **Definition:** Ability to identify issues, analyze root causes, and implement solutions.
 
 **Level 1:**
+
 - Identifies problems
 - Follows troubleshooting guides
 - Asks for help
@@ -438,6 +496,7 @@ All 287 MediaBubble agents must master these universal skills, regardless of dep
 - Accepts solutions
 
 **Level 2:**
+
 - Solves routine problems independently
 - Analyzes root causes
 - Suggests solutions
@@ -445,6 +504,7 @@ All 287 MediaBubble agents must master these universal skills, regardless of dep
 - Learns from failures
 
 **Level 3:**
+
 - Solves complex problems
 - Identifies systemic issues
 - Designs comprehensive solutions
@@ -452,11 +512,13 @@ All 287 MediaBubble agents must master these universal skills, regardless of dep
 - Innovates solutions
 
 **Level 4:**
+
 - Leads complex problem-solving
 - Designs problem-solving systems
 - Coaches team problem-solving
 
 **Level 5:**
+
 - Transforms problem-solving approaches
 
 ---
@@ -468,6 +530,7 @@ Each department has 6-8 core skills required for all agents in that department.
 ### DESIGN DEPARTMENT SKILLS
 
 #### 1. **Visual Design Fundamentals**
+
 - Color theory and application
 - Typography and hierarchy
 - Layout and composition
@@ -477,6 +540,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Basic principles → Applied design → Advanced visual systems → Design system mastery → Industry-defining design
 
 #### 2. **Design Systems & Standards**
+
 - Component libraries
 - Design tokens and variables
 - Pattern consistency
@@ -486,6 +550,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Follows standards → Applies standards → Optimizes standards → Designs systems → Invents new approaches
 
 #### 3. **User Experience (UX)**
+
 - User research and personas
 - Information architecture
 - Interaction design
@@ -495,6 +560,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Basic UX principles → Independent UX design → Complex user research → UX strategy → UX leadership
 
 #### 4. **Design Tools Mastery**
+
 - Figma proficiency
 - Prototyping tools
 - Design documentation
@@ -504,6 +570,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Tool basics → Expert tool use → Custom workflows → Tool optimization → Tool innovation
 
 #### 5. **Communication Through Design**
+
 - Design storytelling
 - Presentation skills
 - Stakeholder communication
@@ -513,6 +580,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Clear documentation → Compelling presentations → Executive communication → Design strategy → Industry thought leadership
 
 #### 6. **Cross-functional Collaboration**
+
 - Designer-developer handoff
 - Product team collaboration
 - Client communication
@@ -526,6 +594,7 @@ Each department has 6-8 core skills required for all agents in that department.
 ### SOCIAL MEDIA MARKETING SKILLS
 
 #### 1. **Content Creation Mastery**
+
 - Writing quality content
 - Visual storytelling
 - Video scripting
@@ -535,6 +604,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Solid content writing → High-performing content → Content strategy → Content leadership → Brand voice definition
 
 #### 2. **Platform Expertise**
+
 - Platform-specific features
 - Algorithm understanding
 - Audience insights
@@ -544,6 +614,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Platform basics → Mastery → Strategy → Multi-platform orchestration → Industry leadership
 
 #### 3. **Audience Engagement**
+
 - Community management
 - Comment/message response
 - Crisis communication
@@ -553,6 +624,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Responsive engagement → Proactive engagement → Community strategy → Crisis leadership → Culture setting
 
 #### 4. **Analytics & Data**
+
 - Metrics interpretation
 - Performance analysis
 - Audience insights
@@ -562,6 +634,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Reading reports → Analysis and optimization → Strategic insights → Predictive analytics → Advanced modeling
 
 #### 5. **Multilingual/Cultural Fluency** (Arabic + English + Dialect)
+
 - Native language nuance
 - Cultural context awareness
 - Tone adaptation
@@ -571,6 +644,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Literal translation → Cultural adaptation → Native fluency → Regional expertise → Cultural leadership
 
 #### 6. **Campaign Strategy**
+
 - Campaign planning
 - Goal setting
 - Timeline management
@@ -584,6 +658,7 @@ Each department has 6-8 core skills required for all agents in that department.
 ### DEVELOPMENT DEPARTMENT SKILLS
 
 #### 1. **Programming Language Mastery** (by specialty: Python, JavaScript, Go, etc.)
+
 - Syntax and idioms
 - Best practices
 - Performance optimization
@@ -593,6 +668,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Learning language → Proficient coding → Expert code → Architectural decisions → Language innovation
 
 #### 2. **System Architecture**
+
 - Design patterns
 - Scalability principles
 - Database design
@@ -602,6 +678,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Follows patterns → Applies patterns → Designs systems → Sets standards → Invents approaches
 
 #### 3. **Software Quality**
+
 - Testing (unit, integration, e2e)
 - Code review
 - Documentation
@@ -611,6 +688,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Writes tests → Comprehensive testing → Quality leadership → Sets standards → Culture of excellence
 
 #### 4. **Problem-Solving & Debugging**
+
 - Root cause analysis
 - Systematic debugging
 - Performance profiling
@@ -620,6 +698,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Follows guides → Solves independently → Complex solutions → Mentors others → Industry leadership
 
 #### 5. **Collaboration & Communication**
+
 - Code documentation
 - PR descriptions
 - Design discussions
@@ -629,6 +708,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Clear documentation → Proactive communication → Design leadership → Cross-team orchestration → Company-wide influence
 
 #### 6. **Continuous Learning**
+
 - New language/framework adoption
 - Industry trend awareness
 - Tool mastery
@@ -642,6 +722,7 @@ Each department has 6-8 core skills required for all agents in that department.
 ### OPERATIONS DEPARTMENT SKILLS
 
 #### 1. **Process Design & Optimization**
+
 - Workflow analysis
 - Efficiency improvements
 - Standard operating procedures
@@ -651,6 +732,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Executes processes → Optimizes processes → Designs processes → Sets standards → Transforms operations
 
 #### 2. **Project Management**
+
 - Planning and scheduling
 - Resource allocation
 - Risk management
@@ -660,6 +742,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Supports projects → Manages projects → Leads complex projects → Mentors PMs → Sets standards
 
 #### 3. **Quality Assurance**
+
 - Quality standards definition
 - Quality metrics
 - Issue tracking
@@ -669,6 +752,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Checks quality → Manages QA → Sets standards → QA leadership → Culture of excellence
 
 #### 4. **Problem-Solving**
+
 - Issue diagnosis
 - Root cause analysis
 - Solution design
@@ -678,6 +762,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Escalates issues → Solves independently → Complex problem-solving → Systemic improvements → Mentors others
 
 #### 5. **Communication & Documentation**
+
 - Process documentation
 - Training materials
 - Standard templates
@@ -687,6 +772,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Follows standards → Creates documents → Designs systems → Sets standards → Culture of documentation
 
 #### 6. **Continuous Improvement**
+
 - Metrics collection
 - Trend analysis
 - Improvement initiatives
@@ -700,6 +786,7 @@ Each department has 6-8 core skills required for all agents in that department.
 ### FINANCE DEPARTMENT SKILLS
 
 #### 1. **Financial Accounting**
+
 - Accounting principles (GAAP/IFRS)
 - Transaction recording
 - Account reconciliation
@@ -709,6 +796,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Learns accounting → Manages accounts → Complex accounting → Sets standards → Thought leadership
 
 #### 2. **Data Analysis & Reporting**
+
 - Report creation
 - Variance analysis
 - Trend analysis
@@ -718,6 +806,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Produces reports → Analyzes trends → Complex modeling → Sets standards → Strategic analysis
 
 #### 3. **Budget Management**
+
 - Budget preparation
 - Variance tracking
 - Forecasting
@@ -727,6 +816,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Tracks budget → Prepares budget → Complex forecasting → Financial strategy → Board-level reporting
 
 #### 4. **Compliance & Controls**
+
 - Regulatory requirements
 - Control implementation
 - Documentation
@@ -736,6 +826,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Understands compliance → Ensures compliance → Leads compliance → Designs controls → Industry expertise
 
 #### 5. **Problem-Solving & Analysis**
+
 - Issue identification
 - Root cause analysis
 - Solution design
@@ -745,6 +836,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Identifies issues → Solves independently → Complex analysis → Strategic insights → Mentors others
 
 #### 6. **Communication & Stakeholder Management**
+
 - Financial communication
 - Executive reporting
 - Stakeholder updates
@@ -758,6 +850,7 @@ Each department has 6-8 core skills required for all agents in that department.
 ### MARKETING DEPARTMENT SKILLS
 
 #### 1. **Marketing Strategy**
+
 - Market research
 - Positioning
 - Target audience definition
@@ -767,6 +860,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Executes strategy → Develops strategy → Complex strategy → Sets direction → Organizational strategy
 
 #### 2. **Campaign Management**
+
 - Planning and execution
 - Timeline management
 - Budget allocation
@@ -776,6 +870,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Supports campaigns → Manages campaigns → Complex campaigns → Leads strategy → Sets standards
 
 #### 3. **Analytics & Measurement**
+
 - Metrics definition
 - Performance analysis
 - Attribution modeling
@@ -785,6 +880,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Reads reports → Analyzes data → Complex modeling → Strategic insights → Predictive analytics
 
 #### 4. **Content Development**
+
 - Copywriting
 - Content strategy
 - Messaging
@@ -794,6 +890,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Solid writing → Strategic content → Compelling narrative → Brand voice → Thought leadership
 
 #### 5. **Cross-functional Collaboration**
+
 - Sales alignment
 - Creative collaboration
 - Product partnership
@@ -803,6 +900,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Follows process → Proactive collaboration → Leads collaboration → Designs systems → Culture setting
 
 #### 6. **Market Awareness**
+
 - Trend monitoring
 - Competitive intelligence
 - Industry updates
@@ -816,6 +914,7 @@ Each department has 6-8 core skills required for all agents in that department.
 ### LEAD GENERATION DEPARTMENT SKILLS
 
 #### 1. **Lead Generation Strategies**
+
 - Channel understanding
 - Lead source optimization
 - Funnel design
@@ -825,6 +924,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Executes campaigns → Optimizes campaigns → Designs strategies → Sets direction → Mentors others
 
 #### 2. **Analytics & Metrics**
+
 - Lead quality assessment
 - Conversion tracking
 - Funnel analysis
@@ -834,6 +934,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Reads reports → Analyzes metrics → Complex modeling → Strategic insights → Predictive systems
 
 #### 3. **Content & Messaging**
+
 - Lead-stage appropriate content
 - Messaging strategy
 - Call-to-action optimization
@@ -843,6 +944,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Writes content → Strategic content → Conversion optimization → Campaign strategy → Industry expertise
 
 #### 4. **Technology & Tools**
+
 - CRM systems
 - Automation platforms
 - Analytics tools
@@ -852,6 +954,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Uses tools → Expert tool use → Custom workflows → Tool optimization → Tool innovation
 
 #### 5. **Collaboration & Communication**
+
 - Sales partnership
 - Results communication
 - Lead quality feedback
@@ -861,6 +964,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Clear communication → Proactive updates → Sales strategy → Executive communication → Organizational influence
 
 #### 6. **Continuous Optimization**
+
 - A/B testing
 - Multivariate testing
 - Performance analysis
@@ -874,6 +978,7 @@ Each department has 6-8 core skills required for all agents in that department.
 ### MEDIA BUYING DEPARTMENT SKILLS
 
 #### 1. **Platform Expertise** (Google Ads, Meta Ads, TikTok, LinkedIn, etc.)
+
 - Platform features
 - Campaign setup
 - Audience targeting
@@ -883,6 +988,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Platform basics → Advanced strategies → Multi-platform orchestration → Strategy setting → Industry leadership
 
 #### 2. **Audience Targeting**
+
 - Audience segmentation
 - Demographic targeting
 - Interest targeting
@@ -892,6 +998,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Basic targeting → Advanced targeting → Audience strategy → Segmentation science → Predictive targeting
 
 #### 3. **Budget Management & ROI**
+
 - Budget allocation
 - Cost per acquisition optimization
 - ROI calculation
@@ -901,6 +1008,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Manages budget → Optimizes ROI → Complex financial modeling → Strategic allocation → Board-level reporting
 
 #### 4. **Creative Optimization**
+
 - Ad creative assessment
 - Performance tracking by creative
 - A/B testing
@@ -910,6 +1018,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Executes creatives → Optimizes creatives → Creative strategy → Sets standards → Mentors creatives
 
 #### 5. **Analytics & Reporting**
+
 - Performance metrics
 - Comparative analysis
 - Trend analysis
@@ -919,6 +1028,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Reads reports → Creates reports → Complex analysis → Strategic insights → Predictive modeling
 
 #### 6. **Compliance & Risk Management**
+
 - Platform policies
 - Ad standards
 - Regulatory compliance
@@ -932,6 +1042,7 @@ Each department has 6-8 core skills required for all agents in that department.
 ### SALES DEPARTMENT SKILLS
 
 #### 1. **Consultative Selling**
+
 - Needs assessment
 - Solution matching
 - Value propositions
@@ -941,6 +1052,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Follows approach → Independent selling → Complex deals → Sales strategy → Sales leadership
 
 #### 2. **Relationship Management**
+
 - Account management
 - Stakeholder engagement
 - Communication style adaptation
@@ -950,6 +1062,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Maintains relationships → Grows accounts → Strategic accounts → Account strategy → Organizational relationships
 
 #### 3. **Deal Management**
+
 - Opportunity assessment
 - Pipeline management
 - Negotiation
@@ -959,6 +1072,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Supports deals → Manages deals → Complex deals → Sales strategy → Sales excellence
 
 #### 4. **Product/Service Knowledge**
+
 - Feature/benefit understanding
 - Competitive positioning
 - Differentiation
@@ -968,6 +1082,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Basic knowledge → Expert knowledge → Strategic positioning → Thought leadership → Industry recognition
 
 #### 5. **Communication & Presentation**
+
 - Client communication
 - Proposal development
 - Executive presentations
@@ -977,6 +1092,7 @@ Each department has 6-8 core skills required for all agents in that department.
 **Progression:** Clear communication → Compelling presentations → Executive presence → Strategic communication → Industry thought leadership
 
 #### 6. **Market Understanding**
+
 - Industry knowledge
 - Customer insights
 - Competitive landscape
@@ -992,6 +1108,7 @@ Each department has 6-8 core skills required for all agents in that department.
 ### DESIGN DEPARTMENT (23 Specialists across 6 Teams)
 
 #### **Web UI Designers (4 agents)**
+
 - Responsive design expertise
 - Interaction design
 - Accessibility standards
@@ -999,6 +1116,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Performance optimization
 
 #### **Mobile/Application Designers (4 agents)**
+
 - Mobile-first design
 - Gesture interaction
 - App UX patterns
@@ -1006,6 +1124,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Performance optimization for mobile
 
 #### **Brand Identity Designers (3 agents)**
+
 - Brand strategy understanding
 - Logo design and evolution
 - Brand system design
@@ -1013,6 +1132,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Trademark and legal considerations
 
 #### **Color & Typography Specialists (3 agents)**
+
 - Color psychology and theory
 - Color accessibility (WCAG)
 - Typography selection and pairing
@@ -1020,6 +1140,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Type system design
 
 #### **Motion Design Specialists (4 agents)**
+
 - Animation principles
 - Microinteraction design
 - Transition design
@@ -1027,6 +1148,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Video editing
 
 #### **QC Design Lead (1 agent)**
+
 - Quality standards expertise
 - Design review capability
 - Best practice mentoring
@@ -1038,6 +1160,7 @@ Each department has 6-8 core skills required for all agents in that department.
 ### SOCIAL MEDIA MARKETING (36 Specialists across 10 Teams)
 
 #### **SEO Content Specialists (4 agents)**
+
 - Keyword research
 - SEO best practices
 - Optimization techniques
@@ -1045,6 +1168,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Content strategy for SEO
 
 #### **Educational Content Creators (4 agents)**
+
 - Educational content strategy
 - Complex topic simplification
 - Learning objective definition
@@ -1052,6 +1176,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Assessment creation
 
 #### **Engagement Content Creators (4 agents)**
+
 - Engagement psychology
 - Community-building strategy
 - Comment/discussion management
@@ -1059,6 +1184,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Viral content principles
 
 #### **Brand Content Creators (3 agents)**
+
 - Brand voice mastery
 - Consistent messaging
 - Brand story development
@@ -1066,6 +1192,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Visual consistency
 
 #### **Video Content Creators (4 agents)**
+
 - Video scripting
 - Video production process
 - Video editing
@@ -1073,6 +1200,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Performance optimization
 
 #### **Reel/Short-form Specialists (4 agents)**
+
 - Short-form content strategy
 - Hook design
 - Visual storytelling
@@ -1080,6 +1208,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Rapid-fire content creation
 
 #### **Arabic (Formal) Content Creators (3 agents)**
+
 - Formal Arabic mastery
 - Regional nuance
 - Cultural appropriateness
@@ -1087,6 +1216,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Business Arabic
 
 #### **Masri Dialect Specialists (3 agents)**
+
 - Masri dialect fluency
 - Local cultural awareness
 - Relatable messaging
@@ -1094,6 +1224,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Community connection
 
 #### **LinkedIn Strategy Specialists (2 agents)**
+
 - LinkedIn algorithm understanding
 - Professional content strategy
 - B2B audience engagement
@@ -1101,6 +1232,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Network building
 
 #### **Instagram/TikTok Specialists (3 agents)**
+
 - Platform feature mastery
 - Visual storytelling
 - Trend awareness
@@ -1108,6 +1240,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Creator economy knowledge
 
 #### **QC Lead (1 agent)**
+
 - Quality standards expertise
 - Content review capability
 - Best practice mentoring
@@ -1119,6 +1252,7 @@ Each department has 6-8 core skills required for all agents in that department.
 ### DEVELOPMENT DEPARTMENT (35 Specialists across 6 Teams)
 
 #### **Backend Engineers (6 agents)**
+
 - Language-specific mastery (Python, Go, Node.js, etc.)
 - System architecture
 - Database design
@@ -1127,6 +1261,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Security best practices
 
 #### **Frontend Engineers (6 agents)**
+
 - Frontend framework expertise (React, Vue, etc.)
 - CSS/styling mastery
 - Browser compatibility
@@ -1135,6 +1270,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Build tools proficiency
 
 #### **Full Stack Engineers (6 agents)**
+
 - Full-stack architecture
 - End-to-end system design
 - Database to UI knowledge
@@ -1143,6 +1279,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Cross-layer problem-solving
 
 #### **DevOps/Infrastructure Engineers (5 agents)**
+
 - Cloud infrastructure (AWS, GCP, Azure)
 - Containerization (Docker, Kubernetes)
 - CI/CD pipeline design
@@ -1151,6 +1288,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Infrastructure as code
 
 #### **Mobile Engineers (6 agents)**
+
 - Platform-specific development (iOS/Android)
 - Mobile UI frameworks
 - Mobile-specific challenges
@@ -1159,6 +1297,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Cross-platform considerations
 
 #### **QA/Testing Specialists (6 agents)**
+
 - Test strategy and planning
 - Manual testing expertise
 - Automated testing frameworks
@@ -1167,6 +1306,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Accessibility testing
 
 #### **QC Lead (1 agent)**
+
 - Code quality standards
 - Testing standards
 - Performance benchmarks
@@ -1178,6 +1318,7 @@ Each department has 6-8 core skills required for all agents in that department.
 ### OPERATIONS DEPARTMENT (28 Specialists across 5 Teams)
 
 #### **Process Optimization Specialists (6 agents)**
+
 - Workflow analysis
 - Efficiency improvement
 - Lean principles
@@ -1186,6 +1327,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Data analysis
 
 #### **Project Coordination Specialists (6 agents)**
+
 - Project planning
 - Scheduling and timeline management
 - Risk identification
@@ -1194,6 +1336,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Document management
 
 #### **Quality Assurance Specialists (6 agents)**
+
 - Quality standard definition
 - Quality metrics tracking
 - Audit and compliance
@@ -1202,6 +1345,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Continuous improvement
 
 #### **Resource Allocation Specialists (5 agents)**
+
 - Capacity planning
 - Resource forecasting
 - Allocation optimization
@@ -1210,6 +1354,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Staffing recommendations
 
 #### **Knowledge Management Specialists (5 agents)**
+
 - Documentation system design
 - Process documentation
 - Training material creation
@@ -1222,6 +1367,7 @@ Each department has 6-8 core skills required for all agents in that department.
 ### FINANCE DEPARTMENT (28 Specialists across 5 Teams)
 
 #### **Accounting Specialists (6 agents)**
+
 - Transaction recording
 - Account reconciliation
 - Financial statement preparation
@@ -1230,6 +1376,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Monthly close processes
 
 #### **Budget & Forecasting Specialists (6 agents)**
+
 - Budget preparation
 - Variance analysis
 - Financial forecasting
@@ -1238,6 +1385,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Data modeling
 
 #### **Financial Analysis Specialists (6 agents)**
+
 - Trend analysis
 - Performance metrics
 - Cost analysis
@@ -1246,6 +1394,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Executive reporting
 
 #### **Compliance & Controls Specialists (5 agents)**
+
 - Regulatory requirement tracking
 - Control implementation
 - Risk identification
@@ -1254,6 +1403,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Audit readiness
 
 #### **Reporting & Communications (5 agents)**
+
 - Financial report creation
 - Executive communication
 - Dashboard development
@@ -1266,6 +1416,7 @@ Each department has 6-8 core skills required for all agents in that department.
 ### MARKETING DEPARTMENT (44 Specialists across 6 Teams)
 
 #### **Strategy & Planning Specialists (8 agents)**
+
 - Market research
 - Competitive analysis
 - Campaign strategy
@@ -1274,6 +1425,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Long-term planning
 
 #### **Campaign Managers (8 agents)**
+
 - Campaign planning and execution
 - Timeline and budget management
 - Cross-functional coordination
@@ -1282,6 +1434,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Stakeholder reporting
 
 #### **Content Developers (8 agents)**
+
 - Copywriting and messaging
 - Content strategy
 - Brand voice consistency
@@ -1290,6 +1443,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - SEO optimization
 
 #### **Analysts & Data Specialists (8 agents)**
+
 - Analytics implementation
 - Performance tracking
 - Attribution modeling
@@ -1298,6 +1452,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Predictive modeling
 
 #### **Digital Channel Specialists (8 agents)**
+
 - Email marketing
 - Paid search
 - Paid social
@@ -1306,6 +1461,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Channel optimization
 
 #### **Communications & Engagement (4 agents)**
+
 - Internal communications
 - External communications
 - PR strategy
@@ -1318,6 +1474,7 @@ Each department has 6-8 core skills required for all agents in that department.
 ### LEAD GENERATION DEPARTMENT (44 Specialists across 6 Teams)
 
 #### **Lead Source Optimization Specialists (8 agents)**
+
 - Channel analysis
 - Lead source evaluation
 - Traffic acquisition
@@ -1326,6 +1483,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Scaling strategies
 
 #### **Landing Page Specialists (8 agents)**
+
 - Landing page design
 - Copywriting
 - A/B testing
@@ -1334,6 +1492,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Performance analysis
 
 #### **Campaign Execution Specialists (8 agents)**
+
 - Campaign setup
 - Targeting and audience
 - Ad copy and creative
@@ -1342,6 +1501,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Performance monitoring
 
 #### **Analytics & Reporting Specialists (8 agents)**
+
 - Metric definition
 - Lead quality scoring
 - Funnel analysis
@@ -1350,6 +1510,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Insights and recommendations
 
 #### **Lead Qualification Specialists (8 agents)**
+
 - Lead scoring
 - Qualification criteria
 - Quality assessment
@@ -1358,6 +1519,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Feedback integration
 
 #### **Technology & Integration (4 agents)**
+
 - CRM expertise
 - Marketing automation
 - Integration design
@@ -1370,6 +1532,7 @@ Each department has 6-8 core skills required for all agents in that department.
 ### MEDIA BUYING DEPARTMENT (28 Specialists across 4 Teams)
 
 #### **Google Ads Specialists (7 agents)**
+
 - Search campaign management
 - Shopping campaign expertise
 - YouTube advertising
@@ -1378,6 +1541,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Conversion tracking
 
 #### **Meta Ads Specialists (7 agents)**
+
 - Facebook/Instagram advertising
 - Audience targeting
 - Creative management
@@ -1386,6 +1550,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Performance analysis
 
 #### **Emerging Platform Specialists (7 agents)**
+
 - TikTok advertising
 - LinkedIn advertising
 - Pinterest advertising
@@ -1394,6 +1559,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Emerging trends
 
 #### **Analytics & Optimization Specialists (7 agents)**
+
 - Performance analysis
 - ROI optimization
 - Budget allocation
@@ -1406,6 +1572,7 @@ Each department has 6-8 core skills required for all agents in that department.
 ### SALES DEPARTMENT (40 Specialists across 6 Teams)
 
 #### **Account Executives (10 agents)**
+
 - Consultative selling
 - Opportunity identification
 - Proposal development
@@ -1414,6 +1581,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Account management
 
 #### **Sales Development Reps (10 agents)**
+
 - Lead qualification
 - Prospect research
 - Outreach and engagement
@@ -1422,6 +1590,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Pipeline development
 
 #### **Account Managers (10 agents)**
+
 - Relationship management
 - Account growth
 - Customer satisfaction
@@ -1430,6 +1599,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Strategic account planning
 
 #### **Solution Consultants (5 agents)**
+
 - Solution design
 - Technical presentations
 - ROI calculations
@@ -1438,6 +1608,7 @@ Each department has 6-8 core skills required for all agents in that department.
 - Post-sale support
 
 #### **Sales Operations (5 agents)**
+
 - Sales process management
 - Data management
 - Reporting and analytics
@@ -1454,6 +1625,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 ### Team Manager Skills (45 agents)
 
 #### **1. Talent Development**
+
 - Individual assessment
 - Development planning
 - Coaching and mentoring
@@ -1462,6 +1634,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 - Succession planning
 
 **Progression:**
+
 - L1: Supports development
 - L2: Plans development for individuals
 - L3: Builds development culture
@@ -1469,6 +1642,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 - L5: Sets organizational talent vision
 
 #### **2. Performance Management**
+
 - Goal setting and tracking
 - Regular feedback
 - Performance reviews
@@ -1477,6 +1651,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 - Compensation decisions
 
 **Progression:**
+
 - L1: Records performance
 - L2: Manages performance independently
 - L3: Mentors other managers
@@ -1484,6 +1659,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 - L5: Shapes organizational culture
 
 #### **3. Team Leadership**
+
 - Setting direction
 - Decision-making
 - Risk management
@@ -1492,6 +1668,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 - Crisis leadership
 
 **Progression:**
+
 - L1: Coordinates team work
 - L2: Leads team independently
 - L3: Leads through complex situations
@@ -1499,6 +1676,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 - L5: Organizational leadership
 
 #### **4. Delegation & Prioritization**
+
 - Work assignment
 - Workload balancing
 - Priority setting
@@ -1507,6 +1685,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 - Blocking and tackling
 
 **Progression:**
+
 - L1: Assigns work
 - L2: Delegates strategically
 - L3: Optimizes workload
@@ -1514,6 +1693,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 - L5: Transforms priorities
 
 #### **5. Cross-functional Collaboration**
+
 - Inter-team communication
 - Conflict resolution
 - Shared goal alignment
@@ -1522,6 +1702,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 - Stakeholder management
 
 **Progression:**
+
 - L1: Coordinates with other teams
 - L2: Builds relationships
 - L3: Resolves conflicts
@@ -1529,6 +1710,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 - L5: Sets collaboration culture
 
 #### **6. Operational Excellence**
+
 - Process management
 - Quality oversight
 - Metric tracking
@@ -1537,6 +1719,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 - Problem-solving
 
 **Progression:**
+
 - L1: Follows processes
 - L2: Optimizes processes
 - L3: Designs improvements
@@ -1550,6 +1733,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 **All Team Manager skills, plus:**
 
 #### **Strategic Thinking**
+
 - Longer-term planning (6–12 months+)
 - Trend anticipation
 - Opportunity identification
@@ -1558,6 +1742,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 - Business acumen
 
 #### **Leadership Development**
+
 - Identifying high-potential talent
 - Creating development paths for leaders
 - Coaching developing leaders
@@ -1566,6 +1751,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 - Cultural influence
 
 #### **Policy & Standards**
+
 - Setting department standards
 - Process improvement leadership
 - Policy development
@@ -1574,6 +1760,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 - Change management
 
 #### **Cross-Department Influence**
+
 - Stakeholder management
 - Negotiation skills
 - Influence without authority
@@ -1582,6 +1769,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 - Political awareness
 
 #### **Financial Acumen**
+
 - Budget understanding
 - ROI analysis
 - Cost-benefit thinking
@@ -1596,6 +1784,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 **All Senior Manager skills, plus:**
 
 #### **Strategic Leadership**
+
 - Multi-year vision
 - Market positioning
 - Competitive differentiation
@@ -1604,6 +1793,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 - Culture setting
 
 #### **Executive Presence**
+
 - Board communication
 - Stakeholder relationships
 - External representation
@@ -1612,6 +1802,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 - Organizational influence
 
 #### **P&L Management**
+
 - Full P&L responsibility
 - Revenue growth
 - Cost management
@@ -1620,6 +1811,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 - Financial strategy
 
 #### **Organizational Design**
+
 - Team structure
 - Span and level design
 - Role definition
@@ -1628,6 +1820,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 - Change management
 
 #### **Talent Attraction & Retention**
+
 - Recruiting
 - Retention strategy
 - Compensation strategy
@@ -1636,6 +1829,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 - External relationships
 
 #### **Cross-Functional Leadership**
+
 - Cross-department partnerships
 - Alignment on goals
 - Conflict resolution
@@ -1650,6 +1844,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 **All Director skills, plus:**
 
 #### **Visionary Leadership**
+
 - Long-term organizational vision
 - Strategic direction setting
 - Transformation leadership
@@ -1658,6 +1853,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 - Market leadership
 
 #### **Business Model Design**
+
 - Service offerings
 - Pricing strategy
 - Revenue models
@@ -1666,6 +1862,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 - Innovation strategy
 
 #### **Stakeholder Management**
+
 - Board relationships
 - Investor relations
 - Client relationship
@@ -1674,6 +1871,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 - Industry presence
 
 #### **Organizational Health**
+
 - Culture setting
 - Values definition
 - Ethics and compliance
@@ -1682,6 +1880,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 - Organizational effectiveness
 
 #### **Strategy Execution**
+
 - Goal cascading
 - OKR management
 - Progress tracking
@@ -1690,6 +1889,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 - Change management
 
 #### **Decision-Making Under Uncertainty**
+
 - Complex problem-solving
 - Risk assessment
 - Stakeholder balance
@@ -1702,6 +1902,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 ## SKILLS DEVELOPMENT PATHWAYS
 
 ### Individual Contributor (IC) Track
+
 **Progression:** Specialist → Senior Specialist → Lead Specialist → Principal Specialist → Distinguished Specialist
 
 **Focus:** Deepening expertise, mentoring, process improvement, technical leadership
@@ -1713,6 +1914,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 ---
 
 ### Management Track
+
 **Progression:** Specialist → Team Manager → Senior Manager → Director → Executive
 
 **Focus:** Developing others, team leadership, strategic thinking, organizational influence
@@ -1724,9 +1926,11 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 ---
 
 ### Dual-Track Option
+
 **Key principle:** Can move between tracks. Experience as Team Manager doesn't prevent returning to IC track at senior level.
 
 **Example paths:**
+
 - Specialist → Team Manager (3 yrs) → Senior Manager (3 yrs) → Return to Principal Specialist with management experience
 - Specialist → Senior Specialist → Principal Specialist (5 yrs) → Team Manager with deep expertise
 
@@ -1737,6 +1941,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 ### Assessment Methodology
 
 **360-Degree Assessment:**
+
 1. **Self-assessment:** Agent evaluates own skills
 2. **Manager assessment:** Direct manager rates agent
 3. **Peer assessment:** Colleagues provide feedback
@@ -1744,6 +1949,7 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 5. **Skill test:** Practical demonstration (where applicable)
 
 **Assessment Timeline:**
+
 - New agents: 3-month assessment (foundation)
 - Ongoing agents: 6-month assessment
 - Promotion candidates: 12-month formal assessment
@@ -1751,27 +1957,32 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 ### Mastery Certification
 
 **Level 1 Certification:**
+
 - Manager confirmation
 - Competency checklist completion
 
 **Level 2 Certification:**
+
 - Manager assessment
 - Peer feedback
 - Work portfolio review
 
 **Level 3 Certification:**
+
 - Manager + Senior Manager assessment
 - Peer and peer-manager feedback
 - Comprehensive portfolio
 - Skill demonstration
 
 **Level 4 Certification:**
+
 - Director assessment
 - Cross-team validation
 - Strategic work samples
 - Industry benchmarking
 
 **Level 5 Certification:**
+
 - CEO assessment
 - Multi-stakeholder validation
 - Organizational impact evidence
@@ -1790,18 +2001,21 @@ Managers operate at Tier 3 and above and require additional skills beyond specia
 ### Skill Update Cycle
 
 **Quarterly:**
+
 - New skills introduction
 - Emerging tool updates
 - Industry trend briefings
 - Best practice shares
 
 **Semi-Annually:**
+
 - Deep skill training
 - Certification programs
 - Conference attendance (selective)
 - Advanced technique training
 
 **Annually:**
+
 - Strategic skill gaps assessment
 - Career development planning
 - New specialization exploration
@@ -1843,7 +2057,8 @@ Expert/Principal (Level 5)
 
 **Total annual investment:** ~$850K–$1.2M across 287 agents
 
-**Expected ROI:** 
+**Expected ROI:**
+
 - 25–35% productivity improvement
 - 40–60% reduction in quality issues
 - 50–70% internal promotion rate
@@ -1855,4 +2070,3 @@ Expert/Principal (Level 5)
 **For:** MediaBubble Leadership & AI Development Team  
 **Status:** Ready for Implementation  
 **Version:** 1.0 — June 2026
-

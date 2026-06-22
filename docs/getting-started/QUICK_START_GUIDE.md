@@ -11,6 +11,7 @@ This guide shows you exactly how to use Claude Code to implement the audit recom
 Go to **CLAUDE_CODE_IMPLEMENTATION_PROMPT.md** in your MediaBubble folder.
 
 **Select this section:**
+
 ```
 PART 1: DESIGN SYSTEM & FOUNDATION
 → Prompt 1.1: Create Design Token System
@@ -64,12 +65,14 @@ Start with the colors.ts file.
 ## Step 4: Let Claude Code Work
 
 Claude will:
+
 1. Create the token files
 2. Show you the code in the chat
 3. Ask clarifying questions if needed
 4. Generate the files
 
 When done, Claude will say something like:
+
 ```
 ✓ Created src/tokens/colors.ts (45 lines)
 ✓ Created src/tokens/typography.ts (38 lines)
@@ -90,6 +93,7 @@ Test with: import { colors, spacing } from '@/tokens'
    - **Option C:** Ask Claude to generate a ZIP file
 
 **Recommended:** Let Claude write directly:
+
 ```
 "Go ahead and create these files in my project directory."
 ```
@@ -109,8 +113,9 @@ window.__TOKENS__ = (check if tokens loaded)
 ```
 
 Then ask Claude:
+
 ```
-"Test the tokens system. 
+"Test the tokens system.
 1. Import { colors, spacing } in a component
 2. Create a styled button using tokens
 3. Show me it works in a Storybook story"
@@ -121,21 +126,25 @@ Then ask Claude:
 ## 🎯 Recommended Order to Execute Prompts
 
 ### Phase 1 (Foundation) - Week 1
+
 1. **Prompt 1.1:** Create Design Token System ← START HERE
 2. **Prompt 1.2:** Set Up Tailwind CSS with Tokens
 3. **Prompt 5.1:** Accessibility Compliance & Testing (audit part)
 
 ### Phase 2 (Components) - Week 2-3
+
 4. **Prompt 2.1:** Build Button Component
 5. **Prompt 2.2:** Build Form Components
 6. **Prompt 2.3:** Build Card, Modal, Toast
 
 ### Phase 3 (UX) - Week 4
+
 7. **Prompt 3.1:** Rewrite Landing Page Copy
 8. **Prompt 3.2:** Rewrite Service Descriptions
 9. **Prompt 4.1:** Build Onboarding Flow
 
 ### Phase 4 (Polish) - Week 5
+
 10. **Prompt 4.2:** Build Loading, Empty, Error States
 11. **Prompt 5.1:** Full Accessibility Compliance
 
@@ -144,7 +153,9 @@ Then ask Claude:
 ## 💡 Pro Tips for Claude Code
 
 ### Tip 1: Ask for Storybook Stories
+
 After creating components, ask:
+
 ```
 "Create Storybook stories for the Button component.
 Show all variants (primary, secondary, danger, ghost, link)
@@ -152,12 +163,14 @@ and all sizes (xs, sm, md, lg)."
 ```
 
 ### Tip 2: Ask for Tests
+
 ```
 "Write unit tests for the Button component using Jest.
 Test onClick handler, disabled state, loading state, and accessibility."
 ```
 
 ### Tip 3: Ask for Documentation
+
 ```
 "Create a README in src/tokens/ explaining how to:
 1. Use tokens in components
@@ -166,17 +179,20 @@ Test onClick handler, disabled state, loading state, and accessibility."
 ```
 
 ### Tip 4: Ask for Examples
+
 ```
-"Show me 5 complete component examples using the Button, Input, 
+"Show me 5 complete component examples using the Button, Input,
 and Card components with the design tokens."
 ```
 
 ### Tip 5: Ask for Git Workflow
+
 ```
 "Generate git commit messages for these changes."
 ```
 
 Example response:
+
 ```
 git add src/tokens/
 git commit -m "feat: implement design token system (colors, typography, spacing)"
@@ -193,8 +209,9 @@ git commit -m "feat: build Button component with all variants and states"
 ## 🔧 Running Prompts Sequentially
 
 **Session 1: Foundation (1-2 hours)**
+
 ```
-User: "Let's build MediaBubble's design system. 
+User: "Let's build MediaBubble's design system.
 Start with Prompt 1.1 from CLAUDE_CODE_IMPLEMENTATION_PROMPT.md"
 
 Claude: [Creates token system]
@@ -203,13 +220,14 @@ User: "Great! Now run Prompt 1.2 to set up Tailwind CSS."
 
 Claude: [Creates Tailwind config]
 
-User: "Perfect. Let's test it with a simple button component. 
+User: "Perfect. Let's test it with a simple button component.
 Can you create a basic Button component using these tokens?"
 
 Claude: [Creates Button]
 ```
 
 **Session 2: Components (2-3 hours)**
+
 ```
 User: "Let's build the form components. Run Prompt 2.2"
 
@@ -227,7 +245,7 @@ Claude: [Adds stories]
 If something doesn't work:
 
 ```
-"The colors.ts file has a TypeScript error. 
+"The colors.ts file has a TypeScript error.
 Let's fix it. [Describe the error]"
 
 Claude: [Fixes the issue]
@@ -236,7 +254,7 @@ Claude: [Fixes the issue]
 Or:
 
 ```
-"The Button component styles don't match the tokens. 
+"The Button component styles don't match the tokens.
 Rewrite it to use the design tokens correctly."
 
 Claude: [Updates Button.tsx]
@@ -287,12 +305,14 @@ DONE ✓
 Here's what a real session looks like:
 
 **You:**
+
 ```
-I want to implement the design token system for MediaBubble. 
+I want to implement the design token system for MediaBubble.
 Use the "Create Design Token System" prompt from my project docs.
 ```
 
 **Claude Code:**
+
 ```
 I'll create a complete design token system for MediaBubble.
 Let me start with the color palette...
@@ -313,11 +333,13 @@ Next: Should I create a Button component using these tokens?
 ```
 
 **You:**
+
 ```
 Yes! Create the Button component with all variants and sizes.
 ```
 
 **Claude Code:**
+
 ```
 [Creates src/components/Button.tsx with all variants]
 [Creates src/components/Button.stories.tsx for Storybook]
@@ -336,11 +358,13 @@ Want me to add more components?
 ```
 
 **You:**
+
 ```
 Create the form components next (Input, Select, Textarea, Checkbox).
 ```
 
 **Claude Code:**
+
 ```
 [Creates all form components with validation]
 [Creates Storybook stories]
@@ -352,8 +376,8 @@ Create the form components next (Input, Select, Textarea, Checkbox).
 ✓ Accessible (labels, ARIA)
 
 Example:
-<Input 
-  label="Email" 
+<Input
+  label="Email"
   placeholder="your@company.com"
   error={error}
   onChange={handleChange}
@@ -368,7 +392,8 @@ Example:
 A: Yes! When Claude asks "Should I write these files?", say "Yes, write them to my src/ directory."
 
 **Q: How long does each prompt take?**
-A: 
+A:
+
 - Phase 1 (Foundation): 1-2 hours
 - Phase 2 (Components): 2-3 hours
 - Phase 3 (UX): 2-3 hours
@@ -377,6 +402,7 @@ A:
 
 **Q: Do I need to review Claude's code?**
 A: Yes! Review each file before committing:
+
 - Check types are correct
 - Verify styles use tokens (no hardcoded colors)
 - Check accessibility (ARIA, semantic HTML)
@@ -384,14 +410,16 @@ A: Yes! Review each file before committing:
 
 **Q: Can I ask Claude to fix things?**
 A: Absolutely! If something doesn't work:
+
 ```
-"The Button component isn't using the tokens correctly. 
+"The Button component isn't using the tokens correctly.
 The primary variant should use colors.primary.blue, not a hardcoded color.
 Fix it."
 ```
 
 **Q: Should I commit after each prompt?**
 A: Yes! Makes it easier to roll back if needed:
+
 ```
 git commit -m "feat: create design token system"
 git commit -m "feat: add Button component"
@@ -413,7 +441,7 @@ After following this guide, you'll have:
 ✓ Loading, empty, and error states  
 ✓ Benefit-driven copy on landing page and services  
 ✓ WCAG 2.1 AA accessibility compliance  
-✓ Mobile responsive design  
+✓ Mobile responsive design
 
 **Total time: ~8-10 hours of Claude Code work**
 
@@ -424,18 +452,21 @@ After following this guide, you'll have:
 If you get stuck:
 
 1. **Claude Code is confused:** Ask more specifically
+
    ```
    "I want Button component to use colors.primary.blue for the primary variant.
     Show me the exact code in Button.tsx"
    ```
 
 2. **Something broke:** Show Claude the error
+
    ```
    "I'm getting this error: [error message]
     How do I fix it?"
    ```
 
 3. **Want to change direction:** Just ask
+
    ```
    "Let's skip dark mode for now and focus on mobile optimization instead."
    ```
@@ -456,4 +487,3 @@ Let Claude create the foundation, then build from there.
 **Estimated completion: 3-4 weeks (with parallel work)**
 
 Good luck! 🎉
-

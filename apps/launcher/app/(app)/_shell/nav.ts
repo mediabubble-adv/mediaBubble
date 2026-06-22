@@ -11,6 +11,7 @@ import {
   MessageSquare,
   Workflow,
   Megaphone,
+  Sparkles,
   Settings,
   type LucideIcon,
 } from 'lucide-react'
@@ -31,6 +32,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'AI Tools', href: '/ai', icon: Bot },
   { label: 'Chat', href: '/chat', icon: MessageSquare },
   { label: 'Automation', href: '/automation', icon: Workflow },
+  { label: 'OPUS', href: '/opus', icon: Sparkles, status: 'Marketing AI' },
   { label: 'Campaigns', href: '/campaigns', icon: Megaphone },
   { label: 'Finance', href: '/finance', icon: Wallet },
   { label: 'Leaderboard', href: '/leaderboard', icon: Trophy },

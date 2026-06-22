@@ -10,7 +10,7 @@ Copy this prompt and use it with Claude Code to implement the audit recommendati
 
 ### Prompt 1.1: Create Design Token System
 
-```
+````
 You are a senior frontend architect working on MediaBubble's React app.
 
 OBJECTIVE:
@@ -30,19 +30,19 @@ REQUIREMENTS:
    PRIMARY:
    - Brand Blue: #0D3A7D (primary actions, sidebar)
    - Brand Yellow: #FFC107 (CTAs, accents, hover states)
-   
+
    NEUTRAL:
    - Dark Gray: #1a1a1a (headings, primary text)
    - Medium Gray: #666666 (secondary text)
    - Light Gray: #F5F5F5 (backgrounds)
    - White: #FFFFFF (cards, surfaces)
-   
+
    STATUS:
    - Success: #4CAF50
    - Error: #F44336
    - Warning: #FFC107
    - Info: #2196F3
-   
+
    DARK MODE:
    - Dark BG: #0f0f0f
    - Dark Surface: #1a1a1a
@@ -53,7 +53,7 @@ REQUIREMENTS:
    - Font Sizes: 12px, 14px, 16px, 18px, 20px, 24px, 32px, 40px
    - Font Weights: 400 (regular), 500 (medium), 600 (semibold), 700 (bold)
    - Line Heights: 1.2, 1.3, 1.4, 1.5, 1.6
-   
+
    Define named scales:
    - h1: 32px, bold, 1.2 lh
    - h2: 24px, bold, 1.3 lh
@@ -102,15 +102,17 @@ const styles = {
     fontWeight: typography.weights.semibold,
   }
 }
-```
+````
 
 VERIFICATION:
+
 - [ ] All colors have WCAG AA contrast (4.5:1 for text)
 - [ ] Spacing follows 8px unit system
 - [ ] Typography scales are readable (16px minimum for body)
 - [ ] All exports work in components
 - [ ] CSS variables work in browser DevTools
 - [ ] Tailwind config integrates properly
+
 ```
 
 ---
@@ -118,12 +120,14 @@ VERIFICATION:
 ### Prompt 1.2: Set Up Tailwind CSS with Tokens
 
 ```
+
 You are configuring Tailwind CSS for MediaBubble to use our new design tokens.
 
 OBJECTIVE:
 Configure Tailwind CSS to use the design token system, ensuring all utilities respect brand colors, spacing, and typography.
 
 REQUIREMENTS:
+
 1. Update tailwind.config.ts to:
    - Extend theme with token colors
    - Map spacing scale to Tailwind spacing
@@ -144,13 +148,14 @@ REQUIREMENTS:
    - Custom text utilities (headings: h1, h2, h3, etc.)
 
 EXAMPLE CONFIG:
+
 ```ts
 // tailwind.config.ts
-import { colors, spacing, typography } from './src/tokens'
+import { colors, spacing, typography } from "./src/tokens";
 
 export default {
-  content: ['./src/**/*.{ts,tsx}'],
-  darkMode: 'class',
+  content: ["./src/**/*.{ts,tsx}"],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
@@ -169,25 +174,31 @@ export default {
       fontSize: {
         h1: [typography.sizes.h1, { lineHeight: typography.lineHeights.h1 }],
         h2: [typography.sizes.h2, { lineHeight: typography.lineHeights.h2 }],
-        body: [typography.sizes.body, { lineHeight: typography.lineHeights.body }],
+        body: [
+          typography.sizes.body,
+          { lineHeight: typography.lineHeights.body },
+        ],
       },
     },
   },
-}
+};
 ```
 
 DELIVERABLES:
+
 - Updated tailwind.config.ts
 - src/styles/globals.css with CSS variables
 - src/styles/index.css with custom utilities
 - Documentation on using Tailwind with tokens
 
 VERIFICATION:
+
 - [ ] Tailwind build succeeds
 - [ ] Colors match token definitions
 - [ ] Spacing utilities work (p-sm, m-md, etc.)
 - [ ] Typography utilities render correctly
 - [ ] Dark mode works (toggle class on <html>)
+
 ```
 
 ---
@@ -197,12 +208,14 @@ VERIFICATION:
 ### Prompt 2.1: Build Button Component
 
 ```
+
 You are building MediaBubble's Button component system using tokens.
 
 OBJECTIVE:
 Create a flexible, accessible Button component with variants, sizes, and states that follows design tokens and WCAG 2.1 AA standards.
 
 REQUIREMENTS:
+
 1. Create src/components/Button.tsx with:
    - TypeScript interface with all props
    - Variants: primary, secondary, danger, ghost, link
@@ -241,31 +254,35 @@ REQUIREMENTS:
    - Preserve button width (no layout shift)
 
 EXAMPLE USAGE:
+
 ```tsx
-<Button 
-  variant="primary" 
-  size="md" 
+<Button
+  variant="primary"
+  size="md"
   onClick={handleClick}
   disabled={isLoading}
   loading={isLoading}
 >
-  {isLoading ? 'Creating...' : 'Create Campaign'}
+  {isLoading ? "Creating..." : "Create Campaign"}
 </Button>
 ```
 
 DELIVERABLES:
+
 - src/components/Button.tsx
 - src/components/Button.stories.tsx (Storybook)
 - Test file with unit tests
 - CSS/Tailwind styling
 
 VERIFICATION:
+
 - [ ] All variants render correctly
 - [ ] All sizes render with proper scaling
 - [ ] Focus indicator visible on Tab
 - [ ] Loading spinner shows + button disables
 - [ ] Color contrast ≥4.5:1
 - [ ] Works with mouse, keyboard, screen reader
+
 ```
 
 ---
@@ -273,6 +290,7 @@ VERIFICATION:
 ### Prompt 2.2: Build Form Components (Input, Select, Textarea, Checkbox)
 
 ```
+
 You are building accessible form components for MediaBubble.
 
 OBJECTIVE:
@@ -281,6 +299,7 @@ Create a suite of form components (Input, Select, Textarea, Checkbox, Radio) wit
 REQUIREMENTS FOR EACH COMPONENT:
 
 INPUT COMPONENT (src/components/Input.tsx):
+
 - Props: label, placeholder, value, onChange, error, disabled, required, type, helperText
 - Validation feedback (color: error red)
 - Required indicator (asterisk + bold label)
@@ -290,28 +309,33 @@ INPUT COMPONENT (src/components/Input.tsx):
 - Focus: visible ring (2px, brand color)
 
 SELECT COMPONENT (src/components/Select.tsx):
+
 - Props: label, options, value, onChange, error, placeholder, disabled
 - Proper <select> element or custom accessible select
 - Error state styling
 - Required indicator
 
 TEXTAREA COMPONENT (src/components/Textarea.tsx):
+
 - Props: label, value, onChange, error, placeholder, rows, maxLength
 - Character counter (optional)
 - Resize handle (or disable resize)
 - Same accessibility as Input
 
 CHECKBOX COMPONENT (src/components/Checkbox.tsx):
+
 - Props: label, checked, onChange, disabled, required, error
 - Custom styled checkbox (square, brand color when checked)
 - Label clickable (associated with input)
 
 RADIO COMPONENT (src/components/Radio.tsx):
+
 - Props: label, value, checked, onChange, name
 - Circular radio button
 - Proper grouping (use RadioGroup wrapper)
 
 UNIVERSAL REQUIREMENTS:
+
 1. All connected to labels (<label for="inputId">)
 2. Error messages specific: ❌ "Email already registered. [Sign in instead?]"
 3. Helper text: "(We'll never share this)"
@@ -321,19 +345,20 @@ UNIVERSAL REQUIREMENTS:
 7. Validation: Real-time or on blur (not wait until submit)
 
 VALIDATION EXAMPLE:
+
 ```tsx
-const [email, setEmail] = useState('')
-const [error, setError] = useState('')
+const [email, setEmail] = useState("");
+const [error, setError] = useState("");
 
 const handleEmailChange = (value) => {
-  setEmail(value)
+  setEmail(value);
   // Real-time validation
   if (value && !isValidEmail(value)) {
-    setError('Please enter a valid email')
+    setError("Please enter a valid email");
   } else {
-    setError('')
+    setError("");
   }
-}
+};
 
 <Input
   label="Email Address"
@@ -343,10 +368,11 @@ const handleEmailChange = (value) => {
   error={error}
   required
   helperText="We'll never share this"
-/>
+/>;
 ```
 
 DELIVERABLES:
+
 - src/components/Input.tsx
 - src/components/Select.tsx
 - src/components/Textarea.tsx
@@ -357,6 +383,7 @@ DELIVERABLES:
 - Test files with validation tests
 
 VERIFICATION:
+
 - [ ] Labels properly associated with inputs
 - [ ] Tab through all components
 - [ ] Error messages are specific and helpful
@@ -364,6 +391,7 @@ VERIFICATION:
 - [ ] Focus indicators visible
 - [ ] Screen reader announces labels + errors
 - [ ] Validation works in real-time
+
 ```
 
 ---
@@ -371,12 +399,14 @@ VERIFICATION:
 ### Prompt 2.3: Build Card, Modal, Notification Components
 
 ```
+
 You are building layout and feedback components for MediaBubble.
 
 OBJECTIVE:
 Create Card, Modal, and Notification (Toast) components that handle loading, empty, and error states with proper accessibility.
 
 CARD COMPONENT (src/components/Card.tsx):
+
 - Props: children, className, header, footer, loading, error, empty
 - Background: white, border: 1px light gray, radius: 4px
 - Padding: 16px (md spacing)
@@ -386,20 +416,22 @@ CARD COMPONENT (src/components/Card.tsx):
 - Empty state: Show empty state UI (illustration + message)
 
 EXAMPLE:
+
 ```tsx
-<Card 
+<Card
   header="Q2 2026 Campaign Performance"
   loading={isLoading}
   error={error}
   empty={!campaigns.length}
 >
-  {campaigns.map(c => (
+  {campaigns.map((c) => (
     <CampaignRow key={c.id} campaign={c} />
   ))}
 </Card>
 ```
 
 MODAL COMPONENT (src/components/Modal.tsx):
+
 - Props: isOpen, onClose, title, children, size, action, loading
 - Backdrop: dark overlay (50% opacity)
 - Dialog: white card, centered on screen
@@ -410,18 +442,20 @@ MODAL COMPONENT (src/components/Modal.tsx):
 - Semantic: <dialog> or role="dialog"
 
 EXAMPLE:
+
 ```tsx
-<Modal 
+<Modal
   isOpen={showCreateModal}
   onClose={closeModal}
   title="Create New Campaign"
-  action={{ label: 'Create', onClick: handleCreate }}
+  action={{ label: "Create", onClick: handleCreate }}
 >
   <CampaignForm />
 </Modal>
 ```
 
 NOTIFICATION (TOAST) COMPONENT (src/components/Toast.tsx):
+
 - Props: message, type, duration, action, dismissible, position
 - Types: success, error, warning, info
 - Auto-dismiss: 3000ms (3 seconds)
@@ -431,30 +465,33 @@ NOTIFICATION (TOAST) COMPONENT (src/components/Toast.tsx):
 - Queue multiple toasts (don't stack)
 
 EXAMPLE:
+
 ```tsx
 // Show success toast
 showToast({
-  message: '✓ Campaign published successfully!',
-  type: 'success',
+  message: "✓ Campaign published successfully!",
+  type: "success",
   duration: 3000,
-  action: { label: 'View', onClick: navigateToCampaign }
-})
+  action: { label: "View", onClick: navigateToCampaign },
+});
 
 // Show error with retry
 showToast({
-  message: '❌ Failed to save campaign. ',
-  type: 'error',
-  action: { label: 'Retry', onClick: retrySave }
-})
+  message: "❌ Failed to save campaign. ",
+  type: "error",
+  action: { label: "Retry", onClick: retrySave },
+});
 ```
 
 SKELETON COMPONENT (src/components/Skeleton.tsx):
+
 - Props: width, height, className
 - Animated shimmer effect (0.5s pulse)
 - Used in loading states
 - Match shape of actual content (avatar, text, etc.)
 
 EMPTY STATE COMPONENT (src/components/EmptyState.tsx):
+
 - Props: icon, title, description, action
 - Large icon/illustration
 - Clear title: "No campaigns yet"
@@ -462,16 +499,18 @@ EMPTY STATE COMPONENT (src/components/EmptyState.tsx):
 - Primary CTA: "Create First Campaign"
 
 EXAMPLE:
+
 ```tsx
 <EmptyState
   icon={<PlusIcon />}
   title="No Campaigns Yet"
   description="Get started by creating your first campaign."
-  action={{ label: 'Create Campaign', onClick: openCreateModal }}
+  action={{ label: "Create Campaign", onClick: openCreateModal }}
 />
 ```
 
 DELIVERABLES:
+
 - src/components/Card.tsx
 - src/components/Modal.tsx
 - src/components/Toast.tsx (provider + hook)
@@ -481,12 +520,14 @@ DELIVERABLES:
 - Test files
 
 VERIFICATION:
+
 - [ ] Modal: Escape closes, Tab traps focus
 - [ ] Toast: Auto-dismisses after 3s, dismissible manually
 - [ ] Skeleton: Shimmer animation smooth
 - [ ] EmptyState: Renders icon + message + CTA
 - [ ] Card: Loading/error/empty states work
 - [ ] All accessible (keyboard navigation, screen reader)
+
 ```
 
 ---
@@ -496,17 +537,20 @@ VERIFICATION:
 ### Prompt 3.1: Rewrite Landing Page Copy
 
 ```
+
 You are a UX copywriter rewriting MediaBubble's landing page for maximum clarity and conversion.
 
 OBJECTIVE:
 Rewrite the landing page with benefit-driven copy, clear value proposition, and compelling CTAs.
 
 CURRENT STATE (Examples):
+
 - Generic headline: "MediaBubble - Comprehensive Marketing Services"
 - Vague value prop: "We offer marketing solutions"
 - Weak CTAs: "Learn More," "Submit"
 
 TARGET STATE:
+
 - Specific headline with unique value
 - Clear metrics/proof points
 - Action-oriented CTAs
@@ -520,23 +564,23 @@ REQUIREMENTS:
    - Current: "MediaBubble - Marketing Agency"
    - Better: "Hurghada's #1 Marketing Agency for Business Growth"
    - Even better: "Grow Your Business 2-3X in 12 Months | Proven Strategy + Expert Execution"
-   
+
    Subheading: [Must answer: "What do you do?"]
    - Current: "We provide comprehensive marketing services"
    - Better: "From strategy to execution—we turn local businesses into market leaders using data-driven campaigns that deliver measurable ROI."
-   
+
    Three Proof Points (Trust Building):
    - "35% average client growth in 12 months"
    - "92% client retention rate (they stay because we deliver)"
    - "500+ projects delivered across Hurghada"
-   
+
    CTA Buttons:
    - Primary: "Get Your Free Strategy Audit" (benefit + no friction)
    - Secondary: "View Case Studies & Results" (social proof)
 
 2. VALUE PROPOSITION SECTION:
    "Why Choose MediaBubble?"
-   
+
    Instead of listing services, show outcomes:
    - ✓ Clients average 2.5x more website traffic
    - ✓ 18-month average client lifetime value (shows sustainability)
@@ -547,16 +591,17 @@ REQUIREMENTS:
 3. SERVICES OVERVIEW:
    Instead of: "We offer SEO, PPC, Social Media..."
    Say: "Everything Your Business Needs to Dominate Online"
-   
+
    Each service card should show:
    - Icon/illustration
    - Outcome (not feature)
    - Example metric
    - CTA
-   
+
    SEO Example:
    BEFORE: "Search Engine Optimization - We optimize your website for search engines"
-   AFTER: 
+   AFTER:
+
    ```
    Rank Higher, Get More Customers
    Get found by people searching for your exact services.
@@ -566,38 +611,40 @@ REQUIREMENTS:
 
 4. CASE STUDIES / SOCIAL PROOF:
    Format: "Client Name - Industry - Result"
-   
+
    Example:
+
    ```
    Aldau Resort
    Tourism/Hospitality
-   
+
    "MediaBubble helped us increase bookings by 45% in 6 months.
    Their strategy is transparent and their results speak for themselves."
    — Sarah Hassan, Marketing Director
-   
+
    Results: 45% booking increase | 3.2x organic traffic | 25% email list growth
    ```
 
 5. FAQ / COMMON OBJECTIONS:
    Q: "How long until we see results?"
    A: "Most clients see improvement in 30 days (faster), measurable impact in 60-90 days. We provide weekly reports so you see progress every step."
-   
+
    Q: "How much does this cost?"
    A: "Depends on scope. Our audit is free. Plans start at EGP 5,000/month for maintenance, EGP 15,000+ for growth campaigns. Let's discuss your specific goals."
-   
+
    Q: "What if we're not happy?"
    A: "60-day guarantee. If you're not seeing results, we'll work for free or refund your investment."
 
 6. FINAL CTA SECTION:
    Headline: "Ready to Grow Your Business?"
    Copy: "Let's start with a free, no-pressure strategy call. We'll audit your current marketing and show exactly how we'd help you grow."
-   
+
    Buttons:
    - [Book Free Strategy Call] (primary)
    - [Send me a proposal] (secondary)
 
 WRITING PRINCIPLES:
+
 - Benefits over features ("2x more traffic" not "advanced SEO optimization")
 - Specificity ("35% growth" not "significant growth")
 - Social proof throughout ("Trusted by 50+ local businesses")
@@ -607,6 +654,7 @@ WRITING PRINCIPLES:
 - Scannable (short paragraphs, bullet points, clear hierarchy)
 
 DELIVERABLES:
+
 - Rewritten homepage copy (hero, sections, CTAs)
 - Service card copy (all 4 pillars)
 - Case study templates
@@ -615,6 +663,7 @@ DELIVERABLES:
 - All in Markdown for easy implementation
 
 WORD COUNT TARGETS:
+
 - Hero headline: 8-12 words
 - Hero subheading: 20-30 words
 - Section headlines: 6-10 words
@@ -622,12 +671,14 @@ WORD COUNT TARGETS:
 - CTAs: 3-5 words ("Get Audit" not "Click to learn more")
 
 VERIFICATION:
+
 - [ ] Every headline answers a question
 - [ ] Copy includes specific metrics
 - [ ] All CTAs are benefit-driven
 - [ ] Tone is professional but approachable
 - [ ] No jargon (or explained if used)
 - [ ] Mobile-friendly (scannable on phones)
+
 ```
 
 ---
@@ -635,6 +686,7 @@ VERIFICATION:
 ### Prompt 3.2: Rewrite Service Descriptions
 
 ```
+
 You are rewriting MediaBubble's service descriptions to emphasize outcomes, not features.
 
 OBJECTIVE:
@@ -643,6 +695,7 @@ Transform generic service descriptions into outcome-focused content that shows c
 REQUIREMENTS FOR EACH SERVICE:
 
 FORMAT:
+
 ```
 [Service Name] - Focus on Outcome
 Benefit-driven copy (40 words)
@@ -662,7 +715,7 @@ EXAMPLES:
 
 1. SEO - "Rank Higher, Get More Customers"
    "Get found by people actively searching for your services. Our proven SEO strategy increases organic traffic consistently and delivers new qualified leads every month."
-   
+
    What's included:
    ✓ Keyword strategy (high-intent keywords only)
    ✓ Technical SEO audit (site health score)
@@ -670,12 +723,12 @@ EXAMPLES:
    ✓ Content strategy (topical authority building)
    ✓ Link building (authority growth)
    ✓ Monthly performance reports (see exact ROI)
-   
+
    Average client result: 2.5x organic traffic in 6 months
 
 2. PPC (Google Ads / Social Ads) - "Reach Customers Ready to Buy"
    "Skip the waiting and get visible immediately. Our PPC experts run highly targeted campaigns that put your ads in front of people ready to buy, maximizing every dirham spent."
-   
+
    What's included:
    ✓ Campaign strategy (audience + keyword targeting)
    ✓ Ad copywriting (high-converting ads)
@@ -683,12 +736,12 @@ EXAMPLES:
    ✓ Daily budget optimization (no wasted spend)
    ✓ A/B testing (continuous improvement)
    ✓ Weekly performance reports (detailed ROI tracking)
-   
+
    Average client result: 3:1 ROAS (3 pounds back for every 1 pound spent)
 
 3. Social Media Management - "Build Your Brand Community"
    "Consistent, strategic posts that grow engagement and turn followers into loyal customers. We handle content creation, posting, and community management so you can focus on your business."
-   
+
    What's included:
    ✓ Content calendar (planned 30 days out)
    ✓ Content creation (3-4 posts per week)
@@ -696,12 +749,12 @@ EXAMPLES:
    ✓ Hashtag strategy (discoverability optimization)
    ✓ Monthly analytics report (what's working)
    ✓ Strategy reviews (quarterly adjustments)
-   
+
    Average client result: 150-200% follower growth in 6 months
 
 4. Brand Development - "Become Unforgettable"
    "A strong brand makes you stand out, commands higher prices, and attracts ideal customers. We develop cohesive branding that tells your unique story and resonates with your target market."
-   
+
    What's included:
    ✓ Brand strategy workshop (positioning, messaging)
    ✓ Logo design & brand identity
@@ -709,10 +762,11 @@ EXAMPLES:
    ✓ Brand messaging framework (consistent voice)
    ✓ Visual identity system (colors, fonts, imagery)
    ✓ Brand rollout support (implement across all touchpoints)
-   
+
    Average client result: 20-30% price increase + stronger market position
 
 TONE & STYLE REQUIREMENTS:
+
 - Start with outcome, not feature
 - Include specific deliverables (not vague "consulting")
 - Add social proof (average results, client metrics)
@@ -723,12 +777,14 @@ TONE & STYLE REQUIREMENTS:
 - Use benefit language ("get found" not "SEO optimization")
 
 PLATFORM-SPECIFIC NOTES:
+
 - Website: Full descriptions (300-400 words per service)
 - Social media: Short version (50-75 words, benefit focus)
 - Email: Mid-length (100-150 words, with CTA)
 - Sales deck: Short with metrics only
 
 DELIVERABLES:
+
 - Rewritten descriptions for all 4 service pillars
 - Short versions for social media
 - Email campaign versions
@@ -736,6 +792,7 @@ DELIVERABLES:
 - Service comparison chart (if multiple tiers exist)
 
 VERIFICATION:
+
 - [ ] Each description starts with outcome, not feature
 - [ ] Includes 3-5 specific deliverables
 - [ ] Includes average client metric
@@ -743,6 +800,7 @@ VERIFICATION:
 - [ ] No jargon or explained thoroughly
 - [ ] Professional but conversational tone
 - [ ] Mobile-friendly (scannable)
+
 ```
 
 ---
@@ -752,6 +810,7 @@ VERIFICATION:
 ### Prompt 4.1: Build Onboarding Flow
 
 ```
+
 You are designing the onboarding flow for new MediaBubble users.
 
 OBJECTIVE:
@@ -760,6 +819,7 @@ Create a smooth, guided 5-step onboarding experience that gets new users to thei
 REQUIREMENTS:
 
 STEP 1: Welcome Screen (Sign Up / Login)
+
 - Title: "Welcome to MediaBubble Pro"
 - Subheading: "Create campaigns, track results, grow your business"
 - Input: Email address
@@ -767,6 +827,7 @@ STEP 1: Welcome Screen (Sign Up / Login)
 - Progress: 1/5
 
 STEP 2: Account Setup (Profile Information)
+
 - Title: "Tell us about your business"
 - Fields:
   - Business name (required)
@@ -777,6 +838,7 @@ STEP 2: Account Setup (Profile Information)
 - Buttons: [Skip] [Next]
 
 STEP 3: Campaign Setup (Main Goal)
+
 - Title: "Create your first campaign"
 - Fields:
   - Campaign name (e.g., "Q2 2026 Blog Growth")
@@ -787,6 +849,7 @@ STEP 3: Campaign Setup (Main Goal)
 - Buttons: [Back] [Next]
 
 STEP 4: Connect Integrations
+
 - Title: "Connect your tools (optional but recommended)"
 - Checkboxes:
   - [ ] Google Analytics (shows real traffic data)
@@ -798,6 +861,7 @@ STEP 4: Connect Integrations
 - Buttons: [Skip] [Next]
 
 STEP 5: Success Confirmation
+
 - Title: "🎉 Campaign Created!"
 - Subheading: "Your campaign is live. Here's what's next:"
 - Timeline:
@@ -811,6 +875,7 @@ STEP 5: Success Confirmation
 - Progress: 5/5
 
 FORM VALIDATION:
+
 - Email: Real-time validation, show error if invalid
 - Business name: Required, min 2 characters
 - Campaign name: Required, unique
@@ -819,6 +884,7 @@ FORM VALIDATION:
 - Loading state during form submission
 
 MOBILE OPTIMIZATION:
+
 - Steps stack vertically on mobile
 - Progress bar shows current step
 - Full-width inputs and buttons
@@ -826,30 +892,35 @@ MOBILE OPTIMIZATION:
 - Font size: 16px minimum (prevents iOS zoom)
 
 UX BEST PRACTICES:
+
 - Auto-save form progress (if user closes browser)
 - Save draft: "Save and finish later" link
 - Progress indicator: Step 2/5 (shows completion)
-- No required fields marked with * (label it clearly instead)
+- No required fields marked with \* (label it clearly instead)
 - Clear error messages: ❌ "Business name must be at least 2 characters"
 - Loading state: "Creating campaign..." spinner
 - Accessibility: Tab through entire flow, screen reader announces steps
 
 SKIPPABLE STEPS:
+
 - Step 2: Can skip account details, use defaults
 - Step 4: Can skip integrations (add later in settings)
 - Cannot skip Steps 1, 3, 5
 
 ERROR HANDLING:
+
 - If email already exists: "This email is already registered. [Sign in instead?]"
 - If campaign creation fails: Show error message, [Retry] button
 - Timeout: "This is taking longer than expected. [Try Again]"
 
 SUCCESS TRACKING:
+
 - Record completion metrics
 - Track which steps users skip
 - Monitor dropout rate (e.g., if many drop at Step 4, improve it)
 
 DELIVERABLES:
+
 - src/pages/onboarding/ directory
 - src/components/OnboardingStep.tsx (generic step wrapper)
 - src/components/OnboardingForm.tsx (form container)
@@ -858,6 +929,7 @@ DELIVERABLES:
 - Test file with form validation tests
 
 VERIFICATION:
+
 - [ ] All 5 steps render correctly
 - [ ] Form validation works in real-time
 - [ ] Can navigate back/forward
@@ -867,6 +939,7 @@ VERIFICATION:
 - [ ] Can tab through entire flow
 - [ ] Screen reader announces step progress
 - [ ] Auto-save works (check localStorage)
+
 ```
 
 ---
@@ -874,6 +947,7 @@ VERIFICATION:
 ### Prompt 4.2: Build Loading, Empty, Error States
 
 ```
+
 You are designing the loading, empty, and error states for all MediaBubble components.
 
 OBJECTIVE:
@@ -887,8 +961,9 @@ LOADING STATE PATTERNS:
    - Match shape of actual content
    - Subtle shimmer animation
    - Never show "Loading..." text
-   
+
    Example (Campaign List):
+
    ```
    [████████] [████] [████]  <- Skeleton campaign row
    [████████] [████] [████]  <- Skeleton campaign row
@@ -897,7 +972,7 @@ LOADING STATE PATTERNS:
 
 2. Progress Bar (For long operations)
    - Indeterminate: animated bar (0-100% over time)
-   - Determinate: [=====>        ] 45% Complete (if you have ETA)
+   - Determinate: [=====> ] 45% Complete (if you have ETA)
    - Text: "Generating report... (estimated 30 seconds)"
 
 3. Spinner with Text (For short operations)
@@ -906,6 +981,7 @@ LOADING STATE PATTERNS:
    - Full-page overlay (not just inline)
 
 LOADING STATE RULES:
+
 - [ ] Don't show placeholder text ("Loading...")
 - [ ] Show skeleton if response < 2 seconds
 - [ ] Show spinner if response < 10 seconds
@@ -916,6 +992,7 @@ LOADING STATE RULES:
 EMPTY STATE PATTERN:
 
 Structure:
+
 ```
 [Large Icon/Illustration]
 
@@ -923,7 +1000,7 @@ Title (Bold, 18-20px)
 "No campaigns yet"
 
 Description (Gray, secondary color)
-"Get started by creating your first campaign. 
+"Get started by creating your first campaign.
 We'll guide you through setup."
 
 Primary CTA
@@ -936,24 +1013,27 @@ Optional secondary link
 Empty State Examples:
 
 1. Dashboard (No campaigns):
+
    ```
    🎯 Icon
    No Campaigns Yet
-   Create your first campaign to get started. 
+   Create your first campaign to get started.
    We'll handle the rest.
    [Create Campaign]
    ```
 
 2. Reports (No data available):
+
    ```
    📊 Icon
    No Data Available
-   Your campaign needs 7 days of data before 
+   Your campaign needs 7 days of data before
    we can show performance insights.
    [Create Campaign] [View Guide]
    ```
 
 3. Search Results (No matches):
+
    ```
    🔍 Icon
    No Results Found
@@ -965,11 +1045,12 @@ Empty State Examples:
    ```
    ⚠️ Icon
    Something Went Wrong
-   We couldn't load your campaigns. 
+   We couldn't load your campaigns.
    [Try Again] [Contact Support]
    ```
 
 EMPTY STATE RULES:
+
 - [ ] Show icon (illustration or icon)
 - [ ] Explain what's missing (don't assume)
 - [ ] Show how to fix it (not just "nothing here")
@@ -980,6 +1061,7 @@ EMPTY STATE RULES:
 ERROR STATE PATTERN:
 
 Structure:
+
 ```
 [Error Icon - Usually Red]
 
@@ -996,6 +1078,7 @@ Recovery Options
 ```
 
 Error Message Guidelines:
+
 - ❌ "Error 500: Internal Server Error"
 - ✓ "We couldn't save your campaign. Please check your internet and try again."
 - ❌ "Validation failed"
@@ -1031,6 +1114,7 @@ Error Categories:
    - ACTION: [Retry] [Contact Support] [Status Page]
 
 ERROR STATE RULES:
+
 - [ ] Error title is specific (not "Error")
 - [ ] Explain what went wrong
 - [ ] Suggest how to fix it
@@ -1042,6 +1126,7 @@ ERROR STATE RULES:
 COMPONENTS TO CREATE:
 
 1. LoadingOverlay (Full-page loading)
+
    ```tsx
    <LoadingOverlay
      show={isLoading}
@@ -1051,22 +1136,25 @@ COMPONENTS TO CREATE:
    ```
 
 2. Skeleton (Content placeholder)
+
    ```tsx
    <Skeleton width="100%" height="40px" />
    <Skeleton width="80%" height="20px" />
    ```
 
 3. EmptyState (No data)
+
    ```tsx
    <EmptyState
      icon={<CampaignIcon />}
      title="No Campaigns Yet"
      description="Get started by creating your first campaign."
-     action={{ label: 'Create Campaign', onClick: () => {} }}
+     action={{ label: "Create Campaign", onClick: () => {} }}
    />
    ```
 
 4. ErrorBoundary (Catch React errors)
+
    ```tsx
    <ErrorBoundary fallback={<ErrorPage />}>
      <Dashboard />
@@ -1079,13 +1167,14 @@ COMPONENTS TO CREATE:
      title="Campaign Publication Failed"
      message="Your campaign has 2 validation errors..."
      actions={[
-       { label: 'Fix Issues', onClick: () => {} },
-       { label: 'Contact Support' }
+       { label: "Fix Issues", onClick: () => {} },
+       { label: "Contact Support" },
      ]}
    />
    ```
 
 DELIVERABLES:
+
 - src/components/LoadingOverlay.tsx
 - src/components/Skeleton.tsx
 - src/components/EmptyState.tsx
@@ -1095,6 +1184,7 @@ DELIVERABLES:
 - Documentation on when to use each
 
 VERIFICATION:
+
 - [ ] Skeletons match content shape
 - [ ] Shimmer animation is subtle (not distracting)
 - [ ] Empty states show icon + title + description + CTA
@@ -1102,6 +1192,7 @@ VERIFICATION:
 - [ ] All states are keyboard accessible
 - [ ] Mobile layout works (scaling and spacing)
 - [ ] Color contrast maintained (red for errors is visible)
+
 ```
 
 ---
@@ -1111,6 +1202,7 @@ VERIFICATION:
 ### Prompt 5.1: Accessibility Compliance & Testing
 
 ```
+
 You are implementing WCAG 2.1 Level AA accessibility throughout MediaBubble.
 
 OBJECTIVE:
@@ -1124,12 +1216,13 @@ REQUIREMENTS:
    - Use <label> for form inputs (associated with for="inputId")
    - Use <fieldset> for grouped form inputs
    - Use <nav>, <main>, <footer> landmarks
-   
+
    EXAMPLE:
+
    ```tsx
    // ❌ Bad
    <div onClick={handleClick} className="button">Click me</div>
-   
+
    // ✓ Good
    <button onClick={handleClick}>Click me</button>
    ```
@@ -1138,7 +1231,7 @@ REQUIREMENTS:
    - Text: 4.5:1 contrast ratio (normal + large text)
    - Components: 3:1 contrast ratio (borders, icons)
    - Don't rely on color alone (use icons + text)
-   
+
    TOOLS:
    - WebAIM Contrast Checker: webaim.org/resources/contrastchecker
    - Lighthouse audit in Chrome DevTools
@@ -1150,8 +1243,9 @@ REQUIREMENTS:
    - Escape closes modals/menus
    - Arrow keys navigate lists/tabs
    - Focus indicator always visible (2px ring, brand color)
-   
+
    EXAMPLE:
+
    ```css
    /* Always have focus style */
    button:focus {
@@ -1166,14 +1260,15 @@ REQUIREMENTS:
    - Use aria-describedby for help text
    - Use aria-live for notifications
    - Announce errors to screen reader
-   
+
    EXAMPLE:
+
    ```tsx
    // Icon-only button
    <button aria-label="Close dialog">
      <XIcon />
    </button>
-   
+
    // Input with error
    <input aria-describedby="email-error" />
    <span id="email-error" role="alert">
@@ -1185,15 +1280,16 @@ REQUIREMENTS:
    - All <img> have alt attribute
    - Decorative images: alt=""
    - Meaningful images: describe content (not "image of...")
-   
+
    EXAMPLE:
+
    ```tsx
    // ❌ Bad
    <img src="graph.png" alt="graph" />
-   
+
    // ✓ Good
-   <img 
-     src="graph.png" 
+   <img
+     src="graph.png"
      alt="Q2 2026 traffic increased 35% month-over-month"
    />
    ```
@@ -1203,8 +1299,9 @@ REQUIREMENTS:
    - Required fields marked
    - Error messages linked with aria-describedby
    - Validation happens on blur or real-time
-   
+
    EXAMPLE:
+
    ```tsx
    <label htmlFor="email">Email Address *</label>
    <input
@@ -1220,8 +1317,9 @@ REQUIREMENTS:
    - Respect prefers-reduced-motion
    - No auto-playing videos
    - No flashing content (>3 flashes per second = seizure risk)
-   
+
    EXAMPLE:
+
    ```css
    @media (prefers-reduced-motion: reduce) {
      * {
@@ -1241,6 +1339,7 @@ REQUIREMENTS:
 ACCESSIBILITY AUDIT CHECKLIST:
 
 Testing Tools:
+
 - [ ] Lighthouse (Chrome DevTools)
 - [ ] WAVE (wave.webaim.org)
 - [ ] axe DevTools (browser extension)
@@ -1248,6 +1347,7 @@ Testing Tools:
 - [ ] Screen reader (NVDA on Windows, JAWS, or VoiceOver on Mac)
 
 Manual Tests:
+
 - [ ] Zoom to 200% - layout still works?
 - [ ] Disable CSS - content still readable?
 - [ ] High contrast mode - visible on dark bg?
@@ -1255,6 +1355,7 @@ Manual Tests:
 - [ ] Listen to form labels - screen reader reads them?
 
 Browser DevTools Testing:
+
 1. Open Chrome DevTools
 2. Click Lighthouse tab
 3. Select "Accessibility"
@@ -1262,6 +1363,7 @@ Browser DevTools Testing:
 5. Fix any failing items
 
 WCAG 2.1 AA Minimum Requirements:
+
 - Lighthouse Accessibility Score: ≥90
 - No WCAG level A failures
 - All WCAG AA failures fixed
@@ -1270,6 +1372,7 @@ WCAG 2.1 AA Minimum Requirements:
 - Color contrast verified (4.5:1 for text)
 
 DELIVERABLES:
+
 - Accessibility audit report
 - Fixed components (semantic HTML, ARIA)
 - CSS updates (contrast, motion)
@@ -1277,6 +1380,7 @@ DELIVERABLES:
 - Component guidelines (accessibility checklist)
 
 VERIFICATION:
+
 - [ ] Lighthouse score ≥90
 - [ ] WAVE audit passes (0 errors)
 - [ ] Tab through entire app works
@@ -1286,6 +1390,7 @@ VERIFICATION:
 - [ ] Focus indicators visible
 - [ ] Image alt text complete
 - [ ] Forms properly labeled
+
 ```
 
 ---
@@ -1295,9 +1400,11 @@ VERIFICATION:
 ### Use This Checklist to Track Progress
 
 ```
+
 ## Phase 1: Foundation (Weeks 1-2)
 
 ### Design Tokens
+
 - [ ] Create src/tokens/colors.ts
 - [ ] Create src/tokens/typography.ts
 - [ ] Create src/tokens/spacing.ts
@@ -1308,6 +1415,7 @@ VERIFICATION:
 - [ ] Test: Tailwind utilities work (p-md, text-h1, etc.)
 
 ### Accessibility Audit
+
 - [ ] Run Lighthouse audit
 - [ ] Run WAVE audit
 - [ ] Test keyboard navigation
@@ -1316,6 +1424,7 @@ VERIFICATION:
 - [ ] Create fix priority list
 
 ### Copy Audit
+
 - [ ] Rewrite landing page hero section
 - [ ] Rewrite 2 service descriptions (as examples)
 - [ ] Create brand voice guide
@@ -1327,6 +1436,7 @@ VERIFICATION:
 ## Phase 2: Components (Weeks 3-4)
 
 ### Button Component
+
 - [ ] Create src/components/Button.tsx
 - [ ] All variants: primary, secondary, danger, ghost, link
 - [ ] All sizes: xs, sm, md, lg
@@ -1336,6 +1446,7 @@ VERIFICATION:
 - [ ] Accessibility: focus indicator, keyboard nav
 
 ### Form Components
+
 - [ ] Create Input.tsx (with validation)
 - [ ] Create Select.tsx
 - [ ] Create Textarea.tsx
@@ -1346,6 +1457,7 @@ VERIFICATION:
 - [ ] Unit tests with validation
 
 ### Layout Components
+
 - [ ] Create Card.tsx (with loading/error/empty states)
 - [ ] Create Modal.tsx (with focus trap + Escape key)
 - [ ] Create Toast.tsx (notification system)
@@ -1355,6 +1467,7 @@ VERIFICATION:
 - [ ] Integration tests
 
 ### Quality
+
 - [ ] All components use design tokens (no hardcoded colors)
 - [ ] All components are keyboard accessible
 - [ ] All components have proper focus indicators
@@ -1367,6 +1480,7 @@ VERIFICATION:
 ## Phase 3: User Experience (Weeks 5-6)
 
 ### Onboarding Flow
+
 - [ ] Create 5-step onboarding
 - [ ] Step 1: Welcome + signup
 - [ ] Step 2: Account details
@@ -1379,6 +1493,7 @@ VERIFICATION:
 - [ ] Accessibility tested
 
 ### Loading/Empty/Error States
+
 - [ ] Implement loading overlays
 - [ ] Implement skeleton screens
 - [ ] Implement empty states (all pages)
@@ -1388,6 +1503,7 @@ VERIFICATION:
 - [ ] All states are mobile responsive
 
 ### Content Rewrite
+
 - [ ] Rewrite all service descriptions
 - [ ] Rewrite all error messages (be specific)
 - [ ] Rewrite all form labels (be clear)
@@ -1401,6 +1517,7 @@ VERIFICATION:
 ## Phase 4: Polish & Testing (Weeks 7-8)
 
 ### Accessibility Fixes
+
 - [ ] Fix all Lighthouse issues (target ≥90)
 - [ ] Fix all WAVE errors
 - [ ] Verify all color contrast (4.5:1)
@@ -1411,6 +1528,7 @@ VERIFICATION:
 - [ ] Motion: respect prefers-reduced-motion
 
 ### Performance
+
 - [ ] Page load time <2 seconds (Lighthouse)
 - [ ] Largest Contentful Paint <2.5s
 - [ ] Cumulative Layout Shift <0.1
@@ -1420,6 +1538,7 @@ VERIFICATION:
 - [ ] Code splitting configured
 
 ### Mobile Optimization
+
 - [ ] Test on iPhone 12/13, iPad, Android
 - [ ] Responsive breakpoints working
 - [ ] Touch targets ≥44px
@@ -1429,6 +1548,7 @@ VERIFICATION:
 - [ ] Font scaling works (zoom to 200%)
 
 ### Dark Mode (Optional)
+
 - [ ] CSS variables for dark palette
 - [ ] Dark colors readable (4.5:1 contrast)
 - [ ] System preference detection
@@ -1436,6 +1556,7 @@ VERIFICATION:
 - [ ] All components look good in dark mode
 
 ### Testing
+
 - [ ] Unit tests: 80%+ coverage
 - [ ] Integration tests: key flows
 - [ ] E2E tests: user journeys
@@ -1445,6 +1566,7 @@ VERIFICATION:
 - [ ] Cross-browser testing: Chrome, Firefox, Safari, Edge
 
 ### Documentation
+
 - [ ] Component Storybook complete
 - [ ] Design tokens documented
 - [ ] Accessibility guidelines created
@@ -1458,16 +1580,16 @@ VERIFICATION:
 
 After implementation, track these metrics:
 
-| Metric | Target | How to Measure |
-|--------|--------|----------------|
-| Lighthouse Score | ≥90 | Chrome DevTools |
-| Accessibility | 100% WCAG AA | axe audit |
-| Page Load | <2s | Lighthouse |
-| Mobile CTR | +20% | Analytics |
-| Form Completion | >70% | Conversion tracking |
-| Support Tickets | -20% | Support system |
-| User Activation | >40% | Analytics Day 1 |
-| Session Duration | +25% | Analytics |
+| Metric           | Target       | How to Measure      |
+| ---------------- | ------------ | ------------------- |
+| Lighthouse Score | ≥90          | Chrome DevTools     |
+| Accessibility    | 100% WCAG AA | axe audit           |
+| Page Load        | <2s          | Lighthouse          |
+| Mobile CTR       | +20%         | Analytics           |
+| Form Completion  | >70%         | Conversion tracking |
+| Support Tickets  | -20%         | Support system      |
+| User Activation  | >40%         | Analytics Day 1     |
+| Session Duration | +25%         | Analytics           |
 
 ---
 
@@ -1533,6 +1655,7 @@ When implementing, ask:
 ## Files to Create/Update
 
 **New Directories:**
+
 ```
 src/
 ├── tokens/
@@ -1583,10 +1706,12 @@ __tests__/
 ```
 
 **Update Files:**
+
 - `tailwind.config.ts` — extend with token colors, spacing, fonts
 - `next.config.js` — add performance optimizations
 - `package.json` — add new dependencies (if needed)
 - `.eslintrc.json` — add accessibility rules (eslint-plugin-jsx-a11y)
+
 ```
 
 ---
@@ -1630,3 +1755,4 @@ Your app is "done" when:
 
 **Ready to implement? Start with Prompt 1.1 (Design Tokens) and work through sequentially.**
 
+```

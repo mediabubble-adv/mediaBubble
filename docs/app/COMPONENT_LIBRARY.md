@@ -6,14 +6,14 @@ All components live in `components/ui/` and use Tailwind CSS with the project's 
 
 ## Design Tokens
 
-| Token | Value | Use |
-|---|---|---|
-| `brand-yellow` | `#FFC107` | Primary CTA, accents |
-| `brand-navy` | `#072A6B` | Primary text, backgrounds |
-| `brand-blue` | `#1565C0` | Links, kicker text |
-| `brand-canvas` | `#F8F9FA` | Section backgrounds |
-| `brand-secondary` | `#555F6D` | Body copy |
-| `brand-whisper-border` | `#EBEBEB` | Card borders |
+| Token                  | Value     | Use                       |
+| ---------------------- | --------- | ------------------------- |
+| `brand-yellow`         | `#FFC107` | Primary CTA, accents      |
+| `brand-navy`           | `#072A6B` | Primary text, backgrounds |
+| `brand-blue`           | `#1565C0` | Links, kicker text        |
+| `brand-canvas`         | `#F8F9FA` | Section backgrounds       |
+| `brand-secondary`      | `#555F6D` | Body copy                 |
+| `brand-whisper-border` | `#EBEBEB` | Card borders              |
 
 ---
 
@@ -23,29 +23,29 @@ All components live in `components/ui/` and use Tailwind CSS with the project's 
 
 ### Variants
 
-| Variant | When to use |
-|---|---|
-| `primary` | Main CTA (yellow background) |
+| Variant     | When to use                         |
+| ----------- | ----------------------------------- |
+| `primary`   | Main CTA (yellow background)        |
 | `secondary` | Supporting action (navy background) |
-| `outline` | Alternative / low-emphasis |
-| `ghost` | In-context link-style action |
+| `outline`   | Alternative / low-emphasis          |
+| `ghost`     | In-context link-style action        |
 
 ### Sizes
 
-| Size | Padding | Use |
-|---|---|---|
-| `sm` | `px-4 py-2` | Inline, compact UIs |
-| `md` _(default)_ | `px-5 py-2.5` | Standard usage |
-| `lg` | `px-8 py-4` | Hero, CTA sections |
+| Size             | Padding       | Use                 |
+| ---------------- | ------------- | ------------------- |
+| `sm`             | `px-4 py-2`   | Inline, compact UIs |
+| `md` _(default)_ | `px-5 py-2.5` | Standard usage      |
+| `lg`             | `px-8 py-4`   | Hero, CTA sections  |
 
 ### Props
 
 ```ts
 interface ButtonProps {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost'
-  size?: 'sm' | 'md' | 'lg'
-  loading?: boolean
-  disabled?: boolean
+  variant?: "primary" | "secondary" | "outline" | "ghost";
+  size?: "sm" | "md" | "lg";
+  loading?: boolean;
+  disabled?: boolean;
   // + all native <button> HTML attributes
 }
 ```
@@ -93,12 +93,12 @@ Renders a kicker label, `<h2>` title, and optional intro paragraph.
 
 ```ts
 interface SectionHeaderProps {
-  kicker?: string      // Small uppercase label above the title
-  title: React.ReactNode
-  intro?: string       // Paragraph below the title
-  align?: 'left' | 'center'   // default: 'left'
-  light?: boolean      // true = white text (for dark backgrounds)
-  className?: string
+  kicker?: string; // Small uppercase label above the title
+  title: React.ReactNode;
+  intro?: string; // Paragraph below the title
+  align?: "left" | "center"; // default: 'left'
+  light?: boolean; // true = white text (for dark backgrounds)
+  className?: string;
 }
 ```
 
@@ -156,15 +156,15 @@ Four card types for distinct content patterns.
 Icon + title + description. Optional `href` makes it a link.
 
 ```tsx
-import { ServiceCard } from '@/components/ui/Card'
-import { Search } from 'lucide-react'
+import { ServiceCard } from "@/components/ui/Card";
+import { Search } from "lucide-react";
 
 <ServiceCard
   icon={<Search size={22} />}
   title="SEO & Organic Growth"
   description="Rank on the first page of Google and turn searchers into customers."
   href="/services/seo"
-/>
+/>;
 ```
 
 **Accessibility:** When `href` is provided the card renders as `<a>` — ensure the `title` is descriptive enough to stand alone as link text.
@@ -176,12 +176,12 @@ import { Search } from 'lucide-react'
 Checkmark + feature name + optional description. Use in feature lists.
 
 ```tsx
-import { FeatureCard } from '@/components/ui/Card'
+import { FeatureCard } from "@/components/ui/Card";
 
 <FeatureCard
   feature="Monthly performance reports"
   description="Transparent data delivered every 30 days, no fluff."
-/>
+/>;
 ```
 
 ---
@@ -191,14 +191,14 @@ import { FeatureCard } from '@/components/ui/Card'
 5-star rating, blockquote, author with optional avatar.
 
 ```tsx
-import { TestimonialCard } from '@/components/ui/Card'
+import { TestimonialCard } from "@/components/ui/Card";
 
 <TestimonialCard
   quote="MediaBubble doubled our bookings in 4 months. Best investment we made."
   author="Ahmed Hassan"
   title="Owner"
   company="Coral Bay Resort"
-/>
+/>;
 ```
 
 **Accessibility:** `blockquote` with `<footer>` for author attribution. Star icons include `aria-label="5 out of 5 stars"`.
@@ -210,7 +210,7 @@ import { TestimonialCard } from '@/components/ui/Card'
 Dark navy card with a large metric number. Optional `href` adds a hover CTA.
 
 ```tsx
-import { CaseStudyCard } from '@/components/ui/Card'
+import { CaseStudyCard } from "@/components/ui/Card";
 
 <CaseStudyCard
   metric="+312%"
@@ -218,7 +218,7 @@ import { CaseStudyCard } from '@/components/ui/Card'
   description="Complete SEO overhaul, technical audit, and local search optimisation."
   company="Red Sea Divers"
   href="/portfolio/red-sea-divers"
-/>
+/>;
 ```
 
 ---
@@ -247,7 +247,9 @@ Reduced-motion users see no animation (CSS `prefers-reduced-motion` override).
 Add `data-ripple=""` to any button or link to get a click-origin ripple effect. Already applied to `Button`, `FloatingCta`, and newsletter submit.
 
 ```tsx
-<button data-ripple="" className="…">Click me</button>
+<button data-ripple="" className="…">
+  Click me
+</button>
 ```
 
 The `Phase3Provider` handles the rest via event delegation — no per-component JS needed.

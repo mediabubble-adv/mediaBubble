@@ -685,6 +685,7 @@ Arabic
 **Granularity:** Terminal (leaf) nodes are concrete competencies; any node can be expanded further without restructuring.
 
 **Cross-linking candidates:**
+
 - `2.2.3` (tafsīr tools) ↔ `3.2` (etymology) for root-analysis skills
 - `5.3.2.4` (automated tashkīl) ↔ `11.3.4` (Arabic diacritization)
 - `4.4.2` (folk traditions) ↔ `6.7.2` (digital culture) ↔ `14.4` (social media linguistics)

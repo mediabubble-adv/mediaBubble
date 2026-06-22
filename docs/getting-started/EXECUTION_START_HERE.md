@@ -12,12 +12,14 @@
 Two complete documents have been created in your MediaBubble project root:
 
 ### 1. **AUDIT_FIX_EXECUTION_PLAN.md** (Main Guide)
+
 - Complete breakdown of all 8 fixes
 - Detailed "CURSOR PROMPT" sections ready to copy/paste
 - Organized by Phase (Critical → High → Medium)
 - Full code snippets ready to use
 
 ### 2. **QUICK_REFERENCE.md** (Checklist)
+
 - Quick status of each fix
 - Verification commands
 - Troubleshooting guide
@@ -35,7 +37,7 @@ In Cursor's chat window, paste these **3 prompts** one at a time:
 
 **CURSOR PROMPT #1:** Fix duplicate configs in `next.config.js`  
 **CURSOR PROMPT #2:** Create missing `en.json` and `ar-masri.json` files  
-**CURSOR PROMPT #3:** Add environment validation in `packages/shared/src/env.ts`  
+**CURSOR PROMPT #3:** Add environment validation in `packages/shared/src/env.ts`
 
 Each prompt is clearly labeled in AUDIT_FIX_EXECUTION_PLAN.md
 
@@ -49,7 +51,7 @@ npm run typecheck  # Should pass
 ### Step 4: Copy Phase 2 Prompts (2 more)
 
 **CURSOR PROMPT #4:** Fix GA4 consent detection  
-**CURSOR PROMPT #5:** Optimize fonts and images  
+**CURSOR PROMPT #5:** Optimize fonts and images
 
 ### Step 5: Verify Phase 2
 
@@ -62,7 +64,7 @@ npm run dev        # Accept cookies, verify GA4 loads
 
 **CURSOR PROMPT #6:** Fix z-index management  
 **CURSOR PROMPT #7:** Add error boundary  
-**CURSOR PROMPT #8:** Add cache headers  
+**CURSOR PROMPT #8:** Add cache headers
 
 ### Step 7: Final Verification
 
@@ -76,37 +78,42 @@ npm run typecheck
 ## 🎯 WHAT GETS FIXED
 
 ### Phase 1: CRITICAL (45 min)
-| Issue | Fix | Impact |
-|-------|-----|--------|
-| Duplicate next.config.js | Clean up, keep only 1 | Build stability |
-| Missing i18n JSON files | Create 4 files | Module resolution |
-| No env validation | Add Zod schema | Runtime safety |
+
+| Issue                    | Fix                   | Impact            |
+| ------------------------ | --------------------- | ----------------- |
+| Duplicate next.config.js | Clean up, keep only 1 | Build stability   |
+| Missing i18n JSON files  | Create 4 files        | Module resolution |
+| No env validation        | Add Zod schema        | Runtime safety    |
 
 ### Phase 2: HIGH PRIORITY (1.5 hrs)
-| Issue | Fix | Impact |
-|-------|-----|--------|
-| GA4 race condition | Event-driven detection | Analytics reliability |
-| No image optimization | Add remotePatterns | Performance |
-| Heavy font loading | Optimize weights | Page speed |
+
+| Issue                 | Fix                    | Impact                |
+| --------------------- | ---------------------- | --------------------- |
+| GA4 race condition    | Event-driven detection | Analytics reliability |
+| No image optimization | Add remotePatterns     | Performance           |
+| Heavy font loading    | Optimize weights       | Page speed            |
 
 ### Phase 3: MEDIUM PRIORITY (1 hr)
-| Issue | Fix | Impact |
-|-------|-----|--------|
-| Hardcoded z-index | Use CSS variables | Design consistency |
-| No i18n error handling | Add error boundary | Crash prevention |
-| No cache headers | Add Cache-Control | Performance |
+
+| Issue                  | Fix                | Impact             |
+| ---------------------- | ------------------ | ------------------ |
+| Hardcoded z-index      | Use CSS variables  | Design consistency |
+| No i18n error handling | Add error boundary | Crash prevention   |
+| No cache headers       | Add Cache-Control  | Performance        |
 
 ---
 
 ## 📋 HOW TO USE THE GUIDES
 
 ### Use QUICK_REFERENCE.md for:
+
 - ✅ Quick checklist of what to do
 - ✅ File locations at a glance
 - ✅ Verification commands
 - ✅ Troubleshooting
 
 ### Use AUDIT_FIX_EXECUTION_PLAN.md for:
+
 - ✅ Full detailed explanations
 - ✅ Copy-paste ready prompts
 - ✅ Code snippets
@@ -119,6 +126,7 @@ npm run typecheck
 **Copy each entire CURSOR PROMPT block from AUDIT_FIX_EXECUTION_PLAN.md**
 
 The prompts include:
+
 - Exact file paths
 - Complete code to replace/add
 - Step-by-step actions
@@ -130,12 +138,12 @@ The prompts include:
 
 ## ⏱️ EXPECTED TIMELINE
 
-| Phase | Prompts | Time | Cumulative |
-|-------|---------|------|-----------|
-| Critical | #1, #2, #3 | 45 min | 45 min |
-| High | #4, #5 | 1.5 hrs | 2.25 hrs |
-| Medium | #6, #7, #8 | 1 hr | 3.25 hrs |
-| Testing | - | 30 min | 3.75 hrs |
+| Phase    | Prompts    | Time    | Cumulative |
+| -------- | ---------- | ------- | ---------- |
+| Critical | #1, #2, #3 | 45 min  | 45 min     |
+| High     | #4, #5     | 1.5 hrs | 2.25 hrs   |
+| Medium   | #6, #7, #8 | 1 hr    | 3.25 hrs   |
+| Testing  | -          | 30 min  | 3.75 hrs   |
 
 **Total: ~4 hours with testing**
 
@@ -144,6 +152,7 @@ The prompts include:
 ## ✨ WHAT YOU'LL ACHIEVE
 
 After 4 hours:
+
 - ✅ Zero build errors
 - ✅ All critical issues fixed
 - ✅ GA4 analytics working reliably
@@ -159,6 +168,7 @@ After 4 hours:
 **Check QUICK_REFERENCE.md → Troubleshooting section**
 
 Most common issues:
+
 - Config file still has duplicates → Re-check Prompt #1
 - TypeScript errors → Verify i18n files created correctly
 - Build fails → Check env vars are set in .env
@@ -169,6 +179,7 @@ Most common issues:
 ## 📞 KEY CONTACTS
 
 All changes are documented in:
+
 - AUDIT_FIX_EXECUTION_PLAN.md (full detail)
 - QUICK_REFERENCE.md (checklist)
 - This file (start guide)
@@ -192,7 +203,7 @@ After execution, verify these pass:
 
 ```bash
 ✅ npm run build          # No errors
-✅ npm run typecheck      # No errors  
+✅ npm run typecheck      # No errors
 ✅ npm run dev            # No console errors
 ✅ Accept cookies         # GA4 loads immediately
 ✅ Page renders           # No crashes
@@ -204,10 +215,12 @@ After execution, verify these pass:
 ## 📁 FILES IN YOUR PROJECT
 
 Two new files created:
+
 - ✅ `AUDIT_FIX_EXECUTION_PLAN.md` - Full execution guide with all 8 prompts
 - ✅ `QUICK_REFERENCE.md` - Quick checklist and troubleshooting
 
 Original audit report also available:
+
 - `AUDIT_REPORT.md` (from earlier audit session)
 
 ---

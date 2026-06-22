@@ -1,7 +1,8 @@
 # GitHub Open Source Launch Checklist
+
 **Timeline:** 4 weeks from approval  
 **Owner:** Yasser Dorgham  
-**Status:** Ready to Execute  
+**Status:** Ready to Execute
 
 ---
 
@@ -20,6 +21,7 @@ All **free, MIT licensed, production-ready**.
 ## Week 1: Setup & Infrastructure
 
 ### Day 1-2: GitHub Organization
+
 - [ ] Create organization: `github.com/mediabubble`
 - [ ] Add organization avatar (MediaBubble logo)
 - [ ] Set organization bio: "Open-source tools for AI-powered marketing"
@@ -30,6 +32,7 @@ All **free, MIT licensed, production-ready**.
 ### Day 2-3: Create 3 Repositories
 
 #### Repository 1: Design System
+
 ```
 Name: design-system
 Description: "Production-ready React component library with 40+ components, accessibility, dark mode, and RTL support"
@@ -40,6 +43,7 @@ Add license: MIT
 ```
 
 #### Repository 2: Website
+
 ```
 Name: website
 Description: "Open-source Next.js website template for agencies. Features AI chat, bilingual support, CRM integration"
@@ -50,6 +54,7 @@ Add license: MIT (code), CC-BY-4.0 (content)
 ```
 
 #### Repository 3: Nezam
+
 ```
 Name: nezam
 Description: "Open-source operational framework for service companies. Includes processes, templates, automation scripts"
@@ -62,6 +67,7 @@ Add license: CC0 (Public Domain)
 ### Day 3-4: Documentation Infrastructure
 
 #### Each Repo Needs
+
 - [ ] README.md (comprehensive)
 - [ ] CONTRIBUTING.md
 - [ ] CODE_OF_CONDUCT.md
@@ -70,6 +76,7 @@ Add license: CC0 (Public Domain)
 - [ ] docs/ folder
 
 #### Organization-Wide
+
 - [ ] Create profile README
 - [ ] Create CONTRIBUTING.md template
 - [ ] Create issue templates (.github/ISSUE_TEMPLATE/)
@@ -78,18 +85,21 @@ Add license: CC0 (Public Domain)
 ### Day 4-5: CI/CD Setup
 
 #### GitHub Actions
+
 - [ ] Create `.github/workflows/test.yml` (run tests on PR)
 - [ ] Create `.github/workflows/lint.yml` (check code style)
 - [ ] Create `.github/workflows/deploy.yml` (deploy docs/Storybook)
 - [ ] Create `.github/workflows/release.yml` (NPM publish for design-system)
 
 #### Branch Protection
+
 - [ ] Require pull request reviews
 - [ ] Require status checks to pass
 - [ ] Dismiss stale pull request approvals
 - [ ] Require branches to be up to date
 
 ### Day 5: Settings & Features
+
 - [ ] Enable GitHub Discussions
 - [ ] Enable GitHub Pages (for Storybook)
 - [ ] Set up Dependabot
@@ -104,6 +114,7 @@ Add license: CC0 (Public Domain)
 ### Day 1: Design System README
 
 **Checklist:**
+
 - [ ] 1. Feature highlights (bullets)
 - [ ] 2. Installation instructions
 - [ ] 3. Quick start code example
@@ -121,6 +132,7 @@ Add license: CC0 (Public Domain)
 ### Day 2: Website README
 
 **Checklist:**
+
 - [ ] 1. Feature highlights
 - [ ] 2. Tech stack list
 - [ ] 3. Getting started (git clone, npm install, npm run dev)
@@ -136,6 +148,7 @@ Add license: CC0 (Public Domain)
 ### Day 3: Nezam README
 
 **Checklist:**
+
 - [ ] 1. What is Nezam?
 - [ ] 2. What's included (7 sections)
 - [ ] 3. Quick start (3 steps)
@@ -149,27 +162,32 @@ Add license: CC0 (Public Domain)
 ### Day 4: Supporting Docs
 
 **CONTRIBUTING.md Files:**
+
 - [ ] Design System version (include component guidelines)
 - [ ] Website version (include content guidelines)
 - [ ] Nezam version (include framework guidelines)
 
 **CODE_OF_CONDUCT.md:**
+
 - [ ] Create organization-wide version
 - [ ] Reference in all repos
 
 **CHANGELOG.md Template:**
+
 - [ ] Create for each repo
 - [ ] Start with v1.0.0 entry
 
 ### Day 5: GitHub Pages Setup
 
 **Storybook Deployment:**
+
 - [ ] Configure Storybook build
 - [ ] Set GitHub Pages to deploy from `gh-pages` branch
 - [ ] Test Storybook deployment
 - [ ] Add link to README
 
 **Example:**
+
 ```bash
 # In design-system/package.json
 "scripts": {
@@ -186,6 +204,7 @@ Add license: CC0 (Public Domain)
 ### Day 1: Design System
 
 **Preparation:**
+
 - [ ] Update package.json with correct metadata
 - [ ] Ensure build script works (`npm run build`)
 - [ ] Verify TypeScript compilation
@@ -193,6 +212,7 @@ Add license: CC0 (Public Domain)
 - [ ] Create npm account token (for automated publishing)
 
 **NPM Package Config:**
+
 ```json
 {
   "name": "@mediabubble/design-system",
@@ -208,6 +228,7 @@ Add license: CC0 (Public Domain)
 ### Day 2: Website
 
 **Preparation:**
+
 - [ ] Remove sensitive environment variables
 - [ ] Create `.env.example` file
 - [ ] Update next.config.js for security
@@ -216,6 +237,7 @@ Add license: CC0 (Public Domain)
 - [ ] Update config/company.ts with generic values
 
 **Sensitive Fields to Remove:**
+
 - [ ] OPENAI_API_KEY → replace with documentation
 - [ ] HUBSPOT_API_KEY → replace with instructions
 - [ ] Database URLs
@@ -224,6 +246,7 @@ Add license: CC0 (Public Domain)
 ### Day 3: Nezam
 
 **Preparation:**
+
 - [ ] Clean up proprietary information
 - [ ] Anonymize company names (if needed)
 - [ ] Review all templates for sensitive data
@@ -232,6 +255,7 @@ Add license: CC0 (Public Domain)
 - [ ] Add example files with placeholders
 
 **Check:**
+
 - [ ] No real client names
 - [ ] No real financial data
 - [ ] No internal passwords/keys
@@ -240,6 +264,7 @@ Add license: CC0 (Public Domain)
 ### Day 4: Local Testing
 
 **Test Each Repo:**
+
 - [ ] Clone fresh from GitHub
 - [ ] Follow README instructions exactly
 - [ ] Ensure everything works
@@ -251,6 +276,7 @@ Add license: CC0 (Public Domain)
 ### Day 5: Final Security Check
 
 **Security Audit:**
+
 - [ ] Run `npm audit` on design-system
 - [ ] Run `npm audit` on website
 - [ ] Check for hardcoded secrets (grep for API keys, passwords)
@@ -265,6 +291,7 @@ Add license: CC0 (Public Domain)
 ### Day 1: Soft Launch
 
 **Make Repos Public:**
+
 - [ ] Set design-system to public
 - [ ] Set website to public
 - [ ] Set nezam to public
@@ -272,6 +299,7 @@ Add license: CC0 (Public Domain)
 - [ ] Share internally with team
 
 **Internal Communication:**
+
 - [ ] Announce to MediaBubble team
 - [ ] Ask for feedback before public launch
 - [ ] Fix any urgent issues
@@ -280,6 +308,7 @@ Add license: CC0 (Public Domain)
 ### Day 2: Publish to NPM
 
 **Publish Design System:**
+
 ```bash
 cd design-system
 
@@ -291,6 +320,7 @@ npm publish
 ```
 
 **Verify:**
+
 - [ ] Package appears on https://npmjs.com/@mediabubble/design-system
 - [ ] Can install with `npm install @mediabubble/design-system`
 - [ ] Version is 1.0.0
@@ -300,13 +330,14 @@ npm publish
 **Social Media Posts:**
 
 #### LinkedIn
+
 ```
 🎉 We just open-sourced our design system!
 
-After 2 years building MediaBubble, we're sharing our 40+ React 
+After 2 years building MediaBubble, we're sharing our 40+ React
 components with the community. Free. MIT licensed. Production-ready.
 
-Built for accessibility, dark mode, Arabic/RTL support, and 
+Built for accessibility, dark mode, Arabic/RTL support, and
 beautiful design. Used by MediaBubble's award-winning platform.
 
 ✨ Features:
@@ -325,6 +356,7 @@ We believe in giving back. Start building! 🚀
 ```
 
 #### Twitter
+
 ```
 🎉 @mediabubble open-sources its design system!
 
@@ -344,6 +376,7 @@ Open-source gives back to the community 🙏
 ```
 
 #### Company Blog
+
 ```
 Write 1000-word article covering:
 - Why we open-sourced
@@ -355,6 +388,7 @@ Write 1000-word article covering:
 ```
 
 **Publishing:**
+
 - [ ] Post on LinkedIn
 - [ ] Post on Twitter
 - [ ] Post on company blog
@@ -363,6 +397,7 @@ Write 1000-word article covering:
 ### Day 4: Community Submission
 
 **Submit to Platforms:**
+
 - [ ] ProductHunt.com (submit design-system)
 - [ ] GitHub Trending (already visible)
 - [ ] Hacker News (share announcement)
@@ -371,6 +406,7 @@ Write 1000-word article covering:
 - [ ] Awesome React (add to awesome-react list)
 
 **Relevant Communities:**
+
 - [ ] Egyptian Developers Facebook Group
 - [ ] MENA Tech Discord
 - [ ] Frontend Egypt
@@ -380,6 +416,7 @@ Write 1000-word article covering:
 ### Day 5: Community Engagement
 
 **Monitor & Respond:**
+
 - [ ] Monitor GitHub Issues (respond within 24hrs)
 - [ ] Monitor GitHub Discussions
 - [ ] Respond to Twitter mentions
@@ -393,6 +430,7 @@ Write 1000-word article covering:
 ## Post-Launch (Week 5+)
 
 ### Weekly Tasks
+
 - [ ] Respond to issues/PRs
 - [ ] Merge contributing PRs
 - [ ] Engage with community
@@ -400,12 +438,14 @@ Write 1000-word article covering:
 - [ ] Share updates on social media
 
 ### Bi-weekly Tasks
+
 - [ ] Update CHANGELOG if needed
 - [ ] Review and plan features
 - [ ] Analyze GitHub insights
 - [ ] Update documentation
 
 ### Monthly Tasks
+
 - [ ] Publish blog post (feature, update, or case study)
 - [ ] Release new version (if applicable)
 - [ ] Feature community projects
@@ -417,6 +457,7 @@ Write 1000-word article covering:
 ## Files to Create
 
 ### GitHub Organization
+
 ```
 .github/
 ├── ISSUE_TEMPLATE/
@@ -435,6 +476,7 @@ Write 1000-word article covering:
 ```
 
 ### Each Repository
+
 ```
 README.md (comprehensive)
 CONTRIBUTING.md
@@ -454,6 +496,7 @@ docs/
 ## Success Metrics (Track)
 
 ### GitHub Metrics
+
 - [ ] Repository stars (target: 100+ per repo in month 1)
 - [ ] GitHub followers
 - [ ] Issues & PRs
@@ -461,11 +504,13 @@ docs/
 - [ ] Watch/Star trend
 
 ### NPM Metrics (Design System)
+
 - [ ] Downloads/week
 - [ ] Installation count
 - [ ] User feedback
 
 ### Social/Marketing
+
 - [ ] Twitter mentions
 - [ ] LinkedIn engagement
 - [ ] Blog traffic
@@ -489,23 +534,26 @@ docs/
 
 **Setup & Content:** 4 weeks  
 **Launch:** Day 1  
-**Ongoing Community Management:** 5-10 hours/week  
+**Ongoing Community Management:** 5-10 hours/week
 
 ---
 
 ## Communication Timeline
 
 **2 Weeks Before Launch:**
+
 - [ ] Announce internally to team
 - [ ] Ask for feedback
 - [ ] Fix issues
 
 **1 Week Before Launch:**
+
 - [ ] Prepare social media posts
 - [ ] Draft blog article
 - [ ] Finalize documentation
 
 **Launch Day:**
+
 - [ ] Make repos public
 - [ ] Publish NPM package
 - [ ] Post on social media
@@ -513,6 +561,7 @@ docs/
 - [ ] Monitor responses
 
 **Week After:**
+
 - [ ] Engage with commenters
 - [ ] Fix any urgent issues
 - [ ] Share feedback loop
@@ -523,6 +572,7 @@ docs/
 ## 🎉 Launch Day Checklist (Final)
 
 **Morning:**
+
 - [ ] All repos verified as public
 - [ ] npm publish successful
 - [ ] Storybook deployed and working
@@ -530,22 +580,24 @@ docs/
 - [ ] All links tested and working
 
 **Noon:**
+
 - [ ] Social posts scheduled/posted
 - [ ] Team notified
 - [ ] Analytics tracking enabled
 - [ ] Monitoring alerts set up
 
 **Evening:**
+
 - [ ] Monitor activity
 - [ ] Respond to comments
 - [ ] Celebrate! 🎉
 
 ---
 
-## Questions? 
+## Questions?
 
 **Contact:** hello@mediabubble.co  
-**GitHub Org:** github.com/mediabubble  
+**GitHub Org:** github.com/mediabubble
 
 ---
 

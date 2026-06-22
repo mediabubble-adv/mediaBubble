@@ -5,6 +5,7 @@
 **Organization Structure:** Executive Level → Department Managers → Project Managers → Teams (with Team Managers) → Specialists → Quality Control
 
 **Classification:** Departments are categorized by primary stakeholder:
+
 - **Client-Facing Departments** — Directly generate client value
 - **Internal Operations Departments** — Support MediaBubble operations
 - **Hybrid Departments** — Serve both clients and MediaBubble
@@ -37,13 +38,14 @@ Chief AI Operations Officer (C-AI)
 
 # SECTION 1: CLIENT-FACING DEPARTMENTS (4)
 
-*These departments directly serve clients and generate client value/revenue*
+_These departments directly serve clients and generate client value/revenue_
 
 ---
 
 ## 1. DESIGN DEPARTMENT
 
 ### Department Overview
+
 - **Primary Purpose:** Create visual assets, UI/UX, branding for clients
 - **Client Value:** $12K-$50K per project
 - **Team Structure:** 6 specialized teams
@@ -140,6 +142,7 @@ QC Level:
 ### Management Responsibilities
 
 **Department Manager (Design Director):**
+
 - Strategic direction & planning
 - Client relationship oversight
 - Revenue targets & profitability
@@ -147,6 +150,7 @@ QC Level:
 - Weekly 1:1s with Project Manager + QC Lead
 
 **Project Manager (Design):**
+
 - Project timeline management
 - Resource allocation across teams
 - Client deliverable tracking
@@ -154,6 +158,7 @@ QC Level:
 - Daily coordination with team leads
 
 **QC Lead (Design):**
+
 - Daily quality audits (per specialist)
 - Escalation management
 - Quality standards enforcement
@@ -161,6 +166,7 @@ QC Level:
 - Weekly report to Department Manager
 
 **Team Managers (6 total, one per team):**
+
 - Daily team coordination
 - Work assignment & prioritization
 - Individual specialist guidance
@@ -172,6 +178,7 @@ QC Level:
 ## 2. SOCIAL MEDIA MARKETING DEPARTMENT
 
 ### Department Overview
+
 - **Primary Purpose:** Create social content, manage social presence for clients
 - **Client Value:** $3K-$15K per month (retainer)
 - **Team Structure:** 5 specialized teams
@@ -256,6 +263,7 @@ QC Level:
 ### Management Responsibilities
 
 **Department Manager (Social Media Director):**
+
 - Client strategy & planning
 - Platform prioritization
 - Pricing & contract management
@@ -263,6 +271,7 @@ QC Level:
 - Monthly business review
 
 **Project Manager (Social Media):**
+
 - Content calendar management
 - Team workload distribution
 - Client delivery tracking
@@ -270,6 +279,7 @@ QC Level:
 - Weekly client status updates
 
 **QC Lead (Social Media):**
+
 - Content quality validation (brand voice, grammar, cultural fit)
 - Engagement monitoring
 - Platform algorithm compliance
@@ -277,6 +287,7 @@ QC Level:
 - Specialist coaching
 
 **Team Managers (5 total):**
+
 - Daily content coordination
 - Specialist assignment
 - Quality feedback
@@ -288,6 +299,7 @@ QC Level:
 ## 3. LEAD GENERATION DEPARTMENT
 
 ### Department Overview
+
 - **Primary Purpose:** Generate and qualify leads for clients
 - **Client Value:** $2K-$8K per month (or per-lead pricing)
 - **Team Structure:** 5 specialized teams
@@ -379,6 +391,7 @@ QC Level:
 ## 4. MEDIA BUYING DEPARTMENT
 
 ### Department Overview
+
 - **Primary Purpose:** Manage paid ad campaigns (Google, Meta, LinkedIn, TikTok)
 - **Client Value:** 15-25% commission on ad spend + management fee
 - **Team Structure:** 4 specialized teams
@@ -460,13 +473,14 @@ QC Level:
 
 # SECTION 2: INTERNAL OPERATIONS DEPARTMENTS (3)
 
-*These departments support MediaBubble's internal operations and team*
+_These departments support MediaBubble's internal operations and team_
 
 ---
 
 ## 5. DEVELOPMENT DEPARTMENT
 
 ### Department Overview
+
 - **Primary Purpose:** Build and maintain MediaBubble's internal systems, tools, and infrastructure
 - **Internal Value:** $150K-$250K/month (platform development, system efficiency)
 - **Team Structure:** 3 specialized teams
@@ -543,6 +557,7 @@ QC Level:
 ## 6. OPERATIONS/MANAGEMENT DEPARTMENT
 
 ### Department Overview
+
 - **Primary Purpose:** Manage internal projects, teams, processes, and client coordination
 - **Internal Value:** $80K-$120K/month (efficiency, coordination, risk management)
 - **Team Structure:** 5 specialized teams
@@ -634,6 +649,7 @@ QC Level:
 ## 7. FINANCE DEPARTMENT
 
 ### Department Overview
+
 - **Primary Purpose:** Manage finances, invoicing, reporting, compliance for MediaBubble
 - **Internal Value:** $120K-$180K/month (revenue collection, cost management, financial visibility)
 - **Team Structure:** 5 specialized teams
@@ -725,14 +741,15 @@ QC Level:
 
 # SECTION 3: HYBRID DEPARTMENTS (2)
 
-*These departments serve both clients and MediaBubble's internal operations*
+_These departments serve both clients and MediaBubble's internal operations_
 
 ---
 
 ## 8. MARKETING DEPARTMENT
 
 ### Department Overview
-- **Primary Purpose:** 
+
+- **Primary Purpose:**
   - **For Clients:** Create marketing content, strategies, campaigns
   - **For MediaBubble:** Build brand, generate leads, drive awareness
 - **Client Value:** $4K-$20K per month (content, strategy, campaigns)
@@ -843,6 +860,7 @@ QC Level:
 ## 9. SALES DEPARTMENT
 
 ### Department Overview
+
 - **Primary Purpose:**
   - **For Clients:** Manage client relationships, contracts, renewals
   - **For MediaBubble:** Acquire new clients, close deals, manage accounts
@@ -956,6 +974,7 @@ QC Level:
 ## Department Manager Responsibilities
 
 ### Strategic Leadership
+
 - **Vision & Goals:** Set department strategic direction, annual goals
 - **Financial Management:** Revenue targets, budget management, profitability
 - **Client/Stakeholder Relations:** High-level relationship management
@@ -963,12 +982,14 @@ QC Level:
 - **Performance:** Monthly/quarterly business reviews
 
 ### Weekly/Monthly Responsibilities
+
 - Weekly 1:1s with Project Manager + QC Lead (30 min)
 - Monthly revenue/KPI review (60 min)
 - Quarterly strategic planning (2 hours)
 - Executive reporting to C-AI (monthly)
 
 ### Accountability Metrics
+
 - Department revenue/cost targets
 - Team utilization & morale
 - Client satisfaction (NPS/CSAT)
@@ -980,18 +1001,21 @@ QC Level:
 ## Project Manager Responsibilities
 
 ### Execution & Coordination
+
 - **Project Management:** Timeline, scope, risk, quality
 - **Resource Allocation:** Team capacity & workload
 - **Delivery:** Ensuring client deliverables on time/on budget
 - **Escalation:** Identifying and resolving blockers
 
 ### Daily/Weekly Responsibilities
+
 - Daily standup with team leads (15 min)
 - Weekly project status review (60 min)
 - Resource planning & rebalancing (30 min)
 - Risk monitoring & escalation
 
 ### Accountability Metrics
+
 - Project on-time delivery (target: 90%+)
 - Budget management (target: within 5%)
 - Risk detection & mitigation
@@ -1002,18 +1026,21 @@ QC Level:
 ## QC Lead Responsibilities
 
 ### Quality Assurance
+
 - **Quality Standards:** Define, enforce, audit quality
 - **Training & Coaching:** Develop team skills
 - **Escalation:** High-priority quality issues
 - **Continuous Improvement:** Optimization recommendations
 
 ### Daily/Weekly Responsibilities
+
 - Daily QC audits (5-10% sample of output)
 - Daily escalation review (30 min)
 - Weekly quality report to Department Manager
 - Weekly coaching sessions with specialists
 
 ### Accountability Metrics
+
 - Overall quality score (target: 94%+)
 - Issue detection rate (target: 100% of critical issues)
 - False positive rate (target: <5%)
@@ -1024,18 +1051,21 @@ QC Level:
 ## Team Manager Responsibilities
 
 ### Team Leadership
+
 - **Work Assignment:** Prioritize & assign work to specialists
 - **Support:** Help specialists resolve blockers
 - **Quality:** Ensure work meets quality standards
 - **Communication:** Daily coordination with specialists
 
 ### Daily Responsibilities
+
 - Daily standup with team (15 min)
 - Work assignment & prioritization
 - Issue escalation to Project Manager/QC Lead
 - Team feedback & coaching
 
 ### Accountability Metrics
+
 - Team delivery of assigned work
 - Team satisfaction
 - Quality of work from team
@@ -1108,6 +1138,7 @@ TOTAL ORGANIZATIONAL ROLES: 287
 ## Department Revenue Model
 
 ### Client-Facing Departments (Direct Revenue)
+
 ```
 Design: $80K-$120K/month
 Social Media: $45K-$75K/month
@@ -1120,6 +1151,7 @@ Total Client Revenue: $280K-$430K/month
 ```
 
 ### Internal Operations Departments (Cost Savings/Efficiency)
+
 ```
 Development: $150K-$250K/month (platform value)
 Operations: $80K-$120K/month (efficiency & risk mitigation)
@@ -1129,6 +1161,7 @@ Total Internal Value: $350K-$550K/month
 ```
 
 ### Hybrid Departments (Combined Value)
+
 ```
 Marketing (total): $50K-$80K/month
 Sales (total): $200K-$400K/month
@@ -1151,7 +1184,7 @@ Sales Department
     ├→ Social Media Department (social strategy)
     ├→ Lead Generation Department (client lead gen)
     └→ Media Buying Department (client paid ads)
-    
+
     ↓ (ongoing account management)
     ├→ Marketing Department (client content)
     ├→ Operations Department (project coordination)
@@ -1180,6 +1213,7 @@ Operations Department
 # SECTION 6: IMPLEMENTATION TIMELINE
 
 ## Phase 1: Structure Setup (Week 1-2)
+
 - [ ] Finalize department managers for all 9 departments
 - [ ] Assign team leads (6 per client-facing, 3-5 per internal)
 - [ ] Assign QC leads and Project Managers
@@ -1187,6 +1221,7 @@ Operations Department
 - [ ] Establish communication channels
 
 ## Phase 2: Systems & Processes (Week 3-4)
+
 - [ ] Set up department-specific metrics dashboards
 - [ ] Create team-level SLAs & targets
 - [ ] Establish escalation procedures per department
@@ -1194,6 +1229,7 @@ Operations Department
 - [ ] Train all managers on roles & responsibilities
 
 ## Phase 3: Operations Launch (Week 5-6)
+
 - [ ] Each department begins daily operations with new structure
 - [ ] Daily standups per team
 - [ ] Weekly sync: Department Manager + PM + QC Lead
@@ -1201,6 +1237,7 @@ Operations Department
 - [ ] Start tracking metrics
 
 ## Phase 4: Optimization & Scaling (Week 7-12)
+
 - [ ] Monthly performance reviews
 - [ ] Identify optimization opportunities
 - [ ] Cross-department coordination meetings (bi-weekly)
@@ -1250,6 +1287,7 @@ Each Team Manager
 ---
 
 This structure provides:
+
 - **Clear accountability** at every level
 - **Scalable organization** supporting growth
 - **Client-focused** departments with dedicated teams

@@ -5,6 +5,7 @@
 **MediaBubble** is a results-driven marketing agency in Hurghada, Egypt. You're rebuilding the website in React and building AI-powered workflow automation apps.
 
 ### Company Structure
+
 - **Services:** Strategic & Creative Marketing → Marketing & Digital Growth → Branding & Printing → Web Solutions
 - **Current Tech:** WordPress (Elementor) + HubSpot CRM integration
 - **Key Clients:** Aldau, Shal Hasheesh, ERC, Selena, GG, and tourism/hospitality brands
@@ -13,6 +14,7 @@
 ### Three Development Pillars
 
 #### 1. Website Rebuild (React)
+
 - Replace WordPress with Next.js + React 18
 - Target: Next.js (SSR/SSG) + Tailwind + shadcn/ui
 - Hosting: Vercel
@@ -20,6 +22,7 @@
 - Expected: 8-12 weeks
 
 #### 2. Internal Workflow Apps
+
 1. **Lead & Project Manager** — unified pipeline view
 2. **Campaign Manager** — all channels in one dashboard
 3. **AI Content Studio** — Claude-powered content generation
@@ -27,6 +30,7 @@
 5. **Analytics Portal** — client + internal reporting
 
 #### 3. AI Agents
+
 1. **Content Publishing** — auto-generate & schedule
 2. **Lead Qualification** — score, route, nurture
 3. **Report Generation** — auto-compile metrics + insights
@@ -38,6 +42,7 @@
 ## Current Website Structure
 
 ### Pages to Migrate
+
 - **Homepage** → Hero + Services Grid + Client Logos + Why Choose
 - **About** → Team + Timeline + Values
 - **Solutions** (4 main sections with 10+ sub-services)
@@ -52,20 +57,22 @@
 - **Request Quote** → Intake form → HubSpot deal
 
 ### Current Tech Stack
-| Layer | Tech |
-|-------|------|
-| Platform | WordPress 6.7.5 |
-| Page Builder | Elementor 4.1.1 |
-| Theme | Vault Child Theme |
-| CRM | HubSpot (forms + tracking) |
-| SEO | Rank Math WordPress SEO |
-| Hosting | Self-hosted or WordPress.com |
+
+| Layer        | Tech                         |
+| ------------ | ---------------------------- |
+| Platform     | WordPress 6.7.5              |
+| Page Builder | Elementor 4.1.1              |
+| Theme        | Vault Child Theme            |
+| CRM          | HubSpot (forms + tracking)   |
+| SEO          | Rank Math WordPress SEO      |
+| Hosting      | Self-hosted or WordPress.com |
 
 ---
 
 ## Development Tech Stack (Recommended)
 
 ### Frontend
+
 ```
 Next.js 15+          (SSR/SSG, API routes, edge functions)
 React 18+            (Component library)
@@ -75,6 +82,7 @@ shadcn/ui            (Component primitives)
 ```
 
 ### Backend
+
 ```
 Node.js + Express    (or Next.js API routes)
 PostgreSQL           (Supabase recommended)
@@ -82,11 +90,13 @@ Prisma               (ORM)
 ```
 
 ### CMS
+
 ```
 Sanity or Contentful (Decoupled CMS)
 ```
 
 ### Integrations
+
 ```
 HubSpot API          (CRM, forms, tracking)
 Google Ads API       (Campaign data)
@@ -96,6 +106,7 @@ Google Analytics 4   (Analytics)
 ```
 
 ### Hosting
+
 ```
 Vercel               (Frontend)
 Supabase/Railway     (Backend)
@@ -107,6 +118,7 @@ Cloudflare           (CDN/DNS, optional)
 ## Key Decisions
 
 **Why React over WordPress updates?**
+
 - Better component reusability
 - Faster iteration cycles
 - Superior performance
@@ -114,18 +126,21 @@ Cloudflare           (CDN/DNS, optional)
 - Future-proof for mobile
 
 **Why Next.js?**
+
 - SSR/SSG for SEO
 - Built-in API routes
 - Vercel one-click deployment
 - Edge functions for real-time
 
 **Why Claude API?**
+
 - Superior text quality + reasoning
 - Brand voice consistency via prompt caching
 - Function calling for structured outputs
 - Cost-effective at scale
 
 **Why Agents?**
+
 - Scale without hiring more people
 - 24/7 availability
 - Continuous improvement
@@ -136,9 +151,10 @@ Cloudflare           (CDN/DNS, optional)
 ## Content Audit
 
 ### What You Have
+
 - **AI-Generated Content Files** → /Reference/AI-Content/
   - 1-Home.docx
-  - 2-Services-*.docx (6 service pages)
+  - 2-Services-\*.docx (6 service pages)
   - 3-Showcase.docx
   - 4-About Us.docx
   - 5-Contact Us.docx
@@ -151,6 +167,7 @@ Cloudflare           (CDN/DNS, optional)
   - Can be used as reference during migration
 
 ### Next Steps
+
 1. Audit content quality (some may be outdated)
 2. Decide on CMS migration approach
 3. Plan content structure for React components
@@ -161,16 +178,19 @@ Cloudflare           (CDN/DNS, optional)
 ## API Integration Checklist
 
 ### Must-Have (Phase 1)
+
 - [ ] HubSpot API (contacts, deals, forms)
 - [ ] Google Analytics 4 (web analytics)
 - [ ] Email service (Sendgrid/Mailgun for transactional)
 
 ### Should-Have (Phase 2)
+
 - [ ] Google Ads API (campaign reporting)
 - [ ] Meta Ads Manager API (campaign reporting)
 - [ ] Claude API (content generation)
 
 ### Nice-to-Have (Phase 3)
+
 - [ ] SEMrush or Ahrefs API (SEO monitoring)
 - [ ] Buffer or Later API (social scheduling)
 - [ ] Slack API (notifications/reporting)
@@ -180,6 +200,7 @@ Cloudflare           (CDN/DNS, optional)
 ## Component Library Blueprint
 
 ### Core Components
+
 ```
 Layout/
   - Header (sticky navbar with mega-menu)
@@ -231,18 +252,21 @@ Portfolio/
 ## Content Migration Strategy
 
 ### Phase 1: Inventory
+
 - [ ] Audit all pages on current site
 - [ ] List all content assets (images, videos, documents)
 - [ ] Identify SEO value (rankings, traffic sources)
 - [ ] Plan URL structure & redirects
 
 ### Phase 2: Structure
+
 - [ ] Define content model (pages, blog posts, portfolio, team)
 - [ ] Set up CMS (Sanity/Contentful)
 - [ ] Create content templates
 - [ ] Plan taxonomy (categories, tags)
 
 ### Phase 3: Migration
+
 - [ ] Extract content from WordPress
 - [ ] Clean & normalize formatting
 - [ ] Populate CMS
@@ -250,6 +274,7 @@ Portfolio/
 - [ ] Test internal links
 
 ### Phase 4: Go-Live
+
 - [ ] DNS switchover
 - [ ] Monitor 404s and broken links
 - [ ] Track SEO impact
@@ -259,15 +284,15 @@ Portfolio/
 
 ## Performance Targets
 
-| Metric | Target |
-|--------|--------|
-| Lighthouse Score | >90 (all categories) |
-| Core Web Vitals (LCP) | <2.5s |
-| Core Web Vitals (FID) | <100ms |
-| Core Web Vitals (CLS) | <0.1 |
-| First Contentful Paint | <1.5s |
-| Time to Interactive | <3.5s |
-| SEO Ranking (branded) | Position 1 |
+| Metric                 | Target               |
+| ---------------------- | -------------------- |
+| Lighthouse Score       | >90 (all categories) |
+| Core Web Vitals (LCP)  | <2.5s                |
+| Core Web Vitals (FID)  | <100ms               |
+| Core Web Vitals (CLS)  | <0.1                 |
+| First Contentful Paint | <1.5s                |
+| Time to Interactive    | <3.5s                |
+| SEO Ranking (branded)  | Position 1           |
 
 ---
 

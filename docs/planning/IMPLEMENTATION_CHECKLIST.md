@@ -1,4 +1,5 @@
 # MediaBubble Implementation Checklist
+
 **Track Progress Through All 12 Weeks**
 
 ---
@@ -8,8 +9,9 @@
 ### Week 1: Security & Critical Fixes
 
 #### Day 1-2: Security Issues
-- [x] Remove `.env.local` from git tracking *(verified: gitignored, not tracked)*
-- [x] Fix CSP `'unsafe-inline'` issue *(removed from `script-src`; retained in `style-src` for Next/Tailwind)*
+
+- [x] Remove `.env.local` from git tracking _(verified: gitignored, not tracked)_
+- [x] Fix CSP `'unsafe-inline'` issue _(removed from `script-src`; retained in `style-src` for Next/Tailwind)_
 - [x] Replace wildcard domain with explicit subdomains
 - [x] Add security headers validation test (`packages/shared/security-headers.test.cjs`)
 
@@ -17,28 +19,31 @@
 **Owner**: DevOps Lead
 
 #### Day 2-3: Bug Fixes
-- [x] Fix GA4 consent race condition *(dynamic gtag load + consent listeners)*
-- [x] Add error boundary to root layout *(App Router `error.tsx` / `global-error.tsx` on web-eg, web-ae, brand)*
-- [x] Fix localStorage error handling *(shared `storage.ts` + all call sites)*
+
+- [x] Fix GA4 consent race condition _(dynamic gtag load + consent listeners)_
+- [x] Add error boundary to root layout _(App Router `error.tsx` / `global-error.tsx` on web-eg, web-ae, brand)_
+- [x] Fix localStorage error handling _(shared `storage.ts` + all call sites)_
 - [x] Replace hardcoded metadata with env vars (`resolveMarketSiteConfig`)
 
 **Status**: ✅ Complete
 **Owner**: Frontend Lead
 
 #### Day 3-4: Testing Infrastructure
+
 - [x] Install testing dependencies
 - [x] Create Jest configuration (`jest.config.cjs`)
 - [x] Create setup file (`jest.setup.ts`)
 - [x] Write first test suite (GoogleAnalytics)
 
-**Status**: ✅ Complete *(45 tests passing)*
+**Status**: ✅ Complete _(45 tests passing)_
 **Owner**: QA Engineer
 
 #### Day 4-5: Project Configuration
+
 - [x] Update ESLint with stricter rules (`eqeqeq`, `no-var`, `prefer-const`, `no-console`; TS parser; per-project configs)
 - [x] Add npm scripts for testing & quality (`test`, `test:security`, `prepare`)
-- [x] Add GitHub Actions for CI *(test step added)*
-- [x] Set up pre-commit hooks *(husky + lint-staged)*
+- [x] Add GitHub Actions for CI _(test step added)_
+- [x] Set up pre-commit hooks _(husky + lint-staged)_
 
 **Status**: ✅ Complete
 **Owner**: DevOps Lead
@@ -46,6 +51,7 @@
 ### Week 2: Foundation Work
 
 #### Day 1-2: Custom Hooks Library
+
 - [x] Create `hooks/useConsent.ts` → `packages/shared/src/hooks/use-consent.ts`
 - [x] Create `hooks/useGA.ts` → `packages/shared/src/hooks/use-ga.ts`
 - [x] Create `hooks/useLocalStorage.ts` → `packages/shared/src/hooks/use-local-storage.ts`
@@ -55,19 +61,21 @@
 **Owner**: Frontend Lead
 
 #### Day 2-3: Context API Setup
+
 - [x] Create `ConsentContext.tsx` → `packages/shared/src/consent/ConsentContext.tsx`
-- [x] Update root layout with ConsentProvider *(via `AppProviders` in web-eg & web-ae)*
+- [x] Update root layout with ConsentProvider _(via `AppProviders` in web-eg & web-ae)_
 - [x] Test context usage in components
 
 **Status**: ✅ Complete
 **Owner**: Frontend Lead
 
 #### Day 3-5: Initial Test Coverage
+
 - [x] Write tests for GoogleAnalytics
 - [x] Write tests for CookieConsent
 - [x] Write tests for I18nLayoutWrapper
 - [x] Write tests for custom hooks (`use-consent`, `use-local-storage`)
-- [x] Achieve 15% coverage target *(~52% statements on instrumented paths)*
+- [x] Achieve 15% coverage target _(~52% statements on instrumented paths)_
 
 **Status**: ✅ Complete
 **Owner**: QA Engineer
@@ -79,6 +87,7 @@
 ### Week 3: Component Refactoring
 
 #### Day 1-2: Reorganize Components
+
 - [x] Create new directory structure
 - [x] Move components to appropriate folders
 - [x] Update all import paths
@@ -88,6 +97,7 @@
 **Owner**: Frontend Lead
 
 #### Day 2-3: Enhance Type Safety
+
 - [x] Create comprehensive types file
 - [x] Enable strict TypeScript mode
 - [x] Type JSON-LD schema
@@ -97,6 +107,7 @@
 **Owner**: Frontend Lead
 
 #### Day 3-4: Add JSDoc Documentation
+
 - [ ] Document all exported components
 - [x] Document all custom hooks
 - [x] Document all utility functions
@@ -106,6 +117,7 @@
 **Owner**: Documentation Lead
 
 #### Day 4-5: More Test Coverage
+
 - [x] Test all primitive components
 - [x] Test all shared components
 - [x] Test more hooks
@@ -117,6 +129,7 @@
 ### Week 4: Styling & Design System
 
 #### Day 1-2: Enhance Tailwind Configuration
+
 - [x] Add brand colors
 - [x] Configure dark mode
 - [x] Add custom spacing
@@ -126,6 +139,7 @@
 **Owner**: Designer
 
 #### Day 2-4: Create Component Library
+
 - [x] Build Button primitive
 - [x] Build Card primitive
 - [x] Build Input primitive
@@ -135,6 +149,7 @@
 **Owner**: Designer + Frontend Lead
 
 #### Day 4-5: Layout Components
+
 - [x] Create Header component
 - [x] Create Footer component
 - [x] Create Navigation component
@@ -150,6 +165,7 @@
 ### Week 5: Design System & Components
 
 #### Design System Foundation
+
 - [x] Export all components
 - [x] Version 1.0 release
 - [x] Component documentation
@@ -158,6 +174,7 @@
 **Owner**: Designer
 
 #### Hero Section Redesign
+
 - [x] Modern gradient background
 - [x] Better copy/messaging
 - [x] CTA buttons redesigned
@@ -168,6 +185,7 @@
 **Owner**: Designer + Frontend Lead
 
 #### Features Section
+
 - [x] Feature cards with icons
 - [x] Hover effects
 - [x] Grid layout (2-4 columns)
@@ -177,6 +195,7 @@
 **Owner**: Designer + Frontend Lead
 
 #### Dark Mode Support
+
 - [x] Dark mode classes on all components
 - [x] Theme toggle working
 - [x] Consistent dark palette
@@ -187,6 +206,7 @@
 ### Week 6-7: Page Redesigns
 
 #### Blog Page Redesign
+
 - [x] Modern blog grid
 - [x] Featured posts section
 - [x] Better blog cards
@@ -198,6 +218,7 @@
 **Owner**: Designer + Frontend Lead
 
 #### Portfolio Page Redesign
+
 - [x] Portfolio grid layout
 - [x] Enhanced portfolio cards
 - [x] Filter by category
@@ -208,6 +229,7 @@
 **Owner**: Designer + Frontend Lead
 
 #### Contact Form Enhancement
+
 - [x] Form validation
 - [x] Better error messages
 - [x] Success states
@@ -218,6 +240,7 @@
 **Owner**: Frontend Lead
 
 #### Additional Pages
+
 - [x] Services page redesign
 - [x] About page redesign
 - [x] Testimonials section
@@ -233,6 +256,7 @@
 ### Week 8: Blog Content
 
 #### Blog Post Images
+
 - [x] Create/source 10+ featured images
 - [x] Optimize for web (100KB max)
 - [x] Add metadata (alt, descriptions)
@@ -243,6 +267,7 @@
 **Owner**: Content Manager + Designer
 
 #### Blog Content Improvements
+
 - [x] Add table of contents
 - [x] Add reading time estimates
 - [x] Add related posts section
@@ -256,6 +281,7 @@
 ### Week 9: Portfolio Assets
 
 #### Portfolio Images
+
 - [x] Gather project screenshots
 - [x] Create before/after comparisons
 - [x] Optimize all images
@@ -266,6 +292,7 @@
 **Owner**: Designer + Content Manager
 
 #### Case Study Pages
+
 - [x] Create 5 case study pages
 - [x] Add project details
 - [x] Add results/metrics
@@ -282,6 +309,7 @@
 ### Week 10: Feature Implementation
 
 #### Blog Search
+
 - [x] Frontend component ready
 - [x] Backend API endpoint
 - [x] Search integration
@@ -291,6 +319,7 @@
 **Owner**: Frontend Lead
 
 #### A/B Testing Framework
+
 - [x] Create experiments config
 - [x] Implement variant logic
 - [x] Add tracking
@@ -302,6 +331,7 @@
 ### Week 11: Performance
 
 #### Font Optimization
+
 - [x] Add display: swap to fonts
 - [x] Lazy load fonts conditionally
 - [x] Test font loading
@@ -310,6 +340,7 @@
 **Owner**: Frontend Lead
 
 #### Image Optimization
+
 - [x] Set up image loader
 - [x] Configure AVIF/WebP formats
 - [x] Responsive image sizing
@@ -319,6 +350,7 @@
 **Owner**: Frontend Lead
 
 #### Service Worker & PWA
+
 - [x] Install next-pwa
 - [x] Configure offline support
 - [x] Set up cache strategies
@@ -328,6 +360,7 @@
 **Owner**: Frontend Lead
 
 #### ISR Setup
+
 - [x] Configure revalidation times
 - [x] Generate static params
 - [x] Generate metadata
@@ -343,6 +376,7 @@
 ### Final Week: QA, Testing & Deployment
 
 #### E2E Testing
+
 - [ ] Install Playwright
 - [ ] Write homepage tests
 - [ ] Write form submission tests
@@ -353,6 +387,7 @@
 **Owner**: QA Engineer
 
 #### Performance Testing
+
 - [ ] Run bundle analysis
 - [ ] Check Lighthouse score
 - [ ] Test Core Web Vitals
@@ -362,6 +397,7 @@
 **Owner**: Frontend Lead
 
 #### Final QA
+
 - [ ] Cross-browser testing
 - [ ] Mobile responsiveness check
 - [ ] Accessibility audit
@@ -373,6 +409,7 @@
 **Owner**: QA Engineer
 
 #### Monitoring Setup
+
 - [ ] Install Sentry
 - [ ] Configure error tracking
 - [ ] Set up Web Vitals monitoring
@@ -382,6 +419,7 @@
 **Owner**: DevOps Lead
 
 #### Deployment
+
 - [ ] Security audit
 - [ ] Performance check
 - [ ] Stage deployment
@@ -397,6 +435,7 @@
 # 📊 COMPLETION TRACKER
 
 ## By Phase
+
 - [x] Phase 1: Foundation & Security (40 hrs) — **Weeks 1–2 complete**
 - [ ] Phase 2: Architecture & Quality (45 hrs)
 - [ ] Phase 3: UI/UX Modernization (49 hrs)
@@ -405,6 +444,7 @@
 - [ ] Phase 6: Polish & Launch (22 hrs)
 
 ## Overall Progress
+
 ```
 [██████░░░░░░░░░░░░░░] ~22% Complete
 ```
@@ -416,36 +456,42 @@ Total Hours: 231 | Completed: ~50 | Remaining: ~181
 # 🎯 SUCCESS CRITERIA VALIDATION
 
 ## Phase 1 ✓
-- [x] Security vulnerabilities: 0 *(CSP hardened, secrets not tracked)*
-- [x] Test coverage: 15%+ *(45 tests; ~52% statements on covered modules)*
-- [x] CI/CD pipeline: Working *(build + lint + typecheck + test)*
+
+- [x] Security vulnerabilities: 0 _(CSP hardened, secrets not tracked)_
+- [x] Test coverage: 15%+ _(45 tests; ~52% statements on covered modules)_
+- [x] CI/CD pipeline: Working _(build + lint + typecheck + test)_
 - [x] No hardcoded credentials: Verified
 
 ## Phase 2 ✓
-- [x] TypeScript strict: Enabled *(base flags + build-time app typecheck)*
-- [x] Test coverage: 30%+ *(~53% statements on instrumented paths)*
+
+- [x] TypeScript strict: Enabled _(base flags + build-time app typecheck)_
+- [x] Test coverage: 30%+ _(~53% statements on instrumented paths)_
 - [ ] JSDoc documentation: Complete
-- [x] Components reorganized: Verified *(web-eg + web-ae)*
+- [x] Components reorganized: Verified _(web-eg + web-ae)_
 
 ## Phase 3 ✓
+
 - [ ] Design system complete: 30+ components
 - [ ] All pages redesigned: Yes
 - [ ] Dark mode: Working
 - [ ] Lighthouse score: >85
 
 ## Phase 4 ✓
+
 - [ ] Blog posts with images: 10+
 - [ ] Portfolio projects: 5+
 - [ ] Images optimized: All
 - [ ] Content structured: Complete
 
 ## Phase 5 ✓
+
 - [ ] Blog search: Live
 - [ ] A/B testing: Ready
 - [ ] Service worker: Installed
 - [ ] Lighthouse score: >90
 
 ## Phase 6 ✓
+
 - [ ] E2E tests: Written
 - [ ] Core Web Vitals: All green
 - [ ] Bundle size: <200KB gzipped
@@ -456,18 +502,21 @@ Total Hours: 231 | Completed: ~50 | Remaining: ~181
 # 📝 NOTES & DECISIONS
 
 ### Architecture Decisions
+
 - [ ] Finalize component organization structure
 - [x] Decide on state management (Context vs Redux) — **Context API for consent (Week 2)**
 - [x] Choose image CDN provider — **explicit hosts in `security-headers.cjs` (cdn.mediabubble.co + Unsplash)**
 - [ ] Plan A/B testing experiment list
 
 ### Design Decisions
+
 - [ ] Finalize color palette
 - [ ] Choose typography hierarchy
 - [ ] Define spacing scale
 - [ ] Create icon set
 
 ### Content Decisions
+
 - [ ] List portfolio projects
 - [ ] Decide on blog content strategy
 - [ ] Plan case study formats

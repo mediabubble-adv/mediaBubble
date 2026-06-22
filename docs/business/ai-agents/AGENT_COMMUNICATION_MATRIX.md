@@ -1,4 +1,5 @@
 # AI Agent Communication Matrix
+
 **Detailed Interaction Rules Between Teams and Managers**
 
 ---
@@ -6,6 +7,7 @@
 ## 🔄 Inter-Agent Communication Flow
 
 ### **Design → Marketing Handoff**
+
 ```
 Design Brief Generator completes
     ↓
@@ -24,6 +26,7 @@ Final assets → Client via Design Director approval
 ```
 
 ### **Lead Gen → Sales Handoff**
+
 ```
 Lead Auto-Scorer flags hot lead (score >80)
     ↓
@@ -39,6 +42,7 @@ Proposal Auto-Generator creates follow-up proposal
 ```
 
 ### **Marketing → Social Handoff**
+
 ```
 Content Calendar Generator publishes themes
     ↓
@@ -52,6 +56,7 @@ Hashtag Optimizer refines based on performance
 ```
 
 ### **Media Buying → All Teams Impact**
+
 ```
 Smart Bid Optimizer detects opportunity
     ↓
@@ -70,25 +75,25 @@ Alerts to:
 
 ### **Status Update Cadence**
 
-| Frequency | Sender | Recipients | Channel |
-|-----------|--------|------------|---------|
-| Every task | Individual Agent | Department Channel | Slack #agents-[dept] |
-| Hourly | All Agents | Dashboard | WebSocket update |
-| Daily (9am) | Department Manager | #agents-management | Dashboard summary |
-| Weekly (Mon) | Director | All Teams + Leadership | Dashboard + Email |
-| Monthly | Financial Controller | All Managers + Leadership | Report + Dashboard |
+| Frequency    | Sender               | Recipients                | Channel              |
+| ------------ | -------------------- | ------------------------- | -------------------- |
+| Every task   | Individual Agent     | Department Channel        | Slack #agents-[dept] |
+| Hourly       | All Agents           | Dashboard                 | WebSocket update     |
+| Daily (9am)  | Department Manager   | #agents-management        | Dashboard summary    |
+| Weekly (Mon) | Director             | All Teams + Leadership    | Dashboard + Email    |
+| Monthly      | Financial Controller | All Managers + Leadership | Report + Dashboard   |
 
 ### **Approval Matrix**
 
-| Action Type | Required Approvals | Time Limit |
-|-------------|------------------|------------|
-| Design assets for client | Art Director + Design Director | 2 hours |
-| Client proposals | Growth Director only | 4 hours |
-| Financial reports | Financial Controller | Immediate |
-| Code deployments | Technical Lead | 1 hour |
-| Social responses | Social Strategy Lead (sample review) | 30 min |
-| Lead scoring changes | Lead Intelligence Lead | 24 hours |
-| Budget allocation shifts | Financial Controller + Growth Director | 24 hours |
+| Action Type              | Required Approvals                     | Time Limit |
+| ------------------------ | -------------------------------------- | ---------- |
+| Design assets for client | Art Director + Design Director         | 2 hours    |
+| Client proposals         | Growth Director only                   | 4 hours    |
+| Financial reports        | Financial Controller                   | Immediate  |
+| Code deployments         | Technical Lead                         | 1 hour     |
+| Social responses         | Social Strategy Lead (sample review)   | 30 min     |
+| Lead scoring changes     | Lead Intelligence Lead                 | 24 hours   |
+| Budget allocation shifts | Financial Controller + Growth Director | 24 hours   |
 
 ---
 
@@ -123,14 +128,14 @@ Human override (emergency only)
 
 ### **Agent Memory & Context Sharing**
 
-| Shared Resource | Owner | Access | Update Frequency |
-|-----------------|--------|--------|------------------|
-| Brand Guidelines | Brand Director | All design/marketing agents | On-change |
-| Client Profiles | Sales Manager | Lead Gen, Marketing agents | Weekly sync |
-| Performance Metrics | Operations Director | All agents | Real-time |
-| Budget Status | Financial Controller | Media Buying, Management | Daily |
-| Technical Standards | Technical Lead | Development agents | On-change |
-| Content Calendar | Social Strategy Lead | Marketing, Social agents | Weekly |
+| Shared Resource     | Owner                | Access                      | Update Frequency |
+| ------------------- | -------------------- | --------------------------- | ---------------- |
+| Brand Guidelines    | Brand Director       | All design/marketing agents | On-change        |
+| Client Profiles     | Sales Manager        | Lead Gen, Marketing agents  | Weekly sync      |
+| Performance Metrics | Operations Director  | All agents                  | Real-time        |
+| Budget Status       | Financial Controller | Media Buying, Management    | Daily            |
+| Technical Standards | Technical Lead       | Development agents          | On-change        |
+| Content Calendar    | Social Strategy Lead | Marketing, Social agents    | Weekly           |
 
 ---
 
@@ -161,12 +166,12 @@ Secondary Integrations:
 
 ### **System Failure Response**
 
-| Failure Type | Response Team | Backup Process |
-|--------------|---------------|----------------|
-| Claude API Down | All Managers | Fallback to cached responses + human team |
-| Database Unavailable | Operations Director | File-based logging + recovery |
-| Slack Down | All Agents | Email notifications enabled |
-| Dashboard Offline | Technical Lead | Direct Slack reporting |
+| Failure Type         | Response Team       | Backup Process                            |
+| -------------------- | ------------------- | ----------------------------------------- |
+| Claude API Down      | All Managers        | Fallback to cached responses + human team |
+| Database Unavailable | Operations Director | File-based logging + recovery             |
+| Slack Down           | All Agents          | Email notifications enabled               |
+| Dashboard Offline    | Technical Lead      | Direct Slack reporting                    |
 
 ### **Quality Emergency Triggers**
 

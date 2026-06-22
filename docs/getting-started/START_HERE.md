@@ -15,6 +15,7 @@ You're reading it. ✓
 **Read:** [`QUICK_DECISION_GUIDE.md`](./QUICK_DECISION_GUIDE.md) (one page)
 
 **Decide:**
+
 1. Agent consolidation: HYBRID (recommended)
 2. Skill tiers: TIER 2+3 (recommended)
 3. Timeline: INTEGRATED (recommended)
@@ -30,7 +31,6 @@ You're reading it. ✓
 1. [`SKILL_POWER_LEVELS.md`](../opencode/SKILL_POWER_LEVELS.md) (15 min)
    - Why Tier 4 is so powerful
    - Real-world examples
-   
 2. [`ENHANCED_ARCHITECTURE_SUMMARY.md`](../opencode/ENHANCED_ARCHITECTURE_SUMMARY.md) (5 min)
    - How everything fits together
    - What you're building
@@ -42,6 +42,7 @@ You're reading it. ✓
 **Open Claude Code in a new window**
 
 ### Phase 1 (Weeks 1-3) — FOUNDATION
+
 1. Open [`CLAUDE_CODE_EXECUTION_PACK.md`](../execution/CLAUDE_CODE_EXECUTION_PACK.md)
 2. Find **PHASE 1 PROMPT**
 3. Copy entire prompt (all of it)
@@ -51,6 +52,7 @@ You're reading it. ✓
 **Wait for completion.** (Should take 30-60 min)
 
 ### Phase 2 (Weeks 4-6) — AGENT CONSOLIDATION
+
 1. Open [`CLAUDE_CODE_EXECUTION_PACK.md`](../execution/CLAUDE_CODE_EXECUTION_PACK.md)
 2. Find **PHASE 2 PROMPT**
 3. Copy entire prompt
@@ -60,6 +62,7 @@ You're reading it. ✓
 **Wait for completion.** (Should take 45-90 min)
 
 ### Phase 3 (Weeks 7-9) — REFINEMENT + ORCHESTRATION
+
 1. Open [`CLAUDE_CODE_EXECUTION_PACK.md`](../execution/CLAUDE_CODE_EXECUTION_PACK.md)
 2. Find **PHASE 3 PROMPT**
 3. Copy entire prompt
@@ -69,6 +72,7 @@ You're reading it. ✓
 **Wait for completion.** (Should take 45-90 min)
 
 ### Phase 4 (Week 10+) — LEARNING SYSTEMS
+
 1. Open [`CLAUDE_CODE_EXECUTION_PACK.md`](../execution/CLAUDE_CODE_EXECUTION_PACK.md)
 2. Find **PHASE 4 PROMPT**
 3. Copy entire prompt
@@ -88,7 +92,7 @@ After Phase 4 completes, you have:
 ✅ **Tier 3 skills** (2 orchestration skills)  
 ✅ **Tier 4 foundation** (learning systems ready)  
 ✅ **Full integration** (everything works together)  
-✅ **Continuous improvement** (learns automatically)  
+✅ **Continuous improvement** (learns automatically)
 
 ---
 
@@ -96,24 +100,24 @@ After Phase 4 completes, you have:
 
 ### If You Want Quick Answers
 
-| Question | Read This |
-|----------|-----------|
-| "What's the plan?" | [QUICK_DECISION_GUIDE.md](./QUICK_DECISION_GUIDE.md) |
-| "Why are Tier 4 skills powerful?" | [SKILL_POWER_LEVELS.md](../opencode/SKILL_POWER_LEVELS.md) |
+| Question                            | Read This                                                                        |
+| ----------------------------------- | -------------------------------------------------------------------------------- |
+| "What's the plan?"                  | [QUICK_DECISION_GUIDE.md](./QUICK_DECISION_GUIDE.md)                             |
+| "Why are Tier 4 skills powerful?"   | [SKILL_POWER_LEVELS.md](../opencode/SKILL_POWER_LEVELS.md)                       |
 | "How does everything fit together?" | [ENHANCED_ARCHITECTURE_SUMMARY.md](../opencode/ENHANCED_ARCHITECTURE_SUMMARY.md) |
-| "How do I execute fast?" | [CLAUDE_CODE_EXECUTION_PACK.md](../execution/CLAUDE_CODE_EXECUTION_PACK.md) |
+| "How do I execute fast?"            | [CLAUDE_CODE_EXECUTION_PACK.md](../execution/CLAUDE_CODE_EXECUTION_PACK.md)      |
 
 ### If You Want Deep Understanding
 
-| Document | Purpose | Time |
-|----------|---------|------|
-| [OPENCODE_REORGANIZATION_PLAN.md](../opencode/OPENCODE_REORGANIZATION_PLAN.md) | Strategic blueprint (original) | 60-90 min |
-| [ADVANCED_CONSOLIDATION_PLAN.md](../opencode/ADVANCED_CONSOLIDATION_PLAN.md) | Detailed consolidation | 45-60 min |
-| [ENHANCED_SKILLS_ARCHITECTURE.md](../opencode/ENHANCED_SKILLS_ARCHITECTURE.md) | Detailed skill specs | 30-45 min |
-| [QUICK_DECISION_GUIDE.md](./QUICK_DECISION_GUIDE.md) | Make decisions | 5-10 min |
-| [SKILL_POWER_LEVELS.md](../opencode/SKILL_POWER_LEVELS.md) | Understand power | 15-20 min |
-| [ENHANCED_ARCHITECTURE_SUMMARY.md](../opencode/ENHANCED_ARCHITECTURE_SUMMARY.md) | Full picture | 10-15 min |
-| [CLAUDE_CODE_EXECUTION_PACK.md](../execution/CLAUDE_CODE_EXECUTION_PACK.md) | Execute fast | (as you use it) |
+| Document                                                                         | Purpose                        | Time            |
+| -------------------------------------------------------------------------------- | ------------------------------ | --------------- |
+| [OPENCODE_REORGANIZATION_PLAN.md](../opencode/OPENCODE_REORGANIZATION_PLAN.md)   | Strategic blueprint (original) | 60-90 min       |
+| [ADVANCED_CONSOLIDATION_PLAN.md](../opencode/ADVANCED_CONSOLIDATION_PLAN.md)     | Detailed consolidation         | 45-60 min       |
+| [ENHANCED_SKILLS_ARCHITECTURE.md](../opencode/ENHANCED_SKILLS_ARCHITECTURE.md)   | Detailed skill specs           | 30-45 min       |
+| [QUICK_DECISION_GUIDE.md](./QUICK_DECISION_GUIDE.md)                             | Make decisions                 | 5-10 min        |
+| [SKILL_POWER_LEVELS.md](../opencode/SKILL_POWER_LEVELS.md)                       | Understand power               | 15-20 min       |
+| [ENHANCED_ARCHITECTURE_SUMMARY.md](../opencode/ENHANCED_ARCHITECTURE_SUMMARY.md) | Full picture                   | 10-15 min       |
+| [CLAUDE_CODE_EXECUTION_PACK.md](../execution/CLAUDE_CODE_EXECUTION_PACK.md)      | Execute fast                   | (as you use it) |
 
 ---
 
@@ -135,6 +139,7 @@ After Week 10: Continuous exponential improvement
 ## WHAT HAPPENS WHEN YOU EXECUTE
 
 ### Phase 1 Completion
+
 ```
 ✓ New .opencode structure created
 ✓ Arabic Language Master skill complete
@@ -143,6 +148,7 @@ After Week 10: Continuous exponential improvement
 ```
 
 ### Phase 2 Completion
+
 ```
 ✓ 45 agents → 20 agents consolidated
 ✓ All 3 Tier 2 skills complete
@@ -151,6 +157,7 @@ After Week 10: Continuous exponential improvement
 ```
 
 ### Phase 3 Completion
+
 ```
 ✓ 20 agents → 12 agents refined
 ✓ Tier 3 orchestration skills complete
@@ -159,6 +166,7 @@ After Week 10: Continuous exponential improvement
 ```
 
 ### Phase 4 Completion
+
 ```
 ✓ Tier 4 learning systems live
 ✓ Feedback loops active
@@ -171,6 +179,7 @@ After Week 10: Continuous exponential improvement
 ## BEFORE YOU START
 
 Make sure you have:
+
 - [ ] 3 decisions made ([QUICK_DECISION_GUIDE.md](./QUICK_DECISION_GUIDE.md))
 - [ ] Access to .opencode folder
 - [ ] Claude Code open
@@ -183,12 +192,14 @@ Make sure you have:
 ## SAFETY CHECKLIST
 
 **Do NOT:**
+
 - Skip Phase 1 (foundation is critical)
 - Mix phases (do them in order)
 - Modify prompts (they're optimized for speed)
 - Work offline (you need Claude Code)
 
 **DO:**
+
 - Follow the phases in order
 - Copy prompts EXACTLY
 - Let each phase complete fully
@@ -200,6 +211,7 @@ Make sure you have:
 ## SPEED TIPS
 
 **Claude Code will execute faster if:**
+
 1. Prompts are copied exactly (no modifications)
 2. Phases are sequential (not overlapped)
 3. You review but don't interrupt execution
@@ -207,6 +219,7 @@ Make sure you have:
 5. Your .opencode folder is accessible
 
 **Expected speed:**
+
 - Phase 1: 30-60 min
 - Phase 2: 45-90 min
 - Phase 3: 45-90 min
@@ -220,7 +233,7 @@ Make sure you have:
 
 **The plan is complete.**  
 **The documents are ready.**  
-**The execution is fast.**  
+**The execution is fast.**
 
 **All that's left is to execute.**
 
@@ -235,4 +248,3 @@ Make sure you have:
 5. Execute
 
 **Go.** 🚀
-

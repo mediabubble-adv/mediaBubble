@@ -22,6 +22,7 @@ This plan outlines the step-by-step transformation of the brand guidelines from 
 **Purpose:** First-time user onboarding, 5-10 minute quick start
 
 **Content Structure:**
+
 ```
 1. Welcome Section (1 min read)
    - What is MediaBubble Brand?
@@ -57,6 +58,7 @@ This plan outlines the step-by-step transformation of the brand guidelines from 
 ```
 
 **UI Design:**
+
 - Large hero section with MediaBubble brand colors
 - Numbered steps (1-5) with progress indicator
 - Color-coded sections (yellow for "Do", gray for "Don't")
@@ -64,6 +66,7 @@ This plan outlines the step-by-step transformation of the brand guidelines from 
 - Mobile-optimized (single column below 768px)
 
 **Components Needed:**
+
 - `StepCard.jsx` - Reusable step container
 - `ColorDo.jsx` - Visual do/don't color comparison
 - `CopyCodeButton.jsx` - Click to copy code snippet
@@ -80,6 +83,7 @@ This plan outlines the step-by-step transformation of the brand guidelines from 
 **Content Structure:**
 
 #### Section 2.1: Primary Colors
+
 ```
 For each color (Yellow, Blue, Dark Blue, Darkest Blue):
 
@@ -99,6 +103,7 @@ Visual Display:
 ```
 
 #### Section 2.2: WCAG Contrast Checker Tool (INTERACTIVE)
+
 ```
 ┌─────────────────────────────────────────┐
 │  WCAG Contrast Ratio Checker            │
@@ -123,6 +128,7 @@ Visual Display:
 ```
 
 #### Section 2.3: Color Combinations Guide
+
 ```
 DO: Use these combinations
 ├─ Dark Blue background + Yellow text/buttons
@@ -138,6 +144,7 @@ DON'T: Avoid these
 ```
 
 #### Section 2.4: Color in Dark Mode
+
 ```
 - Show each color's dark mode equivalent
 - Interactive toggle: Light ↔ Dark
@@ -146,6 +153,7 @@ DON'T: Avoid these
 ```
 
 #### Section 2.5: Color Blindness Simulator
+
 ```
 Interactive tool:
 - Show color palette in different color blindness modes
@@ -154,6 +162,7 @@ Interactive tool:
 ```
 
 **Components Needed:**
+
 - `ColorSwatch.jsx` - Color display with copy buttons
 - `ColorPicker.jsx` - Interactive color selection
 - `ContrastChecker.jsx` - WCAG contrast calculator
@@ -161,6 +170,7 @@ Interactive tool:
 - `ColorBlindSimulator.jsx` - Accessibility preview
 
 **Technical Details:**
+
 - Contrast ratio calculation: Use WCAG formula
 - Color conversion: Hex ↔ RGB ↔ HSL
 - Dark mode colors: Adjust using HSL lightness
@@ -178,6 +188,7 @@ Interactive tool:
 **Content Structure:**
 
 #### Section 3.1: Font Stack & Imports
+
 ```
 Fonts Used:
 ├─ Display/Headlines: Poppins (Google Fonts)
@@ -191,6 +202,7 @@ Fonts Used:
 ```
 
 #### Section 3.2: Typography Scale (Visual + Interactive)
+
 ```
 H1 - Display/Hero
 ┌───────────────────────────────────────────────┐
@@ -261,6 +273,7 @@ Mono (Code/Technical)
 ```
 
 #### Section 3.3: Font Pairing Guide
+
 ```
 ✓ CORRECT: Poppins Headlines + Inter Body
 Display (Poppins): Confident, Modern
@@ -277,6 +290,7 @@ Body: Inter Regular
 ```
 
 #### Section 3.4: Responsive Typography
+
 ```
 Interactive tool:
 - Desktop view (1400px)
@@ -292,6 +306,7 @@ Explain: clamp() function for fluid scaling
 ```
 
 #### Section 3.5: Line Height & Readability
+
 ```
 Visual comparison:
 - Line height 1.2 (tight) - headlines only
@@ -302,6 +317,7 @@ Show examples with actual text to illustrate comfort
 ```
 
 #### Section 3.6: Download & Resources
+
 ```
 - Figma file with typography styles
 - CSS class definitions (Tailwind utility)
@@ -310,6 +326,7 @@ Show examples with actual text to illustrate comfort
 ```
 
 **Components Needed:**
+
 - `TypographySpecimen.jsx` - Visual display of type scale
 - `ResponsivePreview.jsx` - Desktop/Tablet/Mobile toggle
 - `FontPairingComparison.jsx` - Do/Don't examples
@@ -326,6 +343,7 @@ Show examples with actual text to illustrate comfort
 **Sections:**
 
 #### 4.1 Buttons
+
 ```
 Interactive Component Showcase:
 
@@ -357,6 +375,7 @@ Each state shows:
 ```
 
 #### 4.2 Forms
+
 ```
 ├─ Text Input
 │  ├─ Default (placeholder)
@@ -381,6 +400,7 @@ Form Patterns:
 ```
 
 #### 4.3 Cards
+
 ```
 ├─ Standard Card (border + padding)
 ├─ Card with Image (image top, content below)
@@ -398,6 +418,7 @@ Each shows:
 ```
 
 #### 4.4 Navigation
+
 ```
 ├─ Sidebar (220px, dark blue, yellow active)
 │  ├─ Active state
@@ -412,6 +433,7 @@ Each shows:
 ```
 
 #### 4.5 Status & Indicators
+
 ```
 ├─ Badge (success, warning, error, info)
 ├─ Progress Bar (0%, 50%, 100%)
@@ -422,6 +444,7 @@ Each shows:
 ```
 
 **UI for Each Component:**
+
 ```
 ┌─────────────────────────────────────────────┐
 │  Button Component                           │
@@ -458,6 +481,7 @@ Each shows:
 ```
 
 **Components Needed:**
+
 - `ComponentShowcase.jsx` - Wrapper for each component
 - `StateSelector.jsx` - Switch between states
 - `CodePreview.jsx` - Display + copy code
@@ -475,6 +499,7 @@ Each shows:
 **Content Structure:**
 
 #### For Developers:
+
 ```
 1. Setup Guide (15 min)
    - Install fonts in project
@@ -519,6 +544,7 @@ Each shows:
 ```
 
 #### For Designers:
+
 ```
 1. Figma Setup (20 min)
    - Import fonts
@@ -549,6 +575,7 @@ Each shows:
 ```
 
 #### Common Workflows:
+
 ```
 Workflow 1: Building a Landing Page (1 hour)
 ├─ Step 1: Hero section (asymmetric layout, CTA button)
@@ -580,6 +607,7 @@ Workflow 4: Dark Mode Implementation (45 min)
 ```
 
 #### Accessibility Checklist:
+
 ```
 Color Contrast:
 ☐ Body text: 4.5:1 minimum (AA)
@@ -622,6 +650,7 @@ Structure:
 **Purpose:** Show brand in actual use with before/after comparisons
 
 **Case Study 1: Landing Page**
+
 ```
 Before:
 - Generic colors (too many blues)
@@ -640,6 +669,7 @@ Include: What changed? Why? How to apply?
 ```
 
 **Case Study 2: Dashboard**
+
 ```
 Before:
 - Dark gray sidebar
@@ -662,6 +692,7 @@ Components shown:
 ```
 
 **Case Study 3: Mobile App**
+
 ```
 Before:
 - Buttons too small (< 44px tap target)
@@ -679,6 +710,7 @@ Show: Mobile screenshots at different breakpoints
 ```
 
 **Common Mistakes & Corrections:**
+
 ```
 Mistake 1: Wrong Color Combinations
 Before: Yellow text on white background
@@ -712,6 +744,7 @@ Solution: Test with accessibility tools
 **File:** `components/ui/Tooltip.jsx`
 
 **Implementation:**
+
 ```javascript
 <Tooltip content="Primary color for CTAs, active states, and highlights">
   <ColorSwatch color="#FFC107" />
@@ -727,6 +760,7 @@ Solution: Test with accessibility tools
 ```
 
 **Tooltip Locations:**
+
 - Color swatches (hex/RGB/usage/contrast info)
 - Typography sizes (use cases, scaling info)
 - Component variants (when to use, when NOT to)
@@ -734,6 +768,7 @@ Solution: Test with accessibility tools
 - Icon buttons (keyboard shortcuts, accessibility)
 
 **Accessibility:**
+
 - Keyboard accessible (focus + Enter to show)
 - Screen reader compatible
 - Dismissable (Escape key)
@@ -759,6 +794,7 @@ Solution: Test with accessibility tools
 **File:** `components/sections/DownloadResources.jsx`
 
 **Available Downloads:**
+
 ```
 1. Color Palette
    - colors.css (CSS variables)
@@ -802,6 +838,7 @@ Solution: Test with accessibility tools
 ```
 
 **Download Types:**
+
 - PDF files (easy to print, share)
 - Code snippets (copy-paste)
 - Figma files (design tool integration)
@@ -813,6 +850,7 @@ Solution: Test with accessibility tools
 ## IMPLEMENTATION CHECKLIST
 
 ### Week 1
+
 - [ ] Audit completed (this document)
 - [ ] Getting Started page created
 - [ ] Color Palette page with contrast checker
@@ -821,6 +859,7 @@ Solution: Test with accessibility tools
 - [ ] Forms showcase complete
 
 ### Week 2
+
 - [ ] Cards showcase complete
 - [ ] Navigation showcase complete
 - [ ] Status indicators complete
@@ -829,6 +868,7 @@ Solution: Test with accessibility tools
 - [ ] Common Workflows documented
 
 ### Week 3
+
 - [ ] Real-World Examples (3 case studies)
 - [ ] Common Mistakes section
 - [ ] Tooltip system integrated
@@ -837,6 +877,7 @@ Solution: Test with accessibility tools
 - [ ] Accessibility audit of guidelines page itself
 
 ### Week 4
+
 - [ ] Download Resources page
 - [ ] Final polish & optimization
 - [ ] Mobile responsiveness audit
@@ -875,12 +916,14 @@ components/
 ## SUCCESS METRICS
 
 **After Phase 1 (2 weeks):**
+
 - 5 new pages created
 - 30+ interactive components
 - 10+ code examples
 - Guidelines usable for new projects
 
 **After Phase 2 (4 weeks total):**
+
 - 13+ pages/sections
 - 50+ code examples
 - 5+ case studies
@@ -892,12 +935,14 @@ components/
 ## ROLLOUT STRATEGY
 
 **Internal:**
+
 1. Week 2: Share Phase 1 with design team for feedback
 2. Week 3: Incorporate feedback, share with dev team
 3. Week 4: Final polish, team training session
 4. Week 5: Announce & rollout to all departments
 
 **External (Optional):**
+
 - Share as part of portfolio
 - Link from main MediaBubble website
 - Include in client onboarding packages
@@ -933,4 +978,3 @@ components/
 **Date:** June 8, 2026  
 **Status:** Ready for execution  
 **Questions?** Contact development team
-

@@ -1,4 +1,5 @@
 # AI Agent Implementation Playbook
+
 **Step-by-Step How to Deploy Agents for Your Clients**
 
 ---
@@ -6,11 +7,13 @@
 ## PHASE 1: DISCOVERY & QUALIFICATION (Week 1)
 
 ### Goal
+
 Understand the client's exact business model, systems, pain points, and success metrics.
 
 ### Your Process
 
 #### Step 1: Business Audit
+
 Ask these questions in your initial discovery call:
 
 ```
@@ -40,7 +43,9 @@ Ask these questions in your initial discovery call:
 ```
 
 #### Step 2: Document Findings
+
 Create a one-pager with:
+
 - Pain statement: "You lose X customers due to [problem]"
 - Opportunity: "If we improve [metric] by Y%, you gain $[value]"
 - Solution: "Agent handles [task], resulting in [outcome]"
@@ -51,14 +56,17 @@ Create a one-pager with:
 ## PHASE 2: DESIGN & PLANNING (Week 2)
 
 ### Goal
+
 Define exactly what each agent will do, which systems it connects to, and success metrics.
 
 ### Your Process
 
 #### Step 1: Agent Specification
+
 For the agent you're deploying, document:
 
 **Example: Real Estate Lead Response Agent**
+
 ```yaml
 Agent Name: Lead Response Bot (WhatsApp + Website Chat)
 
@@ -96,6 +104,7 @@ Timeline: 2 weeks
 ```
 
 #### Step 2: Identify Required Integrations
+
 Create a checklist of all systems the agent needs to connect to:
 
 ```
@@ -109,9 +118,11 @@ Create a checklist of all systems the agent needs to connect to:
 Assign an owner at the client to confirm each integration is possible.
 
 #### Step 3: Data Preparation
+
 Identify what data the agent needs and ensure the client has it available:
 
 **Real Estate Example:**
+
 - [ ] Complete property database (address, price, images, features)
 - [ ] Floor plans (digital files in PDF format)
 - [ ] Pricing & payment plan documents
@@ -123,14 +134,17 @@ Identify what data the agent needs and ensure the client has it available:
 ## PHASE 3: IMPLEMENTATION (Weeks 3-4)
 
 ### Goal
+
 Build and test the agent in a staging environment before going live.
 
 ### Your Process
 
 #### Step 1: Agent Training (Your Team)
+
 Build the agent with:
 
 **1. Claude API Configuration**
+
 ```
 Model: Claude 3.5 Sonnet (best balance of speed + quality)
 System Prompt: [Include brand voice guidelines + specific instructions]
@@ -140,6 +154,7 @@ Max Tokens: 500 (concise responses)
 
 **2. Response Templates**
 Create branching logic:
+
 ```
 If customer asks about availability:
   → Show available properties + pricing
@@ -160,6 +175,7 @@ If customer asks something unclear:
 
 **3. Escalation Rules**
 Define when bot hands off to human:
+
 ```
 - If customer requests to talk to agent (always escalate)
 - If question is complex legal/financial (escalate)
@@ -172,6 +188,7 @@ Escalation format:
 ```
 
 #### Step 2: Integration & Testing
+
 1. **Staging Environment Setup**
    - Deploy agent to test channel (separate WhatsApp number, test Slack for website chat)
    - Connect to client's test CRM/calendar
@@ -189,7 +206,9 @@ Escalation format:
    - Iterate 2-3 times until client is satisfied
 
 #### Step 3: Documentation
+
 Create client-facing docs:
+
 - [ ] How to use the agent (for team + customers)
 - [ ] Escalation process (when/how to take over from bot)
 - [ ] Metrics dashboard (how to view performance)
@@ -200,31 +219,37 @@ Create client-facing docs:
 ## PHASE 4: SOFT LAUNCH (Week 5)
 
 ### Goal
+
 Deploy to production with monitoring and manual oversight.
 
 ### Your Process
 
 #### Step 1: Limited Rollout
+
 Don't go fully live. Instead:
 
 **Option A: Pilot by Channel**
+
 - Launch on 1 channel only (e.g., WhatsApp but not Instagram)
 - Monitor for 3 days
 - Expand to other channels once confident
 
 **Option B: Pilot by Time**
+
 - Launch only during business hours (9am-5pm)
 - Have human agent on standby to monitor
 - Monitor for 3 days
 - Expand to 24/7 after confidence gained
 
 **Option C: Pilot by Volume**
+
 - Handle only 25% of inquiries (filter in rules)
 - Manual route other 75% to human
 - Monitor for 3 days
 - Increase to 50%, then 75%, then 100%
 
 #### Step 2: Daily Monitoring
+
 Your team checks agent performance daily:
 
 ```
@@ -241,7 +266,9 @@ Metrics to track:
 Create a daily standup report for first 2 weeks.
 
 #### Step 3: Iteration & Refinement
+
 Based on daily monitoring:
+
 - Identify response patterns that didn't work → refine templates
 - Identify integration bugs → fix
 - Identify escalations that should be handled by bot → adjust confidence thresholds
@@ -252,23 +279,29 @@ Based on daily monitoring:
 ## PHASE 5: FULL LAUNCH (Week 6+)
 
 ### Goal
+
 Go fully live with agent handling 80%+ of inquiries.
 
 ### Your Process
 
 #### Step 1: Full Deployment
+
 - Remove manual routing filters
 - Deploy agent to all channels simultaneously
 - Scale infrastructure if needed
 
 #### Step 2: Weekly Check-Ins
+
 For first month, meet with client weekly:
+
 - Review metrics: response time, escalation rate, satisfaction
 - Identify any issues
 - Plan next agent or improvements
 
 #### Step 3: Monthly Optimization
+
 After month 1, transition to monthly reviews:
+
 - Performance dashboard review
 - Customer feedback analysis
 - Identify next improvement (add feature? Deploy new agent?)
@@ -307,6 +340,7 @@ COST METRICS
 ### Quarterly Agent Improvements
 
 Every quarter, review agent and consider:
+
 1. Adding new capabilities (if demand exists)
 2. Expanding to new channels
 3. Deploying new agents (now that first one is stable)
@@ -317,26 +351,32 @@ Every quarter, review agent and consider:
 ## COMMON PITFALLS & HOW TO AVOID THEM
 
 ### Pitfall #1: Over-Engineering Before Launch
+
 **Problem:** Trying to build the perfect agent with 100 scenarios before going live
 **Solution:** Launch with 80% solution, iterate fast
 
 ### Pitfall #2: Poor Integration Planning
+
 **Problem:** Client doesn't have API access, CRM isn't set up, data is messy
 **Solution:** Audit systems in Week 1, plan integrations in Week 2, test in Week 3-4
 
 ### Pitfall #3: Unrealistic Expectations
+
 **Problem:** Client expects agent to handle 100% of inquiries perfectly on day 1
 **Solution:** Set expectations: "Agent will handle 60% in month 1, 80% by month 3, 90% by month 6"
 
 ### Pitfall #4: No Human Oversight
+
 **Problem:** Agent goes live, customer complaints pile up, nobody notices
 **Solution:** Daily monitoring for first 2 weeks, then weekly, then monthly
 
 ### Pitfall #5: Agent Voices Wrong Brand
+
 **Problem:** Agent sounds corporate/robotic, doesn't match company personality
 **Solution:** Include brand voice examples in system prompt, test with client's team first
 
 ### Pitfall #6: Escalations Aren't Real
+
 **Problem:** Agent "escalates" to human but message goes to /dev/null
 **Solution:** Test escalation path thoroughly, set up alerts when escalation happens
 
@@ -532,21 +572,25 @@ MONTH 3+: SCALE
 For each deployment, assign:
 
 **1. Project Lead** (your account manager)
+
 - Owns client relationship
 - Daily communication with client
 - Escalation point for blockers
 
 **2. Technical Lead** (your engineer)
+
 - Owns agent implementation
 - Builds + deploys
 - Troubleshoots integrations
 
 **3. QA Lead** (you or team member)
+
 - Tests agent thoroughly
 - Documents bugs
 - Signs off on deployment
 
 **4. Success Lead** (your customer success person)
+
 - Monitors post-launch metrics
 - Weekly check-in with client
 - Identifies next agents to deploy

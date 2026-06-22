@@ -1,4 +1,5 @@
 # Lead Scoring & Outreach Engine — Implementation Guide
+
 **Phase 1 Agent #1 (Week 1, Day 1)**
 
 ---
@@ -6,6 +7,7 @@
 ## Overview
 
 This agent combines two functions into one seamless workflow:
+
 1. **Lead Scoring:** Evaluate lead quality against ICP (Ideal Customer Profile)
 2. **Personalized Outreach:** Research prospect + generate email
 
@@ -70,6 +72,7 @@ Output: Lead Scored + Routed + Email Ready + Contact Created
 ### Step 1: Define ICP Scoring Rules
 
 **Company Fit (0-30 points)**
+
 ```
 Company Size:
   - 10-100 employees: +10 (sweet spot)
@@ -89,6 +92,7 @@ Revenue Signals:
 ```
 
 **Role Fit (0-30 points)**
+
 ```
 Seniority:
   - C-level (CEO, CMO, CTO): +15
@@ -109,6 +113,7 @@ Role Relevance:
 ```
 
 **Budget Signals (0-20 points)**
+
 ```
 Explicit Budget Mentioned:
   - Yes, with amount: +20
@@ -122,6 +127,7 @@ Budget Timeline:
 ```
 
 **Timeline/Urgency (0-20 points)**
+
 ```
 Timeline Mentioned:
   - Immediate need (this month): +20
@@ -136,6 +142,7 @@ Buying Signals:
 ```
 
 **Source Quality (0-Adjustment)**
+
 ```
 Lead Source Quality Baseline:
   - Referral: Start at +10 (high trust)
@@ -145,6 +152,7 @@ Lead Source Quality Baseline:
 ```
 
 **Final Score Calculation:**
+
 ```
 Total Score = Company Fit + Role Fit + Budget Signals + Timeline + Source Adjustment
 
@@ -163,31 +171,31 @@ Scoring Buckets:
 def score_lead(lead_data, icp):
     """
     Score a lead against ICP.
-    
+
     Args:
         lead_data: {name, company, role, budget, timeline, source}
         icp: {target_size, target_industries, decision_makers, budget_avg}
-    
+
     Returns:
         {score: 0-100, category: 'Hot/Warm/Cool/Archive', reasoning: str}
     """
-    
+
     score = 0
     reasoning = []
-    
+
     # Company Fit (0-30)
     if lead_data['company_size'] in ['10-100', '100-1000']:
         score += 10
         reasoning.append(f"Company size: {lead_data['company_size']} (optimal)")
-    
+
     if lead_data['industry'] in icp['target_industries']:
         score += 10
         reasoning.append(f"Target industry: {lead_data['industry']}")
-    
+
     if lead_data.get('recent_funding') or lead_data.get('recent_hiring'):
         score += 5
         reasoning.append("Growth signals detected")
-    
+
     # Role Fit (0-30)
     if lead_data['role'] in icp['decision_makers']:
         score += 15
@@ -195,16 +203,16 @@ def score_lead(lead_data, icp):
     elif lead_data['seniority'] == 'Director/VP':
         score += 8
         reasoning.append("Leadership role")
-    
+
     # Budget Signals (0-20)
     if lead_data.get('budget_mentioned'):
         score += 15 if lead_data.get('budget_amount') else 12
         reasoning.append("Budget identified")
-    
+
     if lead_data.get('budget_timeline') == 'This quarter':
         score += 10
         reasoning.append("Immediate budget timeline")
-    
+
     # Timeline/Urgency (0-20)
     if lead_data.get('urgency') == 'High':
         score += 20
@@ -212,7 +220,7 @@ def score_lead(lead_data, icp):
     elif lead_data.get('urgency') == 'Medium':
         score += 10
         reasoning.append("Medium urgency signals")
-    
+
     # Source adjustment
     if lead_data['source'] == 'Referral':
         score += 10
@@ -220,7 +228,7 @@ def score_lead(lead_data, icp):
     elif lead_data['source'] == 'Outbound':
         score -= 5
         reasoning.append("Cold outreach (discount 5 points)")
-    
+
     # Categorize
     if score >= 85:
         category = 'Hot'
@@ -230,7 +238,7 @@ def score_lead(lead_data, icp):
         category = 'Cool'
     else:
         category = 'Archive'
-    
+
     return {
         'score': score,
         'category': category,
@@ -252,6 +260,7 @@ def route_lead(category):
 ### Step 3: Test Scoring with Sample Leads
 
 **Test Case 1: Hot Lead**
+
 ```
 Input:
   - Name: Sarah Chen
@@ -269,6 +278,7 @@ Expected Output:
 ```
 
 **Test Case 2: Warm Lead**
+
 ```
 Input:
   - Name: James Rodriguez
@@ -286,6 +296,7 @@ Expected Output:
 ```
 
 **Test Case 3: Cool Lead**
+
 ```
 Input:
   - Name: Alex Johnson
@@ -311,6 +322,7 @@ Expected Output:
 For each lead, answer:
 
 **Company Research:**
+
 1. What's the company size and growth trajectory?
 2. What industry are they in?
 3. Are there recent funding announcements or hiring?
@@ -318,12 +330,14 @@ For each lead, answer:
 5. Who are their likely competitors?
 
 **Role Research:**
+
 1. What does this role typically own (budget, strategy, execution)?
 2. What are the common pain points for this role?
 3. Is this a decision maker or influencer?
 4. What's their likely buying authority?
 
 **Personalization Hooks:**
+
 1. What's a recent company announcement we can reference?
 2. What challenge does their industry typically face?
 3. How does our solution map to their likely needs?
@@ -331,18 +345,21 @@ For each lead, answer:
 ### Step 2: Research Sources (In Order of Quality)
 
 **Primary Research (Best):**
+
 1. LinkedIn company page → Growth signals, recent hires, employee count
 2. Company website → About section, customer logos, blog posts
 3. LinkedIn profile → Role history, connections, recent activity
 4. Recent news → Funding, acquisitions, expansion announcements
 
 **Secondary Research (Good):**
+
 1. Crunchbase → Funding history, company metrics
 2. Hunter.io → Email verification, company structure
 3. Apollo.io → Enrich company data
 4. ZoomInfo → Company intelligence
 
 **Tertiary Research (Fallback):**
+
 1. Google search → Recent news, awards, announcements
 2. Twitter/LinkedIn search → What's the company talking about?
 
@@ -374,6 +391,7 @@ ELSE:
 ### Step 1: Email Template Structure
 
 **Subject Lines (Test A/B):**
+
 ```
 Option 1 (Curiosity): "Quick question on [company name]'s [recent announcement]?"
 Option 2 (Benefit): "[Specific outcome] for [role name]s at [industry]?"
@@ -381,6 +399,7 @@ Option 3 (Personal): "Hey [first name], [specific reference]"
 ```
 
 **Email Body:**
+
 ```
 Hi [first_name],
 
@@ -409,17 +428,20 @@ Thanks,
 ### Step 2: Personalization Variables
 
 **Company-Level:**
+
 - Company name (for reference)
 - Recent funding/hiring (credibility)
 - Industry (for pain point relevance)
 - Company size (for comparison to similar companies)
 
 **Role-Level:**
+
 - Role title (for relevance)
 - Seniority (for tone adjustment)
 - Common pain points (for value prop)
 
 **Relationship-Level:**
+
 - Source (adjust opening tone)
 - Budget signals (adjust urgency)
 - Timeline (adjust CTA)
@@ -429,22 +451,27 @@ Thanks,
 For each lead, create 3-5 email variations:
 
 **Variation 1: Personalized Angle**
+
 - Uses specific company signal (funding, news, expansion)
 - Highest relevance but requires research
 
 **Variation 2: Role-Based**
+
 - Focuses on common pain points for their role
 - Good if no company signal found
 
 **Variation 3: Industry-Based**
+
 - Focuses on industry trends/challenges
 - Fallback if no company/role signal found
 
 **Variation 4: Curiosity-Based**
+
 - Asks genuine question about their approach
 - Good for initiating dialogue
 
 **Variation 5: Direct Ask**
+
 - Clear value prop + direct ask for meeting
 - Good if budget signals present
 
@@ -459,42 +486,42 @@ def create_hubspot_contact(lead_data, email_draft, score_result):
     """
     Create contact in HubSpot with full context.
     """
-    
+
     hubspot_contact = {
         # Core contact info
         'firstname': lead_data['first_name'],
         'lastname': lead_data['last_name'],
         'email': lead_data['email'],
         'phone': lead_data.get('phone', ''),
-        
+
         # Company info
         'company': lead_data['company_name'],
         'jobtitle': lead_data['role'],
-        
+
         # Lead scoring
         'hs_lead_status': score_result['category'],  # Hot, Warm, Cool, Archive
         'hubspotscore': score_result['score'],
         'lead_source': lead_data['source'],
-        
+
         # Notes
         'notes': score_result['reasoning'],
-        
+
         # Custom fields
         'company_size': lead_data['company_size'],
         'industry': lead_data['industry'],
         'budget_signals': lead_data.get('budget_mentioned', False),
         'timeline_urgency': lead_data.get('urgency', 'Unknown'),
         'personalization_angle': email_draft['angle'],
-        
+
         # Outreach prep
         'email_draft_sent': False,
         'outreach_ready': True,
         'recommended_email_variation': email_draft['best_variation']
     }
-    
+
     # Create contact via HubSpot API
     response = hubspot_api.create_contact(hubspot_contact)
-    
+
     return response
 ```
 
@@ -503,7 +530,7 @@ def create_hubspot_contact(lead_data, email_draft, score_result):
 ```python
 def log_activity(hubspot_contact_id, lead_data, score_result, email_draft):
     """Log the scoring and research activity."""
-    
+
     activity = {
         'contact_id': hubspot_contact_id,
         'activity_type': 'Lead Scoring & Outreach Prep',
@@ -517,7 +544,7 @@ def log_activity(hubspot_contact_id, lead_data, score_result, email_draft):
             'recommended_action': score_result['recommended_action']
         }
     }
-    
+
     hubspot_api.log_activity(activity)
 ```
 
@@ -526,7 +553,7 @@ def log_activity(hubspot_contact_id, lead_data, score_result, email_draft):
 ```python
 def assign_next_steps(contact_id, score_result):
     """Assign next steps based on lead category."""
-    
+
     routing = {
         'Hot': {
             'assigned_to': 'sales_team',
@@ -549,7 +576,7 @@ def assign_next_steps(contact_id, score_result):
             'follow_up': 'Quarterly review'
         }
     }
-    
+
     next_steps = routing[score_result['category']]
     hubspot_api.assign_next_steps(contact_id, next_steps)
 ```
@@ -595,19 +622,20 @@ def assign_next_steps(contact_id, score_result):
 
 3. **Generate Email**
    - **Subject:** "Sarah, congrats on TechCorp's Series B!"
-   - **Body:** 
+   - **Body:**
+
      ```
      Hi Sarah,
-     
-     Saw TechCorp just closed a Series B – congrats! 
-     We help B2B SaaS companies scale their marketing 
+
+     Saw TechCorp just closed a Series B – congrats!
+     We help B2B SaaS companies scale their marketing
      efficiency during growth phases like yours.
-     
-     Quick question: how are you approaching 
+
+     Quick question: how are you approaching
      attribution across your new EU markets?
-     
+
      Would love to chat for 15 min next week.
-     
+
      Best,
      [Sales rep]
      ```
@@ -630,16 +658,19 @@ def assign_next_steps(contact_id, score_result):
 ## Success Criteria
 
 **Accuracy:**
+
 - ✅ Lead scores correlate to actual conversion (Hot > Warm > Cool)
 - ✅ <5% mislabeling (Hot lead that should be Warm, etc.)
 - ✅ Personalization hooks match lead research
 
 **Performance:**
+
 - ✅ Score + research + email generation: <1 min per lead
 - ✅ HubSpot contact creation: <5 sec
 - ✅ Routing assignment: <2 sec
 
 **Adoption:**
+
 - ✅ Sales team uses 80%+ of email drafts (with minimal edits)
 - ✅ Lead routing is accurate enough to trust
 - ✅ Time saved: 30 min/lead validated
@@ -649,17 +680,20 @@ def assign_next_steps(contact_id, score_result):
 ## Week 1 Execution
 
 **Monday-Tuesday:**
+
 - [ ] Define ICP scoring rules with Sales team
 - [ ] Implement scoring logic
 - [ ] Test with 10 historical leads
 - [ ] Validate scores match actual outcomes
 
 **Wednesday-Thursday:**
+
 - [ ] Implement research + personalization logic
 - [ ] Implement email generation
 - [ ] Generate email variations for 10 test leads
 
 **Friday:**
+
 - [ ] Full end-to-end testing with 5 new real leads
 - [ ] Sales team feedback on email quality + personalization
 - [ ] Deploy to staging for Week 1 launch

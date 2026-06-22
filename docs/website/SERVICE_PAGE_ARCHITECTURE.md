@@ -1,4 +1,5 @@
 # Service Page Architecture & Component System
+
 **Deep Strategic Planning for MediaBubble Service Pages**  
 **Date:** June 10, 2026  
 **Status:** Comprehensive Design Blueprint
@@ -10,6 +11,7 @@
 ### The Problem We're Solving
 
 MediaBubble has 15+ distinct services across 4 main pillars. Current approach:
+
 - ❌ Each page built differently (inconsistent)
 - ❌ Duplicated components (maintenance nightmare)
 - ❌ No clear conversion funnel per service
@@ -19,6 +21,7 @@ MediaBubble has 15+ distinct services across 4 main pillars. Current approach:
 ### The Solution: Service Page Template System
 
 We'll create **ONE master template** with:
+
 - ✅ Modular, reusable components
 - ✅ Consistent conversion architecture
 - ✅ Fast page creation (30 min vs 4 hours)
@@ -67,36 +70,24 @@ Footer
 ## PART 2: SECTION-BY-SECTION DEEP DIVE
 
 ### SECTION 1: HERO / PAGE TITLE
+
 **Purpose:** Immediately clarify what this service does + capture interest  
 **Conversion Goal:** Set expectations
 
 ```html
-HERO SECTION STRUCTURE:
-├─ Breadcrumb Navigation
-│  └─ Home > Solutions > Web Development > Web Development (current page)
-│
-├─ Main Hero Content
-│  ├─ Page Title (H1)
-│  │  └─ "Web Development Services"
-│  │
-│  ├─ Subtitle / Value Prop
-│  │  └─ "Build custom, high-performance websites that convert visitors into customers"
-│  │
-│  ├─ Hero Image / Video
-│  │  ├─ Service-specific hero image
-│  │  ├─ OR: Animated video showing service in action
-│  │  └─ Alt text for accessibility
-│  │
-│  └─ Primary CTA Button
-│     └─ "Get a Free Consultation" (scrolls to contact form)
-│
-└─ Optional: Quick Stats Bar
-   ├─ "500+ websites launched"
-   ├─ "Average conversion lift: +35%"
-   └─ "98% client satisfaction"
+HERO SECTION STRUCTURE: ├─ Breadcrumb Navigation │ └─ Home > Solutions > Web
+Development > Web Development (current page) │ ├─ Main Hero Content │ ├─ Page
+Title (H1) │ │ └─ "Web Development Services" │ │ │ ├─ Subtitle / Value Prop │ │
+└─ "Build custom, high-performance websites that convert visitors into
+customers" │ │ │ ├─ Hero Image / Video │ │ ├─ Service-specific hero image │ │ ├─
+OR: Animated video showing service in action │ │ └─ Alt text for accessibility │
+│ │ └─ Primary CTA Button │ └─ "Get a Free Consultation" (scrolls to contact
+form) │ └─ Optional: Quick Stats Bar ├─ "500+ websites launched" ├─ "Average
+conversion lift: +35%" └─ "98% client satisfaction"
 ```
 
 **HTML Component:**
+
 ```html
 <section class="hero-service">
   <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -112,14 +103,15 @@ HERO SECTION STRUCTURE:
     <div class="hero-content">
       <h1>Web Development Services</h1>
       <p class="hero-subtitle">
-        Build custom, high-performance websites that convert visitors into customers
+        Build custom, high-performance websites that convert visitors into
+        customers
       </p>
       <button class="btn btn-primary btn-lg">Get a Free Consultation</button>
     </div>
 
     <div class="hero-media">
-      <img 
-        src="/images/web-development-hero.jpg" 
+      <img
+        src="/images/web-development-hero.jpg"
         alt="Custom web development for your business"
         loading="lazy"
       />
@@ -145,11 +137,12 @@ HERO SECTION STRUCTURE:
 ```
 
 **CSS:**
+
 ```css
 .hero-service {
   padding: 60px 24px;
-  background: linear-gradient(135deg, #0D3A7D 0%, #2196F3 100%);
-  color: #FFFFFF;
+  background: linear-gradient(135deg, #0d3a7d 0%, #2196f3 100%);
+  color: #ffffff;
   text-align: center;
 }
 
@@ -233,35 +226,27 @@ HERO SECTION STRUCTURE:
 ---
 
 ### SECTION 2: PROBLEM STATEMENT
+
 **Purpose:** Establish pain points the service solves  
 **Conversion Goal:** Build motivation to learn more
 
 ```html
-PROBLEM SECTION STRUCTURE:
-├─ Section Title
-│  └─ "Challenges Without [Service]"
-│
-├─ Problem Cards Grid (3-4 problems)
-│  ├─ Card 1:
-│  │  ├─ Icon (pain point visual)
-│  │  ├─ Problem Title
-│  │  ├─ Problem Description
-│  │  └─ Example (brief)
-│  │
-│  ├─ Card 2: [Same structure]
-│  └─ Card 3: [Same structure]
-│
-└─ Transition Text
-   └─ "Sound familiar? That's where we come in."
+PROBLEM SECTION STRUCTURE: ├─ Section Title │ └─ "Challenges Without [Service]"
+│ ├─ Problem Cards Grid (3-4 problems) │ ├─ Card 1: │ │ ├─ Icon (pain point
+visual) │ │ ├─ Problem Title │ │ ├─ Problem Description │ │ └─ Example (brief) │
+│ │ ├─ Card 2: [Same structure] │ └─ Card 3: [Same structure] │ └─ Transition
+Text └─ "Sound familiar? That's where we come in."
 ```
 
 **Component Example (Web Development):**
+
 ```html
 <section class="problems-section">
   <div class="section-container">
     <h2>Common Web Development Challenges</h2>
     <p class="section-intro">
-      Without a strategic web development partner, many businesses struggle with...
+      Without a strategic web development partner, many businesses struggle
+      with...
     </p>
 
     <div class="problems-grid">
@@ -272,7 +257,7 @@ PROBLEM SECTION STRUCTURE:
         </div>
         <h3>Outdated Website</h3>
         <p>
-          Your website looks like it's from 2015. Visitors leave immediately, 
+          Your website looks like it's from 2015. Visitors leave immediately,
           and your competitors look more trustworthy.
         </p>
         <p class="problem-impact">Impact: -40% conversion rate</p>
@@ -285,8 +270,8 @@ PROBLEM SECTION STRUCTURE:
         </div>
         <h3>Slow Performance</h3>
         <p>
-          Your website takes 5+ seconds to load. Mobile users bounce. 
-          Google ranks you lower.
+          Your website takes 5+ seconds to load. Mobile users bounce. Google
+          ranks you lower.
         </p>
         <p class="problem-impact">Impact: -60% mobile traffic</p>
       </div>
@@ -298,8 +283,8 @@ PROBLEM SECTION STRUCTURE:
         </div>
         <h3>Not Mobile Friendly</h3>
         <p>
-          60% of your visitors use mobile. Your site breaks on phones. 
-          They can't navigate or convert.
+          60% of your visitors use mobile. Your site breaks on phones. They
+          can't navigate or convert.
         </p>
         <p class="problem-impact">Impact: Lost sales</p>
       </div>
@@ -311,7 +296,7 @@ PROBLEM SECTION STRUCTURE:
         </div>
         <h3>Disconnected Systems</h3>
         <p>
-          Your website doesn't talk to your CRM, analytics, or email platform. 
+          Your website doesn't talk to your CRM, analytics, or email platform.
           Lead tracking is manual & error-prone.
         </p>
         <p class="problem-impact">Impact: Lost leads & data</p>
@@ -326,10 +311,11 @@ PROBLEM SECTION STRUCTURE:
 ```
 
 **CSS:**
+
 ```css
 .problems-section {
   padding: 80px 24px;
-  background: #F5F5F5;
+  background: #f5f5f5;
 }
 
 .section-container {
@@ -340,7 +326,7 @@ PROBLEM SECTION STRUCTURE:
 .problems-section h2 {
   font-size: 36px;
   font-weight: 700;
-  color: #0D3A7D;
+  color: #0d3a7d;
   margin-bottom: 16px;
   text-align: center;
 }
@@ -363,10 +349,10 @@ PROBLEM SECTION STRUCTURE:
 }
 
 .problem-card {
-  background: #FFFFFF;
+  background: #ffffff;
   padding: 32px;
   border-radius: 12px;
-  border-left: 4px solid #FFC107;
+  border-left: 4px solid #ffc107;
   transition: all 300ms ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
@@ -374,7 +360,7 @@ PROBLEM SECTION STRUCTURE:
 .problem-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  border-left-color: #FFB300;
+  border-left-color: #ffb300;
 }
 
 .problem-icon {
@@ -391,13 +377,13 @@ PROBLEM SECTION STRUCTURE:
 .problem-icon svg {
   width: 32px;
   height: 32px;
-  color: #FFC107;
+  color: #ffc107;
 }
 
 .problem-card h3 {
   font-size: 18px;
   font-weight: 600;
-  color: #0D3A7D;
+  color: #0d3a7d;
   margin-bottom: 12px;
 }
 
@@ -417,38 +403,27 @@ PROBLEM SECTION STRUCTURE:
 .section-transition {
   text-align: center;
   font-size: 18px;
-  color: #0D3A7D;
+  color: #0d3a7d;
 }
 ```
 
 ---
 
 ### SECTION 3: HOW IT WORKS / PROCESS
+
 **Purpose:** Show transparent, step-by-step process  
 **Conversion Goal:** Build confidence in your methodology
 
 ```html
-HOW IT WORKS SECTION:
-├─ Section Title
-│  └─ "Our Process"
-│
-├─ Timeline/Steps (4-6 steps)
-│  ├─ Step 1: Discovery
-│  │  ├─ Icon
-│  │  ├─ Title
-│  │  ├─ Description
-│  │  └─ Timeline ("Week 1-2")
-│  │
-│  ├─ Step 2: Strategy
-│  ├─ Step 3: Design
-│  ├─ Step 4: Development
-│  └─ Step 5: Launch & Optimization
-│
-└─ Visual Timeline
-   └─ Connected line showing progression
+HOW IT WORKS SECTION: ├─ Section Title │ └─ "Our Process" │ ├─ Timeline/Steps
+(4-6 steps) │ ├─ Step 1: Discovery │ │ ├─ Icon │ │ ├─ Title │ │ ├─ Description │
+│ └─ Timeline ("Week 1-2") │ │ │ ├─ Step 2: Strategy │ ├─ Step 3: Design │ ├─
+Step 4: Development │ └─ Step 5: Launch & Optimization │ └─ Visual Timeline └─
+Connected line showing progression
 ```
 
 **HTML Component:**
+
 ```html
 <section class="process-section">
   <div class="section-container">
@@ -464,7 +439,7 @@ HOW IT WORKS SECTION:
         <div class="step-content">
           <h3>Discovery & Strategy</h3>
           <p>
-            We dive deep into your business, goals, and target audience. 
+            We dive deep into your business, goals, and target audience.
             Understanding your vision is critical.
           </p>
           <p class="step-duration">Week 1-2</p>
@@ -480,8 +455,8 @@ HOW IT WORKS SECTION:
         <div class="step-content">
           <h3>Design & Planning</h3>
           <p>
-            We create wireframes and design mockups. You approve before 
-            we write a single line of code.
+            We create wireframes and design mockups. You approve before we write
+            a single line of code.
           </p>
           <p class="step-duration">Week 2-3</p>
         </div>
@@ -496,8 +471,8 @@ HOW IT WORKS SECTION:
         <div class="step-content">
           <h3>Development & Integration</h3>
           <p>
-            We build clean, maintainable code. Full integration with 
-            your CRM, analytics, and email platform.
+            We build clean, maintainable code. Full integration with your CRM,
+            analytics, and email platform.
           </p>
           <p class="step-duration">Week 3-5</p>
         </div>
@@ -512,8 +487,8 @@ HOW IT WORKS SECTION:
         <div class="step-content">
           <h3>Testing & Optimization</h3>
           <p>
-            Rigorous QA testing across browsers and devices. We optimize 
-            for performance and conversions.
+            Rigorous QA testing across browsers and devices. We optimize for
+            performance and conversions.
           </p>
           <p class="step-duration">Week 5-6</p>
         </div>
@@ -528,8 +503,8 @@ HOW IT WORKS SECTION:
         <div class="step-content">
           <h3>Launch & Training</h3>
           <p>
-            We deploy to production and train your team. You're never 
-            left figuring things out alone.
+            We deploy to production and train your team. You're never left
+            figuring things out alone.
           </p>
           <p class="step-duration">Week 6-7</p>
         </div>
@@ -545,10 +520,11 @@ HOW IT WORKS SECTION:
 ```
 
 **CSS:**
+
 ```css
 .process-section {
   padding: 80px 24px;
-  background: #FFFFFF;
+  background: #ffffff;
 }
 
 .timeline {
@@ -569,8 +545,8 @@ HOW IT WORKS SECTION:
 .step-number {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, #FFC107 0%, #FFB300 100%);
-  color: #0D3A7D;
+  background: linear-gradient(135deg, #ffc107 0%, #ffb300 100%);
+  color: #0d3a7d;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -582,16 +558,16 @@ HOW IT WORKS SECTION:
 }
 
 .step-content {
-  background: #F5F5F5;
+  background: #f5f5f5;
   padding: 32px;
   border-radius: 8px;
-  border-left: 4px solid #FFC107;
+  border-left: 4px solid #ffc107;
 }
 
 .step-content h3 {
   font-size: 20px;
   font-weight: 600;
-  color: #0D3A7D;
+  color: #0d3a7d;
   margin-bottom: 12px;
 }
 
@@ -604,7 +580,7 @@ HOW IT WORKS SECTION:
 
 .step-duration {
   font-weight: 600;
-  color: #FFC107;
+  color: #ffc107;
   font-size: 13px !important;
   margin-bottom: 0 !important;
 }
@@ -614,7 +590,7 @@ HOW IT WORKS SECTION:
   left: 39px;
   width: 2px;
   height: 60px;
-  background: linear-gradient(to bottom, #FFC107, transparent);
+  background: linear-gradient(to bottom, #ffc107, transparent);
   z-index: 0;
 }
 
@@ -651,24 +627,18 @@ HOW IT WORKS SECTION:
 ---
 
 ### SECTION 4: FEATURES / BENEFITS GRID
+
 **Purpose:** Detail specific features & benefits  
 **Conversion Goal:** Answer "What exactly do I get?"
 
 ```html
-FEATURES SECTION:
-├─ Section Title
-│  └─ "What's Included"
-│
-├─ Feature Cards (6-8 items)
-│  ├─ Icon
-│  ├─ Feature Name
-│  ├─ Feature Description
-│  └─ Benefit
-│
+FEATURES SECTION: ├─ Section Title │ └─ "What's Included" │ ├─ Feature Cards
+(6-8 items) │ ├─ Icon │ ├─ Feature Name │ ├─ Feature Description │ └─ Benefit │
 └─ Optional: Comparison with alternatives
 ```
 
 **HTML Component:**
+
 ```html
 <section class="features-section">
   <div class="section-container">
@@ -685,8 +655,8 @@ FEATURES SECTION:
         </div>
         <h3>Responsive Design</h3>
         <p>
-          Mobile-first design that works perfectly on all devices. 
-          Your visitors have a great experience whether on phone, tablet, or desktop.
+          Mobile-first design that works perfectly on all devices. Your visitors
+          have a great experience whether on phone, tablet, or desktop.
         </p>
       </div>
 
@@ -697,8 +667,8 @@ FEATURES SECTION:
         </div>
         <h3>Lightning Fast Performance</h3>
         <p>
-          Optimized for speed. Pages load in under 2.5 seconds. 
-          Google loves it, and so do your visitors.
+          Optimized for speed. Pages load in under 2.5 seconds. Google loves it,
+          and so do your visitors.
         </p>
       </div>
 
@@ -709,8 +679,8 @@ FEATURES SECTION:
         </div>
         <h3>SEO Optimized</h3>
         <p>
-          Built with SEO best practices from the ground up. 
-          Better rankings, more organic traffic.
+          Built with SEO best practices from the ground up. Better rankings,
+          more organic traffic.
         </p>
       </div>
 
@@ -721,8 +691,8 @@ FEATURES SECTION:
         </div>
         <h3>Enterprise Security</h3>
         <p>
-          SSL certificates, secure forms, data encryption. 
-          Your customers' information is protected.
+          SSL certificates, secure forms, data encryption. Your customers'
+          information is protected.
         </p>
       </div>
 
@@ -733,8 +703,8 @@ FEATURES SECTION:
         </div>
         <h3>CRM Integration</h3>
         <p>
-          Connect to HubSpot, Salesforce, or your preferred CRM. 
-          Lead capture is automatic.
+          Connect to HubSpot, Salesforce, or your preferred CRM. Lead capture is
+          automatic.
         </p>
       </div>
 
@@ -745,8 +715,8 @@ FEATURES SECTION:
         </div>
         <h3>Advanced Analytics</h3>
         <p>
-          Built-in GA4, heatmaps, and conversion tracking. 
-          Know exactly how visitors use your site.
+          Built-in GA4, heatmaps, and conversion tracking. Know exactly how
+          visitors use your site.
         </p>
       </div>
 
@@ -757,8 +727,8 @@ FEATURES SECTION:
         </div>
         <h3>Accessible Design</h3>
         <p>
-          WCAG 2.1 AA compliant. Usable by everyone, including 
-          people with disabilities.
+          WCAG 2.1 AA compliant. Usable by everyone, including people with
+          disabilities.
         </p>
       </div>
 
@@ -769,8 +739,8 @@ FEATURES SECTION:
         </div>
         <h3>Ongoing Support</h3>
         <p>
-          We don't disappear after launch. Ongoing updates, 
-          optimization, and support included.
+          We don't disappear after launch. Ongoing updates, optimization, and
+          support included.
         </p>
       </div>
     </div>
@@ -779,10 +749,11 @@ FEATURES SECTION:
 ```
 
 **CSS:**
+
 ```css
 .features-section {
   padding: 80px 24px;
-  background: #FFFFFF;
+  background: #ffffff;
 }
 
 .features-grid {
@@ -793,16 +764,16 @@ FEATURES SECTION:
 }
 
 .feature-card {
-  background: #FFFFFF;
+  background: #ffffff;
   padding: 32px;
   border-radius: 12px;
-  border: 1px solid #E0E0E0;
+  border: 1px solid #e0e0e0;
   transition: all 300ms ease;
   text-align: center;
 }
 
 .feature-card:hover {
-  border-color: #FFC107;
+  border-color: #ffc107;
   box-shadow: 0 8px 24px rgba(255, 193, 7, 0.15);
   transform: translateY(-4px);
 }
@@ -810,7 +781,11 @@ FEATURES SECTION:
 .feature-icon {
   width: 64px;
   height: 64px;
-  background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(33, 150, 243, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 193, 7, 0.1),
+    rgba(33, 150, 243, 0.1)
+  );
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -821,13 +796,13 @@ FEATURES SECTION:
 .feature-icon svg {
   width: 32px;
   height: 32px;
-  color: #FFC107;
+  color: #ffc107;
 }
 
 .feature-card h3 {
   font-size: 18px;
   font-weight: 600;
-  color: #0D3A7D;
+  color: #0d3a7d;
   margin-bottom: 12px;
 }
 
@@ -841,31 +816,21 @@ FEATURES SECTION:
 ---
 
 ### SECTION 5: CASE STUDY / SOCIAL PROOF
+
 **Purpose:** Show real results  
 **Conversion Goal:** Build trust & credibility
 
 ```html
-CASE STUDY SECTION:
-├─ Section Title
-│  └─ "Real Results for Real Clients"
-│
-├─ Case Study Card
-│  ├─ Client Logo
-│  ├─ Challenge (problem they faced)
-│  ├─ Solution (what we did)
-│  ├─ Results
-│  │  ├─ Metric 1: "+35% conversion rate"
-│  │  ├─ Metric 2: "+60% organic traffic"
-│  │  └─ Metric 3: "3x ROI"
-│  │
-│  ├─ Client Quote
-│  ├─ Client Name & Title
-│  └─ CTA: "View Full Case Study"
-│
-└─ Alternative: Testimonials Grid (3-4 quotes)
+CASE STUDY SECTION: ├─ Section Title │ └─ "Real Results for Real Clients" │ ├─
+Case Study Card │ ├─ Client Logo │ ├─ Challenge (problem they faced) │ ├─
+Solution (what we did) │ ├─ Results │ │ ├─ Metric 1: "+35% conversion rate" │ │
+├─ Metric 2: "+60% organic traffic" │ │ └─ Metric 3: "3x ROI" │ │ │ ├─ Client
+Quote │ ├─ Client Name & Title │ └─ CTA: "View Full Case Study" │ └─
+Alternative: Testimonials Grid (3-4 quotes)
 ```
 
 **HTML Component:**
+
 ```html
 <section class="case-study-section">
   <div class="section-container">
@@ -877,7 +842,10 @@ CASE STUDY SECTION:
     <!-- Featured Case Study -->
     <div class="case-study-featured">
       <div class="case-study-image">
-        <img src="/images/case-study-1.jpg" alt="Aldau resort website case study" />
+        <img
+          src="/images/case-study-1.jpg"
+          alt="Aldau resort website case study"
+        />
       </div>
 
       <div class="case-study-content">
@@ -890,15 +858,15 @@ CASE STUDY SECTION:
         <div class="case-study-narrative">
           <h4>The Challenge</h4>
           <p>
-            Aldau Resort had an outdated website that wasn't converting visitors 
-            into bookings. They were relying too heavily on OTAs (Airbnb, Booking.com) 
-            and paying 30% commissions.
+            Aldau Resort had an outdated website that wasn't converting visitors
+            into bookings. They were relying too heavily on OTAs (Airbnb,
+            Booking.com) and paying 30% commissions.
           </p>
 
           <h4>Our Solution</h4>
           <p>
-            We redesigned their entire website with a modern booking flow, 
-            integrated their property management system (PMS), and optimized for 
+            We redesigned their entire website with a modern booking flow,
+            integrated their property management system (PMS), and optimized for
             mobile conversion. We also set up email remarketing campaigns.
           </p>
 
@@ -920,9 +888,9 @@ CASE STUDY SECTION:
 
           <blockquote class="client-quote">
             <p>
-              "MediaBubble transformed our business. We went from struggling with 
-              conversion to getting consistent direct bookings. The entire process 
-              was professional and the results speak for themselves."
+              "MediaBubble transformed our business. We went from struggling
+              with conversion to getting consistent direct bookings. The entire
+              process was professional and the results speak for themselves."
             </p>
             <footer>
               <strong>Ahmed El-Sayed</strong>
@@ -930,7 +898,9 @@ CASE STUDY SECTION:
             </footer>
           </blockquote>
 
-          <a href="/case-studies/aldau" class="btn btn-secondary">Read Full Case Study</a>
+          <a href="/case-studies/aldau" class="btn btn-secondary"
+            >Read Full Case Study</a
+          >
         </div>
       </div>
     </div>
@@ -981,10 +951,11 @@ CASE STUDY SECTION:
 ```
 
 **CSS:**
+
 ```css
 .case-study-section {
   padding: 80px 24px;
-  background: #F5F5F5;
+  background: #f5f5f5;
 }
 
 .case-study-featured {
@@ -992,7 +963,7 @@ CASE STUDY SECTION:
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: center;
-  background: #FFFFFF;
+  background: #ffffff;
   padding: 60px;
   border-radius: 16px;
   margin-bottom: 60px;
@@ -1017,7 +988,7 @@ CASE STUDY SECTION:
 .case-study-content h3 {
   font-size: 28px;
   font-weight: 700;
-  color: #0D3A7D;
+  color: #0d3a7d;
   margin-bottom: 32px;
   line-height: 1.3;
 }
@@ -1025,7 +996,7 @@ CASE STUDY SECTION:
 .case-study-narrative h4 {
   font-size: 16px;
   font-weight: 600;
-  color: #0D3A7D;
+  color: #0d3a7d;
   margin-top: 24px;
   margin-bottom: 12px;
 }
@@ -1054,7 +1025,7 @@ CASE STUDY SECTION:
 .metric strong {
   display: block;
   font-size: 32px;
-  color: #FFC107;
+  color: #ffc107;
   font-weight: 700;
   margin-bottom: 4px;
 }
@@ -1066,7 +1037,7 @@ CASE STUDY SECTION:
 }
 
 .client-quote {
-  border-left: 4px solid #FFC107;
+  border-left: 4px solid #ffc107;
   padding-left: 24px;
   margin: 32px 0;
   font-style: italic;
@@ -1086,7 +1057,7 @@ CASE STUDY SECTION:
 .client-quote strong {
   display: block;
   font-size: 14px;
-  color: #0D3A7D;
+  color: #0d3a7d;
   font-weight: 600;
 }
 
@@ -1103,15 +1074,15 @@ CASE STUDY SECTION:
 }
 
 .case-study-card {
-  background: #FFFFFF;
+  background: #ffffff;
   padding: 32px;
   border-radius: 12px;
-  border: 1px solid #E0E0E0;
+  border: 1px solid #e0e0e0;
   transition: all 300ms ease;
 }
 
 .case-study-card:hover {
-  border-color: #FFC107;
+  border-color: #ffc107;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   transform: translateY(-4px);
 }
@@ -1129,14 +1100,14 @@ CASE STUDY SECTION:
 .case-study-card h3 {
   font-size: 18px;
   font-weight: 600;
-  color: #0D3A7D;
+  color: #0d3a7d;
   margin-bottom: 12px;
 }
 
 .case-study-card-stat {
   font-size: 16px;
   font-weight: 700;
-  color: #FFC107;
+  color: #ffc107;
   margin-bottom: 8px;
 }
 
@@ -1147,7 +1118,7 @@ CASE STUDY SECTION:
 }
 
 .link {
-  color: #FFC107;
+  color: #ffc107;
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;
@@ -1174,37 +1145,27 @@ CASE STUDY SECTION:
 ---
 
 ### SECTION 6: PRICING / PACKAGES
+
 **Purpose:** Show value & options  
 **Conversion Goal:** Remove price barriers
 
 ```html
-PRICING SECTION:
-├─ Section Title
-│  └─ "Transparent Pricing"
-│
-├─ Pricing Cards (3 tiers)
-│  ├─ Tier 1: Starter
-│  │  ├─ Price
-│  │  ├─ Description
-│  │  ├─ Features list
-│  │  └─ CTA
-│  │
-│  ├─ Tier 2: Professional (FEATURED)
-│  │  └─ [Same as Tier 1, but highlighted]
-│  │
-│  └─ Tier 3: Enterprise
-│     └─ [Same structure, custom pricing]
-│
-└─ FAQ: "What's included in each tier?"
+PRICING SECTION: ├─ Section Title │ └─ "Transparent Pricing" │ ├─ Pricing Cards
+(3 tiers) │ ├─ Tier 1: Starter │ │ ├─ Price │ │ ├─ Description │ │ ├─ Features
+list │ │ └─ CTA │ │ │ ├─ Tier 2: Professional (FEATURED) │ │ └─ [Same as Tier 1,
+but highlighted] │ │ │ └─ Tier 3: Enterprise │ └─ [Same structure, custom
+pricing] │ └─ FAQ: "What's included in each tier?"
 ```
 
 **HTML Component:**
+
 ```html
 <section class="pricing-section">
   <div class="section-container">
     <h2>Simple, Transparent Pricing</h2>
     <p class="section-intro">
-      No hidden fees. No surprise charges. Clear packages for every business size.
+      No hidden fees. No surprise charges. Clear packages for every business
+      size.
     </p>
 
     <div class="pricing-grid">
@@ -1235,7 +1196,7 @@ PRICING SECTION:
       <!-- Professional Package (Featured) -->
       <div class="pricing-card pricing-card-featured">
         <div class="pricing-badge">Most Popular</div>
-        
+
         <h3>Professional</h3>
         <p class="pricing-desc">Growing businesses that need to convert</p>
 
@@ -1331,11 +1292,12 @@ PRICING SECTION:
 ```
 
 **CSS:**
+
 ```css
 .pricing-section {
   padding: 80px 24px;
-  background: linear-gradient(135deg, #0D3A7D 0%, #2196F3 100%);
-  color: #FFFFFF;
+  background: linear-gradient(135deg, #0d3a7d 0%, #2196f3 100%);
+  color: #ffffff;
 }
 
 .pricing-grid {
@@ -1346,7 +1308,7 @@ PRICING SECTION:
 }
 
 .pricing-card {
-  background: #FFFFFF;
+  background: #ffffff;
   color: #333;
   padding: 40px 32px;
   border-radius: 12px;
@@ -1361,7 +1323,7 @@ PRICING SECTION:
 }
 
 .pricing-card-featured {
-  border-color: #FFC107;
+  border-color: #ffc107;
   background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), transparent);
   transform: scale(1.05);
 }
@@ -1371,8 +1333,8 @@ PRICING SECTION:
   top: -16px;
   left: 50%;
   transform: translateX(-50%);
-  background: #FFC107;
-  color: #0D3A7D;
+  background: #ffc107;
+  color: #0d3a7d;
   padding: 8px 20px;
   border-radius: 20px;
   font-size: 12px;
@@ -1382,7 +1344,7 @@ PRICING SECTION:
 .pricing-card h3 {
   font-size: 24px;
   font-weight: 700;
-  color: #0D3A7D;
+  color: #0d3a7d;
   margin-bottom: 8px;
 }
 
@@ -1397,13 +1359,13 @@ PRICING SECTION:
   flex-direction: column;
   margin-bottom: 32px;
   padding-bottom: 32px;
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .price-amount {
   font-size: 36px;
   font-weight: 700;
-  color: #0D3A7D;
+  color: #0d3a7d;
 }
 
 .price-note {
@@ -1419,7 +1381,7 @@ PRICING SECTION:
 
 .pricing-features li {
   padding: 12px 0;
-  border-bottom: 1px solid #F0F0F0;
+  border-bottom: 1px solid #f0f0f0;
   font-size: 14px;
   color: #666;
 }
@@ -1444,7 +1406,7 @@ PRICING SECTION:
 }
 
 .pricing-comparison h3 {
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 32px;
   text-align: center;
 }
@@ -1459,7 +1421,7 @@ PRICING SECTION:
   padding: 16px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .pricing-comparison th {
@@ -1482,6 +1444,7 @@ Now let's define ALL reusable components across the site:
 ### CORE COMPONENTS
 
 #### 1. BUTTONS (Multiple Variants)
+
 ```html
 <!-- Button Variants -->
 <button class="btn btn-primary">Primary Action</button>
@@ -1494,6 +1457,7 @@ Now let's define ALL reusable components across the site:
 ```
 
 #### 2. CARDS (Service, Feature, Testimonial)
+
 ```html
 <!-- Service Card -->
 <div class="card card-service">
@@ -1521,6 +1485,7 @@ Now let's define ALL reusable components across the site:
 ```
 
 #### 3. SECTION HEADERS
+
 ```html
 <div class="section-header">
   <h2>Section Title</h2>
@@ -1529,6 +1494,7 @@ Now let's define ALL reusable components across the site:
 ```
 
 #### 4. CALL-TO-ACTION BLOCKS
+
 ```html
 <!-- Simple CTA -->
 <div class="cta-block">
@@ -1551,6 +1517,7 @@ Now let's define ALL reusable components across the site:
 ```
 
 #### 5. TESTIMONIALS SECTION
+
 ```html
 <section class="testimonials-section">
   <div class="testimonials-grid">
@@ -1570,6 +1537,7 @@ Now let's define ALL reusable components across the site:
 ```
 
 #### 6. FAQ ACCORDION
+
 ```html
 <div class="faq-section">
   <div class="faq-item">
@@ -1585,6 +1553,7 @@ Now let's define ALL reusable components across the site:
 ```
 
 #### 7. COMPARISON TABLE
+
 ```html
 <table class="comparison-table">
   <thead>
@@ -1607,6 +1576,7 @@ Now let's define ALL reusable components across the site:
 ```
 
 #### 8. STATS / METRICS BOX
+
 ```html
 <div class="stats-box">
   <div class="stat">
@@ -1621,6 +1591,7 @@ Now let's define ALL reusable components across the site:
 ```
 
 #### 9. TIMELINE
+
 ```html
 <div class="timeline">
   <div class="timeline-step">
@@ -1634,6 +1605,7 @@ Now let's define ALL reusable components across the site:
 ```
 
 #### 10. ICON GRIDS
+
 ```html
 <div class="icon-grid">
   <div class="icon-item">
@@ -1655,6 +1627,7 @@ Service Page = Hero + [Flexible Content Sections] + CTA Sections
 ```
 
 **Web Development Example:**
+
 ```
 1. Hero / Page Title
    ├─ Breadcrumb
@@ -1698,6 +1671,7 @@ Service Page = Hero + [Flexible Content Sections] + CTA Sections
 ```
 
 **SEO / Example:**
+
 ```
 1. Hero
 2. Why SEO Matters (Problem section)
@@ -1716,6 +1690,7 @@ Service Page = Hero + [Flexible Content Sections] + CTA Sections
 ### Template Rules
 
 ✅ **Always Include:**
+
 - Hero section (establishes service clearly)
 - Problem section (builds motivation)
 - Solution/Process section (builds confidence)
@@ -1723,6 +1698,7 @@ Service Page = Hero + [Flexible Content Sections] + CTA Sections
 - CTA (drives conversions)
 
 ✅ **Customize Per Service:**
+
 - Hero image/video
 - Specific problems
 - Specific process
@@ -1730,6 +1706,7 @@ Service Page = Hero + [Flexible Content Sections] + CTA Sections
 - Feature/benefit bullets
 
 ⚠️ **Optional (Based on Service Type):**
+
 - Pricing (only if selling packages)
 - FAQ (add if >5 common questions)
 - Testimonials (if you have them)
@@ -1745,23 +1722,23 @@ Service Page = Hero + [Flexible Content Sections] + CTA Sections
 ```css
 :root {
   /* Colors */
-  --color-primary: #0D3A7D;
-  --color-secondary: #FFC107;
-  --color-accent: #2196F3;
-  --color-success: #4CAF50;
+  --color-primary: #0d3a7d;
+  --color-secondary: #ffc107;
+  --color-accent: #2196f3;
+  --color-success: #4caf50;
   --color-danger: #d32f2f;
-  
+
   /* Text Colors */
   --text-primary: #1a1a1a;
   --text-secondary: #666666;
   --text-tertiary: #999999;
-  --text-inverse: #FFFFFF;
-  
+  --text-inverse: #ffffff;
+
   /* Background Colors */
-  --bg-primary: #FFFFFF;
-  --bg-secondary: #F5F5F5;
-  --bg-tertiary: #E0E0E0;
-  
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-tertiary: #e0e0e0;
+
   /* Spacing (8px base unit) */
   --space-xs: 4px;
   --space-sm: 8px;
@@ -1770,9 +1747,10 @@ Service Page = Hero + [Flexible Content Sections] + CTA Sections
   --space-xl: 32px;
   --space-2xl: 48px;
   --space-3xl: 64px;
-  
+
   /* Typography */
-  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  --font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
   --font-size-xs: 12px;
   --font-size-sm: 14px;
   --font-size-base: 16px;
@@ -1780,35 +1758,35 @@ Service Page = Hero + [Flexible Content Sections] + CTA Sections
   --font-size-xl: 24px;
   --font-size-2xl: 32px;
   --font-size-3xl: 48px;
-  
+
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
-  
+
   /* Line Heights */
   --line-height-tight: 1.2;
   --line-height-normal: 1.5;
   --line-height-relaxed: 1.7;
-  
+
   /* Transitions */
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
-  
+
   /* Shadows */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
   --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.2);
-  
+
   /* Border Radius */
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
   --radius-xl: 16px;
   --radius-full: 999px;
-  
+
   /* Breakpoints (mobile-first) */
   --bp-sm: 640px;
   --bp-md: 768px;
@@ -1842,7 +1820,7 @@ Service Page = Hero + [Flexible Content Sections] + CTA Sections
 }
 
 .btn-primary:hover {
-  background: #FFB300;
+  background: #ffb300;
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
@@ -1880,6 +1858,7 @@ section {
 ### Before Publishing Service Page:
 
 **Content Quality:**
+
 - [ ] H1 tag is clear & keyword-rich
 - [ ] Intro paragraph (150 chars) captures service value
 - [ ] At least 1 case study included
@@ -1888,6 +1867,7 @@ section {
 - [ ] Image alt tags all filled in
 
 **Conversion Optimization:**
+
 - [ ] 3+ CTAs on page (hero, middle, bottom)
 - [ ] "Get Free Consultation" button on every CTA
 - [ ] Contact form auto-focuses email field
@@ -1895,6 +1875,7 @@ section {
 - [ ] GA4 events tracked for all CTAs
 
 **Technical SEO:**
+
 - [ ] Page title optimized (50-60 chars)
 - [ ] Meta description (150-160 chars)
 - [ ] Schema markup (Service schema)
@@ -1904,6 +1885,7 @@ section {
 - [ ] Core Web Vitals all "Good"
 
 **Accessibility:**
+
 - [ ] WCAG 2.1 AA compliant
 - [ ] All images have alt text
 - [ ] Color contrast ≥4.5:1
@@ -1912,6 +1894,7 @@ section {
 - [ ] Screen reader tested
 
 **Cross-Linking:**
+
 - [ ] Parent service page linked
 - [ ] Related services linked
 - [ ] Home page navigation includes service
@@ -1972,9 +1955,10 @@ Step 6: QA Review (5-10 min)
 ✅ **CSS Variable System:** Design tokens for consistency  
 ✅ **Conversion Architecture:** 3+ CTAs strategically placed  
 ✅ **Content Checklist:** Pre-launch verification  
-✅ **30-Min Creation Workflow:** Speed without sacrificing quality  
+✅ **30-Min Creation Workflow:** Speed without sacrificing quality
 
 **Impact:**
+
 - Build new service pages in 30-45 min (was 4-6 hours)
 - 100% consistent styling across all services
 - Better conversions (3 strategically-placed CTAs)
@@ -1986,4 +1970,3 @@ Step 6: QA Review (5-10 min)
 **Ready to start building service pages?** 🚀
 
 Which service should we create first?
-

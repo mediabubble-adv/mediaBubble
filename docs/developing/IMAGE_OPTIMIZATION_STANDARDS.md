@@ -2,24 +2,24 @@
 
 ## File Size Requirements
 
-| Use Case | Max Size | Target |
-|----------|----------|--------|
-| Hero / full-width | 250 KB | 150–200 KB |
-| Service / feature | 150 KB | 80–120 KB |
-| Portfolio thumbnail | 80 KB | 40–60 KB |
-| Blog featured | 120 KB | 70–100 KB |
-| Logo / icon | 20 KB | < 10 KB (prefer SVG) |
+| Use Case            | Max Size | Target               |
+| ------------------- | -------- | -------------------- |
+| Hero / full-width   | 250 KB   | 150–200 KB           |
+| Service / feature   | 150 KB   | 80–120 KB            |
+| Portfolio thumbnail | 80 KB    | 40–60 KB             |
+| Blog featured       | 120 KB   | 70–100 KB            |
+| Logo / icon         | 20 KB    | < 10 KB (prefer SVG) |
 
 ## Recommended Dimensions
 
-| Use Case | Dimensions | Aspect Ratio |
-|----------|------------|--------------|
-| Hero images | 1920 × 1080 | 16:9 |
-| Service section | 1200 × 800 | 3:2 |
-| Portfolio / case study | 1200 × 900 | 4:3 |
-| Blog featured | 1200 × 630 | 16:9 |
-| Thumbnails | 400 × 300 min | 4:3 |
-| OG / social share | 1200 × 630 | 16:9 |
+| Use Case               | Dimensions    | Aspect Ratio |
+| ---------------------- | ------------- | ------------ |
+| Hero images            | 1920 × 1080   | 16:9         |
+| Service section        | 1200 × 800    | 3:2          |
+| Portfolio / case study | 1200 × 900    | 4:3          |
+| Blog featured          | 1200 × 630    | 16:9         |
+| Thumbnails             | 400 × 300 min | 4:3          |
+| OG / social share      | 1200 × 630    | 16:9         |
 
 ## Format Priority
 
@@ -63,24 +63,24 @@ Next.js `<Image>` automatically serves AVIF/WebP when `formats: ['image/avif', '
 
 **Format:** `[What the image shows] — [context if not obvious from surrounding text]`
 
-| ❌ Bad | ✅ Good |
-|--------|---------|
-| `""` (empty) | `"MediaBubble team reviewing campaign analytics"` |
+| ❌ Bad        | ✅ Good                                                                |
+| ------------- | ---------------------------------------------------------------------- |
+| `""` (empty)  | `"MediaBubble team reviewing campaign analytics"`                      |
 | `"image.jpg"` | `"Before-and-after comparison of Coral Beach Resort website redesign"` |
-| `"photo"` | `"Hurghada marina at sunset — location of our office"` |
-| `"banner"` | `"Google Ads dashboard showing 340% organic traffic increase"` |
+| `"photo"`     | `"Hurghada marina at sunset — location of our office"`                 |
+| `"banner"`    | `"Google Ads dashboard showing 340% organic traffic increase"`         |
 
 Decorative images (purely visual, no information) should use `alt=""` and `aria-hidden="true"`.
 
 ## Optimization Tools
 
-| Tool | Platform | Use Case |
-|------|----------|----------|
-| Squoosh | Web (squoosh.app) | Manual conversion + compression |
-| ImageOptim | macOS | Batch lossless optimization |
-| Sharp | Node.js | Build-time automated processing |
-| TinyPNG/TinyJPG | Web | Quick PNG/JPEG compression |
-| SVGO | CLI | SVG minification |
+| Tool            | Platform          | Use Case                        |
+| --------------- | ----------------- | ------------------------------- |
+| Squoosh         | Web (squoosh.app) | Manual conversion + compression |
+| ImageOptim      | macOS             | Batch lossless optimization     |
+| Sharp           | Node.js           | Build-time automated processing |
+| TinyPNG/TinyJPG | Web               | Quick PNG/JPEG compression      |
+| SVGO            | CLI               | SVG minification                |
 
 ## Checklist Before Uploading
 

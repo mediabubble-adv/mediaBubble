@@ -8,12 +8,12 @@ Until URL-based locales exist (e.g. `/ar/...`), **`<title>`, Open Graph, and Twi
 
 ## Current behavior
 
-| Layer | Locale source | Updates when user toggles AR? |
-|-------|---------------|-------------------------------|
-| `generateMetadata` / `metadata` | Market config + English `translation.json` `meta.*` keys (server) | No |
-| Visible page copy (`t()`) | Client `I18nProvider` (`en` vs `ar-masri` / `ar`) | Yes |
-| `html[lang]` / `dir` | Set by `I18nProvider` on locale change | Yes |
-| Legal page body | Hardcoded English sections in route files (D4) | No |
+| Layer                           | Locale source                                                     | Updates when user toggles AR? |
+| ------------------------------- | ----------------------------------------------------------------- | ----------------------------- |
+| `generateMetadata` / `metadata` | Market config + English `translation.json` `meta.*` keys (server) | No                            |
+| Visible page copy (`t()`)       | Client `I18nProvider` (`en` vs `ar-masri` / `ar`)                 | Yes                           |
+| `html[lang]` / `dir`            | Set by `I18nProvider` on locale change                            | Yes                           |
+| Legal page body                 | Hardcoded English sections in route files (D4)                    | No                            |
 
 ## Why it happens
 

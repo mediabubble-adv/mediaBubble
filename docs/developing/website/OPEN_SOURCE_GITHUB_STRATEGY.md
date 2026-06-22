@@ -1,7 +1,8 @@
 # MediaBubble Open Source GitHub Strategy
+
 **Status:** Strategic Plan for Community & Brand Authority  
 **Date:** June 2026  
-**Owner:** Yasser Dorgham  
+**Owner:** Yasser Dorgham
 
 ---
 
@@ -14,16 +15,18 @@ MediaBubble will **open-source its design system, website, and "Nezam"** (organi
 ✅ Create **organic marketing channel** (GitHub stars, PRs, engagement)  
 ✅ Attract **top talent** (developers attracted to open-source projects)  
 ✅ Generate **leads** (companies using MediaBubble tech → potential clients)  
-✅ Build **ecosystem** (integrations, plugins, extensions)  
+✅ Build **ecosystem** (integrations, plugins, extensions)
 
 ---
 
 ## Part 1: What We're Open-Sourcing
 
 ### 1. **MediaBubble Design System** (Core)
+
 **Repository:** `mediabubble/design-system`
 
 **What's Included:**
+
 - 40+ reusable React components
 - Design tokens (colors, typography, spacing)
 - Tailwind CSS configuration
@@ -35,20 +38,24 @@ MediaBubble will **open-source its design system, website, and "Nezam"** (organi
 **License:** MIT (permissive, commercial-friendly)
 
 **Target Audience:**
+
 - Egyptian startups & agencies
 - MENA tech companies
 - Open-source developers
 - Design systems enthusiasts
 
 **Value Proposition:**
+
 > "Production-ready UI components built for Arabic-first design. Used by MediaBubble's award-winning platform."
 
 ---
 
 ### 2. **MediaBubble Website** (Demo + Template)
+
 **Repository:** `mediabubble/website`
 
 **What's Included:**
+
 - Full Next.js website source code
 - Bilingual setup (English + Arabic/Masri)
 - Content structure & pages
@@ -61,22 +68,26 @@ MediaBubble will **open-source its design system, website, and "Nezam"** (organi
 **License:** Creative Commons (for content), MIT (for code)
 
 **Target Audience:**
+
 - Marketing agencies
 - SaaS founders
 - Content creators
 - Learning developers
 
 **Value Proposition:**
+
 > "Open-source website template for agencies & startups. Features AI chat bot, bilingual support, and production performance."
 
 ---
 
 ### 3. **Nezam Framework** (NEW - Organizational System)
+
 **Repository:** `mediabubble/nezam`  
-*"Nezam" = System/Framework in Arabic*
+_"Nezam" = System/Framework in Arabic_
 
 **What It Is:**
 A **complete organizational & operational framework** for marketing agencies to:
+
 - Structure internal processes
 - Automate workflows
 - Manage AI agents
@@ -85,6 +96,7 @@ A **complete organizational & operational framework** for marketing agencies to:
 - Generate client reports
 
 **What's Included:**
+
 - Project structure templates
 - Workflow automation scripts
 - AI agent prompts & configurations
@@ -98,12 +110,14 @@ A **complete organizational & operational framework** for marketing agencies to:
 **License:** CC0 (Public Domain - completely free)
 
 **Target Audience:**
+
 - Marketing agencies
 - Freelancers
 - Service providers
 - Management consultants
 
 **Value Proposition:**
+
 > "Open-source operational framework for service companies. Used by MediaBubble to scale from 5 to 50+ clients."
 
 ---
@@ -185,6 +199,7 @@ github.com/mediabubble/
 Production-ready React component library built for modern web applications.
 
 ## Features
+
 - 40+ accessible components (WCAG 2.1 AA)
 - Dark mode support
 - Bilingual/RTL ready
@@ -193,11 +208,13 @@ Production-ready React component library built for modern web applications.
 - Storybook documentation
 
 ## Quick Start
+
 \`\`\`bash
 npm install @mediabubble/design-system
 \`\`\`
 
 ## Components
+
 - Buttons, Cards, Inputs, Forms
 - Modals, Dropdowns, Tabs, Accordions
 - Alerts, Toasts, Spinners
@@ -206,13 +223,16 @@ npm install @mediabubble/design-system
 - And 15+ more...
 
 ## License
+
 MIT - Use freely in projects
 
 ## Used By
+
 - [MediaBubble](https://mediabubble.co)
 - [Awesome Projects Using Design System](./USERS.md)
 
 ## Contributing
+
 [See CONTRIBUTING.md](CONTRIBUTING.md)
 ```
 
@@ -224,6 +244,7 @@ MIT - Use freely in projects
 Open-source Next.js website template for marketing agencies.
 
 ## Features
+
 - Bilingual (English + Arabic)
 - AI Chat Agent (Claude API)
 - HubSpot CRM Integration
@@ -233,6 +254,7 @@ Open-source Next.js website template for marketing agencies.
 - Mobile Responsive
 
 ## Tech Stack
+
 - Next.js 14+
 - React 18+
 - TypeScript
@@ -240,6 +262,7 @@ Open-source Next.js website template for marketing agencies.
 - @mediabubble/design-system
 
 ## Getting Started
+
 \`\`\`bash
 git clone https://github.com/mediabubble/website
 cd website
@@ -250,18 +273,23 @@ npm run dev
 Visit http://localhost:3000
 
 ## Customization
+
 - Update company info in `config/company.ts`
 - Modify content in `messages/en.json` and `messages/ar.json`
 - Configure Claude API in `.env.local`
 - Add HubSpot credentials
 
 ## Deployment
+
 \`\`\`bash
 npm run build
+
 # Deploy to Vercel, Netlify, etc.
+
 \`\`\`
 
 ## License
+
 - Code: MIT
 - Content: CC-BY-4.0 (Attribution required)
 ```
@@ -276,42 +304,49 @@ A complete operational system for service-based companies (agencies, consultants
 ## What's Included
 
 ### 1. Organizational Structure
+
 - Team roles & responsibilities
 - Department organization
 - Hierarchy templates
 - Communication flows
 
 ### 2. Project Management
+
 - Project structure template
 - Phase gates & checkpoints
 - Deliverable tracking
 - Client milestones
 
 ### 3. Workflow Automation
+
 - Project kickoff checklist
 - Weekly standup templates
 - Monthly review process
 - Client feedback loops
 
 ### 4. AI Agent Integration
+
 - ChatGPT prompts for client communication
 - Claude prompts for content generation
 - Automation scripts
 - Conversation templates
 
 ### 5. Reporting & Analytics
+
 - Client report templates
 - KPI tracking sheets
 - Performance dashboards
 - Budget tracking
 
 ### 6. Client Onboarding
+
 - Intake forms
 - Welcome packages
 - Expectation setting
 - Success criteria definition
 
 ### 7. Templates & Documents
+
 - Project proposals
 - Service agreements
 - Statements of work
@@ -319,20 +354,24 @@ A complete operational system for service-based companies (agencies, consultants
 - Estimation guides
 
 ## Quick Start
+
 1. Clone this repo
 2. Pick templates relevant to your business
 3. Customize with your company details
 4. Follow processes in PROCESSES.md
 
 ## Used By
+
 - MediaBubble (Egypt)
 - [Your Agency](link)
 - [Add yours](CONTRIBUTING.md)
 
 ## Contributing
+
 Improvements & additions welcome!
 
 ## License
+
 CC0 - Public Domain - Use freely
 ```
 
@@ -342,7 +381,7 @@ CC0 - Public Domain - Use freely
 
 ### Design System README (Example)
 
-```markdown
+````markdown
 # @mediabubble/design-system
 
 > **40+ production-ready React components for modern web applications**
@@ -367,6 +406,7 @@ CC0 - Public Domain - Use freely
 ## 🚀 Quick Start
 
 ### Installation
+
 ```bash
 npm install @mediabubble/design-system
 
@@ -376,10 +416,12 @@ yarn add @mediabubble/design-system
 # or
 pnpm add @mediabubble/design-system
 ```
+````
 
 ### Usage
+
 ```tsx
-import { Button, Card, Input } from '@mediabubble/design-system'
+import { Button, Card, Input } from "@mediabubble/design-system";
 
 export default function App() {
   return (
@@ -388,7 +430,7 @@ export default function App() {
       <Input placeholder="Your name" />
       <Button variant="primary">Submit</Button>
     </Card>
-  )
+  );
 }
 ```
 
@@ -402,6 +444,7 @@ export default function App() {
 ## 🎨 Components
 
 ### Form Components
+
 - Input
 - TextArea
 - Select
@@ -411,6 +454,7 @@ export default function App() {
 - DatePicker
 
 ### Layout Components
+
 - Card
 - Container
 - Grid
@@ -418,6 +462,7 @@ export default function App() {
 - Flex
 
 ### Navigation
+
 - Button
 - Link
 - Tabs
@@ -425,6 +470,7 @@ export default function App() {
 - Pagination
 
 ### Feedback
+
 - Alert
 - Toast
 - Skeleton
@@ -440,11 +486,11 @@ export default function App() {
 Supports RTL languages (Arabic, Hebrew, etc.)
 
 ```tsx
-import { useDirection } from '@mediabubble/design-system'
+import { useDirection } from "@mediabubble/design-system";
 
 export function MyComponent() {
-  const direction = useDirection() // 'ltr' | 'rtl'
-  return <div dir={direction}>Content</div>
+  const direction = useDirection(); // 'ltr' | 'rtl'
+  return <div dir={direction}>Content</div>;
 }
 ```
 
@@ -453,21 +499,21 @@ export function MyComponent() {
 Customize colors, fonts, and spacing:
 
 ```tsx
-import { ThemeProvider, theme } from '@mediabubble/design-system'
+import { ThemeProvider, theme } from "@mediabubble/design-system";
 
 export default function App() {
   const customTheme = {
     ...theme,
     colors: {
-      primary: '#your-color',
+      primary: "#your-color",
     },
-  }
+  };
 
   return (
     <ThemeProvider theme={customTheme}>
       <YourApp />
     </ThemeProvider>
-  )
+  );
 }
 ```
 
@@ -499,7 +545,8 @@ Star the repo if you find it useful!
 ---
 
 Made with ❤️ in Cairo, Egypt
-```
+
+````
 
 ---
 
@@ -541,7 +588,7 @@ Made with ❤️ in Cairo, Egypt
     "tailwindcss": "^3.0.0"
   }
 }
-```
+````
 
 ### GitHub Actions CI/CD
 
@@ -552,7 +599,7 @@ name: Release
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
   publish:
@@ -561,8 +608,8 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: "18"
+          registry-url: "https://registry.npmjs.org"
 
       - run: npm ci
       - run: npm run build
@@ -609,18 +656,21 @@ jobs:
 ### Content Calendar
 
 **Month 1:**
+
 - Week 1: Launch design-system repo
 - Week 2: Launch website repo
 - Week 3: Launch Nezam framework
 - Week 4: First blog post + social media blitz
 
 **Month 2:**
+
 - Publish npm package for design-system
 - Share component showcase videos
 - Feature community projects
 - Host GitHub Discussions
 
 **Month 3:**
+
 - Release v1.1 with new components
 - Publish tutorials
 - Guest blog on dev.to
@@ -655,30 +705,34 @@ Projects using MediaBubble components can add:
 ## Part 8: Monetization Strategy (Without Compromising Open Source)
 
 ### Free (GitHub)
+
 ✅ Design system source code  
 ✅ Website template  
 ✅ Nezam framework  
 ✅ Documentation  
-✅ Community support  
+✅ Community support
 
 ### Premium Services (Monetize Naturally)
+
 ✅ **Consulting Services** - Help companies implement design system  
 ✅ **Custom Components** - Build specialized components  
 ✅ **Training & Workshops** - Teach design system usage  
 ✅ **Support Plans** - Priority issue response  
-✅ **Design System Hosting** - Storybook hosting with updates  
+✅ **Design System Hosting** - Storybook hosting with updates
 
 ### Indirect Revenue (Real Money)
+
 ✅ Companies using design-system → Become clients for design/development  
 ✅ Developers learn MediaBubble stack → Hire them  
 ✅ Startups using template → Pitch MediaBubble services  
-✅ Agencies using Nezam → Consulting partnerships  
+✅ Agencies using Nezam → Consulting partnerships
 
 ---
 
 ## Part 9: GitHub Organization Setup Checklist
 
 ### Repository Settings
+
 - [ ] Consistent repository descriptions
 - [ ] Topics/tags (react, design-system, components, ui, arabic, accessibility)
 - [ ] Branch protection rules (require PR reviews)
@@ -689,6 +743,7 @@ Projects using MediaBubble components can add:
 - [ ] Code of conduct
 
 ### Organization Settings
+
 - [ ] Organization profile picture (MediaBubble logo)
 - [ ] Organization bio ("Open-source tools for AI-powered marketing")
 - [ ] Website link
@@ -696,6 +751,7 @@ Projects using MediaBubble components can add:
 - [ ] Sponsored by (if applicable)
 
 ### Documentation
+
 - [ ] README in each repo
 - [ ] CONTRIBUTING.md
 - [ ] CODE_OF_CONDUCT.md
@@ -704,6 +760,7 @@ Projects using MediaBubble components can add:
 - [ ] docs/ folder with guides
 
 ### CI/CD
+
 - [ ] GitHub Actions for tests
 - [ ] Code coverage reporting
 - [ ] Automated releases
@@ -715,6 +772,7 @@ Projects using MediaBubble components can add:
 ## Part 10: Success Metrics
 
 ### GitHub Metrics
+
 - Design System: 500+ stars (Year 1)
 - Website: 200+ stars (Year 1)
 - Nezam: 300+ stars (Year 1)
@@ -722,6 +780,7 @@ Projects using MediaBubble components can add:
 - 30+ contributors
 
 ### Business Metrics
+
 - 10+ companies using design-system
 - 5+ new client projects from GitHub
 - 3+ consulting projects
@@ -729,6 +788,7 @@ Projects using MediaBubble components can add:
 - 50+ Twitter mentions/month
 
 ### Community Metrics
+
 - 20+ issues/month (engagement)
 - 15+ PRs/month (contributions)
 - 50+ GitHub Discussions replies
@@ -741,7 +801,7 @@ Projects using MediaBubble components can add:
 
 ### CONTRIBUTING.md Template
 
-```markdown
+````markdown
 # Contributing to MediaBubble
 
 We love contributions! Here's how to get started.
@@ -754,6 +814,7 @@ cd design-system
 npm install
 npm run dev
 ```
+````
 
 ## Code Style
 
@@ -774,6 +835,7 @@ npm run dev
 ## Reporting Bugs
 
 Use GitHub Issues with:
+
 - Description of the bug
 - Steps to reproduce
 - Expected vs actual behavior
@@ -782,6 +844,7 @@ Use GitHub Issues with:
 ## Suggesting Enhancements
 
 Open an issue with:
+
 - Clear title
 - Detailed description
 - Use cases
@@ -794,7 +857,8 @@ Ask in [GitHub Discussions](https://github.com/mediabubble/design-system/discuss
 ---
 
 Made with ❤️ by MediaBubble
-```
+
+````
 
 ### CODE_OF_CONDUCT.md
 
@@ -823,13 +887,14 @@ Instances of abusive behavior may be reported by contacting hello@mediabubble.co
 ---
 
 This code of conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org)
-```
+````
 
 ---
 
 ## Part 12: Launch Timeline
 
 ### Week 1: Setup
+
 - [ ] Create GitHub organization
 - [ ] Set up 3 repositories
 - [ ] Configure organization settings
@@ -837,6 +902,7 @@ This code of conduct is adapted from the [Contributor Covenant](https://www.cont
 - [ ] Set up CI/CD pipelines
 
 ### Week 2: Polish
+
 - [ ] Write comprehensive READMEs
 - [ ] Create CONTRIBUTING.md files
 - [ ] Set up issue/PR templates
@@ -844,6 +910,7 @@ This code of conduct is adapted from the [Contributor Covenant](https://www.cont
 - [ ] Test everything locally
 
 ### Week 3: Launch
+
 - [ ] Make repos public
 - [ ] Publish design-system to NPM
 - [ ] Deploy Storybook
@@ -851,6 +918,7 @@ This code of conduct is adapted from the [Contributor Covenant](https://www.cont
 - [ ] Submit to GitHub trending
 
 ### Week 4: Community
+
 - [ ] Respond to issues/PRs
 - [ ] Write first blog post
 - [ ] Share on Product Hunt
@@ -862,6 +930,7 @@ This code of conduct is adapted from the [Contributor Covenant](https://www.cont
 ## Part 13: Long-Term Vision
 
 ### Year 1 Goals
+
 - 1000+ combined GitHub stars
 - 5K+ design-system NPM downloads/month
 - 50+ contributors
@@ -869,6 +938,7 @@ This code of conduct is adapted from the [Contributor Covenant](https://www.cont
 - 100K+ organic reach on social media
 
 ### Year 2 Goals
+
 - Expand to 100+ components
 - Build ecosystem (plugins, extensions)
 - Host annual community conference
@@ -876,6 +946,7 @@ This code of conduct is adapted from the [Contributor Covenant](https://www.cont
 - Launch monetized services
 
 ### Year 3 Goals
+
 - 10K+ GitHub stars
 - 100K+ monthly downloads
 - Major companies using design system
@@ -914,7 +985,7 @@ This code of conduct is adapted from the [Contributor Covenant](https://www.cont
 
 **GitHub Organization:** github.com/mediabubble  
 **Email:** hello@mediabubble.co  
-**Twitter:** @mediabubbleio  
+**Twitter:** @mediabubbleio
 
 ---
 

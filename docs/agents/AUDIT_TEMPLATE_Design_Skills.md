@@ -1,10 +1,13 @@
 # AUDIT TEMPLATE: Arabic Design Skills
+
 **Task #3 - Complete this form with your current Arabic/Islamic design skills**
 
 ---
 
 ## Instructions
+
 List every Arabic or Islamic design skill in your system. Include:
+
 - Exact skill name (as it appears in system)
 - Brief description
 - Parent category (if any)
@@ -16,6 +19,7 @@ List every Arabic or Islamic design skill in your system. Include:
 ## Design Skills Inventory
 
 ### Skill #1
+
 **Exact Name:** [________________]  
 **Description:** [________________]  
 **Current Parent:** [None / Other: ________]  
@@ -27,6 +31,7 @@ List every Arabic or Islamic design skill in your system. Include:
 ---
 
 ### Skill #2
+
 **Exact Name:** [________________]  
 **Description:** [________________]  
 **Current Parent:** [None / Other: ________]  
@@ -38,6 +43,7 @@ List every Arabic or Islamic design skill in your system. Include:
 ---
 
 ### Skill #3
+
 **Exact Name:** [________________]  
 **Description:** [________________]  
 **Current Parent:** [None / Other: ________]  
@@ -49,6 +55,7 @@ List every Arabic or Islamic design skill in your system. Include:
 ---
 
 ### Skill #4
+
 **Exact Name:** [________________]  
 **Description:** [________________]  
 **Current Parent:** [None / Other: ________]  
@@ -60,6 +67,7 @@ List every Arabic or Islamic design skill in your system. Include:
 ---
 
 ### Skill #5
+
 **Exact Name:** [________________]  
 **Description:** [________________]  
 **Current Parent:** [None / Other: ________]  
@@ -71,6 +79,7 @@ List every Arabic or Islamic design skill in your system. Include:
 ---
 
 ### Skill #6
+
 **Exact Name:** [________________]  
 **Description:** [________________]  
 **Current Parent:** [None / Other: ________]  
@@ -82,8 +91,10 @@ List every Arabic or Islamic design skill in your system. Include:
 ---
 
 ## Summary
+
 **Total Design Skills Found:** [ ]  
 **By Category:**
+
 - Calligraphy: [ ]
 - Typography: [ ]
 - Visual Arts: [ ]
@@ -93,7 +104,7 @@ List every Arabic or Islamic design skill in your system. Include:
 - Other: [ ]
 
 **Orphaned (No Parent):** [ ]  
-**Potential Duplicates:** [ ]  
+**Potential Duplicates:** [ ]
 
 ---
 

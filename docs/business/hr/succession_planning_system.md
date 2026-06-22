@@ -1,4 +1,5 @@
 # MediaBubble Succession Planning System
+
 **Strategic Framework for Leadership Continuity & Talent Development**
 
 **Document Version:** 1.0  
@@ -25,6 +26,7 @@
 ### Purpose
 
 MediaBubble's Succession Planning System ensures:
+
 - **Leadership continuity** — no critical role leaves the organization without transition
 - **Talent development** — high-potential employees have clear advancement paths
 - **Risk mitigation** — identified successors ready for key positions
@@ -34,6 +36,7 @@ MediaBubble's Succession Planning System ensures:
 ### Scope
 
 Succession planning covers:
+
 - **Level 1: Executive Leadership** (CEO, Executive Team)
 - **Level 2: Department Leaders** (9 Department Managers + CFO/CTO if separate)
 - **Level 3: Senior Management** (Team Managers, QC Leads, Project Managers = 63 people)
@@ -45,6 +48,7 @@ Succession planning covers:
 Successors are developed and ready **before** they're needed, not recruited externally when position opens.
 
 **Dual-Track Support:**
+
 - **IC track:** Develop Level 4 specialists into Level 5 experts
 - **Management track:** Develop Team Managers into Department Managers and executives
 
@@ -54,30 +58,31 @@ Successors are developed and ready **before** they're needed, not recruited exte
 
 ### Level 1: Executive Roles
 
-| Role | Current Holder | Risk Level | Successor(s) | Timeline |
-|------|----------------|-----------|--------------|----------|
-| CEO | Dorgham | HIGH | 1–2 internal | 18–24 months |
-| COO | [TBD] | HIGH | 1–2 internal | 18–24 months |
-| CFO | [TBD] | MEDIUM | Finance Director | 12–18 months |
-| CTO | [TBD] | MEDIUM | Development Director | 12–18 months |
+| Role | Current Holder | Risk Level | Successor(s)         | Timeline     |
+| ---- | -------------- | ---------- | -------------------- | ------------ |
+| CEO  | Dorgham        | HIGH       | 1–2 internal         | 18–24 months |
+| COO  | [TBD]          | HIGH       | 1–2 internal         | 18–24 months |
+| CFO  | [TBD]          | MEDIUM     | Finance Director     | 12–18 months |
+| CTO  | [TBD]          | MEDIUM     | Development Director | 12–18 months |
 
 ---
 
 ### Level 2: Department Manager Roles
 
-| Department | Manager | Risk | Successors | Development |
-|-----------|---------|------|-----------|-------------|
-| Design | [Manager] | MEDIUM | 2–3 Senior Designers | 12–18 months |
-| Social Media | [Manager] | MEDIUM | 2–3 Team Managers | 12–18 months |
-| Development | [Manager] | HIGH | 2–3 Team Leads | 12–18 months |
-| Operations | [Manager] | MEDIUM | 2–3 Process/Systems Leads | 12–18 months |
-| Finance | [Manager] | HIGH | 2–3 Senior Accountants/FP&A | 12–18 months |
-| Marketing | [Manager] | MEDIUM | 2–3 Team Managers | 12–18 months |
-| Lead Generation | [Manager] | MEDIUM | 2–3 Team Managers | 12–18 months |
-| Media Buying | [Manager] | HIGH | 2–3 Specialist Leads | 12–18 months |
-| Sales | [Manager] | MEDIUM | 2–3 Senior Managers | 12–18 months |
+| Department      | Manager   | Risk   | Successors                  | Development  |
+| --------------- | --------- | ------ | --------------------------- | ------------ |
+| Design          | [Manager] | MEDIUM | 2–3 Senior Designers        | 12–18 months |
+| Social Media    | [Manager] | MEDIUM | 2–3 Team Managers           | 12–18 months |
+| Development     | [Manager] | HIGH   | 2–3 Team Leads              | 12–18 months |
+| Operations      | [Manager] | MEDIUM | 2–3 Process/Systems Leads   | 12–18 months |
+| Finance         | [Manager] | HIGH   | 2–3 Senior Accountants/FP&A | 12–18 months |
+| Marketing       | [Manager] | MEDIUM | 2–3 Team Managers           | 12–18 months |
+| Lead Generation | [Manager] | MEDIUM | 2–3 Team Managers           | 12–18 months |
+| Media Buying    | [Manager] | HIGH   | 2–3 Specialist Leads        | 12–18 months |
+| Sales           | [Manager] | MEDIUM | 2–3 Senior Managers         | 12–18 months |
 
 **Risk Assessment Criteria:**
+
 - **HIGH:** Critical expertise, no obvious internal replacement, complex role
 - **MEDIUM:** Important role, some internal bench, learnable position
 - **LOW:** Important but replaceable from current team
@@ -87,10 +92,12 @@ Successors are developed and ready **before** they're needed, not recruited exte
 ### Level 3: Senior Management Roles (Examples)
 
 **Design Department Senior Management:**
+
 - Design QC Lead (HIGH risk) → Successors: 2–3 Principal Designers
 - Design Team Managers (6 roles, MEDIUM) → Successors: Senior Designers
 
 **Development Department Senior Management:**
+
 - Development QC Lead (HIGH) → Successors: 2–3 Principal Engineers
 - Team Managers (6 roles, MEDIUM) → Successors: Senior Engineers
 
@@ -100,12 +107,12 @@ Successors are developed and ready **before** they're needed, not recruited exte
 
 ### Succession Readiness Levels
 
-| Level | Timeline | Development Status | Ready For | Actions |
-|-------|----------|------------------|-----------|---------|
-| **Ready Now** | 0–3 months | Can transition immediately | Can start role tomorrow | Shadowing only |
-| **Ready 6 Months** | 3–6 months | Needs some experience | Can start with 3–6 mo support | Stretch assignments + training |
-| **Ready 12 Months** | 6–12 months | Needs significant development | Can start with 12 mo support | Formal development plan + training |
-| **Emerging** | 12–24 months | Early-stage development | Can start in 12–24 months | Career path + foundational skills |
+| Level               | Timeline     | Development Status            | Ready For                     | Actions                            |
+| ------------------- | ------------ | ----------------------------- | ----------------------------- | ---------------------------------- |
+| **Ready Now**       | 0–3 months   | Can transition immediately    | Can start role tomorrow       | Shadowing only                     |
+| **Ready 6 Months**  | 3–6 months   | Needs some experience         | Can start with 3–6 mo support | Stretch assignments + training     |
+| **Ready 12 Months** | 6–12 months  | Needs significant development | Can start with 12 mo support  | Formal development plan + training |
+| **Emerging**        | 12–24 months | Early-stage development       | Can start in 12–24 months     | Career path + foundational skills  |
 
 ---
 
@@ -156,12 +163,14 @@ Successors are developed and ready **before** they're needed, not recruited exte
 ## **CEO SUCCESSION PLAN**
 
 ### Current Risk Assessment
+
 **Risk Level:** HIGH  
 **Criticality:** Organization-defining role  
 **Current Holder:** [Name], tenure [years]  
 **Succession Timeline:** 18–24 months development
 
 ### Successor Criteria
+
 - Level 4–5 in primary specialty
 - Demonstrated leadership of teams or major initiatives
 - Strategic thinking and business acumen
@@ -172,6 +181,7 @@ Successors are developed and ready **before** they're needed, not recruited exte
 ### Primary Successors
 
 **Successor 1: [Internal Option - Option A]**
+
 - Current Role: [Department Manager or COO]
 - Strengths: [Key capabilities], Strategic thinking, [Industry knowledge]
 - Development Needs: Broader P&L exposure, Board-level experience, [Specific gap]
@@ -185,6 +195,7 @@ Successors are developed and ready **before** they're needed, not recruited exte
 - Timeline to Ready: 18–24 months
 
 **Successor 2: [Internal Option - Option B]**
+
 - Current Role: [Department Manager]
 - Strengths: [Key capabilities], [Expertise]
 - Development Needs: [Gaps vs. CEO role requirements]
@@ -192,6 +203,7 @@ Successors are developed and ready **before** they're needed, not recruited exte
 - Timeline to Ready: 24–36 months
 
 **Backup: External Search Preparation**
+
 - If internal successors not ready: 6-month external search process
 - Candidate profile documented
 - Search firm relationship established
@@ -207,12 +219,14 @@ Successors are developed and ready **before** they're needed, not recruited exte
 **Primary Successors (Development):**
 
 **Successor 1: [Development Team Manager Name]**
+
 - Current Level: Senior Team Manager with 4–5 direct reports
 - Strengths: Technical credibility, team development, code review excellence
 - Gaps: P&L management, strategic planning, executive communication
 - Readiness: 12–18 months
 
 **Development Plan:**
+
 - Month 1–3: Expand team oversight (6–8 engineers vs. current 5)
 - Month 4–6: P&L responsibility for development budget
 - Month 7–12: Lead recruitment (hiring 3–5 engineers)
@@ -222,6 +236,7 @@ Successors are developed and ready **before** they're needed, not recruited exte
 **Mentorship:** Development Manager + CFO (P&L education)
 
 **Stretch Assignments:**
+
 - Lead architecture review for major system
 - Present technical strategy to board
 - Represent development in product strategy meetings
@@ -229,12 +244,14 @@ Successors are developed and ready **before** they're needed, not recruited exte
 ---
 
 **Successor 2: [Another Team Manager Name]**
+
 - Current Level: Team Manager, strong team builder
 - Strengths: Team development, hiring, culture building
 - Gaps: Technical depth, strategic architecture, executive exposure
 - Readiness: 18–24 months
 
 **Development Plan:**
+
 - Month 1–6: Deep technical training (advanced system architecture)
 - Month 7–12: Lead architecture initiative
 - Month 13–18: P&L management and strategic planning
@@ -249,14 +266,16 @@ Successors are developed and ready **before** they're needed, not recruited exte
 (Structure same as above for each of the 9 departments)
 
 **Finance Department Manager:**
+
 - Successor 1: [Senior FP&A Lead] — Ready in 12–18 months
 - Successor 2: [Senior Accountant] — Ready in 18–24 months
 
 **Sales Department Manager:**
+
 - Successor 1: [Senior Account Manager] — Ready in 12–18 months
 - Successor 2: [Sales Operations Manager] — Ready in 18–24 months
 
-*[Similar structure for remaining 7 departments]*
+_[Similar structure for remaining 7 departments]_
 
 ---
 
@@ -269,12 +288,14 @@ Successors are developed and ready **before** they're needed, not recruited exte
 **Primary Successors:**
 
 **Successor 1: [Principal Designer Name]**
+
 - Current Level: Level 4 Designer (Principal)
 - Strengths: Quality excellence, design system expertise, mentoring capability
 - Gaps: Full QC responsibility, multiple team oversight, metrics/analytics
 - Readiness: 6–12 months
 
 **Development Plan:**
+
 - Month 1–2: Shadow QC Lead (review processes, standards, metrics)
 - Month 3–4: Lead QC for 2 of 6 teams
 - Month 5–6: Full QC responsibility (ready for role)
@@ -285,6 +306,7 @@ Successors are developed and ready **before** they're needed, not recruited exte
 ---
 
 **Successor 2: [Senior Designer Name]**
+
 - Current Level: Level 3–4 Designer
 - Strengths: Design excellence, quality focus
 - Gaps: QC framework, metrics, process management
@@ -295,6 +317,7 @@ Successors are developed and ready **before** they're needed, not recruited exte
 ### QC Lead Succession Plans (All Departments)
 
 Each of the 9 QC Lead positions has:
+
 - Primary successor(s) identified
 - Development timeline (6–18 months)
 - Specific development plan
@@ -311,12 +334,14 @@ Each of the 9 QC Lead positions has:
 **Primary Successor:**
 
 **Successor 1: [Senior Web UI Designer Name]**
+
 - Current Level: Level 3–4 Designer
 - Strengths: Team respect, technical knowledge, mentoring
 - Gaps: Management training, P&L, project management
 - Readiness: 6–12 months
 
 **Development Plan:**
+
 - Month 1–2: Management fundamentals training
 - Month 3–6: Co-manage team with current manager
 - Month 7–9: Manage team with coaching support
@@ -329,6 +354,7 @@ Each of the 9 QC Lead positions has:
 ### All Team Manager Positions (63 total)
 
 Each team manager position (across 9 departments, 6–7 per department) has:
+
 - 1–2 identified successors
 - Timeline to readiness
 - Development plan
@@ -357,7 +383,7 @@ ASSESSMENT (Current Capability vs. Role Requirements)
 Technical Expertise
   Current: Level ____  Required: Level ____
   Gap: ____________________________
-  
+
 Leadership Capability
   Current: ______________________
   Required: ______________________
@@ -416,11 +442,11 @@ Primary Mentor: [Name], [Role]
   Focus: [Strategic, technical, leadership, etc.]
   Frequency: [Weekly/Bi-weekly/Monthly]
   Start Date: [Date]  End Date: [Date]
-  
+
 Secondary Mentor: [Name], [Role]
   Focus: [Specific area]
-  Frequency: 
-  
+  Frequency:
+
 External Coach: [Coach name], [Specialty]
   Start Date: [Date]  Duration: [# sessions]
   Focus: [Specific development area]
@@ -434,10 +460,10 @@ Assignment 1: ____________________________
   Start: [Month]  Duration: [Months]
   Learning Objectives: [What will they learn?]
   Success Criteria: [How will we know it's successful?]
-  
+
 Assignment 2: ____________________________
   [Same structure]
-  
+
 Assignment 3: ____________________________
   [Same structure]
 
@@ -449,17 +475,17 @@ Month 3 Checkpoint:
   [ ] Training completed: _______________
   [ ] Foundational skills demonstrated
   [ ] Mentor feedback positive: ___________
-  
+
 Month 6 Checkpoint:
   [ ] Applied learning demonstrated
   [ ] Expanded responsibility succeeding
   [ ] Gaps narrowing: __________________
-  
+
 Month 12 Checkpoint:
   [ ] Near-full capability demonstrated
   [ ] 360 feedback: ____________________
   [ ] Ready for transition assessment
-  
+
 Month 18 Checkpoint (if applicable):
   [ ] Full capability demonstrated
   [ ] Ready to assume role
@@ -513,7 +539,7 @@ Support During Transition:
 Known Challenges & Mitigation:
   Challenge: _______________________________
   Mitigation: ______________________________
-  
+
 Contingency:
   If successor struggles: [Support plan]
   If successor leaves: [Backup successor]
@@ -530,7 +556,7 @@ Progress Tracking:
   Reviewed: [Date]  Status: [ ] On Track [ ] At Risk [ ] Off Track
   Reviewed: [Date]  Status: [ ] On Track [ ] At Risk [ ] Off Track
   Reviewed: [Date]  Status: [ ] On Track [ ] At Risk [ ] Off Track
-  
+
 Final Readiness Assessment: _______________  Date: ________
 ```
 
@@ -541,16 +567,19 @@ Final Readiness Assessment: _______________  Date: ________
 ### Succession Trigger Events
 
 **Planned Transitions:**
+
 - **Retirement:** 6-month notice before planned retirement
 - **Promotion:** Successor ready to assume next-level role
 - **Career Change:** Employee decides to move to different area
 
 **Unplanned Transitions:**
+
 - **Unexpected Resignation:** Key person leaves
 - **Health/Emergency:** Medical leave or emergency absence
 - **Performance Issue:** Role fit or capability concerns
 
 **Response Time:**
+
 - **Planned:** 6 months minimum to identify and transition successor
 - **Unplanned:** 1–3 months to transition successor into role
 
@@ -600,15 +629,15 @@ Interim Role Staffing:
 
 ### Succession Planning Metrics
 
-| Metric | Target | Frequency |
-|--------|--------|-----------|
-| % of critical roles with identified successors | 100% | Quarterly |
-| % of successors on track with development | ≥80% | Monthly |
-| Average readiness timeline for successors | 12–18 months | Quarterly |
-| Time to fill role (internal vs. external) | <6 months (internal) | When role opens |
-| Development plan completion rate | ≥95% | Quarterly |
-| Internal promotion rate for leadership | ≥85% | Annually |
-| Successor retention (within 2 years of promotion) | ≥90% | Annually |
+| Metric                                            | Target               | Frequency       |
+| ------------------------------------------------- | -------------------- | --------------- |
+| % of critical roles with identified successors    | 100%                 | Quarterly       |
+| % of successors on track with development         | ≥80%                 | Monthly         |
+| Average readiness timeline for successors         | 12–18 months         | Quarterly       |
+| Time to fill role (internal vs. external)         | <6 months (internal) | When role opens |
+| Development plan completion rate                  | ≥95%                 | Quarterly       |
+| Internal promotion rate for leadership            | ≥85%                 | Annually        |
+| Successor retention (within 2 years of promotion) | ≥90%                 | Annually        |
 
 ---
 
@@ -617,6 +646,7 @@ Interim Role Staffing:
 **Timing:** Monthly or Quarterly with full review Quarterly
 
 **Participants:**
+
 - CEO / COO
 - HR Leader
 - Department Managers
@@ -645,6 +675,7 @@ Interim Role Staffing:
    - Resources or support needed
 
 **Documentation:**
+
 ```
 SUCCESSION REVIEW MEETING NOTES
 
@@ -683,6 +714,7 @@ Next Review: ____________
 **Scope:** Full succession plan reassessment
 
 **Process:**
+
 1. Review all successor development plans
 2. Assess readiness of all identified successors
 3. Update plans based on business strategy changes
@@ -698,15 +730,15 @@ Next Review: ____________
 
 ### Current Critical Roles Succession Status
 
-| Role | Current | Successor 1 | Successor 2 | Risk | Timeline |
-|------|---------|------------|-----------|------|----------|
-| CEO | [Name] | [Successor] | [Backup] | HIGH | 18–24 mo |
-| Development Manager | [Name] | [Successor] | [Backup] | HIGH | 12–18 mo |
-| Finance Manager | [Name] | [Successor] | [Backup] | HIGH | 12–18 mo |
-| Operations Manager | [Name] | [Successor] | [Backup] | MEDIUM | 12–18 mo |
-| Sales Manager | [Name] | [Successor] | [Backup] | MEDIUM | 12–18 mo |
-| Media Buying Manager | [Name] | [Successor] | [Backup] | HIGH | 12–18 mo |
-| [All roles] | | | | | |
+| Role                 | Current | Successor 1 | Successor 2 | Risk   | Timeline |
+| -------------------- | ------- | ----------- | ----------- | ------ | -------- |
+| CEO                  | [Name]  | [Successor] | [Backup]    | HIGH   | 18–24 mo |
+| Development Manager  | [Name]  | [Successor] | [Backup]    | HIGH   | 12–18 mo |
+| Finance Manager      | [Name]  | [Successor] | [Backup]    | HIGH   | 12–18 mo |
+| Operations Manager   | [Name]  | [Successor] | [Backup]    | MEDIUM | 12–18 mo |
+| Sales Manager        | [Name]  | [Successor] | [Backup]    | MEDIUM | 12–18 mo |
+| Media Buying Manager | [Name]  | [Successor] | [Backup]    | HIGH   | 12–18 mo |
+| [All roles]          |         |             |             |        |          |
 
 ---
 
@@ -728,4 +760,3 @@ Next Review: ____________
 **For:** MediaBubble Leadership & HR Team  
 **Status:** Ready for Implementation  
 **Version:** 1.0 — June 2026
-

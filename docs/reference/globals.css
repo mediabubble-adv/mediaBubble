@@ -50,11 +50,15 @@ Uncomment to import Google fonts if you want to use them in your project.
 
   --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
   --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-  --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
-  --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
-  --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 2px 4px -1px hsl(0 0% 0% / 0.10);
-  --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 4px 6px -1px hsl(0 0% 0% / 0.10);
-  --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 8px 10px -1px hsl(0 0% 0% / 0.10);
+  --shadow-sm:
+    0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+  --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+  --shadow-md:
+    0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
+  --shadow-lg:
+    0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+  --shadow-xl:
+    0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
   --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
 
   /* Shadcnblocks.com Colors */
@@ -235,10 +239,12 @@ Uncomment to import Google fonts if you want to use them in your project.
   --animate-marquee-vertical: marquee-vertical 25s linear infinite;
   --animate-slide-to-right: slide-to-right 3s linear infinite;
   --animate-slide-to-top: slide-to-top 3s linear infinite;
-  --animate-shimmer-slide: shimmer-slide var(--speed) ease-in-out infinite alternate;
+  --animate-shimmer-slide: shimmer-slide var(--speed) ease-in-out infinite
+    alternate;
   --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear;
   --animate-shine: shine var(--duration) infinite linear;
-  --animate-ripple: ripple var(--duration, 2s) ease calc(var(--i, 0) * 0.2s) infinite;
+  --animate-ripple: ripple var(--duration, 2s) ease calc(var(--i, 0) * 0.2s)
+    infinite;
   --animate-orbit: orbit calc(var(--duration) * 1s) linear infinite;
   --animate-meteor: meteor 5s linear infinite;
   --animate-line-shadow: line-shadow 15s linear infinite;
@@ -666,10 +672,13 @@ Uncomment to import Google fonts if you want to use them in your project.
 
   @keyframes orbit {
     0% {
-      transform: rotate(calc(var(--angle) * 1deg)) translateY(calc(var(--radius) * 1px)) rotate(calc(var(--angle) * -1deg));
+      transform: rotate(calc(var(--angle) * 1deg))
+        translateY(calc(var(--radius) * 1px)) rotate(calc(var(--angle) * -1deg));
     }
     100% {
-      transform: rotate(calc(var(--angle) * 1deg + 360deg)) translateY(calc(var(--radius) * 1px)) rotate(calc((var(--angle) * -1deg) - 360deg));
+      transform: rotate(calc(var(--angle) * 1deg + 360deg))
+        translateY(calc(var(--radius) * 1px))
+        rotate(calc((var(--angle) * -1deg) - 360deg));
     }
   }
 
@@ -764,10 +773,62 @@ Uncomment to import Google fonts if you want to use them in your project.
   body {
     @apply bg-background text-foreground;
   }
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-display);
   }
-  p, span, a, li, blockquote, cite, code, pre, small, strong, em, b, i, u, s, mark, del, ins, sub, sup, tt, var, dfn, abbr, acronym, q, cite, code, kbd, samp, time, address, big, cite, code, dfn, em, img, kbd, q, samp, small, strike, strong, sub, sup, tt, var {
+  p,
+  span,
+  a,
+  li,
+  blockquote,
+  cite,
+  code,
+  pre,
+  small,
+  strong,
+  em,
+  b,
+  i,
+  u,
+  s,
+  mark,
+  del,
+  ins,
+  sub,
+  sup,
+  tt,
+  var,
+  dfn,
+  abbr,
+  acronym,
+  q,
+  cite,
+  code,
+  kbd,
+  samp,
+  time,
+  address,
+  big,
+  cite,
+  code,
+  dfn,
+  em,
+  img,
+  kbd,
+  q,
+  samp,
+  small,
+  strike,
+  strong,
+  sub,
+  sup,
+  tt,
+  var {
     font-family: var(--font-text);
   }
   .maplibregl-popup-content {
@@ -807,7 +868,7 @@ Uncomment to import Google fonts if you want to use them in your project.
 /* helps prevent CLS when dialogs/modals lock scroll */
 body[data-scroll-locked] {
   margin-right: 0px !important; /* For LTR layout */
-  margin-left: 0px !important;  /* For RTL layout */
+  margin-left: 0px !important; /* For RTL layout */
   overflow: visible !important;
 }
 

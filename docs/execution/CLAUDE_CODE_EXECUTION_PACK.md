@@ -244,7 +244,7 @@ Let's go.
 
 ### Copy This Exactly
 
-```
+````
 GOAL: Consolidate 45 agents → 20 agents, build remaining Tier 2 skills
 
 CONTEXT:
@@ -414,17 +414,17 @@ master_agents:
     type: universal
     handles: [social, blog, video, email, ad, outreach, sequence, brief]
     from_consolidation: [Social Content Creator, Blog Outliner, Video Caption, Ad Copy]
-  
+
   - name: intelligence-analytics-engine
     ...
-  
+
   [5 master agents total]
 
 specialized_agents:
   - name: code-review-agent
     type: specialized
     department: development
-  
+
   [15 specialized agents total]
 
 dependencies:
@@ -435,10 +435,10 @@ testing_status:
   - syntax: ✓
   - references: ✓
   - claude_compatibility: ✓
-```
+````
 
-TASK 6: Update SKILLS_MANIFEST.yaml
-===================================
+# TASK 6: Update SKILLS_MANIFEST.yaml
+
 File: .opencode/skills/SKILLS_MANIFEST.yaml
 
 Registry of Tier 2 skills:
@@ -450,28 +450,31 @@ total_skills: 3
 tier_2_domain_experts:
   - name: arabic-language-master
     power: ⭐⭐⭐
-    provides: [translation, dialect_adaptation, cultural_checking, sentiment_analysis]
-    
+    provides:
+      [translation, dialect_adaptation, cultural_checking, sentiment_analysis]
+
   - name: design-system-master
     power: ⭐⭐⭐
-    provides: [critique, accessibility, cultural_validation, engagement_forecast]
-    
+    provides:
+      [critique, accessibility, cultural_validation, engagement_forecast]
+
   - name: brand-voice-enforcer
     power: ⭐⭐⭐
     provides: [compliance_checking, brand_alignment, consistency_validation]
 
 tier_3_orchestration:
   ready_for_phase_3: true
-  
+
 tier_4_adaptive:
   foundation_ready: true
 ```
 
-TASK 7: Create Integration Tests
-================================
+# TASK 7: Create Integration Tests
+
 Location: .opencode/testing/integration-tests/
 
 Create tests that verify:
+
 1. All 20 agents load without syntax errors
 2. All agent cross-references work
 3. All skills load without errors
@@ -479,20 +482,22 @@ Create tests that verify:
 5. Input/output schemas match
 6. Claude API compatibility verified
 
-TASK 8: Run Validation Suite
-============================
+# TASK 8: Run Validation Suite
+
 Execute all tests:
+
 1. test_agent_syntax.py → all 20 agents pass
 2. test_skill_syntax.py → all 3 skills pass
 3. test_claude_compatibility.py → 100% compliance
 4. test_cross_references.py → no broken links
 5. test_integration.py → agents ↔ skills work
 
-TASK 9: Create Phase 2 Summary
-=============================
+# TASK 9: Create Phase 2 Summary
+
 File: .opencode/PHASE_2_SUMMARY.md
 
 Document:
+
 - 45 → 20 consolidation complete
 - Master agents (5): full specs
 - Specialized agents (15): full specs
@@ -502,6 +507,7 @@ Document:
 
 DELIVERABLE:
 After execution, show:
+
 1. AGENTS_MANIFEST.yaml (complete registry)
 2. SKILLS_MANIFEST.yaml (complete registry)
 3. Test results (all passing)
@@ -509,6 +515,7 @@ After execution, show:
 5. Any issues encountered + fixes applied
 
 Let's go.
+
 ```
 
 ---
@@ -518,39 +525,44 @@ Let's go.
 ### Copy This Exactly
 
 ```
+
 GOAL: Refine agents (20→12), build Tier 3 orchestration skills, full integration
 
 CONTEXT:
+
 - Phase 1-2 complete (structure + 20 agents + Tier 2 skills ready)
 - Now refining agents and adding orchestration layer
 - Building orchestration skills that coordinate everything
 - TIMELINE: 3 weeks
 - Speed is critical
 
-TASK 1: Consolidate Specialized Agents (20→12)
-=============================================
+# TASK 1: Consolidate Specialized Agents (20→12)
+
 From 15 specialized agents, merge the 9 most similar:
 
 Analyze which can consolidate:
+
 - Real-time responders: Social Engagement + SMS + Client Comms → Social Response Agent
 - Analysis agents: Win/Loss + some analytics → Strategic Analysis Agent
 - [Others based on actual overlap]
 
 Result:
+
 - 5 master agents (unchanged)
 - 6 specialized agents (consolidated from 15)
 - Total: 11 agents
-- + 1 reserved = 12 agents
+- - 1 reserved = 12 agents
 
 For EACH consolidation:
+
 1. Review source agents
 2. Confirm no functionality loss
 3. Create consolidated YAML
 4. Update AGENTS_MANIFEST.yaml
 5. Test consolidation
 
-TASK 2: Build Arabic Brand Architect (Tier 3)
-============================================
+# TASK 2: Build Arabic Brand Architect (Tier 3)
+
 File: .opencode/skills/tier-3-orchestration/arabic-brand-architect/SKILL.md
 
 This is ORCHESTRATION SKILL #1
@@ -559,6 +571,7 @@ Purpose: Coordinates Arabic Language Master + Design Master + Brand Voice Enforc
 into unified Arabic brand identity
 
 Specification:
+
 1. Input:
    - brand_positioning: string
    - target_regions: [gcc, levant, maghreb]
@@ -589,8 +602,8 @@ Specification:
    - Remember what combinations worked
    - Suggest improvements based on past success
 
-TASK 3: Build Content Quality Manager (Tier 3)
-============================================
+# TASK 3: Build Content Quality Manager (Tier 3)
+
 File: .opencode/skills/tier-3-orchestration/content-quality-manager/SKILL.md
 
 This is ORCHESTRATION SKILL #2
@@ -598,6 +611,7 @@ This is ORCHESTRATION SKILL #2
 Purpose: Ensures content meets ALL standards simultaneously
 
 Orchestration Process:
+
 1. Content & Copy Engine → generates options
 2. Arabic Language Master → validates + cultural checks
 3. Design Master → ensures visual compliance
@@ -605,12 +619,14 @@ Orchestration Process:
 5. THIS SKILL → reconciles feedback, produces final
 
 Input:
+
 - content_type: "email|social|landing_page|video|document"
 - content_brief: string
 - quality_requirements: array
 - target_audience: string
 
 Output:
+
 - final_assets: [approved content]
 - quality_score: percentage (0-100)
 - ready_to_publish: boolean
@@ -618,28 +634,30 @@ Output:
 - revision_checklist: [if not ready]
 
 Coordination Logic:
+
 - Gather feedback from all skills
 - Identify conflicts
 - Resolve by quality priority
 - Output final assets or revision brief
 
-TASK 4: Update SKILLS_MANIFEST.yaml
-===================================
+# TASK 4: Update SKILLS_MANIFEST.yaml
+
 Add Tier 3 skills:
 
 ```yaml
 tier_3_orchestration:
   - name: arabic-brand-architect
     power: ⭐⭐⭐⭐
-    orchestrates: [arabic-language-master, design-system-master, brand-voice-enforcer]
-    
+    orchestrates:
+      [arabic-language-master, design-system-master, brand-voice-enforcer]
+
   - name: content-quality-manager
     power: ⭐⭐⭐⭐
     orchestrates: [all_agents, all_tier2_skills]
 ```
 
-TASK 5: Create Integration Architecture
-========================================
+# TASK 5: Create Integration Architecture
+
 File: .opencode/INTEGRATION_ARCHITECTURE.md
 
 Document how everything works together:
@@ -657,12 +675,13 @@ Final Output
 ```
 
 Examples for each content type:
+
 - Email: content-copy-engine → language master → design master → brand enforcer → quality manager
 - Social post: content-copy-engine → language master → brand enforcer → quality manager
 - Brand identity: No agent → language master → design master → brand enforcer → brand architect
 
-TASK 6: Create Agent-to-Skill Mapping
-=====================================
+# TASK 6: Create Agent-to-Skill Mapping
+
 File: .opencode/AGENT_SKILL_MAPPING.yaml
 
 Map which agents use which skills:
@@ -672,36 +691,38 @@ agents:
   content-copy-engine:
     uses_tier2: [arabic-language-master, brand-voice-enforcer]
     uses_tier3: [content-quality-manager]
-  
+
   intelligence-analytics-engine:
     uses_tier2: [brand-voice-enforcer]
     uses_tier3: [content-quality-manager]
-  
+
   [for each of 12 agents]
 ```
 
-TASK 7: Create Orchestration Tests
-=================================
+# TASK 7: Create Orchestration Tests
+
 Location: .opencode/testing/orchestration-tests/
 
 Test that:
+
 1. Tier 3 skills call Tier 2 skills correctly
 2. Orchestration skills resolve conflicts
 3. Agent → Skill2 → Skill3 pipeline works
 4. Final output quality meets standards
 5. Learning systems capture patterns
 
-TASK 8: Run Full Integration Suite
-==================================
+# TASK 8: Run Full Integration Suite
+
 Execute:
+
 1. All Phase 1-2 tests still passing ✓
 2. Agent consolidation tests → passing
 3. Orchestration tests → passing
 4. Integration tests → passing
 5. Claude compatibility → 100%
 
-TASK 9: Create Tier 4 Foundation
-===============================
+# TASK 9: Create Tier 4 Foundation
+
 File: .opencode/skills/tier-4-adaptive/FOUNDATION.md
 
 Set up structure (don't implement yet):
@@ -725,11 +746,12 @@ tier-4-adaptive/
         └── framework.md
 ```
 
-TASK 10: Create Phase 3 Summary
-===============================
+# TASK 10: Create Phase 3 Summary
+
 File: .opencode/PHASE_3_SUMMARY.md
 
 Document:
+
 - 20 → 12 agent consolidation complete
 - 6 master agents (optimized)
 - 6 specialized agents (refined)
@@ -742,6 +764,7 @@ Document:
 
 DELIVERABLE:
 After execution, show:
+
 1. Updated AGENTS_MANIFEST.yaml (12 agents)
 2. Updated SKILLS_MANIFEST.yaml (Tier 2-3)
 3. INTEGRATION_ARCHITECTURE.md (how it all works)
@@ -750,6 +773,7 @@ After execution, show:
 6. Phase 3 summary (ready for Phase 4)
 
 Let's go.
+
 ```
 
 ---
@@ -759,17 +783,19 @@ Let's go.
 ### Copy This Exactly
 
 ```
+
 GOAL: Implement Tier 4 adaptive skills with learning systems, prepare for exponential improvement
 
 CONTEXT:
+
 - Phases 1-3 complete (12 agents + Tier 2-3 skills fully working)
 - Now building learning systems that improve automatically
 - Setting up feedback loops and pattern tracking
 - TIMELINE: 4 weeks + ongoing
 - This is the foundation for exponential improvement
 
-TASK 1: Build Arabic Excellence Engine (Tier 4)
-=============================================
+# TASK 1: Build Arabic Excellence Engine (Tier 4)
+
 File: .opencode/skills/tier-4-adaptive/arabic-excellence-engine/SKILL.md
 
 Full implementation with learning:
@@ -813,6 +839,7 @@ Full implementation with learning:
    - Version 2.0: Self-optimizing recommendations
 
 Example:
+
 - Month 1: Egyptian email → 5% engagement
 - System tracks: This tone + emoji combo = 5%
 - Month 2: New Egyptian email (same tone/emoji) → 8.2%
@@ -822,8 +849,8 @@ Example:
 - Month 6: System now expertly predicts Egyptian preferences
   New requests hit 20%+ engagement immediately
 
-TASK 2: Build MediaBubble Style Guardian (Tier 4)
-================================================
+# TASK 2: Build MediaBubble Style Guardian (Tier 4)
+
 File: .opencode/skills/tier-4-adaptive/mediabubble-style-guardian/SKILL.md
 
 Full implementation with evolution tracking:
@@ -856,8 +883,8 @@ Full implementation with evolution tracking:
    - Version 1.2: Proactive recommendations
    - Version 2.0: Self-implementing improvements
 
-TASK 3: Implement Learning Loops
-===============================
+# TASK 3: Implement Learning Loops
+
 File: .opencode/skills/tier-4-adaptive/LEARNING_SYSTEM.md
 
 Technical architecture:
@@ -886,8 +913,8 @@ Technical architecture:
    - Improve predictions over time
    - Increase engagement rates monthly
 
-TASK 4: Create Feedback Collection System
-=========================================
+# TASK 4: Create Feedback Collection System
+
 File: .opencode/skills/tier-4-adaptive/FEEDBACK_COLLECTION.md
 
 How to gather learning data:
@@ -923,8 +950,8 @@ How to gather learning data:
    }
    ```
 
-TASK 5: Create Metrics Dashboard
-===============================
+# TASK 5: Create Metrics Dashboard
+
 File: .opencode/skills/tier-4-adaptive/METRICS_DASHBOARD.md
 
 What to track:
@@ -948,11 +975,12 @@ What to track:
    - 6-month trend
    - 12-month vision
 
-TASK 6: Create Test Suite for Tier 4
-====================================
+# TASK 6: Create Test Suite for Tier 4
+
 Location: .opencode/testing/adaptive-tests/
 
 Test:
+
 1. Learning system captures data correctly
 2. Pattern recognition works
 3. Feedback loops function
@@ -960,23 +988,26 @@ Test:
 5. Proactive recommendations trigger appropriately
 6. Brand evolution tracking accurate
 
-TASK 7: Create Tier 4 Documentation
-===================================
+# TASK 7: Create Tier 4 Documentation
+
 Files:
+
 - How learning systems work
 - How to interpret metrics
 - How to use proactive recommendations
 - How to trust predictions
 - What not to do (prevent gaming the system)
 
-TASK 8: Update ALL Manifests
-===========================
+# TASK 8: Update ALL Manifests
+
 Files:
+
 - AGENTS_MANIFEST.yaml → add learning status
 - SKILLS_MANIFEST.yaml → add Tier 4 skills
 - OVERALL_MANIFEST.yaml → complete overview
 
 Final status:
+
 ```
 AGENTS: 12 (fully optimized)
 SKILLS:
@@ -990,11 +1021,12 @@ TIMELINE: Week 10 foundation + ongoing improvement
 NEXT: Continuous evolution + exponential improvement
 ```
 
-TASK 9: Create Phase 4 Summary + Vision
-======================================
+# TASK 9: Create Phase 4 Summary + Vision
+
 File: .opencode/PHASE_4_SUMMARY.md
 
 Document:
+
 - Tier 4 skills complete
 - Learning systems active
 - Feedback loops established
@@ -1002,8 +1034,8 @@ Document:
 - Vision for exponential improvement
 - Roadmap for next 12 months
 
-TASK 10: Create Final Implementation Guide
-==========================================
+# TASK 10: Create Final Implementation Guide
+
 File: .opencode/IMPLEMENTATION_COMPLETE.md
 
 How to use the system now:
@@ -1034,6 +1066,7 @@ How to use the system now:
 
 DELIVERABLE:
 After execution, show:
+
 1. Complete Tier 4 skill specs (2 skills)
 2. Learning system architecture
 3. Feedback collection system
@@ -1045,6 +1078,7 @@ After execution, show:
 
 This is it. You now have maximum power skills that learn and improve.
 Let's go.
+
 ```
 
 ---
@@ -1142,3 +1176,4 @@ Let's go.
 
 **YOU'RE READY TO MOVE FAST. NO DELAYS. JUST EXECUTION.**
 
+```

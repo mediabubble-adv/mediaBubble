@@ -2,7 +2,7 @@
 
 **Purpose:** Single handoff document for AI assistants, collaborators, and future sessions.  
 **Owner:** Yasser Dorgham (yasser.dorgham@gmail.com)  
-**Last updated:** June 15, 2026  
+**Last updated:** June 22, 2026  
 **Repo:** [mediabubble-adv/mediaBubble](https://github.com/mediabubble-adv/mediaBubble) (private GitHub) — Nx monorepo: `web-eg`, `web-ae`, `brand` apps + shared packages
 
 > **How to use with other AI tools:** Upload or paste this file first. Then add `docs/website/README.md` for website work, `docs/getting-started/START_HERE.md` for OpenCode agents, or `docs/developing/Brand-Guidelines/BRAND_GUIDELINES_V2.0.md` for brand rules.
@@ -13,17 +13,18 @@
 
 MediaBubble is a **full-service marketing agency in Hurghada, Egypt** (est. 2015). This repo is the **digital platform workspace** — not just a single app:
 
-| Layer | What it is | Status |
-|-------|------------|--------|
-| **Marketing website (Egypt)** | `apps/web-eg` → mediabubble.co | Built — ~70% of planned v1 |
-| **Marketing website (UAE)** | `apps/web-ae` → mediabubble.ae (structural clone of EG) | Scaffolded — Khaliji i18n stub; content via pipeline |
-| **Brand guidelines app** | `apps/brand` → brand.mediabubble.co (root route, not `/brand`) | Built — feature-complete |
-| **Design system** | `packages/design-system` — UI primitives + Tailwind preset | Built — Rollup dist |
-| **Shared lib** | `packages/shared` — env, API clients, i18n factory | Built |
-| **Content pipeline** | `packages/content-pipeline` — UAE localization (`nx run content-pipeline:localize`) | Stub |
-| **Planning corpus** | Strategy, audits, roadmaps under `docs/` | Extensive — mostly planning, not all implemented |
-| **AI agent ecosystem** | Arabic-first OpenCode/Claude skills & agents | Specified — consolidation not finished |
-| **Business operations docs** | HR, finance, org, AI sales strategy | Documented — not code |
+| Layer                         | What it is                                                 | Status                                                           |
+| ----------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------------- |
+| **Marketing website (Egypt)** | `apps/web-eg` → mediabubble.co                             | Built — ~70% of planned v1                                       |
+| **Marketing website (UAE)**   | `apps/web-ae` → mediabubble.ae (structural clone of EG)    | Scaffolded — Khaliji i18n stub; content via pipeline             |
+| **Brand guidelines app**      | `apps/brand` → brand.mediabubble.co (root route)           | Built — feature-complete                                         |
+| **MediaBubble Launcher**      | `apps/launcher` → launcher.mediabubble.co                  | Phase 1 complete — team internal operations platform             |
+| **Design system**             | `packages/design-system` — UI primitives + Tailwind preset | Built — Rollup dist                                              |
+| **Shared lib**                | `packages/shared` — env, API clients, i18n factory         | Built                                                            |
+| **Content pipeline**          | `packages/content-pipeline` — UAE localization             | Stub                                                             |
+| **Planning corpus**           | Strategy, audits, roadmaps under `docs/`                   | Extensive — organized under docs/ launcher, website, brand, etc. |
+| **AI agent ecosystem**        | Arabic-first OpenCode/Claude skills & agents               | Specified — consolidation not finished                           |
+| **Business operations docs**  | HR, finance, org, AI sales strategy                        | Documented — not code                                            |
 
 **Production target:** Replace legacy WordPress/Elementor site with bilingual (English + Egyptian Arabic Masri), conversion-focused Next.js on Vercel, HubSpot CRM, GA4, optional AI chat agent.
 
@@ -69,13 +70,13 @@ MediaBubble is a **full-service marketing agency in Hurghada, Egypt** (est. 2015
 
 ### Rough completion vs plans
 
-| Plan | Scope | Est. complete |
-|------|--------|----------------|
-| Website Jun 2026 bundle | Conversions, menus, service architecture | ~55% |
-| Next.js app (audit roadmap) | Tokens, components, onboarding, a11y | ~40% |
-| 12-week website rebuild (business strategy) | Full marketing platform + AI | ~25% |
-| 52-week transformation (3 pillars) | Website + OSS + revenue | ~20% |
-| OpenCode agent consolidation | 10-week execution pack | ~5% (docs only) |
+| Plan                                        | Scope                                    | Est. complete   |
+| ------------------------------------------- | ---------------------------------------- | --------------- |
+| Website Jun 2026 bundle                     | Conversions, menus, service architecture | ~55%            |
+| Next.js app (audit roadmap)                 | Tokens, components, onboarding, a11y     | ~40%            |
+| 12-week website rebuild (business strategy) | Full marketing platform + AI             | ~25%            |
+| 52-week transformation (3 pillars)          | Website + OSS + revenue                  | ~20%            |
+| OpenCode agent consolidation                | 10-week execution pack                   | ~5% (docs only) |
 
 ---
 
@@ -94,7 +95,8 @@ mediabubble Main/
 ├── apps/
 │   ├── web-eg/               # Egypt marketing → mediabubble.co
 │   ├── web-ae/               # UAE marketing → mediabubble.ae
-│   └── brand/                # Brand guidelines → brand.mediabubble.co
+│   ├── brand/                # Brand guidelines → brand.mediabubble.co
+│   └── launcher/             # MediaBubble Launcher → launcher.mediabubble.co
 ├── packages/
 │   ├── design-system/        # @mediabubble/design-system
 │   ├── shared/               # @mediabubble/shared
@@ -104,13 +106,13 @@ mediabubble Main/
 
 ### Hidden / tooling folders (not app code)
 
-| Path | Purpose |
-|------|---------|
-| `.opencode/` | 14 Arabic-focused agent definitions + skills |
+| Path              | Purpose                                                         |
+| ----------------- | --------------------------------------------------------------- |
+| `.opencode/`      | 14 Arabic-focused agent definitions + skills                    |
 | `.claude/skills/` | 38 Claude Code skills (Arabic linguistics, design, Quran, etc.) |
-| `.kilocode/` | Secondary agent tooling config |
-| `.remember/` | Session memory logs (local) |
-| `node_modules/` | Dependencies |
+| `.kilocode/`      | Secondary agent tooling config                                  |
+| `.remember/`      | Session memory logs (local)                                     |
+| `node_modules/`   | Dependencies                                                    |
 
 ---
 
@@ -118,22 +120,23 @@ mediabubble Main/
 
 ### 4.1 Apps and domains
 
-| App | Path | Domain | Dev | Arabic locale |
-|-----|------|--------|-----|----------------|
-| `web-eg` | `apps/web-eg` | mediabubble.co | `npm run dev:eg` (:3000) | `ar-masri` |
-| `web-ae` | `apps/web-ae` | mediabubble.ae | `npm run dev:ae` (:3001) | `ar` (Khaliji stub) |
-| `brand` | `apps/brand` | brand.mediabubble.co | `npm run dev:brand` (:3002) | `ar-masri` |
+| App        | Path            | Domain                  | Dev                            | Arabic locale       |
+| ---------- | --------------- | ----------------------- | ------------------------------ | ------------------- |
+| `web-eg`   | `apps/web-eg`   | mediabubble.co          | `npm run dev:eg` (:3000)       | `ar-masri`          |
+| `web-ae`   | `apps/web-ae`   | mediabubble.ae          | `npm run dev:ae` (:3001)       | `ar` (Khaliji stub) |
+| `brand`    | `apps/brand`    | brand.mediabubble.co    | `npm run dev:brand` (:3002)    | `ar-masri`          |
+| `launcher` | `apps/launcher` | launcher.mediabubble.co | `npm run dev:launcher` (:3003) | —                   |
 
 Re-sync UAE structure after Egypt changes: `npx tsx scripts/clone-eg-to-ae.ts` then re-apply UAE metadata/i18n deltas in `apps/web-ae`.
 
 ### 4.2 Marketing routes (`apps/web-eg`, `apps/web-ae`)
 
-| Route | Notes |
-|-------|-------|
-| `/`, `/about`, `/services`, `/services/[slug]` | Marketing pages |
-| `/portfolio`, `/portfolio/[slug]`, `/blog`, `/blog/[slug]` | Content |
-| `/contact`, `/privacy`, `/terms`, `/cookies` | Conversion + legal |
-| `/api/contact`, `/api/hubspot` | Resend + HubSpot (via `@mediabubble/shared`) |
+| Route                                                      | Notes                                        |
+| ---------------------------------------------------------- | -------------------------------------------- |
+| `/`, `/about`, `/services`, `/services/[slug]`             | Marketing pages                              |
+| `/portfolio`, `/portfolio/[slug]`, `/blog`, `/blog/[slug]` | Content                                      |
+| `/contact`, `/privacy`, `/terms`, `/cookies`               | Conversion + legal                           |
+| `/api/contact`, `/api/hubspot`                             | Resend + HubSpot (via `@mediabubble/shared`) |
 
 **Service slugs:** `seo`, `ppc`, `social`, `branding`, `web`  
 **Portfolio slugs:** `coral-bay`, `red-sea-divers`, `aqua-sports`, `desert-rose`, `marina-view`, `hurghada-rentals`  
@@ -141,11 +144,11 @@ Re-sync UAE structure after Egypt changes: `npx tsx scripts/clone-eg-to-ae.ts` t
 
 ### 4.3 Packages
 
-| Package | Path | Exports |
-|---------|------|---------|
-| `@mediabubble/design-system` | `packages/design-system` | Button, Card, MasterSwatch, SectionHeader, `mbPreset` |
-| `@mediabubble/shared` | `packages/shared` | `client`, `server`, `csp-middleware`, hubspot/resend clients, env, rate-limit, ga4-events, i18n factory, `security-headers.cjs` |
-| `@mediabubble/content-pipeline` | `packages/content-pipeline` | `localizeForUAE`, `nx run content-pipeline:localize` |
+| Package                         | Path                        | Exports                                                                                                                         |
+| ------------------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `@mediabubble/design-system`    | `packages/design-system`    | Button, Card, MasterSwatch, SectionHeader, `mbPreset`                                                                           |
+| `@mediabubble/shared`           | `packages/shared`           | `client`, `server`, `csp-middleware`, hubspot/resend clients, env, rate-limit, ga4-events, i18n factory, `security-headers.cjs` |
+| `@mediabubble/content-pipeline` | `packages/content-pipeline` | `localizeForUAE`, `nx run content-pipeline:localize`                                                                            |
 
 **Module boundary:** packages must not import from `apps/*` (enforced in `.eslintrc.json`).
 
@@ -167,13 +170,13 @@ Each app (`web-eg`, `web-ae`, `brand`) has `middleware.ts` that:
 
 ### 4.6 Environment variables (`.env.example`)
 
-| Variable | Purpose |
-|----------|---------|
-| `NEXT_PUBLIC_SITE_URL` | Canonical site URL |
-| `NEXT_PUBLIC_GA4_ID` | Google Analytics 4 |
-| `RESEND_API_KEY` | Contact form email delivery |
-| `CONTACT_EMAIL` | Inbox for form submissions |
-| `HUBSPOT_API_KEY` | CRM contact upsert + newsletter |
+| Variable               | Purpose                         |
+| ---------------------- | ------------------------------- |
+| `NEXT_PUBLIC_SITE_URL` | Canonical site URL              |
+| `NEXT_PUBLIC_GA4_ID`   | Google Analytics 4              |
+| `RESEND_API_KEY`       | Contact form email delivery     |
+| `CONTACT_EMAIL`        | Inbox for form submissions      |
+| `HUBSPOT_API_KEY`      | CRM contact upsert + newsletter |
 
 ---
 
@@ -195,6 +198,35 @@ docs/
 │   ├── MENU_AND_CURSOR_EFFECTS.md
 │   ├── BEFORE_AFTER_COMPARISON.md
 │   └── QUICK_START_SUMMARY.md
+│
+├── launcher/                   # MediaBubble Launcher (internal ops)
+│   ├── LAUNCHER_COMPREHENSIVE_GUIDE.md # Consolidated guide containing all 26 docs
+│   ├── LAUNCHER_README.md      # Launcher readme & dashboard spec
+│   ├── LAUNCHER_PLAN_V2.md     # Single source of truth for Phase 1-2
+│   ├── LAUNCHER_ARCHITECTURE.md
+│   ├── WORKSPACE_ECOSYSTEM.md
+│   ├── ADVANCED_LAUNCHER_ORCHESTRATION.md
+│   ├── PROJECT_SUMMARY.md      # Monorepo app specs
+│   ├── LAUNCHER_DATABASE_SCHEMA.sql # Prisma schema
+│   └── (Checklists, roadmap visuals, technical pivot roadmaps)
+│
+├── opus/                       # OPUS autonomous marketing platform
+│   ├── README.md
+│   ├── product/                # PRD, delivery summary, who/pain/value
+│   ├── architecture/           # System design, scalability
+│   ├── development/            # Implementation guides by workstream
+│   ├── integrations/           # Meta, Google, HubSpot strategy
+│   ├── roadmap/                # 3-year plan
+│   ├── session/                # Planning session synthesis
+│   ├── RETHINK_CLEAN_ARCHITECTURE.md
+│   └── STRATEGIC_DECISION_ANALYSIS.md
+│
+├── tools/                      # Internal tool prototypes
+│   └── prompt-generator/       # Advanced Prompt Generator UI + integration guide
+│
+├── operations/                 # Deployment checklists, adoption frameworks
+│   ├── DEPLOYMENT_CHECKLIST.md
+│   └── ADOPTION_ACCOUNTABILITY_SYSTEM.md
 │
 ├── app/                        # Next.js app audits & implementation
 │   ├── MEDIABUBBLE_APP_AUDIT_REPORT.md
@@ -250,17 +282,17 @@ docs/
 │   ├── MASTER_ROADMAP.md
 │   ├── MASTER_DEVELOPMENT_PLAN.md
 │   ├── IMPLEMENTATION_CHECKLIST.md
-│   ├── PRODUCT.md
-│   ├── DESIGN.md
 │   ├── EXECUTIVE_SUMMARY.md
 │   ├── QUICK_ACTION_PLAN.md
 │   └── QUICK_REFERENCE.md
 │
-├── brand/                      # Brand audits & consistency roadmaps
+├── brand/                      # Brand audits, consistency, specs
 │   ├── BRAND_AUDIT_REPORT.md
 │   ├── BRAND_IMPROVEMENT_ROADMAP.md
 │   ├── Brand_Consistency_Implementation_Guide.md
-│   └── MediaBubble_Brand_Consistency_Audit.md
+│   ├── MediaBubble_Brand_Consistency_Audit.md
+│   ├── PRODUCT.md              # Brand guidelines product spec
+│   └── DESIGN.md               # Brand guidelines creative config
 │
 ├── business/                   # Business strategy, AI agents, HR, finance, marketing
 │   ├── strategy/               # 52-week strategy summaries
@@ -304,11 +336,13 @@ docs/
 **Goal:** High-converting bilingual marketing site.
 
 **Pillars:**
+
 1. Conversion optimization — newsletter modal, floating CTA, exit intent
 2. Scalable architecture — `ServicePageTemplate`, reusable components
 3. Modern UX — mega-menu, cursor effects, animations
 
 **Phases (6 weeks in docs):**
+
 - Phase 1 (weeks 1–2): Newsletter + popups + floating CTA — **partially in code**
 - Phase 2 (weeks 3–4): Mega-menu + cursor — **started**
 - Phase 3 (weeks 5–6): Service template rollout — **5 services done**
@@ -332,6 +366,7 @@ docs/
 **Goal:** WordPress agency → AI-powered open-source platform.
 
 **Three pillars:**
+
 1. Website rebuild (weeks 1–12)
 2. Open source launch — design-system NPM, website template, nezam (weeks 13–16)
 3. Revenue & community scaling (ongoing)
@@ -362,13 +397,13 @@ docs/
 
 ## 7. Brand & design system (quick reference)
 
-| Token | Value | Use |
-|-------|-------|-----|
-| Brand Yellow | `#FFC107` | CTAs, accents |
-| Brand Blue | `#2196F3` | Links, interactive |
+| Token            | Value                 | Use                |
+| ---------------- | --------------------- | ------------------ |
+| Brand Yellow     | `#FFC107`             | CTAs, accents      |
+| Brand Blue       | `#2196F3`             | Links, interactive |
 | Dark Blue / Navy | `#1565C0` / `#072A6B` | Headings, sidebars |
-| Deep Charcoal | `#0D0F12` | Dark surfaces |
-| Canvas | `#FAFAFA` | Page backgrounds |
+| Deep Charcoal    | `#0D0F12`             | Dark surfaces      |
+| Canvas           | `#FAFAFA`             | Page backgrounds   |
 
 **Fonts:** Inter (body), Poppins (display), Cairo (Arabic), JetBrains Mono (code)
 
@@ -395,7 +430,10 @@ npm install
 npm run dev:eg       # Egypt marketing → http://localhost:3000
 npm run dev:ae       # UAE marketing → http://localhost:3001
 npm run dev:brand    # Brand guidelines → http://localhost:3002
+npm run dev:launcher # MediaBubble Launcher → http://localhost:3003
 npm run build        # NX_DAEMON=false recommended: nx run-many -t build
+npm run db:migrate   # Run Prisma migrate for Launcher
+npm run db:seed      # Seed Launcher database
 npx nx graph         # Dependency graph
 npx tsx scripts/clone-eg-to-ae.ts
 npx nx run content-pipeline:localize
@@ -407,25 +445,26 @@ npx nx run content-pipeline:localize
 
 ## 10. Recommended reading order for AI assistants
 
-| If the task is… | Read first |
-|-----------------|------------|
-| Understand entire repo | **This file** (`docs/CONTEXT.md`) |
-| Website features / conversions | `docs/website/README.md` |
-| Fix or extend marketing site | `apps/web-eg/` (or `web-ae`) + `docs/app/COMPONENT_LIBRARY.md` |
-| Brand / colors / typography | `apps/brand/` + `docs/developing/Brand-Guidelines/BRAND_GUIDELINES_V2.0.md` |
-| Shared UI / tokens | `packages/design-system/` |
-| Service page content | `apps/web-eg/lib/services-data.ts` + `docs/website/SERVICE_PAGE_ARCHITECTURE.md` |
-| OpenCode / agents | `docs/getting-started/START_HERE.md` |
-| Business / revenue strategy | `docs/business/strategy/COMPLETE_STRATEGY_SUMMARY.md` |
-| AI chat agent (future) | `docs/business/ai-agents/AI_CHAT_AGENT_SPECIFICATION.md` |
-| HubSpot / contact form | `apps/web-eg/app/api/contact/route.ts`, `packages/shared`, `.env.example` |
+| If the task is…                | Read first                                                                       |
+| ------------------------------ | -------------------------------------------------------------------------------- |
+| Understand entire repo         | **This file** (`docs/CONTEXT.md`)                                                |
+| Website features / conversions | `docs/website/README.md`                                                         |
+| Fix or extend marketing site   | `apps/web-eg/` (or `web-ae`) + `docs/app/COMPONENT_LIBRARY.md`                   |
+| Brand / colors / typography    | `apps/brand/` + `docs/brand/PRODUCT.md`                                          |
+| Fix or extend Launcher app     | `apps/launcher/` + `docs/launcher/LAUNCHER_COMPREHENSIVE_GUIDE.md`               |
+| Shared UI / tokens             | `packages/design-system/`                                                        |
+| Service page content           | `apps/web-eg/lib/services-data.ts` + `docs/website/SERVICE_PAGE_ARCHITECTURE.md` |
+| OpenCode / agents              | `docs/getting-started/START_HERE.md`                                             |
+| Business / revenue strategy    | `docs/business/strategy/COMPLETE_STRATEGY_SUMMARY.md`                            |
+| AI chat agent (future)         | `docs/business/ai-agents/AI_CHAT_AGENT_SPECIFICATION.md`                         |
+| HubSpot / contact form         | `apps/web-eg/app/api/contact/route.ts`, `packages/shared`, `.env.example`        |
 
 ---
 
 ## 11. Known gaps & next priorities
 
-1. **Vercel** — create three projects (web-eg, web-ae, brand) with correct root directories
-2. **Fill `.env.local`** — GA4, Resend, HubSpot for production forms (per app / domain)
+1. **Vercel** — create four projects (web-eg, web-ae, brand, launcher) with correct root directories
+2. **Fill `.env.local`** — GA4, Resend, HubSpot, and Supabase database URLs for production (per app / domain)
 3. **UAE content** — run `content-pipeline:localize` with `OPENAI_API_KEY` for real Khaliji copy
 4. **Complete remaining service pages** — 10+ services in nav but only 5 in `services-data.ts`
 5. **Mega-menu** — per `MENU_AND_CURSOR_EFFECTS.md`
@@ -445,4 +484,4 @@ npx nx run content-pipeline:localize
 
 ---
 
-*End of context file. For doc index see `docs/README.md`. For app quick start see root `README.md`.*
+_End of context file. For doc index see `docs/README.md`. For app quick start see root `README.md`._

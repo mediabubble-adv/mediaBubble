@@ -12,6 +12,7 @@
 ### Day 1-2: File Setup (2 hours)
 
 - [ ] **Create folder structure**
+
   ```
   wp-content/themes/vault-child/
   ├── css/
@@ -67,7 +68,7 @@
 - [ ] **Fix Hero Background**
   - Remove white background color
   - Add custom CSS: `background-color: var(--color-dark-blue);`
-  
+
   OR in Elementor:
   - Advanced → Custom CSS
   - Paste: `.elementor-section { background-color: var(--color-dark-blue); }`
@@ -148,6 +149,7 @@
   - [ ] Footer CTA (if exists)
 
 **Button fixes:**
+
 - Primary CTAs → Yellow (#FFC107)
 - Secondary CTAs → Blue outline (#2196F3)
 - All buttons → 44px height minimum
@@ -180,6 +182,7 @@ Apply spacing grid to all sections:
   - Apply: `py-2xl` (64px top/bottom padding)
 
 **How to apply classes in Elementor:**
+
 1. Select section
 2. Go to Advanced
 3. Find "CSS Classes" field
@@ -206,6 +209,7 @@ Apply spacing grid to all sections:
   - Inverse text: #FFFFFF (white on dark backgrounds)
 
 **How to fix:**
+
 - Select text element
 - Go to Style
 - Set font size and color
@@ -277,16 +281,19 @@ Apply spacing grid to all sections:
 ## Files You'll Need
 
 ### 1. `design-tokens.css`
+
 - **Location:** `wp-content/themes/vault-child/css/design-tokens.css`
 - **What it is:** All CSS variables for colors, spacing, typography
 - **Provided:** ✅ (in your MediaBubble folder)
 
 ### 2. `functions.php` Updates
+
 - **Location:** `wp-content/themes/vault-child/functions.php`
 - **What to add:** Enqueue code from `functions.php-setup.txt`
 - **Provided:** ✅ (see functions.php-setup.txt)
 
 ### 3. Reference Documents
+
 - **Brand_Consistency_Implementation_Guide.md** - Step-by-step details
 - **MediaBubble_Brand_Consistency_Audit.md** - Full context & rationale
 - **IMPLEMENTATION_CHECKLIST_PHASE1.md** - This file!
@@ -296,6 +303,7 @@ Apply spacing grid to all sections:
 ## Quick Reference: CSS Classes
 
 ### Spacing Classes
+
 ```
 .py-lg    → 32px padding top/bottom
 .py-xl    → 48px padding top/bottom
@@ -306,6 +314,7 @@ Apply spacing grid to all sections:
 ```
 
 ### Button Classes
+
 ```
 .btn-primary    → Yellow button
 .btn-secondary  → Blue outline button
@@ -316,6 +325,7 @@ Apply spacing grid to all sections:
 ```
 
 ### Text Classes
+
 ```
 .text-h1        → 48px heading
 .text-h2        → 36px heading
@@ -326,6 +336,7 @@ Apply spacing grid to all sections:
 ```
 
 ### Section Classes
+
 ```
 .section        → Standard section with padding
 .section-dark   → Dark blue background + white text
@@ -337,7 +348,9 @@ Apply spacing grid to all sections:
 ## Common Issues & Fixes
 
 ### Issue: Buttons Still Gray After Changes
+
 **Solution:**
+
 1. Verify functions.php was updated
 2. Clear browser cache (Cmd+Shift+R)
 3. Clear WordPress cache if using cache plugin
@@ -345,14 +358,18 @@ Apply spacing grid to all sections:
 5. Remove any Elementor inline button color styles
 
 ### Issue: Spacing Doesn't Look Right
+
 **Solution:**
+
 1. Make sure you're using correct class names (.py-xl not .padding-xl)
 2. Remove any Elementor custom padding on the section
 3. Check mobile breakpoints (may be different on mobile)
 4. Verify CSS classes are applied to correct element (section, not column)
 
 ### Issue: Hero Background Still White
+
 **Solution:**
+
 1. Select hero section
 2. Remove any background color in Elementor style panel
 3. Add CSS class: `section-dark`
@@ -360,7 +377,9 @@ Apply spacing grid to all sections:
 5. Clear cache and refresh
 
 ### Issue: Colors Don't Match Brand Palette
+
 **Solution:**
+
 1. Check that design-tokens.css is loaded (view page source)
 2. Don't use custom colors in Elementor (use global palette)
 3. Always pick "Primary Yellow" for CTAs, not custom color
@@ -372,31 +391,31 @@ Apply spacing grid to all sections:
 
 After Phase 1, you should see:
 
-| Metric | Before | After |
-|--------|--------|-------|
-| Color consistency | ~30% | >90% |
-| Button appearance | Varied | Consistent (all yellow) |
-| Spacing consistency | Ad-hoc | Grid-based (8px multiples) |
-| Time to edit page | 4 hours | 1.5 hours |
-| Brand feel | Scattered | Cohesive |
+| Metric              | Before    | After                      |
+| ------------------- | --------- | -------------------------- |
+| Color consistency   | ~30%      | >90%                       |
+| Button appearance   | Varied    | Consistent (all yellow)    |
+| Spacing consistency | Ad-hoc    | Grid-based (8px multiples) |
+| Time to edit page   | 4 hours   | 1.5 hours                  |
+| Brand feel          | Scattered | Cohesive                   |
 
 ---
 
 ## Budget Breakdown
 
-| Task | Hours | Cost (@$75/hr) |
-|------|-------|----------------|
-| Setup & configuration | 4 | $300 |
-| Homepage fixes | 3 | $225 |
-| Services section | 2 | $150 |
-| Button fixes site-wide | 2 | $150 |
-| Spacing fixes | 3 | $225 |
-| Typography | 2 | $150 |
-| Testing & QA | 1.5 | $112.50 |
-| Team handoff | 1.5 | $112.50 |
-| **TOTAL** | **16 hours** | **$1,425** |
+| Task                   | Hours        | Cost (@$75/hr) |
+| ---------------------- | ------------ | -------------- |
+| Setup & configuration  | 4            | $300           |
+| Homepage fixes         | 3            | $225           |
+| Services section       | 2            | $150           |
+| Button fixes site-wide | 2            | $150           |
+| Spacing fixes          | 3            | $225           |
+| Typography             | 2            | $150           |
+| Testing & QA           | 1.5          | $112.50        |
+| Team handoff           | 1.5          | $112.50        |
+| **TOTAL**              | **16 hours** | **$1,425**     |
 
-*If doing in-house, adjust hourly rate accordingly*
+_If doing in-house, adjust hourly rate accordingly_
 
 ---
 
@@ -405,6 +424,7 @@ After Phase 1, you should see:
 ✅ Phase 1 Complete (2 weeks) → 70% brand improvement
 
 **Then move to Phase 2:**
+
 - Finalize design tokens documentation
 - Create Storybook for component library
 - Document for team
@@ -417,6 +437,7 @@ After Phase 1, you should see:
 ## Questions?
 
 Refer to:
+
 1. **brand_consistency_implementation_guide.md** - Details for each task
 2. **mediabubble_brand_consistency_audit.md** - Why each change matters
 3. **design-tokens.css** - All token definitions

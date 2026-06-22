@@ -1,4 +1,5 @@
 # MediaBubble Career Development Program
+
 **Employee Communication & Rollout Plan**
 
 **Document Version:** 1.0  
@@ -15,6 +16,7 @@
 MediaBubble is launching a comprehensive **Career Development Program** designed to help every employee grow, advance, and succeed.
 
 **In Simple Terms:**
+
 - Clear paths for advancement (specialist expertise OR management)
 - Training and development tailored to your role and goals
 - Fair assessment of your skills and potential
@@ -25,6 +27,7 @@ MediaBubble is launching a comprehensive **Career Development Program** designed
 ### Why Now?
 
 As we grow, we want to ensure:
+
 1. **You have a clear career path** — know where you can go and what's needed
 2. **You get the support to grow** — training, mentoring, and stretch assignments
 3. **Growth happens from within** — we promote and develop our own people
@@ -40,7 +43,7 @@ As we grow, we want to ensure:
 ✅ **Mentorship & Support** — Access to senior people who invest in your growth  
 ✅ **Fair Assessment** — Objective evaluation of your skills and potential  
 ✅ **Recognition** — Advancement tied to demonstrated skill and capability  
-✅ **Investment in You** — MediaBubble spending $675K–$1M on training this year  
+✅ **Investment in You** — MediaBubble spending $675K–$1M on training this year
 
 ---
 
@@ -55,9 +58,11 @@ MediaBubble offers **two distinct career paths** — both are valued, both lead 
 ---
 
 ### **PATH 1: THE EXPERT ROUTE**
-*For people who love their craft and want to become world-class*
+
+_For people who love their craft and want to become world-class_
 
 **You'll Be:**
+
 - Deepening expertise in your specialty
 - Solving complex, interesting problems
 - Mentoring others in your craft
@@ -65,6 +70,7 @@ MediaBubble offers **two distinct career paths** — both are valued, both lead 
 - Recognized as the expert people turn to
 
 **Career Progression:**
+
 ```
 Level 1: Junior/Foundational
     ↓ (6 months)
@@ -78,6 +84,7 @@ Level 5: Expert/Distinguished Specialist
 ```
 
 **What Success Looks Like at Level 5:**
+
 - People come to you for guidance and expertise
 - You're the go-to person in your field
 - You mentor multiple people across the organization
@@ -86,6 +93,7 @@ Level 5: Expert/Distinguished Specialist
 - You're recognized as an expert both internally and possibly externally
 
 **Compensation Range:**
+
 - Level 1: $2,500–$3,500/month
 - Level 2: $3,500–$5,000/month
 - Level 3: $5,000–$7,000/month
@@ -96,6 +104,7 @@ Level 5: Expert/Distinguished Specialist
 You never have to manage people unless you want to. You can stay hands-on in your craft and still reach the highest levels.
 
 **Examples of Level 5 Experts:**
+
 - Principal designer setting design system standards across organization
 - Lead engineer designing platform architecture
 - Expert video creator building organizational strategy and mentoring team
@@ -104,9 +113,11 @@ You never have to manage people unless you want to. You can stay hands-on in you
 ---
 
 ### **PATH 2: THE LEADERSHIP ROUTE**
-*For people who love building teams and driving organizational success*
+
+_For people who love building teams and driving organizational success_
 
 **You'll Be:**
+
 - Building and developing teams
 - Managing projects and people
 - Driving organizational change
@@ -126,6 +137,7 @@ Executive / VP (Strategic Role)
 ```
 
 **What Success Looks Like:**
+
 - Your team is high-performing and growing
 - You're developing the next generation of leaders
 - You drive organizational change and strategy
@@ -134,12 +146,14 @@ Executive / VP (Strategic Role)
 - You're on track to VP or executive roles
 
 **Compensation Range:**
+
 - Team Manager: $5,000–$7,500/month
 - Senior Manager: $7,500–$10,000/month
 - Department Manager: $15,000–$18,000/month
 - Director/VP: $18,000–$25,000+/month
 
 **Examples of Leadership Success:**
+
 - Design Team Manager leading 5–6 designers + mentoring growth
 - Development Manager overseeing 6 team leads + 45 engineers
 - Sales Director driving revenue growth through team of managers
@@ -150,6 +164,7 @@ Executive / VP (Strategic Role)
 ### **Which Path Is Right For You?**
 
 **Choose the Expert Path if you:**
+
 - Love your craft and want to master it deeply
 - Prefer hands-on work over managing people
 - Want to be the go-to expert in your field
@@ -157,6 +172,7 @@ Executive / VP (Strategic Role)
 - Are motivated by technical challenges and growth
 
 **Choose the Leadership Path if you:**
+
 - Enjoy building and developing teams
 - Want to drive organizational change
 - Are motivated by growth of others and business results
@@ -174,9 +190,11 @@ Executive / VP (Strategic Role)
 ### Three Key Components
 
 #### **1. Skills Assessment**
+
 We'll assess your current skill level fairly and objectively.
 
 **What This Means:**
+
 - You'll do a self-assessment (30 min) — your perspective on your skills
 - Your manager will assess you (1–2 hours) — based on your actual work
 - We'll collect feedback from peers (optional) — what others see
@@ -189,9 +207,10 @@ We'll assess your current skill level fairly and objectively.
 ✅ Fair — based on evidence and examples, not opinions  
 ✅ Objective — using rubric everyone follows  
 ✅ Actionable — leads to a development plan  
-✅ Not Final — levels change as you develop  
+✅ Not Final — levels change as you develop
 
 **You Get:**
+
 - Clear understanding of your current level
 - Honest feedback on gaps vs. next level
 - Specific examples of what you do well
@@ -200,37 +219,44 @@ We'll assess your current skill level fairly and objectively.
 ---
 
 #### **2. Training & Development**
+
 You'll get training and support tailored to your path and goals.
 
 **What's Available:**
 
 **Onboarding Training** (3–4 weeks for new hires)
+
 - Foundational skills for your role
 - Tools and systems
 - Company culture and processes
 
 **Specialization Modules** (Ongoing, 4–16 weeks each)
+
 - Deep training in your specialty
 - For each level: what to learn, projects to do, skills to develop
 - Monthly or quarterly depending on your specialty
 
 **Leadership Training** (If you're on the leadership path)
+
 - Team management fundamentals
 - Performance management and coaching
 - Strategic thinking and business acumen
 
 **Mentorship** (Paired with experienced person)
+
 - 1–2 people focused on your development
 - Regular meetings (weekly or bi-weekly)
 - Guidance and feedback
 
 **Stretch Assignments**
+
 - Projects that push you to grow
 - Working with senior people
 - Leading initiatives
 - Cross-functional work
 
 **Time Commitment:**
+
 - Expect 2–5 hours per week on training and development
 - Most happens on job (not classroom training)
 - Your manager will work with you to balance training + delivery
@@ -241,15 +267,18 @@ $0 — MediaBubble covers all training costs
 ---
 
 #### **3. Career Conversations**
+
 Regular conversations with your manager about your growth and path.
 
 **What Happens:**
+
 - **Month 3:** Initial career conversation — which path interests you?
 - **Every Quarter:** Check-in on progress toward your goals
 - **Every 6 Months:** Formal skill level review and development plan update
 - **Annually:** Career planning conversation — promotion readiness?
 
 **What Your Manager Will Ask:**
+
 - How's your work going? What are you proud of?
 - Are you growing and learning?
 - What would help you develop further?
@@ -257,6 +286,7 @@ Regular conversations with your manager about your growth and path.
 - What support do you need from me?
 
 **What You Should Bring:**
+
 - Your honest perspective on your development
 - Your career interests and goals
 - Questions or concerns
@@ -271,7 +301,7 @@ Regular conversations with your manager about your growth and path.
 ### Everyone Starts Here
 
 **Level 1: Junior / Foundational**
-*You're new to the role or new to MediaBubble*
+_You're new to the role or new to MediaBubble_
 
 - Learning fundamentals
 - Work with supervision and guidance
@@ -282,6 +312,7 @@ Regular conversations with your manager about your growth and path.
 **Typical Timeline:** 0–3 months (new hire) or 3–6 months (role change)
 
 **What You Should Do:**
+
 - Ask questions (lots of them)
 - Get feedback and implement it
 - Complete training modules
@@ -290,7 +321,7 @@ Regular conversations with your manager about your growth and path.
 ---
 
 **Level 2: Specialist / Competent**
-*You've got the basics down and can work independently on standard tasks*
+_You've got the basics down and can work independently on standard tasks_
 
 - Doing your job independently most of the time
 - Following best practices
@@ -301,6 +332,7 @@ Regular conversations with your manager about your growth and path.
 **Typical Timeline:** 3–12 months in role
 
 **What You Should Do:**
+
 - Expand your skills beyond the basics
 - Mentor newer people informally
 - Take on more complex projects
@@ -309,7 +341,7 @@ Regular conversations with your manager about your growth and path.
 ---
 
 **Level 3: Senior Specialist / Advanced**
-*You're really good at what you do and people respect your expertise*
+_You're really good at what you do and people respect your expertise_
 
 - Expert in your specialty
 - Handling complex, non-standard work
@@ -320,6 +352,7 @@ Regular conversations with your manager about your growth and path.
 **Typical Timeline:** 1–2 years in role (or demonstrated mastery)
 
 **What You Should Do:**
+
 - Consider your next step: deeper expertise (Level 4–5) or move to leadership?
 - Mentor others formally
 - Contribute to standards and processes
@@ -328,7 +361,7 @@ Regular conversations with your manager about your growth and path.
 ---
 
 **Level 4: Principal / Lead Specialist**
-*You're an expert people turn to. You're approaching world-class in your field.*
+_You're an expert people turn to. You're approaching world-class in your field._
 
 - Rare, deep expertise
 - Handling strategic and complex work
@@ -339,6 +372,7 @@ Regular conversations with your manager about your growth and path.
 **Typical Timeline:** 2–4 years in role (or demonstrated mastery)
 
 **What You Should Do:**
+
 - Build thought leadership and visibility
 - Mentor 3–5 people
 - Contribute to organizational strategy
@@ -347,7 +381,7 @@ Regular conversations with your manager about your growth and path.
 ---
 
 **Level 5: Expert / Distinguished Specialist**
-*You're world-class. You're recognized as the authority in your field.*
+_You're world-class. You're recognized as the authority in your field._
 
 - World-class expertise
 - Thought leader (internally and possibly externally)
@@ -358,6 +392,7 @@ Regular conversations with your manager about your growth and path.
 **Typical Timeline:** 4+ years of deep mastery
 
 **What You Should Do:**
+
 - Consider external visibility (speaking, publishing, industry contributions)
 - Mentor emerging leaders
 - Keep pushing innovation
@@ -370,13 +405,16 @@ Regular conversations with your manager about your growth and path.
 ## SECTION 5: WHAT TO EXPECT IN MONTHS 1–6
 
 ### Month 1: Program Launch & Manager Training
+
 **What Happens:**
+
 - CEO/leadership announces program
 - Managers get trained on how to assess and develop people
 - Communication materials sent to all employees
 - Excitement / skepticism ("Is this real?")
 
 **What You Do:**
+
 - Read this communication
 - Ask your manager questions
 - Think about your career path (Expert or Leadership?)
@@ -384,12 +422,15 @@ Regular conversations with your manager about your growth and path.
 ---
 
 ### Month 2: Self-Assessment & Initial Conversations
+
 **What Happens:**
+
 - You complete a self-assessment (30 minutes)
 - You talk with your manager about your career path preference
 - Initial development plans start forming
 
 **What You Do:**
+
 - Complete self-assessment honestly
 - Reflect on where you want to go (Expert path or Leadership path?)
 - Have honest conversation with manager
@@ -399,13 +440,16 @@ Regular conversations with your manager about your growth and path.
 ---
 
 ### Month 3: Manager Assessment & Feedback
+
 **What Happens:**
+
 - Your manager formally assesses your current skill level
 - You get feedback on your assessment
 - Peer feedback collected
 - Portfolio reviewed
 
 **What You Do:**
+
 - Prepare examples of recent work
 - Reflect on feedback
 - Start to see a picture of your current level
@@ -415,24 +459,30 @@ Regular conversations with your manager about your growth and path.
 ---
 
 ### Month 4: Calibration & Validation
+
 **What Happens:**
+
 - Department leads meet to ensure fair assessment
 - Your level is validated
 - Small adjustments if needed
 
 **What You Do:**
+
 - Nothing specific (happens behind the scenes)
 - Your manager may follow up with clarifications
 
 ---
 
 ### Month 5: Development Plans Created
+
 **What Happens:**
+
 - Based on your assessment, a personalized development plan is created
 - Your path is clear: here's your current level, here's what you need to get to the next level
 - You know what training, mentoring, and experiences await
 
 **What You Do:**
+
 - Review development plan with manager
 - Ask questions
 - Get excited about your path forward
@@ -442,13 +492,16 @@ Regular conversations with your manager about your growth and path.
 ---
 
 ### Month 6+: Development Begins
+
 **What Happens:**
+
 - Training modules start
 - Mentorship relationships begin
 - Stretch assignments assigned
 - Progress reviews begin
 
 **What You Do:**
+
 - Engage in training
 - Take advantage of mentorship
 - Lean into stretch assignments
@@ -467,11 +520,13 @@ We're investing **$675,000–$1,060,000 per year** in training and development.
 **That breaks down to:**
 
 Per Employee (Average): $2,300–$3,700/year
+
 - Specialist: $2,500–$4,000/year
 - Manager: $5,000–$7,500/year
 - Senior Manager: $7,500–$10,000/year
 
 **What This Includes:**
+
 - Training modules and courses
 - Mentorship and coaching time
 - External certifications (if relevant)
@@ -479,6 +534,7 @@ Per Employee (Average): $2,300–$3,700/year
 - Manager training on how to develop people
 
 **Our ROI Expectation:**
+
 - 50%+ of specialist advance at least one skill level per year
 - 85%+ of leadership roles filled from within (vs. external hire)
 - 95%+ retention of high performers (vs. current baseline)
@@ -494,42 +550,51 @@ We're betting on you. We believe that investing in your growth is the best inves
 ## SECTION 7: FREQUENTLY ASKED QUESTIONS
 
 ### **Q: Is this mandatory? Do I have to participate?**
+
 A: Yes, this program applies to all 287 employees. Everyone gets assessed and a development plan. But the program is designed to support you, not burden you. You choose your path (Expert or Leadership), and we support it.
 
 ---
 
 ### **Q: What if I'm happy where I am? Do I have to advance?**
+
 A: No. If you're Level 2 and happy being a solid specialist, that's great. You don't have to advance. But we'll still support you in getting better at what you do.
 
 ---
 
 ### **Q: What if I don't agree with my assessment?**
+
 A: Your assessment is based on evidence and examples, not opinion. If you disagree, talk to your manager. Ask specifically what evidence they're using and what you need to do differently. The assessment is fair, but conversations happen.
 
 ---
 
 ### **Q: Will this affect my pay?**
+
 A: Development plans don't automatically change your pay. But as you advance levels and demonstrate new capability, you'll be eligible for promotions and raises. It's connected, but not automatic.
 
 ---
 
 ### **Q: How much time will this take?**
+
 A: Expect 2–5 hours per week on training and development. Most of it happens on the job (not separate training). We'll work with you to balance training + delivery.
 
 ---
 
 ### **Q: What if I want to switch paths later?**
+
 A: You can. Many people start as specialists, get experience, and move to leadership (or vice versa). The paths aren't locked in.
 
 ---
 
 ### **Q: What if my manager isn't supportive?**
+
 A: Talk to HR. Your development is important and your manager's support is critical. If there's a mismatch, we'll address it.
 
 ---
 
 ### **Q: How is this different from what we had before?**
+
 A: This program is:
+
 - **Structured** — clear levels and criteria
 - **Fair** — objective assessment, not opinions
 - **Supported** — training, mentoring, and resources
@@ -539,6 +604,7 @@ A: This program is:
 ---
 
 ### **Q: What happens if I leave the company?**
+
 A: The skills are yours to keep. This training benefits your career. We hope you'll have a great experience and stay with MediaBubble!
 
 ---
@@ -550,29 +616,35 @@ A: The skills are yours to keep. This training benefits your career. We hope you
 ### What Happens When
 
 **WEEK 1 (This Week):**
+
 - Leadership announces program
 - This communication sent to all employees
 - Managers briefed on timeline
 
 **WEEKS 2–4 (Month 1):**
+
 - Managers complete training on assessment process
 - You can ask questions via [email] or [Slack channel]
 
 **MONTH 2:**
+
 - Self-assessment sent to all employees
 - Complete self-assessment (30 minutes)
 - Initial manager conversation about your path
 
 **MONTH 3–4:**
+
 - Manager assessment and feedback
 - Peer feedback collection
 - Work portfolio review
 
 **MONTH 5:**
+
 - Development plans finalized
 - You receive official assessment and plan
 
 **MONTH 6+:**
+
 - Training begins
 - Mentorship starts
 - Development journey begins
@@ -582,6 +654,7 @@ A: The skills are yours to keep. This training benefits your career. We hope you
 ### Your First Action
 
 **This Month:**
+
 1. Read this communication (you're doing it!)
 2. Think about which path interests you (Expert or Leadership?)
 3. Schedule time with your manager to discuss
@@ -596,15 +669,18 @@ A: The skills are yours to keep. This training benefits your career. We hope you
 ### Who To Talk To
 
 **Questions About Program:**
+
 - Email: [hr@mediabubble.co]
 - Slack: [#career-development] channel
 - Your Manager: Always a good first resource
 
 **Questions About Your Assessment:**
+
 - Your Manager: Direct conversation
 - HR: If you want a neutral party perspective
 
 **Questions About Your Development Plan:**
+
 - Your Manager: Your primary supporter
 - Your Mentor: Once assigned
 
@@ -612,11 +688,11 @@ A: The skills are yours to keep. This training benefits your career. We hope you
 
 ### Resources Available
 
-- **[Career Path Guide](link):** Detailed guide to each path
-- **[Level Descriptions](link):** Full descriptions of Levels 1–5
-- **[Training Module Catalog](link):** What training is available
-- **[FAQ Document](link):** More detailed answers to common questions
-- **[Mentorship Information](link):** How mentorship works
+- **[Career Path Guide](#):** Detailed guide to each path
+- **[Level Descriptions](#):** Full descriptions of Levels 1–5
+- **[Training Module Catalog](#):** What training is available
+- **[FAQ Document](#):** More detailed answers to common questions
+- **[Mentorship Information](#):** How mentorship works
 
 ---
 
@@ -629,16 +705,19 @@ A: The skills are yours to keep. This training benefits your career. We hope you
 MediaBubble is building something special. Part of that is:
 
 **Taking Care of Our People**
+
 - We want you to grow and succeed
 - We want you to feel supported
 - We want you to have clear paths forward
 
 **Building Organizational Strength**
+
 - We develop the next generation of leaders internally
 - We build expertise and institutional knowledge
 - We create a culture of continuous improvement
 
 **Investing in the Future**
+
 - We're not waiting for people to leave to grow
 - We're developing people proactively
 - We're building a bench of talent
@@ -648,6 +727,7 @@ MediaBubble is building something special. Part of that is:
 ### What Success Looks Like
 
 **In 12 Months:**
+
 - 50%+ of people advance at least one level
 - Everyone has a development plan and support
 - 85%+ of new leadership roles filled from within
@@ -655,6 +735,7 @@ MediaBubble is building something special. Part of that is:
 - Organization is stronger and more capable
 
 **In 24 Months:**
+
 - Strong internal bench of experts and leaders
 - Clear career paths working across the organization
 - Retention of high performers improved
@@ -666,6 +747,7 @@ MediaBubble is building something special. Part of that is:
 ### The Ask From You
 
 **All We Ask Is:**
+
 - Engage with the process honestly
 - Be open to feedback
 - Take responsibility for your development
@@ -683,6 +765,7 @@ MediaBubble is building something special. Part of that is:
 This program exists because you matter to MediaBubble.
 
 We believe:
+
 - **Your growth matters** — to you and to us
 - **Your expertise matters** — whether you go deep in your specialty or build teams
 - **Your career matters** — and we want to support it
@@ -691,6 +774,7 @@ We believe:
 ### The Opportunity Ahead
 
 You have choices:
+
 - **Path:** Deep expertise or leadership
 - **Speed:** How fast you advance
 - **Support:** Training, mentorship, resources at your fingertips
@@ -709,6 +793,7 @@ You have choices:
 ### Questions?
 
 Reach out anytime:
+
 - **Email:** [hr@mediabubble.co]
 - **Slack:** [#career-development]
 - **Your Manager:** Always available
@@ -729,4 +814,3 @@ We're excited to support you on the path ahead.
 **For:** All MediaBubble Employees  
 **Status:** Ready for Distribution  
 **Version:** 1.0 — June 2026
-

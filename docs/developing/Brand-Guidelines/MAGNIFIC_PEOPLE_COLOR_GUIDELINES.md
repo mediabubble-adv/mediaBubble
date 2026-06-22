@@ -1,4 +1,5 @@
 # MediaBubble Magnific People & Color Guidelines
+
 ## Ensuring Outfit Colors Match Design System + Visual Consistency
 
 ---
@@ -6,12 +7,14 @@
 ## BRAND COLOR PALETTE REFERENCE
 
 ### Primary Colors:
+
 - **Bright Yellow**: #FFDE11 (primary accent, energy, optimism)
 - **Professional Blue**: #358DCC (trust, expertise, primary structure)
 - **Deep Navy**: #005282 (authority, depth, contrast)
 - **Cyber Cyan**: #50C4DD (modern, innovation, secondary accent)
 
 ### Secondary/Supporting:
+
 - **White**: #FFFFFF (clarity, space, breathing room)
 - **Light Gray**: #F8F9FA (subtle backgrounds, testimonials)
 - **Dark Gray/Charcoal**: #2C3E50 (text, dark backgrounds)
@@ -20,7 +23,8 @@
 
 ## CRITICAL RULE: NO GENERIC PEOPLE PHOTOS
 
-**Default Position**: 
+**Default Position**:
+
 - **AVOID people in most assets** (heroes, process visuals, feature cards)
 - **Use ONLY when strategically valuable** (testimonials, team section, case studies)
 - **When people MUST appear**: Strict outfit color requirements apply
@@ -36,13 +40,16 @@
 ## WHEN PEOPLE ARE ALLOWED (Only in 3 Contexts)
 
 ### Context 1: Testimonial Cards (Optional - Minimal Appearance)
+
 **Usage**: Customer success stories, client testimonials, case studies
-**Appearance**: 
+**Appearance**:
+
 - Small circular crop (100-150px diameter)
 - Minimal visibility (not full-body)
 - Headshot only, neutral background
 
 **Outfit Color Requirements**:
+
 - **Shirt/Top MUST BE**: One of the brand colors
   - Yellow (#FFDE11): Bold, energetic testimonial
   - Blue (#358DCC): Professional, trustworthy testimonial
@@ -53,6 +60,7 @@
 - **Background**: Neutral (white, light gray, or blurred brand color not matching outfit)
 
 **Magnific Prompt Addition**:
+
 ```
 "Professional headshot for testimonial card.
 Person wearing [COLOR] (#HEX) colored shirt/blazer providing strong contrast.
@@ -65,13 +73,16 @@ No other people, clean professional quality."
 ---
 
 ### Context 2: Case Study Imagery (Team/Execution)
+
 **Usage**: Showing team at work, client presentation, collaboration moment
 **Appearance**:
+
 - Can be full-body or mid-body shots
 - Context showing work (laptop, whiteboard, discussion)
 - Multiple people showing collaboration/teamwork
 
 **Outfit Color Requirements**:
+
 - **Primary color worn by 2-3 people**: One brand color (#FFDE11, #358DCC, #50C4DD, or #005282)
 - **Secondary colors**: Other people wear complementary colors (white, light gray, dark gray)
 - **Coordination**: Outfits create visual unity through brand color dominance
@@ -79,6 +90,7 @@ No other people, clean professional quality."
 - **Accessories**: Professional, minimal, supports brand aesthetic
 
 **Magnific Prompt Addition**:
+
 ```
 "Team collaboration case study photograph.
 Multiple people in professional setting (office, meeting room, client presentation).
@@ -92,13 +104,16 @@ Focus: Team interaction, outfit color visibility, modern office aesthetic."
 ---
 
 ### Context 3: Team/Leadership Section (Limited Use)
+
 **Usage**: Team page, leadership spotlight, "about us" section
 **Appearance**:
+
 - Headshots or portrait-style photos
 - Individual or grouped presentation
 - Professional, polished appearance
 
 **Outfit Color Requirements**:
+
 - **Each person's outfit**: One brand color OR complementary neutral
 - **Color distribution**: Spread brand colors across team (not everyone same color)
 - **Contrast**: Each person contrasts from their background
@@ -106,6 +121,7 @@ Focus: Team interaction, outfit color visibility, modern office aesthetic."
 - **Accessories**: Watches, glasses, jewelry in silver/gold only (no colored accessories)
 
 **Magnific Prompt Addition**:
+
 ```
 "Professional team/leadership headshot for about page.
 [NAME/ROLE] wearing [COLOR] (#HEX) blazer/shirt.
@@ -122,14 +138,15 @@ Photography quality for premium brand positioning."
 
 ### When Using Multiple People in Same Image:
 
-| Person | Outfit Color | Background | Contrast Check |
-|--------|--------------|-----------|-----------------|
-| Person 1 | Yellow (#FFDE11) | Blue/Navy background | ✓ High contrast |
-| Person 2 | Blue (#358DCC) | Light gray/White background | ✓ High contrast |
-| Person 3 | Navy (#005282) | Light/White background | ✓ High contrast |
-| Person 4 | White/Light gray | Blue/Navy background | ✓ High contrast |
+| Person   | Outfit Color     | Background                  | Contrast Check  |
+| -------- | ---------------- | --------------------------- | --------------- |
+| Person 1 | Yellow (#FFDE11) | Blue/Navy background        | ✓ High contrast |
+| Person 2 | Blue (#358DCC)   | Light gray/White background | ✓ High contrast |
+| Person 3 | Navy (#005282)   | Light/White background      | ✓ High contrast |
+| Person 4 | White/Light gray | Blue/Navy background        | ✓ High contrast |
 
 **Rules**:
+
 - No two people wear same outfit color (unless specifically for visual unity statement)
 - Every outfit color MUST contrast 60%+ from its background
 - No person wears background color (creates visual disappearance)
@@ -141,6 +158,7 @@ Photography quality for premium brand positioning."
 ## OUTFIT COLOR SWATCHES FOR MAGNIFIC
 
 ### Bright Yellow Outfit:
+
 ```
 "Bright yellow (#FFDE11) blazer/shirt — vibrant, energetic, highly visible.
 Contrasts against navy, blue, or dark background.
@@ -150,6 +168,7 @@ No yellow accessories (avoid duplicate yellow)."
 ```
 
 ### Professional Blue Outfit:
+
 ```
 "Professional blue (#358DCC) blazer/shirt — trustworthy, authoritative, premium.
 Contrasts against light gray, white, or light background.
@@ -159,6 +178,7 @@ No blue accessories (avoid duplicate blue)."
 ```
 
 ### Deep Navy Outfit:
+
 ```
 "Deep navy (#005282) blazer/suit jacket — executive, authoritative, premium.
 Contrasts against white, light gray, or light background.
@@ -168,6 +188,7 @@ No navy accessories (avoid duplicate navy)."
 ```
 
 ### Cyan/Modern Outfit:
+
 ```
 "Cyber cyan (#50C4DD) blazer/accent top — modern, innovative, tech-forward.
 Contrasts against navy, dark blue, or dark background.
@@ -177,6 +198,7 @@ No cyan accessories (maintain uniqueness)."
 ```
 
 ### White/Neutral Outfit:
+
 ```
 "Clean white or light gray (#F8F9FA) shirt/blouse — neutral support color.
 Worn by supporting team members (not primary focus).
@@ -192,12 +214,14 @@ Silver accessories, simple elegant styling."
 ### When People ARE Included:
 
 **Magnific AI Settings**:
+
 - **Mode**: Creative (for natural human rendering)
 - **Resolution**: 3K minimum (human faces need detail)
 - **Creativity**: 65-70/100 (human faces need consistency, not too creative)
 - **Upscale**: 2x minimum (detail preservation critical for outfits)
 
 **Why Lower Creativity for People**:
+
 - Too high creativity = unpredictable outfit colors
 - 65-70 range: Natural appearance + color control
 - Avoids "weird Magnific artifacts" on human faces
@@ -208,7 +232,9 @@ Silver accessories, simple elegant styling."
 ## SPECIFIC PROMPTS WITH PEOPLE & COLOR REQUIREMENTS
 
 ### Example 1: Testimonial Headshot
+
 **Magnific Prompt**:
+
 ```
 "Professional business headshot for customer testimonial.
 Woman wearing bright yellow (#FFDE11) blazer—vibrant, energetic, stands out.
@@ -222,7 +248,9 @@ Target: 3000x3000 (high-detail headshot for testimonial use)."
 ```
 
 ### Example 2: Case Study Team Photo
+
 **Magnific Prompt**:
+
 ```
 "Professional team collaboration photograph for case study.
 Office setting: 3 people in active collaboration (around laptop/whiteboard).
@@ -239,7 +267,9 @@ Target: 3072x1728 (16:9 for case study feature)."
 ```
 
 ### Example 3: Team Page Headshot
+
 **Magnific Prompt**:
+
 ```
 "Professional leadership headshot for company team page.
 Male executive wearing deep navy (#005282) suit jacket.
@@ -258,49 +288,61 @@ Target: 2400x2400 (high-detail team page headshot)."
 ## VISUAL CONSISTENCY PRINCIPLES
 
 ### Principle 1: Color Harmony Across All Assets
+
 **Implementation**:
+
 - Every asset (with or without people) uses same 4-color palette
 - People outfits ONLY in palette colors
 - Backgrounds use complementary palette colors
 - Overall site maintains visual cohesion
 
-**Check**: 
+**Check**:
+
 - Can you identify MediaBubble's colors in every asset?
 - Do people outfits feel intentional, not random?
 - Does color distribution create unity across pages?
 
 ### Principle 2: Outfit Color = Visual Hierarchy
+
 **Implementation**:
+
 - Primary brand color (yellow/blue): Key person/focus
 - Secondary color (cyan/navy): Supporting people
 - Neutral colors (white/gray): Background team members
 - Never: Generic "business casual" (undefined colors)
 
 **Check**:
+
 - Does outfit color immediately identify who to look at?
 - Is brand color visibility consistent across all people images?
 - Do outfits feel coordinated, not coincidental?
 
 ### Principle 3: Contrast = Clarity
+
 **Implementation**:
+
 - 60% minimum contrast between outfit and background
 - No outfit color matches background color
 - High contrast = high professionalism
 - Low contrast = visual confusion, rejected
 
 **Check**:
+
 - Can you clearly see the outfit color?
 - Does the person stand out from background?
 - Is there visual separation, not merging?
 
 ### Principle 4: Consistency in Style
+
 **Implementation**:
+
 - All people images: Professional, polished, intentional
 - All accessories: Silver/gold only (not colored)
 - All backgrounds: Brand colors or neutrals (never clashing)
 - All lighting: Professional studio quality (never harsh shadows)
 
 **Check**:
+
 - Do all people images feel like they're from same brand?
 - Would you mistake one person's photo for another company?
 - Is quality consistent across all headshots/team photos?
@@ -312,6 +354,7 @@ Target: 2400x2400 (high-detail team page headshot)."
 Before submitting Magnific requests with people:
 
 ### Pre-Generation:
+
 - [ ] Identify which assets MUST have people (testimonials, team, case studies only)
 - [ ] Assign brand colors to each person (use coordination matrix)
 - [ ] Choose contrasting background colors (navy for yellow, white for blue, etc.)
@@ -319,6 +362,7 @@ Before submitting Magnific requests with people:
 - [ ] Specify Magnific settings (3K resolution, 65-70 creativity)
 
 ### Post-Generation Quality Check:
+
 - [ ] Outfit color matches your specified brand color (#HEX match)
 - [ ] Outfit contrasts 60%+ from background
 - [ ] No outfit color matches background
@@ -330,6 +374,7 @@ Before submitting Magnific requests with people:
 - [ ] All images use same color palette (visual consistency check)
 
 ### Magnific Regeneration Triggers:
+
 - ✗ Outfit color doesn't match specified hex
 - ✗ Background clashes with outfit
 - ✗ Contrast is low (hard to see outfit color)
@@ -343,14 +388,18 @@ Before submitting Magnific requests with people:
 ## ASSET INVENTORY WITH PEOPLE GUIDELINES
 
 ### Tier 1: Heroes (NO PEOPLE)
+
 All abstract, architectural, geometric. Zero people.
+
 ```
 ✓ Main Hero - Digital Transformation (no people)
 ✓ Services Discovery (no people)
 ```
 
 ### Tier 2: Service Visuals (NO PEOPLE)
+
 All abstract, metaphorical, visual concepts. Zero people.
+
 ```
 ✓ SEO (no people)
 ✓ Branding (no people)
@@ -361,17 +410,21 @@ All abstract, metaphorical, visual concepts. Zero people.
 ```
 
 ### Tier 3: Process Steps (NO PEOPLE)
+
 Diagram-quality, flowchart aesthetic. Zero people.
+
 ```
 ✓ Step 1-5 Process (no people)
 ✓ Testimonial backgrounds (subtle, no people)
 ```
 
 ### Tier 4: Case Studies (PEOPLE OPTIONAL - WITH COLOR RULES)
+
 Strategic use only. When included: strict outfit color coordination.
+
 ```
 ✓ Case Study 1: Team collaboration → 2-3 people, brand colors
-✓ Case Study 2: Client presentation → 2-3 people, brand colors  
+✓ Case Study 2: Client presentation → 2-3 people, brand colors
 ✓ Case Study 3: Before/After → Can be no people (abstract transformation)
 ✓ Case Study 4: Results showcase → Can be no people (metrics focus)
 
@@ -380,7 +433,9 @@ WHEN INCLUDED: All outfits in brand colors, coordinated.
 ```
 
 ### Tier 5: Blog Articles (NO PEOPLE - STICK TO ABSTRACT)
+
 Concept imagery, visual metaphors. Zero people.
+
 ```
 ✓ Strategy Article (no people)
 ✓ Trends Article (no people)
@@ -388,7 +443,9 @@ Concept imagery, visual metaphors. Zero people.
 ```
 
 ### Tier 6: Team/Leadership Section (PEOPLE REQUIRED - WITH COLOR RULES)
+
 Team page, about us, leadership spotlight.
+
 ```
 ✓ Team headshot 1 → Yellow (#FFDE11) outfit
 ✓ Team headshot 2 → Blue (#358DCC) outfit
@@ -401,7 +458,9 @@ STYLE: Professional, polished, consistently premium.
 ```
 
 ### Tier 7: Email/Social (NO PEOPLE)
+
 Platform-optimized, abstract brand visuals. Zero people.
+
 ```
 ✓ LinkedIn Header (no people)
 ✓ Instagram Post (no people)
@@ -436,7 +495,9 @@ Platform-optimized, abstract brand visuals. Zero people.
    - MediaBubble brand colors visible everywhere
 
 ### When in Doubt:
+
 **Don't use people.** Abstract, geometric, and architectural compositions work better for:
+
 - Brand consistency
 - Scalability (don't date)
 - Visual distinctiveness (not stock-photo generic)
@@ -454,9 +515,9 @@ Platform-optimized, abstract brand visuals. Zero people.
 6. ✅ Regenerate immediately if outfit colors don't match
 
 **Recommendation**: For MediaBubble, limit people to:
+
 - Team/Leadership section only (required)
 - Case study hero (optional—abstract often better)
 - Testimonials (optional—headshots only, minimal)
 
 **Everything else**: Pure abstract, geometric, architectural imagery.
-

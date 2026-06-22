@@ -80,44 +80,44 @@ mediabubble-web/
 export const colors = {
   // Primary brand colors
   primary: {
-    yellow: '#FFC107',
-    blue: '#2196F3',
+    yellow: "#FFC107",
+    blue: "#2196F3",
   },
-  
+
   // Secondary colors
   secondary: {
-    darkBlue: '#0D3A7D',
-    lightGray: '#F5F5F5',
-    darkGray: '#1a1a1a',
+    darkBlue: "#0D3A7D",
+    lightGray: "#F5F5F5",
+    darkGray: "#1a1a1a",
   },
-  
+
   // Text colors
   text: {
-    primary: '#1a1a1a',
-    secondary: '#666666',
-    light: '#999999',
-    inverse: '#FFFFFF',
+    primary: "#1a1a1a",
+    secondary: "#666666",
+    light: "#999999",
+    inverse: "#FFFFFF",
   },
-  
+
   // Background colors
   background: {
-    primary: '#FFFFFF',
-    secondary: '#F5F5F5',
-    dark: '#0D3A7D',
+    primary: "#FFFFFF",
+    secondary: "#F5F5F5",
+    dark: "#0D3A7D",
   },
-  
+
   // State colors
   state: {
-    success: '#4CAF50',
-    warning: '#FF9800',
-    error: '#F44336',
-    info: '#2196F3',
+    success: "#4CAF50",
+    warning: "#FF9800",
+    error: "#F44336",
+    info: "#2196F3",
   },
-  
+
   // Semantic colors (for dark mode future)
   semantic: {
-    border: '#EEEEEE',
-    overlay: 'rgba(0, 0, 0, 0.5)',
+    border: "#EEEEEE",
+    overlay: "rgba(0, 0, 0, 0.5)",
   },
 } as const;
 ```
@@ -127,13 +127,13 @@ export const colors = {
 ```typescript
 export const spacing = {
   // Base unit: 8px
-  xs: '8px',    // 1 unit
-  sm: '16px',   // 2 units
-  md: '24px',   // 3 units
-  lg: '32px',   // 4 units
-  xl: '48px',   // 6 units
-  '2xl': '64px',  // 8 units
-  '3xl': '80px',  // 10 units
+  xs: "8px", // 1 unit
+  sm: "16px", // 2 units
+  md: "24px", // 3 units
+  lg: "32px", // 4 units
+  xl: "48px", // 6 units
+  "2xl": "64px", // 8 units
+  "3xl": "80px", // 10 units
 } as const;
 
 // Type-safe spacing values
@@ -145,12 +145,12 @@ export const getSpacing = (key: SpacingKey): string => spacing[key];
 // Utility: Create consistent margin/padding patterns
 export const spacingPatterns = {
   section: {
-    top: spacing.xl,      // 48px
-    bottom: spacing.xl,   // 48px
-    mobile: spacing.lg,   // 32px
+    top: spacing.xl, // 48px
+    bottom: spacing.xl, // 48px
+    mobile: spacing.lg, // 32px
   },
   card: {
-    padding: spacing.lg,  // 32px
+    padding: spacing.lg, // 32px
   },
   button: {
     paddingH: spacing.md, // 24px
@@ -167,71 +167,71 @@ export const typography = {
     base: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
     mono: "'Courier New', Courier, monospace",
   },
-  
+
   fontSize: {
-    xs: '12px',
-    sm: '14px',
-    base: '16px',
-    lg: '18px',
-    xl: '20px',
-    '2xl': '24px',
-    '3xl': '28px',
-    '4xl': '36px',
-    '5xl': '48px',
+    xs: "12px",
+    sm: "14px",
+    base: "16px",
+    lg: "18px",
+    xl: "20px",
+    "2xl": "24px",
+    "3xl": "28px",
+    "4xl": "36px",
+    "5xl": "48px",
   },
-  
+
   lineHeight: {
-    tight: '1.2',
-    normal: '1.5',
-    relaxed: '1.6',
-    loose: '1.8',
+    tight: "1.2",
+    normal: "1.5",
+    relaxed: "1.6",
+    loose: "1.8",
   },
-  
+
   fontWeight: {
     light: 300,
     normal: 400,
     semibold: 600,
     bold: 700,
   },
-  
+
   // Predefined text styles
   styles: {
     h1: {
-      fontSize: '48px',
+      fontSize: "48px",
       fontWeight: 700,
-      lineHeight: '1.2',
-      letterSpacing: '-0.5px',
+      lineHeight: "1.2",
+      letterSpacing: "-0.5px",
     },
     h2: {
-      fontSize: '36px',
+      fontSize: "36px",
       fontWeight: 700,
-      lineHeight: '1.3',
-      letterSpacing: '-0.25px',
+      lineHeight: "1.3",
+      letterSpacing: "-0.25px",
     },
     h3: {
-      fontSize: '28px',
+      fontSize: "28px",
       fontWeight: 600,
-      lineHeight: '1.4',
+      lineHeight: "1.4",
     },
     h4: {
-      fontSize: '24px',
+      fontSize: "24px",
       fontWeight: 600,
-      lineHeight: '1.4',
+      lineHeight: "1.4",
     },
     body: {
-      fontSize: '16px',
+      fontSize: "16px",
       fontWeight: 400,
-      lineHeight: '1.6',
+      lineHeight: "1.6",
     },
     bodySmall: {
-      fontSize: '14px',
+      fontSize: "14px",
       fontWeight: 400,
-      lineHeight: '1.6',
+      lineHeight: "1.6",
     },
     caption: {
-      fontSize: '12px',
+      fontSize: "12px",
       fontWeight: 400,
-      lineHeight: '1.5',
+      lineHeight: "1.5",
     },
   },
 } as const;
@@ -241,39 +241,39 @@ export const typography = {
 
 ```typescript
 export const shadows = {
-  sm: '0 1px 3px rgba(0, 0, 0, 0.1)',
-  md: '0 4px 6px rgba(0, 0, 0, 0.1)',
-  lg: '0 10px 15px rgba(0, 0, 0, 0.1)',
-  xl: '0 20px 25px rgba(0, 0, 0, 0.15)',
+  sm: "0 1px 3px rgba(0, 0, 0, 0.1)",
+  md: "0 4px 6px rgba(0, 0, 0, 0.1)",
+  lg: "0 10px 15px rgba(0, 0, 0, 0.1)",
+  xl: "0 20px 25px rgba(0, 0, 0, 0.15)",
 } as const;
 
 export const borderRadius = {
-  sm: '4px',
-  md: '8px',
-  lg: '12px',
-  xl: '16px',
+  sm: "4px",
+  md: "8px",
+  lg: "12px",
+  xl: "16px",
 } as const;
 
 export const transitions = {
-  fast: '150ms cubic-bezier(0.4, 0, 0.2, 1)',
-  base: '300ms cubic-bezier(0.4, 0, 0.2, 1)',
-  slow: '500ms cubic-bezier(0.4, 0, 0.2, 1)',
+  fast: "150ms cubic-bezier(0.4, 0, 0.2, 1)",
+  base: "300ms cubic-bezier(0.4, 0, 0.2, 1)",
+  slow: "500ms cubic-bezier(0.4, 0, 0.2, 1)",
 } as const;
 ```
 
 ### File: `src/design-tokens/index.ts`
 
 ```typescript
-export * from './colors';
-export * from './spacing';
-export * from './typography';
-export * from './shadows';
+export * from "./colors";
+export * from "./spacing";
+export * from "./typography";
+export * from "./shadows";
 
 export const theme = {
-  colors: require('./colors').colors,
-  spacing: require('./spacing').spacing,
-  typography: require('./typography').typography,
-  shadows: require('./shadows').shadows,
+  colors: require("./colors").colors,
+  spacing: require("./spacing").spacing,
+  typography: require("./typography").typography,
+  shadows: require("./shadows").shadows,
 } as const;
 ```
 
@@ -284,97 +284,101 @@ export const theme = {
 ### File: `tailwind.config.ts`
 
 ```typescript
-import { colors, spacing, typography, shadows, borderRadius, transitions } from './src/design-tokens';
+import {
+  colors,
+  spacing,
+  typography,
+  shadows,
+  borderRadius,
+  transitions,
+} from "./src/design-tokens";
 
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+
   theme: {
     extend: {
       colors: {
         // Brand colors
-        'brand-yellow': colors.primary.yellow,
-        'brand-blue': colors.primary.blue,
-        'dark-blue': colors.secondary.darkBlue,
-        
+        "brand-yellow": colors.primary.yellow,
+        "brand-blue": colors.primary.blue,
+        "dark-blue": colors.secondary.darkBlue,
+
         // Text colors
-        'text-primary': colors.text.primary,
-        'text-secondary': colors.text.secondary,
-        'text-light': colors.text.light,
-        'text-inverse': colors.text.inverse,
-        
+        "text-primary": colors.text.primary,
+        "text-secondary": colors.text.secondary,
+        "text-light": colors.text.light,
+        "text-inverse": colors.text.inverse,
+
         // Background colors
-        'bg-secondary': colors.background.secondary,
-        'bg-dark': colors.background.dark,
-        
+        "bg-secondary": colors.background.secondary,
+        "bg-dark": colors.background.dark,
+
         // State colors
-        'success': colors.state.success,
-        'warning': colors.state.warning,
-        'error': colors.state.error,
-        'info': colors.state.info,
+        success: colors.state.success,
+        warning: colors.state.warning,
+        error: colors.state.error,
+        info: colors.state.info,
       },
-      
+
       spacing: {
-        'xs': spacing.xs,
-        'sm': spacing.sm,
-        'md': spacing.md,
-        'lg': spacing.lg,
-        'xl': spacing.xl,
-        '2xl': spacing['2xl'],
-        '3xl': spacing['3xl'],
+        xs: spacing.xs,
+        sm: spacing.sm,
+        md: spacing.md,
+        lg: spacing.lg,
+        xl: spacing.xl,
+        "2xl": spacing["2xl"],
+        "3xl": spacing["3xl"],
       },
-      
+
       fontSize: {
-        'xs': typography.fontSize.xs,
-        'sm': typography.fontSize.sm,
-        'base': typography.fontSize.base,
-        'lg': typography.fontSize.lg,
-        'xl': typography.fontSize.xl,
-        '2xl': typography.fontSize['2xl'],
-        '3xl': typography.fontSize['3xl'],
-        '4xl': typography.fontSize['4xl'],
-        '5xl': typography.fontSize['5xl'],
+        xs: typography.fontSize.xs,
+        sm: typography.fontSize.sm,
+        base: typography.fontSize.base,
+        lg: typography.fontSize.lg,
+        xl: typography.fontSize.xl,
+        "2xl": typography.fontSize["2xl"],
+        "3xl": typography.fontSize["3xl"],
+        "4xl": typography.fontSize["4xl"],
+        "5xl": typography.fontSize["5xl"],
       },
-      
+
       fontWeight: {
-        'light': 300,
-        'normal': 400,
-        'semibold': 600,
-        'bold': 700,
+        light: 300,
+        normal: 400,
+        semibold: 600,
+        bold: 700,
       },
-      
+
       lineHeight: {
-        'tight': typography.lineHeight.tight,
-        'normal': typography.lineHeight.normal,
-        'relaxed': typography.lineHeight.relaxed,
-        'loose': typography.lineHeight.loose,
+        tight: typography.lineHeight.tight,
+        normal: typography.lineHeight.normal,
+        relaxed: typography.lineHeight.relaxed,
+        loose: typography.lineHeight.loose,
       },
-      
+
       boxShadow: {
-        'sm': shadows.sm,
-        'md': shadows.md,
-        'lg': shadows.lg,
-        'xl': shadows.xl,
+        sm: shadows.sm,
+        md: shadows.md,
+        lg: shadows.lg,
+        xl: shadows.xl,
       },
-      
+
       borderRadius: {
-        'sm': borderRadius.sm,
-        'md': borderRadius.md,
-        'lg': borderRadius.lg,
-        'xl': borderRadius.xl,
+        sm: borderRadius.sm,
+        md: borderRadius.md,
+        lg: borderRadius.lg,
+        xl: borderRadius.xl,
       },
-      
+
       transitionDuration: {
-        'fast': transitions.fast,
-        'base': transitions.base,
-        'slow': transitions.slow,
+        fast: transitions.fast,
+        base: transitions.base,
+        slow: transitions.slow,
       },
     },
   },
-  
+
   plugins: [],
 };
 ```
@@ -411,7 +415,7 @@ export const Button: React.FC<ButtonProps> = ({
     font-semibold rounded-md transition-all duration-base
     disabled:opacity-50 disabled:cursor-not-allowed
   `;
-  
+
   const variantStyles = {
     primary: `
       bg-brand-yellow text-text-primary
@@ -427,20 +431,20 @@ export const Button: React.FC<ButtonProps> = ({
       hover:underline active:opacity-80
     `,
   };
-  
+
   const sizeStyles = {
     sm: `h-9 px-3 text-sm`,       // 36px height
     md: `h-11 px-5 text-base`,    // 44px height
     lg: `h-13 px-7 text-lg`,      // 52px height
   };
-  
+
   const classNames = `
     ${baseStyles}
     ${variantStyles[variant]}
     ${sizeStyles[size]}
     ${className}
   `;
-  
+
   if (href) {
     return (
       <a
@@ -452,7 +456,7 @@ export const Button: React.FC<ButtonProps> = ({
       </a>
     );
   }
-  
+
   return (
     <button
       className={classNames}
@@ -551,7 +555,7 @@ export const Input: React.FC<InputProps> = ({
   ...props
 }) => {
   const inputId = id || `input-${Math.random()}`;
-  
+
   return (
     <div className="mb-md">
       {label && (
@@ -596,7 +600,7 @@ import { Button } from '@/components/base/Button';
 
 export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
+
   const menuItems = [
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
@@ -604,7 +608,7 @@ export const Header: React.FC = () => {
     { label: 'Blog', href: '/blog' },
     { label: 'Contact', href: '/contact' },
   ];
-  
+
   return (
     <header className="bg-white shadow-md">
       <div className="container mx-auto px-lg py-md flex justify-between items-center">
@@ -619,7 +623,7 @@ export const Header: React.FC = () => {
             MediaBubble
           </span>
         </a>
-        
+
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-lg">
           {menuItems.map((item) => (
@@ -632,7 +636,7 @@ export const Header: React.FC = () => {
             </a>
           ))}
         </nav>
-        
+
         {/* CTA Button */}
         <div className="hidden md:block">
           <Button
@@ -643,7 +647,7 @@ export const Header: React.FC = () => {
             Get in Touch
           </Button>
         </div>
-        
+
         {/* Mobile Menu Toggle */}
         <button
           className="md:hidden"
@@ -652,7 +656,7 @@ export const Header: React.FC = () => {
           ☰
         </button>
       </div>
-      
+
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <nav className="md:hidden bg-bg-secondary py-lg px-lg">
@@ -687,7 +691,7 @@ import React from 'react';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
-  
+
   return (
     <footer className="bg-dark-blue text-text-inverse py-3xl">
       <div className="container mx-auto px-lg">
@@ -704,7 +708,7 @@ export const Footer: React.FC = () => {
               📱 +20 (0) 1234 567 890
             </p>
           </div>
-          
+
           {/* Solutions */}
           <div>
             <h4 className="font-bold mb-md">Solutions</h4>
@@ -715,7 +719,7 @@ export const Footer: React.FC = () => {
               <li><a href="/solutions/web" className="hover:text-brand-yellow">Web Development</a></li>
             </ul>
           </div>
-          
+
           {/* Company */}
           <div>
             <h4 className="font-bold mb-md">Company</h4>
@@ -726,7 +730,7 @@ export const Footer: React.FC = () => {
               <li><a href="/contact" className="hover:text-brand-yellow">Contact</a></li>
             </ul>
           </div>
-          
+
           {/* Legal */}
           <div>
             <h4 className="font-bold mb-md">Legal</h4>
@@ -737,7 +741,7 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
         </div>
-        
+
         <div className="border-t border-gray-700 pt-lg text-center text-sm text-gray-300">
           <p>&copy; {currentYear} MediaBubble. All rights reserved.</p>
         </div>
@@ -834,7 +838,7 @@ export const Services: React.FC<ServicesProps> = ({ services }) => {
             Comprehensive marketing solutions tailored to your business needs
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-lg">
           {services.map((service) => (
             <Card key={service.id} hoverable>
@@ -917,9 +921,9 @@ export const Home: React.FC = () => {
         ctaText="Get Started"
         ctaHref="/contact"
       />
-      
+
       <Services services={services} />
-      
+
       <CTA
         title="Ready to Transform Your Business?"
         subtitle="Let's work together to achieve your marketing goals."
@@ -1012,4 +1016,3 @@ This creates `.storybook/` with stories for each component, making it easy for t
 ---
 
 End of React Migration Guide
-
