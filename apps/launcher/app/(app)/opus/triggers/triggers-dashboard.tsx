@@ -6,6 +6,7 @@ import type { OpusTriggerRow } from '@/lib/opus/types'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { PageFrame, PageHeader } from '@/components/layout/page-frame'
 
 export function OpusTriggersDashboard({ canManage }: { canManage: boolean }) {
   const [triggers, setTriggers] = useState<OpusTriggerRow[]>([])
@@ -52,22 +53,21 @@ export function OpusTriggersDashboard({ canManage }: { canManage: boolean }) {
   }
 
   return (
-    <div className="px-6 py-8 lg:px-10">
-      <div className="mx-auto max-w-5xl">
-        <div className="flex items-center justify-between gap-4">
-          <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary">OPUS Automation</p>
-            <h1 className="mt-1 font-display text-2xl font-bold">Triggers</h1>
-          </div>
+    <PageFrame>
+      <PageHeader
+        kicker="OPUS Automation"
+        title="Triggers"
+        actions={
           <Link href="/opus">
             <Button variant="outline">Back</Button>
           </Link>
-        </div>
+        }
+      />
 
         {message ? <p className="mt-4 text-sm text-muted-foreground">{message}</p> : null}
 
-        <div className="mt-6 grid gap-4 lg:grid-cols-5">
-          <Card className="lg:col-span-3">
+        <div className="mt-6 grid gap-4 xl:grid-cols-[minmax(0,1.6fr)_minmax(320px,1fr)] 2xl:gap-6">
+          <Card>
             <CardContent className="p-0">
               <table className="w-full text-left text-sm">
                 <thead>
@@ -98,7 +98,7 @@ export function OpusTriggersDashboard({ canManage }: { canManage: boolean }) {
             </CardContent>
           </Card>
 
-          <Card className="lg:col-span-2">
+          <Card>
             <CardContent className="space-y-4 p-5">
               {selected ? (
                 <>
@@ -140,7 +140,6 @@ export function OpusTriggersDashboard({ canManage }: { canManage: boolean }) {
             </CardContent>
           </Card>
         </div>
-      </div>
-    </div>
+    </PageFrame>
   )
 }

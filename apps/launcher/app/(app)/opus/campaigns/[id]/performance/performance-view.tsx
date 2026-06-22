@@ -5,30 +5,27 @@ import type { OpusCampaignPerformance } from '@/lib/opus/types'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { PageFrame, PageHeader } from '@/components/layout/page-frame'
 
 export function OpusPerformanceView({ data }: { data: OpusCampaignPerformance }) {
   return (
-    <div className="px-6 py-8 lg:px-10">
-      <div className="mx-auto max-w-5xl">
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary">OPUS Performance</p>
-            <h1 className="mt-1 font-display text-2xl font-bold">{data.campaign_name}</h1>
-            <p className="mt-1 text-sm text-muted-foreground">
-              {data.period_start} – {data.period_end} · Spend ${data.spend.toLocaleString()}
-              {data.budget ? ` / $${data.budget.toLocaleString()}` : ''}
-            </p>
-          </div>
-          <div className="flex gap-2">
+    <PageFrame>
+      <PageHeader
+        kicker="OPUS Performance"
+        title={data.campaign_name}
+        description={`${data.period_start} – ${data.period_end} · Spend $${data.spend.toLocaleString()}${data.budget ? ` / $${data.budget.toLocaleString()}` : ''}`}
+        actions={
+          <div className="flex flex-wrap gap-2">
             <Badge tone={data.status === 'Active' ? 'success' : 'blue'}>{data.status}</Badge>
             {data.roas ? <Badge tone="warning">ROAS {data.roas}x</Badge> : null}
             <Link href="/opus">
               <Button variant="outline">Back</Button>
             </Link>
           </div>
-        </div>
+        }
+      />
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-3">
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6">
           {[
             ['Impressions', data.impressions.toLocaleString()],
             ['Clicks', data.clicks.toLocaleString()],
@@ -46,7 +43,7 @@ export function OpusPerformanceView({ data }: { data: OpusCampaignPerformance })
           ))}
         </div>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+        <div className="mt-8 grid gap-4 lg:grid-cols-2 2xl:gap-6">
           <Card>
             <CardContent className="p-5">
               <h2 className="font-display font-bold">Meta Ads</h2>
@@ -77,7 +74,6 @@ export function OpusPerformanceView({ data }: { data: OpusCampaignPerformance })
             </ul>
           </CardContent>
         </Card>
-      </div>
-    </div>
+    </PageFrame>
   )
 }

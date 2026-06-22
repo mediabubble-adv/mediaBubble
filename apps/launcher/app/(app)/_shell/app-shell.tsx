@@ -13,7 +13,7 @@ import {
   LogOut,
   ChevronDown,
 } from 'lucide-react'
-import { NAV_ITEMS, NAV_FOOTER, isActive, type NavItem } from './nav'
+import { NAV_GROUPS, NAV_FOOTER, isActive, type NavItem } from './nav'
 import { CommandPalette } from './command-palette'
 
 export interface ShellUser {
@@ -32,7 +32,6 @@ export function AppShell({ user, children }: { user: ShellUser; children: React.
   const [paletteOpen, setPaletteOpen] = useState(false)
   const pathname = usePathname()
 
-  // Restore the persisted collapsed state on mount.
   useEffect(() => {
     setCollapsed(localStorage.getItem(COLLAPSE_KEY) === '1')
   }, [])
@@ -45,7 +44,6 @@ export function AppShell({ user, children }: { user: ShellUser; children: React.
     })
   }, [])
 
-  // Global Cmd/Ctrl+K opens the palette.
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
@@ -57,14 +55,12 @@ export function AppShell({ user, children }: { user: ShellUser; children: React.
     return () => window.removeEventListener('keydown', onKey)
   }, [])
 
-  // Close the mobile drawer on navigation.
   useEffect(() => {
     setMobileOpen(false)
   }, [pathname])
 
   return (
     <div className="flex min-h-screen bg-background">
-      {/* Mobile backdrop */}
       {mobileOpen ? (
         <div
           className="fixed inset-0 z-30 bg-black/50 lg:hidden"
@@ -85,7 +81,9 @@ export function AppShell({ user, children }: { user: ShellUser; children: React.
           onOpenPalette={() => setPaletteOpen(true)}
           onOpenMobile={() => setMobileOpen(true)}
         />
-        <main className="min-w-0 flex-1">{children}</main>
+        <main className="min-w-0 flex-1 bg-gradient-to-b from-background via-background to-muted/20">
+          {children}
+        </main>
       </div>
 
       <CommandPalette open={paletteOpen} onClose={() => setPaletteOpen(false)} />
@@ -106,27 +104,42 @@ function Sidebar({
 }) {
   return (
     <aside
-      className={`fixed inset-y-0 left-0 z-40 flex flex-col border-r border-border bg-card transition-[width,transform] duration-[250ms] ease-[var(--ease-drawer)] lg:static lg:translate-x-0 ${
-        collapsed ? 'w-[64px]' : 'w-[240px]'
+      className={`fixed inset-y-0 left-0 z-40 flex flex-col border-r border-border bg-card/95 backdrop-blur-sm transition-[width,transform] duration-[250ms] ease-[var(--ease-drawer)] lg:static lg:translate-x-0 ${
+        collapsed ? 'w-[68px]' : 'w-[260px]'
       } ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}`}
     >
-      {/* Brand */}
-      <div className="flex h-14 items-center gap-2 px-3.5">
-        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-          <Rocket size={16} className="text-primary" />
+      <div className="flex h-14 items-center gap-2.5 border-b border-border/60 px-3.5">
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 ring-1 ring-primary/20">
+          <Rocket size={17} className="text-primary" />
         </div>
         {!collapsed ? (
-          <span className="truncate text-[13px] font-bold text-foreground">MediaBubble</span>
+          <div className="min-w-0">
+            <span className="block truncate text-[13px] font-bold text-foreground">MediaBubble</span>
+            <span className="block truncate text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+              Launcher
+            </span>
+          </div>
         ) : null}
       </div>
 
-      <nav data-tour="sidebar-nav" className="flex-1 space-y-1 px-2.5 py-2">
-        {NAV_ITEMS.map((item) => (
-          <NavLink key={item.href} item={item} collapsed={collapsed} pathname={pathname} />
+      <nav data-tour="sidebar-nav" className="flex-1 overflow-y-auto px-2.5 py-3">
+        {NAV_GROUPS.map((group) => (
+          <div key={group.id} className={collapsed ? 'mb-1' : 'mb-4'}>
+            {!collapsed ? (
+              <p className="mb-1.5 px-2.5 text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground/80">
+                {group.label}
+              </p>
+            ) : null}
+            <div className="space-y-0.5">
+              {group.items.map((item) => (
+                <NavLink key={item.href} item={item} collapsed={collapsed} pathname={pathname} />
+              ))}
+            </div>
+          </div>
         ))}
       </nav>
 
-      <div className="space-y-1 border-t border-border px-2.5 py-2">
+      <div className="space-y-0.5 border-t border-border px-2.5 py-2.5">
         {NAV_FOOTER.map((item) => (
           <NavLink
             key={item.href}
@@ -170,7 +183,7 @@ function NavLink({
       data-tour={dataTour}
       className={`group flex items-center gap-3 rounded-lg px-2.5 py-2 text-[13px] font-medium transition-[transform,background-color,color] duration-150 ease-[var(--ease-out)] active:scale-[0.98] ${
         active
-          ? 'bg-primary/10 text-foreground'
+          ? 'bg-primary/12 text-foreground shadow-[inset_2px_0_0_0_hsl(var(--primary))]'
           : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
       } ${collapsed ? 'justify-center' : ''}`}
     >
@@ -178,7 +191,16 @@ function NavLink({
         size={18}
         className={`shrink-0 ${active ? 'text-primary' : 'text-muted-foreground group-hover:text-foreground'}`}
       />
-      {!collapsed ? <span className="flex-1 truncate">{item.label}</span> : null}
+      {!collapsed ? (
+        <span className="flex min-w-0 flex-1 items-center gap-2 truncate">
+          <span className="truncate">{item.label}</span>
+          {item.status ? (
+            <span className="ml-auto shrink-0 rounded bg-primary/10 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide text-primary">
+              {item.status}
+            </span>
+          ) : null}
+        </span>
+      ) : null}
     </Link>
   )
 }
@@ -193,7 +215,7 @@ function Topbar({
   onOpenMobile: () => void
 }) {
   return (
-    <header className="sticky top-0 z-20 flex h-14 items-center gap-3 border-b border-border bg-background/80 px-4 backdrop-blur">
+    <header className="sticky top-0 z-20 flex h-14 items-center gap-3 border-b border-border bg-background/85 px-4 backdrop-blur-md lg:px-6 xl:px-8">
       <button
         type="button"
         onClick={onOpenMobile}
@@ -203,25 +225,24 @@ function Topbar({
         <Menu size={20} />
       </button>
 
-      {/* Search trigger → opens Cmd+K */}
       <button
         type="button"
         onClick={onOpenPalette}
         data-tour="search-bar"
-        className="flex h-9 max-w-sm flex-1 items-center gap-2 rounded-lg border border-input bg-card px-3 text-left text-[13px] text-muted-foreground transition-[border-color,box-shadow] duration-150 hover:border-primary/50 hover:shadow-[0_0_0_3px_hsl(210_88%_54%/0.08)]"
+        className="flex h-9 w-full max-w-md flex-1 items-center gap-2 rounded-lg border border-input bg-card px-3 text-left text-[13px] text-muted-foreground transition-[border-color,box-shadow] duration-150 hover:border-primary/50 hover:shadow-[0_0_0_3px_hsl(210_88%_54%/0.08)] xl:max-w-xl"
       >
         <Search size={15} className="shrink-0" />
-        <span className="flex-1 truncate">Search…</span>
+        <span className="flex-1 truncate">Search modules, tasks, clients…</span>
         <kbd className="hidden rounded border border-border px-1.5 py-0.5 text-[10px] font-semibold text-foreground sm:inline">
           ⌘K
         </kbd>
       </button>
 
-      <div className="flex-1" />
+      <div className="hidden flex-1 xl:block" />
 
       <button
         type="button"
-        className="relative text-muted-foreground transition-[color] hover:text-foreground"
+        className="relative rounded-lg p-2 text-muted-foreground transition-[color,background-color] hover:bg-secondary hover:text-foreground"
         aria-label="Notifications"
       >
         <Bell size={18} />
@@ -238,7 +259,6 @@ function UserMenu({ user }: { user: ShellUser }) {
   const router = useRouter()
   const ref = useRef<HTMLDivElement>(null)
 
-  // Close on outside click.
   useEffect(() => {
     if (!open) return
     function onClick(e: MouseEvent) {
@@ -264,8 +284,11 @@ function UserMenu({ user }: { user: ShellUser }) {
         aria-expanded={open}
         aria-haspopup="menu"
       >
-        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-[12px] font-bold text-primary">
+        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-[12px] font-bold text-primary ring-1 ring-primary/20">
           {user.initials}
+        </span>
+        <span className="hidden max-w-[120px] truncate text-left text-[12px] font-medium text-foreground lg:block">
+          {user.name.split(/\s+/)[0]}
         </span>
         <ChevronDown
           size={14}
@@ -273,13 +296,12 @@ function UserMenu({ user }: { user: ShellUser }) {
         />
       </button>
 
-      {/* Always rendered so CSS transition works; pointer-events gated by open state */}
       <div
         role="menu"
         className={[
           'absolute right-0 top-[calc(100%+6px)] w-56 overflow-hidden rounded-xl border border-border bg-card shadow-xl shadow-black/30',
           'origin-top-right transition-[opacity,transform] duration-150 ease-[var(--ease-out)]',
-          open ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none',
+          open ? 'pointer-events-auto scale-100 opacity-100' : 'pointer-events-none scale-95 opacity-0',
         ].join(' ')}
       >
         <div className="border-b border-border px-3.5 py-3">

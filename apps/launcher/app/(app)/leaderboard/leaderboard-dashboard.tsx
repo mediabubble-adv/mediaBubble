@@ -12,6 +12,7 @@ import {
   Users as UsersIcon,
   Globe,
 } from 'lucide-react'
+import { PageFrame, PageHeader } from '@/components/layout/page-frame'
 
 interface LeaderboardUser {
   id: string
@@ -152,23 +153,12 @@ export function LeaderboardDashboard({
   }, [achievements])
 
   return (
-    <div className="px-6 py-8 lg:px-8">
-      <div className="mx-auto max-w-6xl space-y-8">
-        {/* Header */}
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
-              <Trophy size={20} className="text-primary" />
-            </div>
-            <div>
-              <h1 className="font-display text-2xl font-bold text-foreground">Team Leaderboard</h1>
-              <p className="text-[13px] text-muted-foreground">
-                Earn XP by completing tasks, logging time, and collaborating.
-              </p>
-            </div>
-          </div>
-
-          {/* Toggle between Global and Department */}
+    <PageFrame>
+      <PageHeader
+        icon={Trophy}
+        title="Team Leaderboard"
+        description="Earn XP by completing tasks, logging time, and collaborating."
+        actions={
           <div className="flex rounded-lg border border-border bg-card p-1">
             <button
               onClick={() => setFilterMode('global')}
@@ -193,13 +183,16 @@ export function LeaderboardDashboard({
               {currentUser?.department || 'Department'}
             </button>
           </div>
-        </div>
+        }
+      />
+
+      <div className="mt-8 space-y-8">
 
         {/* Top Section: User Profile Card & Hot Streak */}
         {currentUser && (
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-3 xl:grid-cols-4 2xl:gap-8">
             {/* XP Profile Card */}
-            <div className="md:col-span-2 rounded-2xl border border-border bg-card p-5 flex flex-col justify-between">
+            <div className="md:col-span-2 xl:col-span-3 rounded-2xl border border-border bg-card p-5 flex flex-col justify-between">
               <div className="flex items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/15 text-[14px] font-extrabold text-primary">
@@ -467,6 +460,6 @@ export function LeaderboardDashboard({
           </div>
         </div>
       </div>
-    </div>
+    </PageFrame>
   )
 }

@@ -5,6 +5,7 @@ import { Plus, CheckSquare } from 'lucide-react'
 import { TASK_STATUSES, type TaskStatus } from '@/lib/tasks/status'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { PageFrame, PageHeader } from '@/components/layout/page-frame'
 import { TaskCard } from '@/components/tasks/task-card'
 import { TaskForm } from '@/components/tasks/task-form'
 import { TaskDetails } from '@/components/tasks/task-details'
@@ -145,29 +146,21 @@ export function TaskBoard({
 
   return (
     <>
-      <div className="px-6 py-8 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          {/* Header */}
-          <div className="flex items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
-                <CheckSquare size={20} className="text-primary" />
-              </div>
-              <div>
-                <h1 className="font-display text-2xl font-bold text-foreground">Tasks</h1>
-                <p className="text-[13px] text-muted-foreground">
-                  {tasks.length} task{tasks.length === 1 ? '' : 's'} · drag between columns
-                </p>
-              </div>
-            </div>
+      <PageFrame width="full">
+        <PageHeader
+          title="Tasks"
+          description={`${tasks.length} task${tasks.length === 1 ? '' : 's'} · drag between columns`}
+          icon={CheckSquare}
+          actions={
             <Button onClick={() => setCreateOpen(true)}>
               <Plus size={15} />
               New task
             </Button>
-          </div>
+          }
+        />
 
-          {/* Board */}
-          <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <div className="launcher-scroll-x mt-6">
+          <div className="flex min-w-max gap-4 pb-2">
             {columns.map(({ status, items }) => (
               <div
                 key={status}
@@ -181,7 +174,7 @@ export function TaskBoard({
                   setDragId(null)
                   setOverColumn(null)
                 }}
-                className={`flex flex-col rounded-2xl border bg-card p-3 transition-[border-color] duration-200 ${
+                className={`flex w-[min(100vw-3rem,320px)] shrink-0 flex-col rounded-2xl border bg-card p-3 transition-[border-color] duration-200 sm:w-[300px] lg:w-[min(22vw,340px)] ${
                   overColumn === status
                     ? 'border-primary/60'
                     : 'border-border'
@@ -242,7 +235,7 @@ export function TaskBoard({
             ))}
           </div>
         </div>
-      </div>
+      </PageFrame>
 
       {/* Overlays — rendered outside the board layout so they sit above everything */}
       {createOpen && (

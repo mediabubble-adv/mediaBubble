@@ -9,6 +9,7 @@ import { CONTRACT_TYPES } from '@/lib/crm/schemas'
 import { CrmInvoicesPanel } from './crm-invoices-panel'
 import { CrmQuotationsPanel } from './crm-quotations-panel'
 import { Input } from '@/components/ui/input'
+import { PageFrame, PageHeader } from '@/components/layout/page-frame'
 
 export type { ClientRow }
 
@@ -140,21 +141,13 @@ export function CrmDashboard({
   }
 
   return (
-    <div className="px-6 py-8 lg:px-8">
-      <div className="mx-auto max-w-6xl">
-        <div className="flex flex-wrap items-start justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
-              <Building2 size={20} className="text-primary" />
-            </div>
-            <div>
-              <h1 className="font-display text-2xl font-bold text-foreground">CRM</h1>
-              <p className="text-[13px] text-muted-foreground">
-                Clients, invoices, and quotations in one workspace.
-              </p>
-            </div>
-          </div>
-          {canManage && tab === 'clients' ? (
+    <PageFrame>
+      <PageHeader
+        icon={Building2}
+        title="CRM"
+        description="Clients, invoices, and quotations in one workspace."
+        actions={
+          canManage && tab === 'clients' ? (
             <button
               type="button"
               onClick={() => setShowForm((v) => !v)}
@@ -163,8 +156,9 @@ export function CrmDashboard({
               <Plus size={16} />
               Add client
             </button>
-          ) : null}
-        </div>
+          ) : null
+        }
+      />
 
         {portalLink ? (
           <p className="mt-4 rounded-xl border border-primary/30 bg-primary/10 px-4 py-3 text-[13px] text-foreground">
@@ -418,7 +412,6 @@ export function CrmDashboard({
             canManage={canManage}
           />
         ) : null}
-      </div>
-    </div>
+    </PageFrame>
   )
 }
