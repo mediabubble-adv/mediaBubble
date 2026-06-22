@@ -1,6 +1,6 @@
 // OPUS workflow orchestration — wires event bus handlers for brief → campaign flows.
 
-import { subscribe } from '../event-bus'
+import { subscribe } from './event-bus'
 
 let initialized = false
 

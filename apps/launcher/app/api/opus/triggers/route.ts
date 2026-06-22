@@ -4,6 +4,7 @@
 import { ok, fail, validationError } from '@/lib/api/response'
 import { toResponse, readJson } from '@/lib/api/http'
 import { prisma } from '@/lib/db/prisma'
+import type { Prisma } from '@prisma/client'
 import { createOpusTriggerSchema } from '@/lib/opus/schemas'
 import { listTriggers } from '@/lib/opus/triggers/engine'
 import { serializeTrigger } from '@/lib/opus/triggers/serialize'
@@ -37,7 +38,7 @@ export async function POST(req: Request): Promise<Response> {
       type: parsed.data.type,
       enabled: parsed.data.enabled ?? true,
       schedule: parsed.data.schedule ?? null,
-      condition: parsed.data.condition ?? undefined,
+      condition: (parsed.data.condition ?? undefined) as Prisma.InputJsonValue | undefined,
       action: parsed.data.action,
       created_by: me.id,
     },
