@@ -75,6 +75,22 @@ function initials(name: string) {
     .join('')
 }
 
+function sanitizeAvatarUrl(value: string): string | null {
+  const trimmed = value.trim()
+  if (!trimmed) return null
+
+  try {
+    const url = new URL(trimmed)
+    if (url.protocol === 'http:' || url.protocol === 'https:') {
+      return url.toString()
+    }
+  } catch {
+    // invalid URL
+  }
+
+  return null
+}
+
 function Avatar({
   name,
   avatarUrl,
@@ -106,11 +122,16 @@ function ProfileTab({ user }: { user: SettingsUser }) {
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
 
-  const isDirty = name !== user.name || (avatarUrl || null) !== user.avatar_url
+  const sanitizedAvatarUrl = sanitizeAvatarUrl(avatarUrl)
+  const isDirty = name !== user.name || sanitizedAvatarUrl !== user.avatar_url
 
   async function handleSave() {
     if (!name.trim()) {
       toast('error', 'Name cannot be empty')
+      return
+    }
+    if (avatarUrl.trim() && !sanitizedAvatarUrl) {
+      toast('error', 'Please enter a valid http(s) avatar URL')
       return
     }
     setSaving(true)
@@ -120,7 +141,7 @@ function ProfileTab({ user }: { user: SettingsUser }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: name.trim(),
-          avatar_url: avatarUrl.trim() || null,
+          avatar_url: sanitizedAvatarUrl,
         }),
       })
       const json = await res.json()
@@ -148,7 +169,7 @@ function ProfileTab({ user }: { user: SettingsUser }) {
         </CardHeader>
         <CardContent className="space-y-5">
           <div className="flex items-center gap-4">
-            <Avatar name={name || user.name} avatarUrl={avatarUrl || null} size="lg" />
+            <Avatar name={name || user.name} avatarUrl={sanitizedAvatarUrl} size="lg" />
             <div className="min-w-0 flex-1">
               <p className="truncate text-[13px] font-semibold text-foreground">{name || user.name}</p>
               <p className="truncate text-[12px] text-muted-foreground">{user.email}</p>
