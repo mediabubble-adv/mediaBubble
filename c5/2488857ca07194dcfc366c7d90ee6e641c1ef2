@@ -1,0 +1,19 @@
+.cursor/hooks/state/continual-learning.json
+  s_79276d544be90d::t_ca4c38e6676bf6 4,6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "c52488857ca07194dcfc366c7d90ee6e641c1ef2",
+  "prompts": {},
+  "sessions": {
+    "s_79276d544be90d": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "2347b21a-4653-4607-b7a0-6f2a21b30fa1",
+        "model": "default"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
