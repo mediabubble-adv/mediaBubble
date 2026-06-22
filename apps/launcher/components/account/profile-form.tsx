@@ -34,6 +34,23 @@ function initials(name: string) {
     .join('')
 }
 
+function sanitizeAvatarUrl(url: string | null): string | null {
+  if (!url) return null
+  const trimmed = url.trim()
+  if (!trimmed) return null
+
+  try {
+    const parsed = new URL(trimmed)
+    if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
+      return parsed.toString()
+    }
+  } catch {
+    return null
+  }
+
+  return null
+}
+
 export function UserAvatar({
   name,
   avatarUrl,
@@ -45,13 +62,15 @@ export function UserAvatar({
 }) {
   const sizeClass =
     size === 'lg' ? 'h-16 w-16 text-xl' : size === 'sm' ? 'h-8 w-8 text-xs' : 'h-10 w-10 text-sm'
+  const safeAvatarUrl = sanitizeAvatarUrl(avatarUrl)
+
   return (
     <div
       className={`${sizeClass} flex shrink-0 items-center justify-center rounded-full bg-primary/20 font-bold text-primary`}
     >
-      {avatarUrl ? (
+      {safeAvatarUrl ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={avatarUrl} alt={name} className="h-full w-full rounded-full object-cover" />
+        <img src={safeAvatarUrl} alt={name} className="h-full w-full rounded-full object-cover" />
       ) : (
         initials(name)
       )}
