@@ -1,0 +1,40 @@
+apps/launcher/lib/finance/brief.ts
+  s_de4b5ceedd0f70::t_a704e5b9770f75 1-108
+apps/launcher/app/(app)/settings/settings-dashboard.tsx
+  s_de4b5ceedd0f70::t_59fd05def4a568 575,579
+  s_de4b5ceedd0f70::t_c270ff1e86435a 4,11-17,20
+  s_de4b5ceedd0f70::t_00278214e44ad4 364-564,569
+  s_de4b5ceedd0f70::t_d823d7c4adc62f 40
+  s_de4b5ceedd0f70::t_ce96319146aa60 627-629
+  s_de4b5ceedd0f70::t_b71a97d5e4ef1d 591
+apps/launcher/app/(app)/finance/finance-ai-brief.tsx
+  s_de4b5ceedd0f70::t_3cfef788058886 1-127
+apps/launcher/app/(app)/settings/page.tsx
+  s_de4b5ceedd0f70::t_5f149e85fb2615 5,10-17,21,51-56,72-79
+apps/launcher/app/api/settings/workspace/route.ts
+  s_de4b5ceedd0f70::t_ba39d869d44047 1-38
+apps/launcher/app/api/finance/brief/route.ts
+  s_de4b5ceedd0f70::t_5d638227334479 11
+  s_de4b5ceedd0f70::t_c09a097e9da9df 1-10,12-110,116-124
+  s_de4b5ceedd0f70::t_07fd7b5cae5b7a 111-115
+apps/launcher/app/(app)/finance/finance-dashboard.tsx
+  s_de4b5ceedd0f70::t_0cb6db10780bf6 557-558
+  s_de4b5ceedd0f70::t_041c78a0deded2 216-231,233
+  s_de4b5ceedd0f70::t_4b031901a3d6f4 16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "9c509b75a1c4dd47e94c5cc0c0972cbf3d31fd06",
+  "prompts": {},
+  "sessions": {
+    "s_de4b5ceedd0f70": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "374a1223-8d71-4381-8377-29c1ced41d65",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
