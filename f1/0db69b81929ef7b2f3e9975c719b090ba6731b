@@ -1,0 +1,24 @@
+apps/launcher/lib/finance/brief.ts
+  s_de4b5ceedd0f70::t_386ac13fee6b88 39-41,49-50,54,56
+apps/launcher/app/api/finance/brief/route.ts
+  s_de4b5ceedd0f70::t_66c0003b9d9cbe 24-25,28-29,33-35
+apps/launcher/app/(app)/finance/finance-dashboard.tsx
+  s_de4b5ceedd0f70::t_0b4c7c6cedb4a8 234
+  s_de4b5ceedd0f70::t_1df4f9f832f6e7 223
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "f10db69b81929ef7b2f3e9975c719b090ba6731b",
+  "prompts": {},
+  "sessions": {
+    "s_de4b5ceedd0f70": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "374a1223-8d71-4381-8377-29c1ced41d65",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
