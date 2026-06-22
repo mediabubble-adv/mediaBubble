@@ -1,0 +1,20 @@
+apps/launcher/app/(app)/settings/settings-dashboard.tsx
+  s_de4b5ceedd0f70::t_7a20af067c38e8 3-5,42-63,451-461,472,474,485
+  s_de4b5ceedd0f70::t_19d395538ebf57 496,500
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "c8ce817f2e70afee68bf21e0ee4f303eff037776",
+  "prompts": {},
+  "sessions": {
+    "s_de4b5ceedd0f70": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "374a1223-8d71-4381-8377-29c1ced41d65",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
