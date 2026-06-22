@@ -1,0 +1,22 @@
+apps/launcher/lib/opus/workflow-engine.ts
+  s_a1a54ec3d27568::t_dd0f8f3e1c93da 3
+apps/launcher/app/api/opus/triggers/route.ts
+  s_a1a54ec3d27568::t_cf32282a8f445b 41
+  s_a1a54ec3d27568::t_bb788acb40a39d 7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "ba02cd922d6923a562ae5b5396b84ad135894fb4",
+  "prompts": {},
+  "sessions": {
+    "s_a1a54ec3d27568": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "252690d7-ef3d-48c9-b157-b38062d72c1f",
+        "model": "default"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
