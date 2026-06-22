@@ -12,6 +12,7 @@ import {
   Menu,
   LogOut,
   ChevronDown,
+  User,
 } from 'lucide-react'
 import { NAV_GROUPS, NAV_FOOTER, isActive, type NavItem } from './nav'
 import { CommandPalette } from './command-palette'
@@ -312,6 +313,15 @@ function UserMenu({ user }: { user: ShellUser }) {
             {user.department ? ` · ${user.department}` : ''}
           </p>
         </div>
+        <Link
+          href="/profile"
+          role="menuitem"
+          onClick={() => setOpen(false)}
+          className="flex w-full items-center gap-2.5 px-3.5 py-2.5 text-left text-[13px] text-foreground transition-[background-color] hover:bg-secondary"
+        >
+          <User size={15} className="text-muted-foreground" />
+          Profile
+        </Link>
         <button
           type="button"
           role="menuitem"

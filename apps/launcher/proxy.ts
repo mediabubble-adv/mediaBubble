@@ -95,9 +95,14 @@ export async function proxy(request: NextRequest) {
     pathname.startsWith('/api/auth/')
 
   if (isAuthRoute) {
-    if (isAuthenticated && !pathname.startsWith('/api/')) {
-      // Authenticated users should not see login/signup -> send to home
-      return NextResponse.redirect(new URL('/', request.url))
+    if (
+      isAuthenticated &&
+      !pathname.startsWith('/api/') &&
+      pathname !== '/login'
+    ) {
+      // Authenticated users should not see signup/reset -> send to home.
+      // /login is allowed through so stale cookies can be cleared server-side.
+      return NextResponse.redirect(new URL('/profile', request.url))
     }
     // Allow guest access with CSP headers applied
     return cspMiddleware(request)

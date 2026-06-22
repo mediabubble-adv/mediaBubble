@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, useRef, useEffect, useCallback } from 'react'
-import { User, Lock, Users, Camera, CheckCircle2, Sliders } from 'lucide-react'
+import { User, Lock, Users, Sliders, CheckCircle2 } from 'lucide-react'
+import { ProfileForm, type ProfileUser, UserAvatar } from '@/components/account/profile-form'
 import { PageFrame, PageHeader } from '@/components/layout/page-frame'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -41,14 +42,7 @@ const TIMEZONES: { value: string; label: string }[] = [
   { value: 'UTC', label: 'UTC (Coordinated Universal Time)' },
 ]
 
-export interface SettingsUser {
-  id: string
-  name: string
-  email: string
-  avatar_url: string | null
-  role: string
-  department: string | null
-}
+export type SettingsUser = ProfileUser
 
 interface TeamMember {
   id: string
@@ -66,181 +60,6 @@ const ROLE_TONE: Record<string, 'blue' | 'warning' | 'danger' | 'neutral'> = {
   Manager: 'warning',
   Contributor: 'blue',
   Viewer: 'neutral',
-}
-
-function initials(name: string) {
-  return name
-    .split(/\s+/)
-    .slice(0, 2)
-    .map((p) => p[0]?.toUpperCase() ?? '')
-    .join('')
-}
-
-function sanitizeAvatarUrl(value: string): string | null {
-  const trimmed = value.trim()
-  if (!trimmed) return null
-
-  try {
-    const url = new URL(trimmed)
-    if (url.protocol === 'http:' || url.protocol === 'https:') {
-      return url.toString()
-    }
-  } catch {
-    // invalid URL
-  }
-
-  return null
-}
-
-function Avatar({
-  name,
-  avatarUrl,
-  size = 'md',
-}: {
-  name: string
-  avatarUrl: string | null
-  size?: 'sm' | 'md' | 'lg'
-}) {
-  const sizeClass = size === 'lg' ? 'h-16 w-16 text-xl' : size === 'sm' ? 'h-8 w-8 text-xs' : 'h-10 w-10 text-sm'
-  return (
-    <div
-      className={`${sizeClass} flex shrink-0 items-center justify-center rounded-full bg-primary/20 font-bold text-primary`}
-    >
-      {avatarUrl ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={avatarUrl} alt={name} className="h-full w-full rounded-full object-cover" />
-      ) : (
-        initials(name)
-      )}
-    </div>
-  )
-}
-
-function ProfileTab({ user }: { user: SettingsUser }) {
-  const { toast } = useToast()
-  const [name, setName] = useState(user.name)
-  const [avatarUrl, setAvatarUrl] = useState(user.avatar_url ?? '')
-  const [saving, setSaving] = useState(false)
-  const [saved, setSaved] = useState(false)
-
-  const sanitizedAvatarUrl = sanitizeAvatarUrl(avatarUrl)
-  const isDirty = name !== user.name || sanitizedAvatarUrl !== user.avatar_url
-
-  async function handleSave() {
-    if (!name.trim()) {
-      toast('error', 'Name cannot be empty')
-      return
-    }
-    if (avatarUrl.trim() && !sanitizedAvatarUrl) {
-      toast('error', 'Please enter a valid http(s) avatar URL')
-      return
-    }
-    setSaving(true)
-    try {
-      const res = await fetch('/api/settings/profile', {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: name.trim(),
-          avatar_url: sanitizedAvatarUrl,
-        }),
-      })
-      const json = await res.json()
-      if (!res.ok) {
-        toast('error', json.message ?? 'Failed to save profile')
-        return
-      }
-      setSaved(true)
-      setTimeout(() => setSaved(false), 3000)
-      toast('success', 'Profile updated')
-    } catch {
-      toast('error', 'Network error — please try again')
-    } finally {
-      setSaving(false)
-    }
-  }
-
-  return (
-    <div className="space-y-6">
-      {/* Avatar + identity */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-[14px]">Profile</CardTitle>
-          <CardDescription>Your public name and avatar.</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-5">
-          <div className="flex items-center gap-4">
-            <Avatar name={name || user.name} avatarUrl={sanitizedAvatarUrl} size="lg" />
-            <div className="min-w-0 flex-1">
-              <p className="truncate text-[13px] font-semibold text-foreground">{name || user.name}</p>
-              <p className="truncate text-[12px] text-muted-foreground">{user.email}</p>
-              <div className="mt-1.5 flex flex-wrap gap-1.5">
-                <Badge tone={ROLE_TONE[user.role] ?? 'neutral'}>{user.role}</Badge>
-                {user.department && <Badge tone="neutral">{user.department}</Badge>}
-              </div>
-            </div>
-          </div>
-
-          <Separator />
-
-          <div className="space-y-4">
-            <div className="space-y-1.5">
-              <Label htmlFor="name">Display name</Label>
-              <Input
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Your full name"
-                maxLength={255}
-              />
-            </div>
-
-            <div className="space-y-1.5">
-              <Label htmlFor="avatar">Avatar URL</Label>
-              <div className="relative">
-                <Camera
-                  size={14}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
-                />
-                <Input
-                  id="avatar"
-                  value={avatarUrl}
-                  onChange={(e) => setAvatarUrl(e.target.value)}
-                  placeholder="https://example.com/avatar.jpg"
-                  className="pl-8"
-                />
-              </div>
-              <p className="text-[11px] text-muted-foreground">Leave blank to use initials.</p>
-            </div>
-
-            <div className="space-y-1.5">
-              <Label>Email</Label>
-              <Input value={user.email} disabled className="cursor-not-allowed opacity-60" />
-              <p className="text-[11px] text-muted-foreground">
-                Email cannot be changed here. Contact an Admin.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3 pt-1">
-            <Button onClick={handleSave} isLoading={saving} disabled={!isDirty || saving}>
-              {saved ? (
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 size={14} />
-                  Saved
-                </span>
-              ) : (
-                'Save changes'
-              )}
-            </Button>
-            {isDirty && !saving && (
-              <p className="text-[12px] text-muted-foreground">Unsaved changes</p>
-            )}
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  )
 }
 
 function SecurityTab() {
@@ -378,7 +197,7 @@ function TeamTab({ members, currentUserId }: { members: TeamMember[]; currentUse
         <div className="divide-y divide-border rounded-lg border border-border">
           {filtered.map((m) => (
             <div key={m.id} className="flex items-center gap-3 px-4 py-3">
-              <Avatar name={m.name} avatarUrl={m.avatar_url} size="sm" />
+              <UserAvatar name={m.name} avatarUrl={m.avatar_url} size="sm" />
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-1.5">
                   <span className="truncate text-[13px] font-medium text-foreground">{m.name}</span>
@@ -674,7 +493,7 @@ export function SettingsDashboard({
         {/* Tab panels */}
         <div className="min-w-0 flex-1 xl:max-w-3xl">
           <div id="tabpanel-profile" role="tabpanel" hidden={tab !== 'profile'}>
-            <ProfileTab user={user} />
+            <ProfileForm user={user} />
           </div>
           <div id="tabpanel-security" role="tabpanel" hidden={tab !== 'security'}>
             <SecurityTab />

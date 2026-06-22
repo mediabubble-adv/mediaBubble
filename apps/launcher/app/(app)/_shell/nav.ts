@@ -13,6 +13,7 @@ import {
   Megaphone,
   Sparkles,
   Settings,
+  User,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -71,6 +72,7 @@ export const NAV_GROUPS: NavGroup[] = [
 export const NAV_ITEMS: NavItem[] = NAV_GROUPS.flatMap((g) => g.items)
 
 export const NAV_FOOTER: NavItem[] = [
+  { label: 'Profile', href: '/profile', icon: User },
   { label: 'Settings', href: '/settings', icon: Settings },
 ]
 

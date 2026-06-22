@@ -8,7 +8,7 @@ import { Field, SubmitButton, Alert, postJson } from '../parts'
 export function LoginForm() {
   const router = useRouter()
   const params = useSearchParams()
-  const next = params.get('next') || '/'
+  const next = params.get('next') || '/profile'
 
   const [pending, setPending] = useState(false)
   const [error, setError] = useState<string | null>(null)
