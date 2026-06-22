@@ -1,0 +1,19 @@
+apps/launcher/lib/db/load-launcher-env.ts
+  s_de4b5ceedd0f70::t_8c18733edc4391 86-90
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "906da2eb2cbaf1da848c5772ab0c7f8d10557fc0",
+  "prompts": {},
+  "sessions": {
+    "s_de4b5ceedd0f70": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "374a1223-8d71-4381-8377-29c1ced41d65",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
