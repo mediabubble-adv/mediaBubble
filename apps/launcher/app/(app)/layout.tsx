@@ -1,4 +1,6 @@
+import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
+import { SESSION_COOKIE } from '@/lib/auth/cookie'
 import { getServerSession } from '@/lib/auth/server-session'
 import { prisma } from '@/lib/db/prisma'
 import { AppShell, type ShellUser } from './_shell/app-shell'
@@ -27,8 +29,12 @@ export default async function AppLayout({ children }: { children: React.ReactNod
       departments_users_department_idTodepartments: { select: { name: true } },
     },
   })
-  // Session valid but user row gone (deleted/rotated) → bounce to login.
-  if (!record) redirect('/login')
+  // Session valid but user row gone (deleted/rotated) → clear stale cookie so
+  // proxy stops bouncing /login ↔ / and the sign-in form can render.
+  if (!record) {
+    ;(await cookies()).delete(SESSION_COOKIE)
+    redirect('/login')
+  }
 
   const user: ShellUser = {
     name: record.name,

@@ -11,8 +11,8 @@ test.describe('Launcher E2E Flow', () => {
     await page.click('button[type="submit"]')
 
     // Verify redirected to Dashboard (increase timeout for Next.js dev compilation)
-    await expect(page).toHaveURL('/', { timeout: 20000 })
-    await expect(page.locator('text=Welcome')).toBeVisible({ timeout: 15000 })
+    await expect(page).toHaveURL('/profile', { timeout: 20000 })
+    await expect(page.locator('text=Your profile')).toBeVisible({ timeout: 15000 })
 
     // 2. Navigate to Tasks
     await page.click('text=Tasks')
