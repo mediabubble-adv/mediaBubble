@@ -14,6 +14,7 @@ import { CURRENCIES, formatMoney, convert, type CurrencyCode } from '@/lib/finan
 import { summarize, byCategory, monthlySeriesPadded, trailingMonthKeys, formatMonthLabel, type FinanceTxn } from '@/lib/finance/kpis'
 import { Input } from '@/components/ui/input'
 import { FinanceAiBrief } from './finance-ai-brief'
+import { PageFrame, PageHeader } from '@/components/layout/page-frame'
 
 interface DashboardTxn extends FinanceTxn {
   id: string
