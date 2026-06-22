@@ -1,0 +1,19 @@
+apps/launcher/app/(app)/finance/finance-dashboard.tsx
+  s_de4b5ceedd0f70::t_0fe6cd89586715 17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "35191c0acf8b46931059a67a55dacb4dcc6af4dd",
+  "prompts": {},
+  "sessions": {
+    "s_de4b5ceedd0f70": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "374a1223-8d71-4381-8377-29c1ced41d65",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
