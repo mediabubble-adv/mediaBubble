@@ -1,15 +1,23 @@
 'use client'
 
 import { useState, useRef } from 'react'
-import { User, Lock, Users, Camera, CheckCircle2 } from 'lucide-react'
+import { User, Lock, Users, Camera, CheckCircle2, Settings2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { useToast } from '@/components/ui/toast'
 import type { Role } from '@/lib/auth/rbac'
+import type { WorkspacePrefs } from '@/app/api/settings/workspace/route'
 
 export interface SettingsUser {
   id: string
@@ -29,7 +37,7 @@ interface TeamMember {
   department: string | null
 }
 
-type Tab = 'profile' | 'security' | 'team'
+type Tab = 'profile' | 'security' | 'team' | 'workspace'
 
 const ROLE_TONE: Record<string, 'blue' | 'warning' | 'danger' | 'neutral'> = {
   Admin: 'danger',
@@ -353,18 +361,222 @@ function TeamTab({ members, currentUserId }: { members: TeamMember[]; currentUse
   )
 }
 
+const TIMEZONES = [
+  { value: 'UTC', label: 'UTC' },
+  { value: 'Africa/Cairo', label: 'Cairo (UTC+2)' },
+  { value: 'Asia/Dubai', label: 'Dubai (UTC+4)' },
+  { value: 'Asia/Riyadh', label: 'Riyadh (UTC+3)' },
+  { value: 'Europe/London', label: 'London (UTC+0/+1)' },
+  { value: 'Europe/Paris', label: 'Paris (UTC+1/+2)' },
+  { value: 'America/New_York', label: 'New York (UTC−5/−4)' },
+  { value: 'America/Los_Angeles', label: 'Los Angeles (UTC−8/−7)' },
+]
+
+const DATE_FORMATS: { value: WorkspacePrefs['date_format']; label: string }[] = [
+  { value: 'DD/MM/YYYY', label: 'DD/MM/YYYY' },
+  { value: 'MM/DD/YYYY', label: 'MM/DD/YYYY' },
+  { value: 'YYYY-MM-DD', label: 'YYYY-MM-DD' },
+]
+
+const LANGUAGES: { value: WorkspacePrefs['language']; label: string }[] = [
+  { value: 'en', label: 'English' },
+  { value: 'ar', label: 'العربية' },
+]
+
+function Toggle({ checked, onChange }: { checked: boolean; onChange: (v: boolean) => void }) {
+  return (
+    <button
+      type="button"
+      role="switch"
+      aria-checked={checked}
+      onClick={() => onChange(!checked)}
+      className={[
+        'relative inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+        checked ? 'bg-primary' : 'bg-input',
+      ].join(' ')}
+    >
+      <span
+        className={[
+          'pointer-events-none inline-block h-4 w-4 rounded-full bg-background shadow-lg ring-0 transition-transform duration-150',
+          checked ? 'translate-x-4' : 'translate-x-0',
+        ].join(' ')}
+      />
+    </button>
+  )
+}
+
+function WorkspaceTab({ prefs }: { prefs: WorkspacePrefs }) {
+  const { toast } = useToast()
+  const [form, setForm] = useState<WorkspacePrefs>({ ...prefs })
+  const [saving, setSaving] = useState(false)
+  const [saved, setSaved] = useState(false)
+
+  const isDirty = JSON.stringify(form) !== JSON.stringify(prefs)
+
+  function set<K extends keyof WorkspacePrefs>(key: K, value: WorkspacePrefs[K]) {
+    setForm((f) => ({ ...f, [key]: value }))
+    setSaved(false)
+  }
+
+  async function handleSave() {
+    setSaving(true)
+    try {
+      const res = await fetch('/api/settings/workspace', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      const json = await res.json()
+      if (!res.ok) {
+        toast('error', json.message ?? 'Failed to save preferences')
+        return
+      }
+      setSaved(true)
+      setTimeout(() => setSaved(false), 3000)
+      toast('success', 'Workspace preferences saved')
+    } catch {
+      toast('error', 'Network error — please try again')
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  return (
+    <div className="space-y-5">
+      {/* Regional */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-[14px]">Regional</CardTitle>
+          <CardDescription>Timezone, date format, and display language.</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="space-y-1.5">
+            <Label htmlFor="tz">Timezone</Label>
+            <Select value={form.timezone} onValueChange={(v) => set('timezone', v)}>
+              <SelectTrigger id="tz">
+                <SelectValue placeholder="Select timezone" />
+              </SelectTrigger>
+              <SelectContent>
+                {TIMEZONES.map((tz) => (
+                  <SelectItem key={tz.value} value={tz.value}>
+                    {tz.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
+          <div className="space-y-1.5">
+            <Label htmlFor="date-fmt">Date format</Label>
+            <Select
+              value={form.date_format}
+              onValueChange={(v) => set('date_format', v as WorkspacePrefs['date_format'])}
+            >
+              <SelectTrigger id="date-fmt">
+                <SelectValue placeholder="Select format" />
+              </SelectTrigger>
+              <SelectContent>
+                {DATE_FORMATS.map((f) => (
+                  <SelectItem key={f.value} value={f.value}>
+                    {f.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
+          <div className="space-y-1.5">
+            <Label htmlFor="lang">Language</Label>
+            <Select
+              value={form.language}
+              onValueChange={(v) => set('language', v as WorkspacePrefs['language'])}
+            >
+              <SelectTrigger id="lang">
+                <SelectValue placeholder="Select language" />
+              </SelectTrigger>
+              <SelectContent>
+                {LANGUAGES.map((l) => (
+                  <SelectItem key={l.value} value={l.value}>
+                    {l.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Notifications */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-[14px]">Notifications</CardTitle>
+          <CardDescription>Choose how you want to be notified.</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="flex items-center justify-between gap-4">
+            <div className="space-y-0.5">
+              <p className="text-[13px] font-medium text-foreground">Email notifications</p>
+              <p className="text-[11px] text-muted-foreground">
+                Receive updates and alerts via email.
+              </p>
+            </div>
+            <Toggle
+              checked={form.email_notifications}
+              onChange={(v) => set('email_notifications', v)}
+            />
+          </div>
+
+          <Separator />
+
+          <div className="flex items-center justify-between gap-4">
+            <div className="space-y-0.5">
+              <p className="text-[13px] font-medium text-foreground">In-app notifications</p>
+              <p className="text-[11px] text-muted-foreground">
+                Show notifications inside the platform.
+              </p>
+            </div>
+            <Toggle
+              checked={form.app_notifications}
+              onChange={(v) => set('app_notifications', v)}
+            />
+          </div>
+        </CardContent>
+      </Card>
+
+      <div className="flex items-center gap-3">
+        <Button onClick={handleSave} isLoading={saving} disabled={!isDirty || saving}>
+          {saved ? (
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 size={14} />
+              Saved
+            </span>
+          ) : (
+            'Save preferences'
+          )}
+        </Button>
+        {isDirty && !saving && (
+          <p className="text-[12px] text-muted-foreground">Unsaved changes</p>
+        )}
+      </div>
+    </div>
+  )
+}
+
 const TABS: { id: Tab; label: string; icon: React.ElementType }[] = [
   { id: 'profile', label: 'Profile', icon: User },
   { id: 'security', label: 'Security', icon: Lock },
   { id: 'team', label: 'Team', icon: Users },
+  { id: 'workspace', label: 'Workspace', icon: Settings2 },
 ]
 
 export function SettingsDashboard({
   user,
   team,
+  workspacePrefs,
 }: {
   user: SettingsUser
   team: TeamMember[]
+  workspacePrefs: WorkspacePrefs
 }) {
   const [tab, setTab] = useState<Tab>('profile')
 
@@ -376,7 +588,7 @@ export function SettingsDashboard({
           Account settings
         </h1>
         <p className="mt-2 text-[14px] text-muted-foreground">
-          Manage your profile, password, and team.
+          Manage your profile, password, team, and workspace preferences.
         </p>
 
         {/* Tab bar */}
@@ -411,6 +623,9 @@ export function SettingsDashboard({
           </div>
           <div id="tabpanel-team" role="tabpanel" hidden={tab !== 'team'}>
             {tab === 'team' && <TeamTab members={team} currentUserId={user.id} />}
+          </div>
+          <div id="tabpanel-workspace" role="tabpanel" hidden={tab !== 'workspace'}>
+            {tab === 'workspace' && <WorkspaceTab prefs={workspacePrefs} />}
           </div>
         </div>
       </div>

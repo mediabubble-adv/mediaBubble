@@ -5,7 +5,6 @@ import {
   TrendingUp,
   TrendingDown,
   Wallet,
-  AlertTriangle,
   Search,
   ArrowUpDown,
   DollarSign,
@@ -14,6 +13,7 @@ import {
 import { CURRENCIES, formatMoney, convert, type CurrencyCode } from '@/lib/finance/currency'
 import { summarize, byCategory, monthlySeriesPadded, trailingMonthKeys, formatMonthLabel, type FinanceTxn } from '@/lib/finance/kpis'
 import { Input } from '@/components/ui/input'
+import { FinanceAiBrief } from './finance-ai-brief'
 
 interface DashboardTxn extends FinanceTxn {
   id: string
@@ -213,41 +213,24 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
     }
   }, [monthlyData, displayCurrency])
 
-  // AI Optimization Brief Check: Look for duplicate Hosting (Hostinger) charges
-  const optimizationIssues = useMemo(() => {
-    const issues: { title: string; desc: string; savings: string }[] = []
-
-    const hostingOutflows = initialTxns.filter(
-      (t) =>
-        t.type === 'outflow' &&
-        t.category === 'Hosting & Servers' &&
-        t.description?.toLowerCase().includes('hostinger')
-    )
-
-    if (hostingOutflows.length > 1) {
-      // Find the ones that overlap in the same month or look duplicate
-      const monthsSeen = new Set<string>()
-      let duplicateTotal = 0
-      hostingOutflows.forEach((h) => {
-        const month = h.date.slice(0, 7)
-        if (monthsSeen.has(month)) {
-          duplicateTotal += convert(h.amount, h.currency, displayCurrency)
-        } else {
-          monthsSeen.add(month)
-        }
-      })
-
-      if (duplicateTotal > 0) {
-        issues.push({
-          title: 'Duplicate hosting services detected',
-          desc: 'Identified parallel billing for Hostinger (including "openclaw"). Consolidating legacy tiers onto a single server recovers operations budget.',
-          savings: `${formatMoney(duplicateTotal / monthsSeen.size, displayCurrency)}/mo`,
-        })
-      }
+  // Snapshot passed to the AI brief — derived from the same memos already computed.
+  const briefSnapshot = useMemo(() => {
+    const catData = byCategory(initialTxns, displayCurrency)
+    const totalOut = catData.reduce((s, c) => s + c.total, 0)
+    return {
+      currency: displayCurrency,
+      summary,
+      burnRate,
+      topCategories: catData.map((c) => ({
+        category: c.category,
+        total: c.total,
+        pct: totalOut > 0 ? (c.total / totalOut) * 100 : 0,
+      })),
+      monthly: monthlySeriesPadded(initialTxns, displayCurrency),
+      recurringCount: initialTxns.filter((t) => t.recurring).length,
+      totalTransactions: initialTxns.length,
     }
-
-    return issues
-  }, [initialTxns, displayCurrency])
+  }, [initialTxns, displayCurrency, summary, burnRate])
 
   const toggleSort = (field: 'date' | 'amount' | 'category' | 'type') => {
     if (sortBy === field) {
@@ -571,34 +554,8 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
           </div>
         </div>
 
-        {/* AI Optimization Brief Callout */}
-        {optimizationIssues.length > 0 && (
-          <div className="rounded-2xl border border-[#CA8A04]/30 bg-[#CA8A04]/5 p-5">
-            <div className="flex items-start gap-3">
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#CA8A04]/10 text-[#CA8A04]">
-                <AlertTriangle size={18} />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-display text-[14px] font-bold text-[#CA8A04]">
-                  AI Spending Optimization Opportunity
-                </h3>
-                {optimizationIssues.map((issue, idx) => (
-                  <div key={idx} className="mt-2 flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
-                    <p className="text-[13px] text-muted-foreground leading-relaxed max-w-2xl">
-                      {issue.desc}
-                    </p>
-                    <div className="shrink-0 flex items-center gap-2 rounded-lg bg-[#CA8A04]/10 px-3 py-1.5 text-[#CA8A04]">
-                      <span className="text-[11px] font-bold uppercase tracking-wider">Potential Savings</span>
-                      <span className="font-mono text-sm font-bold tabular-nums" dir="ltr">
-                        {issue.savings}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
+        {/* Finance AI Brief */}
+        <FinanceAiBrief snapshot={briefSnapshot} />
 
         {/* Ledger Table Section */}
         <div className="rounded-2xl border border-border bg-card p-5">
