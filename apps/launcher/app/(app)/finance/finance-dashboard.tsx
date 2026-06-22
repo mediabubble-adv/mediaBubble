@@ -220,7 +220,7 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
     const totalOut = catData.reduce((s, c) => s + c.total, 0)
     return {
       currency: displayCurrency,
-      summary,
+      summary: summarize(initialTxns, displayCurrency),
       burnRate,
       topCategories: catData.map((c) => ({
         category: c.category,
@@ -231,7 +231,7 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
       recurringCount: initialTxns.filter((t) => t.recurring).length,
       totalTransactions: initialTxns.length,
     }
-  }, [initialTxns, displayCurrency, summary, burnRate])
+  }, [initialTxns, displayCurrency, burnRate])
 
   const toggleSort = (field: 'date' | 'amount' | 'category' | 'type') => {
     if (sortBy === field) {

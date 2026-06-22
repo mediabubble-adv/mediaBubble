@@ -36,7 +36,9 @@ export function generateLocalBrief(s: BriefSnapshot): string {
     : ''
 
   // ── Trend ────────────────────────────────────────────────────────────────────
-  const months = s.monthly.filter((m) => m.inflow > 0 || m.outflow > 0)
+  // Use all months (including zero-activity) so the reported window matches the
+  // actual date range and first/last comparison is not distorted by gaps.
+  const months = s.monthly
   let trendLine = ''
   if (months.length >= 2) {
     const first = months[0]!
@@ -44,13 +46,14 @@ export function generateLocalBrief(s: BriefSnapshot): string {
     const netFirst = first.inflow - first.outflow
     const netLast = last.inflow - last.outflow
     const delta = netLast - netFirst
-    const deltaPct = netFirst !== 0 ? Math.abs(delta / netFirst) * 100 : 0
+    // Omit percentage when the base is zero to avoid misleading "0%" output.
+    const pctStr = netFirst !== 0 ? ` (${(Math.abs(delta / netFirst) * 100).toFixed(0)}%)` : ''
     if (Math.abs(delta) < 1) {
       trendLine = `Net position has held flat over the ${months.length}-month window.`
     } else if (delta > 0) {
-      trendLine = `Net position improved by ${fmt(Math.abs(delta))} (${deltaPct.toFixed(0)}%) from ${first.label} to ${last.label}.`
+      trendLine = `Net position improved by ${fmt(Math.abs(delta))}${pctStr} from ${first.label} to ${last.label}.`
     } else {
-      trendLine = `Net position declined by ${fmt(Math.abs(delta))} (${deltaPct.toFixed(0)}%) from ${first.label} to ${last.label} — investigate outflow growth.`
+      trendLine = `Net position declined by ${fmt(Math.abs(delta))}${pctStr} from ${first.label} to ${last.label} — investigate outflow growth.`
     }
   }
 

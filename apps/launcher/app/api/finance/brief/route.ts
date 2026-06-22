@@ -21,18 +21,18 @@ const snapshotSchema = z.object({
   }),
   burnRate: z.number(),
   topCategories: z.array(
-    z.object({ category: z.string(), total: z.number(), pct: z.number() }),
-  ),
+    z.object({ category: z.string().max(100), total: z.number(), pct: z.number() }),
+  ).max(20),
   monthly: z.array(
     z.object({
-      month: z.string(),
-      label: z.string(),
+      month: z.string().max(20),
+      label: z.string().max(20),
       inflow: z.number(),
       outflow: z.number(),
     }),
-  ),
-  recurringCount: z.number(),
-  totalTransactions: z.number(),
+  ).max(36),
+  recurringCount: z.number().int().min(0),
+  totalTransactions: z.number().int().min(0),
 })
 
 type Snapshot = z.infer<typeof snapshotSchema>
