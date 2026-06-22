@@ -1,0 +1,51 @@
+apps/launcher/app/(app)/settings/settings-dashboard.tsx
+  s_0b0f5439e81ae5::t_2445b646a274f5 496
+  s_0b0f5439e81ae5::t_1aee1bf11b9663 45
+  s_0b0f5439e81ae5::t_befd9391245a75 4
+  s_0b0f5439e81ae5::t_0fcd20ff869f42 5
+  s_0b0f5439e81ae5::t_187b86354b9412 200
+apps/launcher/proxy.ts
+  s_0b0f5439e81ae5::t_e296ad9018bb15 105
+  s_0b0f5439e81ae5::t_03628780eb09e2 98-104
+apps/launcher/app/(app)/profile/page.tsx
+  s_0b0f5439e81ae5::t_77e0ad017a74f8 1-45
+apps/launcher/components/account/profile-form.tsx
+  s_0b0f5439e81ae5::t_061d8c1bdd3ac3 37
+  s_0b0f5439e81ae5::t_616dd5d3d084a0 109
+  s_0b0f5439e81ae5::t_4e1db088366371 1-36,38-108,110-179
+apps/launcher/app/(auth)/login/login-form.tsx
+  s_0b0f5439e81ae5::t_08858a676d2bb6 11
+apps/launcher/e2e/launcher.spec.ts
+  s_0b0f5439e81ae5::t_5b14eebc9222ac 15
+  s_0b0f5439e81ae5::t_a8b3ab1cf8564d 14
+apps/launcher/app/(app)/profile/profile-view.tsx
+  s_0b0f5439e81ae5::t_4e922c821ce282 1-69
+apps/launcher/app/(auth)/login/page.tsx
+  s_0b0f5439e81ae5::t_5baef071cbd4cd 2-3,5-7,12-18,20-22
+  s_0b0f5439e81ae5::t_5799dbeb562cc9 19
+apps/launcher/app/(app)/layout.tsx
+  s_0b0f5439e81ae5::t_b6e8c618a27d5e 32-37
+  s_0b0f5439e81ae5::t_a1ea44698dfa94 1,3
+apps/launcher/app/(app)/_shell/app-shell.tsx
+  s_0b0f5439e81ae5::t_a7aba7ff95737d 316-324
+  s_0b0f5439e81ae5::t_fb5f03fe37441a 15
+apps/launcher/app/(app)/_shell/nav.ts
+  s_0b0f5439e81ae5::t_8aeba630b24fb7 75
+  s_0b0f5439e81ae5::t_8c0ad8aca17da7 16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "9fb86b83b303d429a49fe2abde8f8c898dc002be",
+  "prompts": {},
+  "sessions": {
+    "s_0b0f5439e81ae5": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "ccd58eb9-a82b-41ae-b183-9beee983acd9",
+        "model": "default"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
