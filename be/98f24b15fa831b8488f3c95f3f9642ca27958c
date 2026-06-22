@@ -1,0 +1,24 @@
+apps/web-ae/next-env.d.ts
+  s_79276d544be90d::t_14591bf0c98c55 3,6
+package.json
+  s_79276d544be90d::t_36947277b3a513 95
+  s_79276d544be90d::t_50e5efc761b96f 117
+apps/web-eg/next-env.d.ts
+  s_79276d544be90d::t_14591bf0c98c55 3,6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "be98f24b15fa831b8488f3c95f3f9642ca27958c",
+  "prompts": {},
+  "sessions": {
+    "s_79276d544be90d": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "2347b21a-4653-4607-b7a0-6f2a21b30fa1",
+        "model": "default"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
