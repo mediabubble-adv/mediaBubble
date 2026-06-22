@@ -20,8 +20,8 @@
     "db:generate": "sh -c 'set -a && . apps/launcher/.env.local && [ -f apps/launcher/prisma/.env ] && . apps/launcher/prisma/.env; set +a && prisma generate --schema apps/launcher/prisma/schema.prisma'",
     "db:migrate": "sh -c 'set -a && . apps/launcher/.env.local && [ -f apps/launcher/prisma/.env ] && . apps/launcher/prisma/.env; set +a && prisma migrate dev --schema apps/launcher/prisma/schema.prisma'",
     "db:deploy": "sh -c 'set -a && . apps/launcher/.env.local && [ -f apps/launcher/prisma/.env ] && . apps/launcher/prisma/.env; set +a && prisma migrate deploy --schema apps/launcher/prisma/schema.prisma'",
-    "db:deploy:ci": "sh -c 'export DIRECT_URL=\"${DIRECT_URL:-$DATABASE_URL}\" && prisma migrate deploy --schema apps/launcher/prisma/schema.prisma'",
-    "vercel-build:launcher": "sh -c 'export DIRECT_URL=\"${DIRECT_URL:-$DATABASE_URL}\" && prisma migrate deploy --schema apps/launcher/prisma/schema.prisma && prisma generate --schema apps/launcher/prisma/schema.prisma && nx build launcher'",
+    "db:deploy:ci": "bash -c 'source scripts/ensure-direct-url.sh && npx prisma migrate deploy'",
+    "vercel-build:launcher": "bash scripts/launcher-vercel-build.sh",
     "db:studio": "sh -c 'set -a && . apps/launcher/.env.local && [ -f apps/launcher/prisma/.env ] && . apps/launcher/prisma/.env; set +a && prisma studio --schema apps/launcher/prisma/schema.prisma'",
     "db:seed": "sh -c 'set -a && . apps/launcher/.env.local && [ -f apps/launcher/prisma/.env ] && . apps/launcher/prisma/.env; set +a && tsx apps/launcher/prisma/seed.ts'",
     "build": "nx run-many -t build",
@@ -36,10 +36,6 @@
     "prepare": "husky",
     "graph": "nx graph",
     "format": "prettier --write ."
-  },
-  "prisma": {
-    "schema": "apps/launcher/prisma/schema.prisma",
-    "seed": "tsx apps/launcher/prisma/seed.ts"
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",
@@ -96,7 +92,7 @@
     "jest-environment-jsdom": "^30.4.1",
     "lint-staged": "^17.0.7",
     "nx": "23.0.0",
-    "postcss": "^8.4.32",
+    "postcss": "^8.5.10",
     "prisma": "^6.19.3",
     "rollup": "^4.59.0",
     "tailwindcss": "^3.3.6",
@@ -105,15 +101,25 @@
     "typescript": "^5.3.3"
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
+    "apps/**/*.{ts,tsx}": [
       "eslint --fix --max-warnings=0",
       "jest --findRelatedTests --passWithNoTests --config jest.config.cjs"
+    ],
+    "packages/**/*.{ts,tsx}": [
+      "eslint --fix --max-warnings=0",
+      "jest --findRelatedTests --passWithNoTests --config jest.config.cjs"
+    ],
+    "jest.setup.ts": [
+      "eslint --fix --max-warnings=0"
     ]
   },
   "overrides": {
+    "postcss": "^8.5.10",
     "@next/eslint-plugin-next": {
       "glob": "10.5.0"
     },
+    "form-data": "4.0.6",
+    "serialize-javascript": "7.0.6",
     "js-yaml": "4.2.0",
     "http-proxy-middleware": "3.0.7",
     "webpack-dev-server": {

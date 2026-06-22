@@ -1,4 +1,5 @@
 # Integration Validation Checklist
+
 **Pre-Week 1 API Access & Authentication**
 
 ---
@@ -19,10 +20,12 @@
   - [ ] Copy key to secure vault (1Password/LastPass)
 
 - [ ] **Test Basic Connection**
+
   ```bash
   curl -X GET "https://api.hubapi.com/crm/v3/objects/contacts" \
     -H "authorization: Bearer YOUR_API_KEY"
   ```
+
   - [ ] Response: 200 OK (connection works)
   - [ ] Response: 401 Unauthorized (check API key)
   - [ ] Response: 403 Forbidden (check permissions)
@@ -50,6 +53,7 @@
   - [ ] personalization_angle (custom — create if missing)
 
 - [ ] **Test Field Creation**
+
   ```bash
   # Example: Create custom field for lead scoring
   curl -X POST "https://api.hubapi.com/crm/v3/objects/contacts/properties" \
@@ -69,11 +73,13 @@
       ]
     }'
   ```
+
   - [ ] Response: 200 OK
   - [ ] Field appears in HubSpot UI
   - [ ] Can set field values via API
 
 - [ ] **Test Contact Creation Flow**
+
   ```bash
   curl -X POST "https://api.hubapi.com/crm/v3/objects/contacts" \
     -H "authorization: Bearer YOUR_API_KEY" \
@@ -89,6 +95,7 @@
       }
     }'
   ```
+
   - [ ] Response: 201 Created
   - [ ] Contact appears in HubSpot
   - [ ] Custom fields populated correctly
@@ -122,28 +129,34 @@
   - [ ] Save to vault
 
 - [ ] **Test Basic Connection**
+
   ```bash
   curl -H "Authorization: token YOUR_GITHUB_TOKEN" \
     https://api.github.com/user
   ```
+
   - [ ] Response: 200 OK with your user info
   - [ ] Confirms token is valid
 
 - [ ] **Test PR Access**
+
   ```bash
   curl -H "Authorization: token YOUR_GITHUB_TOKEN" \
     https://api.github.com/repos/YOUR_ORG/YOUR_REPO/pulls
   ```
+
   - [ ] Response: 200 OK with list of PRs
   - [ ] Can access all target repos
 
 - [ ] **Test Diff Retrieval**
+
   ```bash
   # Get specific PR diff
   curl -H "Authorization: token YOUR_GITHUB_TOKEN" \
     -H "Accept: application/vnd.github.v3.diff" \
     https://api.github.com/repos/YOUR_ORG/YOUR_REPO/pulls/PR_NUMBER
   ```
+
   - [ ] Response: 200 OK with diff content
   - [ ] Diff is parseable
 
@@ -172,6 +185,7 @@
       "line": 42
     }'
   ```
+
   - [ ] Response: 201 Created
   - [ ] Comment appears on PR
 
@@ -201,15 +215,18 @@
   - [ ] Save to vault
 
 - [ ] **Test Authentication**
+
   ```bash
   curl -X POST \
     https://ims-na1.adobelogin.com/ims/token/v3 \
     -d "grant_type=client_credentials&client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET&scope=openid,AdobeID,read_organizations"
   ```
+
   - [ ] Response: 200 OK with access token
   - [ ] Token is valid
 
 - [ ] **Test Image Resize API**
+
   ```bash
   # Example: Resize image to Instagram dimensions
   curl -X POST \
@@ -221,6 +238,7 @@
       "filters": {"resize": {"width": 1080, "height": 1080}}
     }'
   ```
+
   - [ ] Response: 200 OK with job ID
   - [ ] Output file appears in Dropbox
 
@@ -239,6 +257,7 @@
 **Deadline:** Week 0, Monday (to unblock if access needed)
 
 **⚠️ Note:** If Adobe API access is NOT available, Design agent goes to Phase 2. Alternatives:
+
 1. Use ImageMagick for CLI-based resizing (free, immediate)
 2. Use Cloudinary API (if you have account)
 3. Manual resizing by design team + save Phase 1 for variations only
@@ -321,44 +340,51 @@
 ## Integration Validation Summary
 
 ### MUST-HAVE (Before Week 1):
-| API | Purpose | Status | Owner | Deadline |
-|-----|---------|--------|-------|----------|
-| HubSpot | Lead contact creation + scoring | ⏳ | Eng | Wed |
-| GitHub | PR code review + webhooks | ⏳ | Eng | Wed |
-| Adobe | Design batch resizing | ⏳ | Eng + Adobe | Mon |
+
+| API     | Purpose                         | Status | Owner       | Deadline |
+| ------- | ------------------------------- | ------ | ----------- | -------- |
+| HubSpot | Lead contact creation + scoring | ⏳     | Eng         | Wed      |
+| GitHub  | PR code review + webhooks       | ⏳     | Eng         | Wed      |
+| Adobe   | Design batch resizing           | ⏳     | Eng + Adobe | Mon      |
 
 ### SHOULD-HAVE (By Week 1 End):
-| API | Purpose | Status | Owner | Deadline |
-|-----|---------|--------|-------|----------|
-| Marketing Skills | Social copy generation | ⏳ | Eng | Fri |
-| Email API | Nurture sequence automation | ⏳ | Eng | Fri |
+
+| API              | Purpose                     | Status | Owner | Deadline |
+| ---------------- | --------------------------- | ------ | ----- | -------- |
+| Marketing Skills | Social copy generation      | ⏳     | Eng   | Fri      |
+| Email API        | Nurture sequence automation | ⏳     | Eng   | Fri      |
 
 ### NICE-TO-HAVE (By Week 3):
-| API | Purpose | Status | Owner | Deadline |
-|-----|---------|--------|-------|----------|
-| Google Ads | Bid optimization | ⏳ | Eng | Week 3 |
-| Meta Ads | Bid optimization | ⏳ | Eng | Week 3 |
+
+| API        | Purpose          | Status | Owner | Deadline |
+| ---------- | ---------------- | ------ | ----- | -------- |
+| Google Ads | Bid optimization | ⏳     | Eng   | Week 3   |
+| Meta Ads   | Bid optimization | ⏳     | Eng   | Week 3   |
 
 ---
 
 ## Validation Failures & Fallbacks
 
 **If HubSpot API fails:**
+
 - ⛔ This blocks Lead Scoring agent
 - Fallback: Manual HubSpot entry (defeats purpose)
 - Resolution: Contact HubSpot support, escalate to CTO
 
 **If GitHub API fails:**
+
 - ⛔ This blocks Code Review agent
 - Fallback: Manual PR review (defeats purpose)
 - Resolution: Check GitHub status page, verify org permissions
 
 **If Adobe API unavailable:**
+
 - ⚠️ Design agent moves to Phase 2 OR uses ImageMagick
 - Fallback: ImageMagick CLI for resizing
 - Resolution: Confirm Adobe API access or implement ImageMagick
 
 **If Marketing skill unavailable:**
+
 - ⚠️ Copy Generator uses generic Claude instead
 - Fallback: Use default Claude content generation
 - Resolution: Verify skill is loaded, check skill configuration
@@ -382,14 +408,14 @@
 
 ## Week 1 Day 1 Kickoff Requirements
 
-| Requirement | Status | Notes |
-|-------------|--------|-------|
-| HubSpot API working | ⏳ | Need this for Phase 1 agent |
-| GitHub API working | ⏳ | Need this for Phase 1 agent |
-| Design tools ready | ⏳ | Adobe OR ImageMagick |
-| Team trained on APIs | ⏳ | Engineering sync Thu PM |
-| Test data prepared | ⏳ | 5-10 sample leads ready |
-| Monitoring setup | ⏳ | Error tracking + logging |
+| Requirement          | Status | Notes                       |
+| -------------------- | ------ | --------------------------- |
+| HubSpot API working  | ⏳     | Need this for Phase 1 agent |
+| GitHub API working   | ⏳     | Need this for Phase 1 agent |
+| Design tools ready   | ⏳     | Adobe OR ImageMagick        |
+| Team trained on APIs | ⏳     | Engineering sync Thu PM     |
+| Test data prepared   | ⏳     | 5-10 sample leads ready     |
+| Monitoring setup     | ⏳     | Error tracking + logging    |
 
 ---
 

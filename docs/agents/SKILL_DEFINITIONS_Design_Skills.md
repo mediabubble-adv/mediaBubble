@@ -14,6 +14,7 @@
 Arabic calligraphy as both traditional art form and design element. Covers historical styles (Naskh, Diwani, Kufic), digital calligraphy tools, integrating calligraphy into modern design, and cultural significance.
 
 **Key Topics:**
+
 - Historical calligraphy styles (6 major styles)
 - Pen techniques & stroke fundamentals
 - Digital calligraphy tools (Procreate, Illustrator, iPad)
@@ -24,6 +25,7 @@ Arabic calligraphy as both traditional art form and design element. Covers histo
 - Conservation & authenticity
 
 **Resources Included:**
+
 - Visual style guide (Naskh, Diwani, Kufic, Thuluth examples)
 - Tool recommendations (Procreate, Adobe, iPad hardware)
 - 25+ contemporary calligraphy artists & portfolios
@@ -33,6 +35,7 @@ Arabic calligraphy as both traditional art form and design element. Covers histo
 - Pricing for custom calligraphy
 
 **Agent Behavior Guidelines:**
+
 - Explain historical context & cultural significance first
 - Clarify authentic vs. decorative calligraphy
 - Distinguish styles by historical period & region
@@ -59,6 +62,7 @@ Arabic calligraphy as both traditional art form and design element. Covers histo
 Typography for Arabic including typeface selection, type design principles specific to Arabic scripts, digital font implementation, and typographic hierarchy for bilingual design.
 
 **Key Topics:**
+
 - Arabic script fundamentals (connectedness, ligatures)
 - Major typeface families (serif, sans-serif, display)
 - Type design for Arabic (diacritics, joining behavior)
@@ -69,6 +73,7 @@ Typography for Arabic including typeface selection, type design principles speci
 - Accessibility in Arabic typography
 
 **Resources Included:**
+
 - 30+ recommended Arabic typefaces (with links)
 - Google Fonts Arabic list (free options)
 - Type design terminology (ligature, diacritic, joining)
@@ -79,6 +84,7 @@ Typography for Arabic including typeface selection, type design principles speci
 - Font file format guide (TTF, OTF, WOFF)
 
 **Agent Behavior Guidelines:**
+
 - Explain typeface selection criteria (brand, context, audience)
 - Clarify technical limitations (diacritic support, ligatures)
 - Recommend specific typefaces with rationale
@@ -105,6 +111,7 @@ Typography for Arabic including typeface selection, type design principles speci
 Visual arts encompassing contemporary illustration, Islamic geometric patterns, artistic traditions, and modern interpretive approaches to Arabic visual language.
 
 **Key Topics:**
+
 - Islamic geometric pattern systems (mathematical basis)
 - Contemporary illustration styles
 - Traditional artistic techniques (miniature, mural)
@@ -115,6 +122,7 @@ Visual arts encompassing contemporary illustration, Islamic geometric patterns, 
 - Artist statements & cultural positioning
 
 **Resources Included:**
+
 - 40+ contemporary Arab visual artists & portfolios
 - Geometric pattern generators & tutorials
 - Color palette references (traditional + modern)
@@ -125,6 +133,7 @@ Visual arts encompassing contemporary illustration, Islamic geometric patterns, 
 - Cultural movement analysis
 
 **Agent Behavior Guidelines:**
+
 - Explain cultural & historical context before technique
 - Clarify authentic vs. stereotypical representations
 - Reference living artists & contemporary movements
@@ -152,6 +161,7 @@ Visual arts encompassing contemporary illustration, Islamic geometric patterns, 
 Cultural aesthetics of Arabic and Islamic design including color symbolism, geometric meaning, regional aesthetic preferences, and symbolic language. Bridges design with cultural understanding.
 
 **Key Topics:**
+
 - Color symbolism in Islamic & Arabic culture
 - Geometric symbolism & mathematical meaning
 - Regional aesthetic preferences (Egyptian, Gulf, Moroccan)
@@ -162,6 +172,7 @@ Cultural aesthetics of Arabic and Islamic design including color symbolism, geom
 - Authenticity vs. stereotyping
 
 **Resources Included:**
+
 - 50+ symbol meanings (geometric, floral, color)
 - Color symbolism guide (cultural variations)
 - Regional aesthetic preference data
@@ -172,6 +183,7 @@ Cultural aesthetics of Arabic and Islamic design including color symbolism, geom
 - Authentic design examples by context
 
 **Agent Behavior Guidelines:**
+
 - Lead with cultural context & meaning
 - Explain symbolism with historical/religious background
 - Clarify regional differences (don't generalize)
@@ -199,6 +211,7 @@ Cultural aesthetics of Arabic and Islamic design including color symbolism, geom
 User interface and user experience design principles specific to Arabic including RTL layout, text expansion, cultural UX patterns, and accessibility for Arabic users.
 
 **Key Topics:**
+
 - RTL (right-to-left) layout principles
 - Text expansion & space planning
 - Arabic-specific UX patterns (navigation, forms)
@@ -209,6 +222,7 @@ User interface and user experience design principles specific to Arabic includin
 - Testing with Arabic users
 
 **Resources Included:**
+
 - RTL CSS framework guide & code snippets
 - Text expansion percentages (English → Arabic)
 - 20+ Arabic-first app case studies
@@ -219,6 +233,7 @@ User interface and user experience design principles specific to Arabic includin
 - 10+ design system case studies (Arabic support)
 
 **Agent Behavior Guidelines:**
+
 - Explain technical RTL constraints & opportunities
 - Provide implementation-ready code & guidance
 - Reference Arabic-first product examples
@@ -246,6 +261,7 @@ User interface and user experience design principles specific to Arabic includin
 Marketing and creative design tailored to Arabic-speaking audiences including brand identity, advertising creative, social media design, and campaign strategy. Balances global brand consistency with cultural relevance.
 
 **Key Topics:**
+
 - Brand identity for Arabic markets
 - Advertising creative strategy
 - Cultural copywriting + design synergy
@@ -256,6 +272,7 @@ Marketing and creative design tailored to Arabic-speaking audiences including br
 - Campaign case studies (successful + unsuccessful)
 
 **Resources Included:**
+
 - 30+ brand case studies (global + Arabic-specific)
 - Campaign analysis (what worked, why)
 - Cultural sensitivity checklist for campaigns
@@ -266,6 +283,7 @@ Marketing and creative design tailored to Arabic-speaking audiences including br
 - Pricing & production timeline guides
 
 **Agent Behavior Guidelines:**
+
 - Balance global brand guidelines with cultural adaptation
 - Explain cultural appropriateness early
 - Provide case studies of both successes & failures
@@ -284,6 +302,7 @@ Marketing and creative design tailored to Arabic-speaking audiences including br
 ## IMPLEMENTATION NOTES
 
 All 6 design skills should:
+
 - Be discoverable under `arabic:design` parent
 - Support hierarchical navigation (parent → child)
 - Include authentic examples & case studies
@@ -295,6 +314,7 @@ All 6 design skills should:
 - Include accessibility & inclusion guidance
 
 Skills are organized by design discipline & audience:
+
 1. Calligraphy (traditional → contemporary)
 2. Typography (technical + aesthetic)
 3. Visual Arts (illustration + patterns)

@@ -18,6 +18,7 @@ import { CapacityPanel } from './capacity-panel'
 import { CalendarPanel } from './calendar-panel'
 import { TeamPanel, type TeamTimeEntry } from './team-panel'
 import type { CapacitySnapshot } from '@/lib/time/capacity'
+import { PageFrame, PageHeader } from '@/components/layout/page-frame'
 
 export interface DashboardTimeEntry extends TimeEntryRow {
   id: string
@@ -179,19 +180,12 @@ export function TimeDashboard({
   }
 
   return (
-    <div className="px-6 py-8 lg:px-8">
-      <div className="mx-auto max-w-6xl">
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
-            <Clock size={20} className="text-primary" />
-          </div>
-          <div>
-            <h1 className="font-display text-2xl font-bold text-foreground">Time</h1>
-            <p className="text-[13px] text-muted-foreground">
-              Log hours, request leave, and track billable work — task timers sync here automatically.
-            </p>
-          </div>
-        </div>
+    <PageFrame>
+      <PageHeader
+        icon={Clock}
+        title="Time"
+        description="Log hours, request leave, and track billable work — task timers sync here automatically."
+      />
 
         <div className="mt-6 flex flex-wrap gap-2 border-b border-border">
           {(
@@ -470,7 +464,6 @@ export function TimeDashboard({
         </div>
           </>
         )}
-      </div>
-    </div>
+    </PageFrame>
   )
 }

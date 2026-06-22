@@ -1,4 +1,5 @@
 # MediaBubble Batch 1 - REIMAGINED
+
 ## Illustration Style • Growth & Momentum • Accent Color Strategy
 
 **New Direction**: Modern illustration with upward growth momentum
@@ -11,6 +12,7 @@
 ## THE VISION
 
 Instead of abstract networks, we're going with:
+
 - ✨ **Modern illustration style** (not photorealistic, not abstract geometric)
 - 📈 **Upward growth metaphors** (arrows, trajectories, climbing, ascending)
 - 🎨 **Clean composition** with white/light backgrounds
@@ -24,6 +26,7 @@ Instead of abstract networks, we're going with:
 ### **Main Hero v1 - Growth Ascent (Yellow Forward)**
 
 **Prompt:**
+
 ```
 Modern professional illustration for digital marketing agency hero section.
 A stylized mountain or upward climbing composition with layered ascending forms.
@@ -51,6 +54,7 @@ Resolution: Premium 4K quality.
 ### **Main Hero v2 - Growth Momentum (Blue Trajectory)**
 
 **Prompt:**
+
 ```
 Modern professional illustration for digital marketing agency hero section.
 Upward momentum visualization with ascending curved lines and trajectory shapes.
@@ -77,6 +81,7 @@ Dynamic movement suggesting scaling and growth trajectory.
 ### **Main Hero v3 - Growth Ecosystem (Balanced Colors)**
 
 **Prompt:**
+
 ```
 Modern professional illustration for digital marketing agency hero section.
 Interconnected growth visualization: upward-moving elements connected by flowing pathways.
@@ -104,6 +109,7 @@ Growth + integration + forward momentum all present visually.
 ### **Main Hero v4 - Growth Acceleration (White Space Dominant)**
 
 **Prompt:**
+
 ```
 Modern professional illustration for digital marketing agency hero section.
 Minimalist growth visualization with dominant white space and strategic color accents.
@@ -130,15 +136,15 @@ Growth concept expressed through simplicity and strategic use of color.
 
 ## KEY DIFFERENCES FROM ORIGINAL
 
-| Aspect | Original | REIMAGINED |
-|--------|----------|-----------|
-| **Style** | Abstract network/tech | Modern illustration |
-| **Background** | Deep blue dominant | Clean white/light |
-| **Color Use** | Everywhere dominant | Strategic accents |
-| **Metaphor** | Connection/web | Growth/momentum/ascending |
-| **Mood** | Technical/complex | Aspirational/energetic |
-| **Composition** | Dense nodes | Clean ascending forms |
-| **Aesthetic** | Sci-fi/futuristic | Premium agency illustration |
+| Aspect          | Original              | REIMAGINED                  |
+| --------------- | --------------------- | --------------------------- |
+| **Style**       | Abstract network/tech | Modern illustration         |
+| **Background**  | Deep blue dominant    | Clean white/light           |
+| **Color Use**   | Everywhere dominant   | Strategic accents           |
+| **Metaphor**    | Connection/web        | Growth/momentum/ascending   |
+| **Mood**        | Technical/complex     | Aspirational/energetic      |
+| **Composition** | Dense nodes           | Clean ascending forms       |
+| **Aesthetic**   | Sci-fi/futuristic     | Premium agency illustration |
 
 ---
 
@@ -156,16 +162,19 @@ Growth concept expressed through simplicity and strategic use of color.
 ## GENERATION STRATEGY
 
 **Tool**: Use Recraft V4.1 or Ideogram 4
+
 - Both handle illustration style excellently
 - Both understand "modern illustration" briefs
 - Both will deliver premium quality
 
 **Settings**:
+
 - Canvas: 16:9 Widescreen
 - Style: "Illustration" (not Photorealistic)
 - Quality: High
 
 **Regeneration**: If first output feels too tech or too abstract, adjust prompt:
+
 - Add "minimalist" for v4 (accent colors are the only visual drama)
 - Add "flowing curves" if they look too geometric
 - Add "premium fashion/design magazine style" if they look too flat
@@ -177,6 +186,7 @@ Growth concept expressed through simplicity and strategic use of color.
 Once Main Hero is approved, Batch 2 will be:
 
 **Services Discovery Reimagined** — 3 variations showing different growth/expansion concepts:
+
 1. **Expanding influence** — Growth radiating outward
 2. **Climbing success** — Upward trajectory with milestones
 3. **Scaling foundation** — Building blocks growing larger
@@ -199,4 +209,3 @@ All using same color + illustration + white space approach.
 ---
 
 **This is the direction? Ready to generate?** 🎨
-

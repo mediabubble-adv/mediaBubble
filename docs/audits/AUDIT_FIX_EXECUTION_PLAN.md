@@ -1,4 +1,5 @@
 # MediaBubble Audit Fix Execution Plan
+
 **Created:** June 11, 2026 | **Status:** Ready for Execution in Cursor IDE
 
 ---
@@ -258,8 +259,8 @@ export function GoogleAnalytics() {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${GA_ID}', { 
-            page_path: window.location.pathname, 
+          gtag('config', '${GA_ID}', {
+            page_path: window.location.pathname,
             send_page_view: true,
             anonymize_ip: true
           });
@@ -279,7 +280,7 @@ const handleChoice = (choice: 'accepted' | 'declined') => {
   localStorage.setItem(CONSENT_KEY, choice)
   setStatus(choice)
   setVisible(false)
-  
+
   if (choice === 'accepted') {
     window.dispatchEvent(new Event('cookieConsentGranted'))
   }
@@ -302,11 +303,11 @@ Find Cairo font definition:
 const cairo = Cairo({ subsets: ['arabic', 'latin'], weight: ['400', '600', '700', '800', '900'], ... })
 
 Replace with:
-const cairo = Cairo({ 
-  subsets: ['arabic', 'latin'], 
+const cairo = Cairo({
+  subsets: ['arabic', 'latin'],
   weight: ['400', '700', '900'],
   display: 'swap',
-  variable: '--font-cairo' 
+  variable: '--font-cairo'
 })
 
 ACTION 2: Update apps/web-ae/app/layout.tsx (same change)
@@ -471,16 +472,19 @@ Test: npm run build
 After each phase, verify:
 
 **Phase 1 Complete?**
+
 - [ ] npm run build succeeds
 - [ ] npm run typecheck passes
 - [ ] No module resolution errors
 
 **Phase 2 Complete?**
+
 - [ ] GA4 loads when cookies accepted
 - [ ] No image optimization warnings
 - [ ] npm run build succeeds
 
 **Phase 3 Complete?**
+
 - [ ] Cookie banner renders correctly
 - [ ] No z-index conflicts
 - [ ] Cache headers present

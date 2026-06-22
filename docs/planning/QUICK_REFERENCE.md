@@ -16,21 +16,22 @@ BEFORE                          AFTER
 
 ## 🎯 The 5 Agent Consolidations
 
-| Group | Merge Into | # Agents | Savings |
-|-------|-----------|----------|---------|
-| **A** | `universal-content-generator` | 4 → 1 | 3 agents |
-| **B** | `analytics-insights-engine` | 5 → 1 | 4 agents |
-| **C** | `document-workflow-generator` | 4 → 1 | 3 agents |
-| **D** | `health-risk-monitor` | 5 → 1 | 4 agents |
-| **E** | `smart-optimizer-engine` | 7 → 1 | 6 agents |
-| — | **Remaining (dept-specific)** | 15 (no merge) | — |
-| **TOTAL** | — | **45 → 20** | **25 agents** |
+| Group     | Merge Into                    | # Agents      | Savings       |
+| --------- | ----------------------------- | ------------- | ------------- |
+| **A**     | `universal-content-generator` | 4 → 1         | 3 agents      |
+| **B**     | `analytics-insights-engine`   | 5 → 1         | 4 agents      |
+| **C**     | `document-workflow-generator` | 4 → 1         | 3 agents      |
+| **D**     | `health-risk-monitor`         | 5 → 1         | 4 agents      |
+| **E**     | `smart-optimizer-engine`      | 7 → 1         | 6 agents      |
+| —         | **Remaining (dept-specific)** | 15 (no merge) | —             |
+| **TOTAL** | —                             | **45 → 20**   | **25 agents** |
 
 ---
 
 ## 🌍 Language Skills Consolidation
 
 ### Current (Scattered)
+
 ```
 ❌ Levantine Arabic skill
 ❌ Khaliji/Gulf Arabic skill
@@ -41,6 +42,7 @@ BEFORE                          AFTER
 ```
 
 ### After Consolidation
+
 ```
 ✅ arabic-language-master/
    ├── dialects/
@@ -55,6 +57,7 @@ BEFORE                          AFTER
 ```
 
 **Benefits:**
+
 - Single source of truth
 - No dialect conflicts
 - Unified brand voice
@@ -65,6 +68,7 @@ BEFORE                          AFTER
 ## 🎨 Design Skills Consolidation
 
 ### Current (Scattered)
+
 ```
 ❌ General design system
 ❌ Visual identity (separate)
@@ -74,6 +78,7 @@ BEFORE                          AFTER
 ```
 
 ### After Consolidation
+
 ```
 ✅ design-system-master/
    ├── design-foundations/
@@ -89,6 +94,7 @@ BEFORE                          AFTER
 ```
 
 **Benefits:**
+
 - Arabic design as first-class feature
 - RTL patterns documented
 - Cultural sensitivity built-in
@@ -126,21 +132,22 @@ BEFORE                          AFTER
 
 ## ⏱️ Implementation Timeline
 
-| Phase | Duration | Key Tasks |
-|-------|----------|-----------|
-| **1** | Week 1 | Plan approval + audit |
-| **2** | Weeks 2-3 | Folder structure + templates |
-| **3** | Weeks 4-6 | Agent/skill consolidation |
-| **4** | Weeks 7-8 | Claude compatibility + QA |
-| **5** | Week 9 | Testing + documentation |
-| **6** | Week 10 | Deployment + training |
-| **TOTAL** | **10 weeks** | — |
+| Phase     | Duration     | Key Tasks                    |
+| --------- | ------------ | ---------------------------- |
+| **1**     | Week 1       | Plan approval + audit        |
+| **2**     | Weeks 2-3    | Folder structure + templates |
+| **3**     | Weeks 4-6    | Agent/skill consolidation    |
+| **4**     | Weeks 7-8    | Claude compatibility + QA    |
+| **5**     | Week 9       | Testing + documentation      |
+| **6**     | Week 10      | Deployment + training        |
+| **TOTAL** | **10 weeks** | —                            |
 
 ---
 
 ## 🚀 Quick Start (If Approved)
 
 ### Step 1: Get Approval (Day 1-2)
+
 ```
 ✓ Review OPENCODE_REORGANIZATION_PLAN.md
 ✓ Review IMPLEMENTATION_SUMMARY.md
@@ -149,6 +156,7 @@ BEFORE                          AFTER
 ```
 
 ### Step 2: Week 1 (Planning)
+
 ```
 ✓ Audit current structure (Task #2)
 ✓ Create migration checklist
@@ -157,6 +165,7 @@ BEFORE                          AFTER
 ```
 
 ### Step 3: Weeks 2-3 (Foundation)
+
 ```
 ✓ Create new folder structure (Task #3)
 ✓ Build all templates
@@ -165,6 +174,7 @@ BEFORE                          AFTER
 ```
 
 ### Step 4: Weeks 4-6 (Consolidation)
+
 ```
 ✓ Consolidate 5 agent groups (Tasks #4-8)
 ✓ Create 2 unified skills (Tasks #10-11)
@@ -173,6 +183,7 @@ BEFORE                          AFTER
 ```
 
 ### Step 5: Weeks 7-9 (QA & Docs)
+
 ```
 ✓ Implement Claude standards (Tasks #14-15)
 ✓ Create testing suite (Task #16)
@@ -183,6 +194,7 @@ BEFORE                          AFTER
 ```
 
 ### Step 6: Week 10 (Deployment)
+
 ```
 ✓ Deploy to production
 ✓ Team training
@@ -194,36 +206,41 @@ BEFORE                          AFTER
 
 ## 📚 Where to Find What
 
-| Need | Document | Reference |
-|------|----------|-----------|
-| **Full Strategy** | OPENCODE_REORGANIZATION_PLAN.md | Part 1-8 |
-| **Summary** | IMPLEMENTATION_SUMMARY.md | Full file |
-| **Agent Details** | OPENCODE_REORGANIZATION_PLAN.md | Part 1 + Appendix A |
-| **Language Details** | OPENCODE_REORGANIZATION_PLAN.md | Part 2.1 |
-| **Design Details** | OPENCODE_REORGANIZATION_PLAN.md | Part 2.2 |
-| **Folder Structure** | OPENCODE_REORGANIZATION_PLAN.md | Part 3 |
-| **Claude Standards** | OPENCODE_REORGANIZATION_PLAN.md | Part 4 |
-| **Timeline** | OPENCODE_REORGANIZATION_PLAN.md | Part 5 |
-| **Governance** | OPENCODE_REORGANIZATION_PLAN.md | Part 6 |
-| **This Quick Ref** | QUICK_REFERENCE.md | (you are here) |
+| Need                 | Document                        | Reference           |
+| -------------------- | ------------------------------- | ------------------- |
+| **Full Strategy**    | OPENCODE_REORGANIZATION_PLAN.md | Part 1-8            |
+| **Summary**          | IMPLEMENTATION_SUMMARY.md       | Full file           |
+| **Agent Details**    | OPENCODE_REORGANIZATION_PLAN.md | Part 1 + Appendix A |
+| **Language Details** | OPENCODE_REORGANIZATION_PLAN.md | Part 2.1            |
+| **Design Details**   | OPENCODE_REORGANIZATION_PLAN.md | Part 2.2            |
+| **Folder Structure** | OPENCODE_REORGANIZATION_PLAN.md | Part 3              |
+| **Claude Standards** | OPENCODE_REORGANIZATION_PLAN.md | Part 4              |
+| **Timeline**         | OPENCODE_REORGANIZATION_PLAN.md | Part 5              |
+| **Governance**       | OPENCODE_REORGANIZATION_PLAN.md | Part 6              |
+| **This Quick Ref**   | QUICK_REFERENCE.md              | (you are here)      |
 
 ---
 
 ## 💡 Key Principles
 
 ### 1. **No Functionality Loss**
+
 Every capability is preserved. We're just reorganizing.
 
 ### 2. **100% Claude Compatible**
+
 Every agent/skill follows standards. Works seamlessly with Claude API.
 
 ### 3. **Arabic First-Class Citizen**
+
 Language skills and design skills both feature Arabic prominently.
 
 ### 4. **Maintainability Over Everything**
+
 Fewer files, clearer dependencies, comprehensive docs.
 
 ### 5. **Team-Friendly**
+
 Clear structure, templates, examples, training materials.
 
 ---
@@ -231,6 +248,7 @@ Clear structure, templates, examples, training materials.
 ## ✅ Success Metrics
 
 ### Completed When:
+
 - [ ] All 45 agents consolidated to 20
 - [ ] All language skills → 1 unified Arabic skill
 - [ ] All design skills → 1 unified design skill
@@ -241,6 +259,7 @@ Clear structure, templates, examples, training materials.
 - [ ] Deployed to production
 
 ### Expected Outcomes:
+
 - **Maintenance:** -50% time
 - **Onboarding:** -60% time
 - **Reusability:** +75%
@@ -253,33 +272,39 @@ Clear structure, templates, examples, training materials.
 ## 🆘 Quick Help
 
 ### "What if I have questions?"
+
 → See OPENCODE_REORGANIZATION_PLAN.md (22,000 words covers everything)
 
 ### "Which task should I start with?"
+
 → Task #1 (review plan) → Task #2 (audit) → Phase 1 → Phase 2 → ...
 
 ### "Will this break integrations?"
+
 → No. Integrations in dedicated folder, not consolidated.
 
 ### "Will team learn the new structure?"
+
 → Yes. Phase 5 includes comprehensive docs + training. Phase 6 is training week.
 
 ### "What about old files?"
+
 → Archive in Phase 6. Don't delete immediately.
 
 ### "Timeline too long?"
+
 → Shortest: 6 weeks (compress phases). Longest: 12 weeks (buffer). 10 weeks is recommended.
 
 ---
 
 ## 📞 Contact
 
-| Role | Person | Contact |
-|------|--------|---------|
-| **Plan Author** | Claude | AI Architect |
-| **Project Owner** | Dorgham | Founder |
-| **Implementation Lead** | [TBD] | [TBD] |
-| **Questions** | All | Use OPENCODE_REORGANIZATION_PLAN.md |
+| Role                    | Person  | Contact                             |
+| ----------------------- | ------- | ----------------------------------- |
+| **Plan Author**         | Claude  | AI Architect                        |
+| **Project Owner**       | Dorgham | Founder                             |
+| **Implementation Lead** | [TBD]   | [TBD]                               |
+| **Questions**           | All     | Use OPENCODE_REORGANIZATION_PLAN.md |
 
 ---
 
@@ -297,4 +322,4 @@ Clear structure, templates, examples, training materials.
 
 ---
 
-*Last updated: June 9, 2026*
+_Last updated: June 9, 2026_

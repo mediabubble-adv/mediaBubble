@@ -60,22 +60,22 @@ Comprehensive strategic plan covering:
 
 **Task Categories:**
 
-| # | Task | Phase | Status |
-|---|------|-------|--------|
-| 1 | Review & approve plan | Planning | Pending |
-| 2 | Audit current structure | Planning | Pending |
-| 3 | Create new folder structure | Foundation | Pending |
-| 4-8 | Consolidate 5 agent groups | Consolidation | Pending |
-| 9 | Organize 15 dept-specific agents | Consolidation | Pending |
-| 10 | Create Arabic Language Master skill | Consolidation | Pending |
-| 11 | Create Design System Master skill | Consolidation | Pending |
-| 12-13 | Update manifests | Consolidation | Pending |
-| 14-15 | Implement Claude standards | Quality | Pending |
-| 16 | Create testing suite | Testing | Pending |
-| 17 | Create documentation suite | Testing | Pending |
-| 18 | Create examples & templates | Testing | Pending |
-| 19 | Run comprehensive QA | QA | Pending |
-| 20 | Finalize Phase 1 | Planning | Pending |
+| #     | Task                                | Phase         | Status  |
+| ----- | ----------------------------------- | ------------- | ------- |
+| 1     | Review & approve plan               | Planning      | Pending |
+| 2     | Audit current structure             | Planning      | Pending |
+| 3     | Create new folder structure         | Foundation    | Pending |
+| 4-8   | Consolidate 5 agent groups          | Consolidation | Pending |
+| 9     | Organize 15 dept-specific agents    | Consolidation | Pending |
+| 10    | Create Arabic Language Master skill | Consolidation | Pending |
+| 11    | Create Design System Master skill   | Consolidation | Pending |
+| 12-13 | Update manifests                    | Consolidation | Pending |
+| 14-15 | Implement Claude standards          | Quality       | Pending |
+| 16    | Create testing suite                | Testing       | Pending |
+| 17    | Create documentation suite          | Testing       | Pending |
+| 18    | Create examples & templates         | Testing       | Pending |
+| 19    | Run comprehensive QA                | QA            | Pending |
+| 20    | Finalize Phase 1                    | Planning      | Pending |
 
 **Total Effort:** ~10 weeks (5 phases)  
 **Team Size:** 2-3 developers recommended
@@ -85,6 +85,7 @@ Comprehensive strategic plan covering:
 ## Key Metrics
 
 ### Before Reorganization
+
 ```
 Agents:        45
 Skills:        ~20+ scattered
@@ -96,6 +97,7 @@ Claude Compat: Partial/unknown
 ```
 
 ### After Reorganization
+
 ```
 Agents:        20 (56% reduction)
 Skills:        4 major (consolidated)
@@ -107,6 +109,7 @@ Claude Compat: 100% verified
 ```
 
 ### Expected Impact
+
 - **Maintenance Time:** -50%
 - **Onboarding Time:** -60%
 - **Code Reusability:** +75%
@@ -119,7 +122,9 @@ Claude Compat: 100% verified
 ## Critical Design Decisions
 
 ### 1. **Why 5 Consolidation Groups?**
+
 Grouped agents by:
+
 - **Similar function** (content generation, analytics)
 - **Shared framework** (document generation, monitoring)
 - **Cross-domain utility** (optimization applicable everywhere)
@@ -127,6 +132,7 @@ Grouped agents by:
 This preserves 15 specialized agents that are dept-specific and NOT redundant.
 
 ### 2. **Why Unified Arabic Skill?**
+
 - **Single source of truth** for all dialects
 - **Eliminates dialect conflicts** (inconsistent vocabulary)
 - **Enables seamless code-switching** between dialects
@@ -134,6 +140,7 @@ This preserves 15 specialized agents that are dept-specific and NOT redundant.
 - **Simplifies brand voice** (one place to update tone)
 
 ### 3. **Why Design System Master Unifies Everything?**
+
 - **Design + Calligraphy are interconnected** in Arabic contexts
 - **RTL patterns affect all design** not just Arabic
 - **Cultural symbolism matters across platforms**
@@ -141,6 +148,7 @@ This preserves 15 specialized agents that are dept-specific and NOT redundant.
 - **Arabic design excellence as first-class feature** (not afterthought)
 
 ### 4. **Why Agent-Level Not Just Prompt-Level?**
+
 - **Operational efficiency:** Agents can be tested, monitored, versioned independently
 - **Cost control:** Can measure token usage per agent
 - **Approval gates:** Some agents need human review, others don't
@@ -152,6 +160,7 @@ This preserves 15 specialized agents that are dept-specific and NOT redundant.
 ## Quick Start for Implementation
 
 ### Step 1: Approval ✅
+
 ```
 1. Review OPENCODE_REORGANIZATION_PLAN.md (this document)
 2. Review this IMPLEMENTATION_SUMMARY.md
@@ -160,6 +169,7 @@ This preserves 15 specialized agents that are dept-specific and NOT redundant.
 ```
 
 ### Step 2: Audit (Week 1)
+
 ```
 1. Run Task #2 (Audit current structure)
 2. Create detailed migration checklist
@@ -169,6 +179,7 @@ This preserves 15 specialized agents that are dept-specific and NOT redundant.
 ```
 
 ### Step 3: Foundation (Weeks 2-3)
+
 ```
 1. Run Task #3 (Create new folder structure)
 2. Create all templates (YAML, Markdown, etc.)
@@ -177,6 +188,7 @@ This preserves 15 specialized agents that are dept-specific and NOT redundant.
 ```
 
 ### Step 4: Consolidation (Weeks 4-6)
+
 ```
 1. Run Tasks #4-#11 (Merge agents, build skills)
 2. Update manifests (Tasks #12-#13)
@@ -185,6 +197,7 @@ This preserves 15 specialized agents that are dept-specific and NOT redundant.
 ```
 
 ### Step 5: Quality & Testing (Weeks 7-9)
+
 ```
 1. Run Tasks #14-#19 (Claude standards, testing, docs)
 2. Comprehensive QA
@@ -193,6 +206,7 @@ This preserves 15 specialized agents that are dept-specific and NOT redundant.
 ```
 
 ### Step 6: Deployment (Week 10)
+
 ```
 1. Deploy to production
 2. Team training
@@ -205,6 +219,7 @@ This preserves 15 specialized agents that are dept-specific and NOT redundant.
 ## Files Created
 
 ### Main Documents
+
 1. **OPENCODE_REORGANIZATION_PLAN.md** (22,000 words)
    - Complete strategic & tactical plan
    - All appendices included
@@ -216,6 +231,7 @@ This preserves 15 specialized agents that are dept-specific and NOT redundant.
    - Next steps
 
 ### Task Tracking
+
 - 20 structured tasks created
 - Clear dependencies
 - Phase-based organization
@@ -226,22 +242,26 @@ This preserves 15 specialized agents that are dept-specific and NOT redundant.
 ## Next Actions
 
 ### Immediate (Next 2 Days)
+
 - [ ] Review both documents (OPENCODE_REORGANIZATION_PLAN.md + IMPLEMENTATION_SUMMARY.md)
 - [ ] Schedule review meeting with team
 - [ ] Get approval to proceed
 
 ### Week 1 (Planning)
+
 - [ ] Complete Task #2 (Audit current structure)
 - [ ] Create migration checklist
 - [ ] Set up git branch
 - [ ] Complete Task #20 (Finalize Phase 1)
 
 ### Weeks 2-3 (Foundation)
+
 - [ ] Execute Task #3
 - [ ] Build all folder structure and templates
 - [ ] Prepare for agent consolidation
 
 ### Weeks 4-6 (Consolidation)
+
 - [ ] Execute Tasks #4-#11
 - [ ] Consolidate all agents and skills
 - [ ] Update manifests
@@ -251,34 +271,44 @@ This preserves 15 specialized agents that are dept-specific and NOT redundant.
 ## Risk Mitigation
 
 ### Risk: "We'll lose agent functionality"
-**Mitigation:** 
+
+**Mitigation:**
+
 - Consolidation preserves ALL capabilities
 - 5 universal agents replace 25 redundant ones
 - 15 specialized agents remain unchanged
 - No functionality loss, only organization improvement
 
 ### Risk: "Claude won't understand the new structure"
+
 **Mitigation:**
+
 - Part 4 provides complete Claude compatibility standards
 - All agents/skills have system-prompt.md
 - AGENTS_MANIFEST.yaml and SKILLS_MANIFEST.yaml map everything
 - Examples show how to use new structure
 
 ### Risk: "Integration with HubSpot/Google/Meta will break"
+
 **Mitigation:**
+
 - Integrations are in dedicated agents/integrations/ folder
 - Not affected by consolidation
 - Integration agents remain unchanged
 
 ### Risk: "Arabic dialect authenticity will suffer"
+
 **Mitigation:**
+
 - Each dialect has dedicated subfolder with native-speaker guides
 - Per-dialect vocabulary and grammar files
 - Cultural sensitivity checks in testing suite
 - Quarterly review process built in
 
 ### Risk: "Team won't adopt new structure"
+
 **Mitigation:**
+
 - 60% reduction in onboarding time
 - Comprehensive documentation (Task #17)
 - Working examples (Task #18)
@@ -290,16 +320,19 @@ This preserves 15 specialized agents that are dept-specific and NOT redundant.
 ## Success Criteria
 
 ### Phase 1 ✅
+
 - [ ] Plan approved by leadership
 - [ ] Migration checklist complete
 - [ ] Team aligned on approach
 
 ### Phase 2 ✅
+
 - [ ] New folder structure created
 - [ ] All templates in place
 - [ ] Ready for consolidation
 
 ### Phase 3 ✅
+
 - [ ] All 25 agents consolidated into 5 universal agents
 - [ ] All Arabic dialects consolidated into 1 skill
 - [ ] All design skills consolidated into 1 skill
@@ -307,12 +340,14 @@ This preserves 15 specialized agents that are dept-specific and NOT redundant.
 - [ ] Manifests updated
 
 ### Phase 4-5 ✅
+
 - [ ] Claude compatibility verified across all files
 - [ ] All tests passing (agent, skill, integration, performance)
 - [ ] 100% documentation complete
 - [ ] Examples provided for each agent/skill
 
 ### Phase 6 ✅
+
 - [ ] Deployed to production
 - [ ] Team trained
 - [ ] Old files archived
@@ -323,6 +358,7 @@ This preserves 15 specialized agents that are dept-specific and NOT redundant.
 ## Questions?
 
 Refer to the detailed OPENCODE_REORGANIZATION_PLAN.md:
+
 - **Part 1:** Agent consolidation strategy (covers why)
 - **Part 2:** Language & design consolidation (detailed structure)
 - **Part 3:** Folder structure (file-by-file organization)
@@ -335,15 +371,15 @@ Refer to the detailed OPENCODE_REORGANIZATION_PLAN.md:
 
 ## Document Inventory
 
-| Document | Location | Purpose | Status |
-|----------|----------|---------|--------|
-| OPENCODE_REORGANIZATION_PLAN.md | Main folder | Complete strategic plan | ✅ Complete |
-| IMPLEMENTATION_SUMMARY.md | Main folder | Quick reference | ✅ Complete |
-| Task List | In task system | 20 actionable items | ✅ Created |
-| AGENTS_MANIFEST.yaml | .opencode/agents/ | Agent registry | 📋 To create |
-| SKILLS_MANIFEST.yaml | .opencode/skills/ | Skills registry | 📋 To create |
-| All agent YAML files | .opencode/agents/ | Individual agents | 📋 To consolidate |
-| All skill folders | .opencode/skills/ | Individual skills | 📋 To consolidate |
+| Document                        | Location          | Purpose                 | Status            |
+| ------------------------------- | ----------------- | ----------------------- | ----------------- |
+| OPENCODE_REORGANIZATION_PLAN.md | Main folder       | Complete strategic plan | ✅ Complete       |
+| IMPLEMENTATION_SUMMARY.md       | Main folder       | Quick reference         | ✅ Complete       |
+| Task List                       | In task system    | 20 actionable items     | ✅ Created        |
+| AGENTS_MANIFEST.yaml            | .opencode/agents/ | Agent registry          | 📋 To create      |
+| SKILLS_MANIFEST.yaml            | .opencode/skills/ | Skills registry         | 📋 To create      |
+| All agent YAML files            | .opencode/agents/ | Individual agents       | 📋 To consolidate |
+| All skill folders               | .opencode/skills/ | Individual skills       | 📋 To consolidate |
 
 ---
 

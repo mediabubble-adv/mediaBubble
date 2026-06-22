@@ -3,6 +3,9 @@ node_modules
 /.pnp
 .pnp.js
 
+# pnpm lock is local-only; CI/Vercel/Prisma Compute use npm + package-lock.json
+pnpm-lock.yaml
+
 # Testing
 /coverage
 

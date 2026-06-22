@@ -13,6 +13,7 @@ import {
 } from '@/lib/campaigns/schemas'
 import { CURRENCIES } from '@/lib/crm/schemas'
 import { Input } from '@/components/ui/input'
+import { PageFrame, PageHeader } from '@/components/layout/page-frame'
 
 type HubTab = 'proposals' | 'campaigns'
 
@@ -176,21 +177,13 @@ export function CampaignsDashboard({
   }
 
   return (
-    <div className="px-6 py-8 lg:px-8">
-      <div className="mx-auto max-w-6xl">
-        <div className="flex flex-wrap items-start justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-destructive/[0.16]">
-              <Megaphone size={20} className="text-destructive" />
-            </div>
-            <div>
-              <h1 className="font-display text-2xl font-bold text-foreground">Campaign & Proposal</h1>
-              <p className="text-[13px] text-muted-foreground">
-                Pitch proposals, launch client campaigns, and hand off to CRM quotations.
-              </p>
-            </div>
-          </div>
-          {canManage ? (
+    <PageFrame>
+      <PageHeader
+        icon={Megaphone}
+        title="Campaign & Proposal"
+        description="Pitch proposals, launch client campaigns, and hand off to CRM quotations."
+        actions={
+          canManage ? (
             <button
               type="button"
               onClick={() => setShowForm((v) => !v)}
@@ -199,8 +192,9 @@ export function CampaignsDashboard({
               <Plus size={16} />
               New {tab === 'proposals' ? 'proposal' : 'campaign'}
             </button>
-          ) : null}
-        </div>
+          ) : null
+        }
+      />
 
         <div className="mt-6 flex gap-2 border-b border-border pb-2">
           {TABS.map((t) => (
@@ -530,7 +524,6 @@ export function CampaignsDashboard({
             Statuses: {CAMPAIGN_STATUSES.join(' · ')}
           </p>
         )}
-      </div>
-    </div>
+    </PageFrame>
   )
 }

@@ -1,4 +1,5 @@
 # PHASE 2: SKILL IMPLEMENTATION GUIDE
+
 **Arabic Skills Refinement Project**
 
 **Date Created:** 2026-06-09  
@@ -14,10 +15,12 @@ Phase 2 has produced **complete skill definitions** for all 11 Arabic skills acr
 ### What You're Getting
 
 ✅ **2 Parent Category Definitions**
+
 - `arabic:language` (parent for 5 language skills)
 - `arabic:design` (parent for 6 design skills)
 
 ✅ **5 Language Skill Definitions** (with 150+ Masri resources each)
+
 - `arabic:language-masri-core` (conversational Egyptian Arabic)
 - `arabic:language-masri-business` (professional Egyptian Arabic)
 - `arabic:language-msa-formal` (Modern Standard Arabic)
@@ -25,6 +28,7 @@ Phase 2 has produced **complete skill definitions** for all 11 Arabic skills acr
 - `arabic:language-translation` (English ↔ Arabic translation & localization)
 
 ✅ **6 Design Skill Definitions** (with cultural authenticity guidelines)
+
 - `arabic:design-calligraphy` (traditional & contemporary)
 - `arabic:design-typography` (typeface selection & design)
 - `arabic:design-visual-arts` (illustration & patterns)
@@ -38,12 +42,12 @@ Phase 2 has produced **complete skill definitions** for all 11 Arabic skills acr
 
 ### Documentation Files
 
-| File | Purpose | Size |
-|---|---|---|
-| `SKILL_DEFINITIONS_Parent_Categories.md` | Parent category structure & guidelines | 3 KB |
-| `SKILL_DEFINITIONS_Language_Skills.md` | All 5 language skills with topics & resources | 12 KB |
-| `SKILL_DEFINITIONS_Design_Skills.md` | All 6 design skills with topics & resources | 14 KB |
-| `PHASE_2_SKILL_IMPLEMENTATION_GUIDE.md` | This implementation guide | 8 KB |
+| File                                     | Purpose                                       | Size  |
+| ---------------------------------------- | --------------------------------------------- | ----- |
+| `SKILL_DEFINITIONS_Parent_Categories.md` | Parent category structure & guidelines        | 3 KB  |
+| `SKILL_DEFINITIONS_Language_Skills.md`   | All 5 language skills with topics & resources | 12 KB |
+| `SKILL_DEFINITIONS_Design_Skills.md`     | All 6 design skills with topics & resources   | 14 KB |
+| `PHASE_2_SKILL_IMPLEMENTATION_GUIDE.md`  | This implementation guide                     | 8 KB  |
 
 **Total Documentation:** ~37 KB of structured, importable skill definitions
 
@@ -63,6 +67,7 @@ Category 2: arabic:design
 ```
 
 **What gets imported:**
+
 - Slug & naming convention
 - Parent-child relationship metadata
 - Agent behavior guidelines
@@ -85,6 +90,7 @@ Import all 5 language skills in order:
 ```
 
 **What gets imported per skill:**
+
 - Skill slug & parent category assignment
 - Description & key topics
 - 150+ Masri resources (vocabulary, media, learning platforms)
@@ -110,6 +116,7 @@ Import all 6 design skills in order:
 ```
 
 **What gets imported per skill:**
+
 - Skill slug & parent category assignment
 - Description & key topics
 - 20-50 resources per skill (artists, tools, case studies, references)
@@ -124,12 +131,14 @@ Import all 6 design skills in order:
 After importing, verify:
 
 ### ✓ Category Structure
+
 - [ ] `arabic:language` parent visible in system
 - [ ] `arabic:design` parent visible in system
 - [ ] Child skills properly nested under parents
 - [ ] Hierarchical navigation working (parent → children)
 
 ### ✓ Language Skills
+
 - [ ] All 5 skills discoverable by name & slug
 - [ ] Masri resources accessible (vocabulary, media, platforms)
 - [ ] Agent guidelines active (Masri examples prioritized)
@@ -137,6 +146,7 @@ After importing, verify:
 - [ ] Cultural context appearing in responses
 
 ### ✓ Design Skills
+
 - [ ] All 6 skills discoverable by name & slug
 - [ ] Resources linked (artists, tools, references)
 - [ ] Agent guidelines active (cultural sensitivity emphasized)
@@ -144,6 +154,7 @@ After importing, verify:
 - [ ] Technical guidance (code, CSS, tools) displaying
 
 ### ✓ Cross-Skill Navigation
+
 - [ ] Parent-child relationships displayed correctly
 - [ ] Skill discovery/search includes new skills
 - [ ] Agent can access child skills from parent requests
@@ -154,16 +165,20 @@ After importing, verify:
 ## WHAT COMES NEXT (PHASES 3-4)
 
 ### Phase 3: Masri Resource Deployment
+
 **Status:** Pending  
 **Tasks:**
+
 - Deploy 150+ Masri vocabulary words to language skills
 - Link 50+ Masri media resources (films, comedians, YouTubers)
 - Configure learning platform integrations
 - Set up progression path tracking
 
 ### Phase 4: Agent Guidelines & Testing
+
 **Status:** Pending  
 **Tasks:**
+
 - Activate agent behavior guidelines for all skills
 - Test skill discovery & navigation
 - Validate pronunciation guides & cultural context
@@ -176,6 +191,7 @@ After importing, verify:
 ### Language Skills Resources
 
 **Masri Core & Business Skills:**
+
 - ✅ 150+ core vocabulary words (organized by context)
 - ✅ 50+ media resources (films, comedians, YouTubers)
 - ✅ 5 learning platforms (Preply, iTalki, Duolingo, Busuu, Memrise)
@@ -185,6 +201,7 @@ After importing, verify:
 - ✅ Cultural context guide
 
 **MSA & Regional Skills:**
+
 - ✅ Grammar reference & formal vocabulary
 - ✅ News article samples
 - ✅ Dialect comparison matrices
@@ -192,6 +209,7 @@ After importing, verify:
 - ✅ Mutual intelligibility notes
 
 **Translation Skill:**
+
 - ✅ 200+ terminology pairs (organized by field)
 - ✅ Style guides (Masri vs. MSA)
 - ✅ Localization checklist
@@ -203,6 +221,7 @@ After importing, verify:
 ### Design Skills Resources
 
 **Calligraphy & Typography:**
+
 - ✅ 6 major calligraphy styles (visual + description)
 - ✅ 30+ recommended typefaces (with links)
 - ✅ Contemporary calligraphy artists (25+)
@@ -210,6 +229,7 @@ After importing, verify:
 - ✅ Font licensing & sourcing guide
 
 **Visual Arts & Cultural Aesthetics:**
+
 - ✅ 40+ contemporary Arab visual artists
 - ✅ 50+ symbol meanings (geometric, color, floral)
 - ✅ Geometric pattern generators & tutorials
@@ -217,6 +237,7 @@ After importing, verify:
 - ✅ Regional aesthetic preferences
 
 **UI/UX & Marketing:**
+
 - ✅ RTL layout framework & code snippets
 - ✅ Text expansion percentages
 - ✅ 20+ Arabic-first app case studies
@@ -228,6 +249,7 @@ After importing, verify:
 ## KEY FEATURES BY SKILL
 
 ### Masri-First Language Skills
+
 - **Pronunciation guides** with Egyptian phonetics
 - **Contemporary media** (not textbook examples)
 - **Cultural context** (when/where to use each variety)
@@ -235,6 +257,7 @@ After importing, verify:
 - **Code-switching rules** (Masri vs. MSA)
 
 ### Culturally Authentic Design Skills
+
 - **Historical context** explained before technique
 - **Contemporary practitioners** referenced throughout
 - **Cultural sensitivity** guidelines built in
@@ -242,6 +265,7 @@ After importing, verify:
 - **Authenticity warnings** for appropriation risks
 
 ### Agent Behavior Integration
+
 - **Language skills:** Lead with Masri, include pronunciation, explain culture
 - **Design skills:** Explain context first, reference living artists, cite sources
 - **All skills:** Use authentic examples, avoid stereotypes, respect regional identity
@@ -251,20 +275,25 @@ After importing, verify:
 ## TECHNICAL SPECIFICATIONS
 
 ### Naming Convention
+
 All skills follow: `arabic:{category}-{subcategory}`
 
 **Language Category:**
+
 ```
 arabic:language-[masri-core|masri-business|msa-formal|regional-dialects|translation]
 ```
 
 **Design Category:**
+
 ```
 arabic:design-[calligraphy|typography|visual-arts|cultural-aesthetics|ui-localization|marketing-creative]
 ```
 
 ### Metadata Fields
+
 Each skill includes:
+
 - `slug`: kebab-case identifier
 - `parent`: parent category slug
 - `level`: proficiency level (Beginner → Advanced)
@@ -275,7 +304,9 @@ Each skill includes:
 - `triggers`: Example phrases that activate the skill
 
 ### Data Structure
+
 All resources are organized by:
+
 - **Language skills:** Context (greetings, food, business, etc.)
 - **Design skills:** Discipline (typography, calligraphy, UX, etc.)
 - **All skills:** Progressive complexity (beginner → advanced)
@@ -291,7 +322,7 @@ Phase 2 is complete when:
 ✅ **2 parent categories** structurally linked  
 ✅ **Agent guidelines** included for all skills  
 ✅ **Documentation** complete & validated  
-✅ **Ready for import** to skill management system  
+✅ **Ready for import** to skill management system
 
 ---
 
@@ -314,6 +345,7 @@ Phase 2 is complete when:
 ## SUPPORT & QUESTIONS
 
 If you need to:
+
 - **Modify a skill:** Edit the relevant .md file before import
 - **Add more resources:** Same files can be updated
 - **Adjust agent guidelines:** Look for `Agent Behavior Guidelines` section
@@ -324,15 +356,15 @@ If you need to:
 
 ## DELIVERABLES SUMMARY
 
-| Deliverable | Status | Size |
-|---|---|---|
-| Parent category definitions | ✅ Complete | 3 KB |
-| Language skill definitions (5) | ✅ Complete | 12 KB |
-| Design skill definitions (6) | ✅ Complete | 14 KB |
-| Implementation guide | ✅ Complete | 8 KB |
-| Masri resources (150+) | ✅ Compiled | ~50 KB |
-| Agent guidelines (11 sets) | ✅ Included | ~20 KB |
-| **TOTAL PHASE 2** | **✅ READY** | **~107 KB** |
+| Deliverable                    | Status       | Size        |
+| ------------------------------ | ------------ | ----------- |
+| Parent category definitions    | ✅ Complete  | 3 KB        |
+| Language skill definitions (5) | ✅ Complete  | 12 KB       |
+| Design skill definitions (6)   | ✅ Complete  | 14 KB       |
+| Implementation guide           | ✅ Complete  | 8 KB        |
+| Masri resources (150+)         | ✅ Compiled  | ~50 KB      |
+| Agent guidelines (11 sets)     | ✅ Included  | ~20 KB      |
+| **TOTAL PHASE 2**              | **✅ READY** | **~107 KB** |
 
 ---
 
@@ -341,6 +373,7 @@ If you need to:
 **Phase 2: Reorganization** is complete.
 
 All 11 Arabic skills are now defined, documented, and ready for import. The skill definitions include:
+
 - Complete metadata & taxonomy
 - 100+ Masri resources
 - Agent behavior guidelines
@@ -351,6 +384,6 @@ All 11 Arabic skills are now defined, documented, and ready for import. The skil
 
 ---
 
-*Phase 2 completed: 2026-06-09*  
-*Project: Arabic Skills Refinement*  
-*Status: Ready for Import ✅*
+_Phase 2 completed: 2026-06-09_  
+_Project: Arabic Skills Refinement_  
+_Status: Ready for Import ✅_

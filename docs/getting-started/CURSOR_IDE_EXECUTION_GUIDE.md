@@ -7,6 +7,7 @@
 ## 🎯 Quick Setup (Do This First)
 
 ### 1. Open Project in Cursor
+
 ```bash
 # In your terminal
 cd /path/to/mediabubble-project
@@ -14,15 +15,18 @@ cursor .
 ```
 
 ### 2. Enable Cursor Features for This Project
+
 - **Codebase Indexing**: Cmd+K → "Index this codebase"
 - **AI Composer**: Enable in Settings (Cmd+,) → Search "Composer"
 - **Multi-file Edits**: Enable in Settings → Search "Multi-file"
 
 ### 3. Create a Cursor Rules File (`.cursor/rules.md`)
+
 ```markdown
 # MediaBubble Development Rules
 
 ## Architecture
+
 - Next.js 14 with React 18 (Nx monorepo)
 - TypeScript strict mode
 - Tailwind CSS with dark mode
@@ -30,6 +34,7 @@ cursor .
 - Custom hooks pattern
 
 ## Code Style
+
 - Use functional components with hooks
 - Add JSDoc comments to all exports
 - Extract reusable hooks to `hooks/` directory
@@ -37,12 +42,14 @@ cursor .
 - Use const assertions for type safety
 
 ## Testing
+
 - Jest + React Testing Library
 - Test file location: `__tests__/` or `.test.ts`
 - Minimum coverage targets: Phase 1: 15%, Phase 2: 30%, Phase 3: 80%
 - Mock external services (GA, analytics)
 
 ## Security
+
 - No hardcoded credentials
 - Use environment variables for all secrets
 - Content Security Policy: no 'unsafe-inline'
@@ -50,6 +57,7 @@ cursor .
 - Sanitize HTML content
 
 ## Performance
+
 - Lazy load components with dynamic imports
 - Optimize images: AVIF/WebP with responsive sizing
 - Code split by route with next/dynamic
@@ -57,6 +65,7 @@ cursor .
 - Monitor Core Web Vitals
 
 ## Accessibility
+
 - WCAG 2.1 AA compliance
 - Semantic HTML
 - ARIA labels where needed
@@ -300,6 +309,7 @@ Create Button primitive component
 ```
 
 **Cursor Composer Prompt:**
+
 ```
 Create a professional Button component with:
 1. Multiple variants (primary, secondary, ghost, danger)
@@ -674,6 +684,7 @@ Final deployment checklist
 ### Composer Commands (Cmd+K)
 
 **For file creation:**
+
 ```
 @codebase
 Create a new component [name] that:
@@ -684,6 +695,7 @@ Create a new component [name] that:
 ```
 
 **For refactoring:**
+
 ```
 @codebase
 Refactor [file] to:
@@ -694,6 +706,7 @@ Refactor [file] to:
 ```
 
 **For bug fixes:**
+
 ```
 @codebase
 Fix [issue description]
@@ -706,6 +719,7 @@ Fix [issue description]
 ### Chat Features (Cmd+L)
 
 **Use for:**
+
 - Asking about code patterns
 - Debugging issues
 - Architecture questions
@@ -713,6 +727,7 @@ Fix [issue description]
 - Documentation
 
 **Example:**
+
 ```
 @codebase
 Why is the GA consent race condition happening?
@@ -723,11 +738,13 @@ Show me the pattern you recommend.
 ### Multi-file Edits
 
 **Enable and use for:**
+
 - Refactoring across multiple files
 - Moving/renaming components
 - Applying patterns consistently
 
 **Example:**
+
 ```
 Cmd+Shift+P → "Multi-file Edit"
 Select Button, Card, Input components
@@ -739,6 +756,7 @@ Replace: className patterns for dark mode
 ## 📊 Weekly Progress Checklist
 
 ### Week 1-2: Foundation
+
 ```
 ✅ Security fixes complete
 ✅ Bugs resolved
@@ -748,6 +766,7 @@ Replace: className patterns for dark mode
 ```
 
 ### Week 3-4: Architecture
+
 ```
 ✅ Custom hooks library created
 ✅ Context API implemented
@@ -758,6 +777,7 @@ Replace: className patterns for dark mode
 ```
 
 ### Week 5-7: UI/UX
+
 ```
 ✅ Design system components built (30+)
 ✅ Hero section redesigned
@@ -768,6 +788,7 @@ Replace: className patterns for dark mode
 ```
 
 ### Week 8-9: Content
+
 ```
 ✅ 10+ blog posts with images
 ✅ 5+ portfolio projects documented
@@ -777,6 +798,7 @@ Replace: className patterns for dark mode
 ```
 
 ### Week 10-11: Features
+
 ```
 ✅ Blog search implemented
 ✅ A/B testing framework ready
@@ -787,6 +809,7 @@ Replace: className patterns for dark mode
 ```
 
 ### Week 12: Polish
+
 ```
 ✅ E2E tests written
 ✅ Lighthouse score 90+

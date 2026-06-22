@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { getCspNonce, THEME_INIT_SCRIPT } from '@mediabubble/shared/server'
 import { rootFontClassName } from '@/lib/fonts'
 import './globals.css'
 
@@ -15,9 +16,20 @@ export const viewport = {
   initialScale: 1,
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const dynamic = 'force-dynamic'
+
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const nonce = await getCspNonce()
+
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
+      <head>
+        <script
+          suppressHydrationWarning
+          {...(nonce ? { nonce } : {})}
+          dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }}
+        />
+      </head>
       <body
         className={`${rootFontClassName} font-sans antialiased bg-background text-foreground`}
       >

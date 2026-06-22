@@ -8,6 +8,7 @@ import type { CommsEvent } from '@/lib/comms/realtime/events'
 import { useCommsRealtime } from '@/lib/comms/realtime/use-comms-realtime'
 import { CHANNEL_TYPES } from '@/lib/comms/schemas'
 import { Input } from '@/components/ui/input'
+import { PageFrame, PageHeader } from '@/components/layout/page-frame'
 
 function formatTime(iso: string): string {
   return new Date(iso).toLocaleString(undefined, {
@@ -161,20 +162,12 @@ export function ChatDashboard({
   }
 
   return (
-    <div className="px-6 py-8 lg:px-8">
-      <div className="mx-auto max-w-6xl">
-        <div className="flex flex-wrap items-start justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
-              <MessageSquare size={20} className="text-primary" />
-            </div>
-            <div>
-              <h1 className="font-display text-2xl font-bold text-foreground">Communication Hub</h1>
-              <p className="text-[13px] text-muted-foreground">
-                Team channels with Redis-backed live updates.
-              </p>
-            </div>
-          </div>
+    <PageFrame>
+      <PageHeader
+        icon={MessageSquare}
+        title="Communication Hub"
+        description="Team channels with Redis-backed live updates."
+        actions={
           <button
             type="button"
             onClick={() => setShowForm((v) => !v)}
@@ -183,7 +176,8 @@ export function ChatDashboard({
             <Plus size={16} />
             New channel
           </button>
-        </div>
+        }
+      />
 
         {error ? (
           <p className="mt-4 rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-[13px] text-destructive">
@@ -245,7 +239,7 @@ export function ChatDashboard({
           </form>
         ) : null}
 
-        <div className="mt-6 grid min-h-[28rem] gap-4 lg:grid-cols-[220px_minmax(0,1fr)]">
+        <div className="mt-6 grid min-h-[32rem] gap-4 xl:grid-cols-[minmax(240px,280px)_minmax(0,1fr)] 2xl:min-h-[36rem] 2xl:gap-6">
           <aside className="rounded-2xl border border-border bg-card p-3">
             <div className="mb-2 flex items-center justify-between px-1">
               <p className="text-[11px] font-bold uppercase tracking-wide text-muted-foreground">Channels</p>
@@ -382,7 +376,6 @@ export function ChatDashboard({
             )}
           </section>
         </div>
-      </div>
-    </div>
+    </PageFrame>
   )
 }

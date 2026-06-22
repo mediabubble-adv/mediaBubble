@@ -8,23 +8,25 @@
 
 ## 📊 Bugs Summary by Severity
 
-| Severity | Count | Issues | Status |
-|----------|-------|--------|--------|
-| 🔴 **CRITICAL** | 1 | Hardcoded credentials in git | Fix provided |
-| 🟡 **HIGH** | 2 | Unsafe CSP, Wildcard domains | Fix provided |
-| 🟠 **MEDIUM** | 8 | Race condition, Error handling, etc. | Fix provided |
-| 🟢 **LOW** | 2 | Hardcoded values, Memoization | Fix provided |
+| Severity        | Count | Issues                               | Status       |
+| --------------- | ----- | ------------------------------------ | ------------ |
+| 🔴 **CRITICAL** | 1     | Hardcoded credentials in git         | Fix provided |
+| 🟡 **HIGH**     | 2     | Unsafe CSP, Wildcard domains         | Fix provided |
+| 🟠 **MEDIUM**   | 8     | Race condition, Error handling, etc. | Fix provided |
+| 🟢 **LOW**      | 2     | Hardcoded values, Memoization        | Fix provided |
 
 ---
 
 ## 🔴 CRITICAL BUGS (Fix Immediately)
 
 ### Bug #1: Hardcoded Credentials in Git
+
 **Severity**: 🔴 CRITICAL
 **File**: `.env.local`
 **Status**: Security vulnerability - credentials exposed
 
 #### Problem:
+
 ```
 .env.local is tracked in git repository
 Contains sensitive information:
@@ -34,11 +36,13 @@ Contains sensitive information:
 ```
 
 #### Impact:
+
 - Anyone with repository access can see credentials
 - If repo ever goes public, credentials are compromised
 - All exposed credentials must be rotated immediately
 
 #### Fix:
+
 ```bash
 # Step 1: Remove from git history
 git rm --cached .env.local
@@ -63,6 +67,7 @@ git commit -m "chore: remove .env.local from tracking"
 ```
 
 #### Verification:
+
 ```bash
 # Verify .env.local is not tracked
 git status
@@ -80,15 +85,17 @@ cat .gitignore | grep env.local
 ## 🟡 HIGH-PRIORITY BUGS (Fix This Week)
 
 ### Bug #2: Unsafe CSP Configuration
+
 **Severity**: 🟡 HIGH
 **File**: `apps/web-eg/next.config.js` (lines 22-27)
 **Status**: XSS vulnerability - security weakness
 
 #### Problem:
+
 ```javascript
 // Current (UNSAFE):
-"script-src 'self' 'unsafe-inline' https://www.googletagmanager.com"
-"style-src 'self' 'unsafe-inline'"
+"script-src 'self' 'unsafe-inline' https://www.googletagmanager.com";
+"style-src 'self' 'unsafe-inline'";
 
 // Issue:
 // 'unsafe-inline' defeats Content Security Policy protection
@@ -96,40 +103,44 @@ cat .gitignore | grep env.local
 ```
 
 #### Impact:
+
 - Attackers can inject malicious inline scripts
 - CSP no longer protects against XSS
 - Compliance issues (OWASP, security standards)
 
 #### Fix Option 1: Move CSS to External File
+
 ```javascript
 // next.config.js
 const nextConfig = {
   headers: async () => [
     {
-      source: '/(.*)',
+      source: "/(.*)",
       headers: [
         {
-          key: 'Content-Security-Policy',
-          value: "script-src 'self' https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com;"
-        }
-      ]
-    }
+          key: "Content-Security-Policy",
+          value:
+            "script-src 'self' https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com;",
+        },
+      ],
+    },
   ],
   webpack: (config) => {
     // Ensure CSS is external, not inline
-    return config
-  }
-}
+    return config;
+  },
+};
 ```
 
 #### Fix Option 2: Use Nonce-based Inline Scripts (Better)
+
 ```typescript
 // app/layout.tsx
 import { ScriptProps } from 'next/script'
 
 export default function RootLayout() {
   const nonce = generateNonce() // Use crypto for random nonce
-  
+
   return (
     <html>
       <head>
@@ -163,6 +174,7 @@ const nextConfig = {
 **Recommended**: Option 1 (move to external files) - simpler, cleaner
 
 **Verification**:
+
 ```bash
 # Build and check CSP headers
 npm run build
@@ -176,17 +188,17 @@ curl -I http://localhost:3000
 ---
 
 ### Bug #3: Wildcard Domain Pattern Too Permissive
+
 **Severity**: 🟡 HIGH
 **File**: `apps/web-eg/next.config.js` (line 10)
 **Status**: Security weakness - allows any subdomain
 
 #### Problem:
+
 ```javascript
 // Current (TOO PERMISSIVE):
 images: {
-  remotePatterns: [
-    { protocol: 'https', hostname: '**.mediabubble.co' }
-  ]
+  remotePatterns: [{ protocol: "https", hostname: "**.mediabubble.co" }];
 }
 
 // Issue:
@@ -195,27 +207,30 @@ images: {
 ```
 
 #### Impact:
+
 - Enables image-based injection attacks
 - Allows loading images from untrusted subdomains
 - Reduces security posture
 
 #### Fix:
+
 ```javascript
 // next.config.js - SECURE VERSION
 images: {
   remotePatterns: [
     // Only allow specific, trusted subdomains
-    { protocol: 'https', hostname: 'cdn.mediabubble.co' },
-    { protocol: 'https', hostname: 'images.mediabubble.co' },
-    { protocol: 'https', hostname: 'media.mediabubble.co' },
+    { protocol: "https", hostname: "cdn.mediabubble.co" },
+    { protocol: "https", hostname: "images.mediabubble.co" },
+    { protocol: "https", hostname: "media.mediabubble.co" },
     // External sources (if needed)
-    { protocol: 'https', hostname: 'images.unsplash.com' },
-    { protocol: 'https', hostname: 'source.unsplash.com' }
-  ]
+    { protocol: "https", hostname: "images.unsplash.com" },
+    { protocol: "https", hostname: "source.unsplash.com" },
+  ];
 }
 ```
 
 **Verification**:
+
 ```bash
 # Test: This should work (trusted domain)
 <Image src="https://cdn.mediabubble.co/image.jpg" />
@@ -233,21 +248,23 @@ images: {
 ## 🟠 MEDIUM-PRIORITY BUGS (Fix Weeks 1-2)
 
 ### Bug #4: GA4 Consent Flow Race Condition
+
 **Severity**: 🟠 MEDIUM
 **File**: `apps/web-eg/components/GoogleAnalytics.tsx`
 **Status**: Logic error - state synchronization issue
 
 #### Problem:
+
 ```typescript
 // Current (PROBLEMATIC):
 export function GoogleAnalytics() {
-  const [mounted, setMounted] = useState(false)
-  const [consented, setConsented] = useState(false)
+  const [mounted, setMounted] = useState(false);
+  const [consented, setConsented] = useState(false);
 
   useEffect(() => {
-    setMounted(true)
-    if (hasConsent()) setConsented(true)  // Problem: may not sync
-  }, [])
+    setMounted(true);
+    if (hasConsent()) setConsented(true); // Problem: may not sync
+  }, []);
 
   // Multiple state updates can cause:
   // mounted=false, consented=true (inconsistent)
@@ -256,11 +273,13 @@ export function GoogleAnalytics() {
 ```
 
 #### Impact:
+
 - Analytics may not track properly
 - GA events might not send if consent timing is off
 - Race conditions lead to unpredictable behavior
 
 #### Fix:
+
 ```typescript
 // OPTION 1: Combine into single effect
 export function GoogleAnalytics() {
@@ -325,14 +344,15 @@ export function GoogleAnalytics() {
 **Recommended**: Option 3 (simplest fix)
 
 **Verification**:
+
 ```typescript
 // Test that state is always consistent
-test('GA state is always consistent', () => {
-  const { result } = renderHook(() => useGoogleAnalytics())
-  
+test("GA state is always consistent", () => {
+  const { result } = renderHook(() => useGoogleAnalytics());
+
   // After mount, both should be true or both false
-  expect(result.current.mounted).toBe(result.current.consented !== undefined)
-})
+  expect(result.current.mounted).toBe(result.current.consented !== undefined);
+});
 ```
 
 **Time**: 2 hours ✓
@@ -341,11 +361,13 @@ test('GA state is always consistent', () => {
 ---
 
 ### Bug #5: Missing Error Boundary
+
 **Severity**: 🟠 MEDIUM
 **File**: `apps/web-eg/app/layout.tsx`
 **Status**: No error handling for client-side hydration errors
 
 #### Problem:
+
 ```typescript
 // Current (NO ERROR HANDLING):
 export default function RootLayout() {
@@ -366,11 +388,13 @@ export default function RootLayout() {
 ```
 
 #### Impact:
+
 - Production errors break entire page
 - Poor user experience
 - No error visibility/monitoring
 
 #### Fix:
+
 ```typescript
 // app/layout.tsx
 'use client'
@@ -467,19 +491,21 @@ export default function Error({
 ---
 
 ### Bug #6: LocalStorage Without Proper Error Handling
+
 **Severity**: 🟠 MEDIUM
 **File**: `apps/web-eg/components/GoogleAnalytics.tsx` (lines 10-12)
 **Status**: Missing error handling for quota/private browsing
 
 #### Problem:
+
 ```typescript
 // Current (INCOMPLETE ERROR HANDLING):
 function hasConsent(): boolean {
   try {
-    return localStorage.getItem(CONSENT_KEY) === 'accepted'
+    return localStorage.getItem(CONSENT_KEY) === "accepted";
   } catch {
     // Only catches some errors
-    return false
+    return false;
   }
 }
 
@@ -490,77 +516,79 @@ function hasConsent(): boolean {
 ```
 
 #### Impact:
+
 - Silent failures in private browsing
 - No visibility into storage issues
 - Consent state defaults incorrectly
 
 #### Fix:
+
 ```typescript
 // lib/storage.ts - UTILITY MODULE
 export interface StorageOptions {
-  key: string
-  fallback?: string
+  key: string;
+  fallback?: string;
 }
 
 export function getStorageItem(options: StorageOptions): string | null {
   try {
-    if (typeof window === 'undefined') {
-      console.warn('Storage accessed on server')
-      return options.fallback ?? null
+    if (typeof window === "undefined") {
+      console.warn("Storage accessed on server");
+      return options.fallback ?? null;
     }
 
     // Check if storage is available (private browsing)
-    const test = '__storage_test__'
-    localStorage.setItem(test, test)
-    localStorage.removeItem(test)
+    const test = "__storage_test__";
+    localStorage.setItem(test, test);
+    localStorage.removeItem(test);
 
     // Safe to use storage
-    return localStorage.getItem(options.key)
+    return localStorage.getItem(options.key);
   } catch (error) {
     if (error instanceof Error) {
-      if (error.name === 'QuotaExceededError') {
-        console.error('LocalStorage quota exceeded:', error)
-      } else if (error.name === 'SecurityError') {
-        console.warn('LocalStorage unavailable (private browsing?):', error)
+      if (error.name === "QuotaExceededError") {
+        console.error("LocalStorage quota exceeded:", error);
+      } else if (error.name === "SecurityError") {
+        console.warn("LocalStorage unavailable (private browsing?):", error);
       } else {
-        console.error('LocalStorage error:', error)
+        console.error("LocalStorage error:", error);
       }
     }
-    return options.fallback ?? null
+    return options.fallback ?? null;
   }
 }
 
 export function setStorageItem(key: string, value: string): boolean {
   try {
-    if (typeof window === 'undefined') {
-      console.warn('Storage access attempted on server')
-      return false
+    if (typeof window === "undefined") {
+      console.warn("Storage access attempted on server");
+      return false;
     }
 
-    localStorage.setItem(key, value)
-    return true
+    localStorage.setItem(key, value);
+    return true;
   } catch (error) {
     if (error instanceof Error) {
-      console.error(`Failed to set storage item "${key}":`, error.message)
+      console.error(`Failed to set storage item "${key}":`, error.message);
     }
-    return false
+    return false;
   }
 }
 
 // components/GoogleAnalytics.tsx - USE THE UTILITY
-import { getStorageItem, setStorageItem } from '@/lib/storage'
+import { getStorageItem, setStorageItem } from "@/lib/storage";
 
-const CONSENT_KEY = 'consent_preference'
+const CONSENT_KEY = "consent_preference";
 
 function hasConsent(): boolean {
-  const value = getStorageItem({ key: CONSENT_KEY, fallback: 'false' })
-  return value === 'accepted'
+  const value = getStorageItem({ key: CONSENT_KEY, fallback: "false" });
+  return value === "accepted";
 }
 
 function grantConsent(): void {
-  const success = setStorageItem(CONSENT_KEY, 'accepted')
+  const success = setStorageItem(CONSENT_KEY, "accepted");
   if (success) {
-    window.dispatchEvent(new CustomEvent('consent-granted'))
+    window.dispatchEvent(new CustomEvent("consent-granted"));
   }
 }
 ```
@@ -571,17 +599,19 @@ function grantConsent(): void {
 ---
 
 ### Bug #7: Hardcoded Metadata Values
+
 **Severity**: 🟠 MEDIUM
 **File**: `apps/web-eg/app/layout.tsx` (lines 61-62)
 **Status**: Configuration hardcoded instead of using environment variables
 
 #### Problem:
+
 ```typescript
 // Current (HARDCODED):
 const jsonLd = {
-  telephone: '+201234567890',
-  email: 'info@mediabubble.co'
-}
+  telephone: "+201234567890",
+  email: "info@mediabubble.co",
+};
 
 // Issues:
 // 1. Must change code to update phone number
@@ -590,6 +620,7 @@ const jsonLd = {
 ```
 
 #### Fix:
+
 ```typescript
 // .env.local
 NEXT_PUBLIC_BUSINESS_PHONE=+201234567890
@@ -616,11 +647,13 @@ const jsonLd = {
 ---
 
 ### Bug #8: CookieConsent Not Memoized
+
 **Severity**: 🟠 MEDIUM (LOW priority)
 **File**: `apps/web-eg/components/CookieConsent.tsx`
 **Status**: Component re-renders unnecessarily
 
 #### Problem:
+
 ```typescript
 // Current (NO MEMOIZATION):
 export function CookieConsent() {
@@ -638,6 +671,7 @@ export function CookieConsent() {
 ```
 
 #### Fix:
+
 ```typescript
 // components/CookieConsent.tsx
 import { memo, useCallback } from 'react'
@@ -676,50 +710,52 @@ export const CookieConsent = memo(CookieConsentComponent)
 ---
 
 ### Bug #9: Loose JSON-LD Typing
+
 **Severity**: 🟠 MEDIUM
 **File**: `apps/web-eg/app/layout.tsx` (lines 61-127)
 **Status**: Type safety missing for schema markup
 
 #### Fix:
+
 ```typescript
 // types/schema.ts
 export interface LocalBusinessSchema {
-  '@context': 'https://schema.org'
-  '@type': string[]
-  '@id': string
-  name: string
-  url: string
+  "@context": "https://schema.org";
+  "@type": string[];
+  "@id": string;
+  name: string;
+  url: string;
   logo: {
-    '@type': 'ImageObject'
-    url: string
-    width: number
-    height: number
-  }
-  description: string
-  telephone: string
-  email: string
+    "@type": "ImageObject";
+    url: string;
+    width: number;
+    height: number;
+  };
+  description: string;
+  telephone: string;
+  email: string;
   address: {
-    '@type': 'PostalAddress'
-    streetAddress: string
-    addressLocality: string
-    addressRegion: string
-    postalCode: string
-    addressCountry: string
-  }
-  sameAs: string[]
+    "@type": "PostalAddress";
+    streetAddress: string;
+    addressLocality: string;
+    addressRegion: string;
+    postalCode: string;
+    addressCountry: string;
+  };
+  sameAs: string[];
 }
 
 // app/layout.tsx
-import { LocalBusinessSchema } from '@/types/schema'
+import { LocalBusinessSchema } from "@/types/schema";
 
 const jsonLd: LocalBusinessSchema = {
-  '@context': 'https://schema.org',
-  '@type': ['LocalBusiness', 'Organization'],
-  '@id': 'https://mediabubble.co',
-  name: 'MediaBubble',
-  url: 'https://mediabubble.co',
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "Organization"],
+  "@id": "https://mediabubble.co",
+  name: "MediaBubble",
+  url: "https://mediabubble.co",
   // ... rest is now type-checked
-}
+};
 ```
 
 **Time**: 1 hour ✓
@@ -730,6 +766,7 @@ const jsonLd: LocalBusinessSchema = {
 ## 🟢 LOW-PRIORITY BUGS (Fix Week 2+)
 
 ### Bug #10: I18n Performance Caching Missing
+
 **Severity**: 🟢 LOW
 **File**: `apps/web-eg/components/I18nLayoutWrapper.tsx`
 **Status**: No visible caching strategy
@@ -739,6 +776,7 @@ const jsonLd: LocalBusinessSchema = {
 **Priority**: Week 2
 
 ### Bug #11: No Custom Hooks Library
+
 **Severity**: 🟢 LOW (architectural issue)
 **File**: `apps/web-eg/hooks/` (missing directory)
 **Status**: Hooks scattered across components
@@ -748,6 +786,7 @@ const jsonLd: LocalBusinessSchema = {
 **Priority**: Week 2
 
 ### Bug #12: Component Organization Mixed
+
 **Severity**: 🟢 LOW (architectural issue)
 **File**: `apps/web-eg/components/` (flat structure)
 **Status**: No clear component categorization
@@ -757,6 +796,7 @@ const jsonLd: LocalBusinessSchema = {
 **Priority**: Week 3
 
 ### Bug #13: Missing JSDoc Comments
+
 **Severity**: 🟢 LOW
 **File**: All exported components
 **Status**: No documentation
@@ -815,6 +855,7 @@ WEEK 3 (Phase 3 - Refactoring):
 **Low**: 2 (minor improvements)
 
 **All bugs are:**
+
 - ✅ Documented with specifics
 - ✅ Provided with fixes
 - ✅ Included in 12-week plan

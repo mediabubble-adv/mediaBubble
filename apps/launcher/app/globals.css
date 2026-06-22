@@ -56,6 +56,9 @@
     --brand-light-border: #f5f5f5;
     --brand-whisper-border: #e8e8e8;
     --brand-input-border: #e0e0e0;
+
+    /* Launcher ultra-wide layout */
+    --launcher-content-max: 2400px;
   }
 
   /* ─── Obsidian Creative Studio dark theme ─── */
@@ -105,7 +108,44 @@
   }
 }
 
+@layer base {
+  /* Dark mode: card inset highlight for perceived elevation */
+  .dark [class*='rounded'] {
+    --card-highlight: inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
+  }
+
+  /* Thin, unobtrusive scrollbar in dark mode */
+  .dark ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  .dark ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+}
+
 @layer utilities {
+  .launcher-content {
+    max-width: min(100%, var(--launcher-content-max));
+  }
+
+  .launcher-page {
+    min-height: calc(100vh - 3.5rem);
+  }
+
+  /* Kanban / wide data tables — horizontal scroll on smaller viewports */
+  .launcher-scroll-x {
+    @apply -mx-2 overflow-x-auto px-2 pb-2;
+    scrollbar-width: thin;
+  }
+
   /* Staggered list entrance — decorative, never blocks interaction.
      Apply `data-stagger` to a container; set `--i` per child for the delay. */
   [data-stagger] > * {
@@ -121,6 +161,35 @@
       transform: translateY(0);
     }
   }
+
+  /* Tab panel fade-in when the `hidden` attribute is removed.
+     Exit is instant (display:none), which is intentional — asymmetric timing. */
+  [role='tabpanel']:not([hidden]) {
+    animation: mb-tab-in 200ms var(--ease-out) both;
+  }
+
+  @keyframes mb-tab-in {
+    from {
+      opacity: 0;
+      transform: translateY(3px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Onboarding tour entrance */
+  @keyframes mb-tour-in {
+    from {
+      opacity: 0;
+      transform: translateY(6px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -130,13 +199,19 @@
     animation-delay: 0ms;
   }
 
+  [role='tabpanel']:not([hidden]) {
+    animation: mb-fade 100ms ease both;
+  }
+
   @keyframes mb-fade {
     to { opacity: 1; }
   }
 
+  /* Only disable motion-driven transforms, not opacity/color transitions */
   *,
   *::before,
   *::after {
-    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-delay: 0.01ms !important;
   }
 }

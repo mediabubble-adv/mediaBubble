@@ -10,6 +10,7 @@
 ## Executive Summary
 
 Phase 3 replaces WordPress/Elementor with a modern React application that:
+
 - ✅ Enforces design system via code (not manual)
 - ✅ 60% faster builds (reusable components)
 - ✅ Better performance (30% smaller bundle)
@@ -120,6 +121,7 @@ mediabubble-web/
 #### Week 1: Project Setup (8 hours)
 
 **Create React project:**
+
 ```bash
 npm create vite@latest mediabubble-web -- --template react-ts
 cd mediabubble-web
@@ -127,6 +129,7 @@ npm install
 ```
 
 **Install dependencies:**
+
 ```bash
 npm install tailwindcss postcss autoprefixer
 npm install react-router-dom
@@ -135,12 +138,14 @@ npm install --save-dev @types/react @types/react-dom typescript
 ```
 
 **Configure Tailwind:**
+
 ```bash
 npx tailwindcss init -p
 # Update tailwind.config.ts with design tokens
 ```
 
 **Tasks:**
+
 - [ ] Initialize React + TypeScript project
 - [ ] Setup Tailwind CSS
 - [ ] Configure TypeScript
@@ -156,39 +161,45 @@ npx tailwindcss init -p
 ```typescript
 // src/design-tokens/colors.ts
 export const colors = {
-  primary: { yellow: '#FFC107', blue: '#2196F3' },
-  dark: { blue: '#0D3A7D' },
-  text: { primary: '#1a1a1a', secondary: '#666666', light: '#999999' },
-  background: { primary: '#FFFFFF', secondary: '#F5F5F5', dark: '#0D3A7D' },
+  primary: { yellow: "#FFC107", blue: "#2196F3" },
+  dark: { blue: "#0D3A7D" },
+  text: { primary: "#1a1a1a", secondary: "#666666", light: "#999999" },
+  background: { primary: "#FFFFFF", secondary: "#F5F5F5", dark: "#0D3A7D" },
 } as const;
 
 // src/design-tokens/spacing.ts
 export const spacing = {
-  xs: '8px', sm: '16px', md: '24px', lg: '32px', xl: '48px',
-  '2xl': '64px', '3xl': '80px',
+  xs: "8px",
+  sm: "16px",
+  md: "24px",
+  lg: "32px",
+  xl: "48px",
+  "2xl": "64px",
+  "3xl": "80px",
 } as const;
 
 // src/design-tokens/index.ts
-export * from './colors';
-export * from './spacing';
-export * from './typography';
+export * from "./colors";
+export * from "./spacing";
+export * from "./typography";
 ```
 
 **Update Tailwind config:**
+
 ```typescript
-import { colors, spacing } from './src/design-tokens';
+import { colors, spacing } from "./src/design-tokens";
 
 export default {
   theme: {
     extend: {
       colors: {
-        'brand-yellow': colors.primary.yellow,
-        'brand-blue': colors.primary.blue,
+        "brand-yellow": colors.primary.yellow,
+        "brand-blue": colors.primary.blue,
         // ...
       },
       spacing: {
-        'xs': spacing.xs,
-        'sm': spacing.sm,
+        xs: spacing.xs,
+        sm: spacing.sm,
         // ...
       },
     },
@@ -197,6 +208,7 @@ export default {
 ```
 
 **Tasks:**
+
 - [ ] Create design tokens (TypeScript)
 - [ ] Configure Tailwind with tokens
 - [ ] Create design tokens reference
@@ -206,6 +218,7 @@ export default {
 #### Week 3: Base Components (16 hours)
 
 **Build essential components:**
+
 1. Button (3 variants, 3 sizes)
 2. Card (basic, elevated)
 3. Input field
@@ -235,21 +248,21 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-md transition-all';
-  
+
   const variants = {
     primary: 'bg-brand-yellow text-text-primary hover:opacity-90',
     secondary: 'border-2 border-brand-blue text-brand-blue hover:bg-blue-50',
     text: 'text-brand-blue hover:underline',
   };
-  
+
   const sizes = {
     sm: 'h-9 px-3 text-sm',
     md: 'h-11 px-5 text-base',
     lg: 'h-13 px-7 text-lg',
   };
-  
+
   const classes = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;
-  
+
   if (href) {
     return (
       <a href={href} className={classes}>
@@ -257,7 +270,7 @@ export const Button: React.FC<ButtonProps> = ({
       </a>
     );
   }
-  
+
   return (
     <button className={classes} {...props}>
       {children}
@@ -267,6 +280,7 @@ export const Button: React.FC<ButtonProps> = ({
 ```
 
 **Tasks:**
+
 - [ ] Build 8 base components
 - [ ] Write tests for components
 - [ ] Create Storybook stories
@@ -280,6 +294,7 @@ export const Button: React.FC<ButtonProps> = ({
 #### Week 4: Navigation & Headers (12 hours)
 
 **Build:**
+
 1. Header (desktop + mobile)
 2. Navigation (mega-menu)
 3. Footer
@@ -290,7 +305,7 @@ export const Button: React.FC<ButtonProps> = ({
 // src/components/layouts/Header.tsx
 export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
+
   return (
     <header className="bg-white shadow-md py-lg">
       <div className="container mx-auto px-lg flex justify-between items-center">
@@ -298,7 +313,7 @@ export const Header: React.FC = () => {
         <a href="/" className="flex items-center gap-md">
           <img src="/logos/logo.svg" alt="MediaBubble" className="h-12" />
         </a>
-        
+
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-xl">
           <a href="/solutions" className="hover:text-brand-blue">Solutions</a>
@@ -306,10 +321,10 @@ export const Header: React.FC = () => {
           <a href="/blog" className="hover:text-brand-blue">Blog</a>
           <a href="/contact" className="hover:text-brand-blue">Contact</a>
         </nav>
-        
+
         {/* CTA Button */}
         <Button href="/contact" variant="primary">Get in Touch</Button>
-        
+
         {/* Mobile Menu Toggle */}
         <button
           className="md:hidden text-2xl"
@@ -318,7 +333,7 @@ export const Header: React.FC = () => {
           ☰
         </button>
       </div>
-      
+
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <nav className="md:hidden bg-bg-secondary py-lg px-lg">
@@ -331,6 +346,7 @@ export const Header: React.FC = () => {
 ```
 
 **Tasks:**
+
 - [ ] Build Header component
 - [ ] Build Navigation system
 - [ ] Build Footer component
@@ -341,6 +357,7 @@ export const Header: React.FC = () => {
 #### Week 5: Section Components (12 hours)
 
 **Build:**
+
 1. Hero section
 2. Services grid
 3. Testimonials carousel
@@ -375,6 +392,7 @@ export const Hero: React.FC<HeroProps> = ({
 ```
 
 **Tasks:**
+
 - [ ] Build 7 section components
 - [ ] Add interactivity (carousel, accordion)
 - [ ] Responsive behavior at each breakpoint
@@ -384,6 +402,7 @@ export const Hero: React.FC<HeroProps> = ({
 #### Week 6: Page Templates (12 hours)
 
 **Build base page layouts:**
+
 1. Homepage layout
 2. Service page template
 3. Blog template
@@ -392,6 +411,7 @@ export const Hero: React.FC<HeroProps> = ({
 6. 404 page
 
 **Tasks:**
+
 - [ ] Create 6 page templates
 - [ ] Implement with components
 - [ ] Setup routing
@@ -405,6 +425,7 @@ export const Hero: React.FC<HeroProps> = ({
 #### Weeks 7-8: Homepage Rebuild (16 hours)
 
 **Migrate content from WordPress:**
+
 - Hero section (copy + images)
 - Why Choose section
 - Client logos
@@ -415,6 +436,7 @@ export const Hero: React.FC<HeroProps> = ({
 - FAQ
 
 **Tasks:**
+
 - [ ] Import all content
 - [ ] Optimize images
 - [ ] Setup image lazy-loading
@@ -425,12 +447,14 @@ export const Hero: React.FC<HeroProps> = ({
 #### Weeks 9-10: Service Pages (16 hours)
 
 **Create pages for each service:**
+
 1. Strategic & Creative Marketing
 2. Marketing & Digital Growth
 3. Branding & Printing
 4. Web Solutions
 
 **Each page includes:**
+
 - Hero with service name
 - Overview section
 - Benefits list
@@ -439,6 +463,7 @@ export const Hero: React.FC<HeroProps> = ({
 - CTA
 
 **Tasks:**
+
 - [ ] Create 4 service pages
 - [ ] Add case study components
 - [ ] Setup internal linking
@@ -452,31 +477,39 @@ export const Hero: React.FC<HeroProps> = ({
 #### Week 11: CRM & Analytics Integration (12 hours)
 
 **HubSpot Integration:**
+
 ```typescript
 // src/utils/hubspot.ts
-export const trackEvent = (eventName: string, properties?: Record<string, any>) => {
+export const trackEvent = (
+  eventName: string,
+  properties?: Record<string, any>,
+) => {
   if (window.hbspt) {
     window.hbspt.analytics.track(eventName, properties);
   }
 };
 
 export const submitContactForm = async (formData: ContactFormData) => {
-  const response = await fetch('https://api.hsforms.com/submissions/v3/integration/submit/...', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      fields: [
-        { name: 'firstname', value: formData.firstName },
-        { name: 'email', value: formData.email },
-        // ...
-      ],
-    }),
-  });
+  const response = await fetch(
+    "https://api.hsforms.com/submissions/v3/integration/submit/...",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        fields: [
+          { name: "firstname", value: formData.firstName },
+          { name: "email", value: formData.email },
+          // ...
+        ],
+      }),
+    },
+  );
   return response.json();
 };
 ```
 
 **Google Analytics 4:**
+
 ```typescript
 // src/utils/analytics.ts
 export const initGA = (measurementId: string) => {
@@ -484,11 +517,12 @@ export const initGA = (measurementId: string) => {
 };
 
 export const trackPageView = (path: string) => {
-  window.gtag?.('event', 'page_view', { page_path: path });
+  window.gtag?.("event", "page_view", { page_path: path });
 };
 ```
 
 **Tasks:**
+
 - [ ] Setup HubSpot integration
 - [ ] Implement contact form submission
 - [ ] Setup Google Analytics 4
@@ -499,12 +533,14 @@ export const trackPageView = (path: string) => {
 #### Week 12: Launch & Optimization (12 hours)
 
 **Performance Optimization:**
+
 - Code splitting
 - Image optimization
 - CSS minification
 - Bundle analysis
 
 **SEO Setup:**
+
 - Meta tags on all pages
 - Sitemap generation
 - Robots.txt
@@ -513,6 +549,7 @@ export const trackPageView = (path: string) => {
 - Open Graph tags
 
 **Testing:**
+
 - Cross-browser testing
 - Mobile testing (iOS, Android)
 - Performance testing (Lighthouse)
@@ -521,6 +558,7 @@ export const trackPageView = (path: string) => {
 - Link testing
 
 **Deployment:**
+
 - Setup Vercel
 - Configure custom domain
 - SSL certificate
@@ -529,6 +567,7 @@ export const trackPageView = (path: string) => {
 - Production environment
 
 **Tasks:**
+
 - [ ] Performance audit (target: Lighthouse 90+)
 - [ ] SEO audit (all pages indexed)
 - [ ] Accessibility audit (WCAG AA)
@@ -545,6 +584,7 @@ export const trackPageView = (path: string) => {
 ### Frontend Implementation
 
 **Base Components (16):**
+
 - [ ] Button
 - [ ] Card
 - [ ] Input
@@ -563,6 +603,7 @@ export const trackPageView = (path: string) => {
 - [ ] Skeleton
 
 **Section Components (10):**
+
 - [ ] Hero
 - [ ] Services grid
 - [ ] Testimonials carousel
@@ -575,6 +616,7 @@ export const trackPageView = (path: string) => {
 - [ ] Contact form
 
 **Layout Components (5):**
+
 - [ ] Header
 - [ ] Navigation (mega-menu)
 - [ ] Footer
@@ -582,6 +624,7 @@ export const trackPageView = (path: string) => {
 - [ ] Container/grid system
 
 **Pages (8):**
+
 - [ ] Home
 - [ ] Services (4 sub-pages)
 - [ ] About
@@ -615,6 +658,7 @@ export const trackPageView = (path: string) => {
 ### Testing Checklist
 
 **Functional:**
+
 - [ ] All links work
 - [ ] Forms submit correctly
 - [ ] Navigation works on all devices
@@ -623,6 +667,7 @@ export const trackPageView = (path: string) => {
 - [ ] Responsive layout at all breakpoints
 
 **Performance:**
+
 - [ ] Lighthouse score 90+
 - [ ] Core Web Vitals pass
 - [ ] Page load time < 3 seconds
@@ -630,6 +675,7 @@ export const trackPageView = (path: string) => {
 - [ ] No memory leaks
 
 **Accessibility:**
+
 - [ ] WCAG AA compliance
 - [ ] Keyboard navigation works
 - [ ] Screen reader compatible
@@ -637,6 +683,7 @@ export const trackPageView = (path: string) => {
 - [ ] Focus states visible
 
 **Cross-browser:**
+
 - [ ] Chrome (latest)
 - [ ] Firefox (latest)
 - [ ] Safari (latest)
@@ -645,6 +692,7 @@ export const trackPageView = (path: string) => {
 - [ ] Chrome Mobile
 
 **Security:**
+
 - [ ] No sensitive data in code
 - [ ] HTTPS enforced
 - [ ] CSP headers set
@@ -656,12 +704,14 @@ export const trackPageView = (path: string) => {
 ## Migration Strategy
 
 ### Option 1: Big Bang (Riskier)
+
 - Rebuild entire site
 - Launch all at once
 - Downtime: 0-2 hours
 - Rollback: Complex
 
 ### Option 2: Gradual Migration (Recommended)
+
 - Deploy new site at `/new-site`
 - Keep WordPress live as backup
 - Test in staging
@@ -685,15 +735,16 @@ Week 4: Remove old WordPress (after confirming no issues)
 
 ### Effort Breakdown
 
-| Phase | Hours | Cost (@$75/hr) |
-|-------|-------|----------------|
-| Setup & Foundation (Weeks 1-3) | 32 | $2,400 |
-| Layout Components (Weeks 4-6) | 36 | $2,700 |
-| Pages & Content (Weeks 7-10) | 32 | $2,400 |
-| Integrations & Polish (Weeks 11-12) | 24 | $1,800 |
-| **Total** | **124 hours** | **$9,300** |
+| Phase                               | Hours         | Cost (@$75/hr) |
+| ----------------------------------- | ------------- | -------------- |
+| Setup & Foundation (Weeks 1-3)      | 32            | $2,400         |
+| Layout Components (Weeks 4-6)       | 36            | $2,700         |
+| Pages & Content (Weeks 7-10)        | 32            | $2,400         |
+| Integrations & Polish (Weeks 11-12) | 24            | $1,800         |
+| **Total**                           | **124 hours** | **$9,300**     |
 
-*Plus time for:*
+_Plus time for:_
+
 - Team reviews & approvals (20 hours)
 - Design hand-offs (16 hours)
 - QA & testing (24 hours)
@@ -702,6 +753,7 @@ Week 4: Remove old WordPress (after confirming no issues)
 ### Team Structure
 
 **Recommended:**
+
 - 1 Lead Developer (full-time, 12 weeks)
 - 1 Junior Developer (part-time, 6 weeks)
 - 1 QA Engineer (part-time, 6 weeks)
@@ -711,14 +763,14 @@ Week 4: Remove old WordPress (after confirming no issues)
 
 ## Success Metrics
 
-| Metric | Target |
-|--------|--------|
-| Lighthouse score | 90+ |
-| Core Web Vitals | All passing |
-| Page load time | <3 seconds |
-| Accessibility | WCAG AA 100% |
-| SEO rankings | Maintain or improve |
-| Uptime | 99.9%+ |
+| Metric           | Target                |
+| ---------------- | --------------------- |
+| Lighthouse score | 90+                   |
+| Core Web Vitals  | All passing           |
+| Page load time   | <3 seconds            |
+| Accessibility    | WCAG AA 100%          |
+| SEO rankings     | Maintain or improve   |
+| Uptime           | 99.9%+                |
 | Time to new page | <2 hours (vs 4 hours) |
 
 ---
@@ -754,14 +806,14 @@ After successful React migration:
 
 ## Risks & Mitigation
 
-| Risk | Impact | Mitigation |
-|------|--------|-----------|
-| Timeline overrun | -2 weeks | Break into sprints, track velocity |
-| Design changes mid-project | -3 weeks | Lock design before starting |
-| Integration issues (HubSpot) | -1 week | Test integrations in Week 3 |
-| Performance issues | High bounce rate | Monitor Lighthouse weekly |
-| SEO ranking drop | Traffic loss | Setup proper redirects, test before launch |
-| Team turnover | Project stall | Document everything, pair programming |
+| Risk                         | Impact           | Mitigation                                 |
+| ---------------------------- | ---------------- | ------------------------------------------ |
+| Timeline overrun             | -2 weeks         | Break into sprints, track velocity         |
+| Design changes mid-project   | -3 weeks         | Lock design before starting                |
+| Integration issues (HubSpot) | -1 week          | Test integrations in Week 3                |
+| Performance issues           | High bounce rate | Monitor Lighthouse weekly                  |
+| SEO ranking drop             | Traffic loss     | Setup proper redirects, test before launch |
+| Team turnover                | Project stall    | Document everything, pair programming      |
 
 ---
 
@@ -788,18 +840,21 @@ After successful React migration:
 ## Success Indicators (Post-Launch)
 
 **Technical:**
+
 - ✅ Zero 5xx errors
 - ✅ <100ms response time
 - ✅ <3s page load
 - ✅ 90+ Lighthouse score
 
 **Business:**
+
 - ✅ Form submission rate +20%
 - ✅ Bounce rate -15%
 - ✅ Average session length +30%
 - ✅ SEO rankings maintained
 
 **Team:**
+
 - ✅ Page build time -60%
 - ✅ Bug rate <5%
 - ✅ Team satisfied with codebase
@@ -814,5 +869,6 @@ After successful React migration:
 **ROI: 60% faster builds, better performance, foundation for internal tools**
 
 See also:
+
 - React_Migration_Design_System.md (technical architecture)
 - Brand_Consistency_Implementation_Guide.md (design tokens)

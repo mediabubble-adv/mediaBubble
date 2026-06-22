@@ -20,6 +20,7 @@ The original plan consolidates 45 → 20 agents. **This advanced plan goes furth
 ## The Problem with 20 Agents (Original Plan)
 
 Even consolidated to 20, we have:
+
 - 15 dept-specific agents (still scattered)
 - Still require different prompts per use case
 - Coordination overhead when agents interact
@@ -34,7 +35,9 @@ Even consolidated to 20, we have:
 Instead of consolidating by function, consolidate by **business outcome**:
 
 ### MASTER AGENT 1: CONTENT & COPY ENGINE
+
 **Replaces 10+ agents:**
+
 - Social Content Creator Engine
 - Blog Post Auto-Outliner & Drafter
 - Video Caption & Script Generator
@@ -45,8 +48,9 @@ Instead of consolidating by function, consolidate by **business outcome**:
 - Social Media Design Batching (design brief only)
 
 **Single agent, configurable domains:**
+
 ```yaml
-Input: 
+Input:
   content_type: "social|blog|video|email|ad|outreach|sequence|brief"
   platform: "instagram|linkedin|facebook|tiktok|blog|email|etc"
   parameters: [topic, audience, tone, length, etc]
@@ -61,7 +65,9 @@ Output:
 ---
 
 ### MASTER AGENT 2: INTELLIGENCE & ANALYTICS ENGINE
+
 **Replaces 12+ agents:**
+
 - Campaign ROI & Spend Analytics
 - Email Campaign Performance Analyzer
 - Lead Quality Insights Dashboard
@@ -75,6 +81,7 @@ Output:
 - Lead Auto-Scorer & Router
 
 **Single agent, configurable intelligence types:**
+
 ```yaml
 Input:
   intelligence_type: "roi|performance|quality|profitability|competitive|scoring|forecast|brief"
@@ -93,7 +100,9 @@ Output:
 ---
 
 ### MASTER AGENT 3: OPTIMIZATION & ALLOCATION ENGINE
+
 **Replaces 8+ agents:**
+
 - Smart Bid Optimizer
 - Budget Allocation Optimizer
 - Audience Insight & Targeting Refiner
@@ -104,6 +113,7 @@ Output:
 - Project Timeline Risk Monitor (timeline allocation)
 
 **Single agent, configurable optimization domains:**
+
 ```yaml
 Input:
   optimization_type: "bid|budget|audience|hashtag|content|workload|crm|timeline"
@@ -122,7 +132,9 @@ Output:
 ---
 
 ### MASTER AGENT 4: MONITORING & GOVERNANCE ENGINE
+
 **Replaces 6+ agents:**
+
 - Brand Consistency Checker
 - Performance Regression Monitor
 - Technical Debt Tracker
@@ -131,6 +143,7 @@ Output:
 - Client Communication Auto-Responder
 
 **Single agent, configurable monitoring domains:**
+
 ```yaml
 Input:
   monitoring_type: "brand|performance|debt|tests|timeline|communications"
@@ -150,7 +163,9 @@ Output:
 ---
 
 ### MASTER AGENT 5: DOCUMENT & WORKFLOW GENERATION ENGINE
+
 **Replaces 7+ agents:**
+
 - Design Brief Auto-Generator
 - Email Nurture Sequence Auto-Builder (workflow)
 - Proposal Auto-Generator
@@ -160,6 +175,7 @@ Output:
 - Revenue Recognition Auto-Updater
 
 **Single agent, configurable document types:**
+
 ```yaml
 Input:
   document_type: "brief|sequence|proposal|invoice|agenda|report|journal_entry"
@@ -178,7 +194,9 @@ Output:
 ---
 
 ### MASTER AGENT 6: SPECIAL PURPOSE AGENT
+
 **Keeps these specialized (too unique to merge):**
+
 - Automated Code Review Assistant (only for code)
 - Win/Loss Analysis Agent (post-deal learning)
 - Mockup Generator (visual output)
@@ -190,36 +208,42 @@ Output:
 ## The 6 Specialized Agents (KEEP SEPARATE)
 
 ### SPECIALIZED #1: CODE REVIEW AGENT
+
 - Automated Code Review Assistant
 - **Why separate:** Needs language-specific rules, AST parsing, GitHub/GitLab integration
 - **Use case:** CI/CD pipeline integration
 - **Approval:** AUTO (no human needed unless flagged)
 
 ### SPECIALIZED #2: WIN/LOSS ANALYSIS AGENT
+
 - Win/Loss Analysis Agent
 - **Why separate:** Post-deal learning, competitive intelligence, strategic insights
 - **Use case:** Sales strategy refinement
 - **Approval:** REVIEW (insights need validation)
 
 ### SPECIALIZED #3: MOCKUP GENERATOR AGENT
+
 - Mockup Generator
 - **Why separate:** Visual output generation, 3D rendering, image manipulation
 - **Use case:** Design presentation
 - **Approval:** AUTO (visual asset creation)
 
 ### SPECIALIZED #4: SOCIAL ENGAGEMENT AGENT
+
 - Social Engagement Responder
 - **Why separate:** Real-time response, sentiment analysis, community management
 - **Use case:** Social media operations
 - **Approval:** REVIEW (client-facing responses)
 
 ### SPECIALIZED #5: SMS & NOTIFICATION AGENT
+
 - SMS Reminder & Follow-Up Agent
 - **Why separate:** Multi-channel delivery, carrier constraints, compliance
 - **Use case:** Lead follow-up automation
 - **Approval:** AUTO (transactional)
 
 ### SPECIALIZED #6: REVENUE & FINANCE AGENT
+
 - Project Profitability Calculator
 - Cash Flow Forecaster
 - Revenue Recognition Auto-Updater
@@ -231,11 +255,11 @@ Output:
 
 ## ADVANCED CONSOLIDATION SUMMARY
 
-| Category | Original | Advanced | Reduction |
-|----------|----------|----------|-----------|
-| **Master Agents** | — | 6 | (new tier) |
-| **Specialized Agents** | — | 6 | (focused) |
-| **TOTAL** | 45 agents | 12 agents | **73% reduction** |
+| Category               | Original  | Advanced  | Reduction         |
+| ---------------------- | --------- | --------- | ----------------- |
+| **Master Agents**      | —         | 6         | (new tier)        |
+| **Specialized Agents** | —         | 6         | (focused)         |
+| **TOTAL**              | 45 agents | 12 agents | **73% reduction** |
 
 ### What Gets REMOVED (Deleted, Not Consolidated)
 
@@ -309,6 +333,7 @@ Output:
 **The most complex consolidation.** Here's how it works:
 
 ### Input Specification
+
 ```yaml
 content_type: "social" | "blog" | "video" | "email" | "ad" | "outreach" | "sequence" | "brief"
 platform: "instagram" | "linkedin" | "facebook" | "tiktok" | "twitter" | "blog" | "email" | etc
@@ -330,6 +355,7 @@ hashtags: boolean                            # Include hashtag suggestions?
 ```
 
 ### Output Specification
+
 ```yaml
 variations:
   - id: 1
@@ -338,7 +364,7 @@ variations:
     estimated_engagement: "high" | "medium" | "low"
     estimated_reach: number
     hashtags: [array]
-    
+
 metadata:
   character_count: number
   reading_time_seconds: number
@@ -349,6 +375,7 @@ metadata:
 ```
 
 ### Use Cases (All One Agent)
+
 ```
 # Social media post
 { content_type: "social", platform: "instagram", subject: "new-campaign", ... }
@@ -426,13 +453,17 @@ metadata:
 ## Migration Path: 45 → 20 → 12
 
 ### Phase A: Basic Consolidation (Current Plan)
+
 **45 agents → 20 agents (56% reduction)**
+
 - 5 universal agents created
 - 15 dept-specific agents organized
 - **Timeline:** Weeks 1-6
 
 ### Phase B: Advanced Consolidation (NEW - This Plan)
+
 **20 agents → 12 agents (73% reduction)**
+
 - 6 master agents consolidate remaining redundancy
 - 6 specialized agents for unique workflows
 - Remove 3-5 low-value agents
@@ -440,7 +471,9 @@ metadata:
 - **Effort:** 40-50% less than Phase A (building on structure)
 
 ### Phase C: Intelligence Integration (Future)
+
 **12 agents → 8-10 agents (82%+ reduction)**
+
 - Master agents use shared LLM backbone
 - Specialized agents call master agents (not duplicate logic)
 - Single prompt library
@@ -451,6 +484,7 @@ metadata:
 ## Which Approach to Take?
 
 ### Option 1: CONSERVATIVE (Original Plan)
+
 - **45 → 20 agents** (56% reduction)
 - Keep 15 dept-specific agents
 - Lower risk, proven approach
@@ -458,6 +492,7 @@ metadata:
 - **Complexity:** Medium
 
 ### Option 2: AGGRESSIVE (This Plan)
+
 - **45 → 12 agents** (73% reduction)
 - Master + Specialized architecture
 - Higher ROI, cleaner system
@@ -465,6 +500,7 @@ metadata:
 - **Complexity:** High
 
 ### Option 3: HYBRID (Recommended)
+
 - **Phase A (Weeks 1-6):** Implement original plan → 45 → 20
 - **Phase B (Weeks 7-10):** Implement advanced consolidation → 20 → 12
 - **Validates Phase A before Phase B**
@@ -499,11 +535,13 @@ metadata:
 ## Agents to DEFINITELY REMOVE (Not Merge)
 
 ### 1. ❌ Design Asset Variations Generator
+
 **Why:** Adobe/Canva does this better, is visual
 **Alternative:** Use adobe-create-social-variations skill (MCP available)
 **Impact:** -1 agent, +quality (visual tool better than text)
 
 ### 2. ❌ Competitor Content Intelligence (Optional)
+
 **Why:** Low adoption, strategic value unclear
 **Alternative:** Use Bright Data MCP or SimilarWeb MCP instead
 **Impact:** -1 agent, avoid false positives from AI analysis
@@ -513,6 +551,7 @@ metadata:
 ## Agents to CONSOLIDATE Aggressively
 
 ### Group: Real-Time Responders
+
 - Social Engagement Responder
 - SMS Reminder & Follow-Up Agent
 - Client Communication Auto-Responder
@@ -525,17 +564,20 @@ metadata:
 ## ROI: Advanced Consolidation
 
 ### Cost of Additional Consolidation
+
 - **Effort:** +4-6 weeks (after Phase A)
 - **Risk:** Low (Phase A already validated structure)
 - **Team:** 1-2 developers
 
 ### Benefit of Advanced Consolidation
+
 - **Maintenance:** Additional -25% (from 50% to 62.5%)
 - **Onboarding:** Additional -20% (from 60% to 68%)
 - **Reusability:** Additional +30% (from 75% to 97.5%)
 - **Speed to feature:** -25% (less code duplication)
 
 ### Break-Even
+
 - **Phase A alone:** 12 months
 - **Phase A + B:** 9 months (faster ROI due to efficiency)
 
@@ -543,15 +585,15 @@ metadata:
 
 ## Quick Decision Matrix
 
-| Factor | Conservative (45→20) | Aggressive (45→12) |
-|--------|----------------------|-------------------|
-| **Risk** | Low | Medium |
-| **Timeline** | 10 weeks | 14 weeks |
-| **ROI Payback** | 12 months | 9 months |
-| **Maintenance Savings** | -50% | -62.5% |
-| **Team Adoption** | Easy | Moderate |
-| **Future Flexibility** | Medium | High |
-| **Complexity** | Medium | High |
+| Factor                  | Conservative (45→20) | Aggressive (45→12) |
+| ----------------------- | -------------------- | ------------------ |
+| **Risk**                | Low                  | Medium             |
+| **Timeline**            | 10 weeks             | 14 weeks           |
+| **ROI Payback**         | 12 months            | 9 months           |
+| **Maintenance Savings** | -50%                 | -62.5%             |
+| **Team Adoption**       | Easy                 | Moderate           |
+| **Future Flexibility**  | Medium               | High               |
+| **Complexity**          | Medium               | High               |
 
 ---
 
@@ -560,6 +602,7 @@ metadata:
 **START WITH ORIGINAL PLAN (45 → 20), THEN EXECUTE ADVANCED PLAN (20 → 12).**
 
 Rationale:
+
 1. Original plan is proven, lower risk
 2. Advanced plan builds on solid foundation
 3. Hybrid approach spreads learning across team

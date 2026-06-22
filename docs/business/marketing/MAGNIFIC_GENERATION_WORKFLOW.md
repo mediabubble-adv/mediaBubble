@@ -1,4 +1,5 @@
 # MediaBubble Asset Generation Workflow
+
 ## Using Magnific AI + taste-skill + emil-design-eng
 
 ---
@@ -8,6 +9,7 @@
 **Key Change**: We're using **Magnific AI** for all image generation, not Higgsfield.
 
 ### Why Magnific for This Project:
+
 ✅ **Upscaling included** - Generate at lower resolution, Magnific handles quality
 ✅ **Creative control** - Fine detail control with creativity/enhancement parameters
 ✅ **Brand consistency** - Better handling of color accuracy and aesthetic consistency
@@ -17,6 +19,7 @@
 ---
 
 ## TIER 1: HERO & PRIMARY SECTIONS
+
 ### Generation Method: Magnific AI → Direct 2K/4K Output
 
 ---
@@ -24,15 +27,17 @@
 ### 1.1 Main Hero - Digital Transformation Theme
 
 **Magnific AI Settings**:
+
 - **Mode**: Creative (for balanced detail + quality)
 - **Resolution**: 4K (4096x2304 minimum)
 - **Creativity**: 75/100 (balance between control and detail)
 - **Upscale Factor**: 2x minimum, 4x ideal for hero
 
 **Magnific Generation Prompt**:
+
 ```
 "Premium digital marketing agency hero visual.
-Isometric/3D digital landscape: interconnected network nodes, flowing data streams, 
+Isometric/3D digital landscape: interconnected network nodes, flowing data streams,
 glowing connection lines creating a global web architecture.
 Color palette: Deep blue (#005282) background with bright yellow (#FFDE11) accent nodes,
 cyan (#50C4DD) connection lines creating visual pathways, white highlights for clarity.
@@ -52,6 +57,7 @@ Quality: Premium, high-detail, professional marketing material grade.
 ```
 
 **Generation Steps**:
+
 1. Submit prompt to Magnific AI
 2. Set Creativity to 75/100
 3. Request 4K output
@@ -60,6 +66,7 @@ Quality: Premium, high-detail, professional marketing material grade.
 6. If refinement needed: Adjust creativity or prompt, regenerate
 
 **Output Quality Check**:
+
 - ✓ Color accuracy (yellow nodes pop, blue is deep not purple)
 - ✓ No artifacts or noise
 - ✓ Network composition readable and balanced
@@ -71,6 +78,7 @@ Quality: Premium, high-detail, professional marketing material grade.
 **No Additional Upscaling Needed**: Magnific 4K is production-ready
 
 **Responsive Variants** (via outpaint after generation):
+
 - Mobile (9:16): Outpaint from 4K base
 - Ultra-wide (21:9): Outpaint from 4K base
 - Total hero package: 4 base + 8 responsive = 12 images
@@ -80,26 +88,28 @@ Quality: Premium, high-detail, professional marketing material grade.
 ### 1.2 Hero - Services Discovery Theme
 
 **Magnific AI Settings**:
+
 - **Mode**: Creative
 - **Resolution**: 3K (3072x1728)
 - **Creativity**: 70/100
 - **Upscale Factor**: 2x
 
 **Magnific Generation Prompt**:
+
 ```
 "Modern digital marketing services discovery visual.
 Geometric abstract composition: 5-7 rectangular planes/layers expanding outward
 creating optical depth and perspective from center point.
 Each layer slightly offset, suggesting layered service components or business growth phases.
 
-Color progression: Bright yellow (#FFDE11) as primary geometric shapes 
+Color progression: Bright yellow (#FFDE11) as primary geometric shapes
 dominating composition, professional blue (#358DCC) gradient backgrounds
 creating depth between layers, white spacers for breathing room and clarity.
 Subtle cyan (#50C4DD) accent lines connecting layers.
 
 Lighting: Soft, even, clean studio lighting—flat-clean aesthetic without shadows.
 High key, bright, welcoming, professional.
-Composition: Geometric layers expand from center-left outward, creating 
+Composition: Geometric layers expand from center-left outward, creating
 visual flow toward right (service exploration direction).
 No complexity in detail—clean geometric shapes, smooth gradients.
 
@@ -119,6 +129,7 @@ Quality: Professional, minimal, clean—suitable for service landing pages.
 ---
 
 ## TIER 2: SERVICE CATEGORY VISUALS
+
 ### 6 Core Services × 2 variations = 12 base images
 
 Each service gets a **distinct, recognizable visual** in Magnific.
@@ -128,14 +139,16 @@ Each service gets a **distinct, recognizable visual** in Magnific.
 ### 2.1 SEO Service Visual
 
 **Magnific AI Settings**:
+
 - **Resolution**: 2K (2560x1440)
 - **Creativity**: 75/100
 - **Upscale**: 2x
 
 **Prompt**:
+
 ```
 "Search engine optimization (SEO) service visualization.
-Abstract upward growth trajectory: ascending lines, gradient shapes, data nodes 
+Abstract upward growth trajectory: ascending lines, gradient shapes, data nodes
 moving from lower-left to upper-right creating a dynamic growth curve.
 Central focal point: subtle magnifying glass or search icon integrated into composition—
 not literal, abstract representation of discovery/search.
@@ -164,18 +177,20 @@ Quality: Professional service card imagery.
 ### 2.2 Branding & Design Service
 
 **Magnific AI Settings**:
+
 - **Resolution**: 2K
 - **Creativity**: 70/100
 
 **Prompt**:
+
 ```
 "Brand identity and design service visualization.
 Color spectrum composition: overlapping gradient circles and geometric shapes
-displaying all four brand colors—yellow (#FFDE11), blue (#358DCC), 
+displaying all four brand colors—yellow (#FFDE11), blue (#358DCC),
 cyan (#50C4DD), navy (#005282)—in harmonious integration.
 Central focal point shows how separate colors and shapes cohere into unified identity.
 
-Composition: Shapes overlap and connect, suggesting brand consistency, cohesion, 
+Composition: Shapes overlap and connect, suggesting brand consistency, cohesion,
 professional unification. Symmetrical core with subtle asymmetric accents.
 Lighting: Vibrant, clean, professional photography-quality light.
 Color relationships: Colors don't clash—they complement. Shows design expertise.
@@ -197,6 +212,7 @@ Quality: Premium branding service imagery.
 ### 2.3 Content Marketing & Storytelling
 
 **Prompt**:
+
 ```
 "Content marketing and storytelling service visualization.
 Flowing abstract paths and streams: information highways with glowing nodes,
@@ -228,6 +244,7 @@ Quality: Premium content marketing service imagery.
 ### 2.4 Media Production & Video
 
 **Prompt**:
+
 ```
 "Media production and video services visualization.
 Film/cinema inspired composition: overlapping film frames, aperture shapes,
@@ -240,7 +257,7 @@ dark background (#005282), cyan accents for light rays/production lights.
 Lighting: Cinematic, slightly dramatic, high contrast to match film aesthetic.
 Motion: Subtle motion blur and dynamic angle suggestions.
 
-Composition: Layered frames creating depth perception, motion vectors 
+Composition: Layered frames creating depth perception, motion vectors
 suggesting action and production quality.
 Mood: Creative, dynamic, high-energy, production-quality professional.
 Style: Cinema/film inspired, modern, professional production aesthetic.
@@ -259,6 +276,7 @@ Quality: Premium media production service imagery.
 ### 2.5 Social Media Strategy
 
 **Prompt**:
+
 ```
 "Social media strategy and community building visualization.
 Expanding network composition: central node expanding outward in concentric waves,
@@ -289,9 +307,10 @@ Quality: Premium social strategy service imagery.
 ### 2.6 Analytics & Data Strategy
 
 **Prompt**:
+
 ```
 "Data analytics and business intelligence visualization.
-Abstract data dashboard composition: floating graphs, chart elements, 
+Abstract data dashboard composition: floating graphs, chart elements,
 data points connected by intelligent lines suggesting insight and analysis.
 Central focus on upward trend line or key performance indicator highlight.
 
@@ -318,9 +337,11 @@ Quality: Premium analytics service imagery.
 ---
 
 ## TIER 3: FEATURE CARDS & PROCESS VISUALIZATION
+
 ### 5-Step Process Workflow
 
 **Magnific AI Settings**:
+
 - **Resolution**: 1.5K (1920x1920 square)
 - **Creativity**: 70/100
 
@@ -329,6 +350,7 @@ Generate **5 separate images** (one per step):
 ### Step 1 - Discovery/Research Phase
 
 **Prompt**:
+
 ```
 "Digital marketing process Step 1: Discovery and Research phase visualization.
 Magnifying glass over abstract data, exploratory composition suggesting investigation.
@@ -351,6 +373,7 @@ Quality: Professional process step diagram.
 ### Step 2 - Strategy Development
 
 **Prompt**:
+
 ```
 "Digital marketing process Step 2: Strategy and Planning phase.
 Strategic planning board aesthetic: organized lines, planning elements,
@@ -372,6 +395,7 @@ Quality: Professional process diagram.
 ### Step 3 - Execution & Launch
 
 **Prompt**:
+
 ```
 "Digital marketing process Step 3: Execution and Launch phase.
 Action-oriented elements suggesting movement, launch, implementation.
@@ -393,6 +417,7 @@ Quality: Professional process diagram.
 ### Step 4 - Analysis & Measurement
 
 **Prompt**:
+
 ```
 "Digital marketing process Step 4: Analysis and Measurement phase.
 Dashboard/analytics focus: graphs, metrics, measurement elements.
@@ -414,6 +439,7 @@ Quality: Professional process diagram.
 ### Step 5 - Optimization & Improvement
 
 **Prompt**:
+
 ```
 "Digital marketing process Step 5: Optimization and Continuous Improvement.
 Upward trajectory visualization showing improvement and optimization.
@@ -442,10 +468,12 @@ Quality: Professional process diagram.
 ### 4.1 Testimonial Background Pattern
 
 **Magnific AI Settings**:
+
 - **Resolution**: 2K (2560x1440)
 - **Creativity**: 60/100 (minimal, subtle)
 
 **Prompt**:
+
 ```
 "Subtle testimonial card background pattern. Minimal, non-distracting texture.
 Very light base color (#F8F9FA or transparent) with barely-visible brand color accents.
@@ -474,10 +502,12 @@ Quality: Email/card background quality.
 ### 4.2 Case Study Hero Backgrounds
 
 **Magnific AI Settings**:
+
 - **Resolution**: 3K (3072x1728)
 - **Creativity**: 75/100
 
 **Prompt** (4 variations, each showing different transformation concept):
+
 ```
 "Case study and project transformation visualization [Version: Strategic/Creative/Technical/Growth].
 Two-part composition showing before-and-after or foundation-to-transformation concept.
@@ -511,12 +541,14 @@ Quality: Premium case study hero imagery.
 ### 4.3 Blog/Article Featured Images
 
 **Magnific AI Settings**:
+
 - **Resolution**: 2.5K (2560x1440)
 - **Creativity**: 70/100
 
 Generate 3 article type variations:
 
 **Type 1 - Strategy Article**:
+
 ```
 "Educational blog article: Digital strategy and planning content.
 Strategic thinking visual metaphor: planning board, organized structure, strategic layout.
@@ -527,6 +559,7 @@ Style: Strategic planning aesthetic, professional educational quality."
 ```
 
 **Type 2 - Trends Article**:
+
 ```
 "Educational blog article: Marketing trends and forward-looking content.
 Trend visualization: Forward-looking concept, trend arrow or trajectory.
@@ -537,6 +570,7 @@ Style: Trend-focused, dynamic, forward-looking aesthetic."
 ```
 
 **Type 3 - How-To Article**:
+
 ```
 "Educational blog article: How-to and step-by-step process content.
 Process/workflow visualization: building blocks, layered components, step progression.
@@ -554,10 +588,12 @@ Style: Process/workflow aesthetic, instructional quality."
 ### 4.4 Call-to-Action Section Backgrounds
 
 **Magnific AI Settings**:
+
 - **Resolution**: 2.5K (2560x1440)
 - **Creativity**: 75/100
 
 **Prompt** (2 directional versions):
+
 ```
 "Call-to-action and conversion moment visualization [Directional emphasis: Right/Center].
 High-energy, action-oriented composition guiding viewer's eye toward action point.
@@ -590,6 +626,7 @@ Quality: Premium CTA section imagery.
 
 **LinkedIn Cover** (1200x627)
 **Prompt**:
+
 ```
 "LinkedIn professional profile cover image for digital marketing agency.
 Professional B2B aesthetic, clean and authoritative composition.
@@ -602,6 +639,7 @@ Target: 1200x627 (LinkedIn cover)"
 
 **Instagram Post** (1080x1080)
 **Prompt**:
+
 ```
 "Instagram feed post visual for digital marketing agency.
 Vibrant, engaging, eye-catching composition for scroll-stop impact.
@@ -615,6 +653,7 @@ Target: 1080x1080 (Instagram square)"
 
 **Twitter/X Header** (1500x500)
 **Prompt**:
+
 ```
 "Twitter/X profile header visual for digital marketing agency.
 Quick-impact visual hook designed for dense feed environment.
@@ -634,10 +673,12 @@ Target: 1500x500 (Twitter header)"
 ### 5.2 Email Newsletter Header
 
 **Magnific AI Settings**:
+
 - **Resolution**: 1.5K (600x200)
 - **Creativity**: 60/100 (clean, minimal)
 
 **Prompt**:
+
 ```
 "Email newsletter header visual: professional, branded, email-safe aesthetic.
 Composition: Works in both light and dark email client backgrounds.
@@ -665,6 +706,7 @@ Quality: Professional email template quality.
 ### **Total Asset Generation Count: 74 base images**
 
 **Breakdown**:
+
 - Tier 1 (Heroes): 7 base (4 main + 3 discovery)
 - Tier 2 (Services): 12 base (6 services × 2 variations)
 - Tier 3 (Process): 10 base (5 steps × 2 variations)
@@ -673,6 +715,7 @@ Quality: Professional email template quality.
 - Total: **58 base images via Magnific**
 
 **Plus Responsive Variants** (via outpaint):
+
 - Mobile (9:16) variants: ~20 images
 - Ultra-wide (21:9) variants: ~20 images
 - Total responsive: **40 additional images**
@@ -684,12 +727,14 @@ Quality: Professional email template quality.
 ## EXECUTION SCHEDULE
 
 ### **Day 1: Tier 1 & 2 Generation (19 images)**
+
 - Magnific Main Hero (4 variations): 45 min
 - Magnific Services Discovery (3 variations): 30 min
 - Magnific Service Visuals (6 services × 2): 90 min
 - **Total Time: ~2.5 hours** (Magnific processes in parallel)
 
 ### **Day 2: Tier 3 & 4 Generation (22 images)**
+
 - Magnific Process Steps (5 steps × 2): 90 min
 - Magnific Case Studies (4 variations): 45 min
 - Magnific Blog Articles (6 variations): 45 min
@@ -697,18 +742,21 @@ Quality: Professional email template quality.
 - **Total Time: ~3.5 hours**
 
 ### **Day 3: Tier 5 & QC (5 images)**
+
 - Magnific Social Headers (3): 30 min
 - Magnific Email Header (2): 20 min
 - Quality review all 45 base images: 60 min
 - **Total Time: ~2 hours**
 
 ### **Day 4: Responsive Outpainting (40 images)**
+
 - Outpaint 15-20 hero images to 9:16 mobile: 60 min
 - Outpaint 15-20 hero images to 21:9 ultra-wide: 60 min
 - Quality review responsive variants: 45 min
 - **Total Time: ~2.5 hours**
 
 ### **Days 5-7: Frontend Design & Integration**
+
 - Design homepage with taste-skill: 3 hours
 - Design service pages with taste-skill: 3 hours
 - Add animations with emil-design-eng: 2 hours
@@ -722,6 +770,7 @@ Quality: Professional email template quality.
 ## MAGNIFIC BEST PRACTICES FOR THIS WORKFLOW
 
 ### **Generation Quality Settings**:
+
 1. **Start with Creativity 70-75** - Balanced control + detail
 2. **Use 2x minimum, 4x for heroes** - Magnific handles upscaling
 3. **Request 2K+ resolution baseline** - Magnific quality improves with size
@@ -729,12 +778,14 @@ Quality: Professional email template quality.
 5. **Batch by similarity** - Process similar prompts together
 
 ### **Color Accuracy in Magnific**:
+
 - Always specify hex values: `#FFDE11`, `#358DCC`, `#50C4DD`, `#005282`
 - Include color percentages: "primary color 60%, accent 25%, background 15%"
 - Use names too: "bright yellow," "professional blue," "deep navy"
 - Review first output for color drift, adjust saturation if needed
 
 ### **Workflow Optimization**:
+
 1. Generate all Tier 1 variations first (establish hero direction)
 2. Get client approval on 3-4 hero options
 3. Then generate remaining tiers (faster iteration)
@@ -742,6 +793,7 @@ Quality: Professional email template quality.
 5. Regenerate only obvious failures (99% should be production-ready)
 
 ### **File Optimization**:
+
 - Magnific 4K output: ~5-8MB PNG
 - Convert to WebP: Reduces to 1-2MB (2x smaller)
 - Final asset folder: ~60-80MB for 98 optimized images
@@ -762,15 +814,15 @@ Quality: Professional email template quality.
 
 ## COMPARISON: Magnific vs. Higgsfield
 
-| Aspect | Magnific | Higgsfield |
-|--------|----------|-----------|
-| **Quality** | Production-ready 4K | Requires upscaling |
-| **Speed** | Direct high-quality output | Extra upscaling step |
-| **Color Control** | Excellent hex accuracy | Good with adjustment |
-| **File Size** | 4-8MB 4K baseline | Smaller but lower quality |
-| **Batch Processing** | Handles parallel well | Sequential better |
-| **Brand Consistency** | Very high consistency | Requires more iteration |
-| **Time per Image** | 1-2 min | 1 min + 30s upscale |
+| Aspect                | Magnific                   | Higgsfield                |
+| --------------------- | -------------------------- | ------------------------- |
+| **Quality**           | Production-ready 4K        | Requires upscaling        |
+| **Speed**             | Direct high-quality output | Extra upscaling step      |
+| **Color Control**     | Excellent hex accuracy     | Good with adjustment      |
+| **File Size**         | 4-8MB 4K baseline          | Smaller but lower quality |
+| **Batch Processing**  | Handles parallel well      | Sequential better         |
+| **Brand Consistency** | Very high consistency      | Requires more iteration   |
+| **Time per Image**    | 1-2 min                    | 1 min + 30s upscale       |
 
 **Winner for MediaBubble**: **Magnific** - Quality + speed + direct 4K output.
 
@@ -778,4 +830,3 @@ Quality: Professional email template quality.
 
 **Status**: Magnific workflow finalized and ready for generation.
 **Next Action**: Begin Tier 1 generation (main hero + services discovery).
-

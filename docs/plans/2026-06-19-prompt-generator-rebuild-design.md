@@ -12,12 +12,12 @@ brand-compliant AI prompts for image and video models.
 
 ## Decisions (locked)
 
-| Decision | Choice |
-| --- | --- |
-| Direction | Full rebuild to spec (retire old tab UI) |
-| Persistence | **Client-side only** (localStorage) — no backend |
-| Modes | **Image + Video** |
-| Salvage | Port validator scoring + template strings; rebuild UI |
+| Decision    | Choice                                                |
+| ----------- | ----------------------------------------------------- |
+| Direction   | Full rebuild to spec (retire old tab UI)              |
+| Persistence | **Client-side only** (localStorage) — no backend      |
+| Modes       | **Image + Video**                                     |
+| Salvage     | Port validator scoring + template strings; rebuild UI |
 
 ### Explicitly out of scope
 
@@ -93,19 +93,20 @@ preview text → `validator` scores it. Composed prompt + score are derived
 ## State & persistence
 
 ```ts
-type Mode = 'image' | 'video'
+type Mode = "image" | "video";
 type GeneratorConfig = {
-  mode: Mode
-  subcategory: string
-  composition: { orientation: string; density: string }
-  camera?: { shot: string; movement: string; motion: string; duration: string }
-  lighting: 'soft' | 'studio' | 'dramatic'
-  model: string
-  colorEmphasis: string[]   // brand color ids
-}
+  mode: Mode;
+  subcategory: string;
+  composition: { orientation: string; density: string };
+  camera?: { shot: string; movement: string; motion: string; duration: string };
+  lighting: "soft" | "studio" | "dramatic";
+  model: string;
+  colorEmphasis: string[]; // brand color ids
+};
 ```
 
 localStorage namespaced `mb.promptgen.*`:
+
 - `savedTemplates`: `{id, name, config, createdAt}[]`
 - `history`: last 25 generated prompts (FIFO cap)
 - share link: config serialized → base64 in URL hash, versioned (`v:1`)

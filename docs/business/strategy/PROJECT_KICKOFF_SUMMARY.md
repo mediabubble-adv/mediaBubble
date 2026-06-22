@@ -1,7 +1,8 @@
 # MediaBubble Website Rebuild - Project Kickoff Summary
+
 **Date:** June 2026  
 **Owner:** Yasser Dorgham (yasser.dorgham@gmail.com)  
-**Status:** Ready for Development  
+**Status:** Ready for Development
 
 ---
 
@@ -13,14 +14,16 @@ Rebuild MediaBubble's digital presence as a **modern, AI-first platform** that:
 ✅ Features **24/7 bilingual AI chat agent** for lead qualification  
 ✅ Positions **AI & Agents** as core value proposition  
 ✅ Establishes **reusable design system** for future apps  
-✅ Improves **SEO, performance, and conversion rates**  
+✅ Improves **SEO, performance, and conversion rates**
 
 ---
 
 ## 📋 What's Been Created
 
 ### 1. **Master Strategy Document**
+
 📄 `MEDIABUBBLE_WEBSITE_REBUILD_STRATEGY.md`
+
 - 10-phase implementation roadmap (12-16 weeks)
 - Complete tech stack specifications
 - Budget estimates ($62K-86K development)
@@ -28,7 +31,9 @@ Rebuild MediaBubble's digital presence as a **modern, AI-first platform** that:
 - Success metrics & KPIs
 
 ### 2. **Design System Guide**
+
 📄 `PHASE_1_DESIGN_SYSTEM_GUIDE.md`
+
 - Design tokens (colors, typography, spacing)
 - 40+ reusable components
 - Tailwind CSS + shadcn/ui configuration
@@ -37,7 +42,9 @@ Rebuild MediaBubble's digital presence as a **modern, AI-first platform** that:
 - Storybook setup instructions
 
 ### 3. **AI Chat Agent Specification**
+
 📄 `AI_CHAT_AGENT_SPECIFICATION.md`
+
 - Bilingual conversation flows (English + Arabic)
 - System prompts for Claude AI
 - Lead qualification matrix
@@ -46,7 +53,9 @@ Rebuild MediaBubble's digital presence as a **modern, AI-first platform** that:
 - Analytics & monitoring setup
 
 ### 4. **Implementation Task List**
+
 ✅ 10 major phases created in task management
+
 - Phase 1: Design System (Weeks 1-2)
 - Phase 2: Content Strategy (Weeks 2-3)
 - Phase 3: AI Agent Architecture (Weeks 3-4)
@@ -63,6 +72,7 @@ Rebuild MediaBubble's digital presence as a **modern, AI-first platform** that:
 ## 🚀 Quick Start (Next 2 Weeks)
 
 ### Week 1: Design System Foundation
+
 ```bash
 # Initialize Next.js project
 npx create-next-app@latest mediabubble-website \
@@ -87,6 +97,7 @@ npm install \
 ```
 
 ### Week 2: Content & Chat Agent Planning
+
 - [ ] Conduct team interviews (AI capabilities, case studies)
 - [ ] Create bilingual content templates
 - [ ] Define chat agent conversation flows
@@ -97,16 +108,16 @@ npm install \
 
 ## 💻 Tech Stack Summary
 
-| Area | Technology |
-|------|-----------|
-| **Frontend** | Next.js 14+ (React 18+) |
-| **Language** | TypeScript |
-| **Styling** | Tailwind CSS + shadcn/ui |
-| **i18n** | next-intl (English/Arabic) |
-| **AI** | Claude API (Anthropic) |
-| **CRM** | HubSpot API |
-| **Database** | PostgreSQL |
-| **Hosting** | Vercel |
+| Area           | Technology                  |
+| -------------- | --------------------------- |
+| **Frontend**   | Next.js 14+ (React 18+)     |
+| **Language**   | TypeScript                  |
+| **Styling**    | Tailwind CSS + shadcn/ui    |
+| **i18n**       | next-intl (English/Arabic)  |
+| **AI**         | Claude API (Anthropic)      |
+| **CRM**        | HubSpot API                 |
+| **Database**   | PostgreSQL                  |
+| **Hosting**    | Vercel                      |
 | **Monitoring** | Sentry + Google Analytics 4 |
 
 ---
@@ -114,18 +125,21 @@ npm install \
 ## 📊 Expected Outcomes
 
 ### Business Metrics
+
 - **50+ qualified leads/month** from chat agent
 - **5% conversion rate** (visitor → lead)
 - **30% chat engagement** (site visitors)
 - **$50K+/month revenue** within 6 months
 
 ### Technical Metrics
+
 - **Lighthouse score 95+**
 - **LCP < 2.5s**, **FID < 100ms**, **CLS < 0.1**
 - **99.9% uptime**
 - **WCAG 2.1 AA compliance**
 
 ### Content Metrics
+
 - **40+ blog posts** (AI-focused)
 - **10+ case studies** (with AI benefits highlighted)
 - **100% bilingual parity** (English ↔ Arabic)
@@ -135,15 +149,15 @@ npm install \
 
 ## 👥 Team Requirements
 
-| Role | Count | Responsibility |
-|------|-------|-----------------|
-| Product Manager | 1 | Strategy, prioritization |
-| Frontend Developer | 2-3 | React/Next.js, components |
-| Backend Developer | 1 | API, integrations |
-| UI/UX Designer | 1 | Design system, components |
-| Content Strategist | 1 | Bilingual content |
-| QA Engineer | 1 | Testing, quality assurance |
-| DevOps | 0.5 | Deployment, infrastructure |
+| Role               | Count | Responsibility             |
+| ------------------ | ----- | -------------------------- |
+| Product Manager    | 1     | Strategy, prioritization   |
+| Frontend Developer | 2-3   | React/Next.js, components  |
+| Backend Developer  | 1     | API, integrations          |
+| UI/UX Designer     | 1     | Design system, components  |
+| Content Strategist | 1     | Bilingual content          |
+| QA Engineer        | 1     | Testing, quality assurance |
+| DevOps             | 0.5   | Deployment, infrastructure |
 
 **Total:** 7-8 people, ~16 weeks
 
@@ -152,6 +166,7 @@ npm install \
 ## 💰 Budget Estimate
 
 ### Development Costs
+
 - Design System: **$15K-20K**
 - Website Build: **$30K-40K**
 - Chat Agent: **$10K-15K**
@@ -161,6 +176,7 @@ npm install \
 **Total:** $62K-86K
 
 ### Monthly Operating Costs
+
 - Vercel Hosting: $50-200
 - Claude API: $100-500 (based on usage)
 - HubSpot: $50-500 (based on contacts)
@@ -213,6 +229,7 @@ mediabubble-website/
 ## 🎬 Getting Started (Action Items)
 
 ### Immediate (This Week)
+
 - [ ] Assemble core team (Product, Design, Frontend)
 - [ ] Set up GitHub repository
 - [ ] Initialize Next.js project
@@ -220,6 +237,7 @@ mediabubble-website/
 - [ ] Set up design tokens file
 
 ### Week 1-2 (Design System)
+
 - [ ] Create 40+ components
 - [ ] Set up Storybook
 - [ ] Define responsive patterns
@@ -227,6 +245,7 @@ mediabubble-website/
 - [ ] Create Figma design system
 
 ### Week 2-3 (Content Planning)
+
 - [ ] Interview team on AI capabilities
 - [ ] Create content calendar
 - [ ] Define bilingual tone & voice
@@ -234,6 +253,7 @@ mediabubble-website/
 - [ ] Define chat agent flows
 
 ### Week 3+ (Development)
+
 - [ ] Begin Phase 4: React Foundation
 - [ ] Build core pages
 - [ ] Integrate Claude AI
@@ -268,7 +288,7 @@ mediabubble-website/
 
 **Project Owner:** Yasser Dorgham  
 **Email:** yasser.dorgham@gmail.com  
-**Company:** MediaBubble (mediabubble.co)  
+**Company:** MediaBubble (mediabubble.co)
 
 Questions? Issues? Schedule a kickoff meeting to align the team.
 
@@ -276,11 +296,11 @@ Questions? Issues? Schedule a kickoff meeting to align the team.
 
 ## ✨ Vision Statement
 
-> MediaBubble's new website is a **living demonstration of AI's power**. 
-> 
-> Every visitor experiences intelligent, personalized service through our bilingual AI agent. 
+> MediaBubble's new website is a **living demonstration of AI's power**.
+>
+> Every visitor experiences intelligent, personalized service through our bilingual AI agent.
 > Every page showcases how AI transforms marketing. Every case study proves ROI.
-> 
+>
 > By 2027, MediaBubble is **the #1 choice for AI-powered marketing in Egypt and the MENA region**.
 
 ---
@@ -293,5 +313,5 @@ This rebuild positions MediaBubble as **innovation leaders** in an AI-driven mar
 
 ---
 
-*Last Updated: June 2026*  
-*Status: Approved & Ready for Development*
+_Last Updated: June 2026_  
+_Status: Approved & Ready for Development_

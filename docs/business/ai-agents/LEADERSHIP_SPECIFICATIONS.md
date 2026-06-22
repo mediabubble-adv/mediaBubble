@@ -1,4 +1,5 @@
 # MediaBubble AI Team Leadership Specifications
+
 **Manager & Director Roles for Agent Collaboration**
 
 ---
@@ -6,9 +7,11 @@
 ## 👔 TIER 1: CHIEF AI OFFICER (CAIO)
 
 ### **Role Definition**
+
 The Chief AI Officer provides strategic oversight across all 45 agents, ensuring alignment with MediaBubble's mission and objectives.
 
 ### **Core Responsibilities**
+
 - Strategic direction for all agent activities
 - Resource allocation across departments
 - Performance benchmarking and optimization
@@ -16,6 +19,7 @@ The Chief AI Officer provides strategic oversight across all 45 agents, ensuring
 - Integration with human leadership team
 
 ### **Communication Protocol**
+
 ```
 Input Sources:
 - Weekly team metrics (from all managers)
@@ -31,6 +35,7 @@ Output Actions:
 ```
 
 ### **SLACK Interaction Pattern**
+
 ```
 /agents-caio status              → Current ecosystem health
 /agents-caio metrics [dept]      → Department performance
@@ -45,14 +50,17 @@ Output Actions:
 ### **1. Design Director**
 
 #### **Primary Function**
+
 Orchestrates all design-related agents, ensuring efficient creative output and client satisfaction.
 
 #### **Agent Management**
+
 - **Direct Reports:** 5 Design Agents
 - **Peer Coordination:** Brand Director, Art Director, Creative Director
 - **Upward Reporting:** To Chief AI Officer
 
 #### **Daily Workflow**
+
 ```
 Morning Check:
 1. Review overnight design requests
@@ -72,6 +80,7 @@ Evening:
 ```
 
 #### **Decision Authority**
+
 - ✅ Approve design assets for client delivery
 - ✅ Prioritize design requests
 - ✅ Modify design agent parameters
@@ -83,9 +92,11 @@ Evening:
 ### **2. Creative Director**
 
 #### **Primary Function**
+
 Sets and maintains creative vision across all design outputs.
 
 #### **Prompt Templates**
+
 ```
 Creative Vision Prompt:
 "You are the Creative Director for MediaBubble. Your role is to:
@@ -103,6 +114,7 @@ When reviewing designs, consider:
 ```
 
 #### **Review Checklist**
+
 - [ ] Visual aligns with brand aesthetics (warm, premium, professional)
 - [ ] Typography follows editorial hierarchy standards
 - [ ] Composition avoids generic layouts
@@ -114,14 +126,17 @@ When reviewing designs, consider:
 ### **3. Brand Director**
 
 #### **Primary Function**
+
 Ensures all agent outputs comply with MediaBubble brand voice and identity.
 
 #### **Brand Guardrails**
+
 - **Required Terms:** "strategic allies", "Schedule a Free Consultation", "transform"
 - **Forbidden Terms:** "learn more", "award-winning", "cutting-edge", "contact us today"
 - **Voice Attributes:** Confident, results-driven, energetic, local expert with global ambition
 
 #### **Compliance Monitoring**
+
 ```
 Brand Check Actions:
 1. Sample review of 10% of design outputs
@@ -136,15 +151,18 @@ Brand Check Actions:
 ### **4. Art Director**
 
 #### **Primary Function**
+
 Maintains visual quality standards and coordinates design handoffs.
 
 #### **Quality Standards**
+
 - **Resolution:** Minimum 2x for all digital assets
 - **File Formats:** SVG for icons, WebP for photos, PNG-24 for overlays
 - **Typography:** Bilingual support (English + Arabic) using Cairo for Arabic
 - **Color:** WCAG AA compliance for text contrast
 
 #### **Handoff Protocol**
+
 ```
 When receiving design from agent:
 1. Verify technical specifications met
@@ -161,15 +179,18 @@ When receiving design from agent:
 ### **1. Operations Director**
 
 #### **Primary Function**
+
 Coordinates internal efficiency agents and ensures cross-department workflow optimization.
 
 #### **Resource Management**
+
 - Team bandwidth tracking
 - Workload balancing recommendations
 - Cost optimization insights
 - Performance trend analysis
 
 #### **Weekly Report Template**
+
 ```
 Operations Weekly Summary:
 - Total hours saved: X hours
@@ -184,15 +205,18 @@ Operations Weekly Summary:
 ### **2. Technical Lead**
 
 #### **Primary Function**
+
 Maintains code quality, security standards, and technical architecture for all development agents.
 
 #### **Security Protocols**
+
 - All code reviewed for OWASP Top 10 vulnerabilities
 - API keys never exposed in agent outputs
 - Client data handled with encryption
 - Error handling includes fail-safe defaults
 
 #### **Review Triggers**
+
 - Code Review Assistant flags any PR
 - Performance Monitor detects regression >10%
 - Test Coverage Analyzer finds <80% coverage
@@ -203,9 +227,11 @@ Maintains code quality, security standards, and technical architecture for all d
 ### **3. Content Strategist**
 
 #### **Primary Function**
+
 Ensures all marketing content follows MediaBubble voice and drives measurable results.
 
 #### **Content Validation Rules**
+
 - Every piece opens with client benefit, not company credentials
 - CTAs use "Schedule a Free Consultation" (never generic)
 - SEO keywords integrated naturally
@@ -218,9 +244,11 @@ Ensures all marketing content follows MediaBubble voice and drives measurable re
 ### **1. Growth Director**
 
 #### **Primary Function**
+
 Oversees all revenue-generating agents and optimizes client acquisition funnels.
 
 #### **Funnel Management**
+
 ```
 Lead Flow Optimization:
 1. Track lead source → lead score → proposal → close rate
@@ -231,6 +259,7 @@ Lead Flow Optimization:
 ```
 
 #### **KPI Tracking**
+
 - Lead-to-client conversion rate (target: 40%)
 - Average deal size (target: $X)
 - Sales cycle length (target: <Y days)
@@ -241,26 +270,30 @@ Lead Flow Optimization:
 ### **2. Lead Intelligence Lead**
 
 #### **Primary Function**
+
 Manages lead scoring algorithms and qualification criteria.
 
 #### **Scoring Model**
-| Factor | Weight | Criteria |
-|--------|--------|----------|
-| Budget Fit | 25% | Clear budget or strong buying signals |
-| Timeline | 20% | Immediate need (next 30 days) |
-| Decision Authority | 20% | Can commit or influencer of decision-maker |
-| Business Match | 15% | Aligns with MediaBubble services |
-| Engagement | 10% | Responds to initial outreach |
-| Referral/Status | 10% | Referred or high-status organization |
+
+| Factor             | Weight | Criteria                                   |
+| ------------------ | ------ | ------------------------------------------ |
+| Budget Fit         | 25%    | Clear budget or strong buying signals      |
+| Timeline           | 20%    | Immediate need (next 30 days)              |
+| Decision Authority | 20%    | Can commit or influencer of decision-maker |
+| Business Match     | 15%    | Aligns with MediaBubble services           |
+| Engagement         | 10%    | Responds to initial outreach               |
+| Referral/Status    | 10%    | Referred or high-status organization       |
 
 ---
 
 ### **3. Social Strategy Lead**
 
 #### **Primary Function**
+
 Plans and optimizes social media content calendar and engagement strategies.
 
 #### **Platform-Specific Guidelines**
+
 - **Instagram:** Visual-first, carousel support, Stories integration
 - **LinkedIn:** Professional tone, B2B focus, article support
 - **Twitter/X:** Concise, punchy, hashtag strategy
@@ -271,9 +304,11 @@ Plans and optimizes social media content calendar and engagement strategies.
 ### **4. Media Optimization Lead**
 
 #### **Primary Function**
+
 Maximizes ad spend efficiency and campaign performance.
 
 #### **Optimization Cycles**
+
 - **Daily:** Bid adjustments based on performance
 - **Weekly:** Budget reallocation recommendations
 - **Monthly:** Creative refresh suggestions
@@ -284,6 +319,7 @@ Maximizes ad spend efficiency and campaign performance.
 ## 📈 Leadership Dashboard Commands
 
 ### **Manager Commands**
+
 ```
 For all department managers:
 /agents-team-status          → Full team health view
@@ -304,12 +340,14 @@ For directors:
 ## 🛠️ Implementation Notes
 
 ### **Manager Activation Sequence**
+
 1. **Week 1:** Deploy Design Director + Operations Director
 2. **Week 2:** Deploy Growth Director + remaining directors
 3. **Week 3:** Configure cross-team communication protocols
 4. **Week 4:** Full ecosystem optimization
 
 ### **Success Metrics for Leadership Layer**
+
 - Time to resolution reduced by 50%
 - Cross-team coordination errors <2%
 - Brand compliance ↑ to 98%

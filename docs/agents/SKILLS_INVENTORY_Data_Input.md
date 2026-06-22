@@ -1,4 +1,5 @@
 # Skills Inventory Data Input Form
+
 **For: Tasks #2-3 Arabic Skills Audit**
 
 ---
@@ -26,13 +27,14 @@ Skill Name | Description | Current Parent | Topics Covered | Has Masri Content?
 ```
 
 ### Your Language Skills:
-|Skill Name|Description|Current Parent|Topics Covered|Has Masri Content?|
-|---|---|---|---|---|
-| | | | | |
-| | | | | |
-| | | | | |
-| | | | | |
-| | | | | |
+
+| Skill Name | Description | Current Parent | Topics Covered | Has Masri Content? |
+| ---------- | ----------- | -------------- | -------------- | ------------------ |
+|            |             |                |                |                    |
+|            |             |                |                |                    |
+|            |             |                |                |                    |
+|            |             |                |                |                    |
+|            |             |                |                |                    |
 
 ---
 
@@ -51,35 +53,40 @@ Categories: Calligraphy, Typography, Visual Arts, Cultural Aesthetics, UI/UX, Ma
 ```
 
 ### Your Design Skills:
-|Skill Name|Description|Current Parent|Design Category|Topics Covered|
-|---|---|---|---|---|
-| | | | | |
-| | | | | |
-| | | | | |
-| | | | | |
-| | | | | |
-| | | | | |
+
+| Skill Name | Description | Current Parent | Design Category | Topics Covered |
+| ---------- | ----------- | -------------- | --------------- | -------------- |
+|            |             |                |                 |                |
+|            |             |                |                 |                |
+|            |             |                |                 |                |
+|            |             |                |                 |                |
+|            |             |                |                 |                |
+|            |             |                |                 |                |
 
 ---
 
 ## ADDITIONAL NOTES
 
 ### Any duplicates you suspect?
+
 ```
 [List any skills you think are duplicates or overlapping]
 ```
 
 ### Any orphaned skills (no parent category)?
+
 ```
 [List skills that have no parent category]
 ```
 
 ### Any Masri resources already in the system?
+
 ```
 [Describe what Masri resources/references already exist in your skills]
 ```
 
 ### Other observations:
+
 ```
 [Any other relevant information about current Arabic skills organization]
 ```
@@ -90,8 +97,9 @@ Categories: Calligraphy, Typography, Visual Arts, Cultural Aesthetics, UI/UX, Ma
 
 Share this file with Claude (paste the filled data) to complete **Tasks #2-3** audit.
 
-**Expected output:** 
+**Expected output:**
+
 - Complete audit spreadsheets
 - Duplicates identified
-- Gaps documented  
+- Gaps documented
 - Consolidation recommendations

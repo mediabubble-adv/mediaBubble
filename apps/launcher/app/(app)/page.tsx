@@ -10,35 +10,55 @@ import {
   MessageSquare,
   Workflow,
   Megaphone,
-  ShieldCheck,
-  Database,
-  Rocket,
+  Sparkles,
   ArrowRight,
+  Zap,
 } from 'lucide-react'
 import { getServerSession } from '@/lib/auth/server-session'
 import { prisma } from '@/lib/db/prisma'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
-import { Separator } from '@/components/ui/separator'
+import { PageFrame, PageHeader, PageSection } from '@/components/layout/page-frame'
 
 export const dynamic = 'force-dynamic'
 
-const foundation = [
-  { label: 'Database schema (Prisma, live Postgres)', icon: Database },
-  { label: 'Authentication (JWT, RBAC, sessions)', icon: ShieldCheck },
-  { label: 'App scaffold + nav shell', icon: Rocket },
+const quickStats = [
+  { label: 'Modules live', value: '11', hint: 'Full ops stack' },
+  { label: 'Markets', value: 'EG + AE', hint: 'Bilingual ready' },
+  { label: 'OPUS', value: 'Active', hint: 'Marketing AI layer' },
 ]
 
-const modules = [
-  { name: 'Tasks', href: '/tasks', description: 'Kanban board, inline timers.', icon: CheckSquare },
-  { name: 'Time', href: '/time', description: 'Timesheet, leave, capacity, approvals.', icon: Clock },
-  { name: 'CRM', href: '/crm', description: 'Clients, invoices, quotations.', icon: Building2 },
-  { name: 'Finance', href: '/finance', description: 'Cash flow, currencies, ledger.', icon: Wallet },
-  { name: 'Leaderboard', href: '/leaderboard', description: 'XP levels, streaks, podium.', icon: Trophy },
-  { name: 'AI Tools', href: '/ai', description: 'Prompt Studio, variable templates.', icon: Bot },
-  { name: 'Chat', href: '/chat', description: 'Channels, realtime (Redis + WS).', icon: MessageSquare },
-  { name: 'Automation', href: '/automation', description: 'Workflow triggers and test runs.', icon: Workflow },
-  { name: 'Campaigns', href: '/campaigns', description: 'Proposals and live campaigns.', icon: Megaphone },
+const moduleGroups = [
+  {
+    title: 'Operations',
+    items: [
+      { name: 'Tasks', href: '/tasks', description: 'Kanban, timers, drag-and-drop.', icon: CheckSquare },
+      { name: 'Time', href: '/time', description: 'Timesheets, leave, capacity.', icon: Clock },
+    ],
+  },
+  {
+    title: 'Clients & revenue',
+    items: [
+      { name: 'CRM', href: '/crm', description: 'Clients, invoices, quotations.', icon: Building2 },
+      { name: 'Campaigns', href: '/campaigns', description: 'Proposals and live campaigns.', icon: Megaphone },
+      { name: 'Finance', href: '/finance', description: 'Cash flow, currencies, ledger.', icon: Wallet },
+    ],
+  },
+  {
+    title: 'Marketing AI',
+    items: [
+      { name: 'OPUS', href: '/opus', description: 'Brief → campaign → performance.', icon: Sparkles, highlight: true },
+      { name: 'AI Tools', href: '/ai', description: 'Prompt studio and templates.', icon: Bot },
+      { name: 'Automation', href: '/automation', description: 'Workflow triggers and runs.', icon: Workflow },
+    ],
+  },
+  {
+    title: 'Team',
+    items: [
+      { name: 'Chat', href: '/chat', description: 'Channels and realtime comms.', icon: MessageSquare },
+      { name: 'Leaderboard', href: '/leaderboard', description: 'XP, streaks, podium.', icon: Trophy },
+    ],
+  },
 ]
 
 export default async function DashboardPage() {
@@ -49,82 +69,98 @@ export default async function DashboardPage() {
   const firstName = record?.name?.split(/\s+/)[0] ?? 'there'
 
   return (
-    <div className="px-6 py-8 lg:px-10">
-      <div className="mx-auto max-w-4xl">
-        {/* Hero */}
-        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary">
-          Dashboard
-        </p>
-        <h1 className="mt-1 font-display text-3xl font-bold tracking-tight text-foreground">
-          Welcome back, {firstName}
-        </h1>
-        <p className="mt-2 max-w-2xl text-[14px] text-muted-foreground">
-          All core modules are live. Jump in below or press{' '}
-          <kbd className="rounded border border-border px-1.5 py-0.5 text-[11px] font-semibold text-foreground">
-            ⌘K
-          </kbd>{' '}
-          to search.
-        </p>
+    <PageFrame>
+      <PageHeader
+        kicker="Dashboard"
+        title={`Welcome back, ${firstName}`}
+        description="Your command center for operations, clients, and marketing AI. Press ⌘K to jump anywhere."
+        icon={Zap}
+      />
 
-        <Separator className="my-8" />
+      <div className="mt-8 grid gap-4 sm:grid-cols-3 2xl:grid-cols-3">
+        {quickStats.map((stat) => (
+          <Card key={stat.label} className="border-border/80 bg-card/80">
+            <CardContent className="p-5">
+              <p className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
+                {stat.label}
+              </p>
+              <p className="mt-2 font-display text-2xl font-bold text-foreground">{stat.value}</p>
+              <p className="mt-1 text-[12px] text-muted-foreground">{stat.hint}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
 
-        {/* Foundation */}
-        <section>
-          <h2 className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
-            Foundation
-          </h2>
-          <ul className="mt-3 space-y-2">
-            {foundation.map(({ label, icon: Icon }) => (
-              <li key={label}>
-                <Card>
-                  <CardContent className="flex items-center gap-3 px-4 py-3">
-                    <Icon size={15} className="shrink-0 text-primary" />
-                    <span className="flex-1 text-[13px] text-foreground">{label}</span>
-                    <Badge tone="success" className="text-[10px]">Ready</Badge>
-                  </CardContent>
-                </Card>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        {/* Modules */}
-        <section className="mt-8">
-          <h2 className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
-            Modules
-          </h2>
-          <div data-stagger className="mt-3 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-            {modules.map(({ name, href, description, icon: Icon }, i) => (
-              <Link
-                key={name}
-                href={href}
-                style={{ '--i': i } as CSSProperties}
-              >
-                <Card className="group h-full transition-[transform,border-color,background-color] duration-150 ease-[var(--ease-out)] hover:border-primary/40 hover:bg-card/80 active:scale-[0.98]">
-                  <CardContent className="flex flex-col p-5">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
-                      <Icon size={16} className="text-primary" />
-                    </div>
-                    <h3 className="mt-3 font-display text-[15px] font-bold text-foreground">
-                      {name}
-                    </h3>
-                    <p className="mt-1 flex-1 text-[12px] leading-relaxed text-muted-foreground">
-                      {description}
-                    </p>
-                    <div className="mt-3 flex items-center justify-between">
-                      <Badge tone="success">Live</Badge>
+      <div className="mt-10 grid gap-8 xl:grid-cols-2 2xl:grid-cols-4">
+        {moduleGroups.map((group) => (
+          <PageSection key={group.title} title={group.title}>
+            <div data-stagger className="grid gap-3">
+              {group.items.map(({ name, href, description, icon: Icon, highlight }, i) => (
+                <Link
+                  key={name}
+                  href={href}
+                  style={{ '--i': i } as CSSProperties}
+                >
+                  <Card
+                    className={`group h-full transition-[transform,border-color,background-color] duration-150 ease-[var(--ease-out)] hover:border-primary/40 active:scale-[0.99] ${
+                      highlight ? 'border-primary/30 bg-primary/[0.03]' : ''
+                    }`}
+                  >
+                    <CardContent className="flex items-start gap-4 p-4">
+                      <div
+                        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${
+                          highlight ? 'bg-primary/15' : 'bg-primary/10'
+                        }`}
+                      >
+                        <Icon size={17} className="text-primary" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-2">
+                          <h3 className="font-display text-[14px] font-bold text-foreground">{name}</h3>
+                          {highlight ? (
+                            <Badge tone="blue" className="text-[9px]">
+                              AI
+                            </Badge>
+                          ) : (
+                            <Badge tone="success" className="text-[9px]">
+                              Live
+                            </Badge>
+                          )}
+                        </div>
+                        <p className="mt-0.5 text-[12px] leading-relaxed text-muted-foreground">
+                          {description}
+                        </p>
+                      </div>
                       <ArrowRight
                         size={14}
-                        className="text-muted-foreground transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-primary"
+                        className="mt-1 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-primary"
                       />
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
-          </div>
-        </section>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </PageSection>
+        ))}
       </div>
-    </div>
+
+      <Card className="mt-10 border-primary/25 bg-gradient-to-r from-primary/5 via-transparent to-accent/5">
+        <CardContent className="flex flex-col items-start justify-between gap-4 p-6 sm:flex-row sm:items-center">
+          <div>
+            <p className="font-display text-lg font-bold text-foreground">OPUS Command Center</p>
+            <p className="mt-1 max-w-xl text-[13px] text-muted-foreground">
+              Autonomous marketing orchestration — briefs, triggers, usage, and campaign performance in one flow.
+            </p>
+          </div>
+          <Link
+            href="/opus"
+            className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-[13px] font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+          >
+            Open OPUS
+            <ArrowRight size={15} />
+          </Link>
+        </CardContent>
+      </Card>
+    </PageFrame>
   )
 }

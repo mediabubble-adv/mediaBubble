@@ -16,17 +16,39 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { useToast } from '@/components/ui/toast'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+import { CURRENCIES, type CurrencyCode } from '@/lib/finance/currency'
 import type { Role } from '@/lib/auth/rbac'
 import type { WorkspacePrefs } from '@/app/api/settings/workspace/route'
 
-export interface SettingsUser {
-  id: string
-  name: string
-  email: string
-  avatar_url: string | null
-  role: string
-  department: string | null
+export interface WorkspacePrefs {
+  timezone: string
+  default_currency: string
+  notifications: {
+    email_digest: boolean
+    task_reminders: boolean
+    weekly_report: boolean
+  }
 }
+
+const TIMEZONES: { value: string; label: string }[] = [
+  { value: 'Africa/Cairo', label: 'Cairo (EET/EEST, UTC+2/3)' },
+  { value: 'Asia/Riyadh', label: 'Riyadh (AST, UTC+3)' },
+  { value: 'Asia/Dubai', label: 'Dubai (GST, UTC+4)' },
+  { value: 'Europe/London', label: 'London (GMT/BST, UTC+0/1)' },
+  { value: 'Europe/Berlin', label: 'Berlin (CET/CEST, UTC+1/2)' },
+  { value: 'America/New_York', label: 'New York (ET, UTC-5/4)' },
+  { value: 'America/Los_Angeles', label: 'Los Angeles (PT, UTC-8/7)' },
+  { value: 'UTC', label: 'UTC (Coordinated Universal Time)' },
+]
+
+export type SettingsUser = ProfileUser
 
 interface TeamMember {
   id: string
@@ -44,160 +66,6 @@ const ROLE_TONE: Record<string, 'blue' | 'warning' | 'danger' | 'neutral'> = {
   Manager: 'warning',
   Contributor: 'blue',
   Viewer: 'neutral',
-}
-
-function initials(name: string) {
-  return name
-    .split(/\s+/)
-    .slice(0, 2)
-    .map((p) => p[0]?.toUpperCase() ?? '')
-    .join('')
-}
-
-function Avatar({
-  name,
-  avatarUrl,
-  size = 'md',
-}: {
-  name: string
-  avatarUrl: string | null
-  size?: 'sm' | 'md' | 'lg'
-}) {
-  const sizeClass = size === 'lg' ? 'h-16 w-16 text-xl' : size === 'sm' ? 'h-8 w-8 text-xs' : 'h-10 w-10 text-sm'
-  return (
-    <div
-      className={`${sizeClass} flex shrink-0 items-center justify-center rounded-full bg-primary/20 font-bold text-primary`}
-    >
-      {avatarUrl ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={avatarUrl} alt={name} className="h-full w-full rounded-full object-cover" />
-      ) : (
-        initials(name)
-      )}
-    </div>
-  )
-}
-
-function ProfileTab({ user }: { user: SettingsUser }) {
-  const { toast } = useToast()
-  const [name, setName] = useState(user.name)
-  const [avatarUrl, setAvatarUrl] = useState(user.avatar_url ?? '')
-  const [saving, setSaving] = useState(false)
-  const [saved, setSaved] = useState(false)
-
-  const isDirty = name !== user.name || (avatarUrl || null) !== user.avatar_url
-
-  async function handleSave() {
-    if (!name.trim()) {
-      toast('error', 'Name cannot be empty')
-      return
-    }
-    setSaving(true)
-    try {
-      const res = await fetch('/api/settings/profile', {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: name.trim(),
-          avatar_url: avatarUrl.trim() || null,
-        }),
-      })
-      const json = await res.json()
-      if (!res.ok) {
-        toast('error', json.message ?? 'Failed to save profile')
-        return
-      }
-      setSaved(true)
-      setTimeout(() => setSaved(false), 3000)
-      toast('success', 'Profile updated')
-    } catch {
-      toast('error', 'Network error — please try again')
-    } finally {
-      setSaving(false)
-    }
-  }
-
-  return (
-    <div className="space-y-6">
-      {/* Avatar + identity */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-[14px]">Profile</CardTitle>
-          <CardDescription>Your public name and avatar.</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-5">
-          <div className="flex items-center gap-4">
-            <Avatar name={name || user.name} avatarUrl={avatarUrl || null} size="lg" />
-            <div className="min-w-0 flex-1">
-              <p className="truncate text-[13px] font-semibold text-foreground">{name || user.name}</p>
-              <p className="truncate text-[12px] text-muted-foreground">{user.email}</p>
-              <div className="mt-1.5 flex flex-wrap gap-1.5">
-                <Badge tone={ROLE_TONE[user.role] ?? 'neutral'}>{user.role}</Badge>
-                {user.department && <Badge tone="neutral">{user.department}</Badge>}
-              </div>
-            </div>
-          </div>
-
-          <Separator />
-
-          <div className="space-y-4">
-            <div className="space-y-1.5">
-              <Label htmlFor="name">Display name</Label>
-              <Input
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Your full name"
-                maxLength={255}
-              />
-            </div>
-
-            <div className="space-y-1.5">
-              <Label htmlFor="avatar">Avatar URL</Label>
-              <div className="relative">
-                <Camera
-                  size={14}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
-                />
-                <Input
-                  id="avatar"
-                  value={avatarUrl}
-                  onChange={(e) => setAvatarUrl(e.target.value)}
-                  placeholder="https://example.com/avatar.jpg"
-                  className="pl-8"
-                />
-              </div>
-              <p className="text-[11px] text-muted-foreground">Leave blank to use initials.</p>
-            </div>
-
-            <div className="space-y-1.5">
-              <Label>Email</Label>
-              <Input value={user.email} disabled className="cursor-not-allowed opacity-60" />
-              <p className="text-[11px] text-muted-foreground">
-                Email cannot be changed here. Contact an Admin.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3 pt-1">
-            <Button onClick={handleSave} isLoading={saving} disabled={!isDirty || saving}>
-              {saved ? (
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 size={14} />
-                  Saved
-                </span>
-              ) : (
-                'Save changes'
-              )}
-            </Button>
-            {isDirty && !saving && (
-              <p className="text-[12px] text-muted-foreground">Unsaved changes</p>
-            )}
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  )
 }
 
 function SecurityTab() {
@@ -335,7 +203,7 @@ function TeamTab({ members, currentUserId }: { members: TeamMember[]; currentUse
         <div className="divide-y divide-border rounded-lg border border-border">
           {filtered.map((m) => (
             <div key={m.id} className="flex items-center gap-3 px-4 py-3">
-              <Avatar name={m.name} avatarUrl={m.avatar_url} size="sm" />
+              <UserAvatar name={m.name} avatarUrl={m.avatar_url} size="sm" />
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-1.5">
                   <span className="truncate text-[13px] font-medium text-foreground">{m.name}</span>
@@ -579,6 +447,26 @@ export function SettingsDashboard({
   workspacePrefs: WorkspacePrefs
 }) {
   const [tab, setTab] = useState<Tab>('profile')
+  const tabRefs = useRef<Partial<Record<Tab, HTMLButtonElement>>>({})
+  const [pill, setPill] = useState<{ x: number; w: number } | null>(null)
+
+  // offsetLeft is relative to the tablist's padding-box (our position:relative ancestor),
+  // so it stays accurate regardless of page scroll — no getBoundingClientRect needed.
+  const updatePill = useCallback(() => {
+    const btn = tabRefs.current[tab]
+    if (!btn) return
+    setPill({ x: btn.offsetLeft, w: btn.offsetWidth })
+  }, [tab])
+
+  useEffect(() => {
+    updatePill()
+  }, [updatePill])
+
+  // Re-measure on resize (flex-1 buttons reflow on window resize)
+  useEffect(() => {
+    window.addEventListener('resize', updatePill)
+    return () => window.removeEventListener('resize', updatePill)
+  }, [updatePill])
 
   return (
     <div className="px-6 py-8 lg:px-10">
@@ -596,15 +484,16 @@ export function SettingsDashboard({
           {TABS.map(({ id, label, icon: Icon }) => (
             <button
               key={id}
+              ref={(el) => { tabRefs.current[id] = el ?? undefined }}
               role="tab"
               type="button"
               onClick={() => setTab(id)}
               aria-selected={tab === id}
               aria-controls={`tabpanel-${id}`}
               className={[
-                'flex flex-1 items-center justify-center gap-2 rounded-md px-3 py-2 text-[13px] font-medium transition-colors duration-100',
+                'relative z-10 flex flex-1 items-center justify-center gap-2 rounded-md px-3 py-2 text-[13px] font-medium transition-colors duration-150 xl:flex-none xl:justify-start xl:px-4 xl:py-2.5',
                 tab === id
-                  ? 'bg-card text-foreground shadow-sm'
+                  ? 'text-foreground xl:bg-card xl:shadow-sm xl:ring-1 xl:ring-border'
                   : 'text-muted-foreground hover:text-foreground',
               ].join(' ')}
             >
@@ -614,21 +503,25 @@ export function SettingsDashboard({
           ))}
         </div>
 
-        <div className="mt-6">
+        {/* Tab panels */}
+        <div className="min-w-0 flex-1 xl:max-w-3xl">
           <div id="tabpanel-profile" role="tabpanel" hidden={tab !== 'profile'}>
-            {tab === 'profile' && <ProfileTab user={user} />}
+            <ProfileForm user={user} />
           </div>
           <div id="tabpanel-security" role="tabpanel" hidden={tab !== 'security'}>
-            {tab === 'security' && <SecurityTab />}
+            <SecurityTab />
           </div>
           <div id="tabpanel-team" role="tabpanel" hidden={tab !== 'team'}>
-            {tab === 'team' && <TeamTab members={team} currentUserId={user.id} />}
+            <TeamTab members={team} currentUserId={user.id} />
+          </div>
+          <div id="tabpanel-workspace" role="tabpanel" hidden={tab !== 'workspace'}>
+            <WorkspaceTab initialPrefs={workspacePrefs} />
           </div>
           <div id="tabpanel-workspace" role="tabpanel" hidden={tab !== 'workspace'}>
             {tab === 'workspace' && <WorkspaceTab prefs={workspacePrefs} />}
           </div>
         </div>
       </div>
-    </div>
+    </PageFrame>
   )
 }

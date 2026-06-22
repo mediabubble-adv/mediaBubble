@@ -3,6 +3,7 @@
 ## Quick Start (Deploy in 1 Hour)
 
 ### Prerequisites
+
 - Node.js 18+
 - PostgreSQL database
 - Vercel account (for hosting)
@@ -124,12 +125,12 @@ CORS_ORIGIN=https://mediabubble-ai.yoursite.com
 ### server.js
 
 ```javascript
-const express = require('express');
-const cors = require('cors');
-const { Server } = require('socket.io');
-const { Pool } = require('pg');
-const axios = require('axios');
-require('dotenv').config();
+const express = require("express");
+const cors = require("cors");
+const { Server } = require("socket.io");
+const { Pool } = require("pg");
+const axios = require("axios");
+require("dotenv").config();
 
 const app = express();
 const db = new Pool({ connectionString: process.env.DATABASE_URL });
@@ -144,48 +145,72 @@ const io = new Server(app, { cors: { origin: process.env.CORS_ORIGIN } });
 // ==================== ENDPOINTS ====================
 
 // 1. Log Agent Execution
-app.post('/api/agents/log', async (req, res) => {
-  const { agent_id, agent_name, department, status, task_type, execution_time_ms, output_data, error_message } = req.body;
-  
+app.post("/api/agents/log", async (req, res) => {
+  const {
+    agent_id,
+    agent_name,
+    department,
+    status,
+    task_type,
+    execution_time_ms,
+    output_data,
+    error_message,
+  } = req.body;
+
   try {
     const result = await db.query(
       `INSERT INTO agent_logs (agent_id, agent_name, department, status, task_type, execution_time_ms, output_data, error_message)
        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
        RETURNING id`,
-      [agent_id, agent_name, department, status, task_type, execution_time_ms, JSON.stringify(output_data), error_message]
+      [
+        agent_id,
+        agent_name,
+        department,
+        status,
+        task_type,
+        execution_time_ms,
+        JSON.stringify(output_data),
+        error_message,
+      ],
     );
-    
+
     // Update metrics
     await updateAgentMetrics(agent_id, agent_name, department);
-    
+
     // Broadcast to dashboard
-    io.emit('agent-update', { agent_id, status, execution_time_ms });
-    
+    io.emit("agent-update", { agent_id, status, execution_time_ms });
+
     res.json({ success: true, log_id: result.rows[0].id });
   } catch (err) {
-    console.error('Error logging execution:', err);
+    console.error("Error logging execution:", err);
     res.status(500).json({ error: err.message });
   }
 });
 
 // 2. Get All Agents Status (for overview dashboard)
-app.get('/api/dashboard/overview', async (req, res) => {
+app.get("/api/dashboard/overview", async (req, res) => {
   try {
     const metrics = await db.query(
-      `SELECT * FROM agent_metrics WHERE created_date = CURRENT_DATE ORDER BY estimated_value_created DESC`
+      `SELECT * FROM agent_metrics WHERE created_date = CURRENT_DATE ORDER BY estimated_value_created DESC`,
     );
-    
+
     const stats = {
       total_agents: 45,
       active_agents: 45,
       error_rate: (await calculateGlobalErrorRate()).toFixed(2),
-      total_value_today: metrics.rows.reduce((sum, m) => sum + (m.estimated_value_created || 0), 0),
-      total_time_saved: metrics.rows.reduce((sum, m) => sum + (m.total_time_saved_hours || 0), 0),
+      total_value_today: metrics.rows.reduce(
+        (sum, m) => sum + (m.estimated_value_created || 0),
+        0,
+      ),
+      total_time_saved: metrics.rows.reduce(
+        (sum, m) => sum + (m.total_time_saved_hours || 0),
+        0,
+      ),
       agents_by_department: await getAgentsByDepartment(),
       top_agents: metrics.rows.slice(0, 5),
-      alerts: await getActiveAlerts()
+      alerts: await getActiveAlerts(),
     };
-    
+
     res.json(stats);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -193,19 +218,19 @@ app.get('/api/dashboard/overview', async (req, res) => {
 });
 
 // 3. Get Department View
-app.get('/api/dashboard/department/:dept', async (req, res) => {
+app.get("/api/dashboard/department/:dept", async (req, res) => {
   const { dept } = req.params;
   try {
     const agents = await db.query(
       `SELECT * FROM agent_metrics WHERE department = $1 AND created_date = CURRENT_DATE ORDER BY estimated_value_created DESC`,
-      [dept]
+      [dept],
     );
-    
+
     const logs = await db.query(
       `SELECT * FROM agent_logs WHERE department = $1 AND created_at > NOW() - INTERVAL '24 hours' ORDER BY created_at DESC LIMIT 50`,
-      [dept]
+      [dept],
     );
-    
+
     res.json({ agents: agents.rows, recent_actions: logs.rows });
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -213,30 +238,30 @@ app.get('/api/dashboard/department/:dept', async (req, res) => {
 });
 
 // 4. Get Single Agent Deep Dive
-app.get('/api/dashboard/agent/:agent_id', async (req, res) => {
+app.get("/api/dashboard/agent/:agent_id", async (req, res) => {
   const { agent_id } = req.params;
   try {
     const metrics = await db.query(
       `SELECT * FROM agent_metrics WHERE agent_id = $1 AND created_date = CURRENT_DATE`,
-      [agent_id]
+      [agent_id],
     );
-    
+
     const logs = await db.query(
       `SELECT * FROM agent_logs WHERE agent_id = $1 ORDER BY created_at DESC LIMIT 100`,
-      [agent_id]
+      [agent_id],
     );
-    
+
     const email_stats = await db.query(
       `SELECT COUNT(*) as sent, COUNT(opened_at) as opened, COUNT(clicked_at) as clicked
        FROM email_tracking WHERE agent_id = $1 AND sent_at > NOW() - INTERVAL '7 days'`,
-      [agent_id]
+      [agent_id],
     );
-    
+
     res.json({
       metrics: metrics.rows[0],
       recent_logs: logs.rows,
       email_stats: email_stats.rows[0],
-      uptime_percentage: await calculateUptime(agent_id)
+      uptime_percentage: await calculateUptime(agent_id),
     });
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -244,68 +269,81 @@ app.get('/api/dashboard/agent/:agent_id', async (req, res) => {
 });
 
 // 5. Send Email from Agent
-app.post('/api/email/send', async (req, res) => {
+app.post("/api/email/send", async (req, res) => {
   const { agent_id, recipient_email, subject, template, data } = req.body;
-  
+
   try {
-    const response = await axios.post('https://api.sendgrid.com/v3/mail/send', {
-      personalizations: [{ to: [{ email: recipient_email }] }],
-      from: { email: process.env.SENDGRID_FROM_EMAIL, name: 'MediaBubble AI' },
-      subject: subject,
-      template_id: template,
-      dynamic_template_data: data
-    }, {
-      headers: { 'Authorization': `Bearer ${process.env.SENDGRID_API_KEY}` }
-    });
-    
+    const response = await axios.post(
+      "https://api.sendgrid.com/v3/mail/send",
+      {
+        personalizations: [{ to: [{ email: recipient_email }] }],
+        from: {
+          email: process.env.SENDGRID_FROM_EMAIL,
+          name: "MediaBubble AI",
+        },
+        subject: subject,
+        template_id: template,
+        dynamic_template_data: data,
+      },
+      {
+        headers: { Authorization: `Bearer ${process.env.SENDGRID_API_KEY}` },
+      },
+    );
+
     // Log email sent
     await db.query(
       `INSERT INTO email_tracking (agent_id, recipient_email, subject_line, email_type, sendgrid_message_id)
        VALUES ($1, $2, $3, $4, $5)`,
-      [agent_id, recipient_email, subject, req.body.email_type, response.headers['x-message-id']]
+      [
+        agent_id,
+        recipient_email,
+        subject,
+        req.body.email_type,
+        response.headers["x-message-id"],
+      ],
     );
-    
-    res.json({ success: true, message_id: response.headers['x-message-id'] });
+
+    res.json({ success: true, message_id: response.headers["x-message-id"] });
   } catch (err) {
-    console.error('SendGrid error:', err);
+    console.error("SendGrid error:", err);
     res.status(500).json({ error: err.message });
   }
 });
 
 // 6. Post Slack Message from Agent
-app.post('/api/slack/post', async (req, res) => {
+app.post("/api/slack/post", async (req, res) => {
   const { channel, text, blocks, agent_id, message_type } = req.body;
-  
+
   try {
     const response = await axios.post(process.env.SLACK_WEBHOOK_URL, {
       channel: channel,
       text: text,
-      blocks: blocks
+      blocks: blocks,
     });
-    
+
     // Log Slack message
     await db.query(
       `INSERT INTO slack_messages (agent_id, channel_id, message_type, message_content)
        VALUES ($1, $2, $3, $4)`,
-      [agent_id, channel, message_type, JSON.stringify({ text, blocks })]
+      [agent_id, channel, message_type, JSON.stringify({ text, blocks })],
     );
-    
+
     res.json({ success: true });
   } catch (err) {
-    console.error('Slack error:', err);
+    console.error("Slack error:", err);
     res.status(500).json({ error: err.message });
   }
 });
 
 // 7. Get Agent Logs
-app.get('/api/logs/:agent_id', async (req, res) => {
+app.get("/api/logs/:agent_id", async (req, res) => {
   const { agent_id } = req.params;
   const limit = req.query.limit || 50;
-  
+
   try {
     const logs = await db.query(
       `SELECT * FROM agent_logs WHERE agent_id = $1 ORDER BY created_at DESC LIMIT $2`,
-      [agent_id, limit]
+      [agent_id, limit],
     );
     res.json(logs.rows);
   } catch (err) {
@@ -316,23 +354,23 @@ app.get('/api/logs/:agent_id', async (req, res) => {
 // ==================== HELPER FUNCTIONS ====================
 
 async function updateAgentMetrics(agent_id, agent_name, department) {
-  const today = new Date().toISOString().split('T')[0];
-  
+  const today = new Date().toISOString().split("T")[0];
+
   const existing = await db.query(
     `SELECT * FROM agent_metrics WHERE agent_id = $1 AND created_date = $2`,
-    [agent_id, today]
+    [agent_id, today],
   );
-  
+
   if (existing.rows.length > 0) {
     await db.query(
       `UPDATE agent_metrics SET tasks_today = tasks_today + 1 WHERE agent_id = $1 AND created_date = $2`,
-      [agent_id, today]
+      [agent_id, today],
     );
   } else {
     await db.query(
       `INSERT INTO agent_metrics (agent_id, agent_name, department, tasks_today, created_date)
        VALUES ($1, $2, $3, 1, $4)`,
-      [agent_id, agent_name, department, today]
+      [agent_id, agent_name, department, today],
     );
   }
 }
@@ -340,17 +378,17 @@ async function updateAgentMetrics(agent_id, agent_name, department) {
 async function calculateGlobalErrorRate() {
   const result = await db.query(
     `SELECT COUNT(*) as total, COUNT(CASE WHEN error_message IS NOT NULL THEN 1 END) as errors
-     FROM agent_logs WHERE created_at > NOW() - INTERVAL '24 hours'`
+     FROM agent_logs WHERE created_at > NOW() - INTERVAL '24 hours'`,
   );
   const { total, errors } = result.rows[0];
-  return total > 0 ? (errors / total * 100) : 0;
+  return total > 0 ? (errors / total) * 100 : 0;
 }
 
 async function getAgentsByDepartment() {
   const result = await db.query(
     `SELECT department, COUNT(DISTINCT agent_id) as count, SUM(estimated_value_created) as value
      FROM agent_metrics WHERE created_date = CURRENT_DATE
-     GROUP BY department`
+     GROUP BY department`,
   );
   return result.rows;
 }
@@ -359,12 +397,12 @@ async function getActiveAlerts() {
   const result = await db.query(
     `SELECT agent_id, COUNT(*) as error_count
      FROM agent_logs WHERE created_at > NOW() - INTERVAL '1 hour' AND error_message IS NOT NULL
-     GROUP BY agent_id HAVING COUNT(*) > 3`
+     GROUP BY agent_id HAVING COUNT(*) > 3`,
   );
-  return result.rows.map(r => ({
-    type: 'error',
+  return result.rows.map((r) => ({
+    type: "error",
     message: `Agent ${r.agent_id} has ${r.error_count} errors in the last hour`,
-    severity: r.error_count > 5 ? 'critical' : 'warning'
+    severity: r.error_count > 5 ? "critical" : "warning",
   }));
 }
 
@@ -372,7 +410,7 @@ async function calculateUptime(agent_id) {
   const result = await db.query(
     `SELECT COUNT(*) as total, COUNT(CASE WHEN status = 'success' THEN 1 END) as successful
      FROM agent_logs WHERE agent_id = $1 AND created_at > NOW() - INTERVAL '7 days'`,
-    [agent_id]
+    [agent_id],
   );
   const { total, successful } = result.rows[0];
   return total > 0 ? ((successful / total) * 100).toFixed(1) : 100;
@@ -413,18 +451,18 @@ export default function Dashboard() {
   useEffect(() => {
     // Fetch initial data
     fetchDashboardData();
-    
+
     // WebSocket connection
     const socket = io(process.env.NEXT_PUBLIC_API_URL);
     socket.on('agent-update', (data) => {
       setStats(prev => ({
         ...prev,
-        agents_by_department: prev?.agents_by_department.map(a => 
+        agents_by_department: prev?.agents_by_department.map(a =>
           a.id === data.agent_id ? { ...a, status: data.status } : a
         )
       }));
     });
-    
+
     return () => socket.disconnect();
   }, []);
 
@@ -440,7 +478,7 @@ export default function Dashboard() {
   return (
     <div className="p-8 bg-gray-50">
       <h1 className="text-3xl font-bold mb-8">MediaBubble AI Agents</h1>
-      
+
       {/* KPI Cards */}
       <div className="grid grid-cols-4 gap-4 mb-8">
         <div className="bg-white p-6 rounded-lg shadow">
@@ -513,11 +551,11 @@ class LeadAutoScorerAgent:
     def __init__(self):
         self.api_url = "https://api.mediabubble-ai.com"
         self.agent_id = "lead-auto-scorer"
-    
+
     def score_lead(self, lead_data):
         # Score the lead using Claude
         score = self.claude_score(lead_data)
-        
+
         # Log execution
         execution_time = 2.1  # seconds
         requests.post(
@@ -533,7 +571,7 @@ class LeadAutoScorerAgent:
                 "error_message": None
             }
         )
-        
+
         # If high-quality lead, send email to sales
         if score > 80:
             requests.post(
@@ -552,7 +590,7 @@ class LeadAutoScorerAgent:
                     }
                 }
             )
-            
+
             # Post to Slack
             requests.post(
                 f"{self.api_url}/api/slack/post",
@@ -572,7 +610,7 @@ class LeadAutoScorerAgent:
                     ]
                 }
             )
-        
+
         return score
 ```
 
@@ -596,4 +634,3 @@ class LeadAutoScorerAgent:
 **Status:** Ready to deploy
 **Deployment time:** 1-2 hours
 **Ongoing cost:** ~$64/month
-

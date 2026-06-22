@@ -6,6 +6,7 @@ import type { PromptRow } from '@/lib/ai/prompts'
 import { PROMPT_CATEGORIES } from '@/lib/ai/schemas'
 import { extractVariableNames } from '@/lib/ai/template'
 import { Input } from '@/components/ui/input'
+import { PageFrame, PageHeader } from '@/components/layout/page-frame'
 
 const STATUS_STYLES: Record<string, string> = {
   Draft: 'bg-muted-foreground/15 text-muted-foreground',
@@ -114,20 +115,12 @@ export function AiDashboard({
   }
 
   return (
-    <div className="px-6 py-8 lg:px-8">
-      <div className="mx-auto max-w-6xl">
-        <div className="flex flex-wrap items-start justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
-              <Bot size={20} className="text-primary" />
-            </div>
-            <div>
-              <h1 className="font-display text-2xl font-bold text-foreground">AI Tools</h1>
-              <p className="text-[13px] text-muted-foreground">
-                Prompt Studio — build templates, fill variables, run and log outputs.
-              </p>
-            </div>
-          </div>
+    <PageFrame>
+      <PageHeader
+        icon={Bot}
+        title="AI Tools"
+        description="Prompt Studio — build templates, fill variables, run and log outputs."
+        actions={
           <button
             type="button"
             onClick={() => setShowForm((v) => !v)}
@@ -136,7 +129,8 @@ export function AiDashboard({
             <Plus size={16} />
             New prompt
           </button>
-        </div>
+        }
+      />
 
         {error ? (
           <p className="mt-4 rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-[13px] text-destructive">
@@ -215,7 +209,7 @@ export function AiDashboard({
           </form>
         ) : null}
 
-        <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
+        <div className="mt-6 grid gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.35fr)] 2xl:gap-8">
           <div>
             <div className="relative mb-3">
               <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
@@ -338,7 +332,6 @@ export function AiDashboard({
             )}
           </div>
         </div>
-      </div>
-    </div>
+    </PageFrame>
   )
 }

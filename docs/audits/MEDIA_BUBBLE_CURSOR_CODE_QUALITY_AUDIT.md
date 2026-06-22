@@ -2,7 +2,7 @@
 
 **Date:** 2026-06-15  
 **Scope:** `apps/web-eg`, `apps/web-ae`, `apps/brand`, `packages/shared`, `packages/design-system`  
-**Focus:** `app/`, `components/`, `lib/`, i18n/RTL, data-driven pages, API routes  
+**Focus:** `app/`, `components/`, `lib/`, i18n/RTL, data-driven pages, API routes
 
 ---
 
@@ -10,11 +10,11 @@
 
 MediaBubble is an Nx monorepo with three Next.js 14 App Router apps:
 
-| App | Purpose | Approx. surface |
-|-----|---------|-----------------|
-| `web-eg` | Egypt market (Masri Arabic) | ~36 routes, 3 API routes, ~69 components |
-| `web-ae` | UAE market (Khaliji Arabic) | Mirror of EG with market-specific copy/config |
-| `brand` | Interactive brand guidelines | Single client page, no API |
+| App      | Purpose                      | Approx. surface                               |
+| -------- | ---------------------------- | --------------------------------------------- |
+| `web-eg` | Egypt market (Masri Arabic)  | ~36 routes, 3 API routes, ~69 components      |
+| `web-ae` | UAE market (Khaliji Arabic)  | Mirror of EG with market-specific copy/config |
+| `brand`  | Interactive brand guidelines | Single client page, no API                    |
 
 **What works well**
 
@@ -26,13 +26,13 @@ MediaBubble is an Nx monorepo with three Next.js 14 App Router apps:
 
 **Top risks (summary)**
 
-| Category | Severity | Count (representative) |
-|----------|----------|------------------------|
-| i18n bugs (Arabic never shown / wrong market copy) | High | 6+ user-visible surfaces |
-| API security (error leakage, HTML injection, weak rate limits) | High | 4 |
-| EG/AE duplication (~69 mirrored components) | Medium | Structural |
-| Bundle size / eager imports | Medium | Home + all service sections |
-| Dead code | Low–Medium | 4+ modules |
+| Category                                                       | Severity   | Count (representative)      |
+| -------------------------------------------------------------- | ---------- | --------------------------- |
+| i18n bugs (Arabic never shown / wrong market copy)             | High       | 6+ user-visible surfaces    |
+| API security (error leakage, HTML injection, weak rate limits) | High       | 4                           |
+| EG/AE duplication (~69 mirrored components)                    | Medium     | Structural                  |
+| Bundle size / eager imports                                    | Medium     | Home + all service sections |
+| Dead code                                                      | Low–Medium | 4+ modules                  |
 
 ---
 
@@ -68,7 +68,7 @@ Cards reference keys like `testimonials.1.quote`, but `public/locales/*/translat
 
 **Files:** `apps/web-eg/components/features/blog/BlogNewsletterCta.tsx`, `apps/web-ae/...` (near-identical)
 
-No `useI18n()`. Copy includes *"tourism and hospitality brands in Egypt"* on **both** market apps.
+No `useI18n()`. Copy includes _"tourism and hospitality brands in Egypt"_ on **both** market apps.
 
 **Impact:** Blog post sidebar CTA is English-only; AE shows Egypt geography.
 
@@ -161,22 +161,22 @@ Planned slugs `content` / `events` exist in the registry but not in `SERVICE_SLU
 
 ### 3.3 Dead or orphaned modules
 
-| Module | Evidence |
-|--------|----------|
-| `components/layout/Sidebar.tsx` | Zero imports in market apps; uses react-i18next, not `useI18n` |
-| `components/shared/InteractiveCursor.tsx` | Defined, never mounted |
-| `components/shared/GitModal.tsx` | Only mentioned in `Phase1Provider` comment |
-| `components/layout/Navigation.tsx` | Used only in tests, not production (`SiteNav` is live) |
+| Module                                    | Evidence                                                       |
+| ----------------------------------------- | -------------------------------------------------------------- |
+| `components/layout/Sidebar.tsx`           | Zero imports in market apps; uses react-i18next, not `useI18n` |
+| `components/shared/InteractiveCursor.tsx` | Defined, never mounted                                         |
+| `components/shared/GitModal.tsx`          | Only mentioned in `Phase1Provider` comment                     |
+| `components/layout/Navigation.tsx`        | Used only in tests, not production (`SiteNav` is live)         |
 
 ### 3.4 Oversized components (single-responsibility violations)
 
-| File | ~Lines | Issue |
-|------|--------|-------|
-| `SiteNav.tsx` | 720 | Mega menu, mobile drawer, scroll RAF, focus trap, swipe, smooth scroll |
-| `ServiceExclusiveSections.tsx` | 474 | 14+ sections in one file |
-| `HeroSection.tsx` | 372 | Many optional layout modes |
-| `BrandGuidelinesApp.tsx` | 325 | Shell + resize + search + tab routing |
-| `ContactSection.tsx` | 348 | Form + info + four UI states |
+| File                           | ~Lines | Issue                                                                  |
+| ------------------------------ | ------ | ---------------------------------------------------------------------- |
+| `SiteNav.tsx`                  | 720    | Mega menu, mobile drawer, scroll RAF, focus trap, swipe, smooth scroll |
+| `ServiceExclusiveSections.tsx` | 474    | 14+ sections in one file                                               |
+| `HeroSection.tsx`              | 372    | Many optional layout modes                                             |
+| `BrandGuidelinesApp.tsx`       | 325    | Shell + resize + search + tab routing                                  |
+| `ContactSection.tsx`           | 348    | Form + info + four UI states                                           |
 
 ### 3.5 Type safety gaps
 
@@ -263,17 +263,16 @@ Per-instance `Map` — limits reset per lambda/worker; determined attackers can 
 **Before:**
 
 ```tsx
-const { locale } = useI18n()
-const content = locale === 'ar' ? document.ar : document.en
+const { locale } = useI18n();
+const content = locale === "ar" ? document.ar : document.en;
 ```
 
 **After:**
 
 ```tsx
-const { locale, dir } = useI18n()
-const isArabic =
-  dir === 'rtl' || locale === 'ar' || locale === 'ar-masri'
-const content = isArabic ? document.ar : document.en
+const { locale, dir } = useI18n();
+const isArabic = dir === "rtl" || locale === "ar" || locale === "ar-masri";
+const content = isArabic ? document.ar : document.en;
 ```
 
 Prefer `dir === 'rtl'` as the single source of truth for “which document variant” when RTL locales are only Arabic.
@@ -285,7 +284,7 @@ Prefer `dir === 'rtl'` as the single source of truth for “which document varia
 **Before:**
 
 ```ts
-const html = `<p>${payload.message}</p>`
+const html = `<p>${payload.message}</p>`;
 ```
 
 **After:**
@@ -293,13 +292,13 @@ const html = `<p>${payload.message}</p>`
 ```ts
 function escapeHtml(s: string): string {
   return s
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 
-const html = `<p style="white-space:pre-wrap">${escapeHtml(payload.message)}</p>`
+const html = `<p style="white-space:pre-wrap">${escapeHtml(payload.message)}</p>`;
 // Apply escapeHtml to all user-controlled fields
 ```
 
@@ -312,17 +311,17 @@ Or use a small HTML builder / Resend’s text-only path for the admin notificati
 **Before:**
 
 ```ts
-return NextResponse.json({ error: message }, { status: 500 })
+return NextResponse.json({ error: message }, { status: 500 });
 ```
 
 **After:**
 
 ```ts
-console.error('[hubspot]', err)
+console.error("[hubspot]", err);
 return NextResponse.json(
-  { error: 'Unable to save your details. Please try again later.' },
+  { error: "Unable to save your details. Please try again later." },
   { status: 500 },
-)
+);
 ```
 
 Log server-side; never forward vendor messages to clients.
@@ -337,7 +336,7 @@ Log server-side; never forward vendor messages to clients.
 
 ```ts
 // apps/web-eg/app/api/contact/route.ts
-export { POST } from '@mediabubble/shared/api/contact'
+export { POST } from "@mediabubble/shared/api/contact";
 ```
 
 Market-specific behavior (email copy, HubSpot pipeline) belongs in env/config, not duplicated files.
@@ -381,13 +380,13 @@ case 'venueShowcase':
 **After:**
 
 ```tsx
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 
 const VenueShowcaseSection = dynamic(() =>
-  import('./sections/ServiceExclusiveSections').then(m => ({
+  import("./sections/ServiceExclusiveSections").then((m) => ({
     default: m.VenueShowcaseSection,
   })),
-)
+);
 
 // Or split ServiceExclusiveSections.tsx into per-section files for cleaner chunks
 ```
@@ -456,11 +455,14 @@ Align SSR with `I18nProvider` default/read from same cookie before paint.
 **After:** In `I18nProvider` init:
 
 ```ts
-function normalizeStoredLocale(saved: string, dictionaries: Record<string, TranslationDict>) {
-  if (dictionaries[saved]) return saved
-  if (saved === 'ar-masri' && dictionaries['ar']) return 'ar'
-  if (saved === 'ar' && dictionaries['ar-masri']) return 'ar-masri'
-  return defaultLocale
+function normalizeStoredLocale(
+  saved: string,
+  dictionaries: Record<string, TranslationDict>,
+) {
+  if (dictionaries[saved]) return saved;
+  if (saved === "ar-masri" && dictionaries["ar"]) return "ar";
+  if (saved === "ar" && dictionaries["ar-masri"]) return "ar-masri";
+  return defaultLocale;
 }
 ```
 
@@ -482,12 +484,12 @@ Or use a canonical storage value (`ar`) plus per-app `rtlLocales` mapping.
 
 ### 6.1 Locale and dialect hygiene
 
-| Issue | Location | Recommendation |
-|-------|----------|----------------|
-| `ar-khaliji.json` ≈ Masri clone | `apps/web-ae/lib/i18n/` | Regenerate from Khaliji source; run `scripts/apply-khaliji-ae-ar.mjs` on AE `public/locales/ar` only |
-| Egypt geography in AE copy | e.g. `services.seo.features` mentioning الغردقة | Market-specific overrides in AE locales |
-| Unused `ar-masri.json` in AE app | `apps/web-ae/lib/i18n/ar-masri.json` | Delete or document why it exists |
-| 836-key `lib/i18n` flat files in market bundles | Both market providers | Split brand-only dictionaries to `apps/brand` only |
+| Issue                                           | Location                                        | Recommendation                                                                                       |
+| ----------------------------------------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `ar-khaliji.json` ≈ Masri clone                 | `apps/web-ae/lib/i18n/`                         | Regenerate from Khaliji source; run `scripts/apply-khaliji-ae-ar.mjs` on AE `public/locales/ar` only |
+| Egypt geography in AE copy                      | e.g. `services.seo.features` mentioning الغردقة | Market-specific overrides in AE locales                                                              |
+| Unused `ar-masri.json` in AE app                | `apps/web-ae/lib/i18n/ar-masri.json`            | Delete or document why it exists                                                                     |
+| 836-key `lib/i18n` flat files in market bundles | Both market providers                           | Split brand-only dictionaries to `apps/brand` only                                                   |
 
 ### 6.2 Missing translation coverage
 
@@ -512,14 +514,14 @@ Extend `check:i18n` to grep `t('...')` keys against merged dictionaries.
 
 **Gaps**
 
-| Gap | Fix |
-|-----|-----|
-| Mega menu keyboard | Open on Enter/Space; Esc closes desktop menu; not hover-only |
-| `SiteNav` smooth scroll | Respect `prefers-reduced-motion: reduce` |
-| `Phase3Provider` scroll reveal | Disable or instant-reveal when reduced motion preferred |
-| `LogoMarquee` (design-system) | Add `dir="ltr"` on track if used in market apps |
-| `LanguageSwitcher` aria | Translate switch labels |
-| Brand `ColorsPage` clickable `<div>` | `role="button"`, `tabIndex={0}`, keyboard handlers |
+| Gap                                  | Fix                                                          |
+| ------------------------------------ | ------------------------------------------------------------ |
+| Mega menu keyboard                   | Open on Enter/Space; Esc closes desktop menu; not hover-only |
+| `SiteNav` smooth scroll              | Respect `prefers-reduced-motion: reduce`                     |
+| `Phase3Provider` scroll reveal       | Disable or instant-reveal when reduced motion preferred      |
+| `LogoMarquee` (design-system)        | Add `dir="ltr"` on track if used in market apps              |
+| `LanguageSwitcher` aria              | Translate switch labels                                      |
+| Brand `ColorsPage` clickable `<div>` | `role="button"`, `tabIndex={0}`, keyboard handlers           |
 
 ### 6.4 Accessibility in Arabic mode
 
@@ -531,32 +533,32 @@ Many `aria-label` values are hardcoded English across service exclusive sections
 
 Priorities balance user impact, security, and maintainability. Effort: **S** = small (hours), **M** = medium (1–2 days), **L** = large (multi-day).
 
-| P | Item | Effort | Impact |
-|---|------|--------|--------|
-| **P0** | Fix `LegalDocument` `ar-masri` check (EG legal Arabic) | S | Compliance / trust |
-| **P0** | Escape HTML in `resend-client.ts` | S | Security |
-| **P0** | Generic 500 errors on `/api/hubspot` | S | Security / UX |
-| **P0** | i18n-wrap `BlogNewsletterCta`; fix AE Egypt copy | S | Bilingual UX |
-| **P1** | Add testimonial keys to locales (remove English fallbacks) | M | Bilingual UX |
-| **P1** | Normalize cross-market `localStorage` locale | S | Bilingual UX |
-| **P1** | SSR `lang`/`dir` from cookie on `<html>` | M | RTL flash / CLS |
-| **P1** | Field max lengths on `/api/contact` | S | Abuse resistance |
-| **P2** | Extract shared API routes + middleware to `packages/shared` | M | DX / drift |
-| **P2** | Single service content pipeline; deprecate `services-data` monolith | L | Maintainability |
-| **P2** | `dynamic()` for below-fold home + unused service sections | M | Performance |
-| **P2** | Add `react-icons` to `optimizePackageImports` | S | Performance |
-| **P2** | Extend `check:i18n` (lib/i18n parity, `t()` key grep, AE dialect lint) | M | CI / quality |
-| **P2** | Khaliji pass on AE `ar` locales + regenerate `ar-khaliji.json` | M | Market correctness |
-| **P3** | Split `SiteNav` / extract shared marketing UI package for EG+AE | L | Maintainability |
-| **P3** | Remove dead modules (`Sidebar`, `InteractiveCursor`, `GitModal`, `Navigation`) | S | Clarity |
-| **P3** | `loading.tsx` / segment `error.tsx` on `/blog`, `/services` | M | Resilience |
-| **P3** | Distributed rate limiting (Upstash/Vercel KV) | M | Production hardening |
-| **P3** | AE test parity with EG for shared components | M | Regression safety |
-| **P3** | Brand app: CSP nonce in layout, `not-found`, SEO routes | M | Parity / security |
-| **P4** | Revisit root `force-dynamic` vs static shell + nonce strategy | L | Performance |
-| **P4** | `Phase3Provider` reduced-motion + observer scope reduction | S | A11y / perf |
-| **P4** | Mega menu i18n + keyboard behavior | M | A11y |
-| **P4** | Trim unused `lib/i18n` keys from market bundles | M | Bundle size |
+| P      | Item                                                                           | Effort | Impact               |
+| ------ | ------------------------------------------------------------------------------ | ------ | -------------------- |
+| **P0** | Fix `LegalDocument` `ar-masri` check (EG legal Arabic)                         | S      | Compliance / trust   |
+| **P0** | Escape HTML in `resend-client.ts`                                              | S      | Security             |
+| **P0** | Generic 500 errors on `/api/hubspot`                                           | S      | Security / UX        |
+| **P0** | i18n-wrap `BlogNewsletterCta`; fix AE Egypt copy                               | S      | Bilingual UX         |
+| **P1** | Add testimonial keys to locales (remove English fallbacks)                     | M      | Bilingual UX         |
+| **P1** | Normalize cross-market `localStorage` locale                                   | S      | Bilingual UX         |
+| **P1** | SSR `lang`/`dir` from cookie on `<html>`                                       | M      | RTL flash / CLS      |
+| **P1** | Field max lengths on `/api/contact`                                            | S      | Abuse resistance     |
+| **P2** | Extract shared API routes + middleware to `packages/shared`                    | M      | DX / drift           |
+| **P2** | Single service content pipeline; deprecate `services-data` monolith            | L      | Maintainability      |
+| **P2** | `dynamic()` for below-fold home + unused service sections                      | M      | Performance          |
+| **P2** | Add `react-icons` to `optimizePackageImports`                                  | S      | Performance          |
+| **P2** | Extend `check:i18n` (lib/i18n parity, `t()` key grep, AE dialect lint)         | M      | CI / quality         |
+| **P2** | Khaliji pass on AE `ar` locales + regenerate `ar-khaliji.json`                 | M      | Market correctness   |
+| **P3** | Split `SiteNav` / extract shared marketing UI package for EG+AE                | L      | Maintainability      |
+| **P3** | Remove dead modules (`Sidebar`, `InteractiveCursor`, `GitModal`, `Navigation`) | S      | Clarity              |
+| **P3** | `loading.tsx` / segment `error.tsx` on `/blog`, `/services`                    | M      | Resilience           |
+| **P3** | Distributed rate limiting (Upstash/Vercel KV)                                  | M      | Production hardening |
+| **P3** | AE test parity with EG for shared components                                   | M      | Regression safety    |
+| **P3** | Brand app: CSP nonce in layout, `not-found`, SEO routes                        | M      | Parity / security    |
+| **P4** | Revisit root `force-dynamic` vs static shell + nonce strategy                  | L      | Performance          |
+| **P4** | `Phase3Provider` reduced-motion + observer scope reduction                     | S      | A11y / perf          |
+| **P4** | Mega menu i18n + keyboard behavior                                             | M      | A11y                 |
+| **P4** | Trim unused `lib/i18n` keys from market bundles                                | M      | Bundle size          |
 
 ---
 
@@ -584,4 +586,4 @@ scripts/apply-khaliji-ae-ar.mjs
 
 ---
 
-*Audit produced via static analysis and targeted file review of the MediaBubble monorepo. Re-run after major refactors or before release hardening.*
+_Audit produced via static analysis and targeted file review of the MediaBubble monorepo. Re-run after major refactors or before release hardening._

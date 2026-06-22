@@ -35,6 +35,7 @@ VP of AI Services Division
 ## New Department: AI SERVICES DIVISION
 
 ### Department Manager (VP of AI Services)
+
 **Reports to:** Chief AI Operations Officer
 **Responsibility:** Strategic direction, revenue targets, client relationships, P&L
 
@@ -79,6 +80,7 @@ VP of AI Services Division
 ## Service Line 1: AI AUTOMATION SERVICES
 
 ### What We Build
+
 Custom AI agents that automate specific business processes
 
 ### Service Packages
@@ -146,6 +148,7 @@ TIER 3: ENTERPRISE AUTOMATION ($75K-$200K one-time + $5K-$15K/month)
 ## Service Line 2: CUSTOM AGENT DEVELOPMENT
 
 ### What We Build
+
 Specialized AI agents for client-specific use cases
 
 ### Service Packages
@@ -210,6 +213,7 @@ TIER 3: CUSTOM AGENT PLATFORM ($100K-$300K one-time + $5K-$15K/month)
 ## Service Line 3: AI STRATEGY & CONSULTING
 
 ### What We Offer
+
 Help clients identify and plan AI opportunities
 
 ### Service Packages
@@ -292,9 +296,11 @@ Sales & Business Development Director
 ## Sales Roles & Responsibilities
 
 ### Account Executive (Enterprise)
+
 **Commission:** 10-15% of contract value
 **Quota:** $1M-$1.5M/year
 **Activities:**
+
 - Land enterprise clients (>$100K deals)
 - 4-6 month sales cycles
 - 6-10 active deals at any time
@@ -302,9 +308,11 @@ Sales & Business Development Director
 - Client relationship ownership
 
 ### Account Executive (Mid-Market)
+
 **Commission:** 12-18% of contract value
 **Quota:** $800K-$1M/year
 **Activities:**
+
 - Land mid-market clients ($25K-$100K deals)
 - 6-8 week sales cycles
 - 15-20 active deals at any time
@@ -312,9 +320,11 @@ Sales & Business Development Director
 - Fast-moving deals
 
 ### Sales Development Rep
+
 **Commission:** $500-$1K per qualified lead
 **Target:** 40-50 qualified leads/month
 **Activities:**
+
 - Prospecting (outbound calls, emails, LinkedIn)
 - Initial discovery & qualification
 - Schedule demos/discovery calls
@@ -322,9 +332,11 @@ Sales & Business Development Director
 - Market research
 
 ### Solutions Architect (Pre-sales)
+
 **Commission:** 2-3% of deals they support
 **Target:** Support 10-15 active deals
 **Activities:**
+
 - Technical discovery calls
 - Solution design & architecture
 - ROI analysis & business case
@@ -435,8 +447,10 @@ Service Delivery Director
 ## Delivery Roles & Responsibilities
 
 ### Project Manager (Custom Agents)
+
 **Team Size:** 2-3 PMs
 **Responsibilities:**
+
 - Manage custom agent projects end-to-end
 - Timeline, scope, budget management
 - Weekly client check-ins
@@ -444,13 +458,16 @@ Service Delivery Director
 - Delivery quality assurance
 
 **Typical Workload:**
+
 - 2-3 active projects per PM
 - Project duration: 3-12 weeks
 - Monthly revenue per PM: $50K-$100K
 
 ### Senior AI Engineer
+
 **Team Size:** 1-2 engineers
 **Responsibilities:**
+
 - Complex agent architecture design
 - Multi-agent system development
 - Advanced integrations & APIs
@@ -458,13 +475,16 @@ Service Delivery Director
 - Technical mentoring
 
 **Typical Workload:**
+
 - 1-2 complex projects per engineer
 - Project duration: 8-12 weeks
 - Monthly revenue per engineer: $80K-$150K
 
 ### Prompt Engineer
+
 **Team Size:** 2-3 engineers
 **Responsibilities:**
+
 - Agent prompt optimization
 - Fine-tuning language models
 - Testing & optimization
@@ -472,13 +492,16 @@ Service Delivery Director
 - Training internal team
 
 **Typical Workload:**
+
 - 3-5 projects per engineer
 - Project duration: 2-8 weeks
 - Monthly revenue per engineer: $50K-$80K
 
 ### Integration Engineer
+
 **Team Size:** 1-2 engineers
 **Responsibilities:**
+
 - API development & integration
 - Third-party tool integrations (Zapier, etc.)
 - Custom workflow development
@@ -486,6 +509,7 @@ Service Delivery Director
 - Documentation
 
 **Typical Workload:**
+
 - 4-6 projects per engineer
 - Project duration: 1-4 weeks
 - Monthly revenue per engineer: $40K-$70K
@@ -495,6 +519,7 @@ Service Delivery Director
 ## Delivery Timeline & Process
 
 ### Starter Automation (2-4 weeks)
+
 ```
 Week 1: Requirements & Design
 ├─ Discovery call with client (2h)
@@ -531,6 +556,7 @@ MARGIN: 60-70% (typical)
 ```
 
 ### Standard Automation (4-8 weeks)
+
 ```
 Week 1-2: Discovery & Design
 ├─ In-depth process analysis (4h)
@@ -567,6 +593,7 @@ MARGIN: 50-65% (typical)
 ```
 
 ### Enterprise Automation (8-16 weeks)
+
 ```
 Week 1-2: Strategy & Planning
 ├─ Executive kickoff
@@ -703,6 +730,7 @@ Customer Success Director
 ## Customer Success Model
 
 ### Customer Health Scoring
+
 ```
 AUTOMATED HEALTH SCORING
 
@@ -734,6 +762,7 @@ HEALTH SCORE:
 ```
 
 ### Success Planning
+
 ```
 SUCCESS PLANNING FRAMEWORK
 
@@ -1199,18 +1228,21 @@ build an agent to solve it in 2-4 weeks."
 ## Key Value Props by Segment
 
 ### Enterprise
+
 - **Speed:** Deploy complex automations in 8-16 weeks
 - **Scale:** 8+ interconnected agents
 - **Support:** Dedicated team, 24/7 availability
 - **ROI:** $200K-$2M+ annual savings (typical)
 
 ### Mid-Market
+
 - **Speed:** Deploy automation in 4-8 weeks
 - **Cost:** $25K-$50K investment vs. $150K+ annual savings
 - **Support:** Quarterly business reviews
 - **Simplicity:** Our process makes it easy
 
 ### High-Growth Startups
+
 - **Speed:** Deploy in 1-3 weeks
 - **Budget:** $5K-$15K to start small
 - **Expansion:** Easy to add more agents
@@ -1332,6 +1364,7 @@ Week 4: Team & Training
 ✅ Real customer success focus
 
 **Investment Required:**
+
 - Team: 20-25 people (sales, delivery, success)
 - Tools & Infrastructure: $10K-$20K setup
 - Marketing & Lead Gen: $5K-$10K/month

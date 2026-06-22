@@ -1,4 +1,5 @@
 # MediaBubble Training Modules & Career Progression Paths
+
 **Comprehensive Development Framework for All 9 Departments**
 
 **Document Version:** 1.0  
@@ -34,6 +35,7 @@
 ### Training Philosophy
 
 MediaBubble uses a **competency-based, role-specific training framework** designed to:
+
 - Develop foundational skills for Level 1 (New) → Level 5 (Expert)
 - Create clear career advancement pathways (Individual Contributor vs. Management)
 - Build organizational knowledge and institutional memory
@@ -43,6 +45,7 @@ MediaBubble uses a **competency-based, role-specific training framework** design
 ### Training Investment Model
 
 **Per-Employee Annual Training Budget:**
+
 - Specialist: $2,500–$4,000
 - Team Manager: $5,000–$7,500
 - Project Manager: $4,000–$6,000
@@ -50,6 +53,7 @@ MediaBubble uses a **competency-based, role-specific training framework** design
 - Department Manager: $7,500–$10,000
 
 **Organization-Wide Training Budget (Year 1):**
+
 - Total Specialist Training: $537,500–$860,000 (215 specialists)
 - Management Training: $135,000–$202,500 (63 managers + leads)
 - **Total: $672,500–$1,062,500 annually**
@@ -124,19 +128,23 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 **DELIVERY:** Hybrid (instructor-led + hands-on)
 
 #### Learning Outcomes
+
 - Understand MediaBubble's design philosophy, brand system, and client requirements
 - Proficiency with core tools (Figma, Adobe XD, Protopie, design systems documentation)
 - Ability to read and execute from design briefs with 95%+ accuracy
 - Familiarity with QC standards and review process
 
 #### Curriculum
+
 **Week 1: Design Fundamentals & MediaBubble Systems**
+
 - Day 1–2: Brand guidelines, design philosophy, client types
 - Day 3–4: Figma deep-dive (workspace setup, components, libraries, prototyping)
 - Day 5: Design system walkthrough + QC standards (what "complete" means)
 - **Deliverable:** Personal Figma workspace setup + brand system component library audit
 
 **Week 2: Role-Specific Deep-Dive**
+
 - **Web UI Team:** Responsive design, interaction patterns, accessibility, performance
 - **Mobile Team:** iOS/Android design systems, gesture patterns, platform guidelines
 - **Application Team:** Enterprise UX, complexity management, user flows
@@ -146,6 +154,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Deliverable:** Complete 2–3 design artifacts in own specialty demonstrating mastery
 
 **Week 3: Client Delivery & Team Integration**
+
 - Real project shadowing with assigned mentor
 - First client presentation observation
 - QC review participation
@@ -153,22 +162,26 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Deliverable:** First independent client deliverable (reviewed, iterated, approved)
 
 #### Assessment
+
 - **Practical:** 3 design assignments graded against rubric (80%+ required to pass)
 - **Project:** First client work review + mentor sign-off
 - **Knowledge:** Brief written assessment of brand system, tools, and QC standards
 
 #### Success Metrics
+
 - Onboarding completion time: ≤3 weeks
 - First project approval rate: ≥95%
 - Mentor/Manager satisfaction: ≥4.5/5
 - Tool proficiency: Figma Level 2 (independent use, component creation)
 
 #### Prerequisites
+
 - Portfolio review confirming design fundamentals
 - Tool experience (Figma OR Adobe XD)
 - Communication skills assessment
 
 #### Resources
+
 - Figma brand system workspace
 - 10-hour mentorship (Team Manager + Senior Specialist)
 - Design standards documentation (internal wiki)
@@ -185,6 +198,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 #### **Web UI Specialists: Advanced Responsive Design & Interaction Patterns**
 
 **Level 2→3 Module (Weeks 1–4):**
+
 - Responsive design frameworks (mobile-first, desktop-first, fluid layouts)
 - Advanced interaction patterns (hover states, micro-interactions, loading states)
 - Accessibility compliance (WCAG 2.1 AA/AAA, screen readers, keyboard navigation)
@@ -193,6 +207,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Responsive testing, accessibility audit, performance report
 
 **Level 3→4 Module (Weeks 5–8):**
+
 - Design systems strategy (scalability, component documentation, token management)
 - Advanced Figma (variables, auto-layout mastery, plugin development)
 - User research integration (usability testing, feedback iteration, analytics analysis)
@@ -201,6 +216,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Component quality review, documentation completeness, team feedback
 
 **Level 4→5 Module (Weeks 9–12):**
+
 - Innovation & experimentation (emerging UI patterns, accessibility innovation)
 - Mentorship & knowledge sharing (leading design critiques, training others)
 - Strategic design thinking (business impact, ROI measurement)
@@ -212,6 +228,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 #### **Mobile Specialists: iOS/Android Design System Mastery**
 
 **Level 2→3 Module (Weeks 1–4):**
+
 - iOS design system (SF Symbols, spacing, typography, semantic colors)
 - Android Material Design 3 (Material components, theming, motion guidelines)
 - Platform-specific considerations (safe areas, navigation patterns, gestures)
@@ -220,6 +237,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Platform compliance review, usability testing, performance metrics
 
 **Level 3→4 Module (Weeks 5–8):**
+
 - Advanced prototyping (Protopie, advanced interactions, state management)
 - User research for mobile (user testing, analytics, behavioral patterns)
 - Performance optimization (app size, loading states, animation performance)
@@ -228,6 +246,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Spec quality review, engineer feedback, design system adoptability
 
 **Level 4→5 Module (Weeks 9–12):**
+
 - Mobile design innovation (emerging patterns, AI/ML in mobile UX)
 - Cross-platform strategy (unified vs. platform-specific approaches)
 - Leadership in mobile design (setting standards, mentoring, strategy)
@@ -239,6 +258,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 #### **Application Specialists: Enterprise UX & Complexity Management**
 
 **Level 2→3 Module (Weeks 1–4):**
+
 - Enterprise design patterns (data tables, forms, dashboards, workflows)
 - Information architecture for complex systems (navigation, IA strategy, user flows)
 - Accessibility for complex interfaces (ARIA, semantic HTML integration, testing)
@@ -247,6 +267,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** IA review, accessibility audit, documentation quality
 
 **Level 3→4 Module (Weeks 5–8):**
+
 - Advanced interaction design (state management, error handling, progressive disclosure)
 - User research for enterprise (stakeholder interviews, workflow analysis, usability testing)
 - Integration design (API design collaboration, data visualization, system integration)
@@ -255,6 +276,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Component scalability review, engineer feedback, real-world implementation testing
 
 **Level 4→5 Module (Weeks 9–12):**
+
 - Enterprise design strategy (industry standards, compliance, accessibility leadership)
 - Mentorship & capability building (training other designers in enterprise patterns)
 - Innovation in complex systems (AI/ML integration, automation, intelligent interfaces)
@@ -266,6 +288,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 #### **Brand Identity Specialists: Brand Systems & Visual Strategy**
 
 **Level 2→3 Module (Weeks 1–4):**
+
 - Brand strategy foundations (brand positioning, promise, values)
 - Logo design & variation (primary, secondary, monochrome, minimum sizes)
 - Brand guidelines development (rules, exceptions, usage, application)
@@ -274,6 +297,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Brand strategy alignment, guideline comprehensiveness, asset quality
 
 **Level 3→4 Module (Weeks 5–8):**
+
 - Advanced brand strategy (competitive positioning, differentiation, emotional connection)
 - Visual language development (iconography system, photography style, illustration style)
 - Brand application strategy (website, marketing, product, internal)
@@ -282,6 +306,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Strategic alignment, visual consistency, client satisfaction, application flexibility
 
 **Level 4→5 Module (Weeks 9–12):**
+
 - Brand innovation & evolution (adapting brands over time, innovation while maintaining identity)
 - Mentorship in brand thinking (training designers in strategic brand approach)
 - Industry thought leadership (speaking engagements, case studies, industry recognition)
@@ -293,6 +318,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 #### **Color/Typography Specialists: Type Systems & Color Strategy**
 
 **Level 2→3 Module (Weeks 1–4):**
+
 - Typography fundamentals (typeface selection, sizing scales, line height, letter spacing)
 - Type system design (body, heading, display, code, accessibility)
 - Variable fonts (axes, instances, performance optimization)
@@ -301,6 +327,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Type system usability, contrast compliance, implementation guide quality
 
 **Level 3→4 Module (Weeks 5–8):**
+
 - Advanced type design (custom typeface selection, licensing, performance)
 - Color psychology & semantics (color theory, emotional impact, cultural considerations)
 - Dynamic color systems (light/dark mode, theming, generation algorithms)
@@ -309,6 +336,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** System flexibility, technical implementation, cross-brand consistency
 
 **Level 4→5 Module (Weeks 9–12):**
+
 - Type & color innovation (emerging trends, AI-driven systems, personalization)
 - Mentorship in typography & color thinking
 - Industry standards & contributions (open source, design community engagement)
@@ -320,6 +348,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 #### **Motion Specialists: Animation Systems & Temporal Design**
 
 **Level 2→3 Module (Weeks 1–4):**
+
 - Animation principles (timing, easing, appeal, staging)
 - Transition design (page transitions, UI transitions, interactive animations)
 - Performance optimization (CPU/GPU optimization, video vs. CSS, file size)
@@ -328,6 +357,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Animation quality, performance metrics, tool proficiency
 
 **Level 3→4 Module (Weeks 5–8):**
+
 - Advanced interaction animation (gesture-driven, physics-based, responsive animation)
 - Video design & production (editing, color grading, effects, delivery)
 - Animation systems design (reusable motion patterns, documentation, implementation)
@@ -336,6 +366,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Video quality, animation system usability, stakeholder feedback
 
 **Level 4→5 Module (Weeks 9–12):**
+
 - Motion innovation (emerging animation techniques, AI-driven motion, real-time animation)
 - Mentorship in motion design (training other designers)
 - Industry leadership (motion design contributions, case studies, recognition)
@@ -351,6 +382,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 **DELIVERY:** Instructor-led + practical mentorship
 
 #### Learning Outcomes
+
 - Establish QC standards and rubrics for all design disciplines
 - Conduct effective design reviews (constructive feedback, communication)
 - Mentor design specialists toward higher skill levels
@@ -358,32 +390,39 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - Resolve complex design issues and escalations
 
 #### Curriculum
+
 **Week 1:** QC Framework Development
+
 - Define quality standards across 6 design disciplines
 - Create assessment rubrics and scoring guidelines
 - Establish review processes and documentation
 
 **Week 2–3:** Design Review Mastery
+
 - Effective critique techniques (constructive feedback, psychological safety)
 - Technical assessment (accessibility, performance, usability)
 - Presentation & communication skills
 
 **Week 4–5:** Mentorship & Development
+
 - Identifying skill gaps and growth areas
 - Designing individualized development plans
 - Feedback delivery and coaching techniques
 
 **Week 6–7:** Metrics & Reporting
+
 - Quality metrics definition and tracking
 - Dashboard creation and executive reporting
 - Trend analysis and improvement planning
 
 **Week 8:** Applied Learning
+
 - Lead complete QC cycle for major project
 - Mentor 2–3 designers through review process
 - Present quality report to department management
 
 #### Assessment
+
 - **Practical:** Conduct 10 design reviews (evaluated for quality and feedback effectiveness)
 - **Mentorship:** Mentor 2 designers with documented progress
 - **Leadership:** Present quarterly quality report with metrics and improvements
@@ -397,6 +436,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 **DELIVERY:** Instructor-led + executive coaching
 
 #### Learning Outcomes
+
 - Lead, develop, and evaluate a team of 4–5 design specialists
 - Create high-performing team culture and psychological safety
 - Manage projects and timelines across multiple clients
@@ -404,37 +444,45 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - Communicate effectively with executives and clients
 
 #### Curriculum
+
 **Week 1–2:** Foundations of Design Leadership
+
 - Leadership principles and team dynamics
 - Understanding different personality styles and learning approaches
 - Building psychological safety and trust
 
 **Week 3–4:** Team Development & Evaluation
+
 - Developing individual team members
 - Performance evaluation frameworks
 - Career conversations and development planning
 
 **Week 5–6:** Project Management & Delivery
+
 - Design project timelines and resource allocation
 - Client communication and expectation management
 - Quality assurance and escalation management
 
 **Week 7–8:** Hiring & Team Building
+
 - Recruiting design talent
 - Interview skills and evaluation
 - Building diverse, high-performing teams
 
 **Week 9–10:** Strategic Thinking
+
 - Design strategy aligned with business goals
 - Competitive analysis and positioning
 - Innovation and trend awareness
 
 **Week 11–12:** Executive Communication
+
 - Presenting to executives and stakeholders
 - Budget management and resource planning
 - Data-driven decision making
 
 #### Assessment
+
 - **Project:** Develop 12-month team strategy and development plan
 - **Presentation:** Present quarterly team performance and strategy to executive leadership
 - **Coaching:** Executive coaching sessions (6) with feedback and development goals
@@ -448,6 +496,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 **DELIVERY:** Executive coaching + peer learning
 
 #### Learning Outcomes
+
 - Lead, develop, and evaluate 6 team managers and all 33 specialists
 - Create strategic design vision aligned with business goals
 - Manage $1.2M+ annual budget and resource allocation
@@ -455,37 +504,45 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - Partner with executive leadership on strategic decisions
 
 #### Curriculum
+
 **Week 1–3:** Strategic Leadership
+
 - Business strategy and design's role in company success
 - Competitive positioning and market differentiation
 - 5-year design vision development
 
 **Week 4–6:** Organizational Leadership
+
 - Leading leaders (developing 6 team managers)
 - Organizational design and team structure optimization
 - Culture building and psychological safety at scale
 
 **Week 7–9:** Financial & Resource Management
+
 - Budget planning and optimization
 - Resource allocation across 6 teams
 - Cost-benefit analysis for design tools and platforms
 
 **Week 10–12:** Client & Stakeholder Management
+
 - Enterprise-level client relationships
 - Executive communication and storytelling
 - Vendor and partnership management
 
 **Week 13–14:** Innovation & Future Thinking
+
 - Design trends and emerging technologies
 - Competitive landscape analysis
 - Team innovation and capability building
 
 **Week 15–16:** Applied Learning & Transition
+
 - Lead complete strategic planning cycle
 - Executive presentation to CEO/board
 - 90-day plan for first quarter as manager
 
 #### Assessment
+
 - **Strategic Plan:** Develop 1-year department strategy and 5-year vision
 - **Presentation:** Present to executive leadership (CEO, CFO, CTO)
 - **Team Building:** Demonstrate effective leadership of team manager group
@@ -510,6 +567,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 **DELIVERY:** Hybrid (instructor-led + hands-on)
 
 #### Learning Outcomes
+
 - Understand MediaBubble's social media philosophy and client models
 - Proficiency with core platforms (Instagram, TikTok, LinkedIn, YouTube, Twitter/X)
 - Familiarity with content creation tools (Canva, Adobe, scheduling platforms)
@@ -519,15 +577,18 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 #### Curriculum
 
 **Week 1: Social Media Foundations & Platform Mastery**
+
 - Day 1–2: MediaBubble's social media approach, client types, content pillars
 - Day 3–4: Deep-dive per specialty team (see sub-team modules below)
 - Day 5: Analytics fundamentals, KPI definitions, QC standards
 - **Deliverable:** Portfolio of 10 pieces of content (5 different platforms) meeting platform specs
 
 **Week 2: Specialty-Specific Training**
+
 - See sub-team training modules for specialty-specific Week 2 curriculum
 
 **Week 3: Client Delivery & Integration**
+
 - Real project shadowing with assigned mentor
 - First piece of content creation (mentored)
 - Analytics review and performance analysis
@@ -535,11 +596,13 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Deliverable:** First independent content piece published and approved
 
 #### Assessment
+
 - **Practical:** 3 content assignments (80%+ quality required)
 - **Platform Knowledge:** Quiz on platform algorithms, trends, best practices
 - **Mentorship Sign-off:** Mentor confirmation of readiness for independent work
 
 #### Success Metrics
+
 - Onboarding completion: ≤3 weeks
 - Content approval rate on first submission: ≥80%
 - Mentor satisfaction: ≥4.5/5
@@ -550,6 +613,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 ### MODULE 2.2: SEO SPECIALISTS — Search Optimization Mastery
 
 **Level 2→3 Module (Weeks 1–4):**
+
 - Keyword research & analysis (tools, search intent, difficulty assessment)
 - On-page SEO (title optimization, meta descriptions, header structure, content optimization)
 - Technical SEO (site speed, mobile optimization, indexation, core web vitals)
@@ -558,6 +622,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Audit quality, technical accuracy, client presentation
 
 **Level 3→4 Module (Weeks 5–8):**
+
 - Advanced keyword strategy (semantic clustering, long-tail dominance, competitive positioning)
 - Content strategy for SEO (pillar pages, topic clusters, content calendar)
 - Technical SEO advanced (schema markup, JavaScript SEO, crawl optimization)
@@ -566,6 +631,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Strategy completeness, data-driven approach, client satisfaction
 
 **Level 4→5 Module (Weeks 9–12):**
+
 - SEO innovation (emerging trends, AI in SEO, voice search optimization)
 - SEO leadership & mentorship (training other SEO specialists)
 - Enterprise SEO strategy (multi-domain, international SEO, complex sites)
@@ -577,6 +643,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 ### MODULE 2.3: EDUCATIONAL CONTENT CREATORS — Knowledge Content Mastery
 
 **Level 2→3 Module (Weeks 1–4):**
+
 - Educational content frameworks (how-to, explainer, tutorial, case study)
 - Writing for different audiences (beginners, intermediate, advanced)
 - Visual storytelling for education (infographics, diagrams, video)
@@ -585,6 +652,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Content quality, clarity, audience engagement metrics
 
 **Level 3→4 Module (Weeks 5–8):**
+
 - Advanced content strategy (educational curriculum development, content mapping)
 - Research & validation (sourcing, fact-checking, expert interviews)
 - Multimedia production (video, graphics, interactive content)
@@ -593,6 +661,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Content comprehensiveness, engagement metrics, expert validation
 
 **Level 4→5 Module (Weeks 9–12):**
+
 - Thought leadership development (establishing authority, guest contributions)
 - Educational program design (courses, certification programs, learning paths)
 - Mentorship in educational content
@@ -604,6 +673,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 ### MODULE 2.4: ENGAGEMENT SPECIALISTS — Community Building Mastery
 
 **Level 2→3 Module (Weeks 1–4):**
+
 - Community engagement strategies (conversations, comments, DMs, replies)
 - Audience psychology & behavior (triggers, emotions, decision-making)
 - Crisis management & negative comments (professional response, de-escalation)
@@ -612,6 +682,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Engagement rates, sentiment analysis, crisis handling
 
 **Level 3→4 Module (Weeks 5–8):**
+
 - Advanced community strategy (building loyal communities, advocates, user-generated content)
 - Analytics & behavior analysis (understanding audience deeply, sentiment analysis)
 - Influencer collaboration (identification, outreach, partnership management)
@@ -620,6 +691,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Community growth, engagement metrics, brand sentiment improvement
 
 **Level 4→5 Module (Weeks 9–12):**
+
 - Community innovation (emerging platforms, new engagement models, AI chatbots)
 - Leadership in community building (industry recognition, mentorship)
 - Scaling community strategies (from startup to enterprise communities)
@@ -631,6 +703,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 ### MODULE 2.5: BRAND CONTENT CREATORS — Brand Voice & Storytelling
 
 **Level 2→3 Module (Weeks 1–4):**
+
 - Brand voice & messaging (brand guidelines, tone, personality)
 - Storytelling frameworks (hero's journey, problem-solution, customer stories)
 - Content types (announcements, behind-the-scenes, values-driven content)
@@ -639,6 +712,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Brand consistency, storytelling quality, audience resonance
 
 **Level 3→4 Module (Weeks 5–8):**
+
 - Advanced brand strategy (positioning, differentiation, market perception)
 - Integrated campaigns (multi-channel brand campaigns)
 - Partnerships & collaborations (co-branded content, ambassador programs)
@@ -647,6 +721,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Campaign effectiveness, brand impact metrics, client satisfaction
 
 **Level 4→5 Module (Weeks 9–12):**
+
 - Brand innovation & evolution (brand refresh, evolution while maintaining identity)
 - Thought leadership for brands (positioning client as industry expert)
 - Mentorship in brand thinking
@@ -658,6 +733,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 ### MODULE 2.6: VIDEO CONTENT CREATORS — Video Production & Strategy
 
 **Level 2→3 Module (Weeks 1–4):**
+
 - Video strategy (video types, length, format, platforms)
 - Scripting & storyboarding (structure, pacing, visuals, dialogue)
 - Production basics (equipment, lighting, audio, camera work)
@@ -666,6 +742,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Production quality, storytelling, technical proficiency
 
 **Level 3→4 Module (Weeks 5–8):**
+
 - Advanced production (multi-camera shoots, complex lighting, professional audio)
 - Video strategy & analytics (performance tracking, optimization, audience insights)
 - Animation & motion graphics (After Effects, title sequences, graphics)
@@ -674,6 +751,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Production quality, strategic effectiveness, engagement metrics
 
 **Level 4→5 Module (Weeks 9–12):**
+
 - Video innovation (emerging formats, VR/AR video, interactive video)
 - Mentorship in video production (training emerging videographers)
 - Industry leadership (portfolio, case studies, industry recognition)
@@ -685,6 +763,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 ### MODULE 2.7: REEL SPECIALISTS — Short-Form Video Mastery
 
 **Level 2→3 Module (Weeks 1–4):**
+
 - Platform mastery (TikTok, Instagram Reels, YouTube Shorts)
 - Hook & pacing (first 3 seconds, retention, attention economics)
 - Trending audio & sounds (music selection, trending sounds, copyright)
@@ -693,6 +772,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Production quality, engagement metrics, trend awareness
 
 **Level 3→4 Module (Weeks 5–8):**
+
 - Strategy for short-form (content pillars, series development, audience building)
 - Trend analysis & prediction (identifying trends, predicting trends, jumping on trends)
 - Series & serialization (building loyal audiences through consistent content)
@@ -701,6 +781,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Growth metrics, engagement rates, trend relevance
 
 **Level 4→5 Module (Weeks 9–12):**
+
 - Short-form innovation (emerging formats, new platforms, creative techniques)
 - Mentorship in short-form content (training creators)
 - Industry leadership (trend-setting, case studies, recognition)
@@ -712,6 +793,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 ### MODULE 2.8: ARABIC CONTENT CREATORS (Formal)
 
 **Level 2→3 Module (Weeks 1–4):**
+
 - Modern Standard Arabic (MSA) proficiency (grammar, style, formality)
 - Arabic cultural context (holidays, customs, sensitivities, values)
 - Formal content types (announcements, corporate, professional, educational)
@@ -720,6 +802,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Language quality, cultural appropriateness, engagement
 
 **Level 3→4 Module (Weeks 5–8):**
+
 - Advanced Arabic strategy (different audience segments, regional differences)
 - Tone & voice in Arabic (formality levels, personality in Arabic)
 - Complex topics in Arabic (technical, business, industry-specific)
@@ -728,6 +811,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Language proficiency, cultural sensitivity, strategy effectiveness
 
 **Level 4→5 Module (Weeks 9–12):**
+
 - Arabic content innovation (emerging formats, digital-native Arabic)
 - Mentorship in Arabic content
 - Industry leadership (Arabic language advocacy, quality standards)
@@ -739,6 +823,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 ### MODULE 2.9: MASRI DIALECT SPECIALISTS — Colloquial Egyptian Arabic
 
 **Level 2→3 Module (Weeks 1–4):**
+
 - Masri Egyptian Arabic proficiency (grammar, slang, colloquialisms, authenticity)
 - Egyptian culture & context (modern Egypt, current events, values, humor)
 - Relatable content types (humor, personal stories, authentic advice, entertainment)
@@ -747,6 +832,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Language authenticity, cultural appropriateness, engagement metrics
 
 **Level 3→4 Module (Weeks 5–8):**
+
 - Advanced Masri strategy (different audience segments, age groups, regions)
 - Humor in Masri (comedy writing, timing, cultural humor)
 - Trending content in Egypt (local trends, viral patterns, preferences)
@@ -755,6 +841,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Strategy effectiveness, engagement growth, cultural impact
 
 **Level 4→5 Module (Weeks 9–12):**
+
 - Masri innovation (emerging dialects, generational differences, digital evolution)
 - Mentorship in Masri content
 - Industry leadership (setting dialect standards, cultural sensitivity advocacy)
@@ -766,6 +853,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 ### MODULE 2.10: LINKEDIN SPECIALISTS — Professional Networking & B2B
 
 **Level 2→3 Module (Weeks 1–4):**
+
 - LinkedIn platform mastery (algorithm, features, content types)
 - Professional voice & thought leadership (positioning, authority, credibility)
 - B2B content strategy (solving business problems, industry insights, case studies)
@@ -774,6 +862,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Following growth, engagement rates, professional resonance
 
 **Level 3→4 Module (Weeks 5–8):**
+
 - Advanced LinkedIn strategy (positioning as industry expert, audience building)
 - Thought leadership programs (guest posts, speaking, recognition)
 - LinkedIn content series (building loyal followers, recurring themes)
@@ -782,6 +871,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Speaking opportunities, follower growth, lead generation metrics
 
 **Level 4→5 Module (Weeks 9–12):**
+
 - LinkedIn innovation (emerging features, new content types, AI integration)
 - Mentorship in LinkedIn strategy
 - Industry leadership (LinkedIn best practices, case studies, recognition)
@@ -793,6 +883,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 ### MODULE 2.11: INSTAGRAM & TIKTOK SPECIALISTS — Visual/Short-Form Platforms
 
 **Level 2→3 Module (Weeks 1–4):**
+
 - Platform-specific mastery (Instagram: feed, Stories, Reels | TikTok: trends, sounds, algorithm)
 - Visual storytelling (consistent aesthetic, color story, visual identity)
 - Trend awareness (identifying emerging trends, sounds, hashtags)
@@ -801,6 +892,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Growth metrics, engagement rates, content consistency
 
 **Level 3→4 Module (Weeks 5–8):**
+
 - Advanced strategy (building loyal audiences, series content, personality development)
 - Multi-format mastery (feed posts, Stories, Reels, Lives, Guides)
 - Trend prediction (identifying trends before they peak, trend-setting)
@@ -809,6 +901,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - **Assessment:** Growth achieved, engagement metrics, trend relevance
 
 **Level 4→5 Module (Weeks 9–12):**
+
 - Platform innovation (emerging features, format evolution, AI integration)
 - Mentorship in visual social
 - Industry leadership (trend-setting, case studies, recognition)
@@ -823,6 +916,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 **DURATION:** 8 weeks
 
 #### Learning Outcomes
+
 - Establish quality standards for 10 different content types
 - Review social content for brand consistency, engagement potential, accuracy
 - Mentor social media specialists toward higher skill levels
@@ -830,27 +924,33 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - Resolve content conflicts and escalations
 
 #### Curriculum
+
 **Week 1:** QC Framework for Social
+
 - Quality standards per content type and platform
 - Brand voice consistency guidelines
 - Engagement prediction and optimization
 
 **Week 2–3:** Content Review Mastery
+
 - Reviewing for brand, accuracy, legality, accessibility
 - Trend alignment and timing
 - Feedback that improves performance
 
 **Week 4–5:** Analytics & Optimization
+
 - Performance metrics per content type
 - Identifying underperforming content and optimization paths
 - Predictive analytics for content success
 
 **Week 6–7:** Mentorship & Development
+
 - Identifying skill gaps in specialists
 - Coaching creators to higher performance
 - Career development conversations
 
 **Week 8:** Applied Learning
+
 - Review 50+ pieces of content with documented feedback
 - Mentor 2 specialists through improvement cycle
 - Present performance report to department management
@@ -863,6 +963,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 **DURATION:** 12 weeks
 
 #### Learning Outcomes
+
 - Lead teams of 4–5 content creators
 - Develop specialists in chosen specialty (SEO, Video, Reel, Engagement, etc.)
 - Manage content calendars and publish schedules
@@ -870,37 +971,45 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - Build creative, collaborative teams
 
 #### Curriculum
+
 **Week 1–2:** Team Leadership
+
 - Leading creative teams
 - Psychological safety and innovation
 - Individual development approaches
 
 **Week 3–4:** Performance Management
+
 - Social media KPIs and metrics
 - Identifying high performers and performers needing support
 - Coaching for improvement
 
 **Week 5–6:** Content Strategy
+
 - Content calendar planning and management
 - Trend awareness and reactive content
 - Balancing different content types
 
 **Week 7–8:** Hiring & Team Building
+
 - Recruiting social media talent
 - Assessing talent (portfolio review, interviews)
 - Building diverse teams
 
 **Week 9–10:** Analytics & Data
+
 - Advanced analytics (GA4, platform analytics, custom dashboards)
 - Data-driven strategy and decision-making
 - Reporting to clients and executives
 
 **Week 11–12:** Strategic Thinking
+
 - 12-month strategy development
 - Competitive analysis in social
 - Trend forecasting and planning
 
 #### Assessment
+
 - **Strategy:** Develop 12-month strategy for assigned specialty
 - **Mentorship:** Develop 2 team members with documented progress
 - **Presentation:** Present quarterly performance to senior leadership
@@ -913,6 +1022,7 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 **DURATION:** 16 weeks
 
 #### Learning Outcomes
+
 - Lead, develop, and evaluate 10 team managers and 50 creators
 - Create strategic social media vision aligned with business goals
 - Manage $750K+ budget
@@ -920,37 +1030,45 @@ DELIVERY: [Self-paced / Instructor-led / Hands-on / Hybrid]
 - Partner with executives on strategy
 
 #### Curriculum
+
 **Week 1–3:** Strategic Leadership
+
 - Social media's role in business growth
 - Competitive positioning on social platforms
 - 5-year vision for social media
 
 **Week 4–6:** Organizational Leadership
+
 - Managing 10 team managers
 - Culture building at scale
 - Psychological safety and innovation
 
 **Week 7–9:** Financial & Resource Management
+
 - Budget planning (tools, training, contractors)
 - Resource allocation across 10 teams
 - Efficiency and profitability
 
 **Week 10–12:** Client & Stakeholder Management
+
 - Enterprise client relationships
 - Executive communication and reporting
 - Partnership and influencer management
 
 **Week 13–14:** Innovation & Trends
+
 - Platform evolution and new features
 - Content trend forecasting
 - Emerging platforms and opportunities
 
 **Week 15–16:** Applied Learning
+
 - Develop strategic plan for next year
 - Present to CEO/board
 - 90-day implementation roadmap
 
 #### Assessment
+
 - **Strategic Plan:** 1-year strategy + 5-year vision
 - **Presentation:** Present to executive leadership
 - **Leadership:** Demonstrate effective management of 10 team managers
@@ -1005,6 +1123,7 @@ Level 5: Expert/Distinguished Specialist
 ```
 
 **IC Path Benefits:**
+
 - Remain hands-on in craft
 - Become go-to expert
 - Mentoring without full management burden
@@ -1052,6 +1171,7 @@ Level 5: Department Manager / Director
 ```
 
 **Management Path Benefits:**
+
 - Build and develop teams
 - Strategic impact at organizational level
 - P&L responsibility
@@ -1066,6 +1186,7 @@ Level 5: Department Manager / Director
 **Timeline:** Year 1, Quarter 2 (6 months into role)
 
 **Process:**
+
 1. **Self-Assessment:** Specialist reflects on preferences (hands-on work vs. people leadership)
 2. **Manager Conversation:** Open discussion about strengths, interests, aspirations
 3. **Strengths Assessment:** Evaluate suitability for chosen path
@@ -1073,6 +1194,7 @@ Level 5: Department Manager / Director
 5. **Milestone Review:** Quarterly check-ins to assess progress and fit
 
 **Signals of IC Path Strength:**
+
 - Deep expertise / mastery drive
 - Enjoys problem-solving and craft
 - Mentoring approach: coaching around specific skills
@@ -1081,6 +1203,7 @@ Level 5: Department Manager / Director
 - Industry visibility aspirations
 
 **Signals of Management Path Strength:**
+
 - People development drive
 - Enjoys organizational problem-solving
 - Mentoring approach: career development and growth
@@ -1247,6 +1370,7 @@ Year 3: Social Media Department Manager
 **For specialists interested in broader skills:**
 
 **Example: Designer → Design Manager → General Manager**
+
 - Year 1–2: Design specialist excellence
 - Year 2–3: Transition to adjacent team (e.g., Web UI → Brand Identity)
 - Year 3–4: Team manager role
@@ -1262,6 +1386,7 @@ Year 3: Social Media Department Manager
 **For specialists wanting to become world-class experts in narrow area:**
 
 **Example: SEO Specialist → SEO Strategy Expert → SEO Director**
+
 - Year 1: Foundational SEO skills (Level 2)
 - Year 2: Advanced SEO expertise (Level 3)
 - Year 3: Principal SEO specialist (Level 4)
@@ -1277,6 +1402,7 @@ Year 3: Social Media Department Manager
 **For high-performing specialists who want to build something new:**
 
 **Example: Social Media Manager → Community Manager → Community Platform Director**
+
 - Specialist develops expertise in community building (Level 3–4)
 - Proposes new community-focused service line
 - Leads building and launching new service
@@ -1294,24 +1420,28 @@ Year 3: Social Media Department Manager
 ### Year 1: Foundation Phase
 
 **Q1 2026 (Current)**
+
 - Develop training modules for all departments (this document)
 - Identify current skill levels for all 287 employees
 - Begin Team Manager training (cohort of 10)
 - Launch onboarding for new hires (immediately effective)
 
 **Q2 2026**
+
 - Complete Team Manager training (cohort of 10)
 - Begin Department Manager training (1 manager)
 - Start Level 2→3 advancement modules for top performers
 - Establish QC Lead training program
 
 **Q3 2026**
+
 - Team Manager cohort 2 begins (second 10 managers)
 - First specialization modules complete for early adopters
 - Career path conversations with all 215+ specialists
 - Development plans created for 50% of workforce
 
 **Q4 2026**
+
 - Team Manager cohort 2 completes training
 - Department Manager training completes (ready for expanded role)
 - Career path conversations complete (100% of workforce)
@@ -1319,6 +1449,7 @@ Year 3: Social Media Department Manager
 - Year 1 evaluation and adjustment
 
 **Year 1 Investment:**
+
 - Training budget: $672,500–$1,062,500
 - Time investment: ~2 hours/week per employee
 - Expected outcomes:
@@ -1332,30 +1463,35 @@ Year 3: Social Media Department Manager
 ### Year 2: Expansion Phase
 
 **Q1 2027**
+
 - Start second cohort of Department Manager training (if expansion occurring)
 - Advanced modules (Level 3→4) for accomplished specialists
 - Career track reviews and adjustments
 - New hire onboarding refined based on Year 1 learnings
 
 **Q2 2027**
+
 - Leadership cohorts for next tier
 - Cross-functional development begins for high-potentials
 - Specialization deepening for world-class path followers
 - Industry speaking/recognition program launches
 
 **Q3 2027**
+
 - Mid-year career development reviews
 - Promotion cycle for accomplished specialists
 - Succession planning for leadership roles
 - Team manager refresher training
 
 **Q4 2027**
+
 - Year 2 evaluation
 - Strategic planning for next cohorts
 - Promotion announcements
 - Year 2 assessment: advancement and retention metrics
 
 **Year 2 Investment:**
+
 - Training budget: $800,000–$1,200,000
 - Expected outcomes:
   - 50%+ of specialists advance one skill level
@@ -1369,6 +1505,7 @@ Year 3: Social Media Department Manager
 ### Years 3+: Sustained Excellence Phase
 
 **Ongoing Activities:**
+
 - Continuous skill development (monthly advancement modules)
 - Career progression (steady flow of promotions)
 - Leadership pipeline development
@@ -1377,6 +1514,7 @@ Year 3: Social Media Department Manager
 - Innovation and experimentation allocation
 
 **Long-term Outcomes (3–5 years):**
+
 - Multiple world-class Level 5 experts (15–20 specialists)
 - Strong internal promotion pipeline (85%+ leadership from within)
 - Thought leadership recognized in industry
@@ -1393,23 +1531,27 @@ Year 3: Social Media Department Manager
 ### 7.1 Individual Development Metrics
 
 **Skill Advancement:**
+
 - % of employees advancing ≥1 skill level annually: Target 50%+
 - % of employees reaching Level 4+: Target 30% by Year 3
 - Time to Level 3 proficiency: Target 12–18 months
 - Time to Level 4 proficiency: Target 24–36 months
 
 **Career Progression:**
+
 - % of internal promotions: Target 85%+
 - Time to first promotion: Target 18–24 months
 - Internal promotion fill rate for open roles: Target 70%+
 
 **Engagement & Satisfaction:**
+
 - Training module satisfaction: Target 4.5+/5
 - Career development satisfaction: Target 4.5+/5
 - Mentor satisfaction with mentees: Target 4.5+/5
 - Retention of high-performers (Level 3+): Target 95%+
 
 **Performance Improvement:**
+
 - Project quality improvement post-training: Target +20%
 - Efficiency improvement post-training: Target +15%
 - Client satisfaction improvement: Target +10%
@@ -1419,18 +1561,21 @@ Year 3: Social Media Department Manager
 ### 7.2 Team & Department Metrics
 
 **Team Performance:**
+
 - Team member average skill level advancement: Target +0.5 levels/year
 - % of team at Level 3+: Target 60%+ by Year 2
 - Internal promotion rate within team: Target 80%+
 - Team engagement scores: Target 4.5+/5
 
 **Quality & Delivery:**
+
 - Project approval rate on first submission: Target 90%+
 - Client satisfaction with team: Target 4.5+/5
 - On-time delivery rate: Target 95%+
 - Quality issue resolution time: Target <24 hours
 
 **Knowledge & Culture:**
+
 - Knowledge sharing sessions conducted: Target 2/month per team
 - Mentorship relationships: Target 1 per manager (minimum)
 - Cross-training completion: Target 50%+ of team
@@ -1440,24 +1585,28 @@ Year 3: Social Media Department Manager
 ### 7.3 Organizational Metrics
 
 **Talent Development:**
+
 - % of workforce with active development plan: Target 100%
 - Average employee skill level: Target advancing +0.3/year
 - Internal promotion rate: Target 85%+
 - Succession plan coverage: Target 100% for critical roles
 
 **Retention & Engagement:**
+
 - Voluntary turnover rate: Target <8%
 - Turnover of high performers: Target <3%
 - Overall engagement score: Target 4.5+/5
 - Development opportunity satisfaction: Target 4.5+/5
 
 **Financial & Business Impact:**
+
 - Training ROI (productivity improvement / training cost): Target 2:1+
 - Revenue per trained employee: Target increasing
 - Client retention of trained teams: Target 95%+
 - Competitive advantage from expertise: Target measurable
 
 **Industry Recognition:**
+
 - Number of industry speaking engagements: Target 2+/year
 - Published thought leadership pieces: Target 5+/year
 - Industry awards/recognition: Target 2+/year
@@ -1468,18 +1617,21 @@ Year 3: Social Media Department Manager
 ### 7.4 Evaluation Cadence
 
 **Individual Development Reviews:**
+
 - **Monthly:** Mentor/Manager check-in on progress (15 min)
 - **Quarterly:** Formal development plan review (45 min)
 - **Semi-annually:** Skill assessment and level evaluation (1 hour)
 - **Annually:** Comprehensive career conversation and next-year planning (2 hours)
 
 **Team Development Reviews:**
+
 - **Monthly:** Team manager reports on development progress
 - **Quarterly:** Department leadership team reviews team metrics
 - **Semi-annually:** Promotion cycle review and advancement decisions
 - **Annually:** Department development strategy review and adjustment
 
 **Organizational Development Reviews:**
+
 - **Quarterly:** Leadership team reviews organizational metrics
 - **Semi-annually:** Board/executive team briefing on talent development progress
 - **Annually:** Comprehensive review, strategy adjustment, budget planning
@@ -1493,11 +1645,13 @@ Year 3: Social Media Department Manager
 ### Phase 1: Assessment & Planning (Weeks 1–2)
 
 **Week 1:**
+
 - [ ] Conduct skill level assessment for all 287 employees (by Team Manager)
 - [ ] Identify top 20–30 high-potential specialists for priority development
 - [ ] Establish training budget and resources
 
 **Week 2:**
+
 - [ ] Finalize training modules (currently in progress)
 - [ ] Develop mentor/trainer pool (identify 10–15 internal trainers)
 - [ ] Set up learning management system (LMS) or documentation
@@ -1508,11 +1662,13 @@ Year 3: Social Media Department Manager
 ### Phase 2: Leadership Training (Weeks 3–6)
 
 **Week 3–4:**
+
 - [ ] Begin Team Manager training cohort 1 (10 managers)
 - [ ] Kick-off Department Manager training (1 manager)
 - [ ] Launch QC Lead training
 
 **Week 5–6:**
+
 - [ ] Continue Team Manager cohort 1
 - [ ] Establish mentoring pairs (internal high performers + emerging specialists)
 
@@ -1521,11 +1677,13 @@ Year 3: Social Media Department Manager
 ### Phase 3: Career Path Conversations (Weeks 7–12)
 
 **Week 7–8:**
+
 - [ ] Roll out career path framework to all employees
 - [ ] Manager training on career path conversations
 - [ ] Begin track selection conversations (Department → Team Managers → Specialists)
 
 **Week 9–12:**
+
 - [ ] Complete career path conversations with all 287 employees
 - [ ] Create individual development plans for 100% of workforce
 - [ ] Track selections and path distribution
@@ -1535,6 +1693,7 @@ Year 3: Social Media Department Manager
 ### Phase 4: Onboarding & Level Advancement (Ongoing, starting Week 3)
 
 **Week 3–ongoing:**
+
 - [ ] Begin onboarding training for new hires (rolling basis)
 - [ ] Launch Level 2→3 advancement modules for early adopters
 - [ ] Start specialization training for assigned teams
@@ -1544,11 +1703,13 @@ Year 3: Social Media Department Manager
 ### Phase 5: Monitoring & Adjustment (Quarterly)
 
 **Monthly:**
+
 - [ ] Track training completion rates
 - [ ] Monitor career conversation progress
 - [ ] Identify blockers and address
 
 **Quarterly:**
+
 - [ ] Review metrics (advancement rates, satisfaction, retention)
 - [ ] Adjust modules based on feedback
 - [ ] Plan next cohort training
@@ -1563,17 +1724,20 @@ Year 3: Social Media Department Manager
 ### 9.1 Training Delivery Resources
 
 **Internal Trainer/Facilitators Needed:**
+
 - 1 Head of Learning & Development (full-time)
 - 3–5 Department-specific training leads (half-time)
 - 10–15 subject matter experts for mentorship (existing staff, 2–5 hours/week)
 - 2 HR/Scheduling administrators (shared resource, 25% time)
 
 **External Resources (Optional but Recommended):**
+
 - Executive coach for Department Manager training (6–10 sessions): $5,000–$10,000
 - Specialized training providers for specific skills (e.g., advanced video production, enterprise UX): $10,000–$20,000/year
 - LMS software (if implementing): $3,000–$8,000/year
 
 **Total Annual Resource Cost:**
+
 - Internal salaries: $180,000–$250,000 (1 Head of L&D + 3–5 trainers)
 - External coaching/training: $15,000–$30,000
 - Tools/platforms: $5,000–$10,000
@@ -1584,22 +1748,26 @@ Year 3: Social Media Department Manager
 ### 9.2 Infrastructure Requirements
 
 **Learning Management System:**
+
 - Cloud-based platform (Moodle, Teachable, Canvas, or custom)
 - Cost: $3,000–$8,000/year
 - Stores modules, tracks completion, generates reports
 
 **Documentation & Resources:**
+
 - Wikis or knowledge bases for standard operating procedures
 - Design files and brand assets organized and accessible
 - Template libraries and example work
 - Video library of training content
 
 **Meeting & Collaboration:**
+
 - Dedicated training meeting spaces (physical or virtual)
 - Video recording capability for asynchronous learning
 - Scheduling/calendar management
 
 **Metrics & Analytics:**
+
 - Dashboard for tracking advancement, retention, engagement
 - Automated reporting on training ROI
 - Career path tracking
@@ -1610,21 +1778,23 @@ Year 3: Social Media Department Manager
 
 **Year 1 Total Investment:**
 
-| Category | Low Estimate | High Estimate |
-|----------|-------------|---------------|
-| Employee training | $672,500 | $1,062,500 |
-| Internal resources | $200,000 | $250,000 |
-| External coaching | $15,000 | $30,000 |
-| Tools & platforms | $8,000 | $18,000 |
-| **TOTAL** | **$895,500** | **$1,360,500** |
+| Category           | Low Estimate | High Estimate  |
+| ------------------ | ------------ | -------------- |
+| Employee training  | $672,500     | $1,062,500     |
+| Internal resources | $200,000     | $250,000       |
+| External coaching  | $15,000      | $30,000        |
+| Tools & platforms  | $8,000       | $18,000        |
+| **TOTAL**          | **$895,500** | **$1,360,500** |
 
 **ROI Calculation (Conservative):**
+
 - 215 specialists × $3,000 average annual salary impact (5% improvement): $645,000
 - Reduced turnover (2% improvement, 4–5 retained employees): $100,000+
 - Improved project quality (3% efficiency gain): $80,000+
 - **Estimated ROI Year 1: 80%–120%** (payback in 10–15 months)
 
 **ROI improves significantly in Years 2–3 as:**
+
 - Training modules reused (lower per-employee cost)
 - Internal trainers more experienced
 - Organizational productivity compounds
@@ -1705,15 +1875,15 @@ Year 3: Social Media Department Manager
 
 ## APPENDIX A: Training Module Quick Reference
 
-| Department | Module | Level | Duration | Key Outcome |
-|-----------|--------|-------|----------|-----------|
-| Design | Web UI Advancement | 2→3 | 4 weeks | Responsive design mastery |
-| Design | Mobile Mastery | 2→3 | 4 weeks | Platform-specific design |
-| Social Media | SEO Strategy | 3→4 | 4 weeks | 12-month SEO strategy |
-| Social Media | Video Production | 2→3 | 4 weeks | Independent video creation |
-| Social Media | Community Building | 3→4 | 4 weeks | Community growth strategy |
-| *All Depts* | Team Manager Training | 1→Manager | 12 weeks | Leadership of 4–5 people |
-| *All Depts* | Department Manager | Manager→Director | 16 weeks | Leadership of 30–50 people |
+| Department   | Module                | Level            | Duration | Key Outcome                |
+| ------------ | --------------------- | ---------------- | -------- | -------------------------- |
+| Design       | Web UI Advancement    | 2→3              | 4 weeks  | Responsive design mastery  |
+| Design       | Mobile Mastery        | 2→3              | 4 weeks  | Platform-specific design   |
+| Social Media | SEO Strategy          | 3→4              | 4 weeks  | 12-month SEO strategy      |
+| Social Media | Video Production      | 2→3              | 4 weeks  | Independent video creation |
+| Social Media | Community Building    | 3→4              | 4 weeks  | Community growth strategy  |
+| _All Depts_  | Team Manager Training | 1→Manager        | 12 weeks | Leadership of 4–5 people   |
+| _All Depts_  | Department Manager    | Manager→Director | 16 weeks | Leadership of 30–50 people |
 
 ---
 
@@ -1721,4 +1891,3 @@ Year 3: Social Media Department Manager
 **For:** MediaBubble Leadership & HR Team  
 **Status:** Ready for Implementation  
 **Version:** 1.0 — June 2026
-

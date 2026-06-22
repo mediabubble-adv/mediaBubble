@@ -242,23 +242,12 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
   }
 
   return (
-    <div className="px-6 py-8 lg:px-8">
-      <div className="mx-auto max-w-6xl space-y-8">
-        {/* Header with Currency Switcher */}
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
-              <Wallet size={20} className="text-primary" />
-            </div>
-            <div>
-              <h1 className="font-display text-2xl font-bold text-foreground">Finance Ledger</h1>
-              <p className="text-[13px] text-muted-foreground">
-                Audit transactions, track cash flow, and optimize infrastructure spend.
-              </p>
-            </div>
-          </div>
-
-          {/* Currency Switcher */}
+    <PageFrame>
+      <PageHeader
+        icon={Wallet}
+        title="Finance Ledger"
+        description="Audit transactions, track cash flow, and optimize infrastructure spend."
+        actions={
           <div className="flex rounded-lg border border-border bg-card p-1">
             {(Object.keys(CURRENCIES) as CurrencyCode[]).map((code) => (
               <button
@@ -274,10 +263,12 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
               </button>
             ))}
           </div>
-        </div>
+        }
+      />
 
+      <div className="mt-8 space-y-8">
         {/* KPI Strip */}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 2xl:gap-5">
           <div className="rounded-2xl border border-border bg-card p-4">
             <div className="flex items-center justify-between">
               <span className="text-[12px] font-medium text-muted-foreground">Total Inflows</span>
@@ -716,6 +707,6 @@ export function FinanceDashboard({ initialTxns }: { initialTxns: DashboardTxn[] 
           </div>
         </div>
       </div>
-    </div>
+    </PageFrame>
   )
 }

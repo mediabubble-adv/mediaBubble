@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 
-const ignoreDirs = new Set(['node_modules', '.git', '.next', '.nx', 'tmp', '.agents', '.claude', '.cursor', '.remember', '.kilocode']);
+const ignoreDirs = new Set(['node_modules', '.git', '.next', '.nx', 'tmp', '.agents', '.claude', '.cursor', '.remember', '.kilocode', 'dist']);
 
 function getMdFiles(dir) {
   let results = [];
@@ -33,8 +33,28 @@ function checkLinksInFile(filePath) {
   // Negative lookahead to avoid matching web URLs, email, etc.
   const linkRegex = /\[([^\]]+)\]\((?!(?:https?:\/\/|mailto:|tel:|#))([^)]+)\)/g;
 
+  let inCodeBlock = false;
+  let codeBlockDelimiter = '';
+
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
+    
+    // Check for code blocks
+    const codeBlockMatch = line.match(/^(\s*)(`{3,4}|~{3,4})/);
+    if (codeBlockMatch) {
+      const delimiter = codeBlockMatch[2];
+      if (!inCodeBlock) {
+        inCodeBlock = true;
+        codeBlockDelimiter = delimiter;
+      } else if (delimiter === codeBlockDelimiter) {
+        inCodeBlock = false;
+        codeBlockDelimiter = '';
+      }
+      continue;
+    }
+
+    if (inCodeBlock) continue;
+
     let match;
     // Reset regex state
     linkRegex.lastIndex = 0;
