@@ -1,0 +1,20 @@
+apps/launcher/prisma/schema.prisma
+  s_2e1260c48b9f91::t_31f388b22d8d95 833
+  s_2e1260c48b9f91::t_980bbf6baa96be 979-993
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.10",
+  "base_commit_sha": "a8932900bc7dd228a38347c0193ca05f670df267",
+  "prompts": {},
+  "sessions": {
+    "s_2e1260c48b9f91": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "263123c1-0c9c-4a3c-8302-284b92e0919f",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
