@@ -1,0 +1,53 @@
+apps/launcher/lib/i18n/config.ts
+  s_263921696b4e70::t_5f8b3f7016f9c2 1-33
+apps/launcher/lib/fonts.ts
+  s_263921696b4e70::t_f58c58f9641b52 24-32,37
+  s_263921696b4e70::t_a7819b44cd09d7 1
+apps/launcher/app/(app)/layout.tsx
+  s_263921696b4e70::t_aab3df282ff8e0 9
+  s_263921696b4e70::t_a85c0801083c62 48-49,52
+apps/launcher/app/(app)/time/capacity-panel.tsx
+  s_263921696b4e70::t_279b3f9668b64a 78
+apps/launcher/app/layout.tsx
+  s_263921696b4e70::t_c870d66a02edf5 2,5
+  s_263921696b4e70::t_90249947163d65 24-26,29,38
+apps/launcher/app/(app)/_shell/locale-toggle.tsx
+  s_263921696b4e70::t_939c76462f85cb 1-53
+apps/launcher/app/(app)/_shell/app-shell.tsx
+  s_263921696b4e70::t_0387dd7371ae94 92
+  s_263921696b4e70::t_6d61672fe3952e 19-20
+  s_263921696b4e70::t_288e59c0761c9b 265
+  s_263921696b4e70::t_beb0f9ba6692ee 222,227
+  s_263921696b4e70::t_f7dc96d96a6e25 32-40
+  s_263921696b4e70::t_2c60009c645884 316-317
+  s_263921696b4e70::t_fa6558ef2616eb 270
+  s_263921696b4e70::t_e1ccdcf602fed6 333,338,344
+  s_263921696b4e70::t_62a437f9816d20 304
+  s_263921696b4e70::t_27dd821902d1ce 246
+apps/launcher/app/(app)/time/leave-panel.tsx
+  s_263921696b4e70::t_279b3f9668b64a 140,246
+apps/launcher/app/(app)/time/time-dashboard.tsx
+  s_263921696b4e70::t_279b3f9668b64a 371
+apps/launcher/app/(app)/time/team-panel.tsx
+  s_263921696b4e70::t_279b3f9668b64a 65,125
+apps/launcher/app/(app)/time/schedule-panel.tsx
+  s_263921696b4e70::t_279b3f9668b64a 184,259
+apps/launcher/app/(app)/time/calendar-panel.tsx
+  s_263921696b4e70::t_511b247503deed 52,55-56,64,67
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "a6ee3d41907c5741b2fc9af2baadab0dc18f7591",
+  "prompts": {},
+  "sessions": {
+    "s_263921696b4e70": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d5628b52-7cb9-4970-a37f-851b1de6c195",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
