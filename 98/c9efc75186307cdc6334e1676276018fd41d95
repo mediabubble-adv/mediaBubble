@@ -1,0 +1,22 @@
+apps/launcher/components/account/profile-form.tsx
+  s_2e1260c48b9f91::t_bad39fdaa11baf 184-185,187-211,223,274-294,296-302
+  s_2e1260c48b9f91::t_8fe89f3894ea93 3
+apps/launcher/app/api/profile/avatar/route.ts
+  s_2e1260c48b9f91::t_ea388edb5e6bfd 1-49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.10",
+  "base_commit_sha": "98c9efc75186307cdc6334e1676276018fd41d95",
+  "prompts": {},
+  "sessions": {
+    "s_2e1260c48b9f91": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "263123c1-0c9c-4a3c-8302-284b92e0919f",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
