@@ -1,0 +1,28 @@
+docs/launcher/LAUNCHER_PLAN_V2.md
+  s_de4b5ceedd0f70::t_8e3c0a9cb8cf3a 162
+  s_de4b5ceedd0f70::t_ce7ab9826659a7 121
+  s_de4b5ceedd0f70::t_fe65c517ed7a49 154
+  s_de4b5ceedd0f70::t_ae5a329e1ed77c 65
+docs/launcher/LAUNCHER_COMPREHENSIVE_GUIDE.md
+  s_de4b5ceedd0f70::t_126e3d42a6af94 2306
+  s_de4b5ceedd0f70::t_38c1c0b3089d73 2362
+  s_de4b5ceedd0f70::t_049f3f9659e59a 2395
+  s_de4b5ceedd0f70::t_792ec507f440d5 1062
+  s_de4b5ceedd0f70::t_220f5573a9e21d 2403
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "0f054dd1992c5c06c361f78bbaa48b53b5c69329",
+  "prompts": {},
+  "sessions": {
+    "s_de4b5ceedd0f70": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "374a1223-8d71-4381-8377-29c1ced41d65",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
