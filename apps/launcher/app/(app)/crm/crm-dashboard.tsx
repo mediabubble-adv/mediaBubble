@@ -1,7 +1,7 @@
 'use client'
 
-import { useMemo, useState, type FormEvent } from 'react'
-import { Building2, Link2, Plus, Search, Trash2 } from 'lucide-react'
+import { useMemo, useState, type FormEvent, type ElementType } from 'react'
+import { Building2, Link2, Plus, Receipt, Search, TrendingUp, Trash2, Users, Wallet } from 'lucide-react'
 import type { ClientRow } from '@/lib/crm/clients'
 import type { InvoiceRow } from '@/lib/crm/invoices'
 import type { QuotationRow } from '@/lib/crm/quotations'
@@ -32,15 +32,91 @@ const CONTRACT_LABELS: Record<string, string> = {
   project: 'Project',
 }
 
+export interface CrmMetrics {
+  activeClients: number
+  mrr: number
+  outstanding: number
+  overdueCount: number
+  pipeline: number
+}
+
+function formatEgp(amount: number): string {
+  if (amount >= 1_000_000) return `${(amount / 1_000_000).toFixed(1)}M EGP`
+  if (amount >= 1_000) return `${(amount / 1_000).toFixed(0)}K EGP`
+  return `${amount.toLocaleString()} EGP`
+}
+
+function CrmMetricsRow({ metrics }: { metrics: CrmMetrics }) {
+  const cards: { label: string; value: string; hint: string; icon: ElementType; warn?: boolean }[] = [
+    {
+      label: 'Active clients',
+      value: metrics.activeClients.toString(),
+      hint: 'On retainer or active contracts',
+      icon: Users,
+    },
+    {
+      label: 'Monthly recurring',
+      value: metrics.mrr > 0 ? formatEgp(metrics.mrr) : '—',
+      hint: 'Sum of active client budgets',
+      icon: Wallet,
+    },
+    {
+      label: 'Outstanding',
+      value: metrics.outstanding > 0 ? formatEgp(metrics.outstanding) : '—',
+      hint: metrics.overdueCount > 0 ? `${metrics.overdueCount} overdue` : 'Sent & overdue invoices',
+      icon: Receipt,
+      warn: metrics.overdueCount > 0,
+    },
+    {
+      label: 'Open pipeline',
+      value: metrics.pipeline > 0 ? formatEgp(metrics.pipeline) : '—',
+      hint: 'Sent & approved quotations',
+      icon: TrendingUp,
+    },
+  ]
+
+  return (
+    <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      {cards.map((c) => (
+        <div
+          key={c.label}
+          className={`rounded-2xl border bg-card p-5 ${
+            c.warn ? 'border-yellow-500/30 bg-yellow-500/[0.03]' : 'border-border'
+          }`}
+        >
+          <div className="flex items-center justify-between">
+            <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
+              {c.label}
+            </p>
+            <c.icon
+              size={16}
+              className={c.warn ? 'text-yellow-500/70' : 'text-muted-foreground/50'}
+              aria-hidden="true"
+            />
+          </div>
+          <p className="mt-3 font-display text-2xl font-bold text-foreground" dir="ltr">
+            {c.value}
+          </p>
+          <p className={`mt-1 text-[12px] ${c.warn ? 'text-yellow-500/80' : 'text-muted-foreground'}`}>
+            {c.hint}
+          </p>
+        </div>
+      ))}
+    </div>
+  )
+}
+
 export function CrmDashboard({
   initialClients,
   initialInvoices,
   initialQuotations,
+  metrics,
   canManage,
 }: {
   initialClients: ClientRow[]
   initialInvoices: InvoiceRow[]
   initialQuotations: QuotationRow[]
+  metrics: CrmMetrics
   canManage: boolean
 }) {
   const [tab, setTab] = useState<CrmTab>('clients')
@@ -159,6 +235,8 @@ export function CrmDashboard({
           ) : null
         }
       />
+
+        <CrmMetricsRow metrics={metrics} />
 
         {portalLink ? (
           <p className="mt-4 rounded-xl border border-primary/30 bg-primary/10 px-4 py-3 text-[13px] text-foreground">

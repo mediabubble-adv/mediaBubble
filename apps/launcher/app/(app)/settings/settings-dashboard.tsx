@@ -1,8 +1,9 @@
 'use client'
 
 import { useState, useRef, useEffect, useCallback } from 'react'
-import { User, Lock, Users, CheckCircle2, Settings2 } from 'lucide-react'
+import { User, Lock, Users, CheckCircle2, Settings2, UserMinus, UserCheck } from 'lucide-react'
 import { ProfileForm, type ProfileUser, UserAvatar } from '@/components/account/profile-form'
+import { ROLES, isAdmin, type Role } from '@/lib/auth/rbac'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -27,6 +28,7 @@ interface TeamMember {
   email: string
   avatar_url: string | null
   role: string
+  status: string
   department: string | null
 }
 
@@ -168,10 +170,27 @@ function SecurityTab() {
   )
 }
 
-function TeamTab({ members, currentUserId }: { members: TeamMember[]; currentUserId: string }) {
+function TeamTab({
+  members,
+  currentUserId,
+  currentUserRole,
+  canManage,
+}: {
+  members: TeamMember[]
+  currentUserId: string
+  currentUserRole: Role
+  canManage: boolean
+}) {
+  const { toast } = useToast()
+  const [rows, setRows] = useState<TeamMember[]>(members)
   const [q, setQ] = useState('')
+  const [busyId, setBusyId] = useState<string | null>(null)
 
-  const filtered = members.filter((m) => {
+  const meIsAdmin = isAdmin(currentUserRole)
+  // Managers can assign up to their own rank; only Admins can mint Admins.
+  const assignableRoles = (meIsAdmin ? ROLES : ROLES.filter((r) => r !== 'Admin')) as readonly Role[]
+
+  const filtered = rows.filter((m) => {
     if (!q) return true
     const needle = q.toLowerCase()
     return (
@@ -181,6 +200,41 @@ function TeamTab({ members, currentUserId }: { members: TeamMember[]; currentUse
       m.role.toLowerCase().includes(needle)
     )
   })
+
+  // Mirror the server's RBAC: not yourself, and only Admins may touch Admins.
+  const canEdit = (m: TeamMember) =>
+    canManage && m.id !== currentUserId && (meIsAdmin || !isAdmin(m.role as Role))
+
+  async function patchMember(m: TeamMember, body: { role?: string; status?: string }): Promise<void> {
+    setBusyId(m.id)
+    const prev = rows
+    setRows((rs) => rs.map((r) => (r.id === m.id ? { ...r, ...body } : r)))
+    try {
+      const res = await fetch(`/api/settings/team/${m.id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      })
+      const json = await res.json()
+      if (json.status !== 200) {
+        setRows(prev)
+        toast('error', json.message ?? 'Could not update team member')
+        return
+      }
+      toast('success', body.role ? `${m.name} is now ${body.role}` : `${m.name} ${body.status === 'inactive' ? 'deactivated' : 'reactivated'}`)
+    } catch {
+      setRows(prev)
+      toast('error', 'Network error — please try again')
+    } finally {
+      setBusyId(null)
+    }
+  }
+
+  function toggleStatus(m: TeamMember): void {
+    const next = m.status === 'active' ? 'inactive' : 'active'
+    if (next === 'inactive' && !confirm(`Deactivate ${m.name}? They will lose access until reactivated.`)) return
+    void patchMember(m, { status: next })
+  }
 
   return (
     <div className="space-y-4">
@@ -194,29 +248,81 @@ function TeamTab({ members, currentUserId }: { members: TeamMember[]; currentUse
         <p className="py-8 text-center text-[13px] text-muted-foreground">No team members found.</p>
       ) : (
         <div className="divide-y divide-border rounded-lg border border-border">
-          {filtered.map((m) => (
-            <div key={m.id} className="flex items-center gap-3 px-4 py-3">
-              <UserAvatar name={m.name} avatarUrl={m.avatar_url} size="sm" />
-              <div className="min-w-0 flex-1">
-                <div className="flex items-center gap-1.5">
-                  <span className="truncate text-[13px] font-medium text-foreground">{m.name}</span>
-                  {m.id === currentUserId && (
-                    <span className="shrink-0 text-[10px] text-muted-foreground">(you)</span>
-                  )}
+          {filtered.map((m) => {
+            const inactive = m.status !== 'active'
+            const editable = canEdit(m)
+            return (
+              <div
+                key={m.id}
+                className={`flex items-center gap-3 px-4 py-3 ${inactive ? 'opacity-60' : ''}`}
+              >
+                <UserAvatar name={m.name} avatarUrl={m.avatar_url} size="sm" />
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center gap-1.5">
+                    <span className="truncate text-[13px] font-medium text-foreground">{m.name}</span>
+                    {m.id === currentUserId && (
+                      <span className="shrink-0 text-[10px] text-muted-foreground">(you)</span>
+                    )}
+                    {inactive && (
+                      <span className="shrink-0 rounded bg-muted px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground">
+                        Inactive
+                      </span>
+                    )}
+                  </div>
+                  <p className="truncate text-[11px] text-muted-foreground">{m.email}</p>
                 </div>
-                <p className="truncate text-[11px] text-muted-foreground">{m.email}</p>
-              </div>
-              <div className="flex shrink-0 flex-col items-end gap-1">
-                <Badge tone={ROLE_TONE[m.role] ?? 'neutral'} className="text-[10px]">
-                  {m.role}
-                </Badge>
-                {m.department && (
-                  <span className="text-[10px] text-muted-foreground">{m.department}</span>
+
+                {editable ? (
+                  <div className="flex shrink-0 items-center gap-2">
+                    <Select
+                      value={m.role}
+                      onValueChange={(v) => patchMember(m, { role: v })}
+                      disabled={busyId === m.id}
+                    >
+                      <SelectTrigger className="h-8 w-[130px] text-[12px]">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {assignableRoles.map((r) => (
+                          <SelectItem key={r} value={r} className="text-[12px]">
+                            {r}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <button
+                      type="button"
+                      onClick={() => toggleStatus(m)}
+                      disabled={busyId === m.id}
+                      title={inactive ? 'Reactivate member' : 'Deactivate member'}
+                      aria-label={inactive ? `Reactivate ${m.name}` : `Deactivate ${m.name}`}
+                      className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:text-foreground disabled:opacity-50"
+                    >
+                      {inactive ? <UserCheck size={14} /> : <UserMinus size={14} />}
+                    </button>
+                  </div>
+                ) : (
+                  <div className="flex shrink-0 flex-col items-end gap-1">
+                    <Badge tone={ROLE_TONE[m.role] ?? 'neutral'} className="text-[10px]">
+                      {m.role}
+                    </Badge>
+                    {m.department && (
+                      <span className="text-[10px] text-muted-foreground">{m.department}</span>
+                    )}
+                  </div>
                 )}
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
+      )}
+
+      {canManage && (
+        <p className="text-[11px] text-muted-foreground">
+          {meIsAdmin
+            ? 'You can change any member’s role and deactivate accounts. Admin accounts are managed by Admins only.'
+            : 'You can manage member roles below Admin and deactivate non-Admin accounts.'}
+        </p>
       )}
     </div>
   )
@@ -412,10 +518,14 @@ export function SettingsDashboard({
   user,
   team,
   workspacePrefs,
+  canManageTeam,
+  currentUserRole,
 }: {
   user: SettingsUser
   team: TeamMember[]
   workspacePrefs: WorkspacePrefs
+  canManageTeam: boolean
+  currentUserRole: Role
 }) {
   const [tab, setTab] = useState<Tab>('profile')
   const tabRefs = useRef<Partial<Record<Tab, HTMLButtonElement>>>({})
@@ -490,7 +600,12 @@ export function SettingsDashboard({
             <SecurityTab />
           </div>
           <div id="tabpanel-team" role="tabpanel" hidden={tab !== 'team'}>
-            <TeamTab members={team} currentUserId={user.id} />
+            <TeamTab
+              members={team}
+              currentUserId={user.id}
+              currentUserRole={currentUserRole}
+              canManage={canManageTeam}
+            />
           </div>
           <div id="tabpanel-workspace" role="tabpanel" hidden={tab !== 'workspace'}>
             <WorkspaceTab prefs={workspacePrefs} />
