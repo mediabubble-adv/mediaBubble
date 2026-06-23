@@ -1,0 +1,33 @@
+apps/launcher/app/(app)/leaderboard/leaderboard-dashboard.tsx
+  s_263921696b4e70::t_46c1d486252ea2 361-367
+  s_263921696b4e70::t_68440e27c73d55 309
+  s_263921696b4e70::t_e306fef8c157ea 83,86
+  s_263921696b4e70::t_fc4a6331dddc40 237,239-240
+  s_263921696b4e70::t_5143f31c5e6f58 293,296
+  s_263921696b4e70::t_a5d2ab3123f588 222-224
+  s_263921696b4e70::t_4c8b7be57ee3a1 322
+  s_263921696b4e70::t_d2a1060c0bf5e7 439
+  s_263921696b4e70::t_26795f301953ec 337-338
+  s_263921696b4e70::t_e0c5773b6773d6 268
+  s_263921696b4e70::t_35596929b48164 283-284
+AGENTS.md
+  s_263921696b4e70::t_d69d68f7689e2d 30-42
+PRODUCT.md
+  s_263921696b4e70::t_b61ae0ddb6e233 1-88
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "f8e374028b4253613b4ee5d94ad5b5684e380005",
+  "prompts": {},
+  "sessions": {
+    "s_263921696b4e70": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d5628b52-7cb9-4970-a37f-851b1de6c195",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
