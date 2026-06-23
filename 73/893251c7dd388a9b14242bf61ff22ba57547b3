@@ -1,0 +1,21 @@
+apps/launcher/app/(app)/_shell/app-shell.tsx
+  s_2e1260c48b9f91::t_cbd2b60f63deaf 401-403
+  s_2e1260c48b9f91::t_a1bd89472d5e28 380-381
+  s_2e1260c48b9f91::t_93d415f739d9c0 387-391
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.10",
+  "base_commit_sha": "73893251c7dd388a9b14242bf61ff22ba57547b3",
+  "prompts": {},
+  "sessions": {
+    "s_2e1260c48b9f91": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "263123c1-0c9c-4a3c-8302-284b92e0919f",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
