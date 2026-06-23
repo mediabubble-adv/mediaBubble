@@ -1,0 +1,25 @@
+apps/launcher/app/(app)/leaderboard/leaderboard-dashboard.tsx
+  s_263921696b4e70::t_4ce3686f6f5574 227
+apps/launcher/components/ui/select.tsx
+  s_263921696b4e70::t_7f824b95e4dc0c 22
+apps/launcher/app/(app)/time/capacity-panel.tsx
+  s_263921696b4e70::t_22e08d69211d89 20-23
+apps/launcher/app/(app)/opus/usage/usage-dashboard.tsx
+  s_263921696b4e70::t_d0db592f7a423d 20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "78c1dd256288311a78c994afe53b5b70722ea8e3",
+  "prompts": {},
+  "sessions": {
+    "s_263921696b4e70": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d5628b52-7cb9-4970-a37f-851b1de6c195",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
