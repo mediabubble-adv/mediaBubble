@@ -1,0 +1,35 @@
+apps/launcher/app/(app)/crm/crm-dashboard.tsx
+  s_77f3226e61f2d5::t_ec0eea359904ed 3-4
+  s_77f3226e61f2d5::t_87b716670e9558 35-108,113,119
+  s_77f3226e61f2d5::t_18e284ac896257 239-240
+apps/launcher/app/(app)/settings/page.tsx
+  s_77f3226e61f2d5::t_0133954127a6f8 78
+  s_77f3226e61f2d5::t_6741771fd91d8e 3,19-28,31,35,37,39-41,57,63,72-77,79-80
+apps/launcher/app/api/settings/team/[id]/route.ts
+  s_77f3226e61f2d5::t_18d6147d7c916f 1-71
+apps/launcher/app/(app)/crm/page.tsx
+  s_77f3226e61f2d5::t_e541caf52685fe 17-26,42-56,59-66,72
+apps/launcher/app/(app)/settings/settings-dashboard.tsx
+  s_77f3226e61f2d5::t_b8caf62d1bfe3d 173-185,187-191,193,204-238,251-272,274-312,315-316,319-325
+  s_77f3226e61f2d5::t_200608db1842d5 603-608
+  s_77f3226e61f2d5::t_97022b3736d034 521-522,527-528
+  s_77f3226e61f2d5::t_176d448d9f4c17 4
+  s_77f3226e61f2d5::t_aa245865ee1591 6
+  s_77f3226e61f2d5::t_48c8c046029e2b 31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "40496d51759f2cbf1a7f8181c01833596e76a400",
+  "prompts": {},
+  "sessions": {
+    "s_77f3226e61f2d5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "abe45525-8803-4d3c-94a4-eedddd7c5565",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
