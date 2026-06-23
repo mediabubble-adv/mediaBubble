@@ -2,21 +2,23 @@ import type { Metadata } from 'next'
 import { getServerSession } from '@/lib/auth/server-session'
 import { prisma } from '@/lib/db/prisma'
 import { SettingsDashboard } from './settings-dashboard'
-import type { WorkspacePrefs } from './settings-dashboard'
+import type { WorkspacePrefs } from '@/app/api/settings/workspace/route'
 
 export const metadata: Metadata = { title: 'Settings' }
 export const dynamic = 'force-dynamic'
 
-const DEFAULT_PREFS: WorkspacePrefs = {
-  timezone: 'Africa/Cairo',
-  default_currency: 'EGP',
-  notifications: { email_digest: true, task_reminders: true, weekly_report: false },
+const DEFAULT_WORKSPACE_PREFS: WorkspacePrefs = {
+  timezone: 'UTC',
+  date_format: 'DD/MM/YYYY',
+  language: 'en',
+  email_notifications: true,
+  app_notifications: true,
 }
 
 export default async function SettingsPage() {
   const session = await getServerSession()
 
-  const [userRow, teamRows, prefRows] = await Promise.all([
+  const [userRow, teamRows, workspaceRow] = await Promise.all([
     session
       ? prisma.users.findUnique({
           where: { id: session.id },
@@ -47,14 +49,11 @@ export default async function SettingsPage() {
       },
     }),
     session
-      ? prisma.settings.findMany({
-          where: {
-            user_id: session.id,
-            key: { in: ['ui.timezone', 'ui.default_currency', 'ui.notifications'] },
-          },
-          select: { key: true, value: true },
+      ? prisma.settings.findUnique({
+          where: { user_id_key: { user_id: session.id, key: 'workspace_prefs' } },
+          select: { value: true },
         })
-      : [],
+      : null,
   ])
 
   const toMember = (r: typeof teamRows[number]) => ({
@@ -70,20 +69,12 @@ export default async function SettingsPage() {
     ? toMember(userRow)
     : { id: '', name: 'Unknown', email: '', avatar_url: null, role: 'Viewer', department: null }
 
-  const prefMap = Object.fromEntries(prefRows.map((r) => [r.key, r.value]))
   const workspacePrefs: WorkspacePrefs = {
-    timezone: (prefMap['ui.timezone'] as string) ?? DEFAULT_PREFS.timezone,
-    default_currency: (prefMap['ui.default_currency'] as string) ?? DEFAULT_PREFS.default_currency,
-    notifications:
-      (prefMap['ui.notifications'] as WorkspacePrefs['notifications']) ??
-      DEFAULT_PREFS.notifications,
+    ...DEFAULT_WORKSPACE_PREFS,
+    ...(workspaceRow?.value && typeof workspaceRow.value === 'object' && !Array.isArray(workspaceRow.value)
+      ? (workspaceRow.value as Partial<WorkspacePrefs>)
+      : {}),
   }
 
-  return (
-    <SettingsDashboard
-      user={user}
-      team={teamRows.map(toMember)}
-      workspacePrefs={workspacePrefs}
-    />
-  )
+  return <SettingsDashboard user={user} team={teamRows.map(toMember)} workspacePrefs={workspacePrefs} />
 }

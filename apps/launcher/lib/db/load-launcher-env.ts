@@ -83,6 +83,11 @@ export function applyLauncherEnv(launcherRoot = resolveLauncherRoot()): string {
 }
 
 export function assertDatabaseUrl(): string {
+  // During Next.js build, Prisma client module is evaluated but no DB queries run.
+  // Return a dummy URL so the build completes; real queries fail at runtime if unset.
+  if (process.env['NEXT_PHASE'] === 'phase-production-build' && !process.env['DATABASE_URL']) {
+    return 'postgresql://build:build@localhost:5432/build'
+  }
   const url = process.env['DATABASE_URL']
   if (!url) {
     throw new Error(
