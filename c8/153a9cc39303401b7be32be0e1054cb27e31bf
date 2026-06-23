@@ -1,0 +1,19 @@
+apps/launcher/app/(app)/_shell/command-palette.tsx
+  s_2e1260c48b9f91::t_1b0828bbb5fc89 53,56-62,64-66,72-75
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.10",
+  "base_commit_sha": "c8153a9cc39303401b7be32be0e1054cb27e31bf",
+  "prompts": {},
+  "sessions": {
+    "s_2e1260c48b9f91": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "263123c1-0c9c-4a3c-8302-284b92e0919f",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
