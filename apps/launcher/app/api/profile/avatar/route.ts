@@ -32,7 +32,7 @@ export async function POST(req: Request): Promise<Response> {
   }
 
   const ext = file.type.split('/')[1].replace('jpeg', 'jpg')
-  const filename = `${me.id}.${ext}`
+  const filename = path.basename(`${me.id}.${ext}`)
   const uploadsDir = path.join(process.cwd(), 'public', 'uploads', 'avatars')
   await fs.mkdir(uploadsDir, { recursive: true })
   const filePath = path.join(uploadsDir, filename)
@@ -40,10 +40,16 @@ export async function POST(req: Request): Promise<Response> {
   await fs.writeFile(filePath, buffer)
 
   const avatarUrl = `/uploads/avatars/${filename}`
-  await prisma.users.update({
-    where: { id: me.id },
-    data: { avatar_url: avatarUrl },
-  })
+  try {
+    await prisma.users.update({
+      where: { id: me.id },
+      data: { avatar_url: avatarUrl },
+    })
+  } catch {
+    // clean up orphaned file if DB update fails
+    await fs.unlink(filePath).catch(() => undefined)
+    return toResponse(fail('internal_error', 'Failed to save avatar', 500))
+  }
 
   return toResponse(ok({ avatar_url: avatarUrl }, 'Avatar updated'))
 }
