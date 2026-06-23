@@ -1,0 +1,19 @@
+apps/launcher/app/api/profile/avatar/route.ts
+  s_2e1260c48b9f91::t_4487cf6e661a6f 35,43-52
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.10",
+  "base_commit_sha": "ee7a47c61c2c0f2167e7e5a4ec462600ac719dcb",
+  "prompts": {},
+  "sessions": {
+    "s_2e1260c48b9f91": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "263123c1-0c9c-4a3c-8302-284b92e0919f",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
