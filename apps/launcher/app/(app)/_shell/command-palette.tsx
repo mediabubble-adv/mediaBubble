@@ -50,19 +50,29 @@ export function CommandPalette({
       return
     }
     setSearching(true)
+    const controller = new AbortController()
     const timer = setTimeout(async () => {
       try {
-        const res = await fetch(`/api/search?q=${encodeURIComponent(query.trim())}`)
+        const res = await fetch(`/api/search?q=${encodeURIComponent(query.trim())}`, {
+          signal: controller.signal,
+        })
+        if (!res.ok) {
+          setSearchResults({ tasks: [], clients: [], invoices: [] })
+          return
+        }
         const json = await res.json()
-        if (res.ok) setSearchResults(json.data)
-        else setSearchResults({ tasks: [], clients: [], invoices: [] })
-      } catch {
+        setSearchResults(json.data)
+      } catch (err) {
+        if (err instanceof Error && err.name === 'AbortError') return
         setSearchResults({ tasks: [], clients: [], invoices: [] })
       } finally {
         setSearching(false)
       }
     }, 250)
-    return () => clearTimeout(timer)
+    return () => {
+      clearTimeout(timer)
+      controller.abort()
+    }
   }, [query])
 
   // Reset and focus whenever the palette opens.
