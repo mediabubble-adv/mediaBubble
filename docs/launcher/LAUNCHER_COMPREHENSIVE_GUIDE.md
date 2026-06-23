@@ -1059,7 +1059,7 @@ _Original File Path: [docs/launcher/LAUNCHER_STRATEGIC_PIVOT_2026.md](file:///Us
 - [ ] Invoice creation → Payment link (Fawry) → Tracking
 - [ ] Quotation approval workflow
 - [ ] Real-time KPI updates
-- [ ] Dynamic AI brief
+- [x] Dynamic AI brief (PR #32 — Gemini + local fallback)
 - [ ] Ledger: sortable, filterable, exportable
 
 **Ship:** Finance team runs invoicing from Launcher
@@ -2303,7 +2303,7 @@ Everything in the foundation/auth layer carries over unchanged.
 - **Production deploy** — Vercel project + `launcher.mediabubble.co` DNS not wired yet.
 - **Settings** — `/settings` placeholder (profile, team, workspace prefs).
 - **Google Calendar sync** — Time calendar panel placeholder.
-- **Finance AI brief** — static copy (dynamic brief → Phase 3).
+- **Finance AI brief** — ✅ dynamic (Gemini when keyed, deterministic local fallback). Shipped in PR #32.
 
 #### ❌ Not started (Phase 3 remainder)
 
@@ -2359,7 +2359,7 @@ JWT/RBAC/token flows + auth routes + response conventions. **Done.**
 - [x] **SVG cash-flow area chart** — dual-fill, 6-month scale, hover tooltips.
 - [x] **SVG expense donut** — grouped by category.
 - [x] Ledger table — sortable, filterable, searchable.
-- [x] **AI optimization brief** — static copy flagging duplicate Hostinger tier.
+- [x] **AI optimization brief** — replaced with dynamic Finance AI Brief (PR #32): on-demand, data-driven, Gemini + local fallback.
 
 **Gamification (§4.4 PRD)**
 
@@ -2392,7 +2392,7 @@ JWT/RBAC/token flows + auth routes + response conventions. **Done.**
 | Realtime | Upstash Redis Pub/Sub + WS bridge on Railway | ✅ Chat: Redis + `ws:launcher` (:3004), SSE fallback | Set `REDIS_URL` on prod; optional for Task Board   |
 | Auth     | "Stateless JWT middleware"                   | ✅ JWT + `proxy.ts` route gate                       | Keep; no session table                             |
 | Email    | implied (verify/reset)                       | ✅ Resend wired (`RESEND_API_KEY`)                   | Set key on Vercel for prod                         |
-| AI brief | dynamic                                      | static copy in Finance UI                            | AI-generated in Phase 3                            |
+| AI brief | dynamic                                      | ✅ dynamic — `POST /api/finance/brief`, Gemini + local fallback (PR #32) | —                                                  |
 
 ---
 
@@ -2400,7 +2400,7 @@ JWT/RBAC/token flows + auth routes + response conventions. **Done.**
 
 1. **Ship** — Vercel project for `apps/launcher`, env vars (`DATABASE_URL`, **`DIRECT_URL`**, `JWT_SECRET`, `RESEND_API_KEY`, `NEXT_PUBLIC_SITE_URL`), `launcher.mediabubble.co` DNS. See [`apps/launcher/README.md`](../../apps/launcher/README.md#ship-checklist-vercel--dns).
 2. **Settings module** — profile, team, workspace preferences (replace placeholder).
-3. **Phase 3** — portal domain, payments (Fawry/Telr), WhatsApp automation, dynamic AI brief.
+3. **Phase 3** — portal domain, payments (Fawry/Telr), WhatsApp automation.
 4. **Polish** — Google Calendar API, workflow visual canvas, >80% test coverage gate.
 
 ---
