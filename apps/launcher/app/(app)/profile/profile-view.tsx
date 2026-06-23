@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { LogOut, LayoutDashboard, Settings } from 'lucide-react'
 import { PageFrame, PageHeader } from '@/components/layout/page-frame'
-import { ProfileForm, type ProfileUser } from '@/components/account/profile-form'
+import { ProfileForm, PasswordForm, type ProfileUser } from '@/components/account/profile-form'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
@@ -30,6 +30,8 @@ export function ProfileView({ user }: { user: ProfileUser }) {
 
       <div className="mt-8 max-w-2xl space-y-6">
         <ProfileForm user={user} />
+
+        <PasswordForm />
 
         <Card>
           <CardHeader>

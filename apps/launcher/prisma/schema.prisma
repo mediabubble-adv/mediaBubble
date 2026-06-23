@@ -830,6 +830,7 @@ model users {
   opus_briefs                                                opus_briefs[]
   opus_triggers                                              opus_triggers[]
   opus_trigger_runs                                          opus_trigger_runs[]
+  notifications                                              notifications[]
 
   @@index([department_id], map: "idx_users_department_id")
   @@index([email], map: "idx_users_email")
@@ -973,6 +974,21 @@ model opus_campaign_metrics {
 
   @@index([campaign_id], map: "idx_opus_campaign_metrics_campaign_id")
   @@index([period_start], map: "idx_opus_campaign_metrics_period_start")
+}
+
+model notifications {
+  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id    String    @db.Uuid
+  type       String    @db.VarChar(50)
+  title      String    @db.VarChar(255)
+  body       String?
+  href       String?   @db.VarChar(1024)
+  read       Boolean   @default(false)
+  created_at DateTime  @default(now()) @db.Timestamp(6)
+  users      users     @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([user_id, read], map: "idx_notifications_user_read")
+  @@index([user_id, created_at(sort: Desc)], map: "idx_notifications_user_created")
 }
 
 /// OPUS — workspace usage metering (AI gens, campaigns, API calls).

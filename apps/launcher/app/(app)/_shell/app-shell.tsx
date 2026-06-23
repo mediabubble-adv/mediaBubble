@@ -17,6 +17,16 @@ import {
 import { NAV_GROUPS, NAV_FOOTER, isActive, type NavItem } from './nav'
 import { CommandPalette } from './command-palette'
 
+interface Notification {
+  id: string
+  type: string
+  title: string
+  body: string | null
+  href: string | null
+  read: boolean
+  created_at: string
+}
+
 export interface ShellUser {
   name: string
   email: string
@@ -241,13 +251,7 @@ function Topbar({
 
       <div className="hidden flex-1 xl:block" />
 
-      <button
-        type="button"
-        className="relative rounded-lg p-2 text-muted-foreground transition-[color,background-color] hover:bg-secondary hover:text-foreground"
-        aria-label="Notifications"
-      >
-        <Bell size={18} />
-      </button>
+      <NotificationBell />
 
       <UserMenu user={user} />
     </header>
@@ -332,6 +336,137 @@ function UserMenu({ user }: { user: ShellUser }) {
           <LogOut size={15} className="text-muted-foreground" />
           {pending ? 'Signing out…' : 'Sign out'}
         </button>
+      </div>
+    </div>
+  )
+}
+
+function NotificationBell() {
+  const router = useRouter()
+  const [open, setOpen] = useState(false)
+  const [items, setItems] = useState<Notification[]>([])
+  const [unread, setUnread] = useState(0)
+  const [loading, setLoading] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+
+  const load = useCallback(async () => {
+    setLoading(true)
+    try {
+      const res = await fetch('/api/notifications')
+      if (res.ok) {
+        const json = await res.json()
+        setItems(json.data.items)
+        setUnread(json.data.unread_count)
+      }
+    } finally {
+      setLoading(false)
+    }
+  }, [])
+
+  useEffect(() => {
+    load()
+  }, [load])
+
+  useEffect(() => {
+    if (!open) return
+    function onClick(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false)
+    }
+    window.addEventListener('mousedown', onClick)
+    return () => window.removeEventListener('mousedown', onClick)
+  }, [open])
+
+  async function markAllRead() {
+    const res = await fetch('/api/notifications/read-all', { method: 'POST' })
+    if (!res.ok) return
+    setItems((prev) => prev.map((n) => ({ ...n, read: true })))
+    setUnread(0)
+  }
+
+  async function markRead(id: string, href: string | null) {
+    const res = await fetch(`/api/notifications/${id}/read`, { method: 'PATCH' })
+    if (res.ok) {
+      setItems((prev) => prev.map((n) => (n.id === id ? { ...n, read: true } : n)))
+      setUnread((c) => Math.max(0, c - 1))
+    }
+    setOpen(false)
+    if (href) router.push(href)
+  }
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        type="button"
+        onClick={() => {
+          const opening = !open
+          setOpen(opening)
+          if (opening) load()
+        }}
+        className="relative rounded-lg p-2 text-muted-foreground transition-[color,background-color] hover:bg-secondary hover:text-foreground"
+        aria-label="Notifications"
+      >
+        <Bell size={18} />
+        {unread > 0 ? (
+          <span className="absolute right-1.5 top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[9px] font-bold text-primary-foreground">
+            {unread > 9 ? '9+' : unread}
+          </span>
+        ) : null}
+      </button>
+
+      <div
+        className={[
+          'absolute right-0 top-[calc(100%+6px)] w-80 overflow-hidden rounded-xl border border-border bg-card shadow-xl shadow-black/30',
+          'origin-top-right transition-[opacity,transform] duration-150 ease-[var(--ease-out)]',
+          open ? 'pointer-events-auto scale-100 opacity-100' : 'pointer-events-none scale-95 opacity-0',
+        ].join(' ')}
+      >
+        <div className="flex items-center justify-between border-b border-border px-3.5 py-2.5">
+          <span className="text-[13px] font-semibold text-foreground">Notifications</span>
+          {unread > 0 ? (
+            <button
+              type="button"
+              onClick={markAllRead}
+              className="text-[11px] text-primary hover:underline"
+            >
+              Mark all read
+            </button>
+          ) : null}
+        </div>
+
+        <ul className="max-h-80 overflow-y-auto">
+          {loading && items.length === 0 ? (
+            <li className="px-3.5 py-6 text-center text-[12px] text-muted-foreground">Loading…</li>
+          ) : items.length === 0 ? (
+            <li className="px-3.5 py-6 text-center text-[12px] text-muted-foreground">
+              No notifications yet.
+            </li>
+          ) : (
+            items.map((n) => (
+              <li key={n.id}>
+                <button
+                  type="button"
+                  onClick={() => markRead(n.id, n.href)}
+                  className={`flex w-full gap-3 px-3.5 py-3 text-left transition-colors hover:bg-secondary ${!n.read ? 'bg-primary/5' : ''}`}
+                >
+                  {!n.read ? (
+                    <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                  ) : (
+                    <span className="mt-1.5 h-2 w-2 shrink-0" />
+                  )}
+                  <div className="min-w-0">
+                    <p className="truncate text-[12px] font-medium text-foreground">{n.title}</p>
+                    {n.body ? (
+                      <p className="mt-0.5 line-clamp-2 text-[11px] text-muted-foreground">{n.body}</p>
+                    ) : null}
+                    <p className="mt-1 text-[10px] text-muted-foreground">
+                      {new Date(n.created_at).toLocaleDateString()}
+                    </p>
+                  </div>
+                </button>
+              </li>
+            ))
+          )}
+        </ul>
       </div>
     </div>
   )
