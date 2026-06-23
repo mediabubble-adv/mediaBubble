@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Camera, CheckCircle2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -181,8 +181,34 @@ export function ProfileForm({ user }: { user: ProfileUser }) {
   const [avatarUrl, setAvatarUrl] = useState(user.avatar_url ?? '')
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
+  const [uploading, setUploading] = useState(false)
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
-  const isDirty = name !== user.name || (avatarUrl || null) !== user.avatar_url
+  const isDirty = name !== user.name
+
+  async function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0]
+    if (!file) return
+    setUploading(true)
+    try {
+      const fd = new FormData()
+      fd.append('avatar', file)
+      const res = await fetch('/api/profile/avatar', { method: 'POST', body: fd })
+      const json = await res.json()
+      if (!res.ok) {
+        toast('error', json.message ?? 'Upload failed')
+        return
+      }
+      setAvatarUrl(json.data.avatar_url)
+      toast('success', 'Avatar updated')
+    } catch {
+      toast('error', 'Network error — please try again')
+    } finally {
+      setUploading(false)
+      // reset so the same file can be re-selected
+      e.target.value = ''
+    }
+  }
 
   async function handleSave() {
     if (!name.trim()) {
@@ -194,10 +220,7 @@ export function ProfileForm({ user }: { user: ProfileUser }) {
       const res = await fetch('/api/settings/profile', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: name.trim(),
-          avatar_url: avatarUrl.trim() || null,
-        }),
+        body: JSON.stringify({ name: name.trim() }),
       })
       const json = await res.json()
       if (!res.ok) {
@@ -248,21 +271,35 @@ export function ProfileForm({ user }: { user: ProfileUser }) {
           </div>
 
           <div className="space-y-1.5">
-            <Label htmlFor="profile-avatar">Avatar URL</Label>
-            <div className="relative">
-              <Camera
-                size={14}
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
-              />
-              <Input
-                id="profile-avatar"
-                value={avatarUrl}
-                onChange={(e) => setAvatarUrl(e.target.value)}
-                placeholder="https://example.com/avatar.jpg"
-                className="pl-8"
-              />
+            <Label>Avatar</Label>
+            <div className="flex items-center gap-3">
+              <button
+                type="button"
+                onClick={() => fileInputRef.current?.click()}
+                disabled={uploading}
+                className="relative shrink-0 cursor-pointer"
+                aria-label="Upload avatar"
+              >
+                <UserAvatar name={name || user.name} avatarUrl={avatarUrl || null} size="lg" />
+                <span className="absolute inset-0 flex items-center justify-center rounded-full bg-black/40 opacity-0 transition-opacity hover:opacity-100">
+                  {uploading ? (
+                    <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                  ) : (
+                    <Camera size={16} className="text-white" />
+                  )}
+                </span>
+              </button>
+              <p className="text-[12px] text-muted-foreground">
+                Click to upload a photo. JPEG, PNG, WebP or GIF, max 2 MB.
+              </p>
             </div>
-            <p className="text-[11px] text-muted-foreground">Leave blank to use initials.</p>
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/jpeg,image/png,image/webp,image/gif"
+              className="hidden"
+              onChange={handleFileChange}
+            />
           </div>
 
           <div className="space-y-1.5">
