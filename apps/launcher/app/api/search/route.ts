@@ -21,44 +21,49 @@ export async function GET(req: Request): Promise<Response> {
   const { q } = parsed.data
   const filter = { contains: q, mode: 'insensitive' as const }
 
-  const [tasks, clients, invoices] = await Promise.all([
-    prisma.tasks.findMany({
-      where: { deleted_at: null, title: filter },
-      select: { id: true, title: true, status: true, priority: true },
-      take: 5,
-      orderBy: { updated_at: 'desc' },
-    }),
-    prisma.clients.findMany({
-      where: {
-        deleted_at: null,
-        OR: [
-          { name: filter },
-          { primary_contact_name: filter },
-          { primary_contact_email: filter },
-        ],
-      },
-      select: { id: true, name: true, status: true, primary_contact_email: true },
-      take: 5,
-      orderBy: { name: 'asc' },
-    }),
-    prisma.invoices.findMany({
-      where: {
-        deleted_at: null,
-        OR: [
-          { invoice_number: filter },
-          { clients: { name: filter } },
-        ],
-      },
-      select: {
-        id: true,
-        invoice_number: true,
-        status: true,
-        clients: { select: { name: true } },
-      },
-      take: 5,
-      orderBy: { created_at: 'desc' },
-    }),
-  ])
+  let tasks, clients, invoices
+  try {
+    ;[tasks, clients, invoices] = await Promise.all([
+      prisma.tasks.findMany({
+        where: { deleted_at: null, title: filter },
+        select: { id: true, title: true, status: true, priority: true },
+        take: 5,
+        orderBy: { updated_at: 'desc' },
+      }),
+      prisma.clients.findMany({
+        where: {
+          deleted_at: null,
+          OR: [
+            { name: filter },
+            { primary_contact_name: filter },
+            { primary_contact_email: filter },
+          ],
+        },
+        select: { id: true, name: true, status: true, primary_contact_email: true },
+        take: 5,
+        orderBy: { name: 'asc' },
+      }),
+      prisma.invoices.findMany({
+        where: {
+          deleted_at: null,
+          OR: [
+            { invoice_number: filter },
+            { clients: { name: filter } },
+          ],
+        },
+        select: {
+          id: true,
+          invoice_number: true,
+          status: true,
+          clients: { select: { name: true } },
+        },
+        take: 5,
+        orderBy: { created_at: 'desc' },
+      }),
+    ])
+  } catch {
+    return toResponse(fail('internal_error', 'Search failed', 500))
+  }
 
   return toResponse(ok({
     tasks: tasks.map((t) => ({
@@ -77,8 +82,8 @@ export async function GET(req: Request): Promise<Response> {
     })),
     invoices: invoices.map((i) => ({
       id: i.id,
-      label: i.invoice_number,
-      meta: `${i.clients.name} · ${i.status ?? 'Draft'}`,
+      label: i.invoice_number ?? '',
+      meta: `${i.clients?.name ?? 'Unknown'} · ${i.status ?? 'Draft'}`,
       href: `/crm`,
       type: 'invoice' as const,
     })),
