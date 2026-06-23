@@ -1,0 +1,19 @@
+AGENTS.md
+  s_263921696b4e70::t_192bd1aebbdd49 11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "22a8af587eb7456523fdd6e1993385a56db2432c",
+  "prompts": {},
+  "sessions": {
+    "s_263921696b4e70": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d5628b52-7cb9-4970-a37f-851b1de6c195",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
