@@ -10,13 +10,16 @@ export async function GET(req: Request): Promise<Response> {
   const me = getCurrentUser(req)
   if (!me) return toResponse(fail('unauthorized', 'Authentication required', 401))
 
-  const rows = await prisma.notifications.findMany({
-    where: { user_id: me.id },
-    orderBy: { created_at: 'desc' },
-    take: 30,
-  })
-
-  const unread_count = rows.filter((r) => !r.read).length
+  const [rows, unread_count] = await Promise.all([
+    prisma.notifications.findMany({
+      where: { user_id: me.id },
+      orderBy: { created_at: 'desc' },
+      take: 30,
+    }),
+    prisma.notifications.count({
+      where: { user_id: me.id, read: false },
+    }),
+  ])
 
   return toResponse(ok({ items: rows.map(serializeNotification), unread_count }, 'Notifications retrieved'))
 }
