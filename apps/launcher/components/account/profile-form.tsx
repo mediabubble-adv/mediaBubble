@@ -39,6 +39,9 @@ function sanitizeAvatarUrl(url: string | null): string | null {
   const trimmed = url.trim()
   if (!trimmed) return null
 
+  // Allow server-relative paths (e.g. uploaded avatars at /uploads/avatars/…)
+  if (trimmed.startsWith('/')) return trimmed
+
   try {
     const parsed = new URL(trimmed)
     if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
