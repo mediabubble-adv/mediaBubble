@@ -1,0 +1,19 @@
+apps/launcher/components/account/profile-form.tsx
+  s_2e1260c48b9f91::t_64da380de8c20f 42-44
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.10",
+  "base_commit_sha": "68ae3ca92f6a8e9c73b97e93e52e98760749c3c0",
+  "prompts": {},
+  "sessions": {
+    "s_2e1260c48b9f91": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "263123c1-0c9c-4a3c-8302-284b92e0919f",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
