@@ -78,6 +78,103 @@ export function UserAvatar({
   )
 }
 
+export function PasswordForm() {
+  const { toast } = useToast()
+  const [currentPassword, setCurrentPassword] = useState('')
+  const [newPassword, setNewPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    if (newPassword.length < 8) {
+      toast('error', 'New password must be at least 8 characters')
+      return
+    }
+    if (newPassword !== confirmPassword) {
+      toast('error', 'New passwords do not match')
+      return
+    }
+    setIsLoading(true)
+    try {
+      const res = await fetch('/api/settings/password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ current_password: currentPassword, new_password: newPassword }),
+      })
+      const json = await res.json()
+      if (!res.ok) {
+        toast('error', json.message ?? 'Failed to update password')
+        return
+      }
+      setCurrentPassword('')
+      setNewPassword('')
+      setConfirmPassword('')
+      toast('success', 'Password updated')
+    } catch {
+      toast('error', 'Network error — please try again')
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-[14px]">Change password</CardTitle>
+        <CardDescription>Update your account password.</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="space-y-1.5">
+            <Label htmlFor="current-password">Current password</Label>
+            <Input
+              id="current-password"
+              type="password"
+              value={currentPassword}
+              onChange={(e) => setCurrentPassword(e.target.value)}
+              placeholder="Enter current password"
+              required
+            />
+          </div>
+
+          <Separator />
+
+          <div className="space-y-1.5">
+            <Label htmlFor="new-password">New password</Label>
+            <Input
+              id="new-password"
+              type="password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              placeholder="At least 8 characters"
+              required
+            />
+          </div>
+
+          <div className="space-y-1.5">
+            <Label htmlFor="confirm-password">Confirm new password</Label>
+            <Input
+              id="confirm-password"
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder="Re-enter new password"
+              required
+            />
+          </div>
+
+          <div className="pt-1">
+            <Button type="submit" isLoading={isLoading} disabled={isLoading}>
+              Update password
+            </Button>
+          </div>
+        </form>
+      </CardContent>
+    </Card>
+  )
+}
+
 export function ProfileForm({ user }: { user: ProfileUser }) {
   const { toast } = useToast()
   const [name, setName] = useState(user.name)
