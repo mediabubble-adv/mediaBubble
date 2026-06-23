@@ -1,0 +1,24 @@
+apps/launcher/app/(app)/dashboard-activity-feed.tsx
+  s_c7cf8398874f71::t_f8eb7cc3cedf3d 1-98,101,106-137
+  s_c7cf8398874f71::t_70273e06e05d4f 99-100,102-105
+apps/launcher/app/(app)/page.tsx
+  s_c7cf8398874f71::t_6ec078da29235a 16-17,24-25,62-67,70-188,195,199-228,232-235,238-289
+apps/launcher/app/(app)/dashboard-my-tasks.tsx
+  s_c7cf8398874f71::t_60eb448013ae10 1-137
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "768e66357984136608f346c45e18bbfb9e56dbd8",
+  "prompts": {},
+  "sessions": {
+    "s_c7cf8398874f71": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "87f08f37-ed1b-4394-a833-b0077764ab2f",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
