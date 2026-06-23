@@ -1,0 +1,19 @@
+apps/launcher/app/api/notifications/route.ts
+  s_2e1260c48b9f91::t_f8a1ef1394bde7 13-22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.10",
+  "base_commit_sha": "d424c3fc0a227d3984a31c506d42c9a3db5918b9",
+  "prompts": {},
+  "sessions": {
+    "s_2e1260c48b9f91": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "263123c1-0c9c-4a3c-8302-284b92e0919f",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
