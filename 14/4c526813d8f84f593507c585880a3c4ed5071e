@@ -1,0 +1,22 @@
+apps/launcher/app/(app)/profile/profile-view.tsx
+  s_2e1260c48b9f91::t_582bb6a0f52136 34-35
+  s_2e1260c48b9f91::t_2f9c06ea6d6cf6 8
+apps/launcher/components/account/profile-form.tsx
+  s_2e1260c48b9f91::t_f400ebb491e27a 81-174
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.10",
+  "base_commit_sha": "144c526813d8f84f593507c585880a3c4ed5071e",
+  "prompts": {},
+  "sessions": {
+    "s_2e1260c48b9f91": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "263123c1-0c9c-4a3c-8302-284b92e0919f",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
