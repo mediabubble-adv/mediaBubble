@@ -1,0 +1,20 @@
+apps/launcher/app/api/search/route.ts
+  s_2e1260c48b9f91::t_db73dc0ee97c6f 24-66
+  s_2e1260c48b9f91::t_2a883008d0bb0a 85-86
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.10",
+  "base_commit_sha": "6777231b215b16ebd562eb6760720fe9d7086bdb",
+  "prompts": {},
+  "sessions": {
+    "s_2e1260c48b9f91": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "263123c1-0c9c-4a3c-8302-284b92e0919f",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
