@@ -224,7 +224,7 @@ export function LeaderboardDashboard({
                 </div>
                 <div className="h-2.5 w-full rounded-full bg-background overflow-hidden">
                   <div
-                    className="h-full rounded-full bg-primary transition-[transform,background-color,color,border-color,opacity] duration-500 ease-out"
+                    className="h-full rounded-full bg-primary transition-[width] duration-700 ease-[var(--ease-out)]"
                     style={{ width: `${xpMetrics.progressPercent}%` }}
                   />
                 </div>

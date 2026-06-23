@@ -17,7 +17,10 @@ function UtilBar({ percent }: { percent: number }) {
   const width = Math.min(percent, 120)
   return (
     <div className="h-2 w-full overflow-hidden rounded-full bg-border/60">
-      <div className={`h-full rounded-full ${TONE_CLASS[tone]}`} style={{ width: `${width}%` }} />
+      <div
+        className={`h-full rounded-full transition-[width] duration-500 ease-[var(--ease-out)] ${TONE_CLASS[tone]}`}
+        style={{ width: `${width}%` }}
+      />
     </div>
   )
 }
