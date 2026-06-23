@@ -1,0 +1,29 @@
+apps/launcher/app/(app)/loading.tsx
+  s_c7cf8398874f71::t_66c1032fec1b0f 1-76
+apps/launcher/app/(app)/tasks/loading.tsx
+  s_c7cf8398874f71::t_afbf629d1bf3ba 1-28
+apps/launcher/components/ui/skeleton.tsx
+  s_c7cf8398874f71::t_2d285d6b68f99a 4-5,15-17,31-33,36-107,112-146
+apps/launcher/app/(app)/finance/loading.tsx
+  s_c7cf8398874f71::t_43897fc57f8f8b 1-55
+apps/launcher/app/(app)/crm/loading.tsx
+  s_c7cf8398874f71::t_81a2fae174665a 1-44
+apps/launcher/components/ui/index.ts
+  s_c7cf8398874f71::t_9de686326f7260 4-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "dae8b63ef284d94f91218e673c3f74204e730fa8",
+  "prompts": {},
+  "sessions": {
+    "s_c7cf8398874f71": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "87f08f37-ed1b-4394-a833-b0077764ab2f",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
