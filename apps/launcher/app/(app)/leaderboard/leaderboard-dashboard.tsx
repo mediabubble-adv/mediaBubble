@@ -80,10 +80,10 @@ export function LeaderboardDashboard({
     const levelXp = currentUser.xp - currentThreshold
     const levelRange = nextThreshold - currentThreshold
     const progressPercent = Math.min(100, Math.max(0, (levelXp / levelRange) * 100))
-    const needed = nextThreshold - currentUser.xp
+    const needed = Math.max(0, nextThreshold - currentUser.xp)
 
     return {
-      currentLevelXp: levelXp,
+      currentLevelXp: Math.min(levelXp, levelRange),
       nextLevelXp: levelRange,
       progressPercent,
       needed,
@@ -219,12 +219,14 @@ export function LeaderboardDashboard({
                 <div className="flex justify-between text-[11px] font-bold text-muted-foreground">
                   <span>LEVEL {currentUser.level}</span>
                   <span className="tabular-nums">
-                    {xpMetrics.currentLevelXp} / {xpMetrics.nextLevelXp} XP ({xpMetrics.needed} needed for Level {currentUser.level + 1})
+                    {xpMetrics.needed > 0
+                      ? `${xpMetrics.currentLevelXp} / ${xpMetrics.nextLevelXp} XP · ${xpMetrics.needed} to Level ${currentUser.level + 1}`
+                      : 'Ready to level up'}
                   </span>
                 </div>
                 <div className="h-2.5 w-full rounded-full bg-background overflow-hidden">
                   <div
-                    className="h-full rounded-full bg-primary transition-[transform,background-color,color,border-color,opacity] duration-500 ease-out"
+                    className="h-full rounded-full bg-primary transition-[width] duration-700 ease-[var(--ease-out)]"
                     style={{ width: `${xpMetrics.progressPercent}%` }}
                   />
                 </div>
@@ -232,12 +234,10 @@ export function LeaderboardDashboard({
             </div>
 
             {/* Hot Streak Flame Card */}
-            <div className="rounded-2xl border border-border bg-card p-5 flex flex-col items-center justify-center text-center relative overflow-hidden group">
-              {/* Glow background */}
-              <div className="absolute -inset-10 bg-[#CA8A04]/5 rounded-full blur-xl group-hover:bg-[#CA8A04]/10 transition-[transform,background-color,color,border-color,opacity] duration-200 ease-[var(--ease-out)]" />
+            <div className="rounded-2xl border border-border bg-card p-5 flex flex-col items-center justify-center text-center relative overflow-hidden">
               <div className="relative">
-                <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-[#CA8A04]/10 text-[#CA8A04] animate-pulse">
-                  <Flame size={36} className="fill-[#CA8A04] text-[#CA8A04] drop-shadow-[0_0_8px_rgba(245,158,11,0.5)]" />
+                <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-[#CA8A04]/10 text-[#CA8A04]">
+                  <Flame size={36} className="fill-[#CA8A04] text-[#CA8A04]" />
                 </div>
                 <p className="mt-3 text-3xl font-black text-foreground tabular-nums">
                   {currentUser.streak}
@@ -265,7 +265,7 @@ export function LeaderboardDashboard({
                     <div className="flex h-11 w-11 items-center justify-center rounded-full bg-border text-[12px] font-bold text-foreground border border-border">
                       {initials(podium[0].name)}
                     </div>
-                    <span className="absolute -top-3 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-slate-400 text-[10px] font-extrabold text-white shadow shadow-black/30">
+                    <span className="absolute -top-3 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-slate-400 text-[10px] font-extrabold text-white">
                       2
                     </span>
                   </div>
@@ -280,8 +280,8 @@ export function LeaderboardDashboard({
               ) : (
                 <div className="h-10 w-10 rounded-full border border-dashed border-border" />
               )}
-              <div className="mt-3 w-full bg-gradient-to-t from-border/20 to-border/40 border border-border rounded-t-xl h-24 flex items-center justify-center">
-                <span className="text-xl font-black text-muted-foreground/50">2nd</span>
+              <div className="mt-3 w-full bg-secondary border border-border rounded-t-xl h-24 flex items-center justify-center">
+                <span className="text-xl font-black text-muted-foreground/70">2nd</span>
               </div>
             </div>
 
@@ -290,10 +290,10 @@ export function LeaderboardDashboard({
               {podium[1] ? (
                 <>
                   <div className="relative mb-2">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/15 text-[14px] font-black text-primary border-2 border-primary shadow-[0_0_12px_rgba(59,130,246,0.3)]">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/15 text-[14px] font-black text-primary border-2 border-primary">
                       {initials(podium[1].name)}
                     </div>
-                    <span className="absolute -top-3 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-[11px] font-extrabold text-white shadow shadow-black/30 animate-bounce">
+                    <span className="absolute -top-3 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-[11px] font-extrabold text-white">
                       1
                     </span>
                   </div>
@@ -306,7 +306,7 @@ export function LeaderboardDashboard({
               ) : (
                 <div className="h-10 w-10 rounded-full border border-dashed border-border" />
               )}
-              <div className="mt-3 w-full bg-gradient-to-t from-primary/10 to-primary/20 border border-primary/30 rounded-t-xl h-32 flex items-center justify-center">
+              <div className="mt-3 w-full bg-primary/10 border border-primary/30 rounded-t-xl h-32 flex items-center justify-center">
                 <span className="text-2xl font-black text-primary/70">1st</span>
               </div>
             </div>
@@ -319,7 +319,7 @@ export function LeaderboardDashboard({
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-border text-[11px] font-bold text-foreground border border-border">
                       {initials(podium[2].name)}
                     </div>
-                    <span className="absolute -top-2 -right-1 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-amber-700 text-[9px] font-extrabold text-white shadow shadow-black/30">
+                    <span className="absolute -top-2 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-amber-700 text-[9px] font-extrabold text-white">
                       3
                     </span>
                   </div>
@@ -334,8 +334,8 @@ export function LeaderboardDashboard({
               ) : (
                 <div className="h-10 w-10 rounded-full border border-dashed border-border" />
               )}
-              <div className="mt-3 w-full bg-gradient-to-t from-border/10 to-border/30 border border-border rounded-t-xl h-18 flex items-center justify-center">
-                <span className="text-lg font-black text-muted-foreground/40">3rd</span>
+              <div className="mt-3 w-full bg-secondary/60 border border-border rounded-t-xl h-16 flex items-center justify-center">
+                <span className="text-lg font-black text-muted-foreground/60">3rd</span>
               </div>
             </div>
           </div>
@@ -358,6 +358,13 @@ export function LeaderboardDashboard({
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-border">
+                  {rankedUsers.length === 0 && (
+                    <tr>
+                      <td colSpan={5} className="py-10 text-center text-muted-foreground">
+                        No teammates here yet. Complete a task to earn your first XP.
+                      </td>
+                    </tr>
+                  )}
                   {rankedUsers.map((u, idx) => {
                     const isMe = u.id === currentUserId
                     const rank = idx + 1
@@ -429,7 +436,7 @@ export function LeaderboardDashboard({
                     key={a.id}
                     className={`relative rounded-xl border p-3 flex gap-3 transition-[transform,background-color,color,border-color,opacity] duration-200 ease-[var(--ease-out)] overflow-hidden ${
                       a.condition
-                        ? 'border-primary/30 bg-primary/5 shadow-[0_0_8px_rgba(59,130,246,0.1)]'
+                        ? 'border-primary/30 bg-primary/5'
                         : 'border-border bg-background/40 opacity-60'
                     }`}
                   >

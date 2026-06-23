@@ -17,7 +17,7 @@ function Meter({ label, used, quota, pct }: { label: string; used: number; quota
         </p>
         <div className="mt-3 h-2 overflow-hidden rounded-full bg-muted">
           <div
-            className="h-full rounded-full bg-primary transition-all"
+            className="h-full rounded-full bg-primary transition-[width] duration-500 ease-[var(--ease-out)]"
             style={{ width: `${Math.min(100, pct)}%` }}
           />
         </div>

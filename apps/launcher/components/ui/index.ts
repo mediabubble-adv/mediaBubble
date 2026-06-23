@@ -1,7 +1,11 @@
 // shadcn/ui primitives — themed to Obsidian Creative Studio brand
 export { Button, buttonVariants, type ButtonProps } from './button'
 export { Badge, badgeVariants, type BadgeProps } from './badge'
-export { Skeleton, SkeletonText, SkeletonCard } from './skeleton'
+export {
+  Skeleton, SkeletonText, SkeletonCard,
+  SkeletonStatCard, SkeletonListRow, SkeletonTaskRow,
+  SkeletonActivityItem, SkeletonKanbanColumn,
+} from './skeleton'
 export { Input } from './input'
 export { Textarea } from './textarea'
 export { Label } from './label'
