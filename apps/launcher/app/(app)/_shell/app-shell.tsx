@@ -377,15 +377,18 @@ function NotificationBell() {
   }, [open])
 
   async function markAllRead() {
-    await fetch('/api/notifications/read-all', { method: 'POST' })
+    const res = await fetch('/api/notifications/read-all', { method: 'POST' })
+    if (!res.ok) return
     setItems((prev) => prev.map((n) => ({ ...n, read: true })))
     setUnread(0)
   }
 
   async function markRead(id: string, href: string | null) {
-    await fetch(`/api/notifications/${id}/read`, { method: 'PATCH' })
-    setItems((prev) => prev.map((n) => (n.id === id ? { ...n, read: true } : n)))
-    setUnread((c) => Math.max(0, c - 1))
+    const res = await fetch(`/api/notifications/${id}/read`, { method: 'PATCH' })
+    if (res.ok) {
+      setItems((prev) => prev.map((n) => (n.id === id ? { ...n, read: true } : n)))
+      setUnread((c) => Math.max(0, c - 1))
+    }
     setOpen(false)
     if (href) router.push(href)
   }
@@ -395,8 +398,9 @@ function NotificationBell() {
       <button
         type="button"
         onClick={() => {
-          setOpen((o) => !o)
-          if (!open) load()
+          const opening = !open
+          setOpen(opening)
+          if (opening) load()
         }}
         className="relative rounded-lg p-2 text-muted-foreground transition-[color,background-color] hover:bg-secondary hover:text-foreground"
         aria-label="Notifications"
