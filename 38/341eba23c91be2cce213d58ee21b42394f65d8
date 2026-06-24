@@ -1,0 +1,19 @@
+docs/superpowers/specs/2026-06-23-task-manager-v2-design.md
+  s_e7f74162534b2f::t_bc99bbe33abc25 141-146,154
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.10",
+  "base_commit_sha": "38341eba23c91be2cce213d58ee21b42394f65d8",
+  "prompts": {},
+  "sessions": {
+    "s_e7f74162534b2f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "57d80d4d-b9c7-43b1-b3ba-1a92e027c6d0",
+        "model": "default"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
