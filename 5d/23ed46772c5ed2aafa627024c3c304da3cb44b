@@ -1,0 +1,501 @@
+apps/launcher/lib/gamification/user-stats.test.ts
+  s_e7f74162534b2f::t_5faa18e63558df 1-18
+apps/launcher/app/api/settings/profile/route.ts
+  s_f75048b3e8be81::t_e3a7a58247b9d0 1,7,18,21-22,29-33,36
+apps/launcher/lib/meet/dm.ts
+  s_e7f74162534b2f::t_ee6c2243f0298e 1-11
+apps/launcher/lib/dashboard/tasks.ts
+  s_e7f74162534b2f::t_3b2ce094ce786c 1-131
+apps/launcher/lib/presence/online.ts
+  s_f75048b3e8be81::t_0b2a6be9daf1c6 2,11-12,14-17,26-28,30-64,66-67,72-73,78-79,83-99,101-110,118-119,148-149
+  s_f75048b3e8be81::t_093dd1865b7a71 1,3-9,29,65,68-71,74-77,80-82,100,111-117,120-147,150-151
+  s_f75048b3e8be81::t_6bae34684c5a85 10,13,18-25
+apps/launcher/components/tasks/task-form.tsx
+  s_e7f74162534b2f::t_311156133e5613 3
+  s_e7f74162534b2f::t_7e5f3b59b7a579 58-59,63-85
+  s_e7f74162534b2f::t_4198e03202c6fd 26-33
+  s_e7f74162534b2f::t_cafc9274c6b688 105
+  s_e7f74162534b2f::t_77fa574e4f6857 128-129,142-143
+  s_e7f74162534b2f::t_c8e0c90b29168b 24
+  s_e7f74162534b2f::t_8bb1d0aa7661e2 101
+  s_e7f74162534b2f::t_103d3eca164412 140-141
+  s_e7f74162534b2f::t_933c2de68a0e4c 137
+  s_e7f74162534b2f::t_f8c4a9ea3d7bf9 38,43
+  s_e7f74162534b2f::t_0b06e691823dc1 191-222
+  s_e7f74162534b2f::t_81067b9e527b1f 54
+  s_e7f74162534b2f::t_5813c4e9b47b73 109
+  s_e7f74162534b2f::t_de24d5a50bb806 276-304,306-307
+  s_e7f74162534b2f::t_276a7548347735 223-240
+  s_e7f74162534b2f::t_c622356c47297a 51-53
+  s_e7f74162534b2f::t_b10a7b0bbfeef0 25
+  s_e7f74162534b2f::t_a5c47d1ef88b1f 86
+apps/launcher/lib/tasks/reactions.ts
+  s_e7f74162534b2f::t_0ec25fa822db24 1-77
+apps/launcher/lib/tasks/notifications.ts
+  s_e7f74162534b2f::t_14d7535a32397f 1-84
+  s_e7f74162534b2f::t_02541c42c78d3a 85-103,105-108
+  s_96d763536fcdb2::t_380447d3e95a7d 104
+apps/launcher/lib/meet/constants.ts
+  s_e7f74162534b2f::t_f6b161b8f7af65 1-5
+  s_f75048b3e8be81::t_9a02fb6142d60f 6-9
+apps/launcher/lib/dashboard/module-icons.tsx
+  s_e7f74162534b2f::t_f1a15887da1725 1-33
+apps/launcher/README.md
+  s_e7f74162534b2f::t_1f90b1a29a7969 5
+  s_f75048b3e8be81::t_0acd2651a4634e 118-120
+  s_e7f74162534b2f::t_7840b3cb63af7d 89
+  s_e7f74162534b2f::t_0ec8691f8ee090 31
+  s_f75048b3e8be81::t_c4071ae262dea9 91
+  s_f75048b3e8be81::t_df1f6d47445ce4 92-93
+apps/launcher/components/tasks/task-workspace.tsx
+  s_e7f74162534b2f::t_f4ea54716d4db8 1-34,37-44,46-62,70-76,78-123,127-128,134-145,154-204,206-214,255-300,353-355,357,359-361,363-371,374,379-381,383-385,391-393,396-400,406,421-439,446-508,564-625,644-646,648-651,653-659,673-711,715-748,761-763,784-811,838-845,868-917
+  s_e7f74162534b2f::t_48fc38c80d9ce2 124-126
+  s_e7f74162534b2f::t_6c71c8d6af3ee2 626-643,647,652,660-672
+  s_e7f74162534b2f::t_3b3ede65eab890 64-69
+  s_e7f74162534b2f::t_c58c6b61ec610b 63,77
+  s_e7f74162534b2f::t_d1a4367a572170 440-445
+  s_e7f74162534b2f::t_5ff3f5b3e60a58 301-352,356,358,362,372-373,375-378,382,386-390,394-395,401-405,407-420
+  s_e7f74162534b2f::t_489f5cfcf24848 35-36
+  s_e7f74162534b2f::t_017eddabdafafa 45
+  s_e7f74162534b2f::t_d348312ce5210b 509-563
+  s_e7f74162534b2f::t_e2fc7600c028da 712-714
+  s_e7f74162534b2f::t_c13996dba4fdd1 749-760
+  s_e7f74162534b2f::t_fdf17628ecf2d3 812-837,846-867
+  s_96d763536fcdb2::t_c16b284e279e26 205
+  s_e7f74162534b2f::t_ba5f8edbd7df42 146-153
+  s_e7f74162534b2f::t_9ceb3934175956 215-254
+  s_e7f74162534b2f::t_77345c98a68d80 764-783
+  s_e7f74162534b2f::t_a5d15e4ee99490 129-133
+apps/launcher/lib/profile/teammate.ts
+  s_f75048b3e8be81::t_fd878e8f37952b 1-75
+apps/launcher/lib/tasks/templates.test.ts
+  s_e7f74162534b2f::t_105f4bd5d6856d 1-31
+apps/launcher/app/api/tasks/route.ts
+  s_e7f74162534b2f::t_0d3e2203693e88 54-68,70,74-84
+  s_e7f74162534b2f::t_cbac4d1821ece0 1,9,38-45,99,107-139,141-146,157-180,183-184
+  s_e7f74162534b2f::t_cbddcbeccd33ee 185-191,194-202
+  s_e7f74162534b2f::t_d314f864b8d5e1 140,147-156
+  s_e7f74162534b2f::t_444457e6761b2a 98,100
+  s_e7f74162534b2f::t_13e2d8191c59fa 7-8,19-37,72,101-104,106,181-182,192-193
+  s_e7f74162534b2f::t_0f8098c0059fef 10-14
+apps/launcher/components/layout/page-frame.tsx
+  s_e7f74162534b2f::t_bd1410785a968b 50-51
+  s_e7f74162534b2f::t_5e71c52c1d337c 81
+apps/launcher/components/ui/button.tsx
+  s_e7f74162534b2f::t_0c70e5e01efb51 31
+  s_e7f74162534b2f::t_b79fd3146deb48 21
+apps/launcher/components/presence/presence-status-picker.tsx
+  s_f75048b3e8be81::t_13372d29a83230 1-169
+apps/launcher/lib/tasks/progress.test.ts
+  s_e7f74162534b2f::t_3ce920a6b17fdd 1-28
+apps/launcher/lib/tasks/schemas.ts
+  s_e7f74162534b2f::t_70281713e0756e 67
+  s_e7f74162534b2f::t_669f220d8d53ff 39
+  s_e7f74162534b2f::t_7f78cf4e0f019b 75
+  s_e7f74162534b2f::t_f65b650a25bdbd 34,40-49,69,84,91
+  s_e7f74162534b2f::t_0b1e6f46599781 64-66
+  s_e7f74162534b2f::t_e4c906b58cf733 68
+  s_e7f74162534b2f::t_27fc13fd046b87 70-74
+  s_e7f74162534b2f::t_40727db1fdb203 76-78,81-83
+  s_e7f74162534b2f::t_9925c5eed52026 85-90
+  s_e7f74162534b2f::t_fc9a72d100d9d3 92
+docs/plans/2026-06-25-profile-settings-meet.md
+  s_e7f74162534b2f::t_6b3c3894fcc46b 1-195
+apps/launcher/app/api/tasks/[id]/route.ts
+  s_e7f74162534b2f::t_7cf577ab831633 151-158
+  s_e7f74162534b2f::t_9bb2c73c31263b 25-28,37-40,44-63
+  s_e7f74162534b2f::t_bb7c49cad759ad 134-137,147
+  s_e7f74162534b2f::t_f34effc2206709 16
+  s_e7f74162534b2f::t_e1e128177be4b4 101-130,142-146,148,166,171-181,185
+  s_e7f74162534b2f::t_66a984c4d1eef6 7-8,23-24,29-36,41-43,64-65,71-74,94-99,132-133,138-141,149-150,164-165,167-170,182-184
+  s_e7f74162534b2f::t_c43aa7ada00aa7 76
+  s_e7f74162534b2f::t_dd1c402e845275 10-15
+  s_e7f74162534b2f::t_f4c67f0e54f7ed 159-163
+  s_e7f74162534b2f::t_db2bf8e279bc11 100
+apps/launcher/lib/dashboard/assignments.ts
+  s_e7f74162534b2f::t_4e07aca0a85988 1-92
+apps/launcher/app/(app)/tasks/page.tsx
+  s_e7f74162534b2f::t_aa09b124281178 32-35,48
+  s_e7f74162534b2f::t_b545a4e8a59d17 60-67
+  s_e7f74162534b2f::t_c472611c66c7fb 3,13
+  s_e7f74162534b2f::t_4d11a30e7a2fb7 2,6
+  s_e7f74162534b2f::t_ef4fc606eeac4f 77-84
+  s_e7f74162534b2f::t_f0adb045f37276 5,7,15,26-31,39-47,49-56,68-70,74,76,85
+apps/launcher/lib/presence/constants.ts
+  s_f75048b3e8be81::t_a58142750c7417 1,3-22
+  s_f75048b3e8be81::t_d50181fd1e44e3 2
+apps/launcher/lib/tasks/mentions.ts
+  s_e7f74162534b2f::t_6b2f370c59d079 1-6
+apps/launcher/components/tasks/task-card.tsx
+  s_e7f74162534b2f::t_d76da3c234669f 140-142
+  s_e7f74162534b2f::t_862535811c09b7 33-52
+  s_e7f74162534b2f::t_bca0fd6c6d3b3b 104-120
+  s_e7f74162534b2f::t_be03f22b02c639 6
+  s_e7f74162534b2f::t_3ad9777660369c 75-79
+  s_e7f74162534b2f::t_61d7b13691e2ec 24-25
+  s_e7f74162534b2f::t_56d3decd2baa73 81
+  s_e7f74162534b2f::t_d4cfdbc6815e31 145-149,151
+  s_e7f74162534b2f::t_f0b0bd422c576d 143
+apps/launcher/app/api/tasks/assigned-to-me/route.ts
+  s_e7f74162534b2f::t_a59c7ba4f136ad 15-21
+apps/launcher/lib/tasks/parent.ts
+  s_e7f74162534b2f::t_8ebdf4e2c1cf2c 1-16
+apps/launcher/lib/tasks/uploads.ts
+  s_96d763536fcdb2::t_e01f31f155f4b5 57
+  s_96d763536fcdb2::t_7cecbca8a88d1a 36-37
+  s_e7f74162534b2f::t_a9e9ff231c7cac 1-35,38-56,58-97
+apps/launcher/app/api/comms/channels/route.ts
+  s_e7f74162534b2f::t_26fde236590be8 8,74-76
+apps/launcher/lib/comms/messages.ts
+  s_e7f74162534b2f::t_2c6200383f59a5 1,3,6-15,23-24,33-37,46-47,56-61,63
+  s_e7f74162534b2f::t_e0b01c5dea5a00 62
+apps/launcher/components/settings/settings-shell.tsx
+  s_f75048b3e8be81::t_f7f36622253fe4 1-119
+apps/launcher/prisma/migrations/20260625120000_user_profile_social/migration.sql
+  s_f75048b3e8be81::t_b2f93851511451 1-6
+apps/launcher/app/api/tasks/templates/route.ts
+  s_e7f74162534b2f::t_7a840604310530 2,5,8-33,72
+  s_e7f74162534b2f::t_f5c33a44941d43 1,3-4,6-7,34-71
+apps/launcher/lib/comms/channels.ts
+  s_e7f74162534b2f::t_5094b7cd1b9c92 10,24
+apps/launcher/components/tasks/types.ts
+  s_e7f74162534b2f::t_6a74a94db77c25 6-11,19,31
+  s_e7f74162534b2f::t_e57e8315cda22e 1-5,22-25
+apps/launcher/lib/comms/access.ts
+  s_e7f74162534b2f::t_90993d8ea5e9ad 1,6,15,17,23-24,29-33,40-45
+apps/launcher/components/ui/card.tsx
+  s_e7f74162534b2f::t_23a6d993cf7dc7 12-13
+apps/launcher/components/presence/presence-heartbeat.tsx
+  s_f75048b3e8be81::t_f309569e0e392e 1-45
+apps/launcher/components/tasks/user-avatar-stack.tsx
+  s_e7f74162534b2f::t_3e9850ff2c738a 6-34,51
+  s_e7f74162534b2f::t_f964ded630a8a6 1-5,35-50,52-65
+apps/launcher/app/api/dashboard/notes/[id]/route.ts
+  s_e7f74162534b2f::t_9077b09e333c69 1-27
+apps/launcher/app/(app)/settings/settings-dashboard.tsx
+  s_96d763536fcdb2::t_40c7e909c04fe2 119,121-132,134-148,150-164,166-175,202-206,461,498
+  s_f75048b3e8be81::t_7f5538cbd9c967 466,472-473,500-504,506-509
+  s_96d763536fcdb2::t_0b8c4606278bc0 183
+  s_96d763536fcdb2::t_9cbec97f01d65f 3-13,28-29,70,113-118,120,176,180,195-201,207-215,218-223,230-237,239-243,269,307-310,312,369-372,374,424-426,429,431-432,435,437-446,448-460,463-465,467-471,474,477-494,496-497,499,505,510-517
+apps/launcher/lib/dashboard/mentions.ts
+  s_e7f74162534b2f::t_59dcfbbb3eb97e 1-32,40,42-46,48-50,52-55,57-58,60-63,65
+  s_e7f74162534b2f::t_311c1ce55f7ce4 33-39,41,47,51,56,59,64
+apps/launcher/lib/tasks/progress.ts
+  s_e7f74162534b2f::t_94d3b7047d008a 1-17
+apps/launcher/app/api/dashboard/tools/route.ts
+  s_e7f74162534b2f::t_194d2b196a322e 1-35
+apps/launcher/components/ui/textarea.tsx
+  s_e7f74162534b2f::t_ba1317281c51fe 12-16
+apps/launcher/app/(app)/profile/teammate-profile-view.tsx
+  s_f75048b3e8be81::t_74b556572b3c30 1-124
+apps/launcher/app/api/tasks/[id]/subtasks/[subId]/route.ts
+  s_e7f74162534b2f::t_76e39950b81f42 35-61,77-78,87-95,99
+  s_e7f74162534b2f::t_a8342b6eb381e1 11
+  s_e7f74162534b2f::t_0de16a388bdfb9 1-8,12-34,62-64,73-76,96-98,100
+  s_e7f74162534b2f::t_dfde298145b1da 9-10
+  s_e7f74162534b2f::t_4322b7ae0aec5a 65-72,79-86
+apps/launcher/lib/presence/schemas.test.ts
+  s_f75048b3e8be81::t_cc498d00751b8e 1-38
+apps/launcher/app/api/tasks/[id]/assignees/route.ts
+  s_e7f74162534b2f::t_662796a6a088d7 1-68
+apps/launcher/lib/meet/feed-bridge.ts
+  s_e7f74162534b2f::t_8018c23055343a 66
+  s_e7f74162534b2f::t_955dda86094d42 96-176
+  s_96d763536fcdb2::t_ced5b228177afd 21,24,26
+  s_e7f74162534b2f::t_08c67dd5f06575 1-20,22-23,25,27-64,68-95
+  s_96d763536fcdb2::t_5e5604e6b82265 65,67
+apps/launcher/lib/comms/realtime/events.test.ts
+  s_e7f74162534b2f::t_759e6f33b075ac 17-18
+  s_e7f74162534b2f::t_4ac8d4df243c8d 48
+apps/launcher/app/(auth)/parts.tsx
+  s_e7f74162534b2f::t_eb4e3d1ead1e3b 6-11,21-27
+  s_e7f74162534b2f::t_a2aa1d4a92891e 63-66,68-79,81
+  s_e7f74162534b2f::t_8d795536f48dc0 28-29
+apps/launcher/lib/comms/schemas.ts
+  s_e7f74162534b2f::t_9339e4dc193a09 48
+  s_e7f74162534b2f::t_8253daa76ba76b 5-7
+  s_e7f74162534b2f::t_ffa6a32ed17b5d 37-44
+apps/launcher/app/(app)/profile/page.tsx
+  s_f75048b3e8be81::t_d158ac65086a4e 5-9
+  s_e7f74162534b2f::t_b7a73a53ed2e4b 4,42-43
+  s_f75048b3e8be81::t_81b9ee03a03d7d 20,24-39,41
+apps/launcher/app/api/comms/messages/[id]/reactions/route.ts
+  s_e7f74162534b2f::t_e70a5647bea1fc 1-64
+apps/launcher/app/(app)/loading.tsx
+  s_e7f74162534b2f::t_03bb633ab82a57 2,10-12,16-19,22,24-25,32-35,40-43
+apps/launcher/lib/tasks/activity.ts
+  s_e7f74162534b2f::t_76dca807c7e5fa 2-13,15-57,59-61,63,65,67-70
+  s_e7f74162534b2f::t_6dee42179d8537 14
+  s_e7f74162534b2f::t_6aaed0d438caa7 1
+  s_96d763536fcdb2::t_6b51aaac5c42f9 58,62,64,66
+apps/launcher/prisma/migrations/20260624120000_task_manager_v2/migration.sql
+  s_e7f74162534b2f::t_d5bb83548e9500 1-85
+apps/launcher/components/ui/empty-state.tsx
+  s_e7f74162534b2f::t_d135820e9bd5c2 2,11-12,15,17-23,25,28,32-34
+  s_e7f74162534b2f::t_cb74ef7d4c6c7a 35-36
+apps/launcher/app/api/presence/heartbeat/route.ts
+  s_f75048b3e8be81::t_a10cfd418c974a 1-18
+apps/launcher/lib/dashboard/assignments.test.ts
+  s_e7f74162534b2f::t_2ef6227465cc0e 1-43
+apps/launcher/lib/dashboard/tasks.test.ts
+  s_e7f74162534b2f::t_582dfd0691efdb 1-79
+apps/launcher/package.json
+  s_2a73afcda9588a::t_785afdff396f16 10-13
+apps/launcher/components/meet/meet-sidebar.tsx
+  s_f75048b3e8be81::t_a5f5620d9d0f1d 30-31
+  s_f75048b3e8be81::t_cb44be95547e99 3
+  s_f75048b3e8be81::t_6d694c2f4d68a1 231,236,238-245
+  s_f75048b3e8be81::t_bfe67a2fbc5377 226-230,232-235,237,246-254
+  s_f75048b3e8be81::t_a4cdaddf049d75 1-2,4-13,16-29,32-225,255-283
+  s_f75048b3e8be81::t_d6680e9bfa237a 14-15
+apps/launcher/app/api/presence/me/route.ts
+  s_f75048b3e8be81::t_154b65b79cffeb 1-17
+apps/launcher/components/tasks/task-panel.tsx
+  s_e7f74162534b2f::t_5c7abb8a3ea80c 1-44
+apps/launcher/lib/profile/card.test.ts
+  s_f75048b3e8be81::t_4f1ee6289fd827 1-19
+apps/launcher/app/api/meet/members/route.ts
+  s_f75048b3e8be81::t_4250a2ed1b1c71 8,33-36,38,54,58
+  s_e7f74162534b2f::t_21e3b8a0999295 1-7,10-12,23-29,31-32,39-41,60
+  s_f75048b3e8be81::t_3e2401fdd1f8f3 9,13-22,30,37,42-53,55-57,59
+apps/launcher/lib/presence/online.test.ts
+  s_f75048b3e8be81::t_9c82a0e76cefa0 1-27
+apps/launcher/app/api/comms/channels/[id]/messages/route.ts
+  s_e7f74162534b2f::t_748365438ba04d 40,45
+apps/launcher/lib/profile/schemas.ts
+  s_f75048b3e8be81::t_1cdc80a5d42aab 1-82
+apps/launcher/app/(app)/meet/page.tsx
+  s_e7f74162534b2f::t_5808a4478a9550 1-28
+apps/launcher/app/(app)/tasks/[id]/page.tsx
+  s_e7f74162534b2f::t_d8deeeab26ea64 1-60
+apps/launcher/components/account/profile-stats.tsx
+  s_e7f74162534b2f::t_9087e4f2cf6304 12,33,36-39,42,45-46,53
+  s_e7f74162534b2f::t_41d7fce2eac134 1-7,9-11,13-32,34-35,40-41,43-44,47-52,54-62
+  s_96d763536fcdb2::t_0da43bda4f1e5d 8
+apps/launcher/lib/dashboard/mentions.test.ts
+  s_e7f74162534b2f::t_df6bdf7a4d37ac 1-22
+apps/launcher/prisma/migrations/20260625140000_presence_status_message/migration.sql
+  s_f75048b3e8be81::t_2464376c8eb798 1
+apps/launcher/app/(app)/chat/page.tsx
+  s_e7f74162534b2f::t_c95442495c2a8d 1,3-4
+apps/launcher/components/meet/meet-provider.tsx
+  s_f75048b3e8be81::t_d7805ed4d42f40 420
+  s_f75048b3e8be81::t_7926780a4b9fc1 96
+  s_e7f74162534b2f::t_93e4a845832369 34
+  s_e7f74162534b2f::t_486054fad6545b 149-151,161
+  s_e7f74162534b2f::t_fd886ed0c38117 3-13,16,19,23-33,36-40,43-51,53-54,57-58,60-63,65-74,79-95,97-134,136-138,153-159,162-166,169-170,172-180,182-193,195-196,199-206,209-210,214,233-234,248,258-259,262-269,271-284,286-360,362-365,369,373-378,384,387-388,390-419,421-456
+  s_e7f74162534b2f::t_5464654820b207 35
+  s_e7f74162534b2f::t_7638aebf89d609 197
+  s_e7f74162534b2f::t_3f82ffc923c8f6 145-147,160
+  s_f75048b3e8be81::t_d40f8a590242aa 181,285
+  s_e7f74162534b2f::t_862e964c9d114d 207-208
+  s_f75048b3e8be81::t_e754665447e999 20
+  s_f75048b3e8be81::t_34348b663460ab 21
+  s_e7f74162534b2f::t_121662fcaf0f5a 256,270
+  s_e7f74162534b2f::t_9c8d7d33ef3867 194,198
+apps/launcher/app/api/reactions/route.ts
+  s_e7f74162534b2f::t_0f0c676e436198 1-83
+apps/launcher/app/api/profile/[userId]/card/route.ts
+  s_f75048b3e8be81::t_3e7362a90268c5 8,40-44
+  s_f75048b3e8be81::t_ed0d3d76d8af99 1-7,9-39,45-48
+apps/launcher/components/meet/meet-rail.tsx
+  s_e7f74162534b2f::t_ec9e7fa5342d65 1-60
+apps/launcher/lib/presence/schemas.ts
+  s_f75048b3e8be81::t_70301d627dc920 1-16
+apps/launcher/app/api/dashboard/notes/route.ts
+  s_e7f74162534b2f::t_cd4f944358c471 1-104
+apps/launcher/lib/profile/card.ts
+  s_f75048b3e8be81::t_37b39513ad8fc0 1-37
+apps/launcher/lib/tasks/reactions.test.ts
+  s_e7f74162534b2f::t_9f1f47ffe04aa8 1-32
+apps/launcher/prisma/migrations/20260624160000_meet_dm_activity/migration.sql
+  s_e7f74162534b2f::t_33129be030e4d2 1-3
+apps/launcher/app/globals.css
+  s_e7f74162534b2f::t_453690424ef1f1 106,109-111
+  s_e7f74162534b2f::t_d7aee6d6da39bf 112,144-172
+apps/launcher/lib/meet/feed-bridge.test.ts
+  s_e7f74162534b2f::t_01821397496aed 1-15
+apps/launcher/app/api/tasks/[id]/subtasks/route.ts
+  s_e7f74162534b2f::t_392c9fe8648b1a 9
+  s_e7f74162534b2f::t_2263c822e25add 61-87
+  s_e7f74162534b2f::t_07622116d0b120 1-8,10-60,88-98
+apps/launcher/lib/comms/access.test.ts
+  s_e7f74162534b2f::t_db0fd2e0d2f5a9 20-24
+  s_e7f74162534b2f::t_b9d0db4086cf7e 9
+apps/launcher/app/api/dashboard/visit/route.ts
+  s_e7f74162534b2f::t_dfff5659d5acda 1-33
+apps/launcher/app/(app)/settings/page.tsx
+  s_96d763536fcdb2::t_0b8c4606278bc0 23-35,38-49,69-70,79
+apps/launcher/app/(app)/layout.tsx
+  s_f75048b3e8be81::t_0bc1823dcc351c 8
+  s_e7f74162534b2f::t_72728b61c8604f 52-55,57-58
+  s_e7f74162534b2f::t_b2188028c048e5 5,7
+  s_f75048b3e8be81::t_47e67efe1dbf44 56
+apps/launcher/app/api/tasks/[id]/comments/route.ts
+  s_e7f74162534b2f::t_52d3c5574d94c3 7,21,23,25-28,41-42,44,63-69,74,78,80-81,83-94
+  s_e7f74162534b2f::t_fb6f1cee54e76a 24,79
+  s_e7f74162534b2f::t_e6bf2afbf245df 8
+  s_e7f74162534b2f::t_04d559449c0fa9 29-40,45
+apps/launcher/lib/dashboard/modules.ts
+  s_e7f74162534b2f::t_38bdec93335184 12,14-18,20-24,35-57,59-74
+  s_e7f74162534b2f::t_5474c32cb76ca9 1-11,13,19,25-32,34
+  s_e7f74162534b2f::t_c7800e1e0fbebb 33
+  s_e7f74162534b2f::t_e7bad0ff14ebf5 58
+apps/launcher/app/(app)/tasks/task-board.tsx
+  s_e7f74162534b2f::t_cf3ef3dbfc276f 175-178,185-194,198
+  s_96d763536fcdb2::t_195ea93faf4bb0 67,70,73-78,80-83
+  s_e7f74162534b2f::t_358e46c948370f 61-66,68-69,71-72,79,84-88
+  s_e7f74162534b2f::t_62c43fd292cd76 5,14,18-24,30,35,39-40
+  s_e7f74162534b2f::t_ab00542ba2f7f9 123
+  s_e7f74162534b2f::t_8374fd8a8a1774 325-327
+  s_e7f74162534b2f::t_72f3cf42bfefab 165-169,171-172
+  s_e7f74162534b2f::t_770419c962a085 341,350,356,359,361
+  s_e7f74162534b2f::t_2615eb31f99889 184
+  s_e7f74162534b2f::t_f3c1eb6dad86e6 16
+  s_e7f74162534b2f::t_2f6723110962f8 12-13
+  s_e7f74162534b2f::t_3d55861a51633e 206-210,220-255
+  s_e7f74162534b2f::t_8654a4c6c43365 4
+  s_e7f74162534b2f::t_e3df88d4b7b0d2 37
+  s_e7f74162534b2f::t_f956733ef12e4d 29,34
+  s_e7f74162534b2f::t_1aef5e544b9e53 170
+  s_e7f74162534b2f::t_c8b2b691245b3b 17
+  s_e7f74162534b2f::t_e3a247e75c574a 179-183
+  s_e7f74162534b2f::t_9bd28eef4819d4 256
+apps/launcher/app/api/presence/online/route.ts
+  s_f75048b3e8be81::t_dd655157a7324d 1-25
+apps/launcher/app/(app)/dashboard-dashboard.tsx
+  s_e7f74162534b2f::t_b7c4d722bb9afc 111
+  s_e7f74162534b2f::t_2a8263e6c51bf9 36-42,46
+  s_e7f74162534b2f::t_63191de73d1da4 355-399
+  s_e7f74162534b2f::t_30a997466fa119 117
+  s_e7f74162534b2f::t_eb8fd3d77a170a 317,319,324
+  s_e7f74162534b2f::t_1fc640984b2386 181-183
+  s_e7f74162534b2f::t_51c96e74d6a666 197-198,200
+  s_e7f74162534b2f::t_5219be9ec1f789 253
+  s_e7f74162534b2f::t_889e23840c3a17 279
+  s_e7f74162534b2f::t_8e689ed74178eb 343
+  s_e7f74162534b2f::t_354108c5c0b755 99-107
+  s_e7f74162534b2f::t_3b0f10168082d0 231,237
+  s_e7f74162534b2f::t_1ccbc00c4d5086 142-143,145-146
+  s_e7f74162534b2f::t_b6684f2c6d4334 161-162,180,190-191,201,203-204,226,228,259,285,304,322,325-326,337
+  s_e7f74162534b2f::t_8be661f0698b1b 1-2,4-17,21-22,24-35,43-45,47-68,70-73,77,80-82,85-89,91-94,108-110,112-116,118-121,123,125-141,144,147-160,163-165,169-173,175-179,194-196,199,205,211-217,220-225,229,232-234,239-242,277,280-281,286-288,290-294,299-303,312-315,320-321,323,336,339-342,344-348,350,352-354,400-405
+  s_e7f74162534b2f::t_e12ca406c93d21 18-20,69,74-76,78-79,83-84,90,95-98,122,124,166-167,174,184-189,192-193,202,206-210,218-219,227,230,235-236,238,244,271-273,275-276,282-284,289,295-298,305-311,316,318,327-335,338,349,351
+  s_e7f74162534b2f::t_def9c992d8a8f7 23
+  s_e7f74162534b2f::t_b2028f57554df4 243,245-252,254-258,260-270,274,278
+  s_e7f74162534b2f::t_7a1aed51f8f25e 3
+  s_e7f74162534b2f::t_336ee6210c70a2 168
+apps/launcher/lib/meet/dm.test.ts
+  s_e7f74162534b2f::t_99246b13a16888 1-10
+apps/launcher/lib/tasks/templates.ts
+  s_e7f74162534b2f::t_50a29f5b5aed91 48-57
+  s_e7f74162534b2f::t_702b09492e795f 2
+  s_e7f74162534b2f::t_07d0c2c7f932cc 25
+  s_e7f74162534b2f::t_6f623955293663 1,3-24,27-47,58-59,61-79,125-141
+  s_e7f74162534b2f::t_3ccc5835c72f69 80-124
+  s_e7f74162534b2f::t_712d1c0bf84899 26,60
+apps/launcher/app/api/tasks/[id]/status/route.ts
+  s_e7f74162534b2f::t_213dd6140a1934 1,7-8,36-41,57-58
+  s_e7f74162534b2f::t_fef6d108bfd4f6 42-56
+apps/launcher/app/api/presence/status/route.ts
+  s_f75048b3e8be81::t_d9be5c3b25e10b 1-27
+apps/launcher/components/account/profile-form.tsx
+  s_96d763536fcdb2::t_40c7e909c04fe2 253,256-259,263-267,273,346,351-356,451,477-478,484,503-515
+  s_f75048b3e8be81::t_fb9fed8c33a036 407
+  s_96d763536fcdb2::t_82dc15f3274e1e 313-318
+  s_96d763536fcdb2::t_9d58f8271a0906 254-255
+  s_96d763536fcdb2::t_c73427b72c9d66 274-276
+  s_96d763536fcdb2::t_4d310ec1372c83 312
+  s_96d763536fcdb2::t_cb399f4da8dd9e 319
+  s_96d763536fcdb2::t_0c8921ec7f24e8 343-345
+  s_96d763536fcdb2::t_a17eda0dafdacb 347-350
+  s_f75048b3e8be81::t_25e35101283923 408-410
+  s_96d763536fcdb2::t_1edcf915536d66 448-450
+  s_96d763536fcdb2::t_ab6ab4aa9a9191 474-476
+  s_96d763536fcdb2::t_0f2462b2e10112 479-483
+  s_96d763536fcdb2::t_eec90bda07cf0b 500-502
+  s_96d763536fcdb2::t_e6ff865be16976 516-518
+apps/launcher/lib/tasks/assignees.test.ts
+  s_e7f74162534b2f::t_f968e21b1ffe32 1-15
+apps/launcher/prisma/migrations/20260624140000_task_assignees/migration.sql
+  s_e7f74162534b2f::t_1dc9c61de21ad9 1-28
+apps/launcher/lib/tasks/activity.test.ts
+  s_e7f74162534b2f::t_d005e3e01cb604 1-19
+apps/launcher/prisma/seed.ts
+  s_e7f74162534b2f::t_cb4aea90b4af6a 13
+  s_e7f74162534b2f::t_ef512adb195139 636-691
+  s_f75048b3e8be81::t_bea9eef58c0966 41-45,49-64
+  s_e7f74162534b2f::t_17878c9dc0f39d 755-756,768-769
+  s_e7f74162534b2f::t_c63a55ce226050 404-430
+  s_f75048b3e8be81::t_908d7706eacedd 711-721,729-733
+  s_e7f74162534b2f::t_ceae3561d8a255 747
+apps/launcher/lib/gamification/user-stats.ts
+  s_e7f74162534b2f::t_a956506dcd55d5 1-46
+apps/launcher/components/meet/meet-bubble.tsx
+  s_e7f74162534b2f::t_a9a437accf42ae 1-55
+apps/launcher/app/api/comments/[commentId]/attachments/route.ts
+  s_e7f74162534b2f::t_2103284ee747e6 1-45
+apps/launcher/components/meet/author-hover-card.tsx
+  s_f75048b3e8be81::t_41642d7675e973 1-153
+apps/launcher/app/api/tasks/[id]/attachments/route.ts
+  s_e7f74162534b2f::t_8d397300181b56 1-70
+apps/launcher/app/api/tasks/[id]/activity/route.ts
+  s_e7f74162534b2f::t_5c75c67c3c5d2c 1-31
+apps/launcher/lib/tasks/assignees.ts
+  s_e7f74162534b2f::t_6dbb501433530e 1-95
+  s_e7f74162534b2f::t_93bbe67746b737 96-111
+apps/launcher/lib/dashboard/prefs.ts
+  s_e7f74162534b2f::t_c2348310712eaa 1-68
+apps/launcher/app/layout.tsx
+  s_2a73afcda9588a::t_6ab17f8988c9f4 38
+  s_2a73afcda9588a::t_d79e8d619123dc 4
+apps/launcher/app/api/uploads/task-file/route.ts
+  s_e7f74162534b2f::t_ad624ac0b97f1b 1-63
+apps/launcher/app/(app)/profile/[userId]/page.tsx
+  s_f75048b3e8be81::t_4cf47339f9186d 1-43
+apps/launcher/.env.example
+  s_e7f74162534b2f::t_ef8d12264ad1e5 12-15
+apps/launcher/lib/profile/schemas.test.ts
+  s_f75048b3e8be81::t_69692c6e2de5e3 1-67
+apps/launcher/app/(app)/page.tsx
+  s_96d763536fcdb2::t_6a1c3e7eba5cb5 1,4-14,20,22,24-27,29,32-45,48-54,57-65,68-79,82-96,99-119,121-132,135-147
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.1",
+  "base_commit_sha": "5d23ed46772c5ed2aafa627024c3c304da3cb44b",
+  "prompts": {},
+  "sessions": {
+    "s_2a73afcda9588a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "75d0d69a-d257-4f8d-85d7-d0833f90e555",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    },
+    "s_96d763536fcdb2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7fea3685-ac79-4216-94f2-c555ecdc5344",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    },
+    "s_e7f74162534b2f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "57d80d4d-b9c7-43b1-b3ba-1a92e027c6d0",
+        "model": "default"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    },
+    "s_f75048b3e8be81": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "67b42104-f6dc-4c3d-84cd-77621360fe74",
+        "model": "default"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
