@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { X, Check, MessageSquare, Copy, Zap, ArrowRight, Globe, Filter, Code } from 'lucide-react'
 import { PageHero } from './PageHero'
 import { useI18n } from '@/lib/i18n/provider'
-import { BrandPageContent, BrandSectionHeading, brandDocCardShell } from '@/components/ui/brand-doc'
+import { BrandBody, BrandInfoBand, BrandMetaPill, BrandPageContent, BrandSectionHeading, brandDocCardShell } from '@/components/ui/brand-doc'
 
 export function VoiceTonePage() {
   const { t } = useI18n()
@@ -10,6 +10,17 @@ export function VoiceTonePage() {
   const [activeSandboxTab, setActiveSandboxTab] = useState<'brand' | 'seo' | 'masri' | 'khaliji'>('brand')
   const [copiedText, setCopiedText] = useState<string | null>(null)
   const [activeSlopFilter, setActiveSlopFilter] = useState<'all' | 'cliche' | 'hype' | 'opener'>('all')
+  const [activeAnchor, setActiveAnchor] = useState<string | null>(null)
+
+  useEffect(() => {
+    const syncHash = () => {
+      const hash = window.location.hash.replace(/^#guideline-/, '')
+      setActiveAnchor(hash || null)
+    }
+    syncHash()
+    window.addEventListener('hashchange', syncHash)
+    return () => window.removeEventListener('hashchange', syncHash)
+  }, [])
 
   const registers = [
     {
@@ -210,9 +221,52 @@ export function VoiceTonePage() {
       />
 
       <BrandPageContent>
+        <BrandInfoBand className="flex flex-wrap items-start gap-3">
+          <BrandMetaPill tone="canonical">{t('Canonical rules')}</BrandMetaPill>
+          <BrandMetaPill tone="reference">{t('Reference sandbox')}</BrandMetaPill>
+          <BrandBody className="max-w-3xl text-[13px]">
+            {t('Registers, CTA rules, and prohibited phrasing are canonical. The bilingual sandbox is a reference surface for applying those rules across English, Masri, and Khaliji copy.')}
+          </BrandBody>
+        </BrandInfoBand>
+
+        <section className="mb-8">
+          <BrandSectionHeading icon={MessageSquare} title={t('Jump within rules')} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+            {[
+              { href: '#guideline-voice-registers', label: t('Voice Registers') },
+              { href: '#guideline-voice-sandbox', label: t('Bilingual Sandbox') },
+              { href: '#guideline-voice-tone-matrix', label: t('Tone by Content Type') },
+              { href: '#guideline-voice-cta-standards', label: t('CTA Standards') },
+              { href: '#guideline-voice-prohibited-phrases', label: t('Prohibited Phrases') },
+            ].map((item) => {
+              const anchor = item.href.replace(/^#guideline-/, '')
+              const isActive = activeAnchor === anchor
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className={`rounded-lg border px-4 py-3 text-start transition-all duration-150 hover:-translate-y-0.5 ${
+                    isActive
+                      ? 'border-brand-blue bg-brand-blue/5'
+                      : 'border-brand-whisper-border bg-brand-surface hover:border-brand-blue/30'
+                  }`}
+                >
+                  <p className="text-[13px] font-semibold text-brand-text">{item.label}</p>
+                  <p className="mt-1 text-[11px] text-brand-text-secondary">
+                    {isActive ? t('You are here') : t('Jump to section')}
+                  </p>
+                </a>
+              )
+            })}
+          </div>
+        </section>
+
         {/* SECTION 1: TWO REGISTERS GRID */}
-        <section className="mb-14">
-          <BrandSectionHeading icon={MessageSquare} title={t('Voice Registers')} />
+        <section id="guideline-voice-registers" className="mb-14 scroll-mt-20">
+          <div className="flex flex-wrap items-center gap-2 mb-4">
+            <BrandSectionHeading icon={MessageSquare} title={t('Voice Registers')} anchorId="voice-registers" className="mb-0" />
+            <BrandMetaPill tone="canonical">{t('Canonical')}</BrandMetaPill>
+          </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {registers.map((reg) => (
               <div 
@@ -281,9 +335,12 @@ export function VoiceTonePage() {
         </section>
 
         {/* SECTION 2: INTERACTIVE COPYWRITING SANDBOX */}
-        <section className="mb-14">
+        <section id="guideline-voice-sandbox" className="mb-14 scroll-mt-20">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <BrandSectionHeading icon={Globe} title="Bilingual Translation & Tone Sandbox" />
+            <div className="flex flex-wrap items-center gap-2">
+              <BrandSectionHeading icon={Globe} title="Bilingual Translation & Tone Sandbox" anchorId="voice-sandbox" className="mb-0" />
+              <BrandMetaPill tone="reference">{t('Reference')}</BrandMetaPill>
+            </div>
             <span className="text-[10px] font-mono text-brand-text-muted bg-brand-canvas dark:bg-black/20 border border-brand-whisper-border px-2 py-0.5 rounded">
               Interactive Translation Sandbox
             </span>
@@ -365,8 +422,11 @@ export function VoiceTonePage() {
         </section>
 
         {/* SECTION 3: TONE BY CONTEXT MATRIX */}
-        <section className="mb-14">
-          <BrandSectionHeading icon={Zap} title={t('Tone by Content Type')} />
+        <section id="guideline-voice-tone-matrix" className="mb-14 scroll-mt-20">
+          <div className="flex flex-wrap items-center gap-2 mb-4">
+            <BrandSectionHeading icon={Zap} title={t('Tone by Content Type')} anchorId="voice-tone-matrix" className="mb-0" />
+            <BrandMetaPill tone="canonical">{t('Canonical')}</BrandMetaPill>
+          </div>
           <div className="bg-brand-surface rounded-xl border border-brand-whisper-border overflow-hidden shadow-sm">
             <div className="overflow-x-auto">
               <table className="w-full text-xs text-start">
@@ -400,8 +460,11 @@ export function VoiceTonePage() {
         </section>
 
         {/* SECTION 4: CALL-TO-ACTION STANDARDS */}
-        <section className="mb-14">
-          <BrandSectionHeading icon={Code} title={t('Call-to-Action Standards')} />
+        <section id="guideline-voice-cta-standards" className="mb-14 scroll-mt-20">
+          <div className="flex flex-wrap items-center gap-2 mb-4">
+            <BrandSectionHeading icon={Code} title={t('Call-to-Action Standards')} anchorId="voice-cta-standards" className="mb-0" />
+            <BrandMetaPill tone="canonical">{t('Canonical')}</BrandMetaPill>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {ctaLevels.map((cta) => {
               const isCopied = copiedText === cta.level.toLowerCase().replace(' ', '-');
@@ -441,7 +504,7 @@ export function VoiceTonePage() {
         </section>
 
         {/* SECTION 5: FILTERABLE PROHIBITED SLOP CATALOG */}
-        <section className="mb-8">
+        <section id="guideline-voice-prohibited-phrases" className="mb-8 scroll-mt-20">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
             <div className="flex items-center gap-2.5">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2196F3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>

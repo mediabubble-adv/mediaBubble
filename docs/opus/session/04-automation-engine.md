@@ -1,7 +1,7 @@
 # Automation Engine — Triggers, Cron & Locking
 
 **Session date:** June 22, 2026  
-**Related spec:** [`OPUS_AUTOMATION_SCHEDULING_ENGINE.md`](../OPUS_AUTOMATION_SCHEDULING_ENGINE.md)  
+**Related spec:** [`AUTOMATION_SCHEDULING_ENGINE.md`](../integrations/AUTOMATION_SCHEDULING_ENGINE.md)  
 **Target routes:** `/automation`, `/automation/triggers`
 
 ---

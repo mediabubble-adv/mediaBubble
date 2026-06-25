@@ -15,7 +15,7 @@ This comprehensive audit evaluates the technical architecture, performance profi
 1. **Static HTML Language & Direction declarations (CLS & SEO Penalty)**  
    Both `web-eg` and `web-ae` layouts hardcode `<html lang="en" dir="ltr">`. The language is flipped client-side during hydration. This triggers a severe Cumulative Layout Shift (CLS) for Arabic visitors and indexation errors for search engine crawlers (RSC-client mismatch).
 2. **Untranslated Core Components (i18n Gaps)**  
-   The entire services mega-menu in [SiteNav.tsx](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/apps/web-eg/components/layout/SiteNav.tsx) (and AE), the global conversion [NewsletterModal.tsx](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/apps/web-eg/components/shared/NewsletterModal.tsx), and all dynamic services page templates render completely in English without translating their text blocks or headers.
+   The entire services mega-menu in [SiteNav.tsx](../../apps/web-eg/components/layout/SiteNav.tsx) (and AE), the global conversion [NewsletterModal.tsx](../../apps/web-eg/components/shared/NewsletterModal.tsx), and all dynamic services page templates render completely in English without translating their text blocks or headers.
 3. **Inverted Drag-to-Resize Math in RTL**  
    The resizable sidebar in the Brand Guidelines app uses LTR mouse delta math. In RTL mode, dragging the mouse right _shrinks_ the sidebar instead of expanding it, and dragging left _expands_ it.
 4. **Vulnerable Rate Limiting & HubSpot Sync (Security & Reliability)**  
@@ -31,7 +31,7 @@ This comprehensive audit evaluates the technical architecture, performance profi
 
 Strict typecheck rules prevent compile success in the shared package because `process.env.NODE_ENV` is accessed via property access instead of index access:
 
-- **File:** [use-dev-service-worker-cleanup.ts](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/packages/shared/src/hooks/use-dev-service-worker-cleanup.ts#L8)
+- **File:** [use-dev-service-worker-cleanup.ts](../../packages/shared/src/hooks/use-dev-service-worker-cleanup.ts)
 - **Code:** `if (process.env.NODE_ENV !== 'development') return`
 - **Fix:** Use index signatures:
   ```typescript
@@ -40,9 +40,9 @@ Strict typecheck rules prevent compile success in the shared package because `pr
 
 ### 2.2 Broken Jest Test Runner Configuration
 
-Running `npm run test` skips all test cases inside the UAE application `apps/web-ae` (e.g. [HeroSection.test.tsx](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/apps/web-ae/components/sections/HeroSection.test.tsx)) and the Brand Guidelines app.
+Running `npm run test` skips all test cases inside the UAE application `apps/web-ae` (e.g. [HeroSection.test.tsx](../../apps/web-ae/components/sections/HeroSection.test.tsx)) and the Brand Guidelines app.
 
-- **File:** [jest.config.cjs](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/jest.config.cjs#L4)
+- **File:** [jest.config.cjs](../../jest.config.cjs)
 - **Root Cause:** The `roots` array is hardcoded to only include `web-eg` and the `shared` package:
   ```javascript
   roots: [
@@ -64,7 +64,7 @@ Running `npm run test` skips all test cases inside the UAE application `apps/web
 
 ### 2.3 Orphan Vitest Import in Jest Test Suite
 
-- **File:** [office-hours.test.ts](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/packages/shared/src/office-hours.test.ts#L1)
+- **File:** [office-hours.test.ts](../../packages/shared/src/office-hours.test.ts)
 - **Root Cause:** The file attempts to import test blocks from `vitest` which is not declared in `package.json` dependencies:
   ```typescript
   import { describe, expect, it } from "vitest";
@@ -79,7 +79,7 @@ Running `npm run test` skips all test cases inside the UAE application `apps/web
 
 The Brand guidelines app crashes or fails to build if `RESEND_API_KEY` is missing, despite having no email functionality.
 
-- **File:** [apps/brand/instrumentation.ts](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/apps/brand/instrumentation.ts#L5)
+- **File:** [apps/brand/instrumentation.ts](../../apps/brand/instrumentation.ts)
 - **Root Cause:** It imports `validateEnv()` from `@mediabubble/shared/server`. The shared Zod schema mandates `RESEND_API_KEY` as a required string:
   ```typescript
   RESEND_API_KEY: z.string().min(1, "RESEND_API_KEY is required");
@@ -92,7 +92,7 @@ The Brand guidelines app crashes or fails to build if `RESEND_API_KEY` is missin
 
 ### 3.1 Client-Side Rendering Monoliths (marketing service pages)
 
-- **Files:** [content.tsx](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/apps/web-eg/app/services/%5Bslug%5D/content.tsx#L1) and [ServicePageRenderer.tsx](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/apps/web-eg/components/features/services/ServicePageRenderer.tsx#L1)
+- **Files:** [content.tsx](../../apps/web-eg/app/services/[slug]/content.tsx) and [ServicePageRenderer.tsx](../../apps/web-eg/components/features/services/ServicePageRenderer.tsx)
 - **Issue:** Declared with `'use client'`. The entire service details page, all sections, and FAQs are loaded as client-side JavaScript. This leads to large bundle sizes and slow Largest Contentful Paint (LCP) scores.
 - **Estimated Gains:** ~40-50% reduction in client-side JavaScript bundle sizes and ~15-20% faster LCP.
 - **Recommendation:** Make `ServicePageTemplate.tsx` a server component. Extract tracking logic and accordions into small interactive client islands.
@@ -111,7 +111,7 @@ The Brand guidelines app crashes or fails to build if `RESEND_API_KEY` is missin
 
 ### 3.2 Animation Frame Class Toggling in InteractiveCursor
 
-- **File:** [InteractiveCursor.tsx](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/apps/web-eg/components/shared/InteractiveCursor.tsx#L41-L45)
+- **File:** [InteractiveCursor.tsx](../../apps/web-eg/components/shared/InteractiveCursor.tsx)
 - **Issue:** Class list modifications are executed on every single frame loop:
   ```typescript
   if (isHovering.current) {
@@ -133,7 +133,7 @@ The Brand guidelines app crashes or fails to build if `RESEND_API_KEY` is missin
 
 ### 3.3 IntersectionObserver Re-creation Loop
 
-- **File:** [Phase3Provider.tsx](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/apps/web-eg/components/shared/Phase3Provider.tsx#L42-L70)
+- **File:** [Phase3Provider.tsx](../../apps/web-eg/components/shared/Phase3Provider.tsx)
 - **Issue:** The `setup()` function instantiates a new `IntersectionObserver` on every DOM mutation:
   ```typescript
   observer = new IntersectionObserver(...)
@@ -143,7 +143,7 @@ The Brand guidelines app crashes or fails to build if `RESEND_API_KEY` is missin
 
 ### 3.4 Raw Images in Testimonials
 
-- **File:** [TestimonialsSection.tsx](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/apps/web-eg/components/sections/TestimonialsSection.tsx#L39)
+- **File:** [TestimonialsSection.tsx](../../apps/web-eg/components/sections/TestimonialsSection.tsx)
 - **Issue:** Uses standard HTML `<img>` elements:
   ```html
   <img
@@ -153,7 +153,7 @@ The Brand guidelines app crashes or fails to build if `RESEND_API_KEY` is missin
     className="..."
   />
   ```
-- **Fix:** Replace with the monorepo's [OptimizedImage](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/apps/web-eg/components/ui/OptimizedImage.tsx) to automatically serve resized WebP/AVIF formats.
+- **Fix:** Replace with the monorepo's [OptimizedImage](../../apps/web-eg/components/ui/OptimizedImage.tsx) to automatically serve resized WebP/AVIF formats.
 
 ---
 
@@ -175,12 +175,12 @@ The `npm run typecheck` command executes `nx run-many -t typecheck`, but because
 
 ### 4.2 Fragmented / Duplicate Custom Hooks
 
-- **Files:** [LogoMarquee.tsx](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/packages/design-system/src/lib/LogoMarquee.tsx#L5) and [TestimonialsSection.tsx](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/apps/web-eg/components/sections/TestimonialsSection.tsx) both define/import custom hooks for checking user motion preferences (`usePrefersReducedMotion`).
+- **Files:** [LogoMarquee.tsx](../../packages/design-system/src/lib/LogoMarquee.tsx) and [TestimonialsSection.tsx](../../apps/web-eg/components/sections/TestimonialsSection.tsx) both define/import custom hooks for checking user motion preferences (`usePrefersReducedMotion`).
 - **Fix:** Keep the hook unified in `@mediabubble/shared/client` and remove duplicate code inside the UI packages.
 
 ### 4.3 Hardcoded Swatch Color Checks
 
-- **File:** [MasterSwatch.tsx](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/packages/design-system/src/lib/MasterSwatch.tsx#L9)
+- **File:** [MasterSwatch.tsx](../../packages/design-system/src/lib/MasterSwatch.tsx)
 - **Issue:** It uses a static array of colors to check if a color is light or dark:
   ```javascript
   const isLight = ['#FFFFFF', '#FAFAFA', ...].includes(selectedColor)
@@ -202,13 +202,13 @@ The `npm run typecheck` command executes `nx run-many -t typecheck`, but because
   import { createCspMiddleware } from "@mediabubble/shared/csp-middleware";
   ```
 
-> **Status:** Implemented — see `packages/shared/README.md` and root `README.md` (Packages / CSP middleware).
+> **Status:** Implemented — see `packages/shared/` middleware helpers and the root `README.md` (Packages / CSP middleware).
 
 ## 5. SEO / i18n / RTL Findings
 
 ### 5.1 Static Layout Direction and Hydration Layout Shift (CLS)
 
-- **Files:** Layout templates in [web-eg](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/apps/web-eg/app/layout.tsx#L83) and [web-ae](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/apps/web-ae/app/layout.tsx#L81)
+- **Files:** Layout templates in [web-eg](../../apps/web-eg/app/layout.tsx) and [web-ae](../../apps/web-ae/app/layout.tsx)
 - **Issue:** Hardcoded `<html lang="en" dir="ltr">`. The browser starts loading the site in LTR. After JavaScript loads, `I18nProvider` updates direction to RTL, causing elements to jump to the opposite side of the screen.
 - **Fix:** Detect locale in the routing layer or use headers / URL parameters to render the correct direction on the server:
   ```typescript
@@ -219,7 +219,7 @@ The `npm run typecheck` command executes `nx run-many -t typecheck`, but because
 
 ### 5.2 Missing Translations in Mega-Menu & Mobile Drawer
 
-- **File:** [SiteNav.tsx](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/apps/web-eg/components/layout/SiteNav.tsx#L24)
+- **File:** [SiteNav.tsx](../../apps/web-eg/components/layout/SiteNav.tsx)
 - **Issue:** The list items inside `MEGA_MENU_COLUMNS` contain hardcoded titles, descriptions, and labels in English. In `MobileAccordionSection.tsx` and the mega-menu, these are output directly:
   ```typescript
   {col.label} / {item.label} / {item.desc}
@@ -229,7 +229,7 @@ The `npm run typecheck` command executes `nx run-many -t typecheck`, but because
 
 ### 5.3 Inverted Drag-to-Resize Calculations in RTL
 
-- **File:** [BrandGuidelinesApp.tsx](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/apps/brand/components/BrandGuidelinesApp.tsx#L39-L43)
+- **File:** [BrandGuidelinesApp.tsx](../../apps/brand/components/BrandGuidelinesApp.tsx)
 - **Issue:**
   ```typescript
   const delta = e.clientX - dragStartX.current;
@@ -248,7 +248,7 @@ The `npm run typecheck` command executes `nx run-many -t typecheck`, but because
 
 ### 5.4 Missing Service Slugs in Sitemap
 
-- **File:** [sitemap.ts](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/apps/web-eg/app/sitemap.ts#L25)
+- **File:** [sitemap.ts](../../apps/web-eg/app/sitemap.ts)
 - **Issue:** The sitemap only maps services returned by `getRegistrySlugs()`. The core services defined in `SERVICE_SLUGS` are omitted from the sitemap.
 - **Fix:** Include the full set of services:
   ```typescript
@@ -259,7 +259,7 @@ The `npm run typecheck` command executes `nx run-many -t typecheck`, but because
 
 ### 5.5 Physical Coordinates vs Logical Coordinates (FloatingCta)
 
-- **Files:** [FloatingCta.tsx (web-eg)](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/apps/web-eg/components/features/contact/FloatingCta.tsx) and [FloatingCta.tsx (web-ae)](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/apps/web-ae/components/features/contact/FloatingCta.tsx)
+- **Files:** [FloatingCta.tsx (web-eg)](../../apps/web-eg/components/features/contact/FloatingCta.tsx) and [FloatingCta.tsx (web-ae)](../../apps/web-ae/components/features/contact/FloatingCta.tsx)
 - **Issue:** Hardcoded physical positioning class `right-6` places the floating button on the right side of the screen regardless of layout direction. In RTL Arabic layouts, floating CTA components should align on the left side of the page to fit proper RTL scanning patterns.
 - **Fix:** Replace physical coordinate class `right-6` with logical coordinate class `end-6`:
   ```diff
@@ -273,7 +273,7 @@ The `npm run typecheck` command executes `nx run-many -t typecheck`, but because
 
 ### 6.1 Vulnerable Focus Trap on Unmount in NewsletterModal
 
-- **File:** [NewsletterModal.tsx](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/apps/web-eg/components/shared/NewsletterModal.tsx#L98)
+- **File:** [NewsletterModal.tsx](../../apps/web-eg/components/shared/NewsletterModal.tsx)
 - **Issue:** The focus trap queries elements on Tab keypress. When the newsletter form is submitted successfully, the form inputs are unmounted and replaced with a success message. At that point, the focused element becomes the `body`, allowing keyboard users to tab out of the modal and focus elements in the background, violating focus trap requirements.
 - **Fix:** Focus the close button explicitly upon submission success:
   ```typescript
@@ -284,7 +284,7 @@ The `npm run typecheck` command executes `nx run-many -t typecheck`, but because
 
 ### 6.2 Hardcoded Physical Margins in Design System Spinner
 
-- **File:** [Button.tsx](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/packages/design-system/src/lib/Button.tsx#L47)
+- **File:** [Button.tsx](../../packages/design-system/src/lib/Button.tsx)
 - **Issue:** The spinner inside `Button` uses `-ml-0.5` instead of logical spacing:
   ```html
   <svg className="animate-spin -ml-0.5 h-4 w-4" ... />
@@ -301,7 +301,7 @@ The `npm run typecheck` command executes `nx run-many -t typecheck`, but because
 
 ### 7.1 X-Forwarded-For Spoofing Vulnerability
 
-- **File:** [rate-limit.ts](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/packages/shared/src/rate-limit.ts#L53)
+- **File:** [rate-limit.ts](../../packages/shared/src/rate-limit.ts)
 - **Issue:**
   ```typescript
   export function getClientIp(headers: Headers): string {
@@ -326,13 +326,13 @@ The `npm run typecheck` command executes `nx run-many -t typecheck`, but because
 
 ### 7.2 In-Memory Rate Limiter in Serverless Functions
 
-- **File:** [rate-limit.ts](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/packages/shared/src/rate-limit.ts#L6)
+- **File:** [rate-limit.ts](../../packages/shared/src/rate-limit.ts)
 - **Issue:** Uses `const store = new Map<string, Entry>()`. In serverless hosting (Vercel), memory is wiped out as containers scale down or cycle. Thus, rate limiting is not shared across instances and fails to protect against automated spam attacks.
 - **Fix:** Utilize a shared storage engine (e.g. Vercel KV, Redis, Upstash) or implement Edge Middleware rate-limiting.
 
 ### 7.3 Unawaited Promises in Serverless Route Handlers
 
-- **File:** [route.ts](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/apps/web-eg/app/api/contact/route.ts#L65)
+- **File:** [route.ts](../../apps/web-eg/app/api/contact/route.ts)
 - **Issue:**
   ```typescript
   syncContactToHubSpot({ ... }).catch((err) => console.error('[Contact] HubSpot sync error:', err))
@@ -354,17 +354,17 @@ The `npm run typecheck` command executes `nx run-many -t typecheck`, but because
 
 | Strategy      | Action                                                 | Target File / Component                                                                                                                                               | Complexity | Impact                     |
 | :------------ | :----------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------- | :------------------------- |
-| **Quick Win** | Fix compile error by updating process.env access       | [use-dev-service-worker-cleanup.ts](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/packages/shared/src/hooks/use-dev-service-worker-cleanup.ts) | Low        | High (fixes build)         |
-| **Quick Win** | Update `roots` in Jest configuration to include UAE    | [jest.config.cjs](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/jest.config.cjs)                                                               | Low        | Medium (restores tests)    |
-| **Quick Win** | Await CRM sync promise inside Route Handler            | [/api/contact/route.ts](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/apps/web-eg/app/api/contact/route.ts)                                    | Low        | High (lead reliability)    |
-| **Quick Win** | Invert drag resize delta values in RTL                 | [BrandGuidelinesApp.tsx](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/apps/brand/components/BrandGuidelinesApp.tsx)                           | Low        | High (fixes sidebar)       |
-| **Quick Win** | Fix `tel:` href formatting (strip spaces)              | [ContactSection.tsx](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/apps/web-eg/components/features/contact/ContactSection.tsx)                 | Low        | Medium (working link)      |
+| **Quick Win** | Fix compile error by updating process.env access       | [use-dev-service-worker-cleanup.ts](../../packages/shared/src/hooks/use-dev-service-worker-cleanup.ts) | Low        | High (fixes build)         |
+| **Quick Win** | Update `roots` in Jest configuration to include UAE    | [jest.config.cjs](../../jest.config.cjs)                                                               | Low        | Medium (restores tests)    |
+| **Quick Win** | Await CRM sync promise inside Route Handler            | [/api/contact/route.ts](../../apps/web-eg/app/api/contact/route.ts)                                    | Low        | High (lead reliability)    |
+| **Quick Win** | Invert drag resize delta values in RTL                 | [BrandGuidelinesApp.tsx](../../apps/brand/components/BrandGuidelinesApp.tsx)                           | Low        | High (fixes sidebar)       |
+| **Quick Win** | Fix `tel:` href formatting (strip spaces)              | [ContactSection.tsx](../../apps/web-eg/components/features/contact/ContactSection.tsx)                 | Low        | Medium (working link)      |
 | **Quick Win** | Resolve Nx module boundary lint errors in middleware   | Middleware files                                                                                                                                                      | Low        | Medium (clean lint)        |
 | **Quick Win** | Fix physical coordinates in FloatingCta to use end-6   | FloatingCta components                                                                                                                                                | Low        | Medium (correct RTL float) |
-| **Refactor**  | Convert dynamic service templates to Server Components | [ServicePageRenderer.tsx](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/apps/web-eg/components/features/services/ServicePageRenderer.tsx)      | Medium     | High (LCP performance)     |
-| **Refactor**  | Translate Mega-Menu and Accordion sub-links            | [SiteNav.tsx](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/apps/web-eg/components/layout/SiteNav.tsx)                                         | Medium     | High (Arabic i18n)         |
+| **Refactor**  | Convert dynamic service templates to Server Components | [ServicePageRenderer.tsx](../../apps/web-eg/components/features/services/ServicePageRenderer.tsx)      | Medium     | High (LCP performance)     |
+| **Refactor**  | Translate Mega-Menu and Accordion sub-links            | [SiteNav.tsx](../../apps/web-eg/components/layout/SiteNav.tsx)                                         | Medium     | High (Arabic i18n)         |
 | **Refactor**  | Server-side locale & direction routing                 | Layout files / Middleware                                                                                                                                             | High       | High (prevents CLS)        |
-| **Refactor**  | Connect KV/Redis store for rate limiter                | [rate-limit.ts](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/packages/shared/src/rate-limit.ts)                                               | Medium     | High (spam prevention)     |
+| **Refactor**  | Connect KV/Redis store for rate limiter                | [rate-limit.ts](../../packages/shared/src/rate-limit.ts)                                               | Medium     | High (spam prevention)     |
 
 ---
 

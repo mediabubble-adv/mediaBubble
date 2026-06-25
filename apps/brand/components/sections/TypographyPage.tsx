@@ -89,8 +89,8 @@ export function TypographyPage() {
 
       <BrandPageContent>
         {/* Font families */}
-        <section className="mb-14">
-          <BrandSectionHeading icon={Type} title={t('Font Families')} />
+        <section className="mb-14 scroll-mt-20" id="guideline-typography-font-families">
+          <BrandSectionHeading icon={Type} title={t('Font Families')} anchorId="typography-font-families" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 stagger-grid">
             {fonts.map((font) => (
               <div
@@ -158,7 +158,7 @@ export function TypographyPage() {
 
         {/* Type Scale */}
         <section className="mb-14 scroll-mt-20" id="guideline-typography-scale">
-          <BrandSectionHeading icon={Layers} title={t('Type Scale')} />
+          <BrandSectionHeading icon={Layers} title={t('Type Scale')} anchorId="typography-scale" />
           <div className="bg-brand-surface rounded-xl border border-brand-whisper-border shadow-sm overflow-hidden">
             {scaleSteps.map((step, i) => (
               <div
@@ -210,8 +210,8 @@ export function TypographyPage() {
         </section>
 
         {/* Font Pairing */}
-        <section className="mb-14">
-          <BrandSectionHeading icon={ArrowLeftRight} title={t('Font Pairing')} />
+        <section className="mb-14 scroll-mt-20" id="guideline-typography-font-pairing">
+          <BrandSectionHeading icon={ArrowLeftRight} title={t('Font Pairing')} anchorId="typography-font-pairing" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
               {
@@ -258,8 +258,8 @@ export function TypographyPage() {
         </section>
 
         {/* Accessible Typography */}
-        <section className="mb-14">
-          <BrandSectionHeading icon={ShieldCheck} title={t('Accessible Typography')} />
+        <section className="mb-14 scroll-mt-20" id="guideline-typography-accessibility">
+          <BrandSectionHeading icon={ShieldCheck} title={t('Accessible Typography')} anchorId="typography-accessibility" />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 stagger-grid">
             {[
               { label: t('Min Body Size'), detail: t('14px minimum'), note: t('WCAG AAA compliant for all body text sizes') },
@@ -277,8 +277,8 @@ export function TypographyPage() {
         </section>
 
         {/* Typography Rules */}
-        <section className="mb-16">
-          <BrandSectionHeading icon={ListChecks} title={t('Typography Rules')} />
+        <section className="mb-16 scroll-mt-20" id="guideline-typography-rules">
+          <BrandSectionHeading icon={ListChecks} title={t('Typography Rules')} anchorId="typography-rules" />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               { rule: t('Line Length'), detail: t('Body text at 65ch max. Shorter lines improve readability across all viewports.') },

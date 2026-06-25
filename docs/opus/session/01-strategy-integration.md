@@ -2,7 +2,7 @@
 
 **Session date:** June 22, 2026  
 **Status:** Planning / blueprint  
-**Related specs:** [`OPUS_PRD_PRODUCT_REQUIREMENTS.md`](../OPUS_PRD_PRODUCT_REQUIREMENTS.md), [`OPUS_PHASED_FOUNDATION_ARCHITECTURE.md`](../OPUS_PHASED_FOUNDATION_ARCHITECTURE.md)
+**Related specs:** [`PRD.md`](../product/PRD.md), [`PHASED_FOUNDATION.md`](../architecture/PHASED_FOUNDATION.md)
 
 ---
 

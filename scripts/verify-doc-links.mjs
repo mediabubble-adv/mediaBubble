@@ -29,8 +29,7 @@ function checkLinksInFile(filePath) {
   const lines = content.split('\n');
   const brokenLinks = [];
 
-  // Match standard markdown links: [text](path)
-  // Negative lookahead to avoid matching web URLs, email, etc.
+  // Match standard markdown links: [text](path) or file:/// URLs
   const linkRegex = /\[([^\]]+)\]\((?!(?:https?:\/\/|mailto:|tel:|#))([^)]+)\)/g;
 
   let inCodeBlock = false;

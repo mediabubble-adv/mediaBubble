@@ -10,6 +10,13 @@ export const metadata: Metadata = {
     default: 'launcher.mediabubble.co',
   },
   description: 'MediaBubble unified internal operations platform.',
+  icons: {
+    icon: [
+      { url: '/assets/Logo/logo-favicon.svg', type: 'image/svg+xml' },
+      { url: '/assets/Logo/logo-favicon.png', type: 'image/png', sizes: '32x32' },
+    ],
+    shortcut: '/assets/Logo/logo-favicon.png',
+  },
 }
 
 export const viewport = {

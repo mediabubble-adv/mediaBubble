@@ -2,17 +2,18 @@ import React from 'react'
 import { X, Layers } from 'lucide-react'
 import { PageHero } from './PageHero'
 import { useI18n } from '@/lib/i18n/provider'
+import { BrandBody, BrandInfoBand, BrandMetaPill, BrandSectionHeading } from '@/components/ui/brand-doc'
 
 export function LogoPage() {
   const { t } = useI18n()
 
   const bgVariants = [
-    { bg: '#FFFFFF', bgLabel: t('White'), filter: 'none', label: t('Full Color'), preferred: true, anchor: 'logo-bg-white' },
-    { bg: '#1565C0', bgLabel: t('Deep Blue'), filter: 'brightness(0) invert(1)', label: t('White on dark'), preferred: true, anchor: 'logo-bg-deep-blue' },
-    { bg: '#FAFAFA', bgLabel: t('Canvas'), filter: 'none', label: t('On Canvas White (#FAFAFA)'), preferred: true, anchor: 'logo-bg-canvas' },
-    { bg: '#FFC107', bgLabel: t('Brand Yellow'), filter: 'none', label: t('On Yellow'), preferred: false, anchor: 'logo-bg-yellow' },
+    { bg: '#FFFFFF', bgLabel: t('White'), filter: 'none', label: t('mediaBubble_logo_horizontal_full_color.svg'), preferred: true, anchor: 'logo-bg-white' },
+    { bg: '#1565C0', bgLabel: t('Deep Blue'), filter: 'brightness(0) invert(1)', label: t('mediaBubble_logo_horizontal_text_white.svg'), preferred: true, anchor: 'logo-bg-deep-blue' },
+    { bg: '#FAFAFA', bgLabel: t('Canvas'), filter: 'none', label: t('mediaBubble_logo_vertical_full_color.svg'), preferred: true, anchor: 'logo-bg-canvas' },
+    { bg: '#FFC107', bgLabel: t('Brand Yellow'), filter: 'none', label: t('Yellow background reference'), preferred: false, anchor: 'logo-bg-yellow' },
     { bg: '#333333', bgLabel: t('Charcoal'), filter: 'brightness(0) invert(1)', label: t('White on Charcoal (#333)'), preferred: true, anchor: 'logo-bg-charcoal' },
-    { bg: '#E3F2FD', bgLabel: t('Blue Tint'), filter: 'none', label: t('On Light Blue (#E3F2FD)'), preferred: true, anchor: 'logo-bg-blue-tint' },
+    { bg: '#E3F2FD', bgLabel: t('Blue Tint'), filter: 'none', label: t('Light blue reference'), preferred: true, anchor: 'logo-bg-blue-tint' },
   ]
 
   const donts = [
@@ -36,15 +37,21 @@ export function LogoPage() {
 
   return (
     <div>
-      <PageHero icon={Layers} kicker={t('Visual Identity')} title={t('Logo')} titleHighlight={t('Logo')} description={t('The MediaBubble mark: a compact symbol combining blue and yellow. Use it consistently, give it room to breathe, and never alter its proportions or colors.')} />
+      <PageHero icon={Layers} kicker={t('Visual Identity')} title={t('Logo')} titleHighlight={t('Logo')} description={t('Use the approved logo file first. The guide shows where each variant belongs and which backgrounds are safe, but it does not invent new marks or styles.')} />
 
       <div className="px-6 lg:px-10 py-8 lg:py-12 max-w-[1400px] mx-auto">
+      <BrandInfoBand className="flex flex-wrap items-start gap-3">
+        <BrandMetaPill tone="canonical">{t('Canonical identity rules')}</BrandMetaPill>
+        <BrandBody className="max-w-3xl text-[13px]">
+          {t('Approved logo files and usage constraints on this page are canonical. Background examples and cautions help selection, but they do not authorize new variants.')}
+        </BrandBody>
+      </BrandInfoBand>
 
       {/* Primary mark */}
       <section className="mb-10 scroll-mt-20" id="guideline-logo-primary-mark">
         <div className="flex items-center gap-2.5 mb-4">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2196F3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M12 2L2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-          <h2 className="text-[13px] font-semibold text-brand-text">{t('Primary Mark')}</h2>
+          <BrandSectionHeading icon={Layers} title={t('Primary Mark')} anchorId="logo-primary-mark" className="mb-0" />
+          <BrandMetaPill tone="canonical">{t('Canonical')}</BrandMetaPill>
         </div>
         <div className="bg-brand-surface rounded-xl border border-brand-whisper-border overflow-hidden">
           <div className="bg-brand-canvas dark:bg-[#121418] flex flex-col items-center justify-center py-20 gap-8">
@@ -73,9 +80,12 @@ export function LogoPage() {
       </section>
 
       {/* Background variants */}
-      <section className="mb-10">
+      <section className="mb-10 scroll-mt-20" id="guideline-logo-background-variants">
         <div className="mb-4">
-          <h2 className="text-[13px] font-semibold text-brand-text">{t('Background Variants')}</h2>
+          <div className="flex flex-wrap items-center gap-2">
+            <BrandSectionHeading title={t('Background Variants')} anchorId="logo-background-variants" className="mb-0" />
+            <BrandMetaPill tone="reference">{t('Selection reference')}</BrandMetaPill>
+          </div>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {bgVariants.map((v) => (
@@ -101,9 +111,12 @@ export function LogoPage() {
       </section>
 
       {/* Clear space & sizing */}
-      <section className="mb-8">
+      <section className="mb-8 scroll-mt-20" id="guideline-logo-clear-space-sizing">
         <div className="mb-4">
-          <h2 className="text-[13px] font-semibold text-brand-text">{t('Clear Space & Sizing')}</h2>
+          <div className="flex flex-wrap items-center gap-2">
+            <BrandSectionHeading title={t('Clear Space & Sizing')} anchorId="logo-clear-space-sizing" className="mb-0" />
+            <BrandMetaPill tone="canonical">{t('Canonical')}</BrandMetaPill>
+          </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div className="bg-[#07080A] bg-[radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:16px_16px] border border-white/[0.08] rounded-xl p-8 flex flex-col items-center justify-center gap-3 min-h-[260px] shadow-inner relative">
@@ -171,9 +184,12 @@ export function LogoPage() {
       </section>
 
       {/* Don'ts */}
-      <section className="mb-16">
+      <section className="mb-16 scroll-mt-20" id="guideline-logo-incorrect-usage">
         <div className="mb-4">
-          <h2 className="text-[13px] font-semibold text-brand-text">{t('Incorrect Usage')}</h2>
+          <div className="flex flex-wrap items-center gap-2">
+            <BrandSectionHeading title={t('Incorrect Usage')} anchorId="logo-incorrect-usage" className="mb-0" />
+            <BrandMetaPill tone="reference">{t('Guardrail reference')}</BrandMetaPill>
+          </div>
           <span className="text-[10px] font-mono text-[#DC2626]/60">{t('Never do this — see approved variants above')}</span>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">

@@ -2,6 +2,7 @@ import React from 'react'
 import { PageHero } from './PageHero'
 import { useI18n } from '@/lib/i18n/provider'
 import { Grid3X3 } from 'lucide-react'
+import { BrandBody, BrandInfoBand, BrandMetaPill } from '@/components/ui/brand-doc'
 
 export function SpacingGridPage() {
   const { t } = useI18n()
@@ -39,10 +40,19 @@ export function SpacingGridPage() {
       <PageHero icon={Grid3X3} kicker={t('Layout System')} title={t('Spacing & Grid')} titleHighlight={t('Spacing')} description={t("Use these tokens for every gap, padding, and margin. Do not add arbitrary spacing values.")} />
 
       <div className="px-6 lg:px-10 py-8 lg:py-12 max-w-[1400px] mx-auto">
+      <BrandInfoBand className="flex flex-wrap items-start gap-3">
+        <BrandMetaPill tone="canonical">{t('Canonical pattern rules')}</BrandMetaPill>
+        <BrandBody className="max-w-3xl text-[13px]">
+          {t('Everything on this page is normative. Use these spacing and layout rules before composing any new pattern or marketing screen.')}
+        </BrandBody>
+      </BrandInfoBand>
 
       <section className="mb-10">
         <div className="mb-4">
-          <h2 className="text-[13px] font-semibold text-brand-dark-blue">{t('Spacing Scale')}</h2>
+          <div className="flex flex-wrap items-center gap-2">
+            <h2 className="text-[13px] font-semibold text-brand-dark-blue">{t('Spacing Scale')}</h2>
+            <BrandMetaPill tone="canonical">{t('Canonical')}</BrandMetaPill>
+          </div>
         </div>
         <div className="bg-brand-surface rounded-xl border border-brand-whisper-border overflow-hidden">
           {spacingScale.map((step, i) => (
@@ -79,6 +89,7 @@ export function SpacingGridPage() {
         <div className="flex items-center gap-2.5 mb-4">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2196F3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
           <h2 className="text-[13px] font-semibold text-brand-dark-blue">{t('Grid Patterns')}</h2>
+          <BrandMetaPill tone="canonical">{t('Canonical')}</BrandMetaPill>
         </div>
         <div className="space-y-4">
           {gridPatterns.map((pattern, pi) => {
@@ -123,7 +134,10 @@ export function SpacingGridPage() {
 
       <section className="mb-16">
         <div className="mb-4">
-          <h2 className="text-[13px] font-semibold text-brand-dark-blue">{t('Layout Dimensions')}</h2>
+          <div className="flex flex-wrap items-center gap-2">
+            <h2 className="text-[13px] font-semibold text-brand-dark-blue">{t('Layout Dimensions')}</h2>
+            <BrandMetaPill tone="system">{t('System constraint')}</BrandMetaPill>
+          </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {containerRules.map((r) => (

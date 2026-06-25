@@ -437,9 +437,10 @@ export default function App() {
 ## 📖 Documentation
 
 - [Storybook](https://storybook.mediabubble.co) - Interactive component explorer
-- [API Docs](./docs/API.md) - Component prop documentation
-- [Design Tokens](./docs/TOKENS.md) - Colors, typography, spacing
-- [Contributing](./CONTRIBUTING.md) - How to contribute
+- [Developer Guide](./MEDIABUBBLE_DEVELOPER_GUIDE.md) - Implementation notes and workflow
+- [Website Rebuild Strategy](./MEDIABUBBLE_WEBSITE_REBUILD_STRATEGY.md) - Active site direction
+- [Launch Checklist](./GITHUB_LAUNCH_CHECKLIST.md) - Release and publishing steps
+- [Content Guide](./CONTENT.md) - Copy and structure guidance
 
 ## 🎨 Components
 
@@ -479,7 +480,7 @@ export default function App() {
 
 ### And 15+ more...
 
-[View all components](./docs/COMPONENTS.md)
+[Review the site guide](./MEDIABUBBLE_DEVELOPER_GUIDE.md)
 
 ## 🌍 Internationalization
 
@@ -534,7 +535,7 @@ Built by [MediaBubble](https://mediabubble.co) - AI-powered marketing for the ME
 
 ## 🤝 Contributing
 
-Contributions welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md)
+Contributions welcome! Please follow the repository standards in [GITHUB_LAUNCH_CHECKLIST.md](./GITHUB_LAUNCH_CHECKLIST.md)
 
 ## 🌟 Show Your Support
 

@@ -1,3 +1,7 @@
+'use client'
+
+import { useState } from 'react'
+import { Link2 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import type { ReactNode } from 'react'
 
@@ -25,17 +29,53 @@ export function BrandSectionHeading({
   title,
   icon: Icon,
   className = '',
+  anchorId,
 }: {
   title: ReactNode
   icon?: LucideIcon
   className?: string
+  anchorId?: string
 }) {
+  const [copied, setCopied] = useState(false)
+
+  const handleAnchorClick = async () => {
+    if (!anchorId || typeof window === 'undefined') return
+
+    const hash = `#guideline-${anchorId}`
+    const shareUrl = `${window.location.origin}${window.location.pathname}${window.location.search}${hash}`
+
+    window.history.replaceState(null, '', hash)
+
+    try {
+      await navigator.clipboard.writeText(shareUrl)
+      setCopied(true)
+      window.setTimeout(() => setCopied(false), 1600)
+    } catch {
+      window.location.hash = `guideline-${anchorId}`
+    }
+  }
+
   return (
     <div className={`flex items-center gap-2.5 mb-4 ${className}`.trim()}>
       {Icon ? (
         <Icon size={15} strokeWidth={2} className="shrink-0 text-brand-blue" aria-hidden />
       ) : null}
       <h2 className="text-[13px] font-semibold text-brand-dark-blue dark:text-brand-blue">{title}</h2>
+      {anchorId ? (
+        <button
+          type="button"
+          onClick={handleAnchorClick}
+          aria-label={copied ? 'Section link copied' : 'Copy link to this section'}
+          title={copied ? 'Section link copied' : 'Copy link to this section'}
+          className={`inline-flex h-6 w-6 items-center justify-center rounded-md transition-colors ${
+            copied
+              ? 'bg-brand-blue/10 text-brand-blue'
+              : 'text-brand-text-muted hover:bg-brand-canvas hover:text-brand-blue'
+          }`}
+        >
+          <Link2 size={13} />
+        </button>
+      ) : null}
     </div>
   )
 }
@@ -97,6 +137,37 @@ export function BrandInfoBand({
     >
       {children}
     </div>
+  )
+}
+
+export function BrandMetaPill({
+  tone = 'system',
+  children,
+  className = '',
+}: {
+  tone?: 'canonical' | 'reference' | 'system'
+  children: ReactNode
+  className?: string
+}) {
+  const toneClass =
+    tone === 'canonical'
+      ? 'bg-[#FFC107]/10 text-[#92610B] dark:text-[#FFD54F]'
+      : tone === 'reference'
+        ? 'bg-black/[0.05] text-brand-text-secondary dark:bg-white/[0.08] dark:text-brand-text-muted'
+        : 'bg-[#2196F3]/10 text-[#1565C0] dark:text-[#64B5F6]'
+
+  return (
+    <span
+      className={[
+        'inline-flex items-center rounded-md px-2 py-1 text-[10px] font-bold uppercase tracking-[0.12em]',
+        toneClass,
+        className,
+      ]
+        .filter(Boolean)
+        .join(' ')}
+    >
+      {children}
+    </span>
   )
 }
 
