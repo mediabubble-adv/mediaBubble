@@ -15,7 +15,9 @@
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "extends": ["next/core-web-vitals"],
-      "rules": {}
+      "rules": {
+        "@next/next/no-html-link-for-pages": "off"
+      }
     }
   ]
 }

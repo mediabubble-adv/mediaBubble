@@ -20,6 +20,7 @@ export type OptimizedImageProps = Omit<ImageProps, 'sizes'> & {
 export function OptimizedImage({
   variant = 'responsive',
   sizes,
+  alt,
   priority,
   loading,
   ...props
@@ -35,6 +36,7 @@ export function OptimizedImage({
   return (
     <Image
       {...props}
+      alt={alt}
       sizes={resolvedSizes}
       priority={priority}
       loading={priority ? undefined : (loading ?? 'lazy')}
