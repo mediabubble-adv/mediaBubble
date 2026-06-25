@@ -18,10 +18,14 @@ import { TypographyPage } from './sections/TypographyPage'
 import { IconographyPage } from './sections/IconographyPage'
 import { VoiceTonePage } from './sections/VoiceTonePage'
 import { ComponentsPage } from './sections/ComponentsPage'
+import { PatternsPage } from './sections/PatternsPage'
 import { SpacingGridPage } from './sections/SpacingGridPage'
 import { CollateralPage } from './sections/CollateralPage'
 import { DigitalAssetsPage } from './sections/DigitalAssetsPage'
 import { RealWorldExamplesPage } from './sections/RealWorldExamplesPage'
+import { EmailApplicationsPage } from './sections/EmailApplicationsPage'
+import { SocialApplicationsPage } from './sections/SocialApplicationsPage'
+import { DeckApplicationsPage } from './sections/DeckApplicationsPage'
 import { AssetsPage } from './sections/AssetsPage'
 import { PromptGeneratorPage } from './prompt-generator/PromptGeneratorPage'
 import { searchGuidelineItems, type GuidelineSearchItem } from '@/lib/guideline-search'
@@ -133,10 +137,14 @@ export const BrandGuidelinesApp = () => {
       case 'iconography': return <IconographyPage />
       case 'voice': return <VoiceTonePage />
       case 'components': return <ComponentsPage />
+      case 'patterns': return <PatternsPage onNavigate={setActiveTab} />
       case 'spacing': return <SpacingGridPage />
       case 'collateral': return <CollateralPage />
       case 'digital': return <DigitalAssetsPage />
-      case 'real-world-examples': return <RealWorldExamplesPage />
+      case 'real-world-examples': return <RealWorldExamplesPage onNavigate={setActiveTab} />
+      case 'pattern-email': return <EmailApplicationsPage />
+      case 'pattern-social': return <SocialApplicationsPage />
+      case 'pattern-decks': return <DeckApplicationsPage />
       case 'assets': return <AssetsPage />
       case 'prompts': return <PromptGeneratorPage onNavigate={setActiveTab} />
       default: return <OverviewSection onNavigate={setActiveTab} />
@@ -145,7 +153,7 @@ export const BrandGuidelinesApp = () => {
 
   const currentSection = sections.find(s => s.id === activeTab)
   const effectiveWidth = sidebarCollapsed ? 64 : sidebarWidth
-  const groups = ['Brand', 'Identity', 'System', 'Application'] as const
+  const groups = ['Start Here', 'Foundations', 'Components', 'Patterns', 'Assets', 'Rules'] as const
   const isRtl = locale === 'ar-masri'
   const showNavTooltips = sidebarCollapsed
   const headerBarHeight = 'h-[52px]'
@@ -180,6 +188,11 @@ export const BrandGuidelinesApp = () => {
                 const IconComponent = link.icon
                 const isActive = activeTab === link.id
                 const label = t(link.label)
+                const canonicalState = link.id === 'logo' || link.id === 'digital' || link.id === 'assets' || link.id === 'components' || link.id === 'voice' || link.id === 'spacing'
+                  ? 'Canonical'
+                  : link.id === 'real-world-examples' || link.id === 'pattern-email' || link.id === 'pattern-social' || link.id === 'pattern-decks'
+                    ? 'Reference'
+                    : null
                 const button = (
                   <button
                     onClick={() => { setActiveTab(link.id); setMobileMenuOpen(false) }}
@@ -195,7 +208,14 @@ export const BrandGuidelinesApp = () => {
                   >
                     <IconComponent size={17} strokeWidth={1.5} className="shrink-0" />
                     {(!sidebarCollapsed || mobile) && (
-                      <span className={`truncate ${isActive ? 'font-semibold' : 'font-medium'}`}>{label}</span>
+                      <span className="flex min-w-0 flex-1 items-center gap-2 truncate">
+                        <span className={`truncate ${isActive ? 'font-semibold' : 'font-medium'}`}>{label}</span>
+                        {canonicalState ? (
+                          <span className={`shrink-0 rounded px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-[0.12em] ${canonicalState === 'Canonical' ? 'bg-[#FFC107]/[0.12] text-[#FFC107]' : 'bg-white/[0.08] text-white/45'}`}>
+                            {canonicalState}
+                          </span>
+                        ) : null}
+                      </span>
                     )}
                   </button>
                 )
@@ -349,7 +369,7 @@ export const BrandGuidelinesApp = () => {
                   <input
                     id="page-search"
                     type="text"
-                    placeholder={t('Search pages…', 'Search guidelines…')}
+                    placeholder={t('Search pages…', 'Search logo, colors, components, or assets…')}
                     aria-label={t('Search brand guidelines pages. Press Cmd-K to focus.', 'Search brand guidelines. Press Ctrl+K or ⌘K to focus.')}
                     value={searchQuery}
                     onChange={e => setSearchQuery(e.target.value)}
@@ -370,7 +390,7 @@ export const BrandGuidelinesApp = () => {
                   <div className="absolute start-0 top-full mt-1.5 w-full overflow-hidden bg-brand-surface border border-brand-whisper-border rounded-xl shadow-[0_8px_24px_rgba(0,0,0,0.12)] dark:shadow-black/40 z-50 animate-scale-in">
                     {!searchQuery.trim() && (
                       <p className="px-4 pt-3 pb-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-brand-text-muted sticky top-0 bg-brand-surface">
-                        {t('Popular items', 'Popular pages')}
+                        {t('Popular items', 'Start here')}
                       </p>
                     )}
                     {searchResults.length > 0 ? searchResults.map((item) => {
@@ -388,11 +408,14 @@ export const BrandGuidelinesApp = () => {
                             <Search size={14} strokeWidth={1.5} className="text-brand-blue shrink-0 mt-0.5" />
                           )}
                           <span className="min-w-0 flex-1">
-                            <span className="block text-[12px] font-medium text-brand-text truncate">{item.label}</span>
-                            <span className="block text-[10px] text-brand-text-muted truncate">{item.context}</span>
-                          </span>
-                        </button>
-                      )
+                    <span className="block text-[12px] font-medium text-brand-text truncate">{item.label}</span>
+                    <span className="block text-[10px] text-brand-text-muted truncate">
+                      {item.context}
+                      {item.context.includes('Canonical') ? ' · Canonical' : item.context.includes('Reference') ? ' · Reference' : ''}
+                    </span>
+                  </span>
+                </button>
+              )
                     }) : (
                       <div className="px-4 py-3 text-center">
                         <p className="text-[11px] text-brand-text-muted">{t('No pages found', "No pages match your search. Try 'colors', 'logo', or 'typography'.")}</p>

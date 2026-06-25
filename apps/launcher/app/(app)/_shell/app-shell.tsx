@@ -1,10 +1,10 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import {
-  Rocket,
   Search,
   Bell,
   PanelLeftClose,
@@ -136,10 +136,18 @@ function Sidebar({
         collapsed ? 'w-[68px]' : 'w-[260px]'
       } ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}`}
     >
-      <div className="flex h-14 items-center gap-2.5 border-b border-border/60 px-3.5">
-        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 ring-1 ring-primary/20">
-          <Rocket size={17} className="text-primary" />
-        </div>
+      <div
+        className={`flex h-14 items-center border-b border-border/60 px-3.5 ${collapsed ? 'justify-center' : 'gap-2.5'}`}
+      >
+        <Link href="/" className="flex shrink-0 items-center" title="MediaBubble Launcher">
+          <Image
+            src="/assets/logo.svg"
+            alt="MediaBubble"
+            width={32}
+            height={32}
+            className="h-8 w-8 shrink-0"
+          />
+        </Link>
         {!collapsed ? (
           <div className="min-w-0">
             <span className="block truncate text-[13px] font-bold text-foreground">MediaBubble</span>

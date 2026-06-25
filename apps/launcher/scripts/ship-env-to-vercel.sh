@@ -48,7 +48,7 @@ add_sensitive_env() {
       if out="$(vercel --non-interactive env add "$key" preview "$branch" --value "$val" --yes --sensitive --force 2>&1)"; then
         echo "  ✓ $key (preview, branch $branch)"
         added=1
-      elif [[ "$out" != *"git_branch_required"* ]]; then
+      elif [[ "$out" != *"git_branch_required"* && "$out" != *"branch_not_found"* ]]; then
         printf '%s\n' "$out" >&2
         return 1
       fi
@@ -70,8 +70,9 @@ add_sensitive_env() {
 }
 
 preview_branch_names() {
-  local b
-  for b in "${VERCEL_GIT_COMMIT_REF:-}" "$(git -C "$ROOT" branch --show-current 2>/dev/null || true)" master main; do
+  local b default_branch
+  default_branch="$(git -C "$ROOT" symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null | sed 's|^origin/||' || true)"
+  for b in "${VERCEL_GIT_COMMIT_REF:-}" "$(git -C "$ROOT" branch --show-current 2>/dev/null || true)" "${default_branch:-master}"; do
     [[ -z "$b" || "$b" == "HEAD" ]] && continue
     echo "$b"
   done | sort -u
@@ -97,7 +98,7 @@ add_plain() {
       if out="$(vercel --non-interactive env add "$key" preview "$branch" --value "$val" --yes --force --no-sensitive 2>&1)"; then
         echo "  ✓ $key (preview, branch $branch)"
         added=1
-      elif [[ "$out" != *"git_branch_required"* ]]; then
+      elif [[ "$out" != *"git_branch_required"* && "$out" != *"branch_not_found"* ]]; then
         printf '%s\n' "$out" >&2
         return 1
       fi

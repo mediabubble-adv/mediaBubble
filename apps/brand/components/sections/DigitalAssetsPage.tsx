@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { Copy, Check, AtSign, Globe, Monitor, Lock, Chrome } from 'lucide-react'
+import { Copy, Check, AtSign, Monitor } from 'lucide-react'
 import { PageHero } from './PageHero'
 import { useI18n } from '@/lib/i18n/provider'
+import { BrandBody, BrandInfoBand, BrandMetaPill } from '@/components/ui/brand-doc'
 
 export function DigitalAssetsPage() {
   const { t } = useI18n()
@@ -103,12 +104,20 @@ export function DigitalAssetsPage() {
       <PageHero icon={Monitor} kicker="Digital Branding" title="Digital Assets" titleHighlight="Digital" description="Profile images, favicons, and email signatures that keep MediaBubble consistent across browsers, apps, and email clients." />
 
       <div className="px-6 lg:px-10 py-8 lg:py-12 max-w-[1400px] mx-auto space-y-16">
+      <BrandInfoBand className="flex flex-wrap items-start gap-3">
+        <BrandMetaPill tone="canonical">{t('Canonical digital assets')}</BrandMetaPill>
+        <BrandMetaPill tone="reference">{t('Platform reference')}</BrandMetaPill>
+        <BrandBody className="max-w-3xl text-[13px]">
+          {t('Use favicon files and email signatures as the approved system outputs. Treat platform avatar examples as implementation references for social surfaces, not as new brand variants.')}
+        </BrandBody>
+      </BrandInfoBand>
 
       {/* Avatar */}
       <section id="guideline-digital-avatars" className="scroll-mt-20">
         <div className="flex items-center gap-2.5 mb-6 text-start">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2196F3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           <h2 className="text-[13px] font-semibold text-brand-text">Avatar Specs</h2>
+          <BrandMetaPill tone="reference">{t('Reference')}</BrandMetaPill>
           <span className="ml-auto text-[10px] font-mono text-brand-text-muted">400 × 400 px recommended</span>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-6">
@@ -150,35 +159,7 @@ export function DigitalAssetsPage() {
         <div className="flex items-center gap-2.5 mb-6 text-start">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2196F3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
           <h2 className="text-[13px] font-semibold text-brand-text">Favicon Standards</h2>
-        </div>
-        {/* Browser tab mockup */}
-        <div className="bg-brand-canvas dark:bg-[#05080e] border border-brand-whisper-border rounded-xl p-5 mb-6 overflow-x-auto shadow-inner">
-          <div className="flex items-end gap-1 min-w-max mb-0">
-            <div className="bg-brand-surface rounded-t-lg pt-2 pb-2 px-4 flex items-center gap-2 border-t border-l border-r border-brand-whisper-border min-w-[160px] relative">
-              <img src="/assets/logo.svg" alt="" className="w-4 h-4 shrink-0" />
-              <span className="text-[11px] font-semibold text-brand-text truncate max-w-[100px]">MediaBubble</span>
-              <span className="absolute right-2 top-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full hover:bg-brand-whisper-border/55 flex items-center justify-center text-[8px] cursor-pointer text-brand-text-muted">×</span>
-            </div>
-            <div className="bg-brand-canvas dark:bg-[#0D0F12] rounded-t-lg pt-2 pb-2 px-4 flex items-center gap-2 min-w-[130px] border-b border-brand-whisper-border">
-              <Chrome size={12} className="text-brand-text-muted" />
-              <span className="text-[11px] text-brand-text-muted truncate">New Tab</span>
-            </div>
-          </div>
-          <div className="bg-brand-surface rounded-b-xl rounded-tr-xl border border-brand-whisper-border p-4 flex items-center gap-3">
-            <div className="flex items-center gap-1.5 shrink-0">
-              <div className="w-3 h-3 rounded-full bg-[#FF5F57] shadow-sm" />
-              <div className="w-3 h-3 rounded-full bg-[#FEBC2E] shadow-sm" />
-              <div className="w-3 h-3 rounded-full bg-[#28C840] shadow-sm" />
-            </div>
-            <div className="flex-1 bg-brand-canvas dark:bg-[#0D0F12] border border-brand-whisper-border rounded-lg px-3.5 py-1.5 flex items-center justify-between gap-2">
-              <div className="flex items-center gap-2">
-                <Lock size={11} className="text-[#1AD191]" />
-                <span className="text-[11px] text-brand-text font-medium">https://</span>
-                <span className="text-[11px] text-brand-text font-bold">mediabubble.com</span>
-              </div>
-              <Globe size={12} className="text-brand-text-muted" strokeWidth={1.5} />
-            </div>
-          </div>
+          <BrandMetaPill tone="canonical">{t('Canonical')}</BrandMetaPill>
         </div>
         {/* Size grid */}
         <div className="bg-brand-surface rounded-xl border border-brand-whisper-border divide-y divide-brand-whisper-border shadow-sm">
@@ -229,7 +210,10 @@ export function DigitalAssetsPage() {
       <section id="guideline-digital-email-signature" className="scroll-mt-20">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div className="text-start">
-            <h2 className="text-[13px] font-semibold text-brand-text font-display">Email Signature Templates</h2>
+            <div className="flex flex-wrap items-center gap-2">
+              <h2 className="text-[13px] font-semibold text-brand-text font-display">Email Signature Templates</h2>
+              <BrandMetaPill tone="canonical">{t('Canonical')}</BrandMetaPill>
+            </div>
             <p className="text-[11px] text-brand-text-secondary mt-0.5">Select a brand color configuration below to live preview and copy code.</p>
           </div>
           <div className="flex items-center gap-1 bg-brand-surface p-1 rounded-lg border border-brand-whisper-border self-start sm:self-auto shadow-inner">

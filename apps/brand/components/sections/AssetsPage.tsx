@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Copy, Check, Download, Package } from 'lucide-react'
 import { PageHero } from './PageHero'
 import { useI18n } from '@/lib/i18n/provider'
+import { BrandBody, BrandInfoBand, BrandMetaPill } from '@/components/ui/brand-doc'
 
 export function AssetsPage() {
   const { t } = useI18n()
@@ -13,12 +14,14 @@ export function AssetsPage() {
   }
 
   const logoFiles = [
-    { name: 'logo.svg', format: 'SVG', use: 'Web, app, scalable use', size: 'Vector', bg: 'Transparent', action: '/assets/logo.svg' },
-    { name: 'logo-white.svg', format: 'SVG', use: 'Dark backgrounds (use inverted/white version)', size: 'Vector', bg: 'Transparent', action: null },
-    { name: 'logo-512.png', format: 'PNG', use: 'App icons, social avatars', size: '512 × 512', bg: 'Transparent', action: null },
-    { name: 'logo-192.png', format: 'PNG', use: 'Android home screen icon', size: '192 × 192', bg: 'Transparent', action: null },
-    { name: 'apple-touch-icon.png', format: 'PNG', use: 'iOS home screen', size: '180 × 180', bg: 'White', action: null },
-    { name: 'favicon.ico', format: 'ICO', use: 'Browser favicon (multi-size)', size: '16/32/48px', bg: 'Transparent', action: null },
+    { name: 'mediaBubble_logo_horizontal_full_color.svg', format: 'SVG', use: 'Canonical web wordmark for light backgrounds', size: 'Vector', bg: 'Transparent', action: '/assets/Logo/mediaBubble_logo_horizontal_full_color.svg', canonical: true },
+    { name: 'mediaBubble_logo_horizontal_text_white.svg', format: 'SVG', use: 'Canonical horizontal mark for dark backgrounds', size: 'Vector', bg: 'Transparent', action: '/assets/Logo/mediaBubble_logo_horizontal_text_white.svg', canonical: true },
+    { name: 'mediaBubble_logo_vertical_full_color.svg', format: 'SVG', use: 'Canonical stacked mark for cover use and print', size: 'Vector', bg: 'Transparent', action: '/assets/Logo/mediaBubble_logo_vertical_full_color.svg', canonical: true },
+    { name: 'logo.svg', format: 'SVG', use: 'Fallback icon mark for compact UI use only', size: 'Vector', bg: 'Transparent', action: '/assets/logo.svg', canonical: false },
+    { name: 'logo-512.png', format: 'PNG', use: 'App icons and social avatars', size: '512 × 512', bg: 'Transparent', action: null, canonical: false },
+    { name: 'logo-192.png', format: 'PNG', use: 'Android home screen icon', size: '192 × 192', bg: 'Transparent', action: null, canonical: false },
+    { name: 'apple-touch-icon.png', format: 'PNG', use: 'iOS home screen icon', size: '180 × 180', bg: 'White', action: null, canonical: false },
+    { name: 'favicon.ico', format: 'ICO', use: 'Browser favicon bundle', size: '16/32/48px', bg: 'Transparent', action: null, canonical: false },
   ]
 
   const colorTokens = [
@@ -38,15 +41,23 @@ export function AssetsPage() {
 
   return (
     <div>
-      <PageHero icon={Package} kicker="Downloads & References" title="Asset Library" titleHighlight="Asset" description="All brand files in one place: logo variants, brand colors, and font details. Copy any value or download the files you need." />
+      <PageHero icon={Package} kicker="Downloads & References" title="Asset Library" titleHighlight="Asset" description="Canonical logo variants, token references, and export-ready files. Use this page to pick the approved file fast, not to browse options." />
 
       <div className="px-6 lg:px-10 py-8 lg:py-12 max-w-[1400px] mx-auto">
+      <BrandInfoBand className="flex flex-wrap items-start gap-3">
+        <BrandMetaPill tone="canonical">{t('Canonical file source')}</BrandMetaPill>
+        <BrandBody className="max-w-3xl text-[13px]">
+          {t('Downloads on this page are the approved production files. Reference rows can help with implementation, but should not replace the canonical exports above them.')}
+        </BrandBody>
+      </BrandInfoBand>
 
       {/* Logo files */}
       <section className="mb-10 scroll-mt-20" id="guideline-asset-logo-files">
         <div className="flex items-center gap-2.5 mb-4">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2196F3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M12 2L2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
           <h2 className="text-[13px] font-semibold text-brand-dark-blue">Logo Files</h2>
+          <BrandMetaPill tone="canonical">{t('Canonical')}</BrandMetaPill>
+          <span className="text-[10px] font-mono text-brand-text-muted">Canonical first</span>
         </div>
         <div className="bg-brand-surface rounded-xl border border-brand-whisper-border divide-y divide-brand-whisper-border">
           {logoFiles.map((file) => (
@@ -55,7 +66,12 @@ export function AssetsPage() {
                 <img src="/assets/logo.svg" alt="" className="w-6 h-6" />
               </div>
               <div className="flex-1 min-w-0">
-                <code className="text-[12px] font-mono font-semibold text-brand-charcoal">{file.name}</code>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <code className="text-[12px] font-mono font-semibold text-brand-charcoal">{file.name}</code>
+                  <span className={`text-[9px] font-bold uppercase tracking-[0.12em] px-2 py-0.5 rounded ${file.canonical ? 'bg-[#FFC107]/10 text-[#92610B]' : 'bg-brand-light-border text-brand-text-muted'}`}>
+                    {file.canonical ? 'Canonical' : 'Reference'}
+                  </span>
+                </div>
                 <p className="text-[11px] text-brand-muted-steel mt-0.5">{file.use}</p>
               </div>
               <div className="hidden sm:flex items-center gap-3 shrink-0">
@@ -87,7 +103,10 @@ export function AssetsPage() {
       {/* Color tokens */}
       <section className="mb-8 scroll-mt-20" id="guideline-asset-color-tokens">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-[13px] font-semibold text-brand-dark-blue">Brand Colors</h2>
+          <div className="flex flex-wrap items-center gap-2">
+            <h2 className="text-[13px] font-semibold text-brand-dark-blue">Brand Colors</h2>
+            <BrandMetaPill tone="system">{t('Token reference')}</BrandMetaPill>
+          </div>
           <span className="text-[10px] font-mono text-brand-muted-steel">Click to copy HEX</span>
         </div>
         <div className="bg-brand-surface rounded-xl border border-brand-whisper-border divide-y divide-brand-whisper-border">
@@ -115,7 +134,10 @@ export function AssetsPage() {
       {/* Font references */}
       <section className="mb-16 scroll-mt-20" id="guideline-asset-font-stack">
         <div className="mb-4">
-          <h2 className="text-[13px] font-semibold text-brand-dark-blue">Font References</h2>
+          <div className="flex flex-wrap items-center gap-2">
+            <h2 className="text-[13px] font-semibold text-brand-dark-blue">Font References</h2>
+            <BrandMetaPill tone="reference">{t('Reference')}</BrandMetaPill>
+          </div>
         </div>
         <div className="bg-brand-surface rounded-xl border border-brand-whisper-border divide-y divide-brand-whisper-border">
           {fontStack.map((f) => (

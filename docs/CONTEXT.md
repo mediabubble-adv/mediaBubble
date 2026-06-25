@@ -2,10 +2,10 @@
 
 **Purpose:** Single handoff document for AI assistants, collaborators, and future sessions.  
 **Owner:** Yasser Dorgham (yasser.dorgham@gmail.com)  
-**Last updated:** June 22, 2026  
+**Last updated:** June 25, 2026  
 **Repo:** [mediabubble-adv/mediaBubble](https://github.com/mediabubble-adv/mediaBubble) (private GitHub) — Nx monorepo: `web-eg`, `web-ae`, `brand` apps + shared packages
 
-> **How to use with other AI tools:** Upload or paste this file first. Then add `docs/website/README.md` for website work, `docs/getting-started/START_HERE.md` for OpenCode agents, or `docs/developing/Brand-Guidelines/BRAND_GUIDELINES_V2.0.md` for brand rules.
+> **How to use with other AI tools:** Upload or paste this file first. Then add `docs/README.md` for the docs map, `docs/website/README.md` for website work, `docs/getting-started/START_HERE.md` for OpenCode agents, or `docs/developing/Brand-Guidelines/BRAND_GUIDELINES_V2.0.md` for brand rules.
 
 ---
 
@@ -22,7 +22,7 @@ MediaBubble is a **full-service marketing agency in Hurghada, Egypt** (est. 2015
 | **Design system**             | `packages/design-system` — UI primitives + Tailwind preset | Built — Rollup dist                                              |
 | **Shared lib**                | `packages/shared` — env, API clients, i18n factory         | Built                                                            |
 | **Content pipeline**          | `packages/content-pipeline` — UAE localization             | Stub                                                             |
-| **Planning corpus**           | Strategy, audits, roadmaps under `docs/`                   | Extensive — organized under docs/ launcher, website, brand, etc. |
+| **Planning corpus**           | Strategy, audits, roadmaps under `docs/`                   | Extensive — organized under `docs/README.md` and topic folders   |
 | **AI agent ecosystem**        | Arabic-first OpenCode/Claude skills & agents               | Specified — consolidation not finished                           |
 | **Business operations docs**  | HR, finance, org, AI sales strategy                        | Documented — not code                                            |
 
@@ -110,7 +110,6 @@ mediabubble Main/
 | ----------------- | --------------------------------------------------------------- |
 | `.opencode/`      | 14 Arabic-focused agent definitions + skills                    |
 | `.claude/skills/` | 38 Claude Code skills (Arabic linguistics, design, Quran, etc.) |
-| `.kilocode/`      | Secondary agent tooling config                                  |
 | `.remember/`      | Session memory logs (local)                                     |
 | `node_modules/`   | Dependencies                                                    |
 
@@ -126,6 +125,10 @@ mediabubble Main/
 | `web-ae`   | `apps/web-ae`   | mediabubble.ae          | `npm run dev:ae` (:3001)       | `ar` (Khaliji stub) |
 | `brand`    | `apps/brand`    | brand.mediabubble.co    | `npm run dev:brand` (:3002)    | `ar-masri`          |
 | `launcher` | `apps/launcher` | launcher.mediabubble.co | `npm run dev:launcher` (:3003) | —                   |
+
+**Meet (communication hub):** Internal staff comms at `/meet` (nav **Meet**, page title **Meeting Room**). Persistent desktop rail + mobile bubble on all `(app)` routes. Unified sidebar: **Activity** (`#studio` pinned) → public/private channels → **Direct messages** → **Online now** footer (teammates active within 5 min via `user_presence.last_seen`, with Away/Busy status + optional message). `PresenceHeartbeat` in app layout POSTs `/api/presence/heartbeat` on navigation + every 60s while tab visible. Reuses `lib/comms` + optional Redis/WebSocket (`REDIS_URL`, `pnpm run ws:launcher`). `/chat` redirects to `/meet`.
+
+**Profile & settings:** `/profile` owns identity (name, avatar, bio, LinkedIn/Instagram/Behance/website, presence status — internal teammates only). `/profile/[userId]` is a read-only teammate view (bio + links + stats). Meet message author names show a hover card with bio preview and social icon links (`GET /api/profile/[userId]/card`). `/settings` uses grouped left nav (`?tab=security|workspace|team`): Account → Security (password + link to profile); Workspace → preferences; Admin (Manager+) → Team directory.
 
 Re-sync UAE structure after Egypt changes: `npx tsx scripts/clone-eg-to-ae.ts` then re-apply UAE metadata/i18n deltas in `apps/web-ae`.
 

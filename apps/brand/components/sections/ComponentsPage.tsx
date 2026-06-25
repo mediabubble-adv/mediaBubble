@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { 
   Copy, Check, AlertCircle, ArrowRight, Bell, ChevronRight, Square, Code,
@@ -7,7 +7,7 @@ import {
 } from 'lucide-react'
 import { getButtonClasses } from '@mediabubble/design-system'
 import { PageHero } from './PageHero'
-import { BrandPageContent, BrandSectionHeading } from '@/components/ui/brand-doc'
+import { BrandBody, BrandInfoBand, BrandMetaPill, BrandPageContent, BrandSectionHeading } from '@/components/ui/brand-doc'
 import { useI18n } from '@/lib/i18n/provider'
 
 const destructiveBtnCls =
@@ -47,6 +47,7 @@ export function ComponentsPage() {
 
   const [progressVal1, setProgressVal1] = useState(65)
   const [progressVal2, setProgressVal2] = useState(90)
+  const [activeAnchor, setActiveAnchor] = useState<string | null>(null)
 
   const copyCode = (code: string, id: string) => {
     navigator.clipboard.writeText(code)
@@ -95,6 +96,86 @@ export function ComponentsPage() {
       uae: nextState,
       egypt: nextState
     })
+  }
+
+  useEffect(() => {
+    const anchorToTab: Record<string, 'layout' | 'buttons' | 'forms' | 'display' | 'feedback'> = {
+      'component-ui-shell': 'layout',
+      'component-header-nav': 'layout',
+      'component-footer': 'layout',
+      'component-pagination': 'layout',
+      'component-pagination-button-height': 'layout',
+      'component-pagination-active-state': 'layout',
+      'component-pagination-gap-spacing': 'layout',
+      'component-buttons': 'buttons',
+      'component-button-primary': 'buttons',
+      'component-button-secondary': 'buttons',
+      'component-button-outline': 'buttons',
+      'component-button-ghost': 'buttons',
+      'component-button-destructive': 'buttons',
+      'component-button-disabled': 'buttons',
+      'component-button-anatomy': 'buttons',
+      'component-nav-tabs': 'buttons',
+      'component-form-inputs': 'forms',
+      'component-form-example': 'forms',
+      'component-date-picker': 'forms',
+      'component-date-picker-selected-day-highlight': 'forms',
+      'component-date-picker-active-range-fill': 'forms',
+      'component-date-picker-trigger-input-icon': 'forms',
+      'component-data-table': 'display',
+      'component-progress-bar': 'display',
+      'component-progress-bar-height': 'display',
+      'component-progress-bar-inner-shadow': 'display',
+      'component-progress-bar-color-system': 'display',
+      'component-badges': 'display',
+      'component-tooltip': 'feedback',
+      'component-tooltip-trigger': 'feedback',
+      'component-tooltip-max-size': 'feedback',
+      'component-tooltip-border-outline': 'feedback',
+      'component-toggletip': 'feedback',
+      'component-toggletip-trigger': 'feedback',
+      'component-toggletip-accessibility': 'feedback',
+      'component-toggletip-z-index': 'feedback',
+    }
+
+    const syncHash = () => {
+      const hash = window.location.hash.replace(/^#guideline-/, '')
+      setActiveAnchor(hash || null)
+      const nextTab = anchorToTab[hash]
+      if (nextTab) setActiveTab(nextTab)
+    }
+
+    syncHash()
+    window.addEventListener('hashchange', syncHash)
+    return () => window.removeEventListener('hashchange', syncHash)
+  }, [])
+
+  const tocByTab: Record<typeof activeTab, { href: string; label: string }[]> = {
+    layout: [
+      { href: '#guideline-component-ui-shell', label: t('UI Dashboard Shell') },
+      { href: '#guideline-component-header-nav', label: t('Header & Nav Menu') },
+      { href: '#guideline-component-footer', label: t('Footer Layout') },
+      { href: '#guideline-component-pagination', label: t('Pagination Control') },
+    ],
+    buttons: [
+      { href: '#guideline-component-buttons', label: t('Buttons') },
+      { href: '#guideline-component-button-anatomy', label: t('Button Anatomy') },
+      { href: '#guideline-component-nav-tabs', label: t('Navigation Tabs') },
+    ],
+    forms: [
+      { href: '#guideline-component-form-inputs', label: t('Form Inputs') },
+      { href: '#guideline-component-form-example', label: t('Form Example') },
+      { href: '#guideline-component-date-picker', label: t('Date Picker') },
+    ],
+    display: [
+      { href: '#guideline-component-data-table', label: t('Data Table') },
+      { href: '#guideline-component-progress-bar', label: t('Progress Bar') },
+      { href: '#guideline-component-badges', label: t('Badges & Tags') },
+    ],
+    feedback: [
+      { href: '#guideline-component-tooltip', label: t('Tooltip') },
+      { href: '#guideline-component-toggletip', label: t('Toggletip') },
+    ],
   }
 
   const tabs = [
@@ -199,6 +280,39 @@ export function ComponentsPage() {
       />
 
       <BrandPageContent>
+        <BrandInfoBand className="flex flex-wrap items-start gap-3">
+          <BrandMetaPill tone="canonical">{t('Canonical component specs')}</BrandMetaPill>
+          <BrandBody className="max-w-3xl text-[13px]">
+            {t('This page defines the approved UI building blocks and their expected states. Treat the examples as implementation specimens of the canonical component system, not as one-off demos.')}
+          </BrandBody>
+        </BrandInfoBand>
+
+        <section className="mb-8">
+          <BrandSectionHeading icon={Square} title={t('Jump within this tab')} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {tocByTab[activeTab].map((item) => {
+              const anchor = item.href.replace(/^#guideline-/, '')
+              const isActive = activeAnchor === anchor
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className={`rounded-lg border px-4 py-3 text-start transition-all duration-150 hover:-translate-y-0.5 ${
+                    isActive
+                      ? 'border-brand-blue bg-brand-blue/5'
+                      : 'border-brand-whisper-border bg-brand-surface hover:border-brand-blue/30'
+                  }`}
+                >
+                  <p className="text-[13px] font-semibold text-brand-text">{item.label}</p>
+                  <p className="mt-1 text-[11px] text-brand-text-secondary">
+                    {isActive ? t('You are here') : t('Jump to section')}
+                  </p>
+                </a>
+              )
+            })}
+          </div>
+        </section>
+
         {/* Category Tab Controller */}
         <div className="flex gap-4 border-b border-brand-whisper-border pb-px mb-12 overflow-x-auto select-none no-scrollbar">
           {tabs.map((tab) => (
@@ -221,8 +335,11 @@ export function ComponentsPage() {
           <div className="space-y-16">
             
             {/* UI Shell Showcase */}
-            <section>
-              <BrandSectionHeading icon={Square} title={t('components.layout.uiShell', 'UI Dashboard Shell')} />
+            <section id="guideline-component-ui-shell" className="scroll-mt-20">
+              <div className="flex flex-wrap items-center gap-2 mb-4">
+                <BrandSectionHeading icon={Square} title={t('components.layout.uiShell', 'UI Dashboard Shell')} className="mb-0" />
+                <BrandMetaPill tone="canonical">{t('Canonical')}</BrandMetaPill>
+              </div>
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 
                 {/* Visual Preview */}
@@ -305,7 +422,7 @@ export function ComponentsPage() {
             </section>
 
             {/* Header & Nav Menu Showcase */}
-            <section>
+            <section id="guideline-component-header-nav" className="scroll-mt-20">
               <BrandSectionHeading icon={Square} title={t('components.layout.headerNav', 'Header & Nav Menu')} />
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 
@@ -366,7 +483,7 @@ export function ComponentsPage() {
             </section>
 
             {/* Footer Showcase */}
-            <section>
+            <section id="guideline-component-footer" className="scroll-mt-20">
               <BrandSectionHeading icon={Square} title={t('components.layout.footer', 'Footer layout')} />
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 
@@ -440,8 +557,8 @@ export function ComponentsPage() {
             </section>
 
             {/* Pagination Showcase */}
-            <section>
-              <BrandSectionHeading icon={Square} title={t('components.layout.pagination', 'Pagination control')} />
+            <section id="guideline-component-pagination" className="scroll-mt-20">
+              <BrandSectionHeading icon={Square} title={t('components.layout.pagination', 'Pagination control')} anchorId="component-pagination" />
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 
                 {/* Visual Preview */}
@@ -464,11 +581,11 @@ export function ComponentsPage() {
                 <div className="lg:col-span-5 space-y-4 text-start">
                   <div className="bg-brand-surface rounded-xl border border-brand-whisper-border shadow-sm divide-y divide-brand-whisper-border">
                     {[
-                      { spec: 'Button Height', value: '32px (w-8 h-8)', desc: 'Consistent height across numbers and Prev/Next action controls.' },
-                      { spec: 'Active State', value: 'bg-[#FFC107] text-dark', desc: 'High-contrast primary yellow highlight on the active page number.' },
-                      { spec: 'Gap Spacing', value: 'gap-1.5 (6px)', desc: 'Tight horizontal gap ensures target buttons stay unified together.' },
+                      { spec: 'Button Height', value: '32px (w-8 h-8)', desc: 'Consistent height across numbers and Prev/Next action controls.', anchor: 'component-pagination-button-height' },
+                      { spec: 'Active State', value: 'bg-[#FFC107] text-dark', desc: 'High-contrast primary yellow highlight on the active page number.', anchor: 'component-pagination-active-state' },
+                      { spec: 'Gap Spacing', value: 'gap-1.5 (6px)', desc: 'Tight horizontal gap ensures target buttons stay unified together.', anchor: 'component-pagination-gap-spacing' },
                     ].map((item) => (
-                      <div key={item.spec} className="p-4 flex flex-col gap-1">
+                      <div key={item.spec} id={`guideline-${item.anchor}`} className="p-4 flex flex-col gap-1 scroll-mt-20">
                         <div className="flex justify-between items-center">
                           <span className="text-[10px] font-bold uppercase tracking-wider text-brand-blue">{item.spec}</span>
                           <code className="text-[10px] font-mono font-bold text-brand-text bg-brand-canvas px-1.5 py-0.5 rounded border border-brand-whisper-border">{item.value}</code>
@@ -496,13 +613,20 @@ export function ComponentsPage() {
           <div className="space-y-16">
             
             {/* Buttons List */}
-            <section>
-              <BrandSectionHeading icon={Square} title={t('Buttons', 'Buttons')} />
+            <section id="guideline-component-buttons" className="scroll-mt-20">
+              <div className="flex flex-wrap items-center gap-2 mb-4">
+                <BrandSectionHeading icon={Square} title={t('Buttons', 'Buttons')} className="mb-0" />
+                <BrandMetaPill tone="canonical">{t('Canonical')}</BrandMetaPill>
+              </div>
               <div className="bg-brand-surface rounded-xl border border-brand-whisper-border overflow-hidden shadow-sm flex flex-col divide-y divide-brand-whisper-border">
                 {buttonVariants.map((btn) => {
                   const isCopied = copiedCode === `btn-${btn.label}`;
                   return (
-                    <div key={btn.label} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-5 px-5 py-4 hover:bg-brand-canvas/20 transition-colors relative">
+                    <div
+                      key={btn.label}
+                      id={`guideline-component-button-${btn.token}`}
+                      className="flex flex-col sm:flex-row items-stretch sm:items-center gap-5 px-5 py-4 hover:bg-brand-canvas/20 transition-colors relative scroll-mt-20"
+                    >
                       {isCopied && (
                         <div className="absolute inset-0 bg-black/90 backdrop-blur-[1px] flex flex-col items-center justify-center text-center p-2 animate-fade-in z-10">
                           <Check className="text-[#FFC107] mb-1" size={16} />
@@ -538,7 +662,7 @@ export function ComponentsPage() {
             </section>
 
             {/* Button Anatomy Spec */}
-            <section>
+            <section id="guideline-component-button-anatomy" className="scroll-mt-20">
               <BrandSectionHeading icon={Square} title={t('components.buttons.anatomy', 'Button Anatomy')} />
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
                 
@@ -585,7 +709,7 @@ export function ComponentsPage() {
             </section>
 
             {/* Navigation Tabs (Underline, Pill, Segmented) */}
-            <section>
+            <section id="guideline-component-nav-tabs" className="scroll-mt-20">
               <BrandSectionHeading icon={Square} title={t('Navigation Tabs', 'Navigation Tabs')} />
               <div className="bg-brand-surface rounded-xl border border-brand-whisper-border overflow-hidden shadow-sm divide-y divide-brand-whisper-border text-start">
                 {[
@@ -720,7 +844,7 @@ export function ComponentsPage() {
           <div className="space-y-16">
             
             {/* Input States */}
-            <section>
+            <section id="guideline-component-form-inputs" className="scroll-mt-20">
               <BrandSectionHeading icon={Square} title={t('Form Inputs', 'Form Inputs')} />
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
@@ -756,7 +880,7 @@ export function ComponentsPage() {
             </section>
 
             {/* Contact Form Showcase */}
-            <section>
+            <section id="guideline-component-form-example" className="scroll-mt-20">
               <div className="bg-brand-canvas border border-brand-whisper-border rounded-xl px-5 py-3 mb-6 text-start">
                 <h2 className="text-[13px] font-semibold text-brand-dark-blue dark:text-brand-blue">{t('Contact Form', 'Contact Form Showcase')}</h2>
               </div>
@@ -843,8 +967,8 @@ export function ComponentsPage() {
             </section>
 
             {/* Date Pickers & Date Picker Anatomy */}
-            <section>
-              <BrandSectionHeading icon={Square} title={t('components.forms.datePicker', 'Date Pickers & Anatomy')} />
+            <section id="guideline-component-date-picker" className="scroll-mt-20">
+              <BrandSectionHeading icon={Square} title={t('components.forms.datePicker', 'Date Pickers & Anatomy')} anchorId="component-date-picker" />
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 
                 {/* Visual Calendar Spec Panel */}
@@ -914,11 +1038,11 @@ export function ComponentsPage() {
                 <div className="lg:col-span-5 space-y-4 text-start">
                   <div className="bg-brand-surface rounded-xl border border-brand-whisper-border shadow-sm divide-y divide-brand-whisper-border">
                     {[
-                      { spec: 'Selected Day Highlight', value: '#FFC107 (Vapor Yellow)', desc: 'Active start/end dates use solid yellow fills with rounded corners.' },
-                      { spec: 'Active Range Fill', value: '#FFC107 with 15% opacity', desc: 'Days in between the selected range use a transparent yellow background.' },
-                      { spec: 'Trigger Input icon', value: 'Calendar (Lucide)', desc: 'The calendar trigger icon sits at the left end of the input (start-3).' },
+                      { spec: 'Selected Day Highlight', value: '#FFC107 (Vapor Yellow)', desc: 'Active start/end dates use solid yellow fills with rounded corners.', anchor: 'component-date-picker-selected-day-highlight' },
+                      { spec: 'Active Range Fill', value: '#FFC107 with 15% opacity', desc: 'Days in between the selected range use a transparent yellow background.', anchor: 'component-date-picker-active-range-fill' },
+                      { spec: 'Trigger Input icon', value: 'Calendar (Lucide)', desc: 'The calendar trigger icon sits at the left end of the input (start-3).', anchor: 'component-date-picker-trigger-input-icon' },
                     ].map((item) => (
-                      <div key={item.spec} className="p-4 flex flex-col gap-1">
+                      <div key={item.spec} id={`guideline-${item.anchor}`} className="p-4 flex flex-col gap-1 scroll-mt-20">
                         <div className="flex justify-between items-center">
                           <span className="text-[10px] font-bold uppercase tracking-wider text-brand-blue">{item.spec}</span>
                           <code className="text-[10px] font-mono font-bold text-brand-text bg-brand-canvas px-1.5 py-0.5 rounded border border-brand-whisper-border">{item.value}</code>
@@ -946,7 +1070,7 @@ export function ComponentsPage() {
           <div className="space-y-16">
             
             {/* Data Table Showcase */}
-            <section>
+            <section id="guideline-component-data-table" className="scroll-mt-20">
               <BrandSectionHeading icon={Square} title={t('components.display.dataTable', 'Data Table')} />
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 
@@ -1054,8 +1178,8 @@ export function ComponentsPage() {
             </section>
 
             {/* Progress Bar Showcase */}
-            <section>
-              <BrandSectionHeading icon={Square} title={t('components.display.progressBar', 'Progress Bar')} />
+            <section id="guideline-component-progress-bar" className="scroll-mt-20">
+              <BrandSectionHeading icon={Square} title={t('components.display.progressBar', 'Progress Bar')} anchorId="component-progress-bar" />
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 
                 {/* Visual Preview */}
@@ -1102,11 +1226,11 @@ export function ComponentsPage() {
                 <div className="lg:col-span-5 space-y-4 text-start">
                   <div className="bg-brand-surface rounded-xl border border-brand-whisper-border shadow-sm divide-y divide-brand-whisper-border">
                     {[
-                      { spec: 'Bar Height', value: '8px (h-2)', desc: 'Keeps progress indicators subtle, fitting in table cells or small cards.' },
-                      { spec: 'Inner Shadow', value: 'shadow-inner border', desc: 'Outer track utilizes a light inset shadow and border to establish depth.' },
-                      { spec: 'Color system', value: 'Accent fill colors', desc: 'Standard blue represents uploading/active states, yellow represents finishing/high-value states.' },
+                      { spec: 'Bar Height', value: '8px (h-2)', desc: 'Keeps progress indicators subtle, fitting in table cells or small cards.', anchor: 'component-progress-bar-height' },
+                      { spec: 'Inner Shadow', value: 'shadow-inner border', desc: 'Outer track utilizes a light inset shadow and border to establish depth.', anchor: 'component-progress-bar-inner-shadow' },
+                      { spec: 'Color system', value: 'Accent fill colors', desc: 'Standard blue represents uploading/active states, yellow represents finishing/high-value states.', anchor: 'component-progress-bar-color-system' },
                     ].map((item) => (
-                      <div key={item.spec} className="p-4 flex flex-col gap-1">
+                      <div key={item.spec} id={`guideline-${item.anchor}`} className="p-4 flex flex-col gap-1 scroll-mt-20">
                         <div className="flex justify-between items-center">
                           <span className="text-[10px] font-bold uppercase tracking-wider text-brand-blue">{item.spec}</span>
                           <code className="text-[10px] font-mono font-bold text-brand-text bg-brand-canvas px-1.5 py-0.5 rounded border border-brand-whisper-border">{item.value}</code>
@@ -1127,7 +1251,7 @@ export function ComponentsPage() {
             </section>
 
             {/* Badges & Tags (Existing) */}
-            <section>
+            <section id="guideline-component-badges" className="scroll-mt-20">
               <BrandSectionHeading icon={Square} title={t('Badges & Tags', 'Badges & Tags')} />
               <div className="bg-brand-surface rounded-xl border border-brand-whisper-border overflow-hidden shadow-sm flex flex-col divide-y divide-brand-whisper-border text-start">
                 {/* Status badges */}
@@ -1158,8 +1282,8 @@ export function ComponentsPage() {
           <div className="space-y-14">
             
             {/* Tooltips */}
-            <section>
-              <BrandSectionHeading icon={Square} title={t('components.feedback.tooltip', 'Tooltips')} />
+            <section id="guideline-component-tooltip" className="scroll-mt-20">
+              <BrandSectionHeading icon={Square} title={t('components.feedback.tooltip', 'Tooltips')} anchorId="component-tooltip" />
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 
                 {/* Visual Preview */}
@@ -1194,11 +1318,11 @@ export function ComponentsPage() {
                 <div className="lg:col-span-5 space-y-4 text-start">
                   <div className="bg-brand-surface rounded-xl border border-brand-whisper-border shadow-sm divide-y divide-brand-whisper-border">
                     {[
-                      { spec: 'Tooltip trigger', value: 'onMouseEnter / focus', desc: 'Fires instantly on hover or keyboard tab focus. Hides on leave/blur.' },
-                      { spec: 'Maximum size limit', value: 'whitespace-nowrap', desc: 'Tooltips are designed for short helper labels, never exceed 4-5 words.' },
-                      { spec: 'Border outline', value: '1px border-white/8', desc: 'Translucent outline ensures box contrast on dark layouts.' },
+                      { spec: 'Tooltip trigger', value: 'onMouseEnter / focus', desc: 'Fires instantly on hover or keyboard tab focus. Hides on leave/blur.', anchor: 'component-tooltip-trigger' },
+                      { spec: 'Maximum size limit', value: 'whitespace-nowrap', desc: 'Tooltips are designed for short helper labels, never exceed 4-5 words.', anchor: 'component-tooltip-max-size' },
+                      { spec: 'Border outline', value: '1px border-white/8', desc: 'Translucent outline ensures box contrast on dark layouts.', anchor: 'component-tooltip-border-outline' },
                     ].map((item) => (
-                      <div key={item.spec} className="p-4 flex flex-col gap-1">
+                      <div key={item.spec} id={`guideline-${item.anchor}`} className="p-4 flex flex-col gap-1 scroll-mt-20">
                         <div className="flex justify-between items-center">
                           <span className="text-[10px] font-bold uppercase tracking-wider text-brand-blue">{item.spec}</span>
                           <code className="text-[10px] font-mono font-bold text-brand-text bg-brand-canvas px-1.5 py-0.5 rounded border border-brand-whisper-border">{item.value}</code>
@@ -1219,8 +1343,8 @@ export function ComponentsPage() {
             </section>
 
             {/* Toggletips */}
-            <section>
-              <BrandSectionHeading icon={Square} title={t('components.feedback.toggletip', 'Toggletips')} />
+            <section id="guideline-component-toggletip" className="scroll-mt-20">
+              <BrandSectionHeading icon={Square} title={t('components.feedback.toggletip', 'Toggletips')} anchorId="component-toggletip" />
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 
                 {/* Visual Preview */}
@@ -1263,11 +1387,11 @@ export function ComponentsPage() {
                 <div className="lg:col-span-5 space-y-4 text-start">
                   <div className="bg-brand-surface rounded-xl border border-brand-whisper-border shadow-sm divide-y divide-brand-whisper-border">
                     {[
-                      { spec: 'Toggletip trigger', value: 'onClick toggle', desc: 'Opens and closes explicitly on click trigger, allowing users to read longer text blocks.' },
-                      { spec: 'Target accessibility', value: 'Role button + aria', desc: 'Trigger is a button key; popup box supports screen reader content.' },
-                      { spec: 'Z-index offset', value: 'z-30 (var(--z-dropdown))', desc: 'Sits at the dropdown layer offset to ensure it renders above main cards.' },
+                      { spec: 'Toggletip trigger', value: 'onClick toggle', desc: 'Opens and closes explicitly on click trigger, allowing users to read longer text blocks.', anchor: 'component-toggletip-trigger' },
+                      { spec: 'Target accessibility', value: 'Role button + aria', desc: 'Trigger is a button key; popup box supports screen reader content.', anchor: 'component-toggletip-accessibility' },
+                      { spec: 'Z-index offset', value: 'z-30 (var(--z-dropdown))', desc: 'Sits at the dropdown layer offset to ensure it renders above main cards.', anchor: 'component-toggletip-z-index' },
                     ].map((item) => (
-                      <div key={item.spec} className="p-4 flex flex-col gap-1">
+                      <div key={item.spec} id={`guideline-${item.anchor}`} className="p-4 flex flex-col gap-1 scroll-mt-20">
                         <div className="flex justify-between items-center">
                           <span className="text-[10px] font-bold uppercase tracking-wider text-brand-blue">{item.spec}</span>
                           <code className="text-[10px] font-mono font-bold text-brand-text bg-brand-canvas px-1.5 py-0.5 rounded border border-brand-whisper-border">{item.value}</code>

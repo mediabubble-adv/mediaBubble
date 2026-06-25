@@ -95,9 +95,9 @@ High-level guide to all deliverables + how to use them
 ### For Executives/Founders
 
 **Start here:**
-1. Read OPUS_3YEAR_ROADMAP_MASTER.md (full picture)
-2. Skim OPUS_PRD_PRODUCT_REQUIREMENTS.md (what we're building)
-3. Review OPUS_SCALABILITY_ANALYSIS.md (can we actually do this?)
+1. Read roadmap/3YEAR_ROADMAP.md (full picture)
+2. Skim product/PRD.md (what we're building)
+3. Review architecture/SCALABILITY_ANALYSIS.md (can we actually do this?)
 
 **For investor pitch:**
 - Use 3-year roadmap (revenue/customer projections)
@@ -114,9 +114,9 @@ High-level guide to all deliverables + how to use them
 ### For Engineering Leadership
 
 **Start here:**
-1. Read OPUS_ARCHITECTURE_WITH_DIAGRAMS.md (system design)
-2. Read OPUS_INTEGRATIONS_STRATEGY.md (platform APIs)
-3. Reference OPUS_SCALABILITY_ANALYSIS.md (capacity planning)
+1. Read architecture/ARCHITECTURE_WITH_DIAGRAMS.md (system design)
+2. Read integrations/INTEGRATIONS_STRATEGY.md (platform APIs)
+3. Reference architecture/SCALABILITY_ANALYSIS.md (capacity planning)
 
 **For sprint planning:**
 - Use integration strategy (phased 24-week rollout)
@@ -133,7 +133,7 @@ High-level guide to all deliverables + how to use them
 ### For Product/Design
 
 **Start here:**
-1. Read OPUS_PRD_PRODUCT_REQUIREMENTS.md (features + flows)
+1. Read product/PRD.md (features + flows)
 2. Read user experience flows (actual workflows)
 3. Reference competitive positioning (why we're different)
 
@@ -152,7 +152,7 @@ High-level guide to all deliverables + how to use them
 ### For Sales/Marketing
 
 **Start here:**
-1. Read OPUS_PRD_PRODUCT_REQUIREMENTS.md (what we're selling)
+1. Read product/PRD.md (what we're selling)
 2. Read competitive positioning (why we win vs HubSpot/Marketo)
 3. Read target market (who we're selling to)
 
@@ -197,39 +197,39 @@ High-level guide to all deliverables + how to use them
 All files are in `/Users/Dorgham/Documents/Work/Devleopment/mediiabubble Main/`
 
 ```
-OPUS_PRD_PRODUCT_REQUIREMENTS.md
+product/PRD.md
 ├─ What we're building
 ├─ Who we're selling to
 ├─ How much we're charging
 └─ Why we'll win
 
-OPUS_ARCHITECTURE_WITH_DIAGRAMS.md
+architecture/ARCHITECTURE_WITH_DIAGRAMS.md
 ├─ System design (microservices)
 ├─ Database schema (PostgreSQL)
 ├─ API design (100+ endpoints)
 ├─ Infrastructure (Kubernetes)
 └─ Mermaid diagrams (visual reference)
 
-OPUS_INTEGRATIONS_STRATEGY.md
+integrations/INTEGRATIONS_STRATEGY.md
 ├─ Meta/Google/CRM connections
 ├─ Real-time data flows
 ├─ Automation triggers
 └─ Phased rollout (24 weeks)
 
-OPUS_SCALABILITY_ANALYSIS.md
+architecture/SCALABILITY_ANALYSIS.md
 ├─ Limits and solutions
 ├─ Cost at 10x, 100x, 1000x scale
 ├─ Architectural trade-offs
 └─ Unit economics
 
-OPUS_3YEAR_ROADMAP_MASTER.md
+roadmap/3YEAR_ROADMAP.md
 ├─ Year 1: $600K ARR (240 customers)
 ├─ Year 2: $3M ARR (1,000 customers)
 ├─ Year 3: $15M+ ARR (2,500+ customers)
 ├─ Quarterly breakdown
 └─ Investment & burn plan
 
-OPUS_COMPLETE_DELIVERY_SUMMARY.md
+product/DELIVERY_SUMMARY.md
 └─ This file (navigation guide)
 ```
 
@@ -428,8 +428,8 @@ FUNDRAISE OR BOOTSTRAP decision:
 ## NEXT MOVE
 
 **Your mission for this week:**
-1. Read OPUS_3YEAR_ROADMAP_MASTER.md (30 min)
-2. Read OPUS_ARCHITECTURE_WITH_DIAGRAMS.md (30 min)
+1. Read roadmap/3YEAR_ROADMAP.md (30 min)
+2. Read architecture/ARCHITECTURE_WITH_DIAGRAMS.md (30 min)
 3. Decide: Are you ready to build OPUS? YES → Plan Week 1 execution
 4. Assign ownership: Who's running what? (Founder A: product + design, Founder B: engineering + ops)
 5. Confirm investment: Do you have $800K for seed capital, or bootstrap?

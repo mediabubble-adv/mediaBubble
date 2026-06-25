@@ -39,7 +39,7 @@ This document is a consolidated reference containing all design, planning, archi
 
 ## 📄 launcher.mediabubble.co - Executive Summary
 
-_Original File Path: [docs/launcher/LAUNCHER_EXECUTIVE_SUMMARY.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/LAUNCHER_EXECUTIVE_SUMMARY.md)_
+_Original File Path: [docs/launcher/LAUNCHER_EXECUTIVE_SUMMARY.md](./LAUNCHER_EXECUTIVE_SUMMARY.md)_
 
 **Project:** Internal Operations Platform & App Launcher  
 **Timeline:** 4 months (16 weeks)  
@@ -296,7 +296,7 @@ Project Owner: Dorgham (Oversight)
 
 ## 📄 � Launcher Strategic Pivot — ONE PAGER
 
-_Original File Path: [docs/launcher/LAUNCHER_STRATEGIC_ONE_PAGER.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/LAUNCHER_STRATEGIC_ONE_PAGER.md)_
+_Original File Path: [docs/launcher/LAUNCHER_STRATEGIC_ONE_PAGER.md](./LAUNCHER_STRATEGIC_ONE_PAGER.md)_
 
 **The Play:** Turn Launcher into MediaBubble's #1 employee software  
 **Timeline:** 4 weeks to MVP, 12 weeks to full platform  
@@ -571,7 +571,7 @@ One login. One source of truth. One team, shipping faster.
 
 ## 📄 Launcher Strategic Pivot — Complete Package
 
-_Original File Path: [docs/launcher/README_STRATEGIC_PIVOT.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/README_STRATEGIC_PIVOT.md)_
+_Original File Path: [docs/launcher/README_STRATEGIC_PIVOT.md](./README_STRATEGIC_PIVOT.md)_
 
 **For:** Dorgham & MediaBubble Leadership  
 **Date:** June 21, 2026  
@@ -904,7 +904,7 @@ That's the bet. That's why this matters.
 
 ## 📄 MediaBubble Launcher — Strategic Pivot to #1 Employee Software
 
-_Original File Path: [docs/launcher/LAUNCHER_STRATEGIC_PIVOT_2026.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/LAUNCHER_STRATEGIC_PIVOT_2026.md)_
+_Original File Path: [docs/launcher/LAUNCHER_STRATEGIC_PIVOT_2026.md](./LAUNCHER_STRATEGIC_PIVOT_2026.md)_
 
 **Prepared for:** Dorgham & MediaBubble Leadership  
 **Date:** June 21, 2026  
@@ -1326,7 +1326,7 @@ Launcher as the **unified operating system**. Every employee:
 
 ## 📄 launcher.mediabubble.co - Complete Documentation Package
 
-_Original File Path: [docs/launcher/LAUNCHER_README.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/LAUNCHER_README.md)_
+_Original File Path: [docs/launcher/LAUNCHER_README.md](./LAUNCHER_README.md)_
 
 ### 📦 Contents
 
@@ -1728,7 +1728,7 @@ Let's go! 🚀
 
 ## 📄 MediaBubble Platform Modernization - Complete Project Summary
 
-_Original File Path: [docs/launcher/PROJECT_SUMMARY.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/PROJECT_SUMMARY.md)_
+_Original File Path: [docs/launcher/PROJECT_SUMMARY.md](./PROJECT_SUMMARY.md)_
 
 **Project Name:** launcher.mediabubble.co + Design & PM Tools Platform  
 **Owner:** Dorgham  
@@ -2239,7 +2239,7 @@ MONTH 4 COMPLETE - Full Platform Launch
 
 ## 📄 MediaBubble Launcher — Plan V2 (Single Source of Truth)
 
-_Original File Path: [docs/launcher/LAUNCHER_PLAN_V2.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/LAUNCHER_PLAN_V2.md)_
+_Original File Path: [docs/launcher/LAUNCHER_PLAN_V2.md](./LAUNCHER_PLAN_V2.md)_
 
 > **Supersedes** the Phase-1 scope in `LAUNCHER_EXECUTIVE_SUMMARY.md`,
 > `LAUNCHER_TECHNICAL_ROADMAP.md`, and `LAUNCHER_IMPLEMENTATION_CHECKLIST.md`.
@@ -2418,7 +2418,7 @@ JWT/RBAC/token flows + auth routes + response conventions. **Done.**
 
 ## 📄 launcher.mediabubble.co - Technical Roadmap
 
-_Original File Path: [docs/launcher/LAUNCHER_TECHNICAL_ROADMAP.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/LAUNCHER_TECHNICAL_ROADMAP.md)_
+_Original File Path: [docs/launcher/LAUNCHER_TECHNICAL_ROADMAP.md](./LAUNCHER_TECHNICAL_ROADMAP.md)_
 
 **Status:** Strategic Planning Phase  
 **Date:** June 19, 2026  
@@ -3489,7 +3489,7 @@ POST   /api/v1/workflows/actions (list available)
 
 ## 📄 Launcher App - Visual Implementation Roadmap
 
-_Original File Path: [docs/launcher/LAUNCHER_ROADMAP_VISUAL.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/LAUNCHER_ROADMAP_VISUAL.md)_
+_Original File Path: [docs/launcher/LAUNCHER_ROADMAP_VISUAL.md](./LAUNCHER_ROADMAP_VISUAL.md)_
 
 ### 8-Week Sprint Overview
 
@@ -4047,7 +4047,7 @@ QUALITY ASSURANCE (shared)
 
 ## 📄 Launcher Ecosystem Expansion — Strategic Analysis
 
-_Original File Path: [docs/launcher/LAUNCHER_ECOSYSTEM_EXPANSION_ANALYSIS.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/LAUNCHER_ECOSYSTEM_EXPANSION_ANALYSIS.md)_
+_Original File Path: [docs/launcher/LAUNCHER_ECOSYSTEM_EXPANSION_ANALYSIS.md](./LAUNCHER_ECOSYSTEM_EXPANSION_ANALYSIS.md)_
 
 **For:** Dorgham & Product Team  
 **Date:** June 21, 2026  
@@ -4940,7 +4940,7 @@ D) **Balanced:** Quick wins in Phase 2 (analytics, docs, integrations) + Phase 3
 
 ## 📄 launcher.mediabubble.co - Implementation Checklist
 
-_Original File Path: [docs/launcher/LAUNCHER_IMPLEMENTATION_CHECKLIST.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/LAUNCHER_IMPLEMENTATION_CHECKLIST.md)_
+_Original File Path: [docs/launcher/LAUNCHER_IMPLEMENTATION_CHECKLIST.md](./LAUNCHER_IMPLEMENTATION_CHECKLIST.md)_
 
 ### 📋 PRE-LAUNCH SETUP
 
@@ -5529,7 +5529,7 @@ _Original File Path: [docs/launcher/LAUNCHER_IMPLEMENTATION_CHECKLIST.md](file:/
 
 ## 📄 LAUNCHER PIVOT — Weekly Execution Checklist
 
-_Original File Path: [docs/launcher/LAUNCHER_WEEKLY_EXECUTION_CHECKLIST.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/LAUNCHER_WEEKLY_EXECUTION_CHECKLIST.md)_
+_Original File Path: [docs/launcher/LAUNCHER_WEEKLY_EXECUTION_CHECKLIST.md](./LAUNCHER_WEEKLY_EXECUTION_CHECKLIST.md)_
 
 **Prepared for:** Engineering Team + Product Lead  
 **Timeline:** Week 1–4 Sprint (June 24 – July 21, 2026)
@@ -5996,7 +5996,7 @@ _Original File Path: [docs/launcher/LAUNCHER_WEEKLY_EXECUTION_CHECKLIST.md](file
 
 ## 📄 Launcher App - Quick Wins (Do This Week!)
 
-_Original File Path: [docs/launcher/LAUNCHER_QUICK_WINS.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/LAUNCHER_QUICK_WINS.md)_
+_Original File Path: [docs/launcher/LAUNCHER_QUICK_WINS.md](./LAUNCHER_QUICK_WINS.md)_
 
 ### 10 Changes That Take <2 Hours, Maximum Impact
 
@@ -6531,7 +6531,7 @@ Once you complete these quick wins:
 
 ## 📄 Launcher App - Implementation Improvement Guide
 
-_Original File Path: [docs/launcher/LAUNCHER_IMPROVEMENTS_GUIDE.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/LAUNCHER_IMPROVEMENTS_GUIDE.md)_
+_Original File Path: [docs/launcher/LAUNCHER_IMPROVEMENTS_GUIDE.md](./LAUNCHER_IMPROVEMENTS_GUIDE.md)_
 
 ### Step-by-Step Solutions for Functionality, UX & Security
 
@@ -7518,7 +7518,7 @@ package.json (add dependencies)
 
 ## 📄 Phase 1: Foundation Implementation (Weeks 1-4)
 
-_Original File Path: [docs/launcher/IMPLEMENTATION_PHASE_1_DETAILED.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/IMPLEMENTATION_PHASE_1_DETAILED.md)_
+_Original File Path: [docs/launcher/IMPLEMENTATION_PHASE_1_DETAILED.md](./IMPLEMENTATION_PHASE_1_DETAILED.md)_
 
 ### Detailed Week-by-Week Breakdown for launcher.mediabubble.co
 
@@ -8177,7 +8177,7 @@ Phase 2 coming Week 8: Performance Reviews, AI Tools, more!
 
 ## 📄 Launcher App - Detailed Implementation Plan
 
-_Original File Path: [docs/launcher/LAUNCHER_IMPLEMENTATION_PLAN.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/LAUNCHER_IMPLEMENTATION_PLAN.md)_
+_Original File Path: [docs/launcher/LAUNCHER_IMPLEMENTATION_PLAN.md](./LAUNCHER_IMPLEMENTATION_PLAN.md)_
 
 ### Advanced Task Management + Personalized Dashboard + Team AI Agents
 
@@ -10354,7 +10354,7 @@ BLOCKERS:
 
 ## 📄 Phase 1 Execution Prompt for Claude Code
 
-_Original File Path: [docs/launcher/PHASE_1_EXECUTION_PROMPT.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/PHASE_1_EXECUTION_PROMPT.md)_
+_Original File Path: [docs/launcher/PHASE_1_EXECUTION_PROMPT.md](./PHASE_1_EXECUTION_PROMPT.md)_
 
 ### Complete Implementation Instructions for launcher.mediabubble.co Foundation
 
@@ -11119,7 +11119,7 @@ You build a **solid foundation** that:
 
 ## 📄 MediaBubble Launcher - Comprehensive Audit Report
 
-_Original File Path: [docs/launcher/LAUNCHER_AUDIT_REPORT.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/LAUNCHER_AUDIT_REPORT.md)_
+_Original File Path: [docs/launcher/LAUNCHER_AUDIT_REPORT.md](./LAUNCHER_AUDIT_REPORT.md)_
 
 **Date:** June 20, 2026 | **Status:** Phase 1 Foundation Review
 
@@ -11659,7 +11659,7 @@ The Launcher app has **solid technical foundations** but needs **significant UX/
 
 ## 📄 Launcher Execution Plan — Phase 2A (Weeks 5–12)
 
-_Original File Path: [docs/launcher/LAUNCHER_EXECUTION_PLAN_PHASE_2A.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/LAUNCHER_EXECUTION_PLAN_PHASE_2A.md)_
+_Original File Path: [docs/launcher/LAUNCHER_EXECUTION_PLAN_PHASE_2A.md](./LAUNCHER_EXECUTION_PLAN_PHASE_2A.md)_
 
 **Status:** Ready for Engineering  
 **Owner:** Dorgham + Engineering Lead  
@@ -12602,7 +12602,7 @@ Dorgham (Product):
 
 ## 📄 Launcher Phase 2 — Priority Specs & Architecture
 
-_Original File Path: [docs/launcher/LAUNCHER_PHASE_2_PRIORITY_SPECS.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/LAUNCHER_PHASE_2_PRIORITY_SPECS.md)_
+_Original File Path: [docs/launcher/LAUNCHER_PHASE_2_PRIORITY_SPECS.md](./LAUNCHER_PHASE_2_PRIORITY_SPECS.md)_
 
 **Prepared for:** Dorgham & Engineering Team  
 **Date:** June 21, 2026  
@@ -13551,7 +13551,7 @@ Desktop (>1200px):
 
 ## 📄 Launcher Phase 2A — Master Decision Guide
 
-_Original File Path: [docs/launcher/LAUNCHER_PHASE_2A_DECISION_GUIDE.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/LAUNCHER_PHASE_2A_DECISION_GUIDE.md)_
+_Original File Path: [docs/launcher/LAUNCHER_PHASE_2A_DECISION_GUIDE.md](./LAUNCHER_PHASE_2A_DECISION_GUIDE.md)_
 
 **One-Pager for Quick Reference**  
 **Date:** June 21, 2026
@@ -13785,7 +13785,7 @@ Weeks 9–12: Parallel (Resource Planning, Finance, Google Workspace)
 
 ## 📄 Architecture Simplification Summary
 
-_Original File Path: [docs/launcher/ARCHITECTURE_SIMPLIFICATION_SUMMARY.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/ARCHITECTURE_SIMPLIFICATION_SUMMARY.md)_
+_Original File Path: [docs/launcher/ARCHITECTURE_SIMPLIFICATION_SUMMARY.md](./ARCHITECTURE_SIMPLIFICATION_SUMMARY.md)_
 
 ### From Complex Social Media Planner to Lightweight Client Profiles + Brand DNA
 
@@ -14078,7 +14078,7 @@ You're building:
 
 ## 📄 Client Profiles + Brand DNA Architecture
 
-_Original File Path: [docs/launcher/CLIENT_PROFILES_BRAND_DNA_ARCHITECTURE.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/CLIENT_PROFILES_BRAND_DNA_ARCHITECTURE.md)_
+_Original File Path: [docs/launcher/CLIENT_PROFILES_BRAND_DNA_ARCHITECTURE.md](./CLIENT_PROFILES_BRAND_DNA_ARCHITECTURE.md)_
 
 ### Lightweight Integration for Design & PM Tools
 
@@ -14634,7 +14634,7 @@ Cards show client badge + brand color indicator:
 
 ## 📄 Social Media Planner & Brand DNA Architecture
 
-_Original File Path: [docs/launcher/SOCIAL_MEDIA_PLANNER_ARCHITECTURE.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/SOCIAL_MEDIA_PLANNER_ARCHITECTURE.md)_
+_Original File Path: [docs/launcher/SOCIAL_MEDIA_PLANNER_ARCHITECTURE.md](./SOCIAL_MEDIA_PLANNER_ARCHITECTURE.md)_
 
 ### MediaBubble Platform Extension
 
@@ -15519,7 +15519,7 @@ CREATE INDEX idx_image_tasks_status ON image_generation_tasks(status);
 
 ## 📄 Design & PM Tools Architecture Spec
 
-_Original File Path: [docs/launcher/DESIGN_PM_TOOLS_ARCHITECTURE.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/DESIGN_PM_TOOLS_ARCHITECTURE.md)_
+_Original File Path: [docs/launcher/DESIGN_PM_TOOLS_ARCHITECTURE.md](./DESIGN_PM_TOOLS_ARCHITECTURE.md)_
 
 ### launcher.mediabubble.co Extended Ecosystem
 
@@ -16636,7 +16636,7 @@ Your Projects
 
 ## 📄 MediaBubble Unified Platform - Complete App Catalog
 
-_Original File Path: [docs/launcher/COMPLETE_APP_CATALOG.md](file:///Users/Dorgham/Documents/Work/Devleopment/mediiabubble%20Main/docs/launcher/COMPLETE_APP_CATALOG.md)_
+_Original File Path: [docs/launcher/COMPLETE_APP_CATALOG.md](./COMPLETE_APP_CATALOG.md)_
 
 ### All 14 Applications Specification
 

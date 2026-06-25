@@ -1,7 +1,7 @@
 # Microservices & Event-Driven Architecture
 
 **Session date:** June 22, 2026  
-**Related specs:** [`OPUS_ARCHITECTURE_WITH_DIAGRAMS.md`](../OPUS_ARCHITECTURE_WITH_DIAGRAMS.md), [`OPUS_COMPREHENSIVE_TECHNICAL_ARCHITECTURE.md`](../OPUS_COMPREHENSIVE_TECHNICAL_ARCHITECTURE.md)
+**Related specs:** [`ARCHITECTURE_WITH_DIAGRAMS.md`](../architecture/ARCHITECTURE_WITH_DIAGRAMS.md), [`COMPREHENSIVE_TECHNICAL_ARCHITECTURE.md`](../architecture/COMPREHENSIVE_TECHNICAL_ARCHITECTURE.md)
 
 ---
 
@@ -113,7 +113,7 @@ For Launcher (not full K8s microservices initially):
 
 ## Integration stack (external)
 
-Per [`OPUS_INTEGRATIONS_STRATEGY.md`](../OPUS_INTEGRATIONS_STRATEGY.md):
+Per [`INTEGRATIONS_STRATEGY.md`](../integrations/INTEGRATIONS_STRATEGY.md):
 
 - Meta Marketing API
 - Google Ads API

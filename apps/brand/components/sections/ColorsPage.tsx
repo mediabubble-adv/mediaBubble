@@ -27,14 +27,16 @@ function SectionHeader({
   icon,
   title,
   specLabel,
+  anchorId,
 }: {
   icon: LucideIcon
   title: string
   specLabel: string
+  anchorId?: string
 }) {
   return (
     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10">
-      <BrandSectionHeading icon={icon} title={title} className="mb-0" />
+      <BrandSectionHeading icon={icon} title={title} anchorId={anchorId} className="mb-0" />
       <span className="text-[10px] font-mono text-brand-text-muted bg-brand-canvas dark:bg-white/5 border border-brand-whisper-border px-3 py-1.5 rounded-md self-start sm:self-auto shrink-0">
         {specLabel}
       </span>
@@ -63,11 +65,12 @@ export function ColorsPage({
 
       <BrandPageContent>
         {/* SECTION 1: Color Families */}
-        <section>
+        <section id="guideline-colors-families" className="scroll-mt-20">
           <SectionHeader
             icon={Palette}
             title={t('colors.colorFamilies')}
             specLabel={t('colors.familiesSpec', '5 core keys')}
+            anchorId="colors-families"
           />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 stagger-grid">
             {colorFamilies.map((family) => (
@@ -79,11 +82,12 @@ export function ColorsPage({
         <SectionDivider />
 
         {/* SECTION 2: Neutral Scale */}
-        <section>
+        <section id="guideline-colors-neutral-scale" className="scroll-mt-20">
           <SectionHeader
             icon={Layers}
             title={t('colors.neutralScale')}
             specLabel={t('colors.neutralsSpec', 'Obsidian neutrals')}
+            anchorId="colors-neutral-scale"
           />
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4 stagger-grid">
             {neutralScale.map((color, i) => {
@@ -160,11 +164,12 @@ export function ColorsPage({
         <SectionDivider />
 
         {/* SECTION 3: Theme System */}
-        <section>
+        <section id="guideline-colors-theme-system" className="scroll-mt-20">
           <SectionHeader
             icon={SunMoon}
             title={t('colors.theme.title', 'Light & dark mode (marketing sites)')}
             specLabel={t('colors.themeSpec', 'Semantic map')}
+            anchorId="colors-theme-system"
           />
           <p className="text-sm text-brand-text-secondary leading-relaxed max-w-[68ch] mb-8 text-wrap pretty">
             {t(

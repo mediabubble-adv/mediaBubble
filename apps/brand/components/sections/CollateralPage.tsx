@@ -1,29 +1,47 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { PageHero } from './PageHero'
 import { FileText } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { useI18n } from '@/lib/i18n/provider'
-import { BrandPageContent, BrandSectionHeading } from '@/components/ui/brand-doc'
+import { BrandBody, BrandInfoBand, BrandMetaPill, BrandPageContent, BrandSectionHeading } from '@/components/ui/brand-doc'
 
 /* ─────────────────────────────────────────────────────────────
    Reusable spec-row table used across all three collateral items
    ───────────────────────────────────────────────────────────── */
-function SpecTable({ rows }: { rows: { spec: string; value: string; note: string }[] }) {
+function SpecTable({
+  rows,
+  activeAnchor,
+}: {
+  rows: { spec: string; value: string; note: string; anchor?: string }[]
+  activeAnchor: string | null
+}) {
   return (
     <div className="bg-brand-surface rounded-xl border border-brand-whisper-border overflow-hidden">
       <div className="divide-y divide-brand-whisper-border">
         {rows.map((row) => (
           <div
             key={row.spec}
-            className="flex flex-col px-5 py-4 gap-2 hover:bg-brand-canvas/40 dark:hover:bg-white/[0.02] transition-colors"
+            id={row.anchor ? `guideline-${row.anchor}` : undefined}
+            className={`flex flex-col px-5 py-4 gap-2 scroll-mt-20 transition-colors ${
+              activeAnchor === row.anchor
+                ? 'bg-brand-blue/5 ring-1 ring-inset ring-brand-blue/30'
+                : 'hover:bg-brand-canvas/40 dark:hover:bg-white/[0.02]'
+            }`}
           >
             <div className="flex items-center justify-between gap-4">
               <span className="text-[10px] font-bold uppercase tracking-wider text-brand-blue shrink-0">
                 {row.spec}
               </span>
-              <code className="text-[10.5px] font-mono font-bold text-brand-text text-end">
-                {row.value}
-              </code>
+              <div className="flex items-center gap-2">
+                {activeAnchor === row.anchor ? (
+                  <span className="rounded bg-brand-blue/10 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.12em] text-brand-blue">
+                    You are here
+                  </span>
+                ) : null}
+                <code className="text-[10.5px] font-mono font-bold text-brand-text text-end">
+                  {row.value}
+                </code>
+              </div>
             </div>
             <p className="text-[11.5px] text-brand-text-secondary leading-snug">{row.note}</p>
           </div>
@@ -47,14 +65,16 @@ function SectionHeader({
   icon,
   title,
   specLabel,
+  anchorId,
 }: {
   icon: LucideIcon
   title: string
   specLabel: string
+  anchorId?: string
 }) {
   return (
     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10">
-      <BrandSectionHeading icon={icon} title={title} className="mb-0" />
+      <BrandSectionHeading icon={icon} title={title} anchorId={anchorId} className="mb-0" />
       <span className="text-[10px] font-mono text-brand-text-muted bg-brand-canvas dark:bg-white/5 border border-brand-whisper-border px-3 py-1.5 rounded-md self-start sm:self-auto shrink-0">
         {specLabel}
       </span>
@@ -67,27 +87,42 @@ function SectionHeader({
    ───────────────────────────────────────────────────────────── */
 export function CollateralPage() {
   const { t } = useI18n()
+  const [activeAnchor, setActiveAnchor] = useState<string | null>(null)
+
+  useEffect(() => {
+    const syncHash = () => {
+      const hash = window.location.hash.replace(/^#guideline-/, '')
+      setActiveAnchor(hash || null)
+    }
+    syncHash()
+    window.addEventListener('hashchange', syncHash)
+    return () => window.removeEventListener('hashchange', syncHash)
+  }, [])
 
   const cardSpecs = [
     {
       spec: t('collateral.spec.dimensions', 'Dimensions'),
       value: '85 × 54 mm',
       note: t('collateral.spec.dimensionsNote', 'Standard business size. Print at 90 × 59 mm with 2.5mm bleed.'),
+      anchor: 'collateral-business-card-dimensions',
     },
     {
       spec: t('collateral.spec.front', 'Front'),
       value: '#0D0F12 background',
       note: t('collateral.spec.frontNote', 'Logo mark in full white. Name in Poppins Bold 14pt, title in Inter Medium 10pt.'),
+      anchor: 'collateral-business-card-front-spec',
     },
     {
       spec: t('collateral.spec.back', 'Back'),
       value: '#FFFFFF canvas with blue rules',
       note: t('collateral.spec.backNote', '2px left rule + 1px top/bottom accent in #1565C0; contact in Inter Regular 9pt.'),
+      anchor: 'collateral-business-card-back-spec',
     },
     {
       spec: t('collateral.spec.paperStock', 'Paper & Finish'),
       value: '350–400 gsm offset matte',
       note: t('collateral.spec.paperStockNote', 'Matte or soft-touch laminate on front. Avoid high gloss to prevent office reflections.'),
+      anchor: 'collateral-business-card-paper-finish',
     },
   ]
 
@@ -96,21 +131,25 @@ export function CollateralPage() {
       spec: 'Size Format',
       value: 'DL — 220 × 110 mm',
       note: 'Standard international business envelope; fits A4 sheets folded in thirds.',
+      anchor: 'collateral-envelope-size-format',
     },
     {
       spec: 'Flap Design',
       value: 'Obsidian #0D0F12 diagonal flap',
       note: 'Deep brand color anchor on first contact; folds down to seal.',
+      anchor: 'collateral-envelope-flap-design',
     },
     {
       spec: 'Accent Strip',
       value: 'Brand Yellow (#FFC107) — 8px',
       note: 'Yellow accent closes the envelope front; matches business card top rule.',
+      anchor: 'collateral-envelope-accent-strip',
     },
     {
       spec: 'Return Address',
       value: 'Below flap, left-aligned',
       note: 'Logo mark + "MediaBubble" + city/country in Inter Regular 9pt.',
+      anchor: 'collateral-envelope-return-address',
     },
   ]
 
@@ -119,26 +158,31 @@ export function CollateralPage() {
       spec: 'Size Format',
       value: 'A4 — 210 × 297 mm',
       note: 'Also supports US Letter (215.9 × 279.4 mm) with minor margin adjustment.',
+      anchor: 'collateral-letterhead-size-format',
     },
     {
       spec: 'Header Band',
       value: 'Deep Obsidian full-width header',
       note: 'Logo left, URL right. 4px yellow sub-bar separates header from body.',
+      anchor: 'collateral-letterhead-header-band',
     },
     {
       spec: 'Body Margins',
       value: '20mm margins on all sides',
       note: 'Body in Inter Regular 11pt at 1.6 line height; Poppins SemiBold for headings.',
+      anchor: 'collateral-letterhead-body-margins',
     },
     {
       spec: 'Footer Band',
       value: '#FFC107 + #1565C0 bottom band',
       note: '1px yellow top rule above footer band; email, phone, city in Inter 7pt.',
+      anchor: 'collateral-letterhead-footer-band',
     },
     {
       spec: 'Printing Specs',
       value: 'Single-sided, 120 gsm',
       note: 'Premium uncoated stock. Suitable for offset or laser printing.',
+      anchor: 'collateral-letterhead-printing-specs',
     },
   ]
 
@@ -156,13 +200,45 @@ export function CollateralPage() {
       />
 
       <BrandPageContent>
+        <BrandInfoBand className="flex flex-wrap items-start gap-3">
+          <BrandMetaPill tone="reference">{t('Collateral · Reference')}</BrandMetaPill>
+          <BrandBody className="max-w-3xl text-[13px]">
+            {t('These print surfaces are reference applications of the core brand system. Use them to validate composition and production constraints while keeping canonical identity rules in Foundations and Assets.')}
+          </BrandBody>
+        </BrandInfoBand>
+
+        <section>
+          <BrandSectionHeading icon={FileText} title={t('Jump to print reference')} />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {[
+              { href: '#guideline-collateral-business-card', title: t('Business Card'), meta: t('Reference print surface') },
+              { href: '#guideline-collateral-envelope', title: t('Business Envelope'), meta: t('Reference print surface') },
+              { href: '#guideline-collateral-letterhead', title: t('Company Letterhead'), meta: t('Reference print surface') },
+            ].map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="rounded-lg border border-brand-whisper-border bg-brand-surface px-4 py-3 text-start transition-all duration-150 hover:-translate-y-0.5 hover:border-brand-blue/30"
+              >
+                <BrandMetaPill tone="reference" className="mb-2">
+                  {item.meta}
+                </BrandMetaPill>
+                <p className="text-[13px] font-semibold text-brand-text">{item.title}</p>
+              </a>
+            ))}
+          </div>
+        </section>
 
         {/* ── SECTION 1: BUSINESS CARD ── */}
-        <section>
+        <section id="guideline-collateral-business-card" className="scroll-mt-20">
+          <div className="mb-4">
+            <BrandMetaPill tone="reference">{t('Reference print surface')}</BrandMetaPill>
+          </div>
           <SectionHeader
             icon={FileText}
             title={t('collateral.businessCard.heading', 'Business Card')}
             specLabel="85 × 54 mm"
+            anchorId="collateral-business-card"
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -233,7 +309,7 @@ export function CollateralPage() {
 
             {/* Print specifications */}
             <div className="lg:col-span-5">
-              <SpecTable rows={cardSpecs} />
+              <SpecTable rows={cardSpecs} activeAnchor={activeAnchor} />
             </div>
           </div>
         </section>
@@ -241,8 +317,11 @@ export function CollateralPage() {
         <SectionDivider />
 
         {/* ── SECTION 2: ENVELOPE ── */}
-        <section>
-          <SectionHeader icon={FileText} title="Business Envelope" specLabel="DL — 220 × 110 mm" />
+        <section id="guideline-collateral-envelope" className="scroll-mt-20">
+          <div className="mb-4">
+            <BrandMetaPill tone="reference">{t('Reference print surface')}</BrandMetaPill>
+          </div>
+          <SectionHeader icon={FileText} title="Business Envelope" specLabel="DL — 220 × 110 mm" anchorId="collateral-envelope" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Visual Preview */}
@@ -301,7 +380,7 @@ export function CollateralPage() {
 
             {/* Spec Panel */}
             <div className="lg:col-span-5">
-              <SpecTable rows={envelopeSpecs} />
+              <SpecTable rows={envelopeSpecs} activeAnchor={activeAnchor} />
             </div>
           </div>
         </section>
@@ -309,8 +388,11 @@ export function CollateralPage() {
         <SectionDivider />
 
         {/* ── SECTION 3: LETTERHEAD ── */}
-        <section className="pb-4">
-          <SectionHeader icon={FileText} title="Company Letterhead" specLabel="A4 — 210 × 297 mm" />
+        <section id="guideline-collateral-letterhead" className="scroll-mt-20 pb-4">
+          <div className="mb-4">
+            <BrandMetaPill tone="reference">{t('Reference print surface')}</BrandMetaPill>
+          </div>
+          <SectionHeader icon={FileText} title="Company Letterhead" specLabel="A4 — 210 × 297 mm" anchorId="collateral-letterhead" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Visual Preview */}
@@ -380,7 +462,7 @@ export function CollateralPage() {
 
             {/* Spec Panel */}
             <div className="lg:col-span-5">
-              <SpecTable rows={letterheadSpecs} />
+              <SpecTable rows={letterheadSpecs} activeAnchor={activeAnchor} />
             </div>
           </div>
         </section>

@@ -30,7 +30,7 @@ import {
   summarizeReactions,
   type TaskReactionEmoji,
 } from '@/lib/tasks/reactions'
-import { formatActivityMessage, mergeFeedByTime } from '@/lib/tasks/activity'
+import { formatActivityMessage } from '@/lib/tasks/activity'
 import { parseMentionedUserIds } from '@/lib/tasks/mentions'
 import { UserAvatarStack } from './user-avatar-stack'
 import type { BoardMember, TaskAssignee } from './types'
@@ -131,8 +131,6 @@ export function TaskWorkspace({
   const [templateName, setTemplateName] = useState('')
   const [savingTemplate, setSavingTemplate] = useState(false)
   const [templateMessage, setTemplateMessage] = useState<string | null>(null)
-
-  const memberMap = useMemo(() => new Map(members.map((m) => [m.id, m.name])), [members])
 
   const loadAll = useCallback(async () => {
     const [taskRes, commentsRes, activityRes, attachRes] = await Promise.all([
