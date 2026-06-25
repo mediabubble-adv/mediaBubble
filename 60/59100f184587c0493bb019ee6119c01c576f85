@@ -1,0 +1,219 @@
+apps/brand/components/sections/AssetsPage.tsx
+  s_3eb22a9b4224e8::t_516336813a50b0 5,47-52,59,106-109,137-140
+  s_3eb22a9b4224e8::t_229a978f3eb2ea 17-24,44,60,69-74
+docs/plans/2026-06-23-p1-ux-gaps.md
+  s_2e1260c48b9f91::t_006383758661b6 1-1040
+docs/reference/README.md
+  s_e8e70ec4f51fc0::t_da636166f5cacc 1-20
+docs/superpowers/specs/2026-06-24-meet-comms-hub-design.md
+  s_e7f74162534b2f::t_81885e88c049ce 1-234
+apps/brand/components/ui/brand-doc.tsx
+  s_3eb22a9b4224e8::t_2b93313c6134b5 4,32,37,64,75-76,78
+  s_3eb22a9b4224e8::t_69ad099dd55a88 143-173
+  s_3eb22a9b4224e8::t_31dff26ca9f7e9 1-3,39-57,65-74,77
+docs/plans/2026-06-23-task-manager-phase2.md
+  s_e7f74162534b2f::t_3a30dd533b1fa4 1-31
+apps/brand/components/sections/CollateralPage.tsx
+  s_3eb22a9b4224e8::t_990ae5c3845993 6,203-208,211-230,234-236,321-323,392-394
+  s_3eb22a9b4224e8::t_688a6604643c87 233,320,391
+  s_3eb22a9b4224e8::t_45a2f892bb03a8 1,11-17,24-29,35-44,90-100,107,113,119,125,134,140,146,152,161,167,173,179,185,312,383,465
+  s_3eb22a9b4224e8::t_17c44efd58f5a2 68,73,77,241,324,395
+  s_3eb22a9b4224e8::t_59d6576ea61105 231-232
+apps/brand/components/constants.ts
+  s_3eb22a9b4224e8::t_7d446c1b7ad806 79-81
+  s_3eb22a9b4224e8::t_cff76a54c9acae 76
+  s_3eb22a9b4224e8::t_688a6604643c87 78
+  s_3eb22a9b4224e8::t_865445238c182b 69-75,77,82-85
+apps/brand/components/BrandGuidelinesApp.tsx
+  s_3eb22a9b4224e8::t_0d7904049c4bbd 372,393
+  s_3eb22a9b4224e8::t_53e04bd3941071 156
+  s_3eb22a9b4224e8::t_260e4e5bdab249 211-218,411-418
+  s_3eb22a9b4224e8::t_1a9cc899f988b5 21,140
+  s_3eb22a9b4224e8::t_2bb8e2a1c500c0 26-28,144-147,191-195
+apps/brand/components/sections/EmailApplicationsPage.tsx
+  s_3eb22a9b4224e8::t_705eb1c4f4554e 2-8,10,21-46,76,82-97,103-130
+  s_3eb22a9b4224e8::t_688a6604643c87 77,98
+  s_3eb22a9b4224e8::t_52ebb703d6d518 1,9,11-20,47-75,78-81,99-102
+AGENTS.md
+  s_56e61c25bd39b8::t_9af28fe898c42c 22
+  s_56e61c25bd39b8::t_03c4759d210dbd 28
+docs/website/README.md
+  s_e8e70ec4f51fc0::t_c04911e78186e2 1,3-4,6,8-16,18,20-23,25,27-29
+apps/brand/components/sections/ComponentsPage.tsx
+  s_3eb22a9b4224e8::t_db8e0a0f330bf5 1182,1229-1231,1233
+  s_3eb22a9b4224e8::t_990ae5c3845993 338,425,486,560,616,665,712,847,883,970,1073,1181,1254,1285,1346
+  s_3eb22a9b4224e8::t_e2310d8874b401 107-109,111-116,122-124,127-129,132-134,136-138
+  s_3eb22a9b4224e8::t_a0700c948781cd 10,283-288,315,339-342,617-620
+  s_3eb22a9b4224e8::t_45a2f892bb03a8 1,50,101-106,110,117-121,125-126,130-131,135,139-180,289-314
+  s_3eb22a9b4224e8::t_7a2fd6a670323d 971,1041-1043,1045
+  s_3eb22a9b4224e8::t_ebc875f521d6b9 561,584-586,588
+  s_3eb22a9b4224e8::t_29b1995aad5a4b 625-629,1286,1321-1323,1325,1347,1390-1392,1394
+docs/plans/README.md
+  s_e8e70ec4f51fc0::t_703c5a712f541b 1-23
+docs/opus/session/02-architecture.md
+  s_e8e70ec4f51fc0::t_988a77c98b9ee1 4,116
+apps/brand/components/sections/VoiceTonePage.tsx
+  s_3eb22a9b4224e8::t_45a2f892bb03a8 1,13-23,231-262,265,338,425,463,507
+  s_3eb22a9b4224e8::t_17c44efd58f5a2 267,341,427,465
+  s_3eb22a9b4224e8::t_49187981379e76 5,224-230,263,266,268-269,340,342-343,426,428-429,464,466-467
+apps/brand/components/sections/DigitalAssetsPage.tsx
+  s_3eb22a9b4224e8::t_5c69f7197e125b 2
+  s_3eb22a9b4224e8::t_dd7bceb16e7fbc 5,107-113,120,162,213-216
+apps/brand/components/sections/OverviewSection.tsx
+  s_3eb22a9b4224e8::t_c63879c12390c5 1-3,5,10,15,18-21,23-26,62-65,75,77,81,83-118,125,127-131,133-134,141-152,154-156,158-160,162-176
+docs/CONTEXT.md
+  s_f75048b3e8be81::t_252758852761c5 130
+  s_f75048b3e8be81::t_a2ad6f0dc4cf4a 129
+  s_e8e70ec4f51fc0::t_605536f060accf 5,8,25
+  s_f75048b3e8be81::t_42534cd321df56 131
+  s_f75048b3e8be81::t_3f5f06ecf8c83c 132
+apps/brand/components/sections/ColorsPage.tsx
+  s_3eb22a9b4224e8::t_506de1933379c5 30,35,39,68,73,85,90,167,172
+docs/developing/website/OPEN_SOURCE_GITHUB_STRATEGY.md
+  s_e8e70ec4f51fc0::t_fff72c9cdd4be7 440-443,483,538
+docs/superpowers/specs/2026-06-23-task-manager-phase2-design.md
+  s_e7f74162534b2f::t_8b0569537cd389 1-68
+scripts/verify-doc-links.mjs
+  s_44a8a5dbc9a872::t_147c2368289664 32
+skills-lock.json
+  s_2a73afcda9588a::t_0b52174c6556e5 4-15
+docs/opus/session/01-strategy-integration.md
+  s_e8e70ec4f51fc0::t_ab01ffec70e2d7 5
+apps/brand/components/sections/DeckApplicationsPage.tsx
+  s_3eb22a9b4224e8::t_705eb1c4f4554e 3-8,10,21-30,32-44,74,80-95,101-128
+  s_3eb22a9b4224e8::t_18cad269e2c56b 2,31
+  s_3eb22a9b4224e8::t_52ebb703d6d518 1,9,11-20,45-73,76-79,97-100
+  s_3eb22a9b4224e8::t_688a6604643c87 75,96
+docs/plans/2026-06-24-meet-comms-hub.md
+  s_e7f74162534b2f::t_4639036e77588e 1-188
+apps/brand/components/sections/SpacingGridPage.tsx
+  s_3eb22a9b4224e8::t_63ef12f91551ac 5,43-48,52-55,92,137-140
+apps/brand/components/sections/RealWorldExamplesPage.tsx
+  s_3eb22a9b4224e8::t_d3d3d36e2396f1 2,4,7,9-10,12-14,17-19,22-24,30-32,35-36,38-44,46,66-86,89
+  s_3eb22a9b4224e8::t_990ae5c3845993 47-61,63,65
+  s_3eb22a9b4224e8::t_688a6604643c87 33-34
+docs/opus/session/04-automation-engine.md
+  s_e8e70ec4f51fc0::t_1141172cdf2324 4
+apps/brand/components/sections/LogoPage.tsx
+  s_3eb22a9b4224e8::t_7d33d4d9b03232 11-14,16,40
+  s_3eb22a9b4224e8::t_a9e6f6ad1ae470 43-48,54,85,87-88,116,118-119,189,191-192
+  s_3eb22a9b4224e8::t_05e7dca04c6065 5,53,83,86,114,117,187,190
+apps/launcher/app/(app)/_shell/app-shell.tsx
+  s_44a8a5dbc9a872::t_c9e140ee47ed24 4
+  s_44a8a5dbc9a872::t_63e3d6dd3afa97 139-150
+README.md
+  s_e8e70ec4f51fc0::t_bc241045634437 1-2,5,7,11,15,28,30-37,39,41,43-45,47,54,56-61,63,65-70,72,74-78,80,82,85-88,90-97,100,102-108,110,112-114,116,118,120,122-125
+  s_44a8a5dbc9a872::t_6f0dec52138289 19,21-26
+apps/brand/components/sections/PatternsPage.tsx
+  s_3eb22a9b4224e8::t_424a787c2ba6cb 1-21,24-96
+  s_3eb22a9b4224e8::t_8be3892b7b6b1f 22-23
+apps/brand/lib/guideline-search-index.ts
+  s_3eb22a9b4224e8::t_f4aff2e85537d9 220-223,253,261-262,264,267,270,326-337,349-350
+  s_3eb22a9b4224e8::t_3b41f73d6dca91 25-26,29,34-35,38,43-44,46,51-52,54,59-60,62,67-68,70,75-76,78,83-84,86,91-92,94,108-109,112,118-123,294-298
+  s_3eb22a9b4224e8::t_990ae5c3845993 224-227,231-233,237-238,242-244
+  s_3eb22a9b4224e8::t_a4d06570757c84 228-230,234-236,239-241
+  s_3eb22a9b4224e8::t_45a2f892bb03a8 254-258,303-305,307-309,311-313
+  s_3eb22a9b4224e8::t_688a6604643c87 263,265-266,268-269,271-272,301-302,306,310,353
+  s_3eb22a9b4224e8::t_5d6e661668ac42 214-219,245-250
+  s_3eb22a9b4224e8::t_724fb5aa619d75 251-252
+  s_3eb22a9b4224e8::t_9e57b1ac509ed7 259-260
+  s_3eb22a9b4224e8::t_7679e9224c015b 299-300
+apps/brand/components/sections/TypographyPage.tsx
+  s_3eb22a9b4224e8::t_a7c1681f861099 92-93,161,213-214,261-262,280-281
+docs/README.md
+  s_e8e70ec4f51fc0::t_15e6928d72d8bd 1-24,26-57,65-78
+  s_e8e70ec4f51fc0::t_e67c1c87774a9d 58-64
+  s_e8e70ec4f51fc0::t_5def95c822a24d 25
+docs/superpowers/README.md
+  s_e8e70ec4f51fc0::t_0149e7e2792f64 1-18
+docs/plans/2026-06-25-profile-settings-meet-design.md
+  s_e7f74162534b2f::t_e46dc2e3c84afb 1-87
+apps/launcher/scripts/ship-env-to-vercel.sh
+  s_44a8a5dbc9a872::t_3d0b248c3cfa1c 51
+  s_44a8a5dbc9a872::t_da9e0157d2a610 101
+  s_44a8a5dbc9a872::t_d6842aa99efa89 73-75
+apps/launcher/app/layout.tsx
+  s_44a8a5dbc9a872::t_81d12bbd2ed89e 13-19
+apps/brand/components/sections/SocialApplicationsPage.tsx
+  s_3eb22a9b4224e8::t_52ebb703d6d518 1,9,11-20,45-73,76-79,97-100
+  s_3eb22a9b4224e8::t_705eb1c4f4554e 2-8,10,21-44,74,80-95,101-128
+  s_3eb22a9b4224e8::t_688a6604643c87 75,96
+docs/audits/MEDIA_BUBBLE_ANTIGRAVITY_AUDIT.md
+  s_44a8a5dbc9a872::t_ea0101fea07a41 18,34,43,45,67,82,95,114,136,146,156,178,183,205,211,222,232,251,262,276,287,304,329,335,357-361,364-365,367
+docs/launcher/LAUNCHER_COMPREHENSIVE_GUIDE.md
+  s_44a8a5dbc9a872::t_1dd96e77053bb7 42,299,574,907,1329,1731,2242,2421,3492,4050,4943,5532,5999,6534,7521,8180,10357,11122,11662,12605,13554,13788,14081,14637,15522,16639
+docs/opus/product/DELIVERY_SUMMARY.md
+  s_e8e70ec4f51fc0::t_c1c49e01aa2476 98-100,117-119,136,155,200,206,213,219,225,232,431-432
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.1",
+  "base_commit_sha": "6059100f184587c0493bb019ee6119c01c576f85",
+  "prompts": {},
+  "sessions": {
+    "s_2a73afcda9588a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "75d0d69a-d257-4f8d-85d7-d0833f90e555",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    },
+    "s_2e1260c48b9f91": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "263123c1-0c9c-4a3c-8302-284b92e0919f",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    },
+    "s_3eb22a9b4224e8": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019efcbc-e483-73b2-b1f4-176b4483073f",
+        "model": "gpt-5.4"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    },
+    "s_44a8a5dbc9a872": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "18443507-c8ff-429f-93b0-bcf1c05d8657",
+        "model": "default"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    },
+    "s_56e61c25bd39b8": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "c2b2216e-842d-4209-bc63-5f616035dcf4",
+        "model": "default"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    },
+    "s_e7f74162534b2f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "57d80d4d-b9c7-43b1-b3ba-1a92e027c6d0",
+        "model": "default"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    },
+    "s_e8e70ec4f51fc0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019eff8d-caa6-7f90-94c0-97d6c24e3f67",
+        "model": "gpt-5.4-mini"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    },
+    "s_f75048b3e8be81": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "67b42104-f6dc-4c3d-84cd-77621360fe74",
+        "model": "default"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
