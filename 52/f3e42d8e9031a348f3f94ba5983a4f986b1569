@@ -1,0 +1,55 @@
+apps/web-eg/.eslintrc.json
+  s_e8e70ec4f51fc0::t_866061fa153fb3 18-20
+.cursor/hooks/state/continual-learning-index.json
+  s_56e61c25bd39b8::t_04d001fb817d1b 4,8,12,16,20-28,32,36,40,44,48,52,56,60,64,68,72,76,80,84-88,92,96,100-108,112,116,120,124,128,132,136,140,144,148,152-156,160,164-176,180-184,188,192,196,200,204,208,212,216,220,224-232,236-240,244,248,252,256,260-272,276,280,284,288,292
+apps/brand/.eslintrc.json
+  s_e8e70ec4f51fc0::t_f1b33a4d8e09a4 8-10
+apps/launcher/.eslintrc.json
+  s_e8e70ec4f51fc0::t_1d5eac0aaa1b90 8-10
+apps/web-eg/components/ui/OptimizedImage.tsx
+  s_e8e70ec4f51fc0::t_904fc0d0744d6e 23,39
+apps/web-ae/components/ui/OptimizedImage.tsx
+  s_e8e70ec4f51fc0::t_fae45804739c66 18,34
+apps/web-ae/.eslintrc.json
+  s_e8e70ec4f51fc0::t_4dd06467d3039a 18-20
+apps/brand/tsconfig.tsbuildinfo
+  s_3eb22a9b4224e8::t_607f5f17de7c64 1
+apps/web-ae/tsconfig.tsbuildinfo
+  s_e8e70ec4f51fc0::t_4d617eb48cb229 1
+apps/web-eg/tsconfig.tsbuildinfo
+  s_e8e70ec4f51fc0::t_b9699debbc6d9f 1
+packages/design-system/dist/README.md
+  s_e8e70ec4f51fc0::t_ab87b90fffb659 5,7,16-18,22,24,26,28-33,35,37,39,41-45,47-58,62,64-69,71-72,74-108,110,112,114,116-117,119-126,128-167,171,173,175-176,181,183,189,194,202,218,222-225,227-233,238,240,242-247,251,253-258,260-261,263-269,271,273,275-276,280
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.1",
+  "base_commit_sha": "52f3e42d8e9031a348f3f94ba5983a4f986b1569",
+  "prompts": {},
+  "sessions": {
+    "s_3eb22a9b4224e8": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019efcbc-e483-73b2-b1f4-176b4483073f",
+        "model": "gpt-5.4"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    },
+    "s_56e61c25bd39b8": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "c2b2216e-842d-4209-bc63-5f616035dcf4",
+        "model": "default"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    },
+    "s_e8e70ec4f51fc0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019eff8d-caa6-7f90-94c0-97d6c24e3f67",
+        "model": "gpt-5.4-mini"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
