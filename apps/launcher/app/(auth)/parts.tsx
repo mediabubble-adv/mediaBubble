@@ -3,7 +3,12 @@
 // Shared UI primitives + fetch helper for the auth pages. All client-side:
 // the forms POST to /api/auth/* and render the standardized envelope.
 
-import { useId, type InputHTMLAttributes, type ReactNode } from 'react'
+import {
+  useId,
+  useSyncExternalStore,
+  type InputHTMLAttributes,
+  type ReactNode,
+} from 'react'
 import { Input } from '@/components/ui/input'
 
 export interface ApiResult<T = unknown> {
@@ -11,6 +16,15 @@ export interface ApiResult<T = unknown> {
   message: string
   data?: T
   error?: string
+}
+
+/** True only after client hydration — avoids password-manager DOM injection mismatches. */
+function useIsClient(): boolean {
+  return useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  )
 }
 
 /** POST JSON to an auth endpoint and normalize the response envelope. */
@@ -46,16 +60,25 @@ export function Field({
   ...props
 }: { label: string; hint?: string } & InputHTMLAttributes<HTMLInputElement>) {
   const id = useId()
+  const isClient = useIsClient()
+  const inputClassName =
+    'w-full rounded-lg border border-input bg-background px-3 py-2.5 text-[14px] text-foreground placeholder:text-muted-foreground transition-[transform,background-color,color,border-color,opacity] duration-150 ease-[var(--ease-out)] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30'
+
   return (
-    <label htmlFor={id} className="block">
-      <span className="mb-1.5 block text-[13px] font-semibold text-foreground">{label}</span>
-      <Input
-        id={id}
-        className="w-full rounded-lg border border-input bg-background px-3 py-2.5 text-[14px] text-foreground placeholder:text-muted-foreground transition-[transform,background-color,color,border-color,opacity] duration-150 ease-[var(--ease-out)] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
-        {...props}
-      />
+    <div className="block">
+      <label htmlFor={id} className="mb-1.5 block text-[13px] font-semibold text-foreground">
+        {label}
+      </label>
+      {isClient ? (
+        <Input id={id} className={inputClassName} {...props} />
+      ) : (
+        <div
+          className={`${inputClassName} h-[42px] animate-pulse bg-muted/40`}
+          aria-hidden
+        />
+      )}
       {hint ? <span className="mt-1 block text-[12px] text-muted-foreground">{hint}</span> : null}
-    </label>
+    </div>
   )
 }
 

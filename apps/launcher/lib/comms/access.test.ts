@@ -6,6 +6,7 @@ describe('comms access', () => {
     name: 'general',
     description: null,
     type: 'Public',
+    dm_key: null,
     created_by: 'user-a',
     members: ['user-a'],
     created_at: new Date(),
@@ -14,6 +15,11 @@ describe('comms access', () => {
 
   it('allows contributors into public channels', () => {
     expect(canAccessChannel(channel, 'user-b', 'Contributor')).toBe(true)
+  })
+
+  it('allows contributors into activity channels', () => {
+    const activity = { ...channel, type: 'Activity' }
+    expect(canAccessChannel(activity, 'user-b', 'Contributor')).toBe(true)
   })
 
   it('blocks private channels for non-members', () => {

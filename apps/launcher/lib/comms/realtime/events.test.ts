@@ -14,6 +14,8 @@ describe('comms realtime events', () => {
     author_name: 'Alex',
     content: 'Hello',
     thread_id: null,
+    attachments: null,
+    reactions: null,
     edited_at: null,
     created_at: '2026-06-20T12:00:00.000Z',
   }
@@ -43,6 +45,7 @@ describe('comms realtime events', () => {
       name: 'general',
       description: null,
       type: 'Public',
+      dm_key: null,
       created_by: 'u-1',
       members: ['u-1'],
       created_at: '2026-06-20T12:00:00.000Z',

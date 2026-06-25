@@ -2,7 +2,10 @@ import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { SESSION_COOKIE } from '@/lib/auth/cookie'
 import { getServerSession } from '@/lib/auth/server-session'
+import { hasAtLeast } from '@/lib/auth/rbac'
 import { prisma } from '@/lib/db/prisma'
+import { MeetProvider } from '@/components/meet/meet-provider'
+import { PresenceHeartbeat } from '@/components/presence/presence-heartbeat'
 import { AppShell, type ShellUser } from './_shell/app-shell'
 import { ToastProvider } from '@/components/ui/toast'
 import { OnboardingTour } from '@/components/onboarding/tour'
@@ -46,7 +49,13 @@ export default async function AppLayout({ children }: { children: React.ReactNod
 
   return (
     <ToastProvider>
-      <AppShell user={user}>{children}</AppShell>
+      <MeetProvider
+        currentUserId={session.id}
+        isManager={hasAtLeast(session.role, 'Manager')}
+      >
+        <PresenceHeartbeat />
+        <AppShell user={user}>{children}</AppShell>
+      </MeetProvider>
       <OnboardingTour />
     </ToastProvider>
   )

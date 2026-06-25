@@ -12,7 +12,13 @@ export async function GET(req: Request): Promise<Response> {
   if (!me) return toResponse(fail('unauthorized', 'Authentication required', 401))
 
   const tasks = await prisma.tasks.findMany({
-    where: { assigned_to: me.id, deleted_at: null },
+    where: {
+      deleted_at: null,
+      OR: [
+        { assigned_to: me.id },
+        { task_assignees: { some: { user_id: me.id } } },
+      ],
+    },
     orderBy: [{ status: 'asc' }, { updated_at: 'desc' }],
   })
   return toResponse(ok(tasks, 'Assigned tasks retrieved'))

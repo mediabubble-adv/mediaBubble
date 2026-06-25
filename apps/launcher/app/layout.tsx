@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getCspNonce, THEME_INIT_SCRIPT } from '@mediabubble/shared/server'
 import { rootFontClassName } from '@/lib/fonts'
+import { Agentation } from 'agentation'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -34,6 +35,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         className={`${rootFontClassName} font-sans antialiased bg-background text-foreground`}
       >
         {children}
+        {process.env.NODE_ENV === 'development' && <Agentation />}
       </body>
     </html>
   )

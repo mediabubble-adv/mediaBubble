@@ -1,26 +1,43 @@
 'use client'
 
 import { useEffect, useMemo, useState, type FormEvent } from 'react'
-import { Plus, CheckSquare } from 'lucide-react'
+import { useSearchParams } from 'next/navigation'
+import { Plus, CheckSquare, Search, User, Users, Inbox } from 'lucide-react'
 import { TASK_STATUSES, type TaskStatus } from '@/lib/tasks/status'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { PageFrame, PageHeader } from '@/components/layout/page-frame'
 import { TaskCard } from '@/components/tasks/task-card'
 import { TaskForm } from '@/components/tasks/task-form'
-import { TaskDetails } from '@/components/tasks/task-details'
-import type { BoardTask, BoardMember } from '@/components/tasks/types'
+import { TaskPanel } from '@/components/tasks/task-panel'
+import type { BoardTask, BoardMember, BoardClient } from '@/components/tasks/types'
+import { cn } from '@/lib/utils'
 
-export type { BoardTask, BoardMember }
+export type { BoardTask, BoardMember, BoardClient }
+
+type AssigneeFilter = 'all' | 'mine' | 'unassigned'
+
+const FILTER_OPTIONS: { id: AssigneeFilter; label: string; icon: typeof Users }[] = [
+  { id: 'all', label: 'All', icon: Users },
+  { id: 'mine', label: 'My tasks', icon: User },
+  { id: 'unassigned', label: 'Unassigned', icon: Inbox },
+]
 
 export function TaskBoard({
   initialTasks,
   members,
+  clients,
+  currentUserId,
 }: {
   initialTasks: BoardTask[]
   members: BoardMember[]
+  clients: BoardClient[]
+  currentUserId: string | null
 }) {
+  const searchParams = useSearchParams()
   const [tasks, setTasks] = useState<BoardTask[]>(initialTasks)
+  const [assigneeFilter, setAssigneeFilter] = useState<AssigneeFilter>('all')
+  const [searchQuery, setSearchQuery] = useState('')
   const [dragId, setDragId] = useState<string | null>(null)
   const [overColumn, setOverColumn] = useState<TaskStatus | null>(null)
   const [quickTitle, setQuickTitle] = useState('')
@@ -40,6 +57,34 @@ export function TaskBoard({
   const [createOpen, setCreateOpen] = useState(false)
   const [selectedTaskId, setSelectedTaskId] = useState<string | null>(null)
   const [editingTask, setEditingTask] = useState<BoardTask | null>(null)
+
+  useEffect(() => {
+    const taskParam = searchParams.get('task')
+    if (taskParam) setSelectedTaskId(taskParam)
+  }, [searchParams])
+
+  function mapApiTask(t: Record<string, unknown>): BoardTask {
+    const subs = (t['other_tasks'] as Array<{ status: string | null }> | undefined) ?? []
+    const done = subs.filter((s) => s.status === 'Done').length
+    const assignees =
+      (t['assignees'] as BoardTask['assignees'] | undefined) ??
+      []
+    return {
+      id: String(t['id']),
+      title: String(t['title']),
+      description: (t['description'] as string | null) ?? null,
+      status: String(t['status'] ?? 'Backlog'),
+      priority: String(t['priority'] ?? 'Medium'),
+      assigned_to: (t['assigned_to'] as string | null) ?? null,
+      assignees,
+      tags: (t['tags'] as string[]) ?? [],
+      due_date: t['due_date'] ? String(t['due_date']).slice(0, 10) : null,
+      client_id: (t['client_id'] as string | null) ?? null,
+      client_name: (t['clients'] as { name: string } | null)?.name ?? null,
+      subtask_done: done,
+      subtask_total: subs.length,
+    }
+  }
 
   const memberName = useMemo(() => {
     const map = new Map(members.map((m) => [m.id, m.name]))
@@ -75,19 +120,7 @@ export function TaskBoard({
       const json = await res.json()
       if (res.ok) {
         const t = json.data
-        setTasks((ts) => [
-          {
-            id: t.id,
-            title: t.title,
-            description: t.description ?? null,
-            status: t.status ?? 'Backlog',
-            priority: t.priority ?? 'Medium',
-            assigned_to: t.assigned_to ?? null,
-            tags: t.tags ?? [],
-            due_date: t.due_date ? String(t.due_date).slice(0, 10) : null,
-          },
-          ...ts,
-        ])
+        setTasks((ts) => [mapApiTask(t as Record<string, unknown>), ...ts])
         setQuickTitle('')
       }
     } finally {
@@ -129,19 +162,40 @@ export function TaskBoard({
     setEditingTask(null)
   }
 
-  function handleEdit(task: BoardTask) {
-    setSelectedTaskId(null)
-    setEditingTask(task)
+  function refreshBoard() {
+    void fetch('/api/tasks')
+      .then((r) => r.json())
+      .then((j) => {
+        if (!j.data) return
+        setTasks((j.data as Array<Record<string, unknown>>).map(mapApiTask))
+      })
+      .catch(() => {})
   }
 
-  function handleDelete(id: string) {
-    setTasks((ts) => ts.filter((t) => t.id !== id))
-    setSelectedTaskId(null)
-  }
+  const visibleTasks = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase()
+    return tasks.filter((task) => {
+      if (assigneeFilter === 'mine' && currentUserId) {
+        const onTask =
+          task.assigned_to === currentUserId ||
+          task.assignees.some((a) => a.id === currentUserId)
+        if (!onTask) return false
+      } else if (assigneeFilter === 'unassigned') {
+        if (task.assigned_to || task.assignees.length > 0) return false
+      }
+
+      if (!q) return true
+      const haystack = [task.title, task.description ?? '', ...task.tags].join(' ').toLowerCase()
+      return haystack.includes(q)
+    })
+  }, [tasks, assigneeFilter, searchQuery, currentUserId])
+
+  const filteredCount = visibleTasks.length
+  const totalCount = tasks.length
 
   const columns = TASK_STATUSES.map((status) => ({
     status,
-    items: tasks.filter((t) => t.status === status),
+    items: visibleTasks.filter((t) => t.status === status),
   }))
 
   return (
@@ -149,7 +203,11 @@ export function TaskBoard({
       <PageFrame width="full">
         <PageHeader
           title="Tasks"
-          description={`${tasks.length} task${tasks.length === 1 ? '' : 's'} · drag between columns`}
+          description={
+            filteredCount === totalCount
+              ? `${totalCount} task${totalCount === 1 ? '' : 's'} · drag between columns`
+              : `${filteredCount} of ${totalCount} tasks · drag between columns`
+          }
           icon={CheckSquare}
           actions={
             <Button onClick={() => setCreateOpen(true)}>
@@ -158,6 +216,43 @@ export function TaskBoard({
             </Button>
           }
         />
+
+        <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-wrap gap-1.5">
+            {FILTER_OPTIONS.map(({ id, label, icon: Icon }) => (
+              <button
+                key={id}
+                type="button"
+                onClick={() => setAssigneeFilter(id)}
+                disabled={id === 'mine' && !currentUserId}
+                className={cn(
+                  'inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-[12px] font-semibold transition-[border-color,background-color,color] duration-150',
+                  assigneeFilter === id
+                    ? 'border-primary/50 bg-primary/10 text-primary'
+                    : 'border-border bg-card text-muted-foreground hover:border-primary/30 hover:text-foreground',
+                  id === 'mine' && !currentUserId && 'cursor-not-allowed opacity-50',
+                )}
+              >
+                <Icon size={13} />
+                {label}
+              </button>
+            ))}
+          </div>
+
+          <div className="relative w-full sm:max-w-xs">
+            <Search
+              size={14}
+              className="pointer-events-none absolute start-2.5 top-1/2 -translate-y-1/2 text-muted-foreground"
+            />
+            <Input
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search tasks…"
+              aria-label="Search tasks"
+              className="ps-8"
+            />
+          </div>
+        </div>
 
         <div className="launcher-scroll-x mt-6">
           <div className="flex min-w-max gap-4 pb-2">
@@ -227,7 +322,9 @@ export function TaskBoard({
 
                   {items.length === 0 && (
                     <p className="rounded-lg border border-dashed border-border px-3 py-4 text-center text-[11px] text-muted-foreground">
-                      Nothing here
+                      {filteredCount === 0 && totalCount > 0
+                        ? 'No tasks match your filters'
+                        : 'Nothing here'}
                     </p>
                   )}
                 </div>
@@ -241,6 +338,7 @@ export function TaskBoard({
       {createOpen && (
         <TaskForm
           members={members}
+          clients={clients}
           onSuccess={handleTaskSaved}
           onClose={() => setCreateOpen(false)}
         />
@@ -249,17 +347,18 @@ export function TaskBoard({
         <TaskForm
           task={editingTask}
           members={members}
+          clients={clients}
           onSuccess={handleTaskSaved}
           onClose={() => setEditingTask(null)}
         />
       )}
       {selectedTaskId && (
-        <TaskDetails
+        <TaskPanel
           taskId={selectedTaskId}
           members={members}
+          currentUserId={currentUserId}
           onClose={() => setSelectedTaskId(null)}
-          onEdit={handleEdit}
-          onDelete={handleDelete}
+          onTaskUpdated={refreshBoard}
         />
       )}
     </>

@@ -3,6 +3,7 @@
 import { Play, Square } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
+import { UserAvatarStack } from './user-avatar-stack'
 import type { BoardTask, BoardMember } from './types'
 
 const PRIORITY_TONES = {
@@ -20,11 +21,33 @@ function initials(name: string) {
     .join('')
 }
 
+// kept for memberName fallback
+
 function formatElapsed(ms: number) {
   const total = Math.floor(ms / 1000)
   const m = Math.floor(total / 60)
   const s = total % 60
   return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`
+}
+
+function isDueOverdue(dueDate: string, status: string) {
+  if (status === 'Done' || !dueDate) return false
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+  const due = new Date(`${dueDate}T00:00:00`)
+  return due < today
+}
+
+function formatDueLabel(dueDate: string) {
+  const due = new Date(`${dueDate}T00:00:00`)
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+  const diffDays = Math.round((due.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
+  if (diffDays === 0) return 'Due today'
+  if (diffDays === 1) return 'Due tomorrow'
+  if (diffDays < 0) return `${Math.abs(diffDays)}d overdue`
+  if (diffDays <= 7) return `Due in ${diffDays}d`
+  return dueDate
 }
 
 interface TaskCardProps {
@@ -49,7 +72,13 @@ export function TaskCard({
   onTimerToggle,
 }: TaskCardProps) {
   const assignee = memberName(task.assigned_to)
+  const assigneeStack = task.assignees?.length
+    ? task.assignees
+    : assignee
+      ? [{ id: task.assigned_to ?? '', name: assignee, avatar_url: null }]
+      : []
   const tone = PRIORITY_TONES[task.priority as keyof typeof PRIORITY_TONES] ?? 'neutral'
+  const overdue = task.due_date ? isDueOverdue(task.due_date, task.status) : false
 
   return (
     <article
@@ -72,6 +101,23 @@ export function TaskCard({
         </Badge>
       </div>
 
+      {task.client_name && (
+        <p className="mt-1 text-[11px] font-semibold text-brand-text-muted">{task.client_name}</p>
+      )}
+
+      {task.subtask_total > 0 && (
+        <div className="mt-2">
+          <div className="h-1 overflow-hidden rounded-full bg-brand-whisper-border">
+            <div
+              className="h-full rounded-full bg-brand-blue"
+              style={{
+                width: `${Math.round((task.subtask_done / task.subtask_total) * 100)}%`,
+              }}
+            />
+          </div>
+        </div>
+      )}
+
       {task.description && (
         <p className="mt-1.5 line-clamp-2 text-[12px] leading-relaxed text-brand-text-muted">
           {task.description}
@@ -91,18 +137,19 @@ export function TaskCard({
         </div>
       )}
 
-      <div className="mt-3 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          {assignee && (
-            <span
-              title={assignee}
-              className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-blue/[0.16] text-[9px] font-bold text-brand-blue"
-            >
-              {initials(assignee)}
-            </span>
-          )}
+      <div className="mt-3 flex items-center justify-between gap-2">
+        <div className="flex min-w-0 items-center gap-2">
+          {assigneeStack.length > 0 && <UserAvatarStack users={assigneeStack} />}
           {task.due_date && (
-            <span className="text-[10px] text-brand-text-muted">{task.due_date}</span>
+            <span
+              className={cn(
+                'text-[10px] font-medium tabular-nums',
+                overdue ? 'text-brand-error' : 'text-brand-text-muted',
+              )}
+              dir="ltr"
+            >
+              {formatDueLabel(task.due_date)}
+            </span>
           )}
         </div>
 

@@ -10,6 +10,7 @@ import { PrismaClient } from '@prisma/client'
 import { applyLauncherEnv } from '../lib/db/load-launcher-env'
 import { hashPassword } from '../lib/auth/password'
 import { HOLIDAY_SEED_2026, HOLIDAY_SEED_NAMES } from '../lib/time/holidays-data'
+import { MEET_BOT_EMAIL, MEET_BOT_NAME, STUDIO_CHANNEL_NAME } from '../lib/meet/constants'
 
 applyLauncherEnv()
 
@@ -37,11 +38,30 @@ interface SeedUser {
   name: string
   role: 'Admin' | 'Manager' | 'Contributor' | 'Viewer'
   department: (typeof DEPARTMENTS)[number]
+  bio?: string
+  linkedin_url?: string
+  instagram_url?: string
+  behance_url?: string
+  website_url?: string
 }
 
 const USERS: SeedUser[] = [
-  { email: 'yasser@mediabubble.co', name: 'Yasser Dorgham', role: 'Admin', department: 'Strategic Consulting' },
-  { email: 'manager@mediabubble.co', name: 'Project Manager', role: 'Manager', department: 'Client Services' },
+  {
+    email: 'yasser@mediabubble.co',
+    name: 'Yasser Dorgham',
+    role: 'Admin',
+    department: 'Strategic Consulting',
+    bio: 'Founder and creative director at MediaBubble.',
+    linkedin_url: 'https://www.linkedin.com/company/mediabubble',
+    website_url: 'https://mediabubble.co',
+  },
+  {
+    email: 'manager@mediabubble.co',
+    name: 'Project Manager',
+    role: 'Manager',
+    department: 'Client Services',
+    bio: 'Client services lead — keeps projects on track.',
+  },
   { email: 'creative@mediabubble.co', name: 'Creative Staff', role: 'Contributor', department: 'Social Media' },
   { email: 'viewer@mediabubble.co', name: 'Read Only', role: 'Viewer', department: 'Analytics & Reporting' },
 ]
@@ -381,6 +401,33 @@ async function seedComms(
   return { channels: 2, messages: seedMessages.length }
 }
 
+async function seedMeetInfrastructure(managerId: string): Promise<void> {
+  await prisma.users.upsert({
+    where: { email: MEET_BOT_EMAIL },
+    update: { name: MEET_BOT_NAME, status: 'active', role: 'Contributor' },
+    create: {
+      email: MEET_BOT_EMAIL,
+      name: MEET_BOT_NAME,
+      status: 'active',
+      role: 'Contributor',
+      password_hash: hashPassword('meet-bot-no-login'),
+    },
+  })
+
+  const studio = await prisma.channels.findFirst({ where: { name: STUDIO_CHANNEL_NAME } })
+  if (!studio) {
+    await prisma.channels.create({
+      data: {
+        name: STUDIO_CHANNEL_NAME,
+        description: 'Live studio activity — tasks, wins, and team moments.',
+        type: 'Activity',
+        created_by: managerId,
+        members: [],
+      },
+    })
+  }
+}
+
 const WORKFLOW_SEED_NAMES = ['Review nudge', 'Timesheet reminder'] as const
 const WORKFLOW_TEMPLATE_NAMES = ['Task review nudge', 'Time entry approval ping'] as const
 
@@ -586,6 +633,62 @@ async function seedOpus(adminId: string): Promise<{ triggers: number; usage: num
   return { triggers: OPUS_SEED_TRIGGERS.length, usage: 1, metrics: campaign ? 1 : 0 }
 }
 
+async function seedTaskTemplates(
+  createdBy: string,
+  brandingDeptId: string | undefined,
+): Promise<number> {
+  const templates = [
+    {
+      name: 'Social campaign launch',
+      description: 'Standard checklist for a client social campaign go-live.',
+      default_priority: 'High',
+      default_tags: ['social', 'campaign'],
+      subtasks: [
+        'Client brief sign-off',
+        'Creative assets finalized',
+        'Copy & hashtags approved',
+        'Schedule posts',
+        'Launch & monitor',
+      ],
+      department_id: brandingDeptId,
+    },
+    {
+      name: 'Website sprint',
+      description: 'Dev/design sprint for a marketing site or landing page.',
+      default_priority: 'Medium',
+      default_tags: ['web', 'design'],
+      subtasks: [
+        { title: 'Wireframes', estimated_hours: 4 },
+        { title: 'UI design', estimated_hours: 8 },
+        { title: 'Development', estimated_hours: 16 },
+        { title: 'QA & client review' },
+        { title: 'Deploy to production' },
+      ],
+      department_id: brandingDeptId,
+    },
+  ] as const
+
+  let count = 0
+  for (const tpl of templates) {
+    const existing = await prisma.task_templates.findFirst({ where: { name: tpl.name } })
+    if (existing) continue
+    await prisma.task_templates.create({
+      data: {
+        name: tpl.name,
+        description: tpl.description,
+        default_priority: tpl.default_priority,
+        default_tags: [...tpl.default_tags],
+        subtasks: tpl.subtasks,
+        department_id: tpl.department_id,
+        created_by: createdBy,
+        is_public: true,
+      },
+    })
+    count += 1
+  }
+  return count
+}
+
 /** Find a department by name, or create it. (No unique constraint on name.) */
 async function ensureDepartment(name: string): Promise<string> {
   const existing = await prisma.departments.findFirst({ where: { name } })
@@ -605,7 +708,17 @@ async function main(): Promise<void> {
   for (const u of USERS) {
     await prisma.users.upsert({
       where: { email: u.email },
-      update: { name: u.name, role: u.role, status: 'active', department_id: departmentIds.get(u.department) },
+      update: {
+        name: u.name,
+        role: u.role,
+        status: 'active',
+        department_id: departmentIds.get(u.department),
+        bio: u.bio ?? null,
+        linkedin_url: u.linkedin_url ?? null,
+        instagram_url: u.instagram_url ?? null,
+        behance_url: u.behance_url ?? null,
+        website_url: u.website_url ?? null,
+      },
       create: {
         email: u.email,
         name: u.name,
@@ -613,6 +726,11 @@ async function main(): Promise<void> {
         status: 'active',
         password_hash,
         department_id: departmentIds.get(u.department),
+        bio: u.bio ?? null,
+        linkedin_url: u.linkedin_url ?? null,
+        instagram_url: u.instagram_url ?? null,
+        behance_url: u.behance_url ?? null,
+        website_url: u.website_url ?? null,
       },
     })
   }
@@ -626,6 +744,7 @@ async function main(): Promise<void> {
   const promptRows = manager ? await seedPrompts(manager.id) : 0
   const commsRows =
     manager && contributor ? await seedComms(manager.id, contributor.id) : { channels: 0, messages: 0 }
+  if (manager) await seedMeetInfrastructure(manager.id)
   const generalChannel = await prisma.channels.findFirst({ where: { name: '#general' } })
   const automationRows = manager
     ? await seedAutomation(manager.id, generalChannel?.id ?? null)
@@ -633,6 +752,8 @@ async function main(): Promise<void> {
   const campaignsRows = manager ? await seedCampaignsHub(manager.id) : { proposals: 0, campaigns: 0 }
   const admin = await prisma.users.findUnique({ where: { email: 'yasser@mediabubble.co' } })
   const opusRows = admin ? await seedOpus(admin.id) : { triggers: 0, usage: 0, metrics: 0 }
+  const taskTemplateRows =
+    manager ? await seedTaskTemplates(manager.id, departmentIds.get('Branding')) : 0
 
   // eslint-disable-next-line no-console -- seed scripts report their summary to stdout
   console.log(
@@ -644,7 +765,8 @@ async function main(): Promise<void> {
       `${commsRows.messages} message(s), ${automationRows.workflows} workflow(s), ` +
       `${automationRows.templates} automation template(s), ${campaignsRows.proposals} proposal(s), ` +
       `${campaignsRows.campaigns} campaign(s), ${opusRows.triggers} OPUS trigger(s), ` +
-      `${opusRows.usage} usage period(s), and ${opusRows.metrics} campaign metric snapshot(s).`,
+      `${opusRows.usage} usage period(s), ${opusRows.metrics} campaign metric snapshot(s), ` +
+      `and ${taskTemplateRows} task template(s).`,
   )
 }
 

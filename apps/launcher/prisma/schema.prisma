@@ -140,6 +140,7 @@ model channels {
   name                  String                  @db.VarChar(255)
   description           String?
   type                  String?                 @default("Public") @db.VarChar(50)
+  dm_key                String?                 @unique @db.VarChar(80)
   created_by            String                  @db.Uuid
   members               String[]                @db.Uuid
   created_at            DateTime                @default(now()) @db.Timestamp(6)
@@ -176,6 +177,7 @@ model clients {
   proposals                proposals[]
   client_portal_tokens     client_portal_tokens[]
   opus_briefs              opus_briefs[]
+  tasks                    tasks[]
 
   @@index([name], map: "idx_clients_name")
   @@index([status], map: "idx_clients_status")
@@ -665,19 +667,80 @@ model task_attachments {
 }
 
 model task_comments {
-  id              String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  task_id         String    @db.Uuid
-  user_id         String    @db.Uuid
-  content         String
-  mentioned_users String[]  @db.Uuid
-  created_at      DateTime  @default(now()) @db.Timestamp(6)
-  updated_at      DateTime  @default(now()) @db.Timestamp(6)
-  deleted_at      DateTime? @db.Timestamp(6)
-  tasks           tasks     @relation(fields: [task_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  users           users     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  id                  String                @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  task_id             String                @db.Uuid
+  user_id             String                @db.Uuid
+  parent_id           String?               @db.Uuid
+  content             String
+  mentioned_users     String[]              @db.Uuid
+  created_at          DateTime              @default(now()) @db.Timestamp(6)
+  updated_at          DateTime              @default(now()) @db.Timestamp(6)
+  deleted_at          DateTime?             @db.Timestamp(6)
+  tasks               tasks                 @relation(fields: [task_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users               users                 @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  parent              task_comments?        @relation("task_comment_replies", fields: [parent_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  replies             task_comments[]       @relation("task_comment_replies")
+  comment_attachments comment_attachments[]
 
   @@index([task_id], map: "idx_task_comments_task_id")
   @@index([user_id], map: "idx_task_comments_user_id")
+  @@index([parent_id], map: "idx_task_comments_parent_id")
+}
+
+model comment_attachments {
+  id            String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  comment_id    String        @db.Uuid
+  uploaded_by   String        @db.Uuid
+  file_name     String        @db.VarChar(255)
+  file_url      String
+  file_size     Int?
+  mime_type     String?       @db.VarChar(100)
+  created_at    DateTime      @default(now()) @db.Timestamp(6)
+  task_comments task_comments @relation(fields: [comment_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users         users         @relation(fields: [uploaded_by], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([comment_id], map: "idx_comment_attachments_comment_id")
+}
+
+model task_activity {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  task_id    String   @db.Uuid
+  actor_id   String   @db.Uuid
+  type       String   @db.VarChar(50)
+  payload    Json     @db.JsonB
+  created_at DateTime @default(now()) @db.Timestamp(6)
+  tasks      tasks    @relation(fields: [task_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users      users    @relation(fields: [actor_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([task_id, created_at], map: "idx_task_activity_task_created")
+}
+
+model task_reactions {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  target_type String   @db.VarChar(20)
+  target_id   String   @db.Uuid
+  user_id     String   @db.Uuid
+  emoji       String   @db.VarChar(20)
+  created_at  DateTime @default(now()) @db.Timestamp(6)
+  users       users    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([target_type, target_id, user_id], map: "uq_task_reactions_target_user")
+  @@index([target_type, target_id], map: "idx_task_reactions_target")
+}
+
+model task_assignees {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  task_id     String   @db.Uuid
+  user_id     String   @db.Uuid
+  assigned_by String?  @db.Uuid
+  created_at  DateTime @default(now()) @db.Timestamp(6)
+  tasks       tasks    @relation(fields: [task_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users       users    @relation("task_assignees_user", fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  assigner    users?   @relation("task_assignees_assigner", fields: [assigned_by], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@unique([task_id, user_id], map: "uq_task_assignees_task_user")
+  @@index([user_id], map: "idx_task_assignees_user_id")
+  @@index([task_id], map: "idx_task_assignees_task_id")
 }
 
 model task_templates {
@@ -713,24 +776,30 @@ model tasks {
   actual_hours                   Decimal?           @db.Decimal(8, 2)
   tags                           String[]
   parent_task_id                 String?            @db.Uuid
+  client_id                      String?            @db.Uuid
   created_at                     DateTime           @default(now()) @db.Timestamp(6)
   updated_at                     DateTime           @default(now()) @db.Timestamp(6)
   deleted_at                     DateTime?          @db.Timestamp(6)
   task_attachments               task_attachments[]
   task_comments                  task_comments[]
+  task_activity                  task_activity[]
+  task_assignees                 task_assignees[]
   users_tasks_assigned_toTousers users?             @relation("tasks_assigned_toTousers", fields: [assigned_to], references: [id], onDelete: NoAction, onUpdate: NoAction)
   users_tasks_created_byTousers  users              @relation("tasks_created_byTousers", fields: [created_by], references: [id], onDelete: NoAction, onUpdate: NoAction)
   departments                    departments?       @relation(fields: [department_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  clients                        clients?           @relation(fields: [client_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
   tasks                          tasks?             @relation("tasksTotasks", fields: [parent_task_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
   other_tasks                    tasks[]            @relation("tasksTotasks")
   time_entries                   time_entries[]
   invoice_items                  invoice_items[]
 
   @@index([assigned_to], map: "idx_tasks_assigned_to")
+  @@index([client_id], map: "idx_tasks_client_id")
   @@index([created_by], map: "idx_tasks_created_by")
   @@index([department_id], map: "idx_tasks_department_id")
   @@index([due_date], map: "idx_tasks_due_date")
   @@index([due_date, status], map: "idx_tasks_due_date_status")
+  @@index([parent_task_id], map: "idx_tasks_parent_task_id")
   @@index([status], map: "idx_tasks_status")
   @@index([updated_at], map: "idx_tasks_updated_at")
 }
@@ -760,6 +829,7 @@ model time_entries {
 model user_presence {
   user_id          String    @id @db.Uuid
   status           String?   @default("Offline") @db.VarChar(50)
+  status_message   String?   @db.VarChar(100)
   last_seen        DateTime? @default(now()) @db.Timestamp(6)
   current_location String?   @db.VarChar(255)
   device           String?   @db.VarChar(100)
@@ -773,6 +843,11 @@ model users {
   password_hash                                              String?                     @db.VarChar(255)
   name                                                       String                      @db.VarChar(255)
   avatar_url                                                 String?
+  bio                                                        String?                     @db.VarChar(500)
+  linkedin_url                                               String?                     @db.VarChar(500)
+  instagram_url                                              String?                     @db.VarChar(500)
+  behance_url                                                String?                     @db.VarChar(500)
+  website_url                                                String?                     @db.VarChar(500)
   department_id                                              String?                     @db.Uuid
   role                                                       String                      @default("Contributor") @db.VarChar(50)
   status                                                     String?                     @default("active") @db.VarChar(50)
@@ -814,6 +889,11 @@ model users {
   settings                                                   settings[]
   task_attachments                                           task_attachments[]
   task_comments                                              task_comments[]
+  comment_attachments                                        comment_attachments[]
+  task_activity                                              task_activity[]
+  task_reactions                                             task_reactions[]
+  task_assignees_user                                        task_assignees[]            @relation("task_assignees_user")
+  task_assignees_assigner                                    task_assignees[]            @relation("task_assignees_assigner")
   task_templates                                             task_templates[]
   tasks_tasks_assigned_toTousers                             tasks[]                     @relation("tasks_assigned_toTousers")
   tasks_tasks_created_byTousers                              tasks[]                     @relation("tasks_created_byTousers")
@@ -831,6 +911,7 @@ model users {
   opus_triggers                                              opus_triggers[]
   opus_trigger_runs                                          opus_trigger_runs[]
   notifications                                              notifications[]
+  dashboard_notes                                            dashboard_notes[]
 
   @@index([department_id], map: "idx_users_department_id")
   @@index([email], map: "idx_users_email")
@@ -974,6 +1055,17 @@ model opus_campaign_metrics {
 
   @@index([campaign_id], map: "idx_opus_campaign_metrics_campaign_id")
   @@index([period_start], map: "idx_opus_campaign_metrics_period_start")
+}
+
+model dashboard_notes {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id    String   @db.Uuid
+  content    String
+  created_at DateTime @default(now()) @db.Timestamp(6)
+  updated_at DateTime @default(now()) @updatedAt @db.Timestamp(6)
+  users      users    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([user_id, created_at(sort: Desc)], map: "idx_dashboard_notes_user_created")
 }
 
 model notifications {
