@@ -30,7 +30,7 @@ import {
   summarizeReactions,
   type TaskReactionEmoji,
 } from '@/lib/tasks/reactions'
-import { formatActivityMessage, mergeFeedByTime } from '@/lib/tasks/activity'
+import { formatActivityMessage } from '@/lib/tasks/activity'
 import { parseMentionedUserIds } from '@/lib/tasks/mentions'
 import { UserAvatarStack } from './user-avatar-stack'
 import type { BoardMember, TaskAssignee } from './types'
