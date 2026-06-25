@@ -132,8 +132,6 @@ export function TaskWorkspace({
   const [savingTemplate, setSavingTemplate] = useState(false)
   const [templateMessage, setTemplateMessage] = useState<string | null>(null)
 
-  const memberMap = useMemo(() => new Map(members.map((m) => [m.id, m.name])), [members])
-
   const loadAll = useCallback(async () => {
     const [taskRes, commentsRes, activityRes, attachRes] = await Promise.all([
       fetch(`/api/tasks/${taskId}`),
