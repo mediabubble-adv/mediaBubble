@@ -2,6 +2,8 @@
 
 <div align="center">
 
+![MediaBubble GitHub cover](docs/assets/github/mediabubble-github-cover.png)
+
 <img src="apps/web-eg/public/assets/Logo/logo-favicon.svg" alt="MediaBubble logo" width="88" height="88" />
 
 **Bilingual marketing sites, the brand system, and the internal operations hub in one Nx monorepo.**
@@ -123,4 +125,3 @@ Live sites:
 - [MediaBubble UAE](https://mediabubble.ae)
 - [MediaBubble Brand](https://brand.mediabubble.co)
 - [MediaBubble Launcher](https://launcher.mediabubble.co)
-
