@@ -2,7 +2,7 @@
 
 # MediaBubble Launcher
 
-**Internal ops platform** — tasks, time, CRM, finance, chat, AI, automation, and campaigns.
+**Internal ops platform** — tasks, time, CRM, finance, Meet, AI, automation, and campaigns.
 
 [launcher.mediabubble.co](https://launcher.mediabubble.co) · Part of the [MediaBubble monorepo](../../README.md)
 
@@ -28,7 +28,7 @@ Run these steps from the **repository root** unless noted.
 | Node.js **22+**   | Same as monorepo CI                                                                                  |
 | npm or pnpm       | Root lockfile: `package-lock.json`                                                                   |
 | Supabase Postgres | Transaction pooler (`DATABASE_URL`) + session/direct URL (`DIRECT_URL`)                              |
-| Optional          | `RESEND_API_KEY` (verify/reset email), `GEMINI_API_KEY` (live AI runs), `REDIS_URL` (chat WebSocket) |
+| Optional          | `RESEND_API_KEY` (verify/reset email), `GEMINI_API_KEY` (live AI runs), `REDIS_URL` (Meet WebSocket) |
 
 ### 1. Install monorepo dependencies
 
@@ -86,7 +86,11 @@ npm run dev:launcher          # http://localhost:3003
 npm run ws:launcher           # WebSocket bridge :3004
 ```
 
-Open `/chat` in two browsers; live delivery needs Redis + the bridge. Without it, the UI falls back to SSE polling.
+Open `/meet` in two browsers; live delivery needs Redis + the bridge. Without it, the UI falls back to SSE polling.
+
+**Presence:** Teammates active within 5 minutes appear in Meet (`user_presence.last_seen`). Users can set **Available**, **Away**, or **Busy** (+ optional message) on `/profile`; heartbeats preserve Away/Busy. No extra env vars — the app shell sends heartbeats automatically while Launcher is open.
+
+**Settings tabs:** `/settings?tab=security` (password), `workspace` (timezone/language/notifications), `team` (Manager+). Profile fields live at `/profile`.
 
 **After cache / Playwright issues:**
 
@@ -111,7 +115,9 @@ npx playwright test --config apps/launcher/playwright.config.ts
 | `/time`        | Time Management   | Timesheet, leave, capacity, calendar, manager approvals |
 | `/crm`         | CRM               | Clients, invoices, quotations, quote → invoice          |
 | `/ai`          | AI Tools          | Prompt Studio, `{{variables}}`, execution logs          |
-| `/chat`        | Communication Hub | Channels, messages, Redis + WebSocket (optional)        |
+| `/meet`        | Meeting Room      | Unified sidebar (channels → DMs → online), Redis + WebSocket (optional) |
+| `/profile`     | Profile           | Bio, social links, avatar — visible to teammates only |
+| `/settings`    | Settings          | Security, workspace prefs, team (Manager+); `?tab=` query |
 | `/automation`  | Workflows         | Triggers, steps, manual test runs                       |
 | `/campaigns`   | Campaigns         | Pitch proposals, live campaigns linked to CRM           |
 | `/finance`     | Finance           | Ledger, KPIs, EGP/AED/USD, charts                       |

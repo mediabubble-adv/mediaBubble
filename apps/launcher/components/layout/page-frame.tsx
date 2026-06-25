@@ -47,10 +47,8 @@ export function PageHeader({
           </div>
         ) : null}
         <div className="min-w-0">
-          {kicker ? (
-            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary">{kicker}</p>
-          ) : null}
-          <h1 className="font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+          {kicker ? <p className="launcher-kicker">{kicker}</p> : null}
+          <h1 className="font-display text-2xl font-bold tracking-tight text-balance text-foreground sm:text-3xl">
             {title}
           </h1>
           {description ? (
@@ -80,9 +78,7 @@ export function PageSection({
     <section className={className}>
       {title ? (
         <div className="mb-4">
-          <h2 className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
-            {title}
-          </h2>
+          <h2 className="launcher-section-label">{title}</h2>
           {description ? (
             <p className="mt-1 text-[13px] text-muted-foreground">{description}</p>
           ) : null}

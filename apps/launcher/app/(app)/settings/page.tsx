@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { getServerSession } from '@/lib/auth/server-session'
-import { hasAtLeast } from '@/lib/auth/rbac'
 import { prisma } from '@/lib/db/prisma'
 import { SettingsDashboard } from './settings-dashboard'
 import type { WorkspacePrefs } from '@/app/api/settings/workspace/route'
@@ -16,29 +15,38 @@ const DEFAULT_WORKSPACE_PREFS: WorkspacePrefs = {
   app_notifications: true,
 }
 
-const memberSelect = {
-  id: true,
-  name: true,
-  email: true,
-  avatar_url: true,
-  role: true,
-  status: true,
-  departments_users_department_idTodepartments: { select: { name: true } },
-} as const
-
 export default async function SettingsPage() {
   const session = await getServerSession()
-  const canManage = session ? hasAtLeast(session.role, 'Manager') : false
 
   const [userRow, teamRows, workspaceRow] = await Promise.all([
     session
-      ? prisma.users.findUnique({ where: { id: session.id }, select: memberSelect })
+      ? prisma.users.findUnique({
+          where: { id: session.id },
+          select: {
+            id: true,
+            name: true,
+            email: true,
+            avatar_url: true,
+            role: true,
+            departments_users_department_idTodepartments: {
+              select: { name: true },
+            },
+          },
+        })
       : null,
-    // Include inactive members so they can be reactivated from the Team tab.
     prisma.users.findMany({
-      where: { deleted_at: null },
-      orderBy: [{ status: 'asc' }, { role: 'asc' }, { name: 'asc' }],
-      select: memberSelect,
+      where: { deleted_at: null, status: 'active' },
+      orderBy: [{ role: 'asc' }, { name: 'asc' }],
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        avatar_url: true,
+        role: true,
+        departments_users_department_idTodepartments: {
+          select: { name: true },
+        },
+      },
     }),
     session
       ? prisma.settings.findUnique({
@@ -54,13 +62,12 @@ export default async function SettingsPage() {
     email: r.email,
     avatar_url: r.avatar_url,
     role: r.role,
-    status: r.status ?? 'active',
     department: r.departments_users_department_idTodepartments?.name ?? null,
   })
 
   const user = userRow
-    ? toMember(userRow)
-    : { id: '', name: 'Unknown', email: '', avatar_url: null, role: 'Viewer', status: 'active', department: null }
+    ? { id: userRow.id, role: userRow.role as import('@/lib/auth/rbac').Role }
+    : { id: '', role: 'Viewer' as const }
 
   const workspacePrefs: WorkspacePrefs = {
     ...DEFAULT_WORKSPACE_PREFS,
@@ -69,13 +76,5 @@ export default async function SettingsPage() {
       : {}),
   }
 
-  return (
-    <SettingsDashboard
-      user={user}
-      team={teamRows.map(toMember)}
-      workspacePrefs={workspacePrefs}
-      canManageTeam={canManage}
-      currentUserRole={session?.role ?? 'Viewer'}
-    />
-  )
+  return <SettingsDashboard user={user} team={teamRows.map(toMember)} workspacePrefs={workspacePrefs} />
 }

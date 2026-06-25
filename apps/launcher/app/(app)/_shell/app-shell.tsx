@@ -16,6 +16,9 @@ import {
 } from 'lucide-react'
 import { NAV_GROUPS, NAV_FOOTER, isActive, type NavItem } from './nav'
 import { CommandPalette } from './command-palette'
+import { MeetBubble } from '@/components/meet/meet-bubble'
+import { MeetRail } from '@/components/meet/meet-rail'
+import { moduleIdFromPathname } from '@/lib/dashboard/modules'
 
 interface Notification {
   id: string
@@ -70,6 +73,18 @@ export function AppShell({ user, children }: { user: ShellUser; children: React.
     setMobileOpen(false)
   }, [pathname])
 
+  const lastVisitRef = useRef<string | null>(null)
+  useEffect(() => {
+    const moduleId = moduleIdFromPathname(pathname)
+    if (!moduleId || lastVisitRef.current === moduleId) return
+    lastVisitRef.current = moduleId
+    void fetch('/api/dashboard/visit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ moduleId }),
+    })
+  }, [pathname])
+
   return (
     <div className="flex min-h-screen bg-background">
       {mobileOpen ? (
@@ -92,11 +107,13 @@ export function AppShell({ user, children }: { user: ShellUser; children: React.
           onOpenPalette={() => setPaletteOpen(true)}
           onOpenMobile={() => setMobileOpen(true)}
         />
-        <main className="min-w-0 flex-1 bg-gradient-to-b from-background via-background to-muted/20">
-          {children}
+        <main className="flex min-h-0 min-w-0 flex-1 bg-gradient-to-b from-background via-background to-muted/20">
+          <div className="min-w-0 flex-1 overflow-auto">{children}</div>
+          <MeetRail />
         </main>
       </div>
 
+      <MeetBubble />
       <CommandPalette open={paletteOpen} onClose={() => setPaletteOpen(false)} />
     </div>
   )
@@ -137,7 +154,7 @@ function Sidebar({
         {NAV_GROUPS.map((group) => (
           <div key={group.id} className={collapsed ? 'mb-1' : 'mb-4'}>
             {!collapsed ? (
-              <p className="mb-1.5 px-2.5 text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground/80">
+              <p className="launcher-section-label mb-1.5 px-2.5 text-[10px]">
                 {group.label}
               </p>
             ) : null}

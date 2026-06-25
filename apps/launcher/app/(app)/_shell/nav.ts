@@ -62,7 +62,7 @@ export const NAV_GROUPS: NavGroup[] = [
     id: 'team',
     label: 'Team',
     items: [
-      { label: 'Chat', href: '/chat', icon: MessageSquare },
+      { label: 'Meet', href: '/meet', icon: MessageSquare },
       { label: 'Leaderboard', href: '/leaderboard', icon: Trophy },
     ],
   },

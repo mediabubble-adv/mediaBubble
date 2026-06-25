@@ -37,11 +37,12 @@ export async function GET(req: Request, ctx: RouteContext): Promise<Response> {
   if (!parsed.success) return toResponse(validationError(parsed.error))
 
   const limit = parsed.data.limit ?? 50
+  const topLevelOnly = parsed.data.view !== 'flat'
   const rows = await prisma.messages.findMany({
     where: {
       channel_id: id,
       deleted_at: null,
-      thread_id: null,
+      ...(topLevelOnly ? { thread_id: null } : {}),
       ...(parsed.data.before ? { created_at: { lt: new Date(parsed.data.before) } } : {}),
     },
     include: messageInclude,

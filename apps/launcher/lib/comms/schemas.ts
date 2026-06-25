@@ -2,7 +2,9 @@
 
 import { z } from 'zod'
 
-export const CHANNEL_TYPES = ['Public', 'Private'] as const
+export const CHANNEL_TYPES = ['Public', 'Private', 'DM', 'Activity'] as const
+
+export const USER_CHANNEL_TYPES = ['Public', 'Private'] as const
 
 export const createChannelSchema = z.object({
   name: z.string().trim().min(1).max(255),
@@ -32,9 +34,18 @@ export const updateMessageSchema = z.object({
   content: z.string().trim().min(1).max(8_000),
 })
 
+export const messageReactionSchema = z.object({
+  emoji: z.string().trim().min(1).max(20),
+})
+
+export const createDmSchema = z.object({
+  user_id: z.string().uuid(),
+})
+
 export const listMessagesQuerySchema = z.object({
   limit: z.coerce.number().int().min(1).max(100).optional(),
   before: z.string().datetime().optional(),
+  view: z.enum(['top', 'flat']).optional(),
 })
 
 export type CreateChannelInput = z.infer<typeof createChannelSchema>

@@ -7,6 +7,7 @@ export interface ChannelRow {
   name: string
   description: string | null
   type: string | null
+  dm_key: string | null
   created_by: string
   members: string[]
   created_at: string
@@ -20,6 +21,7 @@ export function serializeChannel(row: channels, messageCount?: number): ChannelR
     name: row.name,
     description: row.description,
     type: row.type,
+    dm_key: row.dm_key,
     created_by: row.created_by,
     members: row.members,
     created_at: row.created_at.toISOString(),

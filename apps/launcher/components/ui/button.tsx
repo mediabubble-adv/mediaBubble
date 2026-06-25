@@ -18,7 +18,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow-sm shadow-primary/20 hover:bg-primary/90",
+          "bg-primary text-primary-foreground hover:bg-primary/90",
         destructive:
           "bg-destructive/15 text-destructive hover:bg-destructive/25",
         outline:
@@ -28,7 +28,7 @@ const buttonVariants = cva(
         ghost:
           "text-muted-foreground hover:bg-secondary hover:text-foreground",
         accent:
-          "bg-accent text-accent-foreground shadow-sm hover:bg-accent/90", // brand-yellow CTA
+          "bg-accent text-accent-foreground hover:bg-accent/90", // brand-yellow CTA
         link:
           "text-primary underline-offset-4 hover:underline",
       },

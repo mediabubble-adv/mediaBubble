@@ -1,10 +1,11 @@
-// PATCH /api/tasks/:id/status — move a task between Kanban columns. Separate
-// from PUT so drag-and-drop can fire a tiny, intent-revealing request.
+// PATCH /api/tasks/:id/status — move a task between Kanban columns.
 
 import { ok, fail, validationError } from '@/lib/api/response'
 import { toResponse, readJson } from '@/lib/api/http'
 import { getCurrentUser } from '@/lib/auth/session'
 import { statusUpdateSchema } from '@/lib/tasks/schemas'
+import { recordTaskActivity } from '@/lib/tasks/activity'
+import { isParentTask } from '@/lib/tasks/parent'
 import { statusSideEffects } from '@/lib/tasks/status'
 import { prisma } from '@/lib/db/prisma'
 
@@ -32,5 +33,28 @@ export async function PATCH(req: Request, { params }: Ctx): Promise<Response> {
     where: { id },
     data: { status, ...statusSideEffects(status), updated_at: new Date() },
   })
+
+  const activityTaskId = isParentTask(existing)
+    ? existing.id
+    : (existing.parent_task_id ?? existing.id)
+
+  if (status !== existing.status) {
+    if (!isParentTask(existing) && status === 'Done' && existing.status !== 'Done') {
+      await recordTaskActivity(prisma, {
+        task_id: activityTaskId,
+        actor_id: me.id,
+        type: 'subtask_completed',
+        payload: { subtask_id: existing.id, title: existing.title },
+      })
+    } else if (isParentTask(existing)) {
+      await recordTaskActivity(prisma, {
+        task_id: activityTaskId,
+        actor_id: me.id,
+        type: 'status_changed',
+        payload: { from: existing.status, to: status },
+      })
+    }
+  }
+
   return toResponse(ok(task, 'Task status updated'))
 }

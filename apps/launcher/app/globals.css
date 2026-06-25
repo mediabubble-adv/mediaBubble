@@ -103,8 +103,12 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
     font-feature-settings: 'cv11', 'ss01';
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 }
 
@@ -137,7 +141,35 @@
   }
 
   .launcher-page {
-    min-height: calc(100vh - 3.5rem);
+    min-height: calc(100dvh - 3.5rem);
+  }
+
+  .launcher-surface {
+    @apply rounded-xl border border-border bg-card;
+    transition:
+      border-color 200ms var(--ease-out),
+      background-color 200ms var(--ease-out),
+      transform 150ms var(--ease-out);
+  }
+
+  .launcher-surface-interactive:hover {
+    @apply border-primary/35;
+  }
+
+  .launcher-surface-interactive:active {
+    transform: scale(0.995);
+  }
+
+  .launcher-section-label {
+    @apply text-[12px] font-semibold tracking-tight text-muted-foreground;
+  }
+
+  .launcher-kicker {
+    @apply text-[11px] font-semibold tracking-wide text-primary;
+  }
+
+  .font-tabular {
+    font-variant-numeric: tabular-nums;
   }
 
   /* Kanban / wide data tables — horizontal scroll on smaller viewports */
