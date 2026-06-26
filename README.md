@@ -32,38 +32,102 @@
 | Shared UI and helpers | `packages/` | Reusable design system and shared utilities |
 | Planning and handoffs | `docs/` | Strategy, specs, audits, and implementation notes |
 
-## Quick Start
+## 💻 Local Installation & Setup
 
-1. Install dependencies from the repository root:
+Follow these structured instructions to set up the MediaBubble monorepo workspace on your local machine.
 
-   ```bash
-   npm ci
-   ```
+### 📋 Prerequisites & Local Requirements
 
-2. Copy the environment templates you need:
+Before installing, ensure your environment meets the following requirements:
 
-   ```bash
-   cp .env.example .env.local
-   cp apps/launcher/.env.example apps/launcher/.env.local
-   ```
+#### 1. System Engines
+- **Node.js**: Version **22+** (matching the CI environment).
+- **Package Manager**: **npm 10+** (committed lockfile is npm-native) or **pnpm 9+** for local utility scripts.
 
-3. Start the app you want to work on:
+#### 2. Command Line Interfaces (CLIs)
+- **Vercel CLI**: Required to link and push environment variables to Vercel deployments.
+  ```bash
+  npm install -g vercel
+  ```
+- **Nx CLI**: Optional (can run via `npx nx`), but installing globally is recommended:
+  ```bash
+  npm install -g nx
+  ```
 
-   | App | Command | Local URL |
-   | --- | --- | --- |
-   | Egypt site | `npm run dev:eg` | http://localhost:3000 |
-   | UAE site | `npm run dev:ae` | http://localhost:3001 |
-   | Brand app | `npm run dev:brand` | http://localhost:3002 |
-   | Launcher | `npm run dev:launcher` | http://localhost:3003 |
+#### 3. Database Server (PostgreSQL)
+Required for the internal **MediaBubble Launcher** operational database.
+- **Local Installation**:
+  - *Homebrew (macOS)*: `brew install postgresql@15` followed by `brew services start postgresql@15`.
+  - *Docker (Cross-Platform)*: Run a containerized instance:
+    ```bash
+    docker run --name mediabubble-db -e POSTGRES_PASSWORD=mysecret -p 5432:5432 -d postgres:15
+    ```
+- **Remote Option**: Use a remote Supabase project.
+- **Configuration**: Prisma expects two pooled connection strings in your `apps/launcher/.env.local`:
+  - `DATABASE_URL`: Transaction pooler URL (e.g. port `6543` with `?pgbouncer=true`).
+  - `DIRECT_URL`: Direct session connection URL (e.g. port `5432` for running migrations).
 
-4. Use the clean restart helpers when caches get in the way:
+#### 4. Cache & WebSocket Server (Redis)
+Required to run the real-time team chat gateway (`ws:launcher`).
+- **Local Installation**:
+  - *Homebrew (macOS)*: `brew install redis` followed by `brew services start redis`.
+  - *Docker (Cross-Platform)*: Run a containerized instance:
+    ```bash
+    docker run --name mediabubble-redis -p 6379:6379 -d redis
+    ```
 
-   ```bash
-   npm run dev:eg:clean
-   npm run dev:ae:clean
-   npm run dev:brand
-   npm run dev:launcher:clean
-   ```
+---
+
+### ⚙️ Step-by-Step Installation
+
+#### 1. Clone & Install Dependencies
+Clone the private monorepo and run a clean installer at the root directory:
+```bash
+git clone https://github.com/mediabubble-adv/mediaBubble.git
+cd mediaBubble
+npm ci
+```
+*Note: Always install packages from the root directory to keep monorepo symlinks aligned. Avoid running package installs inside individual app folders.*
+
+#### 2. Configure Environment Files
+Duplicate the environment template files for the monorepo root and the launcher:
+```bash
+cp .env.example .env.local
+cp apps/launcher/.env.example apps/launcher/.env.local
+```
+*Fill in the database URLs, JWT secret keys, and API credentials as needed.*
+
+#### 3. Run Migrations & Seed Database
+Setup the database tables and seed mock employees, teams, and CRM records:
+```bash
+npm run db:deploy    # Apply Prisma schema migrations
+npm run db:seed      # Populate departments and default accounts
+```
+*Mock login accounts generated: manager@mediabubble.co / creative@mediabubble.co (Password: Launch@2026).*
+
+#### 4. Spin Up Dev Servers
+Start any of the applications in local development mode:
+
+| Application | Development Command | Local URL | Port |
+| :--- | :--- | :--- | :---: |
+| **Egypt Marketing Site** | `npm run dev:eg` | [http://localhost:3000](http://localhost:3000) | 3000 |
+| **UAE Marketing Site** | `npm run dev:ae` | [http://localhost:3001](http://localhost:3001) | 3001 |
+| **Brand Guidelines App** | `npm run dev:brand` | [http://localhost:3002](http://localhost:3002) | 3002 |
+| **MediaBubble Launcher** | `npm run dev:launcher` | [http://localhost:3003](http://localhost:3003) | 3003 |
+
+#### 5. Start the WebSocket Server (Optional)
+If you are developing or testing real-time chat in the Launcher, run the Redis WebSocket bridge:
+```bash
+npm run ws:launcher
+```
+
+#### 6. Troubleshooting Local Caches
+If Next.js compilation or Webpack encounters stale worker errors, run the clean restart scripts:
+```bash
+npm run dev:eg:clean         # Restart Egypt app clearing cache
+npm run dev:ae:clean         # Restart UAE app clearing cache
+npm run dev:launcher:clean   # Restart Launcher clearing cache
+```
 
 ## Working Rules
 
@@ -83,7 +147,7 @@ Here is how code moves, imports are constrained, and requests are processed in o
 Apps are allowed to import packages (`packages/*`), but packages must **never** import from applications. Doing so will violate Nx boundaries and fail the build.
 
 ```mermaid
-%%{init: {"theme":"base","themeVariables":{"fontFamily":"Poppins, Inter, system-ui, sans-serif","fontSize":"13px","lineColor":"#2196F3","primaryTextColor":"#e5e7eb","primaryBorderColor":"#2196F3","clusterBkg":"#0D0F12","clusterBorder":"#1565C0","titleColor":"#FFC107","edgeLabelBackground":"#0D0F12"},"flowchart":{"curve":"monotoneY","nodeSpacing":48,"rankSpacing":64,"padding":16}}}%%
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Poppins, Inter, system-ui, sans-serif","fontSize":"13px","lineColor":"#2196F3","primaryTextColor":"#1F2937","primaryBorderColor":"#2196F3","clusterBkg":"#F8FAFC","clusterBorder":"#E2E8F0","titleColor":"#1565C0","edgeLabelBackground":"#FFFFFF"},"flowchart":{"curve":"monotoneY","nodeSpacing":48,"rankSpacing":64,"padding":16}}}%%
 flowchart TB
   %% Users & Edge
   Client[/"User / Employee"\] -->|HTTPS| Vercel["Vercel Edge Network"]
@@ -124,19 +188,19 @@ flowchart TB
   Launcher -->|ws:launcher| WS["Redis WebSocket Bridge<br/>(Port :3004 / Chat)"]
   SH -->|Web SDK / REST| Ext["HubSpot CRM / Resend / GA4"]
 
-  classDef app fill:#0D0F12,stroke:#2196F3,color:#e5e7eb,stroke-width:1.5px
+  classDef app fill:#FFFFFF,stroke:#2196F3,color:#1F2937,stroke-width:1.5px
   classDef pkg fill:#1565C0,stroke:#2196F3,color:#FFFFFF,stroke-width:1.5px
-  classDef pipe fill:#0D0F12,stroke:#FFC107,color:#e5e7eb,stroke-width:1.5px
-  classDef infra fill:#0D0F12,stroke:#1AD191,color:#FFFFFF,stroke-width:1.5px
+  classDef pipe fill:#FFFFFF,stroke:#FFC107,color:#1F2937,stroke-width:1.5px
+  classDef infra fill:#FFFFFF,stroke:#1AD191,color:#1F2937,stroke-width:1.5px
 
   class EG,AE,Brand,Launcher app
   class DS,SH,CP pkg
   class JWT,CSP pipe
   class DB,WS,Ext,Vercel infra
 
-  style Vercel fill:#0D0F12,stroke:#1565C0,color:#FFC107
-  style webApp fill:#0D0F12,stroke:#2196F3,color:#FFC107
-  style Packages fill:#0D0F12,stroke:#1565C0,color:#FFC107
+  style Vercel fill:#F1F5F9,stroke:#1565C0,color:#1565C0
+  style webApp fill:#F1F5F9,stroke:#2196F3,color:#1565C0
+  style Packages fill:#F1F5F9,stroke:#1565C0,color:#1565C0
 ```
 
 ### Folder Layout
