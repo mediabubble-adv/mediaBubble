@@ -4,353 +4,265 @@
 
 # MediaBubble Workspace
 
-![MediaBubble GitHub cover](docs/assets/github/mediabubble-github-cover.png)
-
-**Bilingual marketing sites, the brand system, and the internal operations hub in one Nx monorepo.**
+**One Nx monorepo for the public market sites, the Brand Guidelines studio, and the internal Launcher.**
 
 [![CI](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)](https://github.com/mediabubble-adv/mediaBubble/actions/workflows/ci.yml) [![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js&logoColor=white)](https://nextjs.org/) [![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)](https://react.dev/) [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.3-38B2AC?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/) [![Nx](https://img.shields.io/badge/Nx-23-143055?logo=nx&logoColor=white)](https://nx.dev/)
 
-[web-eg.vercel.app (Egypt)](https://web-eg.vercel.app) · [web-ae-nine.vercel.app (UAE)](https://web-ae-nine.vercel.app) · [brand-mediabubble.vercel.app (Brand)](https://brand-mediabubble.vercel.app) · [launcher-peach.vercel.app (Launcher)](https://launcher-peach.vercel.app)
+[MediaBubble Egypt](https://web-eg.vercel.app) · [MediaBubble UAE](https://web-ae-nine.vercel.app) · [MediaBubble Brand](https://brand-mediabubble.vercel.app) · [MediaBubble Launcher](https://launcher-peach.vercel.app)
 
----
+<table>
+  <tr>
+    <td align="left" width="35%">
+      <h3>Digital agency platform</h3>
+      <p><strong>Public websites, brand governance, and internal operations in one workspace.</strong></p>
+      <p>MediaBubble keeps bilingual market sites, the Brand Guidelines studio, and the Launcher ops hub moving from the same source of truth.</p>
+      <p><code>apps/web-eg</code> · <code>apps/web-ae</code> · <code>apps/brand</code> · <code>apps/launcher</code></p>
+    </td>
+    <td width="65%">
+      <img src="docs/assets/github/brand-guidelines-macbook-pro.png" alt="MediaBubble Brand Guidelines displayed inside a MacBook Pro mockup" />
+      <br />
+      <sub><strong>Brand Guidelines</strong></sub>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="docs/assets/github/mediabubble-homepage-screenshot.png" alt="MediaBubble Egypt homepage screenshot" />
+      <br />
+      <sub><strong>Market Website</strong></sub>
+    </td>
+    <td width="50%">
+      <img src="docs/assets/github/brand-color-system-screenshot.png" alt="MediaBubble Brand color system screenshot" />
+      <br />
+      <sub><strong>Color System</strong></sub>
+    </td>
+  </tr>
+</table>
+
+</div>
+
+## What This Repo Is
+
+MediaBubble is a bilingual agency workspace built for daily use, not just demos.
+
+It combines:
+
+- `apps/web-eg` for the Egyptian market site
+- `apps/web-ae` for the UAE market site
+- `apps/brand` for the brand guidelines experience
+- `apps/launcher` for internal operations, tasks, time, AI, and team coordination
+- `packages/` for shared design, UI, auth, and utility code
+- `docs/` for planning, references, and implementation guidance
 
 ## Deployments (Vercel)
 
-<table width="100%">
-  <thead>
-    <tr>
-      <th align="center">App / Service</th>
-      <th align="center">Vercel Console Project</th>
-      <th align="center">Deployment Preview URL</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="center"><strong>MediaBubble Egypt</strong></td>
-      <td align="center"><a href="https://vercel.com/mediabubble/web-eg">web-eg</a></td>
-      <td align="center"><a href="https://web-eg.vercel.app">web-eg.vercel.app</a></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>MediaBubble UAE</strong></td>
-      <td align="center"><a href="https://vercel.com/mediabubble/web-ae">web-ae</a></td>
-      <td align="center"><a href="https://web-ae-nine.vercel.app">web-ae-nine.vercel.app</a></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>MediaBubble Brand</strong></td>
-      <td align="center"><a href="https://vercel.com/mediabubble/brand">brand</a></td>
-      <td align="center"><a href="https://brand-mediabubble.vercel.app">brand-mediabubble.vercel.app</a></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>MediaBubble Launcher</strong></td>
-      <td align="center"><a href="https://vercel.com/mediabubble/launcher">launcher</a></td>
-      <td align="center"><a href="https://launcher-peach.vercel.app">launcher-peach.vercel.app</a></td>
-    </tr>
-  </tbody>
-</table>
+| Surface | Purpose | Live URL |
+| :--- | :--- | :--- |
+| MediaBubble Egypt | Public Egyptian market site | [web-eg.vercel.app](https://web-eg.vercel.app) |
+| MediaBubble UAE | Public UAE market site | [web-ae-nine.vercel.app](https://web-ae-nine.vercel.app) |
+| MediaBubble Brand | Brand system, assets, and guidance | [brand-mediabubble.vercel.app](https://brand-mediabubble.vercel.app) |
+| MediaBubble Launcher | Internal operations hub | [launcher-peach.vercel.app](https://launcher-peach.vercel.app) |
 
-## What lives here
+## Brand Guidelines
 
-<table width="100%">
-  <thead>
-    <tr>
-      <th align="center">Workspace Area</th>
-      <th align="center">Codebase Path</th>
-      <th align="center">System Purpose & Scope</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="center"><strong>MediaBubble Egypt</strong></td>
-      <td align="center"><code>apps/web-eg</code></td>
-      <td align="center">Public Egyptian market site, bilingually optimized (Masri Arabic + English)</td>
-    </tr>
-    <tr>
-      <td align="center"><strong>MediaBubble UAE</strong></td>
-      <td align="center"><code>apps/web-ae</code></td>
-      <td align="center">Public UAE market site clone, localized for Gulf (Khaliji) Arabic dialectical copy</td>
-    </tr>
-    <tr>
-      <td align="center"><strong>MediaBubble Brand</strong></td>
-      <td align="center"><code>apps/brand</code></td>
-      <td align="center">Interactive brand guidelines showcasing design tokens, visual assets, and UI components</td>
-    </tr>
-    <tr>
-      <td align="center"><strong>MediaBubble Launcher</strong></td>
-      <td align="center"><code>apps/launcher</code></td>
-      <td align="center">Internal operations center for tasks, timesheets, CRM ledger, and agency chat</td>
-    </tr>
-    <tr>
-      <td align="center"><strong>Shared Modules</strong></td>
-      <td align="center"><code>packages/</code></td>
-      <td align="center">Monorepo libraries, including the shared Design System, shared API wrappers, and localization helpers</td>
-    </tr>
-    <tr>
-      <td align="center"><strong>Planning & Docs</strong></td>
-      <td align="center"><code>docs/</code></td>
-      <td align="center">Consolidated roadmap audits, technical specifications, and strategic AI handoff documentation</td>
-    </tr>
-  </tbody>
-</table>
+The Brand app is the visual source of truth for MediaBubble. It keeps the studio voice, palette, typography, and component rules in one place.
 
-## 💻 Local Installation & Setup
+Use it when you need:
 
-Follow these structured instructions to set up the MediaBubble monorepo workspace on your local machine.
+- The brand palette and surface tokens
+- Typography and spacing direction
+- Component styling cues
+- Searchable brand assets and AI prompt guidance
 
-### 📋 Prerequisites & Local Requirements
+## Launcher Workflow
 
-Before installing, ensure your environment meets the following requirements:
+The Launcher is the daily driver for the agency team. It is where work gets owned, tracked, reviewed, and moved forward.
 
-#### 1. System Engines
-- **Node.js**: Version **22+** (matching the CI environment).
-- **Package Manager**: **npm 10+** (committed lockfile is npm-native) or **pnpm 9+** for local utility scripts.
+### Core workflow
 
-#### 2. Command Line Interfaces (CLIs)
-- **Vercel CLI**: Required to link and push environment variables to Vercel deployments.
-  ```bash
-  npm install -g vercel
-  ```
-- **Nx CLI**: Optional (can run via `npx nx`), but installing globally is recommended:
-  ```bash
-  npm install -g nx
-  ```
+1. Capture work as tasks.
+2. Track time against real client and internal work.
+3. Review capacity, leave, and workload before assigning more.
+4. Use AI tools to draft, summarize, classify, and accelerate repeatable work.
+5. Turn approved output into client-ready work products.
 
-#### 3. Database Server (PostgreSQL)
-Required for the internal **MediaBubble Launcher** operational database.
-- **Local Installation**:
-  - *Homebrew (macOS)*: `brew install postgresql@15` followed by `brew services start postgresql@15`.
-  - *Docker (Cross-Platform)*: Run a containerized instance:
-    ```bash
-    docker run --name mediabubble-db -e POSTGRES_PASSWORD=mysecret -p 5432:5432 -d postgres:15
-    ```
-- **Remote Option**: Use a remote Supabase project.
-- **Configuration**: Prisma expects two pooled connection strings in your `apps/launcher/.env.local`:
-  - `DATABASE_URL`: Transaction pooler URL (e.g. port `6543` with `?pgbouncer=true`).
-  - `DIRECT_URL`: Direct session connection URL (e.g. port `5432` for running migrations).
+### What the Launcher manages
 
-#### 4. Cache & WebSocket Server (Redis)
-Required to run the real-time team chat gateway (`ws:launcher`).
-- **Local Installation**:
-  - *Homebrew (macOS)*: `brew install redis` followed by `brew services start redis`.
-  - *Docker (Cross-Platform)*: Run a containerized instance:
-    ```bash
-    docker run --name mediabubble-redis -p 6379:6379 -d redis
-    ```
+- Tasks and task comments
+- Time entries, approvals, capacity, and availability
+- CRM records and client-facing finance surfaces
+- Team chat and realtime updates
+- Workflow automation and operational follow-up
+- AI-assisted drafting through OPUS and related tooling
 
----
+### Where generative AI fits
 
-### ⚙️ Step-by-Step Installation
+Generative AI is part of the workflow, not a separate novelty layer. In practice, it can help with:
 
-#### 1. Clone & Install Dependencies
-Clone the private monorepo and run a clean installer at the root directory:
-```bash
-git clone https://github.com/mediabubble-adv/mediaBubble.git
-cd mediaBubble
-npm ci
+- Drafting task briefs and follow-up copy
+- Summarizing work and surfacing next steps
+- Creating charts, diagrams, and infographics from structured inputs
+- Turning raw notes into presentation-ready visual assets
+
+The rule is simple: AI accelerates the work, people own the result.
+
+## Architecture At A Glance
+
+```mermaid
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Inter, Cairo, system-ui, sans-serif","background":"transparent","primaryColor":"#FFFFFF","primaryTextColor":"#0D0F12","primaryBorderColor":"#2196F3","lineColor":"#1565C0","clusterBkg":"#F8FAFC","clusterBorder":"#D7DEE8","edgeLabelBackground":"#FFFFFF","tertiaryColor":"#FFC107","tertiaryTextColor":"#0D0F12","titleColor":"#0D0F12"},"flowchart":{"curve":"basis","nodeSpacing":46,"rankSpacing":62,"padding":18}}}%%
+flowchart LR
+  subgraph Spine["Brand spine"]
+    direction TB
+    BrandGuide["Brand Guidelines<br/>`apps/brand`"]
+    Tokens["Design tokens<br/>Poppins · Inter · Cairo"]
+    Shared["Shared packages<br/>`packages/*`"]
+  end
+
+  subgraph Markets["Market experiences"]
+    direction TB
+    EG["Egypt site<br/>Masri Arabic + English"]
+    AE["UAE site<br/>Khaliji Arabic + English"]
+    BrandApp["Brand app<br/>Assets + prompt guidance"]
+  end
+
+  subgraph Launcher["Launcher operations"]
+    direction TB
+    Hub["MediaBubble Launcher<br/>Tasks · Time · CRM · AI"]
+    TaskFlow["Task board"]
+    TimeFlow["Time + capacity"]
+    AiFlow["OPUS + Prompt Studio"]
+    VizFlow["Charts + infographics"]
+  end
+
+  subgraph Platform["Platform layer"]
+    direction TB
+    Vercel["Vercel deployments"]
+    Postgres["Supabase Postgres"]
+    Redis["Redis realtime"]
+  end
+
+  BrandGuide --> Tokens --> Shared
+  Shared --> EG
+  Shared --> AE
+  Shared --> BrandApp
+  Shared --> Hub
+
+  Hub --> TaskFlow
+  Hub --> TimeFlow
+  Hub --> AiFlow
+  AiFlow --> VizFlow
+
+  EG --> Vercel
+  AE --> Vercel
+  BrandApp --> Vercel
+  Hub --> Vercel
+  Hub --> Postgres
+  Hub --> Redis
+
+  classDef brand fill:#FFC107,stroke:#E0A800,color:#0D0F12,stroke-width:1.6px;
+  classDef spine fill:#FFFFFF,stroke:#2196F3,color:#0D0F12,stroke-width:1.4px;
+  classDef market fill:#F4FAFF,stroke:#2196F3,color:#0D0F12,stroke-width:1.3px;
+  classDef ops fill:#1565C0,stroke:#0D47A1,color:#FFFFFF,stroke-width:1.5px;
+  classDef module fill:#FFFFFF,stroke:#D7DEE8,color:#0D0F12,stroke-width:1.1px;
+  classDef infra fill:#F2FFFA,stroke:#1AD191,color:#0D0F12,stroke-width:1.2px;
+
+  class BrandGuide brand
+  class Tokens,Shared spine
+  class EG,AE,BrandApp market
+  class Hub ops
+  class TaskFlow,TimeFlow,AiFlow,VizFlow module
+  class Vercel,Postgres,Redis infra
+
+  style Spine fill:#FFF8D7,stroke:#FFC107,color:#0D0F12
+  style Markets fill:#F4FAFF,stroke:#2196F3,color:#0D0F12
+  style Launcher fill:#F8FAFC,stroke:#1565C0,color:#0D0F12
+  style Platform fill:#F2FFFA,stroke:#1AD191,color:#0D0F12
 ```
-*Note: Always install packages from the root directory to keep monorepo symlinks aligned. Avoid running package installs inside individual app folders.*
 
-#### 2. Configure Environment Files
-Duplicate the environment template files for the monorepo root and the launcher:
+## Local Setup
+
+### Prerequisites
+
+- Node.js 22+
+- npm 10+
+- PostgreSQL for Launcher data
+- Redis if you want realtime chat locally
+
+### Install
+
 ```bash
+npm ci
 cp .env.example .env.local
 cp apps/launcher/.env.example apps/launcher/.env.local
 ```
-*Fill in the database URLs, JWT secret keys, and API credentials as needed.*
 
-#### 3. Run Migrations & Seed Database
-Setup the database tables and seed mock employees, teams, and CRM records:
+### Database
+
 ```bash
-npm run db:deploy    # Apply Prisma schema migrations
-npm run db:seed      # Populate departments and default accounts
+npm run db:deploy
+npm run db:seed
 ```
-*Mock login accounts generated: manager@mediabubble.co / creative@mediabubble.co (Password: Launch@2026).*
 
-#### 4. Spin Up Dev Servers
-Start any of the applications in local development mode:
+### Dev servers
 
-<table width="100%">
-  <thead>
-    <tr>
-      <th align="center">Application Surface</th>
-      <th align="center">CLI Development Command</th>
-      <th align="center">Local Host Interface</th>
-      <th align="center">Port</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="center"><strong>Egypt Marketing Site</strong></td>
-      <td align="center"><code>npm run dev:eg</code></td>
-      <td align="center"><a href="http://localhost:3000">http://localhost:3000</a></td>
-      <td align="center"><code>3000</code></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>UAE Marketing Site</strong></td>
-      <td align="center"><code>npm run dev:ae</code></td>
-      <td align="center"><a href="http://localhost:3001">http://localhost:3001</a></td>
-      <td align="center"><code>3001</code></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>Brand Guidelines App</strong></td>
-      <td align="center"><code>npm run dev:brand</code></td>
-      <td align="center"><a href="http://localhost:3002">http://localhost:3002</a></td>
-      <td align="center"><code>3002</code></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>MediaBubble Launcher</strong></td>
-      <td align="center"><code>npm run dev:launcher</code></td>
-      <td align="center"><a href="http://localhost:3003">http://localhost:3003</a></td>
-      <td align="center"><code>3003</code></td>
-    </tr>
-  </tbody>
-</table>
+| App | Command | URL |
+| :--- | :--- | :--- |
+| Egypt site | `npm run dev:eg` | http://localhost:3000 |
+| UAE site | `npm run dev:ae` | http://localhost:3001 |
+| Brand app | `npm run dev:brand` | http://localhost:3002 |
+| Launcher | `npm run dev:launcher` | http://localhost:3003 |
 
-#### 5. Start the WebSocket Server (Optional)
-If you are developing or testing real-time chat in the Launcher, run the Redis WebSocket bridge:
+### Realtime chat
+
 ```bash
 npm run ws:launcher
 ```
 
-#### 6. Troubleshooting Local Caches
-If Next.js compilation or Webpack encounters stale worker errors, run the clean restart scripts:
+### Clean restarts
+
+Use these when stale caches or old workers get in the way:
+
 ```bash
-npm run dev:eg:clean         # Restart Egypt app clearing cache
-npm run dev:ae:clean         # Restart UAE app clearing cache
-npm run dev:launcher:clean   # Restart Launcher clearing cache
+npm run dev:eg:clean
+npm run dev:ae:clean
+npm run dev:launcher:clean
 ```
 
 ## Working Rules
 
-- Install from the repo root only. Do not add a second package install inside `apps/*`.
-- Keep `package-lock.json` in sync with any dependency changes.
+- Install from the repo root only.
+- Keep `package-lock.json` in sync with dependency changes.
 - Treat `apps/web-eg` as the source market site and sync structural changes to `apps/web-ae`.
 - Launcher-specific setup, seeds, and deploy steps live in [apps/launcher/README.md](apps/launcher/README.md).
-- Design and product context for the launcher lives in [PRODUCT.md](PRODUCT.md) and [docs/brand/DESIGN.md](docs/brand/DESIGN.md).
+- Product context for the Launcher lives in [PRODUCT.md](PRODUCT.md) and [docs/brand/DESIGN.md](docs/brand/DESIGN.md).
+- Keep planning material under `docs/`.
 
-## 🏗️ Architecture & Project Layout
+## Repo Map
 
-Here is how code moves, imports are constrained, and requests are processed in our workspace.
-
-[![Prisma](https://img.shields.io/badge/Prisma-5-123A50?logo=prisma&logoColor=white)](https://www.prisma.io/) [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-4169E1?logo=postgresql&logoColor=white)](https://www.postgresql.org/) [![Supabase](https://img.shields.io/badge/Supabase-Database-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com/) [![Redis](https://img.shields.io/badge/Redis-PubSub-DC382D?logo=redis&logoColor=white)](https://redis.io/)
-
-### Monorepo Dependency Rules
-Apps are allowed to import packages (`packages/*`), but packages must **never** import from applications. Doing so will violate Nx boundaries and fail the build.
-
-```mermaid
-%%{init: {"theme":"base","themeVariables":{"fontFamily":"Poppins, Inter, system-ui, sans-serif","fontSize":"13px","lineColor":"#2196F3","primaryTextColor":"#1F2937","primaryBorderColor":"#2196F3","clusterBkg":"#F8FAFC","clusterBorder":"#E2E8F0","titleColor":"#1565C0","edgeLabelBackground":"#FFFFFF"},"flowchart":{"curve":"monotoneY","nodeSpacing":48,"rankSpacing":64,"padding":16}}}%%
-flowchart TB
-  %% Users & Edge
-  Client[/"User / Employee"\] -->|HTTPS| Vercel["Vercel Edge Network"]
-  
-  subgraph Vercel ["Vercel Deployments (Next.js Apps)"]
-    direction TB
-    
-    subgraph webApp ["web-eg / web-ae (Marketing Sites)"]
-      direction LR
-      EG["Egypt (Masri)<br/>web-eg.vercel.app"]
-      AE["UAE (Khaliji)<br/>web-ae-nine.vercel.app"]
-      EG -.->|"npx tsx scripts/clone-eg-to-ae"| AE
-    end
-    
-    Brand["brand<br/>brand-mediabubble.vercel.app"]
-    Launcher["launcher<br/>launcher-peach.vercel.app"]
-  end
-  
-  %% Middleware & Logic Gate
-  Vercel -->|Router| MW["Next.js Middleware"]
-  MW -->|CSP / Nonce Header| CSP["@mediabubble/shared/csp-middleware"]
-  Launcher -->|Auth / Route Proxy| JWT["JWT Verification"]
-  
-  %% Packages Layer
-  Vercel ====|Imports| Packages
-  
-  subgraph Packages ["@mediabubble Workspace Packages"]
-    direction LR
-    DS["@mediabubble/design-system<br/>(Tailwind preset / UI cards)"]
-    SH["@mediabubble/shared<br/>(Resend / HubSpot client / Storage)"]
-    CP["content-pipeline<br/>(Gulf Arabic translations)"]
-  end
-  
-  CP -.->|Localization Pipeline| AE
-  
-  %% Infrastructure & Integrations
-  Launcher & SH -->|Prisma client| DB[("Supabase PostgreSQL")]
-  Launcher -->|ws:launcher| WS["Redis WebSocket Bridge<br/>(Port :3004 / Chat)"]
-  SH -->|Web SDK / REST| Ext["HubSpot CRM / Resend / GA4"]
-
-  classDef app fill:#FFFFFF,stroke:#2196F3,color:#1F2937,stroke-width:1.5px
-  classDef pkg fill:#1565C0,stroke:#2196F3,color:#FFFFFF,stroke-width:1.5px
-  classDef pipe fill:#FFFFFF,stroke:#FFC107,color:#1F2937,stroke-width:1.5px
-  classDef infra fill:#FFFFFF,stroke:#1AD191,color:#1F2937,stroke-width:1.5px
-
-  class EG,AE,Brand,Launcher app
-  class DS,SH,CP pkg
-  class JWT,CSP pipe
-  class DB,WS,Ext,Vercel infra
-
-  style Vercel fill:#F1F5F9,stroke:#1565C0,color:#1565C0
-  style webApp fill:#F1F5F9,stroke:#2196F3,color:#1565C0
-  style Packages fill:#F1F5F9,stroke:#1565C0,color:#1565C0
-```
-
-### Folder Layout
-```text
-mediabubble Main/
-├── apps/
-│   ├── web-eg/
-│   ├── web-ae/
-│   ├── brand/
-│   └── launcher/
-├── packages/
-│   ├── design-system/
-│   ├── shared/
-│   └── content-pipeline/
-├── scripts/
-├── docs/
-├── AGENTS.md
-├── PRODUCT.md
-└── README.md
-```
+| Area | Path | Purpose |
+| :--- | :--- | :--- |
+| Egypt site | `apps/web-eg` | Public Egyptian market site |
+| UAE site | `apps/web-ae` | Public UAE market site |
+| Brand app | `apps/brand` | Brand guidelines, assets, and prompts |
+| Launcher | `apps/launcher` | Internal operations platform |
+| Shared code | `packages/` | Design system, shared helpers, and common utilities |
+| Docs | `docs/` | Planning, references, and implementation notes |
 
 ## Documentation
 
-<table width="100%">
-  <thead>
-    <tr>
-      <th align="center">Reference Guide</th>
-      <th align="center">Context & Why It Matters</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="center"><a href="docs/README.md">docs/README.md</a></td>
-      <td align="center">Complete documentation registry, subfolder directories, and maps</td>
-    </tr>
-    <tr>
-      <td align="center"><a href="docs/CONTEXT.md">docs/CONTEXT.md</a></td>
-      <td align="center">Master AI handoff containing historical development timeline, current monorepo milestones, and feature statuses</td>
-    </tr>
-    <tr>
-      <td align="center"><a href="apps/launcher/README.md">apps/launcher/README.md</a></td>
-      <td align="center">Detailed local environment guidelines, Prisma schema configurations, database seeder, and Vercel CLI deploy checklists for the operations app</td>
-    </tr>
-    <tr>
-      <td align="center"><a href="docs/website/README.md">docs/website/README.md</a></td>
-      <td align="center">Marketing site optimizations, Phase 1-3 visual specs, translation pipelines, and PWA checklists</td>
-    </tr>
-    <tr>
-      <td align="center"><a href="docs/brand/DESIGN.md">docs/brand/DESIGN.md</a></td>
-      <td align="center">Obsidian Creative Studio brand system colors, custom theme variables, Poppins/Cairo typography standards, and layout guides</td>
-    </tr>
-  </tbody>
-</table>
+| Doc | Why it matters |
+| :--- | :--- |
+| [docs/README.md](docs/README.md) | Main documentation index |
+| [docs/CONTEXT.md](docs/CONTEXT.md) | Repo-wide AI handoff and status |
+| [apps/launcher/README.md](apps/launcher/README.md) | Launcher setup, database, and deploy steps |
+| [docs/brand/DESIGN.md](docs/brand/DESIGN.md) | Brand system, tokens, and visual rules |
 
-## GitHub Notes
+## Notes
 
-[![ESLint](https://img.shields.io/badge/ESLint-Linter-4B32C3?logo=eslint&logoColor=white)](https://eslint.org/) [![Jest](https://img.shields.io/badge/Jest-Testing-C21325?logo=jest&logoColor=white)](https://jestjs.io/)
-
-- This repository is private, so the CI badge uses a static shields.io link.
-- The root is intentionally small. The only files that should stay at the top level are `README.md`, `AGENTS.md`, and `PRODUCT.md`, plus normal config files.
+- The repository is private, so the CI badge uses a static shields.io link.
+- The root should stay lean. Keep only `README.md`, `AGENTS.md`, and `PRODUCT.md` at the top level, plus normal config files.
 - Extra planning material belongs under `docs/`.
 
 ## Support
@@ -358,12 +270,3 @@ mediabubble Main/
 Primary contact: Yasser Dorgham - yasser.dorgham@gmail.com
 
 [![HubSpot](https://img.shields.io/badge/HubSpot-CRM-FF7A59?logo=hubspot&logoColor=white)](https://www.hubspot.com/) [![Resend](https://img.shields.io/badge/Resend-Email-black?logo=resend&logoColor=white)](https://resend.com/)
-
-Live deployments (Vercel):
-
-- [MediaBubble Egypt](https://web-eg.vercel.app)
-- [MediaBubble UAE](https://web-ae-nine.vercel.app)
-- [MediaBubble Brand](https://brand-mediabubble.vercel.app)
-- [MediaBubble Launcher](https://launcher-peach.vercel.app)
-
-</div>
