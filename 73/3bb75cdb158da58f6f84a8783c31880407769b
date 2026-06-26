@@ -1,0 +1,20 @@
+README.md
+  s_915273b7e2a886::t_adff80f8f5c4f4 13,172-187
+  s_915273b7e2a886::t_a7fa365623697b 188
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.1",
+  "base_commit_sha": "733bb75cdb158da58f6f84a8783c31880407769b",
+  "prompts": {},
+  "sessions": {
+    "s_915273b7e2a886": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f0192-bea0-7b72-9b5f-82d2bbdf758f",
+        "model": "gpt-5.5"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
