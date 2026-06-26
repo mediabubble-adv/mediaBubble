@@ -10,36 +10,7 @@
 
 [MediaBubble Egypt](https://web-eg.vercel.app) · [MediaBubble UAE](https://web-ae-nine.vercel.app) · [MediaBubble Brand](https://brand-mediabubble.vercel.app) · [MediaBubble Launcher](https://launcher-peach.vercel.app)
 
-<table>
-  <tr>
-    <td align="left" width="35%">
-      <h3>Digital agency platform</h3>
-      <p><strong>Public websites, brand governance, and internal operations in one workspace.</strong></p>
-      <p>MediaBubble keeps bilingual market sites, the Brand Guidelines studio, and the Launcher ops hub moving from the same source of truth.</p>
-      <p><code>apps/web-eg</code> · <code>apps/web-ae</code> · <code>apps/brand</code> · <code>apps/launcher</code></p>
-    </td>
-    <td width="65%">
-      <img src="docs/assets/github/brand-guidelines-macbook-pro.png" alt="MediaBubble Brand Guidelines displayed inside a MacBook Pro mockup" />
-      <br />
-      <sub><strong>Brand Guidelines</strong></sub>
-    </td>
-  </tr>
-</table>
-
-<table>
-  <tr>
-    <td width="50%">
-      <img src="docs/assets/github/mediabubble-homepage-screenshot.png" alt="MediaBubble Egypt homepage screenshot" />
-      <br />
-      <sub><strong>Market Website</strong></sub>
-    </td>
-    <td width="50%">
-      <img src="docs/assets/github/brand-color-system-screenshot.png" alt="MediaBubble Brand color system screenshot" />
-      <br />
-      <sub><strong>Color System</strong></sub>
-    </td>
-  </tr>
-</table>
+![MediaBubble GitHub cover](docs/assets/github/mediabubble-github-cover.png)
 
 </div>
 
@@ -197,6 +168,23 @@ npm ci
 cp .env.example .env.local
 cp apps/launcher/.env.example apps/launcher/.env.local
 ```
+
+### Product Close-Ups
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="docs/assets/github/brand-guidelines-macbook-pro.png" alt="MediaBubble Brand Guidelines displayed inside a MacBook Pro mockup" />
+      <br />
+      <sub><strong>Brand Guidelines</strong></sub>
+    </td>
+    <td width="50%">
+      <img src="docs/assets/github/brand-color-system-macbook-pro.png" alt="MediaBubble color system displayed inside a MacBook Pro mockup" />
+      <br />
+      <sub><strong>Color System</strong></sub>
+    </td>
+  </tr>
+</table>
 
 ### Database
 
