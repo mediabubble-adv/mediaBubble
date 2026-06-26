@@ -1,3 +1,5 @@
+<div align="center">
+
 <img src="apps/web-eg/public/assets/Logo/logo-favicon.svg" alt="MediaBubble logo" width="88" height="88" />
 
 # MediaBubble Workspace
@@ -17,31 +19,31 @@
 <table width="100%">
   <thead>
     <tr>
-      <th align="left">App / Service</th>
-      <th align="left">Vercel Console Project</th>
-      <th align="left">Deployment Preview URL</th>
+      <th align="center">App / Service</th>
+      <th align="center">Vercel Console Project</th>
+      <th align="center">Deployment Preview URL</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>MediaBubble Egypt</strong></td>
-      <td><a href="https://vercel.com/mediabubble/web-eg">web-eg</a></td>
-      <td><a href="https://web-eg.vercel.app">web-eg.vercel.app</a></td>
+      <td align="center"><strong>MediaBubble Egypt</strong></td>
+      <td align="center"><a href="https://vercel.com/mediabubble/web-eg">web-eg</a></td>
+      <td align="center"><a href="https://web-eg.vercel.app">web-eg.vercel.app</a></td>
     </tr>
     <tr>
-      <td><strong>MediaBubble UAE</strong></td>
-      <td><a href="https://vercel.com/mediabubble/web-ae">web-ae</a></td>
-      <td><a href="https://web-ae-nine.vercel.app">web-ae-nine.vercel.app</a></td>
+      <td align="center"><strong>MediaBubble UAE</strong></td>
+      <td align="center"><a href="https://vercel.com/mediabubble/web-ae">web-ae</a></td>
+      <td align="center"><a href="https://web-ae-nine.vercel.app">web-ae-nine.vercel.app</a></td>
     </tr>
     <tr>
-      <td><strong>MediaBubble Brand</strong></td>
-      <td><a href="https://vercel.com/mediabubble/brand">brand</a></td>
-      <td><a href="https://brand-mediabubble.vercel.app">brand-mediabubble.vercel.app</a></td>
+      <td align="center"><strong>MediaBubble Brand</strong></td>
+      <td align="center"><a href="https://vercel.com/mediabubble/brand">brand</a></td>
+      <td align="center"><a href="https://brand-mediabubble.vercel.app">brand-mediabubble.vercel.app</a></td>
     </tr>
     <tr>
-      <td><strong>MediaBubble Launcher</strong></td>
-      <td><a href="https://vercel.com/mediabubble/launcher">launcher</a></td>
-      <td><a href="https://launcher-peach.vercel.app">launcher-peach.vercel.app</a></td>
+      <td align="center"><strong>MediaBubble Launcher</strong></td>
+      <td align="center"><a href="https://vercel.com/mediabubble/launcher">launcher</a></td>
+      <td align="center"><a href="https://launcher-peach.vercel.app">launcher-peach.vercel.app</a></td>
     </tr>
   </tbody>
 </table>
@@ -51,41 +53,41 @@
 <table width="100%">
   <thead>
     <tr>
-      <th align="left">Workspace Area</th>
-      <th align="left">Codebase Path</th>
-      <th align="left">System Purpose & Scope</th>
+      <th align="center">Workspace Area</th>
+      <th align="center">Codebase Path</th>
+      <th align="center">System Purpose & Scope</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>MediaBubble Egypt</strong></td>
-      <td><code>apps/web-eg</code></td>
-      <td>Public Egyptian market site, bilingually optimized (Masri Arabic + English)</td>
+      <td align="center"><strong>MediaBubble Egypt</strong></td>
+      <td align="center"><code>apps/web-eg</code></td>
+      <td align="center">Public Egyptian market site, bilingually optimized (Masri Arabic + English)</td>
     </tr>
     <tr>
-      <td><strong>MediaBubble UAE</strong></td>
-      <td><code>apps/web-ae</code></td>
-      <td>Public UAE market site clone, localized for Gulf (Khaliji) Arabic dialectical copy</td>
+      <td align="center"><strong>MediaBubble UAE</strong></td>
+      <td align="center"><code>apps/web-ae</code></td>
+      <td align="center">Public UAE market site clone, localized for Gulf (Khaliji) Arabic dialectical copy</td>
     </tr>
     <tr>
-      <td><strong>MediaBubble Brand</strong></td>
-      <td><code>apps/brand</code></td>
-      <td>Interactive brand guidelines showcasing design tokens, visual assets, and UI components</td>
+      <td align="center"><strong>MediaBubble Brand</strong></td>
+      <td align="center"><code>apps/brand</code></td>
+      <td align="center">Interactive brand guidelines showcasing design tokens, visual assets, and UI components</td>
     </tr>
     <tr>
-      <td><strong>MediaBubble Launcher</strong></td>
-      <td><code>apps/launcher</code></td>
-      <td>Internal operations center for tasks, timesheets, CRM ledger, and agency chat</td>
+      <td align="center"><strong>MediaBubble Launcher</strong></td>
+      <td align="center"><code>apps/launcher</code></td>
+      <td align="center">Internal operations center for tasks, timesheets, CRM ledger, and agency chat</td>
     </tr>
     <tr>
-      <td><strong>Shared Modules</strong></td>
-      <td><code>packages/</code></td>
-      <td>Monorepo libraries, including the shared Design System, shared API wrappers, and localization helpers</td>
+      <td align="center"><strong>Shared Modules</strong></td>
+      <td align="center"><code>packages/</code></td>
+      <td align="center">Monorepo libraries, including the shared Design System, shared API wrappers, and localization helpers</td>
     </tr>
     <tr>
-      <td><strong>Planning & Docs</strong></td>
-      <td><code>docs/</code></td>
-      <td>Consolidated roadmap audits, technical specifications, and strategic AI handoff documentation</td>
+      <td align="center"><strong>Planning & Docs</strong></td>
+      <td align="center"><code>docs/</code></td>
+      <td align="center">Consolidated roadmap audits, technical specifications, and strategic AI handoff documentation</td>
     </tr>
   </tbody>
 </table>
@@ -169,35 +171,35 @@ Start any of the applications in local development mode:
 <table width="100%">
   <thead>
     <tr>
-      <th align="left">Application Surface</th>
-      <th align="left">CLI Development Command</th>
-      <th align="left">Local Host Interface</th>
+      <th align="center">Application Surface</th>
+      <th align="center">CLI Development Command</th>
+      <th align="center">Local Host Interface</th>
       <th align="center">Port</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>Egypt Marketing Site</strong></td>
-      <td><code>npm run dev:eg</code></td>
-      <td><a href="http://localhost:3000">http://localhost:3000</a></td>
+      <td align="center"><strong>Egypt Marketing Site</strong></td>
+      <td align="center"><code>npm run dev:eg</code></td>
+      <td align="center"><a href="http://localhost:3000">http://localhost:3000</a></td>
       <td align="center"><code>3000</code></td>
     </tr>
     <tr>
-      <td><strong>UAE Marketing Site</strong></td>
-      <td><code>npm run dev:ae</code></td>
-      <td><a href="http://localhost:3001">http://localhost:3001</a></td>
+      <td align="center"><strong>UAE Marketing Site</strong></td>
+      <td align="center"><code>npm run dev:ae</code></td>
+      <td align="center"><a href="http://localhost:3001">http://localhost:3001</a></td>
       <td align="center"><code>3001</code></td>
     </tr>
     <tr>
-      <td><strong>Brand Guidelines App</strong></td>
-      <td><code>npm run dev:brand</code></td>
-      <td><a href="http://localhost:3002">http://localhost:3002</a></td>
+      <td align="center"><strong>Brand Guidelines App</strong></td>
+      <td align="center"><code>npm run dev:brand</code></td>
+      <td align="center"><a href="http://localhost:3002">http://localhost:3002</a></td>
       <td align="center"><code>3002</code></td>
     </tr>
     <tr>
-      <td><strong>MediaBubble Launcher</strong></td>
-      <td><code>npm run dev:launcher</code></td>
-      <td><a href="http://localhost:3003">http://localhost:3003</a></td>
+      <td align="center"><strong>MediaBubble Launcher</strong></td>
+      <td align="center"><code>npm run dev:launcher</code></td>
+      <td align="center"><a href="http://localhost:3003">http://localhost:3003</a></td>
       <td align="center"><code>3003</code></td>
     </tr>
   </tbody>
@@ -315,30 +317,30 @@ mediabubble Main/
 <table width="100%">
   <thead>
     <tr>
-      <th align="left">Reference Guide</th>
-      <th align="left">Context & Why It Matters</th>
+      <th align="center">Reference Guide</th>
+      <th align="center">Context & Why It Matters</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><a href="docs/README.md">docs/README.md</a></td>
-      <td>Complete documentation registry, subfolder directories, and maps</td>
+      <td align="center"><a href="docs/README.md">docs/README.md</a></td>
+      <td align="center">Complete documentation registry, subfolder directories, and maps</td>
     </tr>
     <tr>
-      <td><a href="docs/CONTEXT.md">docs/CONTEXT.md</a></td>
-      <td>Master AI handoff containing historical development timeline, current monorepo milestones, and feature statuses</td>
+      <td align="center"><a href="docs/CONTEXT.md">docs/CONTEXT.md</a></td>
+      <td align="center">Master AI handoff containing historical development timeline, current monorepo milestones, and feature statuses</td>
     </tr>
     <tr>
-      <td><a href="apps/launcher/README.md">apps/launcher/README.md</a></td>
-      <td>Detailed local environment guidelines, Prisma schema configurations, database seeder, and Vercel CLI deploy checklists for the operations app</td>
+      <td align="center"><a href="apps/launcher/README.md">apps/launcher/README.md</a></td>
+      <td align="center">Detailed local environment guidelines, Prisma schema configurations, database seeder, and Vercel CLI deploy checklists for the operations app</td>
     </tr>
     <tr>
-      <td><a href="docs/website/README.md">docs/website/README.md</a></td>
-      <td>Marketing site optimizations, Phase 1-3 visual specs, translation pipelines, and PWA checklists</td>
+      <td align="center"><a href="docs/website/README.md">docs/website/README.md</a></td>
+      <td align="center">Marketing site optimizations, Phase 1-3 visual specs, translation pipelines, and PWA checklists</td>
     </tr>
     <tr>
-      <td><a href="docs/brand/DESIGN.md">docs/brand/DESIGN.md</a></td>
-      <td>Obsidian Creative Studio brand system colors, custom theme variables, Poppins/Cairo typography standards, and layout guides</td>
+      <td align="center"><a href="docs/brand/DESIGN.md">docs/brand/DESIGN.md</a></td>
+      <td align="center">Obsidian Creative Studio brand system colors, custom theme variables, Poppins/Cairo typography standards, and layout guides</td>
     </tr>
   </tbody>
 </table>
@@ -363,3 +365,5 @@ Live deployments (Vercel):
 - [MediaBubble UAE](https://web-ae-nine.vercel.app)
 - [MediaBubble Brand](https://brand-mediabubble.vercel.app)
 - [MediaBubble Launcher](https://launcher-peach.vercel.app)
+
+</div>
