@@ -4,29 +4,9 @@
 
 **Bilingual marketing sites, the brand system, and the internal operations hub in one Nx monorepo.**
 
-**DevOps & Workflow**  
-[![CI](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)](https://github.com/mediabubble-adv/mediaBubble/actions/workflows/ci.yml)
-[![Nx](https://img.shields.io/badge/Nx-23-143055?logo=nx&logoColor=white)](https://nx.dev/)
-
-**Frontend Core**  
-[![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js&logoColor=white)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.3-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.3-38B2AC?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-
-**Database & Real-time**  
-[![Prisma](https://img.shields.io/badge/Prisma-5-123A50?logo=prisma&logoColor=white)](https://www.prisma.io/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-4169E1?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
-[![Supabase](https://img.shields.io/badge/Supabase-Database-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com/)
-[![Redis](https://img.shields.io/badge/Redis-PubSub-DC382D?logo=redis&logoColor=white)](https://redis.io/)
-
-**APIs & Quality**  
-[![HubSpot](https://img.shields.io/badge/HubSpot-CRM-FF7A59?logo=hubspot&logoColor=white)](https://www.hubspot.com/)
-[![Resend](https://img.shields.io/badge/Resend-Email-black?logo=resend&logoColor=white)](https://resend.com/)
-[![ESLint](https://img.shields.io/badge/ESLint-Linter-4B32C3?logo=eslint&logoColor=white)](https://eslint.org/)
-[![Jest](https://img.shields.io/badge/Jest-Testing-C21325?logo=jest&logoColor=white)](https://jestjs.io/)
-
 ![MediaBubble GitHub cover](docs/assets/github/mediabubble-github-cover.png)
+
+[![CI](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)](https://github.com/mediabubble-adv/mediaBubble/actions/workflows/ci.yml) [![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js&logoColor=white)](https://nextjs.org/) [![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)](https://react.dev/) [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.3-38B2AC?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/) [![Nx](https://img.shields.io/badge/Nx-23-143055?logo=nx&logoColor=white)](https://nx.dev/)
 
 [web-eg.vercel.app (Egypt)](https://web-eg.vercel.app) · [web-ae-nine.vercel.app (UAE)](https://web-ae-nine.vercel.app) · [brand-mediabubble.vercel.app (Brand)](https://brand-mediabubble.vercel.app) · [launcher-peach.vercel.app (Launcher)](https://launcher-peach.vercel.app)
 
@@ -96,6 +76,8 @@
 ## 🏗️ Architecture & Project Layout
 
 Here is how code moves, imports are constrained, and requests are processed in our workspace.
+
+[![Prisma](https://img.shields.io/badge/Prisma-5-123A50?logo=prisma&logoColor=white)](https://www.prisma.io/) [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-4169E1?logo=postgresql&logoColor=white)](https://www.postgresql.org/) [![Supabase](https://img.shields.io/badge/Supabase-Database-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com/) [![Redis](https://img.shields.io/badge/Redis-PubSub-DC382D?logo=redis&logoColor=white)](https://redis.io/)
 
 ### Monorepo Dependency Rules
 Apps are allowed to import packages (`packages/*`), but packages must **never** import from applications. Doing so will violate Nx boundaries and fail the build.
@@ -188,6 +170,8 @@ mediabubble Main/
 
 ## GitHub Notes
 
+[![ESLint](https://img.shields.io/badge/ESLint-Linter-4B32C3?logo=eslint&logoColor=white)](https://eslint.org/) [![Jest](https://img.shields.io/badge/Jest-Testing-C21325?logo=jest&logoColor=white)](https://jestjs.io/)
+
 - This repository is private, so the CI badge uses a static shields.io link.
 - The root is intentionally small. The only files that should stay at the top level are `README.md`, `AGENTS.md`, and `PRODUCT.md`, plus normal config files.
 - Extra planning material belongs under `docs/`.
@@ -195,6 +179,8 @@ mediabubble Main/
 ## Support
 
 Primary contact: Yasser Dorgham - yasser.dorgham@gmail.com
+
+[![HubSpot](https://img.shields.io/badge/HubSpot-CRM-FF7A59?logo=hubspot&logoColor=white)](https://www.hubspot.com/) [![Resend](https://img.shields.io/badge/Resend-Email-black?logo=resend&logoColor=white)](https://resend.com/)
 
 Live deployments (Vercel):
 
