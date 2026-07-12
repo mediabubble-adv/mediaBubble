@@ -8,7 +8,7 @@ export const webServiceConfig: ServicePageConfig = {
   meta: legacy.meta,
   hero: {
     ...legacy.hero,
-    image: '/assets/hero/modern/render-a.webp',
+    image: '/assets/hero/modern/render-b.webp',
     imageFallback: '/assets/hero/modern/render-b.jpg',
   },
   features: legacy.features,

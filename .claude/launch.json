@@ -10,10 +10,9 @@
     },
     {
       "name": "web-eg Dev Server",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["next", "dev", "--port", "3001"],
-      "cwd": "apps/web-eg",
-      "port": 3001,
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev:eg"],
+      "port": 3000,
       "autoPort": false
     },
     {

@@ -147,9 +147,9 @@ export function ShowcaseSection() {
                     <h3 className="font-display text-[15px] sm:text-[16px] font-bold text-white leading-snug">
                       {t(project.poeticTitleKey, project.poeticTitleFallback)}
                     </h3>
-                    {/* Metric fades up on hover */}
+                    {/* Metric — always visible for accessibility */}
                     <p
-                      className="text-[12px] font-semibold mt-2 opacity-0 translate-y-1.5 group-hover:opacity-100 group-hover:translate-y-0 motion-reduce:transition-none transition-all duration-200 ease-out"
+                      className="text-[12px] font-semibold mt-2 transition-all duration-200 ease-out"
                       style={{ color: project.accent }}
                     >
                       <span className="inline-block mr-1" aria-hidden="true" style={{ transform: isRTL ? 'scaleX(-1)' : 'none' }}>↗</span>

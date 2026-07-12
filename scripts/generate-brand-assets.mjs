@@ -259,7 +259,7 @@ function getSelectedAssets(requestedKeys) {
 }
 
 async function generateAsset(apiKey, asset) {
-  const response = await fetch('https://api.openai.com/v1/images', {
+  const response = await fetch('https://api.openai.com/v1/images/generations', {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${apiKey}`,

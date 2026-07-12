@@ -126,10 +126,13 @@ export function BlobMask({
   const containerRef = useRef<HTMLDivElement>(null)
   const clipRef      = useRef<SVGPathElement>(null)
   const glowRef      = useRef<SVGPathElement>(null)
+  const midGlowRef   = useRef<SVGPathElement>(null)
   const crispRef     = useRef<SVGPathElement>(null)
   const sparkRef     = useRef<SVGPathElement>(null)
   const sizeRef      = useRef({ w: 500, h: 375 })
   const rafRef       = useRef<number>(0)
+
+  const safeDuration = transitionDuration > 0 ? transitionDuration : 10000
 
   useEffect(() => {
     const container = containerRef.current
@@ -175,8 +178,8 @@ export function BlobMask({
       const total    = frames.length
 
       const elapsed  = now - startTime
-      const cycle    = elapsed % (transitionDuration * total)
-      const rawIdx   = cycle / transitionDuration
+      const cycle    = elapsed % (safeDuration * total)
+      const rawIdx   = cycle / safeDuration
       const fromIdx  = Math.floor(rawIdx) % total
       const toIdx    = (fromIdx + 1) % total
       const t        = ease(rawIdx - Math.floor(rawIdx))
@@ -189,6 +192,7 @@ export function BlobMask({
 
       clipRef.current?.setAttribute('d', d)
       glowRef.current?.setAttribute('d', d)
+      midGlowRef.current?.setAttribute('d', d)
       crispRef.current?.setAttribute('d', d)
 
       if (sparkRef.current) {
@@ -211,7 +215,7 @@ export function BlobMask({
       cancelAnimationFrame(rafRef.current)
       ro.disconnect()
     }
-  }, [sequence, transitionDuration])
+  }, [sequence, safeDuration])
 
   return (
     <div ref={containerRef} className={`relative ${className}`}>
@@ -267,7 +271,7 @@ export function BlobMask({
           stroke={outlineColor}
           strokeWidth="4"
           opacity="0.18"
-          ref={undefined}
+          ref={midGlowRef}
           /* shares same d via glowRef — set separately below */
         />
         {/* Crisp 1.3px edge */}
