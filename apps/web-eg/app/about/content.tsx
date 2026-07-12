@@ -1,7 +1,7 @@
 'use client'
 
 import { useI18n } from '@/lib/i18n/provider'
-import { PageHero } from '@/components/sections/PageHero'
+import { HeroSection } from '@/components/sections/HeroSection'
 import { StatsBar } from '@/components/sections/StatsBar'
 import { ValuesSection } from '@/components/sections/ValuesSection'
 import { AboutMethodologySection } from '@/components/sections/AboutMethodologySection'
@@ -15,29 +15,24 @@ export function AboutPageContent() {
 
   return (
     <MainLayout>
-        <PageHero
-          breadcrumbs={[
-            { label: t('nav.home', 'Home'), href: '/' },
-            { label: t('about.hero.kicker', 'About') },
-          ]}
-          kicker={t('about.hero.kicker', 'About MediaBubble')}
+        <HeroSection
           title={t('about.hero.title', 'Hurghada-Born. Results-Driven. Since 2015.')}
-          subtitle={t(
+          subtitle={t('about.hero.kicker', 'About MediaBubble')}
+          description={t(
             'about.hero.subtitle',
             "We started MediaBubble in Hurghada because we saw local businesses being underserved by generic agencies that didn't understand the market. Ten years later, we're a team of 22+ and the region's most trusted marketing partner.",
           )}
-          ctas={[
-            { label: t('about.hero.cta', 'Work With Us'), href: '/contact' },
-            {
-              label: t('about.hero.ctaSecondary', 'See Our Results'),
-              href: '/case-studies',
-              variant: 'secondary',
-            },
-          ]}
+          backgroundImage="/assets/hero/premium/about-secondary.webp"
+          mode="background-blur"
+          size="medium"
+          ctaButtons={{
+            primary: { label: t('about.hero.cta', 'Work With Us'), href: '/contact' },
+            secondary: { label: t('about.hero.ctaSecondary', 'See Our Results'), href: '/case-studies' },
+          }}
           proofPoints={[
-            t('about.hero.proof1', 'Founded 2015 in Hurghada, Red Sea'),
-            t('about.hero.proof2', '22+ full-time marketing professionals'),
-            t('about.hero.proof3', 'Clients in tourism, hospitality, retail, and real estate'),
+            { text: t('about.hero.proof1', 'Founded 2015 in Hurghada, Red Sea') },
+            { text: t('about.hero.proof2', '22+ full-time marketing professionals') },
+            { text: t('about.hero.proof3', 'Clients in tourism, hospitality, retail, and real estate') },
           ]}
         />
         <StatsBar />

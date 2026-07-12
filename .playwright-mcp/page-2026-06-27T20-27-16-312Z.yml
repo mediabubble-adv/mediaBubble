@@ -1,0 +1,868 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - link "MediaBubble, Hurghada marketing agency" [ref=e6] [cursor=pointer]:
+        - /url: /
+      - navigation "Skip to content" [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: /
+          - img [ref=e9]
+          - text: Home
+        - link "About Us" [ref=e13] [cursor=pointer]:
+          - /url: /about
+        - generic [ref=e14]:
+          - button "Services" [ref=e15] [cursor=pointer]:
+            - text: Services
+            - img [ref=e16]
+          - region "Services mega menu":
+            - generic:
+              - generic:
+                - generic:
+                  - img
+                  - generic: Web Solutions
+                - list:
+                  - listitem:
+                    - link "Web Development Custom sites built for performance":
+                      - /url: /services/web
+                      - generic:
+                        - img
+                      - generic:
+                        - generic: Web Development
+                        - generic: Custom sites built for performance
+                  - listitem:
+                    - link "SEO & Growth Organic traffic that compounds":
+                      - /url: /services/seo
+                      - generic:
+                        - img
+                      - generic:
+                        - generic: SEO & Growth
+                        - generic: Organic traffic that compounds
+                  - listitem:
+                    - link "E-Commerce Stores that convert browsers to buyers":
+                      - /url: /services/web
+                      - generic:
+                        - img
+                      - generic:
+                        - generic: E-Commerce
+                        - generic: Stores that convert browsers to buyers
+              - generic:
+                - generic:
+                  - img
+                  - generic: Digital Marketing
+                - list:
+                  - listitem:
+                    - link "Social Media Build community, drive engagement":
+                      - /url: /services/social
+                      - generic:
+                        - img
+                      - generic:
+                        - generic: Social Media
+                        - generic: Build community, drive engagement
+                  - listitem:
+                    - link "Content Marketing Content that ranks and resonates":
+                      - /url: /services/social
+                      - generic:
+                        - img
+                      - generic:
+                        - generic: Content Marketing
+                        - generic: Content that ranks and resonates
+                  - listitem:
+                    - link "Email Campaigns Sequences that nurture and sell":
+                      - /url: /contact
+                      - generic:
+                        - img
+                      - generic:
+                        - generic: Email Campaigns
+                        - generic: Sequences that nurture and sell
+              - generic:
+                - generic:
+                  - img
+                  - generic: Branding & Design
+                - list:
+                  - listitem:
+                    - link "Brand Strategy Positioning and messaging that sticks":
+                      - /url: /services/branding
+                      - generic:
+                        - img
+                      - generic:
+                        - generic: Brand Strategy
+                        - generic: Positioning and messaging that sticks
+                  - listitem:
+                    - link "Logo & Identity Visual identity across every surface":
+                      - /url: /services/branding
+                      - generic:
+                        - img
+                      - generic:
+                        - generic: Logo & Identity
+                        - generic: Visual identity across every surface
+                  - listitem:
+                    - link "Paid Advertising ROI-driven ad creative and management":
+                      - /url: /services/ppc
+                      - generic:
+                        - img
+                      - generic:
+                        - generic: Paid Advertising
+                        - generic: ROI-driven ad creative and management
+              - generic:
+                - generic:
+                  - img
+                  - generic: Resources
+                - list:
+                  - listitem:
+                    - link "Case Studies Real results from real clients":
+                      - /url: /case-studies
+                      - generic:
+                        - img
+                      - generic:
+                        - generic: Case Studies
+                        - generic: Real results from real clients
+                  - listitem:
+                    - link "Insights Insights from our marketing team":
+                      - /url: /insights
+                      - generic:
+                        - img
+                      - generic:
+                        - generic: Insights
+                        - generic: Insights from our marketing team
+                  - listitem:
+                    - link "Pricing Transparent, no-surprises pricing":
+                      - /url: /contact
+                      - generic:
+                        - img
+                      - generic:
+                        - generic: Pricing
+                        - generic: Transparent, no-surprises pricing
+        - link "Case Studies" [ref=e18] [cursor=pointer]:
+          - /url: /case-studies
+        - link "Insights" [ref=e19] [cursor=pointer]:
+          - /url: /insights
+        - link "Contact" [ref=e20] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=e21]:
+        - button "Switch to dark mode" [ref=e22] [cursor=pointer]:
+          - img [ref=e23]
+        - button "Switch to Arabic" [ref=e25] [cursor=pointer]:
+          - img [ref=e26]
+          - generic [ref=e29]: EN
+        - link "Free audit" [ref=e30] [cursor=pointer]:
+          - /url: /contact
+  - main [ref=e31]:
+    - region "Hero" [ref=e32]:
+      - img [ref=e33]
+      - generic [ref=e37]:
+        - paragraph [ref=e38]: "Hurghada's #1 Marketing Agency"
+        - heading "Hurghada's growth partner for tourism, hospitality, and retail" [level=1] [ref=e40]
+        - paragraph [ref=e41]: One team for strategy, content, paid media, and web, with measurable growth for 200+ Red Sea businesses since 2015.
+        - list "Key highlights" [ref=e42]:
+          - listitem [ref=e43]:
+            - img [ref=e45]
+            - generic [ref=e47]: 35% average client growth in 12 months
+          - listitem [ref=e48]:
+            - img [ref=e50]
+            - generic [ref=e52]: 92% client retention rate
+          - listitem [ref=e53]:
+            - img [ref=e55]
+            - generic [ref=e57]: 500+ successful projects delivered
+        - generic [ref=e58]:
+          - link "Free audit" [ref=e59] [cursor=pointer]:
+            - /url: /contact
+            - text: Free audit
+            - img [ref=e60]
+          - link "View case studies" [ref=e62] [cursor=pointer]:
+            - /url: /case-studies
+          - link "Explore all services" [ref=e63] [cursor=pointer]:
+            - /url: /services
+            - text: Explore all services
+            - img [ref=e64]
+      - button "Scroll to content" [ref=e66] [cursor=pointer]:
+        - generic [ref=e67]: Scroll
+    - region "Marketing for brands that need growth, not more posts" [ref=e70]:
+      - generic [ref=e71]:
+        - generic [ref=e72]:
+          - paragraph [ref=e73]: Why MediaBubble
+          - heading "Marketing for brands that need growth, not more posts" [level=2] [ref=e74]
+          - paragraph [ref=e75]: Strategy, creative, and performance in one team for tourism, hospitality, and retail in Hurghada and the Red Sea.
+        - generic [ref=e78]:
+          - img [ref=e80]
+          - generic [ref=e85]:
+            - heading "Strategy-first execution" [level=3] [ref=e86]
+            - paragraph [ref=e87]: Every campaign starts with clear goals, audience insight, and a roadmap you can measure.
+        - list [ref=e88]:
+          - listitem [ref=e89]:
+            - generic [ref=e90]:
+              - img [ref=e92]
+              - generic [ref=e96]:
+                - heading "Full-service under one roof" [level=3] [ref=e97]
+                - paragraph [ref=e98]: "SEO, paid media, branding, web, and content: coordinated by one team that knows your market."
+          - listitem [ref=e99]:
+            - generic [ref=e100]:
+              - img [ref=e102]
+              - generic [ref=e104]:
+                - heading "Results you can report on" [level=3] [ref=e105]
+                - paragraph [ref=e106]: Transparent reporting, realistic KPIs, and optimizations tied to revenue, not vanity metrics.
+          - listitem [ref=e107]:
+            - generic [ref=e108]:
+              - img [ref=e110]
+              - generic [ref=e113]:
+                - heading "Local expertise, global standards" [level=3] [ref=e114]
+                - paragraph [ref=e115]: Deep Red Sea market knowledge with production quality that stands up to international brands.
+    - region "Featured Work" [ref=e116]:
+      - generic [ref=e119]:
+        - generic [ref=e120]:
+          - generic [ref=e121]:
+            - paragraph [ref=e122]: Selected work
+            - heading "Recent client results" [level=2] [ref=e123]
+            - paragraph [ref=e124]: Six Hurghada businesses. Real metrics from live campaigns.
+          - group "Browse case studies" [ref=e125]:
+            - button "Previous case studies" [disabled]:
+              - img
+            - button "Next case studies" [ref=e126] [cursor=pointer]:
+              - img [ref=e127]
+        - generic [ref=e129]:
+          - link "Coral Bay Resort SEO + Paid Advertising Coral Bay Resort SEO and paid search for a 4-star hotel chain. Direct bookings up 68% in six months. ↗ 68% increase in direct bookings Learn more" [ref=e130] [cursor=pointer]:
+            - /url: /case-studies/coral-bay
+            - img "Coral Bay Resort" [ref=e133]
+            - generic [ref=e135]:
+              - generic [ref=e136]: SEO + Paid Advertising
+              - heading "Coral Bay Resort" [level=3] [ref=e137]
+              - paragraph [ref=e138]: SEO and paid search for a 4-star hotel chain. Direct bookings up 68% in six months.
+              - paragraph [ref=e140]:
+                - generic [ref=e141]: ↗
+                - text: 68% increase in direct bookings
+              - generic [ref=e142]:
+                - text: Learn more
+                - img [ref=e143]
+            - img [ref=e147]
+          - link "Red Sea Divers SEO & Content Marketing Red Sea Divers Local SEO and content marketing. Organic traffic up 340% in eight months. ↗ 340% organic traffic growth Learn more" [ref=e150] [cursor=pointer]:
+            - /url: /case-studies/red-sea-divers
+            - img "Red Sea Divers" [ref=e153]
+            - generic [ref=e155]:
+              - generic [ref=e156]: SEO & Content Marketing
+              - heading "Red Sea Divers" [level=3] [ref=e157]
+              - paragraph [ref=e158]: Local SEO and content marketing. Organic traffic up 340% in eight months.
+              - paragraph [ref=e160]:
+                - generic [ref=e161]: ↗
+                - text: 340% organic traffic growth
+              - generic [ref=e162]:
+                - text: Learn more
+                - img [ref=e163]
+            - img [ref=e167]
+          - link "Aqua Sports Egypt Branding & Web Development Aqua Sports Egypt Brand refresh and new website. Lead volume doubled in the first quarter. ↗ 2× lead volume in first quarter Learn more" [ref=e170] [cursor=pointer]:
+            - /url: /case-studies/aqua-sports
+            - img "Aqua Sports Egypt" [ref=e173]
+            - generic [ref=e175]:
+              - generic [ref=e176]: Branding & Web Development
+              - heading "Aqua Sports Egypt" [level=3] [ref=e177]
+              - paragraph [ref=e178]: Brand refresh and new website. Lead volume doubled in the first quarter.
+              - paragraph [ref=e180]:
+                - generic [ref=e181]: ↗
+                - text: 2× lead volume in first quarter
+              - generic [ref=e182]:
+                - text: Learn more
+                - img [ref=e183]
+            - img [ref=e187]
+        - link "View all" [ref=e194] [cursor=pointer]:
+          - /url: /case-studies
+          - text: View all
+          - img [ref=e195]
+    - region "Client results at a glance" [ref=e197]:
+      - paragraph [ref=e200]: Client results from Hurghada and the Red Sea
+      - generic [ref=e201]:
+        - generic [ref=e203]:
+          - generic [ref=e204]:
+            - generic [ref=e205]: 68%
+            - generic [ref=e206]: Direct booking growth
+          - generic [ref=e208]:
+            - generic [ref=e209]: 340%
+            - generic [ref=e210]: Organic session growth
+          - generic [ref=e212]:
+            - generic [ref=e213]: 3.9×
+            - generic [ref=e214]: Google Ads ROAS
+          - generic [ref=e216]:
+            - generic [ref=e217]: 4.8×
+            - generic [ref=e218]: Engagement vs. average
+          - generic [ref=e220]:
+            - generic [ref=e221]: "47"
+            - generic [ref=e222]: Page 1 keywords
+          - generic [ref=e224]:
+            - generic [ref=e225]: 68%
+            - generic [ref=e226]: Direct booking growth
+          - generic [ref=e228]:
+            - generic [ref=e229]: 340%
+            - generic [ref=e230]: Organic session growth
+          - generic [ref=e232]:
+            - generic [ref=e233]: 3.9×
+            - generic [ref=e234]: Google Ads ROAS
+          - generic [ref=e236]:
+            - generic [ref=e237]: 4.8×
+            - generic [ref=e238]: Engagement vs. average
+          - generic [ref=e240]:
+            - generic [ref=e241]: "47"
+            - generic [ref=e242]: Page 1 keywords
+        - generic [ref=e245]:
+          - generic [ref=e246]:
+            - generic [ref=e247]: 200+
+            - generic [ref=e248]: Projects delivered
+          - generic [ref=e250]:
+            - generic [ref=e251]: 92%
+            - generic [ref=e252]: Client retention
+          - generic [ref=e254]:
+            - generic [ref=e255]: 11.4k
+            - generic [ref=e256]: Followers earned
+          - generic [ref=e258]:
+            - generic [ref=e259]: 22+
+            - generic [ref=e260]: In-house specialists
+          - generic [ref=e262]:
+            - generic [ref=e263]: "2015"
+            - generic [ref=e264]: Serving the Red Sea since
+          - generic [ref=e266]:
+            - generic [ref=e267]: 200+
+            - generic [ref=e268]: Projects delivered
+          - generic [ref=e270]:
+            - generic [ref=e271]: 92%
+            - generic [ref=e272]: Client retention
+          - generic [ref=e274]:
+            - generic [ref=e275]: 11.4k
+            - generic [ref=e276]: Followers earned
+          - generic [ref=e278]:
+            - generic [ref=e279]: 22+
+            - generic [ref=e280]: In-house specialists
+          - generic [ref=e282]:
+            - generic [ref=e283]: "2015"
+            - generic [ref=e284]: Serving the Red Sea since
+    - region "Services" [ref=e286]:
+      - generic [ref=e287]:
+        - generic [ref=e288]:
+          - paragraph [ref=e289]: What We Do
+          - heading "SEO, web, ads, and content from one Hurghada team" [level=2] [ref=e290]
+          - paragraph [ref=e291]: Pick a channel or bundle them. One plan, one report, no handoffs between vendors.
+        - generic [ref=e292]:
+          - 'link "SEO & Organic Growth First-page visibility on Google Local and technical SEO for Hurghada and the Red Sea: the searches your guests and buyers already run. View service" [ref=e293] [cursor=pointer]':
+            - /url: /services/seo
+            - generic [ref=e294]:
+              - img
+              - img [ref=e296]
+            - generic [ref=e299]:
+              - paragraph [ref=e300]: SEO & Organic Growth
+              - heading "First-page visibility on Google" [level=3] [ref=e301]
+              - paragraph [ref=e302]: "Local and technical SEO for Hurghada and the Red Sea: the searches your guests and buyers already run."
+              - generic [ref=e303]:
+                - text: View service
+                - img [ref=e304]
+          - link "Paid Advertising (PPC) Paid campaigns aimed at ready buyers Google and Meta ads with weekly budget checks. Spend goes to clicks that book, call, or buy. View service" [ref=e306] [cursor=pointer]:
+            - /url: /services/ppc
+            - generic [ref=e307]:
+              - img
+              - img [ref=e309]
+            - generic [ref=e312]:
+              - paragraph [ref=e313]: Paid Advertising (PPC)
+              - heading "Paid campaigns aimed at ready buyers" [level=3] [ref=e314]
+              - paragraph [ref=e315]: Google and Meta ads with weekly budget checks. Spend goes to clicks that book, call, or buy.
+              - generic [ref=e316]:
+                - text: View service
+                - img [ref=e317]
+          - link "Web Development Websites tuned for speed and conversions Mobile-first builds with clear paths to book, call, or request a quote. View service" [ref=e319] [cursor=pointer]:
+            - /url: /services/web
+            - generic [ref=e320]:
+              - img
+              - img [ref=e322]
+            - generic [ref=e325]:
+              - paragraph [ref=e326]: Web Development
+              - heading "Websites tuned for speed and conversions" [level=3] [ref=e327]
+              - paragraph [ref=e328]: Mobile-first builds with clear paths to book, call, or request a quote.
+              - generic [ref=e329]:
+                - text: View service
+                - img [ref=e330]
+        - list [ref=e332]:
+          - listitem [ref=e333]:
+            - link "Social Media Marketing Social channels that feed your pipeline" [ref=e334] [cursor=pointer]:
+              - /url: /services/social
+              - img [ref=e336]
+              - generic [ref=e342]:
+                - paragraph [ref=e343]: Social Media Marketing
+                - heading "Social channels that feed your pipeline" [level=3] [ref=e344]
+              - img [ref=e345]
+          - listitem [ref=e347]:
+            - link "Branding & Design Brand identity built for your market" [ref=e348] [cursor=pointer]:
+              - /url: /services/branding
+              - img [ref=e350]
+              - generic [ref=e356]:
+                - paragraph [ref=e357]: Branding & Design
+                - heading "Brand identity built for your market" [level=3] [ref=e358]
+              - img [ref=e359]
+          - listitem [ref=e361]:
+            - link "Content Marketing Content that ranks and supports sales" [ref=e362] [cursor=pointer]:
+              - /url: /services/content
+              - img [ref=e364]
+              - generic [ref=e367]:
+                - paragraph [ref=e368]: Content Marketing
+                - heading "Content that ranks and supports sales" [level=3] [ref=e369]
+              - img [ref=e370]
+          - listitem [ref=e372]:
+            - link "Events & Activations Events and activations with clear ROI" [ref=e373] [cursor=pointer]:
+              - /url: /services/events
+              - img [ref=e375]
+              - generic [ref=e377]:
+                - paragraph [ref=e378]: Events & Activations
+                - heading "Events and activations with clear ROI" [level=3] [ref=e379]
+              - img [ref=e380]
+    - region "Clients" [ref=e382]:
+      - paragraph [ref=e384]: Trusted by hospitality and retail brands in Hurghada
+      - generic [ref=e386]:
+        - generic "Sahl Hasheesh" [ref=e387]:
+          - img "Sahl Hasheesh" [ref=e388]
+        - generic "Galeria" [ref=e389]:
+          - img "Galeria" [ref=e390]
+        - generic "Gold's Gym" [ref=e391]:
+          - img "Gold's Gym" [ref=e392]
+        - generic "Logo Org" [ref=e393]:
+          - img "Logo Org" [ref=e394]
+        - generic "Logo 01" [ref=e395]:
+          - img "Logo 01" [ref=e396]
+        - generic "Sahl Hasheesh" [ref=e397]:
+          - img "Sahl Hasheesh" [ref=e398]
+        - generic "Galeria" [ref=e399]:
+          - img "Galeria" [ref=e400]
+        - generic "Gold's Gym" [ref=e401]:
+          - img "Gold's Gym" [ref=e402]
+        - generic "Logo Org" [ref=e403]:
+          - img "Logo Org" [ref=e404]
+        - generic "Logo 01" [ref=e405]:
+          - img "Logo 01" [ref=e406]
+    - region "Local expertise without agency overhead" [ref=e407]:
+      - generic [ref=e408]:
+        - generic [ref=e409]:
+          - paragraph [ref=e410]: Why brands stay
+          - heading "Local expertise without agency overhead" [level=2] [ref=e411]
+        - list [ref=e412]:
+          - listitem [ref=e413]:
+            - img [ref=e415]
+            - generic [ref=e418]:
+              - heading "Built for the Red Sea market" [level=3] [ref=e419]
+              - paragraph [ref=e420]: We know Hurghada tourism seasons, booking cycles, and how guests discover hotels and experiences online.
+          - listitem [ref=e421]:
+            - img [ref=e423]
+            - generic [ref=e427]:
+              - heading "One accountable team" [level=3] [ref=e428]
+              - paragraph [ref=e429]: Strategy, creative, paid media, and web sit together — no handoffs between disconnected vendors.
+          - listitem [ref=e430]:
+            - img [ref=e432]
+            - generic [ref=e435]:
+              - heading "Reporting you can act on" [level=3] [ref=e436]
+              - paragraph [ref=e437]: Monthly dashboards tied to revenue and bookings, not vanity metrics buried in a PDF.
+    - region "Client testimonials" [ref=e438]:
+      - generic [ref=e440]:
+        - paragraph [ref=e441]: Client Stories
+        - heading "What clients report after year one" [level=2] [ref=e442]
+        - paragraph [ref=e443]: Hospitality, retail, and tourism brands we work with in Hurghada and the Red Sea.
+      - generic [ref=e444]:
+        - generic [ref=e446]:
+          - figure [ref=e447]:
+            - img "Ahmed Hassan" [ref=e449]
+            - paragraph [ref=e450]: Ahmed Hassan
+            - paragraph [ref=e451]: General Manager, Coral Bay Resort
+            - generic "5 out of 5 stars" [ref=e453]:
+              - img [ref=e454]
+              - img [ref=e456]
+              - img [ref=e458]
+              - img [ref=e460]
+              - img [ref=e462]
+            - generic [ref=e464]: “
+            - blockquote [ref=e465]: "\"MediaBubble took our resort from near-invisible online to fully booked through summer. The SEO and paid ads strategy they built us drives 68% of our direct bookings now.\""
+          - figure [ref=e466]:
+            - img "Nadia Saleh" [ref=e468]
+            - paragraph [ref=e469]: Nadia Saleh
+            - paragraph [ref=e470]: Marketing Director, Red Sea Divers
+            - generic "5 out of 5 stars" [ref=e472]:
+              - img [ref=e473]
+              - img [ref=e475]
+              - img [ref=e477]
+              - img [ref=e479]
+              - img [ref=e481]
+            - generic [ref=e483]: “
+            - blockquote [ref=e484]: "\"In six months our organic traffic grew 340%. The team understands Hurghada's market: who searches, how, and when.\""
+          - figure [ref=e485]:
+            - img "Khaled Mansour" [ref=e487]
+            - paragraph [ref=e488]: Khaled Mansour
+            - paragraph [ref=e489]: CEO, Aqua Sports Egypt
+            - generic "5 out of 5 stars" [ref=e491]:
+              - img [ref=e492]
+              - img [ref=e494]
+              - img [ref=e496]
+              - img [ref=e498]
+              - img [ref=e500]
+            - generic [ref=e502]: “
+            - blockquote [ref=e503]: "\"We rebranded with MediaBubble and launched a new site. Within three months our lead volume doubled. More importantly, those leads convert.\""
+          - figure [ref=e504]:
+            - img "Fatima Al-Rashid" [ref=e506]
+            - paragraph [ref=e507]: Fatima Al-Rashid
+            - paragraph [ref=e508]: Owner, Desert Rose Hotel
+            - generic "5 out of 5 stars" [ref=e510]:
+              - img [ref=e511]
+              - img [ref=e513]
+              - img [ref=e515]
+              - img [ref=e517]
+              - img [ref=e519]
+            - generic [ref=e521]: “
+            - blockquote [ref=e522]: "\"Our social media engagement went from 2% to 12% in just four months. They created content that resonates with tourists visiting Hurghada.\""
+          - figure [ref=e523]:
+            - img "Omar Khairy" [ref=e525]
+            - paragraph [ref=e526]: Omar Khairy
+            - paragraph [ref=e527]: Director, Marina View Residences
+            - generic "5 out of 5 stars" [ref=e529]:
+              - img [ref=e530]
+              - img [ref=e532]
+              - img [ref=e534]
+              - img [ref=e536]
+              - img [ref=e538]
+            - generic [ref=e540]: “
+            - blockquote [ref=e541]: "\"The PPC campaigns they manage for us deliver a 4.2x return on ad spend. Every dollar we put in comes back with change. Best marketing investment we've made.\""
+          - figure [ref=e542]:
+            - img "Youssef Hamed" [ref=e544]
+            - paragraph [ref=e545]: Youssef Hamed
+            - paragraph [ref=e546]: Founder, Red Sea Divers
+            - generic "5 out of 5 stars" [ref=e548]:
+              - img [ref=e549]
+              - img [ref=e551]
+              - img [ref=e553]
+              - img [ref=e555]
+              - img [ref=e557]
+            - generic [ref=e559]: “
+            - blockquote [ref=e560]: "\"From zero online presence to ranking #1 for \"Hurghada diving\" in under a year. MediaBubble knows how to position local businesses for growth.\""
+          - figure [ref=e561]:
+            - img "Ahmed Hassan" [ref=e563]
+            - paragraph [ref=e564]: Ahmed Hassan
+            - paragraph [ref=e565]: General Manager, Coral Bay Resort
+            - generic "5 out of 5 stars" [ref=e567]:
+              - img [ref=e568]
+              - img [ref=e570]
+              - img [ref=e572]
+              - img [ref=e574]
+              - img [ref=e576]
+            - generic [ref=e578]: “
+            - blockquote [ref=e579]: "\"MediaBubble took our resort from near-invisible online to fully booked through summer. The SEO and paid ads strategy they built us drives 68% of our direct bookings now.\""
+          - figure [ref=e580]:
+            - img "Nadia Saleh" [ref=e582]
+            - paragraph [ref=e583]: Nadia Saleh
+            - paragraph [ref=e584]: Marketing Director, Red Sea Divers
+            - generic "5 out of 5 stars" [ref=e586]:
+              - img [ref=e587]
+              - img [ref=e589]
+              - img [ref=e591]
+              - img [ref=e593]
+              - img [ref=e595]
+            - generic [ref=e597]: “
+            - blockquote [ref=e598]: "\"In six months our organic traffic grew 340%. The team understands Hurghada's market: who searches, how, and when.\""
+          - figure [ref=e599]:
+            - img "Khaled Mansour" [ref=e601]
+            - paragraph [ref=e602]: Khaled Mansour
+            - paragraph [ref=e603]: CEO, Aqua Sports Egypt
+            - generic "5 out of 5 stars" [ref=e605]:
+              - img [ref=e606]
+              - img [ref=e608]
+              - img [ref=e610]
+              - img [ref=e612]
+              - img [ref=e614]
+            - generic [ref=e616]: “
+            - blockquote [ref=e617]: "\"We rebranded with MediaBubble and launched a new site. Within three months our lead volume doubled. More importantly, those leads convert.\""
+          - figure [ref=e618]:
+            - img "Fatima Al-Rashid" [ref=e620]
+            - paragraph [ref=e621]: Fatima Al-Rashid
+            - paragraph [ref=e622]: Owner, Desert Rose Hotel
+            - generic "5 out of 5 stars" [ref=e624]:
+              - img [ref=e625]
+              - img [ref=e627]
+              - img [ref=e629]
+              - img [ref=e631]
+              - img [ref=e633]
+            - generic [ref=e635]: “
+            - blockquote [ref=e636]: "\"Our social media engagement went from 2% to 12% in just four months. They created content that resonates with tourists visiting Hurghada.\""
+          - figure [ref=e637]:
+            - img "Omar Khairy" [ref=e639]
+            - paragraph [ref=e640]: Omar Khairy
+            - paragraph [ref=e641]: Director, Marina View Residences
+            - generic "5 out of 5 stars" [ref=e643]:
+              - img [ref=e644]
+              - img [ref=e646]
+              - img [ref=e648]
+              - img [ref=e650]
+              - img [ref=e652]
+            - generic [ref=e654]: “
+            - blockquote [ref=e655]: "\"The PPC campaigns they manage for us deliver a 4.2x return on ad spend. Every dollar we put in comes back with change. Best marketing investment we've made.\""
+          - figure [ref=e656]:
+            - img "Youssef Hamed" [ref=e658]
+            - paragraph [ref=e659]: Youssef Hamed
+            - paragraph [ref=e660]: Founder, Red Sea Divers
+            - generic "5 out of 5 stars" [ref=e662]:
+              - img [ref=e663]
+              - img [ref=e665]
+              - img [ref=e667]
+              - img [ref=e669]
+              - img [ref=e671]
+            - generic [ref=e673]: “
+            - blockquote [ref=e674]: "\"From zero online presence to ranking #1 for \"Hurghada diving\" in under a year. MediaBubble knows how to position local businesses for growth.\""
+        - generic [ref=e676]:
+          - figure [ref=e677]:
+            - img "Sarah Mitchell" [ref=e679]
+            - paragraph [ref=e680]: Sarah Mitchell
+            - paragraph [ref=e681]: COO, Hurghada Luxury Stays
+            - generic "5 out of 5 stars" [ref=e683]:
+              - img [ref=e684]
+              - img [ref=e686]
+              - img [ref=e688]
+              - img [ref=e690]
+              - img [ref=e692]
+            - generic [ref=e694]: “
+            - blockquote [ref=e695]: "\"They redesigned our entire brand identity and built us a website that converts at 8.4%. Our previous site was under 1%. The difference is night and day.\""
+          - figure [ref=e696]:
+            - img "Hassan Ibrahim" [ref=e698]
+            - paragraph [ref=e699]: Hassan Ibrahim
+            - paragraph [ref=e700]: GM, Sunset Plaza Hotel
+            - generic "5 out of 5 stars" [ref=e702]:
+              - img [ref=e703]
+              - img [ref=e705]
+              - img [ref=e707]
+              - img [ref=e709]
+              - img [ref=e711]
+            - generic [ref=e713]: “
+            - blockquote [ref=e714]: "\"We went from relying entirely on Booking.com to 60% direct bookings. Their strategy saved us thousands in commission fees every single month.\""
+          - figure [ref=e715]:
+            - img "Mona El-Sayed" [ref=e717]
+            - paragraph [ref=e718]: Mona El-Sayed
+            - paragraph [ref=e719]: Marketing Lead, Coral Reef Resort
+            - generic "5 out of 5 stars" [ref=e721]:
+              - img [ref=e722]
+              - img [ref=e724]
+              - img [ref=e726]
+              - img [ref=e728]
+              - img [ref=e730]
+            - generic [ref=e732]: “
+            - blockquote [ref=e733]: "\"The event activation they ran for our hotel launch brought in 200+ local influencers and filled our restaurant for three straight weeks. Unreal results.\""
+          - figure [ref=e734]:
+            - img "Tarek Fouda" [ref=e736]
+            - paragraph [ref=e737]: Tarek Fouda
+            - paragraph [ref=e738]: Owner, Starfish Restaurant Group
+            - generic "5 out of 5 stars" [ref=e740]:
+              - img [ref=e741]
+              - img [ref=e743]
+              - img [ref=e745]
+              - img [ref=e747]
+              - img [ref=e749]
+            - generic [ref=e751]: “
+            - blockquote [ref=e752]: "\"Our Google Business Profile went from 3.2 stars to 4.8 stars in six months. They trained our staff and built a review system that works.\""
+          - figure [ref=e753]:
+            - img "Laila Mostafa" [ref=e755]
+            - paragraph [ref=e756]: Laila Mostafa
+            - paragraph [ref=e757]: CEO, Hurghada Rentals
+            - generic "5 out of 5 stars" [ref=e759]:
+              - img [ref=e760]
+              - img [ref=e762]
+              - img [ref=e764]
+              - img [ref=e766]
+              - img [ref=e768]
+            - generic [ref=e770]: “
+            - blockquote [ref=e771]: "\"They manage our entire digital presence now: SEO, ads, social, and email. One team, one invoice, and our revenue is up 47% year over year.\""
+          - figure [ref=e772]:
+            - img "Karim Nabil" [ref=e774]
+            - paragraph [ref=e775]: Karim Nabil
+            - paragraph [ref=e776]: Director, Aqua Paradise Resort
+            - generic "5 out of 5 stars" [ref=e778]:
+              - img [ref=e779]
+              - img [ref=e781]
+              - img [ref=e783]
+              - img [ref=e785]
+              - img [ref=e787]
+            - generic [ref=e789]: “
+            - blockquote [ref=e790]: "\"The content calendar they built us means we never miss a peak booking season. We went from scrambling for guests to turning them away on weekends.\""
+          - figure [ref=e791]:
+            - img "Sarah Mitchell" [ref=e793]
+            - paragraph [ref=e794]: Sarah Mitchell
+            - paragraph [ref=e795]: COO, Hurghada Luxury Stays
+            - generic "5 out of 5 stars" [ref=e797]:
+              - img [ref=e798]
+              - img [ref=e800]
+              - img [ref=e802]
+              - img [ref=e804]
+              - img [ref=e806]
+            - generic [ref=e808]: “
+            - blockquote [ref=e809]: "\"They redesigned our entire brand identity and built us a website that converts at 8.4%. Our previous site was under 1%. The difference is night and day.\""
+          - figure [ref=e810]:
+            - img "Hassan Ibrahim" [ref=e812]
+            - paragraph [ref=e813]: Hassan Ibrahim
+            - paragraph [ref=e814]: GM, Sunset Plaza Hotel
+            - generic "5 out of 5 stars" [ref=e816]:
+              - img [ref=e817]
+              - img [ref=e819]
+              - img [ref=e821]
+              - img [ref=e823]
+              - img [ref=e825]
+            - generic [ref=e827]: “
+            - blockquote [ref=e828]: "\"We went from relying entirely on Booking.com to 60% direct bookings. Their strategy saved us thousands in commission fees every single month.\""
+          - figure [ref=e829]:
+            - img "Mona El-Sayed" [ref=e831]
+            - paragraph [ref=e832]: Mona El-Sayed
+            - paragraph [ref=e833]: Marketing Lead, Coral Reef Resort
+            - generic "5 out of 5 stars" [ref=e835]:
+              - img [ref=e836]
+              - img [ref=e838]
+              - img [ref=e840]
+              - img [ref=e842]
+              - img [ref=e844]
+            - generic [ref=e846]: “
+            - blockquote [ref=e847]: "\"The event activation they ran for our hotel launch brought in 200+ local influencers and filled our restaurant for three straight weeks. Unreal results.\""
+          - figure [ref=e848]:
+            - img "Tarek Fouda" [ref=e850]
+            - paragraph [ref=e851]: Tarek Fouda
+            - paragraph [ref=e852]: Owner, Starfish Restaurant Group
+            - generic "5 out of 5 stars" [ref=e854]:
+              - img [ref=e855]
+              - img [ref=e857]
+              - img [ref=e859]
+              - img [ref=e861]
+              - img [ref=e863]
+            - generic [ref=e865]: “
+            - blockquote [ref=e866]: "\"Our Google Business Profile went from 3.2 stars to 4.8 stars in six months. They trained our staff and built a review system that works.\""
+          - figure [ref=e867]:
+            - img "Laila Mostafa" [ref=e869]
+            - paragraph [ref=e870]: Laila Mostafa
+            - paragraph [ref=e871]: CEO, Hurghada Rentals
+            - generic "5 out of 5 stars" [ref=e873]:
+              - img [ref=e874]
+              - img [ref=e876]
+              - img [ref=e878]
+              - img [ref=e880]
+              - img [ref=e882]
+            - generic [ref=e884]: “
+            - blockquote [ref=e885]: "\"They manage our entire digital presence now: SEO, ads, social, and email. One team, one invoice, and our revenue is up 47% year over year.\""
+          - figure [ref=e886]:
+            - img "Karim Nabil" [ref=e888]
+            - paragraph [ref=e889]: Karim Nabil
+            - paragraph [ref=e890]: Director, Aqua Paradise Resort
+            - generic "5 out of 5 stars" [ref=e892]:
+              - img [ref=e893]
+              - img [ref=e895]
+              - img [ref=e897]
+              - img [ref=e899]
+              - img [ref=e901]
+            - generic [ref=e903]: “
+            - blockquote [ref=e904]: "\"The content calendar they built us means we never miss a peak booking season. We went from scrambling for guests to turning them away on weekends.\""
+    - region "Call to action" [ref=e905]:
+      - generic [ref=e907]:
+        - paragraph [ref=e908]: Ready to talk?
+        - heading "Book your free strategy audit" [level=2] [ref=e909]
+        - paragraph [ref=e910]: Tell us where you are today. In 30 minutes we review your marketing and return with three priorities you can act on this quarter.
+        - generic [ref=e911]:
+          - link "Free audit" [ref=e912] [cursor=pointer]:
+            - /url: /contact
+            - text: Free audit
+            - img [ref=e913]
+          - link "View case studies" [ref=e915] [cursor=pointer]:
+            - /url: /case-studies
+  - contentinfo [ref=e916]:
+    - generic [ref=e917]:
+      - generic [ref=e918]:
+        - generic [ref=e919]:
+          - link "MediaBubble homepage" [ref=e920] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e921]: MediaBubble
+          - paragraph [ref=e922]: Hurghada marketing agency. SEO, branding, web, and ads with results you can measure.
+          - paragraph [ref=e923]: MediaBubble is a full-service marketing and advertising agency based in Hurghada, Egypt. We’ve been helping businesses grow since 2015.
+          - navigation "MediaBubble regional sites" [ref=e924]:
+            - link "MediaBubble Egypt":
+              - /url: https://mediabubble.co
+              - generic: 🇪🇬
+              - generic: Egypt
+            - link "MediaBubble UAE" [ref=e925] [cursor=pointer]:
+              - /url: https://mediabubble.ae
+              - generic [ref=e926]: 🇦🇪
+              - generic [ref=e927]: UAE
+        - generic [ref=e928]:
+          - paragraph [ref=e929]: Services
+          - list [ref=e930]:
+            - listitem [ref=e931]:
+              - link "SEO & Organic Growth" [ref=e932] [cursor=pointer]:
+                - /url: /services/seo
+            - listitem [ref=e933]:
+              - link "Paid Advertising" [ref=e934] [cursor=pointer]:
+                - /url: /services/ppc
+            - listitem [ref=e935]:
+              - link "Social Media Marketing" [ref=e936] [cursor=pointer]:
+                - /url: /services/social
+            - listitem [ref=e937]:
+              - link "Branding & Design" [ref=e938] [cursor=pointer]:
+                - /url: /services/branding
+            - listitem [ref=e939]:
+              - link "Web Development" [ref=e940] [cursor=pointer]:
+                - /url: /services/web
+            - listitem [ref=e941]:
+              - link "Content Marketing" [ref=e942] [cursor=pointer]:
+                - /url: /contact
+            - listitem [ref=e943]:
+              - link "Events & Activations" [ref=e944] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e945]:
+          - paragraph [ref=e946]: Resources
+          - list [ref=e947]:
+            - listitem [ref=e948]:
+              - link "Insights" [ref=e949] [cursor=pointer]:
+                - /url: /insights
+            - listitem [ref=e950]:
+              - link "Case Studies" [ref=e951] [cursor=pointer]:
+                - /url: /case-studies
+            - listitem [ref=e952]:
+              - link "Free Marketing Audit" [ref=e953] [cursor=pointer]:
+                - /url: /contact
+            - listitem [ref=e954]:
+              - link "Brand Guidelines" [ref=e955] [cursor=pointer]:
+                - /url: /brand
+        - generic [ref=e956]:
+          - generic [ref=e957]:
+            - paragraph [ref=e958]: Our Office
+            - list [ref=e959]:
+              - listitem [ref=e960]: Hurghada, Red Sea Governorate, Egypt
+              - listitem [ref=e961]: Sunday to Thursday, 9 AM to 6 PM (EET)
+              - listitem [ref=e962]:
+                - status [ref=e963]:
+                  - generic [ref=e965]: Office closed
+          - generic [ref=e966]:
+            - paragraph [ref=e967]: Reach Us
+            - list [ref=e968]:
+              - listitem [ref=e969]:
+                - link "hello@mediabubble.com" [ref=e970] [cursor=pointer]:
+                  - /url: mailto:hello@mediabubble.com
+              - listitem [ref=e971]:
+                - link "+20 123 456 7890" [ref=e972] [cursor=pointer]:
+                  - /url: tel:+201234567890
+              - listitem [ref=e973]:
+                - list "Follow Us" [ref=e974]:
+                  - listitem [ref=e975]:
+                    - link "View on GitHub" [ref=e976] [cursor=pointer]:
+                      - /url: https://github.com/mediabubble
+                      - img [ref=e977]
+                  - listitem [ref=e979]:
+                    - link "Follow on Facebook" [ref=e980] [cursor=pointer]:
+                      - /url: https://www.facebook.com/mediabubble
+                      - img [ref=e981]
+                  - listitem [ref=e983]:
+                    - link "Follow on Instagram" [ref=e984] [cursor=pointer]:
+                      - /url: https://www.instagram.com/mediabubble
+                      - img [ref=e985]
+                  - listitem [ref=e987]:
+                    - link "Connect on LinkedIn" [ref=e988] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/company/mediabubble
+                      - img [ref=e989]
+                  - listitem [ref=e991]:
+                    - link "Follow on TikTok" [ref=e992] [cursor=pointer]:
+                      - /url: https://www.tiktok.com/@mediabubble
+                      - img [ref=e993]
+      - generic [ref=e995]:
+        - paragraph [ref=e996]: © 2026 MediaBubble. All rights reserved.
+        - navigation "Legal" [ref=e997]:
+          - link "Privacy Policy" [ref=e998] [cursor=pointer]:
+            - /url: /privacy
+          - link "Terms of Service" [ref=e999] [cursor=pointer]:
+            - /url: /terms
+          - link "Cookie Policy" [ref=e1000] [cursor=pointer]:
+            - /url: /cookies

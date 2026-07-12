@@ -61,7 +61,7 @@ function TestimonialCard({ item, dir = 'ltr' }: { item: TestimonialItem; dir?: '
       </p>
 
       {/* Role */}
-      <p className="text-[11px] text-brand-muted-steel dark:text-brand-text-muted mb-2">
+      <p className="text-[11px] text-brand-secondary dark:text-brand-text-muted mb-2">
         {t(item.roleKey, item.roleFallback)}
       </p>
 
@@ -135,7 +135,7 @@ export function TestimonialsSection() {
           <p className={marketingKickerClassName}>
             {t('testimonials.heading.kicker', 'Client Stories')}
           </p>
-          <h2 className="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-brand-navy dark:text-brand-off-white leading-tight mb-4">
+          <h2 className="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-brand-navy dark:text-brand-off-white leading-tight mb-4 [text-wrap:balance]">
             {t('testimonials.heading.title', 'What clients report after year one')}
           </h2>
           <p className="text-[14px] text-brand-secondary dark:text-brand-text-muted leading-relaxed">

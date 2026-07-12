@@ -36,7 +36,7 @@ export function SectionHeader({
       <h2
         id={id}
         className={[
-          'font-display text-[28px] sm:text-[34px] lg:text-[40px] font-bold leading-tight mb-4',
+          'font-display text-[28px] sm:text-[34px] lg:text-[40px] font-bold leading-tight mb-4 [text-wrap:balance]',
           light ? 'text-white' : 'text-brand-navy dark:text-brand-off-white',
         ].join(' ')}
       >
@@ -45,7 +45,7 @@ export function SectionHeader({
       {intro && (
         <p
           className={[
-            'text-[16px] sm:text-[17px] leading-relaxed',
+            'text-[16px] sm:text-[17px] leading-relaxed [text-wrap:pretty]',
             light ? 'text-white/70' : 'text-brand-secondary dark:text-brand-muted-steel',
           ].join(' ')}
         >

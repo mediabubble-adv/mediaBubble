@@ -1,5 +1,16 @@
 import { CASE_STUDIES } from '@/lib/data/case-studies'
 
+// Case-specific portfolio art keeps the homepage grounded in each result story
+// while preserving MediaBubble's agency-led visual language.
+const SERVICE_IMAGE_OVERRIDE: Record<string, string> = {
+  'coral-bay':        '/assets/showcase/showcase-coral-bay-direct-bookings.webp',
+  'red-sea-divers':   '/assets/showcase/showcase-red-sea-divers-visibility.webp',
+  'aqua-sports':      '/assets/showcase/showcase-aqua-sports-branding.webp',
+  'desert-rose':      '/assets/showcase/showcase-social-production.jpg',
+  'marina-view':      '/assets/showcase/showcase-marina-view-launch.webp',
+  'hurghada-rentals': '/assets/showcase/showcase-hurghada-rentals-rebuild.webp',
+}
+
 const SHOWCASE_ORDER = [
   'coral-bay',
   'red-sea-divers',
@@ -57,7 +68,7 @@ export const SHOWCASE_PROJECTS = SHOWCASE_ORDER.map(id => {
     id: cs.id,
     accent: cs.accent,
     bg: cs.bg,
-    image: cs.heroImage ?? '',
+    image: SERVICE_IMAGE_OVERRIDE[id] ?? cs.heroImage ?? '',
     imageAlt: cs.heroImageAlt ?? cs.client,
     tagFallback: cs.tag,
     poeticTitleFallback: cs.client,

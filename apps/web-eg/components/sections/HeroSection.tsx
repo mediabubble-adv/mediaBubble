@@ -7,12 +7,14 @@ import { ArrowRight, Check, ChevronDown } from 'lucide-react'
 import { getButtonClasses } from '@mediabubble/design-system'
 import { Container } from '@/components/layout/Container'
 import { useI18n } from '@/lib/i18n/provider'
+import { BlobMask } from '@/components/ui/BlobMask'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 export const HERO_IMAGE_FALLBACK = '/assets/mediaBubble_main_artwork.svg'
 
 export type HeroSize = 'full' | 'medium' | 'small' | 'compact'
+export type HeroMode = 'blob' | 'background-blur'
 
 const HERO_MIN_HEIGHT: Record<HeroSize, string> = {
   full:    'min-h-[100dvh]',   // homepage
@@ -40,6 +42,8 @@ export interface HeroSectionProps {
   dropdownMenu?: { label: string; href: string }[]
   /** Controls the minimum viewport height of the hero section. Defaults to 'full' (100dvh). */
   size?: HeroSize
+  /** Controls hero display mode: 'blob' for image-right layout with blob mask (homepage), 'background-blur' for fullscreen background with dark overlay (all other pages). */
+  mode?: HeroMode
   onPrimaryCtaClick?: () => void
 }
 
@@ -59,6 +63,7 @@ export function HeroSection({
   showScrollIndicator = true,
   dropdownMenu,
   size = 'full',
+  mode = 'blob',
   onPrimaryCtaClick,
 }: HeroSectionProps) {
   const { t } = useI18n()
@@ -90,7 +95,9 @@ export function HeroSection({
     return () => window.removeEventListener('scroll', onScroll)
   }, [displayImage])
 
-  const isSplit = !!displayImage
+  // In 'blob' mode: image is side-by-side with text. In 'background-blur': image is fullscreen background.
+  const isBlobMode = mode === 'blob'
+  const isSplit = isBlobMode && !!displayImage
   const isImageLeft = layout === 'image-left'
   // Center text on mobile when there is no image (default single-column layout)
   const centerMobile = !isSplit
@@ -236,7 +243,12 @@ export function HeroSection({
         ref={imageRef}
         className="relative will-change-transform"
       >
-        <div className="relative rounded-2xl overflow-hidden shadow-[0_24px_64px_rgba(0,0,0,0.1)] aspect-[4/3] bg-white/5">
+        <BlobMask
+          sequence="orb"
+          className="aspect-[5/3] w-full"
+          outlineColor="#2196F3"
+          transitionDuration={25000}
+        >
           <Image
             src={displayImage}
             alt=""
@@ -259,7 +271,7 @@ export function HeroSection({
             aria-hidden="true"
             className="absolute inset-0 bg-gradient-to-t from-black/[0.06] to-transparent pointer-events-none"
           />
-        </div>
+        </BlobMask>
       </div>
 
       {/* Decorative background glow behind image */}
@@ -277,10 +289,13 @@ export function HeroSection({
 
   // ─── Background ─────────────────────────────────────────────────────────────
 
-  const bgClassName = backgroundImage
+  // In background-blur mode: use backgroundImage as fullscreen background with dark overlay.
+  // In blob mode: use backgroundImage if provided, otherwise use gradient.
+  const shouldUseBackgroundImage = backgroundImage && !isBlobMode
+  const bgClassName = shouldUseBackgroundImage
     ? ''
     : 'bg-gradient-to-br from-brand-navy via-[#0a3278] to-[#1565C0]'
-  const bgStyle = backgroundImage
+  const bgStyle = shouldUseBackgroundImage
     ? { backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }
     : undefined
 
@@ -291,55 +306,73 @@ export function HeroSection({
       className={`relative overflow-hidden ${HERO_MIN_HEIGHT[size]} flex flex-col ${bgClassName}`}
       style={bgStyle}
     >
-      {/* Background decorations */}
-      <div aria-hidden="true" className="absolute inset-0 pointer-events-none select-none">
+      {/* Navy blue blur overlay for background-blur mode */}
+      {!isBlobMode && (
         <div
-          className="absolute rounded-full opacity-[0.07]"
-          style={{
-            width: 560,
-            height: 560,
-            top: '-18%',
-            right: '-6%',
-            background: 'radial-gradient(circle, #2196F3, transparent 70%)',
-          }}
+          aria-hidden="true"
+          className="absolute inset-0 backdrop-blur-[2px] z-0"
+          style={{ backgroundColor: 'rgba(10, 31, 77, 0.9)' }}
         />
-        <div
-          className="absolute rounded-full opacity-[0.04]"
-          style={{
-            width: 400,
-            height: 400,
-            bottom: '-12%',
-            left: '-4%',
-            background: 'radial-gradient(circle, #072A6B, transparent 70%)',
-          }}
-        />
-      </div>
+      )}
+
+      {/* Background decorations (only in blob mode) */}
+      {isBlobMode && (
+        <div aria-hidden="true" className="absolute inset-0 pointer-events-none select-none">
+          <div
+            className="absolute rounded-full opacity-[0.07]"
+            style={{
+              width: 560,
+              height: 560,
+              top: '-18%',
+              right: '-6%',
+              background: 'radial-gradient(circle, #2196F3, transparent 70%)',
+            }}
+          />
+          <div
+            className="absolute rounded-full opacity-[0.04]"
+            style={{
+              width: 400,
+              height: 400,
+              bottom: '-12%',
+              left: '-4%',
+              background: 'radial-gradient(circle, #072A6B, transparent 70%)',
+            }}
+          />
+        </div>
+      )}
 
       {/* Content */}
       <Container className="relative z-10 flex-1 flex items-center pt-20 pb-12 sm:pb-20 lg:pb-28">
-        {isSplit ? (
-          /* Two-column layout. On mobile: image first, then text. */
-          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-            {/* Image — always first in DOM = always on top on mobile */}
-            <div
-              className={`w-full lg:w-1/2 ${
-                isImageLeft ? 'lg:order-1' : 'lg:order-2'
-              }`}
-            >
-              {imageBlock}
+        {isBlobMode ? (
+          isSplit ? (
+            /* Two-column layout (blob mode with image). On mobile: image first, then text. */
+            <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+              {/* Image — always first in DOM = always on top on mobile */}
+              <div
+                className={`w-full lg:w-1/2 ${
+                  isImageLeft ? 'lg:order-1' : 'lg:order-2 lg:mr-8'
+                }`}
+              >
+                {imageBlock}
+              </div>
+              {/* Text — below image on mobile, position driven by order on desktop */}
+              <div
+                className={`w-full lg:w-1/2 ${
+                  isImageLeft ? 'lg:order-2' : 'lg:order-1'
+                }`}
+              >
+                {textBlock}
+              </div>
             </div>
-            {/* Text — below image on mobile, position driven by order on desktop */}
-            <div
-              className={`w-full lg:w-1/2 ${
-                isImageLeft ? 'lg:order-2' : 'lg:order-1'
-              }`}
-            >
+          ) : (
+            /* Single-column layout (blob mode without image) */
+            <div className="max-w-3xl mx-auto sm:mx-0">
               {textBlock}
             </div>
-          </div>
+          )
         ) : (
-          /* Single-column layout when no image */
-          <div className="max-w-3xl mx-auto sm:mx-0">
+          /* Single-column centered layout (background-blur mode) */
+          <div className="max-w-3xl mx-auto sm:mx-0 text-center sm:text-left">
             {textBlock}
           </div>
         )}

@@ -15,7 +15,7 @@ export function CtaSection() {
           <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-brand-navy/60 mb-3">
             {t('cta.section.kicker', 'Ready to talk?')}
           </p>
-          <h2 className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-bold text-brand-navy leading-tight mb-5">
+          <h2 className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-bold text-brand-navy leading-tight mb-5 [text-wrap:balance]">
             {t('cta.section.title', 'Book your free strategy audit')}
           </h2>
           <p className="text-[16px] text-brand-navy/70 leading-relaxed mb-8">
