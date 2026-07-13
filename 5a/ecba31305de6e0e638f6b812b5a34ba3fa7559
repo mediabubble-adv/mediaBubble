@@ -1,0 +1,29 @@
+apps/web-ae/components/sections/TestimonialsSection.tsx
+  s_b32000679b3bc8::t_9fccd929fcc9be 30-38,43
+  s_b32000679b3bc8::t_7d7a09925be33c 125-130
+apps/web-eg/components/sections/ResultsMarquee.tsx
+  s_b32000679b3bc8::t_f5043275a0906d 29,32
+  s_b32000679b3bc8::t_ecef41abcef96a 64-69
+apps/web-eg/components/sections/ClientLogosSection.tsx
+  s_b32000679b3bc8::t_6462791cc99c2f 18-24,29-30,32-38
+  s_b32000679b3bc8::t_27cf0652e40f4f 74-79
+apps/web-eg/components/sections/TestimonialsSection.tsx
+  s_b32000679b3bc8::t_5c922a2140f02c 30-38,43
+  s_b32000679b3bc8::t_de7d36546b22a0 125-130
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "5aecba31305de6e0e638f6b812b5a34ba3fa7559",
+  "prompts": {},
+  "sessions": {
+    "s_b32000679b3bc8": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "35a6fd56-c092-4e93-a761-4d6b7469ae61",
+        "model": "grok-4.5"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
