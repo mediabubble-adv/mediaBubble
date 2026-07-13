@@ -27,11 +27,20 @@ function StarRating({ color, className = '' }: { color: string; className?: stri
   )
 }
 
-function TestimonialCard({ item, dir = 'ltr' }: { item: TestimonialItem; dir?: 'ltr' | 'rtl' }) {
+function TestimonialCard({
+  item,
+  dir = 'ltr',
+  'aria-hidden': ariaHidden,
+}: {
+  item: TestimonialItem
+  dir?: 'ltr' | 'rtl'
+  'aria-hidden'?: boolean
+}) {
   const { t } = useI18n()
   return (
     <figure
       dir={dir}
+      aria-hidden={ariaHidden || undefined}
       className="shrink-0 w-[340px] sm:w-[400px] bg-brand-surface rounded-2xl border border-brand-whisper-border dark:border-white/10 px-6 pb-6 pt-14 flex flex-col shadow-sm hover:shadow-md dark:hover:shadow-[0_8px_24px_rgba(0,0,0,0.35)] transition-shadow duration-300 text-center"
     >
       {/* Photo / Avatar — overlapping top */}
@@ -97,7 +106,6 @@ function MarqueeTrack({
   reverse?: boolean
   dir?: 'ltr' | 'rtl'
 }) {
-  const allItems = [...items, ...items]
   const animClass = reverse ? 'animate-marquee-right' : 'animate-marquee-left'
 
   return (
@@ -114,8 +122,12 @@ function MarqueeTrack({
           animationDuration: `${duration}s`,
         }}
       >
-        {allItems.map((item, i) => (
-          <TestimonialCard key={`${item.authorKey}-${i}`} item={item} dir={dir} />
+        {items.map((item) => (
+          <TestimonialCard key={item.authorKey} item={item} dir={dir} />
+        ))}
+        {/* Duplicate set for seamless CSS marquee — hidden from assistive tech */}
+        {items.map((item) => (
+          <TestimonialCard key={`${item.authorKey}-dup`} item={item} dir={dir} aria-hidden />
         ))}
       </div>
     </div>

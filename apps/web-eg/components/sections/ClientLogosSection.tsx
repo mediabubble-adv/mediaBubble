@@ -15,14 +15,27 @@ const CLIENTS = [
 
 type Client = (typeof CLIENTS)[number]
 
-function Logo({ name, src, width, height }: Client) {
+function Logo({
+  name,
+  src,
+  width,
+  height,
+  'aria-hidden': ariaHidden,
+}: Client & { 'aria-hidden'?: boolean }) {
   return (
     <div
       className="relative shrink-0 grayscale opacity-50 transition-all duration-200 hover:grayscale-0 hover:opacity-100 dark:opacity-60 dark:hover:opacity-100"
       style={{ width, height }}
-      aria-label={name}
+      aria-hidden={ariaHidden || undefined}
+      aria-label={ariaHidden ? undefined : name}
     >
-      <Image src={src} alt={name} fill className="object-contain" sizes={`${width}px`} />
+      <Image
+        src={src}
+        alt={ariaHidden ? '' : name}
+        fill
+        className="object-contain"
+        sizes={`${width}px`}
+      />
     </div>
   )
 }
@@ -30,8 +43,6 @@ function Logo({ name, src, width, height }: Client) {
 export function ClientLogosSection() {
   const { t, dir } = useI18n()
   const prefersReducedMotion = usePrefersReducedMotion()
-  const doubled = [...CLIENTS, ...CLIENTS]
-
   return (
     <section
       dir={dir}
@@ -60,8 +71,12 @@ export function ClientLogosSection() {
             className="flex w-max items-center gap-x-14 will-change-transform animate-marquee-left group-hover:[animation-play-state:paused] sm:gap-x-20"
             style={{ animationDuration: '40s' }}
           >
-            {doubled.map((client, i) => (
-              <Logo key={`${client.name}-${i}`} {...client} />
+            {CLIENTS.map((client) => (
+              <Logo key={client.name} {...client} />
+            ))}
+            {/* Duplicate set for seamless CSS marquee — hidden from assistive tech */}
+            {CLIENTS.map((client) => (
+              <Logo key={`${client.name}-dup`} {...client} aria-hidden />
             ))}
           </div>
         </div>

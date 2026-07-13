@@ -26,10 +26,10 @@ const ROW_B: Result[] = [
 
 // ─── Item ───────────────────────────────────────────────────────────────────
 
-function ResultItem({ item }: { item: Result }) {
+function ResultItem({ item, 'aria-hidden': ariaHidden }: { item: Result; 'aria-hidden'?: boolean }) {
   const { t } = useI18n()
   return (
-    <div className="flex shrink-0 items-baseline gap-3 px-7 sm:px-9">
+    <div className="flex shrink-0 items-baseline gap-3 px-7 sm:px-9" aria-hidden={ariaHidden || undefined}>
       <span className="font-display text-[clamp(1.5rem,2.4vw,2.1rem)] font-bold tabular-nums tracking-tight text-brand-navy dark:text-brand-off-white">
         {item.value}
       </span>
@@ -52,7 +52,6 @@ function Track({
   duration: number
   reverse?: boolean
 }) {
-  const doubled = [...items, ...items]
   const animClass = reverse ? 'animate-marquee-right' : 'animate-marquee-left'
   return (
     <div dir="ltr" className="group relative overflow-hidden py-4">
@@ -62,8 +61,12 @@ function Track({
         className={`flex w-max items-center will-change-transform ${animClass} group-hover:[animation-play-state:paused]`}
         style={{ animationDuration: `${duration}s` }}
       >
-        {doubled.map((item, i) => (
-          <ResultItem key={`${item.labelKey}-${i}`} item={item} />
+        {items.map((item) => (
+          <ResultItem key={item.labelKey} item={item} />
+        ))}
+        {/* Duplicate set for seamless CSS marquee — hidden from assistive tech */}
+        {items.map((item) => (
+          <ResultItem key={`${item.labelKey}-dup`} item={item} aria-hidden />
         ))}
       </div>
     </div>
