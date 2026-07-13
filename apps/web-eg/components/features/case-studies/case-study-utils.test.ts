@@ -5,6 +5,10 @@ describe('portfolio paths', () => {
   it('builds local asset paths', () => {
     expect(caseStudyAsset('coral-bay', 'hero')).toBe('/assets/case-studies/coral-bay/hero.webp')
   })
+
+  it('builds local asset paths for v2 assets', () => {
+    expect(caseStudyAsset('coral-bay', 'hero', true)).toBe('/assets/case-studies/coral-bay/hero-v2.webp')
+  })
 })
 
 describe('case studies', () => {
@@ -20,6 +24,6 @@ describe('case studies', () => {
   it('resolves slug lookup', () => {
     const cs = getCaseStudyBySlug('coral-bay')
     expect(cs?.client).toBe('Coral Bay Resort')
-    expect(cs?.beforeAfter?.before.src).toContain('before.webp')
+    expect(cs?.beforeAfter?.before.src).toContain('before-v2.webp')
   })
 })

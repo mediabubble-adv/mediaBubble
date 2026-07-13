@@ -17,6 +17,8 @@ export const seoServiceConfig: ServicePageConfig = {
       { value: '6 mo', label: 'Median time to page 1' },
       { value: '92%', label: 'Client retention' },
     ],
+    image: '/assets/hero/modern/render-d.webp',
+    imageFallback: '/assets/hero/modern/render-d.jpg',
   },
   sections: [
     'hero',

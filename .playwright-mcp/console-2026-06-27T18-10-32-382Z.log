@@ -1,0 +1,202 @@
+[    3483ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/../../node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    3896ms] [LOG] [HMR] connected @ webpack-internal:///(app-pages-browser)/../../node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    6330ms] [ERROR] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <RootLayout>
+                        <html lang="en" dir="ltr" suppressHydrationWarning={true}>
+                          <head>
+                            <script
++                             nonce="zdK7FhNbVgJZh9mtpoeDHQ=="
+-                             nonce=""
+                              dangerouslySetInnerHTML={{__html:"(function(..."}}
+                            >
+                            <script
++                             nonce="zdK7FhNbVgJZh9mtpoeDHQ=="
+-                             nonce=""
+                              dangerouslySetInnerHTML={{__html:"(function(..."}}
+                            >
+                            <script
++                             nonce="zdK7FhNbVgJZh9mtpoeDHQ=="
+-                             nonce=""
+                              dangerouslySetInnerHTML={{__html:"(function(..."}}
+                            >
+                            ...
+                          ...
+                  ...
+ @ webpack-internal:///(app-pages-browser)/../../node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[    6366ms] [WARNING] Image with src "http://localhost:3000/assets/Logo/mediaBubble_logo_horizontal_text_white.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio. @ webpack-internal:///(app-pages-browser)/../../node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    6372ms] [WARNING] Image with src "http://localhost:3000/assets/Logo/mediaBubble_logo_horizontal_full_color.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio. @ webpack-internal:///(app-pages-browser)/../../node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    9640ms] [WARNING] The resource http://localhost:3000/_next/static/media/b957ea75a84b6ea7-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[    9640ms] [WARNING] The resource http://localhost:3000/_next/static/media/6245472ced48d3be-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[    9640ms] [WARNING] The resource http://localhost:3000/_next/static/media/e4af272ccee01ff0-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[    9640ms] [WARNING] The resource http://localhost:3000/_next/static/media/0484562807a97172-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[    9640ms] [WARNING] The resource http://localhost:3000/_next/static/media/eafabf029ad39a43-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[   22412ms] [WARNING] The resource http://localhost:3000/_next/static/media/b957ea75a84b6ea7-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[   22412ms] [WARNING] The resource http://localhost:3000/_next/static/media/6245472ced48d3be-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[   22412ms] [WARNING] The resource http://localhost:3000/_next/static/media/e4af272ccee01ff0-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[   22412ms] [WARNING] The resource http://localhost:3000/_next/static/media/0484562807a97172-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[   22412ms] [WARNING] The resource http://localhost:3000/_next/static/media/eafabf029ad39a43-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  281486ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/../../node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[  282786ms] [LOG] [Fast Refresh] done in 1300ms @ webpack-internal:///(app-pages-browser)/../../node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[  283541ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/../../node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[  286949ms] [WARNING] The resource http://localhost:3000/_next/static/media/b957ea75a84b6ea7-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  286949ms] [WARNING] The resource http://localhost:3000/_next/static/media/6245472ced48d3be-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  286949ms] [WARNING] The resource http://localhost:3000/_next/static/media/e4af272ccee01ff0-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  286950ms] [WARNING] The resource http://localhost:3000/_next/static/media/0484562807a97172-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  286950ms] [WARNING] The resource http://localhost:3000/_next/static/media/eafabf029ad39a43-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  288964ms] [LOG] [Fast Refresh] done in 5423ms @ webpack-internal:///(app-pages-browser)/../../node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[  296552ms] [WARNING] The resource http://localhost:3000/_next/static/media/b957ea75a84b6ea7-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  296552ms] [WARNING] The resource http://localhost:3000/_next/static/media/6245472ced48d3be-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  296552ms] [WARNING] The resource http://localhost:3000/_next/static/media/e4af272ccee01ff0-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  296552ms] [WARNING] The resource http://localhost:3000/_next/static/media/0484562807a97172-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  296552ms] [WARNING] The resource http://localhost:3000/_next/static/media/eafabf029ad39a43-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  324129ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/../../node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[  327123ms] [ERROR] ./components/sections/ShowcaseSection.tsx
+Error:   x Expected '</', got ')'
+     ,-[/Users/Dorgham/Documents/Work/Devleopment/mediiabubble Main/apps/web-eg/components/sections/ShowcaseSection.tsx:164:1]
+ 161 |                 </div>
+ 162 |               </div>
+ 163 |             </Link>
+ 164 |           ))}
+     :            ^
+ 165 |         </div>
+ 166 | 
+ 167 |         <div className="mt-6 flex justify-center gap-2" aria-hidden="true">
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./components/sections/ShowcaseSection.tsx
+./app/content.tsx @ webpack-internal:///(app-pages-browser)/../../node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[  327532ms] [WARNING] The resource http://localhost:3000/_next/static/media/b957ea75a84b6ea7-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  327532ms] [WARNING] The resource http://localhost:3000/_next/static/media/6245472ced48d3be-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  327532ms] [WARNING] The resource http://localhost:3000/_next/static/media/e4af272ccee01ff0-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  327532ms] [WARNING] The resource http://localhost:3000/_next/static/media/0484562807a97172-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  327532ms] [WARNING] The resource http://localhost:3000/_next/static/media/eafabf029ad39a43-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  330578ms] [WARNING] The resource http://localhost:3000/_next/static/media/b957ea75a84b6ea7-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  330578ms] [WARNING] The resource http://localhost:3000/_next/static/media/6245472ced48d3be-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  330578ms] [WARNING] The resource http://localhost:3000/_next/static/media/e4af272ccee01ff0-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  330578ms] [WARNING] The resource http://localhost:3000/_next/static/media/0484562807a97172-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  330578ms] [WARNING] The resource http://localhost:3000/_next/static/media/eafabf029ad39a43-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  392707ms] [ERROR] ./components/sections/ShowcaseSection.tsx
+Error:   x Expected '</', got ')'
+     ,-[/Users/Dorgham/Documents/Work/Devleopment/mediiabubble Main/apps/web-eg/components/sections/ShowcaseSection.tsx:164:1]
+ 161 |                 </div>
+ 162 |               </div>
+ 163 |             </Link>
+ 164 |           ))}
+     :            ^
+ 165 |         </div>
+ 166 | 
+ 167 |         <div className="mt-6 flex justify-center gap-2" aria-hidden="true">
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./components/sections/ShowcaseSection.tsx
+./app/content.tsx @ webpack-internal:///(app-pages-browser)/../../node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[  393695ms] [ERROR] ./components/sections/ShowcaseSection.tsx
+Error:   x Expected '</', got ')'
+     ,-[/Users/Dorgham/Documents/Work/Devleopment/mediiabubble Main/apps/web-eg/components/sections/ShowcaseSection.tsx:164:1]
+ 161 |                 </div>
+ 162 |               </div>
+ 163 |             </Link>
+ 164 |           ))}
+     :            ^
+ 165 |         </div>
+ 166 | 
+ 167 |         <div className="mt-6 flex justify-center gap-2" aria-hidden="true">
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./components/sections/ShowcaseSection.tsx
+./app/content.tsx @ webpack-internal:///(app-pages-browser)/../../node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[  393819ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/../../node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[  394171ms] [ERROR] ./components/sections/ShowcaseSection.tsx
+Error:   x Expected '</', got ')'
+     ,-[/Users/Dorgham/Documents/Work/Devleopment/mediiabubble Main/apps/web-eg/components/sections/ShowcaseSection.tsx:164:1]
+ 161 |                 </div>
+ 162 |               </div>
+ 163 |             </Link>
+ 164 |           ))}
+     :            ^
+ 165 |         </div>
+ 166 | 
+ 167 |         <div className="mt-6 flex justify-center gap-2" aria-hidden="true">
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./components/sections/ShowcaseSection.tsx
+./app/content.tsx @ webpack-internal:///(app-pages-browser)/../../node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[  462418ms] [ERROR] ./components/sections/ShowcaseSection.tsx
+Error:   x Expected '</', got ')'
+     ,-[/Users/Dorgham/Documents/Work/Devleopment/mediiabubble Main/apps/web-eg/components/sections/ShowcaseSection.tsx:164:1]
+ 161 |                 </div>
+ 162 |               </div>
+ 163 |             </Link>
+ 164 |           ))}
+     :            ^
+ 165 |         </div>
+ 166 | 
+ 167 |         <div className="mt-6 flex justify-center gap-2" aria-hidden="true">
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./components/sections/ShowcaseSection.tsx
+./app/content.tsx @ webpack-internal:///(app-pages-browser)/../../node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[  463913ms] [LOG] [Fast Refresh] done in 70094ms @ webpack-internal:///(app-pages-browser)/../../node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[  464205ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/../../node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[  465859ms] [LOG] [Fast Refresh] done in 1655ms @ webpack-internal:///(app-pages-browser)/../../node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[  467607ms] [WARNING] The resource http://localhost:3000/_next/static/media/b957ea75a84b6ea7-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  467608ms] [WARNING] The resource http://localhost:3000/_next/static/media/6245472ced48d3be-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  467608ms] [WARNING] The resource http://localhost:3000/_next/static/media/e4af272ccee01ff0-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  467608ms] [WARNING] The resource http://localhost:3000/_next/static/css/app/layout.css?v=1782584299578 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  467608ms] [WARNING] The resource http://localhost:3000/_next/static/media/0484562807a97172-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  467608ms] [WARNING] The resource http://localhost:3000/_next/static/media/eafabf029ad39a43-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  471912ms] [WARNING] The resource http://localhost:3000/_next/static/media/b957ea75a84b6ea7-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  471913ms] [WARNING] The resource http://localhost:3000/_next/static/media/6245472ced48d3be-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  471913ms] [WARNING] The resource http://localhost:3000/_next/static/media/e4af272ccee01ff0-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  471913ms] [WARNING] The resource http://localhost:3000/_next/static/media/0484562807a97172-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  471913ms] [WARNING] The resource http://localhost:3000/_next/static/media/eafabf029ad39a43-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  526015ms] [WARNING] The resource http://localhost:3000/_next/static/media/b957ea75a84b6ea7-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  526015ms] [WARNING] The resource http://localhost:3000/_next/static/media/6245472ced48d3be-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  526015ms] [WARNING] The resource http://localhost:3000/_next/static/media/e4af272ccee01ff0-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  526015ms] [WARNING] The resource http://localhost:3000/_next/static/media/0484562807a97172-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0
+[  526015ms] [WARNING] The resource http://localhost:3000/_next/static/media/eafabf029ad39a43-s.p.woff2?v=1782583832472 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:0

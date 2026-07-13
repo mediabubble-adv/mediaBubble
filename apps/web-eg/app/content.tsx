@@ -8,13 +8,14 @@ import {
   trackExperimentConversion,
   useExperiment,
 } from '@mediabubble/shared/client'
-import { HeroSection } from '@/components/sections/HeroSection'
+import { HomeHero } from '@/components/sections/HomeHero'
 import { FeaturesSection } from '@/components/sections/FeaturesSection'
 import { MainLayout } from '@/components/layout/MainLayout'
 
 // Below-the-fold sections — lazy-loaded to reduce initial bundle
 const ServicesSection     = dynamic(() => import('@/components/sections/ServicesSection').then(m => ({ default: m.ServicesSection })))
 const ShowcaseSection     = dynamic(() => import('@/components/sections/ShowcaseSection').then(m => ({ default: m.ShowcaseSection })))
+const ResultsMarquee      = dynamic(() => import('@/components/sections/ResultsMarquee').then(m => ({ default: m.ResultsMarquee })))
 const ClientLogosSection  = dynamic(() => import('@/components/sections/ClientLogosSection').then(m => ({ default: m.ClientLogosSection })))
 const WhyUsStrip          = dynamic(() => import('@/components/sections/WhyUsStrip').then(m => ({ default: m.WhyUsStrip })))
 const TestimonialsSection = dynamic(() => import('@/components/sections/TestimonialsSection').then(m => ({ default: m.TestimonialsSection })))
@@ -30,39 +31,35 @@ export function HomePageContent() {
 
   return (
     <MainLayout>
-        <HeroSection
-          title={t('hero.home.title', "Hurghada's growth partner for tourism, hospitality & retail")}
+        <HomeHero
           subtitle={t('hero.home.kicker', "Hurghada's #1 Marketing Agency")}
+          title={t('hero.home.title', "Hurghada's growth partner for tourism, hospitality & retail")}
           description={t(
             'hero.home.description',
             'One team for strategy, content, paid media, and web, with measurable growth for 200+ Red Sea businesses since 2015.',
           )}
-          ctaButtons={{
-            primary:   { label: primaryCtaLabel, href: '/contact' },
-            secondary: { label: t('hero.home.ctaSecondary', 'View case studies'),   href: '/case-studies' },
+          backgroundImage="/assets/hero/home/homepage-hero-4x.webp"
+          primaryCta={{
+            label: primaryCtaLabel,
+            href: '/contact',
+            onClick: () =>
+              trackExperimentConversion(
+                EXPERIMENTS.homeHeroCta.id,
+                heroCtaVariant,
+                'hero_primary_click',
+              ),
           }}
-          onPrimaryCtaClick={() =>
-            trackExperimentConversion(
-              EXPERIMENTS.homeHeroCta.id,
-              heroCtaVariant,
-              'hero_primary_click',
-            )
-          }
+          secondaryCta={{ label: t('hero.home.ctaSecondary', 'View case studies'), href: '/case-studies' }}
+          servicesLink={{ label: t('hero.home.ctaServices', 'Explore all services'), href: '/services' }}
           proofPoints={[
             { text: t('hero.home.proof1', '35% average client growth in 12 months') },
             { text: t('hero.home.proof2', '92% client retention rate') },
             { text: t('hero.home.proof3', '500+ successful projects delivered') },
           ]}
-          dropdownMenu={[
-            { label: t('hero.dropdown.seo', 'SEO & Organic Growth'), href: '/services/seo' },
-            { label: t('hero.dropdown.ppc', 'Paid Advertising'), href: '/services/ppc' },
-            { label: t('hero.dropdown.social', 'Social Media Marketing'), href: '/services/social' },
-            { label: t('hero.dropdown.branding', 'Branding & Design'), href: '/services/branding' },
-            { label: t('hero.dropdown.web', 'Web Development'), href: '/services/web' },
-          ]}
         />
         <FeaturesSection />
         <ShowcaseSection />
+        <ResultsMarquee />
         <ServicesSection />
         <ClientLogosSection />
         <WhyUsStrip />

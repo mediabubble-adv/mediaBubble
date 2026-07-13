@@ -23,17 +23,17 @@ export function CaseStudyContent({ cs }: Props) {
         {cs.beforeAfter && <CaseStudyBeforeAfter pair={cs.beforeAfter} accent={cs.accent} />}
         <CaseStudyGallery cs={cs} />
 
-        <div className="py-10 sm:py-16 bg-white">
+        <div className="py-10 sm:py-16 bg-white dark:bg-brand-navy/20">
           <Container>
             <div className="max-w-3xl space-y-12">
 
               <section aria-label="The challenge">
-                <h2 className="font-display text-[22px] font-bold text-brand-navy mb-4">The Challenge</h2>
-                <p className="text-[15px] text-brand-secondary leading-relaxed">{cs.challenge}</p>
+                <h2 className="font-display text-[22px] font-bold text-brand-navy dark:text-brand-off-white mb-4">The Challenge</h2>
+                <p className="text-[15px] text-brand-secondary dark:text-brand-text-muted leading-relaxed">{cs.challenge}</p>
               </section>
 
               <section aria-label="Our approach">
-                <h2 className="font-display text-[22px] font-bold text-brand-navy mb-5">Our Approach</h2>
+                <h2 className="font-display text-[22px] font-bold text-brand-navy dark:text-brand-off-white mb-5">Our Approach</h2>
                 <ul className="space-y-3" role="list">
                   {cs.approach.map((step, i) => (
                     <li key={i} className="flex items-start gap-3">
@@ -43,22 +43,22 @@ export function CaseStudyContent({ cs }: Props) {
                       >
                         <Check size={11} style={{ color: cs.accent }} strokeWidth={2.5} />
                       </span>
-                      <span className="text-[15px] text-brand-secondary leading-relaxed">{step}</span>
+                      <span className="text-[15px] text-brand-secondary dark:text-brand-text-muted leading-relaxed">{step}</span>
                     </li>
                   ))}
                 </ul>
               </section>
 
               <section aria-label="Results">
-                <h2 className="font-display text-[22px] font-bold text-brand-navy mb-5">The Results</h2>
+                <h2 className="font-display text-[22px] font-bold text-brand-navy dark:text-brand-off-white mb-5">The Results</h2>
                 <div
-                  className="rounded-2xl border p-7 space-y-4"
+                  className="rounded-2xl border p-7 space-y-4 dark:border-white/10 dark:bg-white/[0.04]"
                   style={{ borderColor: `${cs.accent}30`, backgroundColor: cs.bg }}
                 >
                   {cs.results.map((r, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <span className="text-[16px] font-bold shrink-0 leading-snug" style={{ color: cs.accent }}>↗</span>
-                      <span className="text-[15px] font-medium text-brand-navy">{r}</span>
+                      <span className="text-[15px] font-medium text-brand-navy dark:text-brand-off-white">{r}</span>
                     </div>
                   ))}
                 </div>
@@ -70,12 +70,12 @@ export function CaseStudyContent({ cs }: Props) {
 
         <CaseStudyCta cs={cs} />
 
-        <div className="py-8 bg-brand-canvas border-t border-brand-whisper-border">
+        <div className="py-8 bg-brand-canvas dark:bg-brand-surface border-t border-brand-whisper-border">
           <Container>
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
               <Link
                 href="/case-studies"
-                className="inline-flex items-center gap-2 text-[13px] font-semibold text-brand-secondary hover:text-brand-navy transition-colors"
+                className="inline-flex items-center gap-2 text-[13px] font-semibold text-brand-secondary dark:text-brand-text-muted hover:text-brand-navy dark:hover:text-brand-off-white transition-colors"
               >
                 <ArrowLeft size={14} />
                 Back to all case studies

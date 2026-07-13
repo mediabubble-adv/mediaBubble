@@ -6,7 +6,11 @@ const legacy = SERVICES['branding']
 export const brandingServiceConfig: ServicePageConfig = {
   slug: legacy.slug,
   meta: legacy.meta,
-  hero: legacy.hero,
+  hero: {
+    ...legacy.hero,
+    image: '/assets/hero/premium/branding-service.webp',
+    imageFallback: '/assets/hero/premium/branding-service.jpg',
+  },
   features: legacy.features,
   caseStudy: legacy.caseStudy,
   faqs: legacy.faqs,

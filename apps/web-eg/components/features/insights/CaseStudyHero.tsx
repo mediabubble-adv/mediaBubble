@@ -59,13 +59,13 @@ export function CaseStudyHero({ cs }: Props) {
             />
           </div>
           {/* Dark blue scrim layers — keeps hero copy readable on busy photos */}
-          <div className="absolute inset-0 -z-10 bg-[#072A6B]/70" aria-hidden="true" />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#072A6B]/90 via-[#072A6B]/60 to-transparent rtl:bg-gradient-to-l" aria-hidden="true" />
           <div
-            className="absolute inset-0 -z-10 bg-gradient-to-r from-[#072A6B]/95 via-[#072A6B]/82 to-[#072A6B]/40"
+            className="absolute inset-0 -z-10 bg-gradient-to-r from-[#072A6B]/80 via-[#072A6B]/30 to-transparent rtl:bg-gradient-to-l"
             aria-hidden="true"
           />
           <div
-            className="absolute inset-0 -z-10 bg-gradient-to-b from-[#072A6B]/50 via-transparent to-brand-navy/90"
+            className="absolute inset-0 -z-10 bg-gradient-to-b from-[#072A6B]/40 via-transparent to-brand-navy/80"
             aria-hidden="true"
           />
         </>

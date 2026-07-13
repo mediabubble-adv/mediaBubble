@@ -6,6 +6,8 @@ export interface ServiceData {
     title: string
     subtitle: string
     stats: Array<{ value: string; label: string }>
+    image?: string
+    imageFallback?: string
   }
   problems: Array<{ title: string; description: string }>
   process: Array<{ step: number; title: string; description: string }>

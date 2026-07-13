@@ -9,6 +9,13 @@
       "autoPort": true
     },
     {
+      "name": "web-eg Dev Server",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev:eg"],
+      "port": 3000,
+      "autoPort": false
+    },
+    {
       "name": "Next.js Production Preview",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "preview"],

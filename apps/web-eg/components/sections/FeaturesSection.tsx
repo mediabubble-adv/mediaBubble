@@ -45,15 +45,10 @@ const FEATURES: FeatureItem[] = [
   },
 ]
 
-function featureLayoutClass(index: number): string {
-  if (index === 0) {
-    return 'md:col-span-2 border-b border-brand-whisper-border pb-10 md:pb-12'
-  }
-  return 'md:pt-10 md:border-t md:border-brand-whisper-border'
-}
-
 export function FeaturesSection() {
   const { t, dir } = useI18n()
+
+  const [hero, ...rest] = FEATURES
 
   return (
     <section dir={dir} aria-labelledby="features-heading" className="py-12 sm:py-20 lg:py-28 bg-brand-surface">
@@ -73,28 +68,38 @@ export function FeaturesSection() {
           className="mb-12 sm:mb-16 lg:mb-20 max-w-2xl"
         />
 
+        {/* Hero feature — full-width with image */}
+        <div className="border-b border-brand-whisper-border pb-10 md:pb-12 mb-0">
+          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <div className="flex gap-4 sm:gap-8 md:w-1/2">
+              <div className="shrink-0 rounded-xl bg-brand-navy/[0.06] dark:bg-brand-yellow/15 flex items-center justify-center text-brand-navy dark:text-brand-yellow w-12 h-12 sm:w-14 sm:h-14">
+                <hero.icon size={26} aria-hidden="true" />
+              </div>
+              <div className="min-w-0">
+                <h3 className="font-display font-semibold text-[clamp(1.25rem,2vw,1.5rem)] leading-snug text-brand-navy dark:text-brand-off-white mb-2">
+                  {t(hero.titleKey, hero.titleFallback)}
+                </h3>
+                <p className="text-[14px] text-brand-secondary dark:text-brand-text-muted leading-relaxed max-w-prose">
+                  {t(hero.descKey, hero.descFallback)}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Remaining features — 3-column grid with small images */}
         <ul
-          className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-0 list-none p-0 m-0"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-0 list-none p-0 m-0"
           role="list"
         >
-          {FEATURES.map(({ icon: Icon, titleKey, titleFallback, descKey, descFallback }, index) => (
-            <li key={titleKey} className={featureLayoutClass(index)}>
-              <div className={`flex gap-4 sm:gap-5 ${index === 0 ? 'md:gap-8' : ''}`}>
-                <div
-                  className={`shrink-0 rounded-xl bg-brand-navy/[0.06] dark:bg-brand-yellow/15 flex items-center justify-center text-brand-navy dark:text-brand-yellow ${
-                    index === 0 ? 'w-12 h-12 sm:w-14 sm:h-14' : 'w-11 h-11'
-                  }`}
-                >
-                  <Icon size={index === 0 ? 26 : 22} aria-hidden="true" />
+          {rest.map(({ icon: Icon, titleKey, titleFallback, descKey, descFallback }) => (
+            <li key={titleKey} className="pt-10 border-t border-brand-whisper-border">
+              <div className="flex gap-4">
+                <div className="shrink-0 rounded-xl bg-brand-navy/[0.06] dark:bg-brand-yellow/15 flex items-center justify-center text-brand-navy dark:text-brand-yellow w-11 h-11">
+                  <Icon size={22} aria-hidden="true" />
                 </div>
                 <div className="min-w-0">
-                  <h3
-                    className={`font-semibold text-brand-navy dark:text-brand-off-white mb-2 ${
-                      index === 0
-                        ? 'font-display text-[clamp(1.25rem,2vw,1.5rem)] leading-snug'
-                        : 'text-[17px]'
-                    }`}
-                  >
+                  <h3 className="font-semibold text-[17px] text-brand-navy dark:text-brand-off-white mb-2">
                     {t(titleKey, titleFallback)}
                   </h3>
                   <p className="text-[14px] text-brand-secondary dark:text-brand-text-muted leading-relaxed max-w-prose">

@@ -110,7 +110,7 @@ export function ServicesSection() {
           <p className={marketingKickerClassName}>
             {t('services.hero.kicker', 'What We Do')}
           </p>
-          <h2 className="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-brand-navy dark:text-brand-off-white leading-tight mb-4">
+          <h2 className="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-brand-navy dark:text-brand-off-white leading-tight mb-4 [text-wrap:balance]">
             {t('services.hero.title', 'SEO, web, ads, and content from one Hurghada team')}
           </h2>
           <p className="text-[16px] text-brand-secondary dark:text-brand-text-muted leading-relaxed">
@@ -122,74 +122,72 @@ export function ServicesSection() {
         </div>
 
         {/* Primary services */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 mb-8 sm:mb-10">
-          {primaryServices.map((service) => {
+        {/* Primary services — alternating zig-zag feature rows */}
+        <div className="mb-10 sm:mb-14 flex flex-col gap-5 sm:gap-7">
+          {primaryServices.map((service, index) => {
             const Icon = service.icon
+            const flip = index % 2 === 1
             return (
               <Link
                 key={service.id}
                 id={service.id}
                 href={LINKABLE_SERVICE_IDS.has(service.id) ? `/services/${service.id}` : '/contact'}
-                className="group bg-brand-surface rounded-2xl border border-brand-whisper-border p-6 sm:p-7 hover:shadow-[0_4px_20px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_4px_20px_rgba(0,0,0,0.35)] hover:-translate-y-[2px] transition-all duration-200 focus-visible:ring-2 focus-visible:ring-brand-blue outline-none scroll-mt-24"
+                data-reveal
+                data-reveal-delay={String(index * 80)}
+                className="group grid grid-cols-1 items-stretch gap-5 sm:gap-7 md:grid-cols-2 scroll-mt-24 outline-none"
               >
+                {/* Accent panel with oversized ghost icon */}
                 <div
-                  className="w-11 h-11 rounded-xl flex items-center justify-center mb-5"
-                  style={{ backgroundColor: `${service.color}14` }}
+                  className={[
+                    'relative flex min-h-[180px] items-end overflow-hidden rounded-2xl p-7 sm:p-8 transition-transform duration-300 group-hover:-translate-y-1',
+                    flip ? 'md:order-2' : 'md:order-1',
+                  ].join(' ')}
+                  style={{ backgroundColor: `${service.color}12` }}
                 >
-                  <Icon size={22} strokeWidth={1.75} style={{ color: service.color }} />
+                  <Icon
+                    aria-hidden="true"
+                    strokeWidth={1.25}
+                    className="pointer-events-none absolute -end-6 -top-6 h-44 w-44 opacity-[0.10] transition-transform duration-500 group-hover:scale-110"
+                    style={{ color: service.color }}
+                  />
+                  <div
+                    className="flex h-12 w-12 items-center justify-center rounded-2xl"
+                    style={{ backgroundColor: `${service.color}1f` }}
+                  >
+                    <Icon size={24} strokeWidth={1.75} style={{ color: service.color }} />
+                  </div>
                 </div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] mb-1.5" style={{ color: service.color }}>
-                  {t(service.subtitleKey, service.subtitleFallback)}
-                </p>
-                <h3 className="font-display text-[16px] sm:text-[17px] font-bold text-brand-charcoal dark:text-brand-off-white leading-snug mb-2">
-                  {t(service.titleKey, service.titleFallback)}
-                </h3>
-                <p className="text-[13px] sm:text-[14px] text-brand-secondary dark:text-brand-text-muted leading-relaxed">
-                  {t(service.descKey, service.descFallback)}
-                </p>
-                <div className="flex items-center gap-1 mt-5 text-[12px] font-semibold text-brand-blue opacity-0 group-hover:opacity-100 transition-opacity duration-150">
-                  {t('common.learnMore', 'View service')}
-                  <ArrowRight size={13} className="transition-transform duration-150 group-hover:translate-x-[2px]" />
+
+                {/* Content */}
+                <div
+                  className={[
+                    'flex flex-col justify-center rounded-2xl border border-brand-whisper-border bg-brand-surface p-7 sm:p-9 transition-shadow duration-300 group-hover:shadow-[0_4px_12px_rgba(0,0,0,0.10)] dark:group-hover:shadow-[0_4px_16px_rgba(0,0,0,0.40)] group-focus-visible:ring-2 group-focus-visible:ring-brand-blue',
+                    flip ? 'md:order-1' : 'md:order-2',
+                  ].join(' ')}
+                >
+                  <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.14em]" style={{ color: service.color }}>
+                    {t(service.subtitleKey, service.subtitleFallback)}
+                  </p>
+                  <h3 className="mb-3 font-display text-[clamp(1.15rem,2vw,1.5rem)] font-bold leading-snug text-brand-charcoal dark:text-brand-off-white">
+                    {t(service.titleKey, service.titleFallback)}
+                  </h3>
+                  <p className="text-[14px] sm:text-[15px] leading-relaxed text-brand-secondary dark:text-brand-text-muted">
+                    {t(service.descKey, service.descFallback)}
+                  </p>
+                  <div className="mt-6 flex items-center gap-1.5 text-[13px] font-semibold text-brand-blue">
+                    {t('common.learnMore', 'View service')}
+                    <ArrowRight
+                      size={15}
+                      className="transition-transform duration-200 group-hover:translate-x-[3px]"
+                      style={{ transform: dir === 'rtl' ? 'scaleX(-1)' : 'none' }}
+                    />
+                  </div>
                 </div>
               </Link>
             )
           })}
         </div>
 
-        {/* Secondary services */}
-        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-0 border-t border-brand-whisper-border pt-6 sm:pt-8 list-none p-0 m-0" role="list">
-          {secondaryServices.map((service) => {
-            const Icon = service.icon
-            return (
-              <li key={service.id} className="border-b border-brand-whisper-border sm:[&:nth-last-child(-n+2)]:border-b-0">
-                <Link
-                  id={service.id}
-                  href={LINKABLE_SERVICE_IDS.has(service.id) ? `/services/${service.id}` : '/contact'}
-                  className="group flex items-start gap-4 py-5 sm:py-6 focus-visible:ring-2 focus-visible:ring-brand-blue outline-none rounded-lg scroll-mt-24"
-                >
-                  <div
-                    className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5"
-                    style={{ backgroundColor: `${service.color}14` }}
-                  >
-                    <Icon size={18} strokeWidth={1.75} style={{ color: service.color }} />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.14em] mb-1" style={{ color: service.color }}>
-                      {t(service.subtitleKey, service.subtitleFallback)}
-                    </p>
-                    <h3 className="font-display text-[15px] font-bold text-brand-charcoal dark:text-brand-off-white leading-snug group-hover:text-brand-blue transition-colors duration-150">
-                      {t(service.titleKey, service.titleFallback)}
-                    </h3>
-                  </div>
-                  <ArrowRight
-                    size={14}
-                    className="ms-auto shrink-0 text-brand-blue opacity-0 group-hover:opacity-100 transition-opacity duration-150 mt-1"
-                  />
-                </Link>
-              </li>
-            )
-          })}
-        </ul>
       </Container>
     </section>
   )

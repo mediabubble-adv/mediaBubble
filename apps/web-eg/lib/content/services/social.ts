@@ -6,7 +6,11 @@ const legacy = SERVICES['social']
 export const socialServiceConfig: ServicePageConfig = {
   slug: legacy.slug,
   meta: legacy.meta,
-  hero: legacy.hero,
+  hero: {
+    ...legacy.hero,
+    image: '/assets/hero/modern/render-c.webp',
+    imageFallback: '/assets/hero/modern/render-c.jpg',
+  },
   features: legacy.features,
   caseStudy: legacy.caseStudy,
   faqs: legacy.faqs,

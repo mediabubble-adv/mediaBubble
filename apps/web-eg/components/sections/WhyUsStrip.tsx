@@ -52,13 +52,13 @@ export function WhyUsStrip() {
           </p>
           <h2
             id={headingId}
-            className="font-display text-[clamp(1.5rem,2.8vw,2.25rem)] font-bold text-brand-navy dark:text-brand-off-white leading-tight"
+            className="font-display text-[clamp(1.5rem,2.8vw,2.25rem)] font-bold text-brand-navy dark:text-brand-off-white leading-tight [text-wrap:balance]"
           >
             {t('whyUs.title', 'Local expertise without agency overhead')}
           </h2>
         </div>
 
-        <ul className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 list-none p-0 m-0">
+        <ul className="grid list-none grid-cols-1 gap-x-10 gap-y-10 p-0 m-0 md:grid-cols-3 md:gap-y-0 md:divide-x md:divide-brand-whisper-border md:dark:divide-white/10 rtl:md:divide-x-reverse">
           {PILLARS.map((pillar, index) => {
             const Icon = pillar.icon
             return (
@@ -66,10 +66,10 @@ export function WhyUsStrip() {
                 key={pillar.id}
                 data-reveal
                 data-reveal-delay={String(index * 70)}
-                className="flex gap-4 rounded-2xl border border-brand-whisper-border dark:border-white/10 bg-brand-canvas dark:bg-brand-navy/30 p-6 sm:p-7"
+                className="group flex gap-4 md:px-7 md:first:ps-0 md:last:pe-0"
               >
                 <div
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue"
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue transition-transform duration-300 group-hover:-translate-y-0.5"
                   aria-hidden="true"
                 >
                   <Icon size={22} strokeWidth={1.75} />

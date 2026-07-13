@@ -55,6 +55,7 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "skipToContent": "Skip to content",
+    "mainNavigation": "Main navigation",
     "logoAlt": "MediaBubble, Hurghada marketing agency",
     "mega": {
       "web": {
@@ -380,8 +381,8 @@
       "metric": "94 Lighthouse score and 42% more organic conversions"
     },
     "cta": {
-      "explore": "Learn more",
-      "viewAll": "View all"
+      "explore": "View case study",
+      "viewAll": "View all case studies"
     }
   },
   "portfolio": {

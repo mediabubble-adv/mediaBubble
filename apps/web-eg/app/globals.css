@@ -143,6 +143,41 @@
   animation: scroll-ping 1.8s var(--ease-out-quart) infinite;
 }
 
+/* ─── Home hero load choreography ─────────────────────────── */
+
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-headline {
+  from { opacity: 0; transform: translateY(26px); clip-path: inset(0 0 100% 0); }
+  to   { opacity: 1; transform: translateY(0); clip-path: inset(0 0 0 0); }
+}
+
+/* Elements opt in with .hero-load / .hero-load-headline and set --hero-delay. */
+.hero-load {
+  opacity: 0;
+  animation: hero-rise 0.7s var(--ease-out-expo) both;
+  animation-delay: var(--hero-delay, 0ms);
+}
+
+.hero-load-headline {
+  opacity: 0;
+  animation: hero-headline 0.9s var(--ease-out-expo) both;
+  animation-delay: var(--hero-delay, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-load,
+  .hero-load-headline {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+    animation: none;
+  }
+}
+
 /* ─── Aurora background ──────────────────────────────────── */
 
 @keyframes aurora-flow {

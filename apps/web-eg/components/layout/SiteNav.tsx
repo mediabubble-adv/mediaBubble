@@ -487,7 +487,7 @@ export function SiteNav({ topSurface = 'dark' }: SiteNavProps) {
             {/* Desktop nav */}
             <nav
               className="hidden lg:flex items-center gap-0.5"
-              aria-label={t('nav.skipToContent', 'Main navigation')}
+              aria-label={t('nav.mainNavigation', 'Main navigation')}
             >
               {/* Home */}
               {(() => {
