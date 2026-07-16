@@ -31,6 +31,14 @@ describe('byCategory', () => {
 })
 
 describe('monthlySeriesPadded', () => {
+  beforeEach(() => {
+    jest.useFakeTimers().setSystemTime(new Date('2026-02-15T00:00:00Z'))
+  })
+
+  afterEach(() => {
+    jest.useRealTimers()
+  })
+
   it('returns six trailing months with zero-filled gaps', () => {
     const series = monthlySeriesPadded(txns, 'USD', 6)
     expect(series).toHaveLength(6)
