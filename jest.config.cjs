@@ -1,5 +1,10 @@
 /** @type {import('jest').Config} */
 module.exports = {
+  // ts-jest type-checks each project (launcher pulls in the full Prisma
+  // client types) without isolatedModules; unbounded workers reliably OOM
+  // the GitHub Actions runner. Cap parallelism and recycle workers.
+  maxWorkers: '50%',
+  workerIdleMemoryLimit: '512MB',
   projects: [
     {
       displayName: 'shared',
