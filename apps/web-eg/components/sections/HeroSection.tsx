@@ -350,7 +350,7 @@ export function HeroSection({
               {/* Image — always first in DOM = always on top on mobile */}
               <div
                 className={`w-full lg:w-1/2 ${
-                  isImageLeft ? 'lg:order-1' : 'lg:order-2 lg:mr-8'
+                  isImageLeft ? 'lg:order-1' : 'lg:order-2 lg:ms-8'
                 }`}
               >
                 {imageBlock}
