@@ -122,6 +122,7 @@
     "webpack-dev-server": {
       "http-proxy-middleware": "2.0.9"
     },
-    "tmp": "0.2.7"
+    "tmp": "0.2.7",
+    "axios": "^1.18.1"
   }
 }
