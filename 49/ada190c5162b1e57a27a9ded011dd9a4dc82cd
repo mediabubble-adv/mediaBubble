@@ -1,0 +1,21 @@
+package.json
+  s_d8da6a4abbd46c::t_5b257cf950d676 125-126
+package-lock.json
+  s_d8da6a4abbd46c::t_88d6a2e995e59e 2448,2465,2482,2499,2516,2533,2550,2567,2584,2601,2618,2635,2652,2669,2686,2703,2720,2737,2754,2771,2788,2805,2822,2839,2856,2873,5511,5551,5572,5593,5614,5635,5656,5677,5698,5719,5740,5761,5782,5803,5821,9941-9943,9949,9953-9979,18620,19584
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "49ada190c5162b1e57a27a9ded011dd9a4dc82cd",
+  "prompts": {},
+  "sessions": {
+    "s_d8da6a4abbd46c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b915a85f-b6c3-432f-8078-8fae21ec839f",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
