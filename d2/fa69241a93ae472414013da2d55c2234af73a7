@@ -1,0 +1,19 @@
+.gitignore
+  s_e012d805d01ae2::t_86e7adb3d33c62 64
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.17",
+  "base_commit_sha": "d2fa69241a93ae472414013da2d55c2234af73a7",
+  "prompts": {},
+  "sessions": {
+    "s_e012d805d01ae2": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "3f66cd7a-9212-4c42-b5c3-5675f7628f7d",
+        "model": "grok-4.5"
+      },
+      "human_author": "iDorgham <yasser.dorgham@gmail.com>"
+    }
+  }
+}
