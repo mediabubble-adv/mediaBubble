@@ -178,6 +178,8 @@ for prompt, size, out_path in ASSETS:
         size=size,
         quality="high",
         n=1,
+        response_format="b64_json",
+    )
     )
     img_bytes = base64.b64decode(response.data[0].b64_json)
     pathlib.Path(out_path).parent.mkdir(parents=True, exist_ok=True)
